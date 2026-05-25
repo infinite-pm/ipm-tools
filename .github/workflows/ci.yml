@@ -1,0 +1,96 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # Run vet and tests on the host platform.
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: 'go.mod'
+          cache: true
+      - name: go vet
+        run: go vet ./...
+      - name: go test
+        run: go test ./... -count=1 -timeout 5m
+
+  # The gates CLAUDE.md calls mandatory after any engine change. `go test`
+  # does NOT cover them: the rule corpora are executable documentation
+  # (`ipmdev-layout-rule` fences in docs/dev/layout-gen/*.md, extracted to
+  # tests/layout-gen-rules/*.dsl), the invariant sweep is a ratchet over
+  # generated layouts, and the two --check modes assert that committed
+  # generated artifacts still match the sources they came from. Without these
+  # a PR can be green while a fixture corpus is broken or the tracked SVGs and
+  # doc fixtures have silently drifted from the docs that generate them.
+  gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: 'go.mod'
+          cache: true
+      - name: Layout fitness — base + ext corpora
+        run: make layout-fitness
+      - name: Universal-invariant ratchet
+        # Fails if any file's finding count grows vs tests/layout-check-baseline.txt.
+        run: make layout-check
+      - name: Fixtures match their source docs
+        # Read-only: the extractor's --check mode, not the rewriting one.
+        run: go run ./cmd-dev/sync-test-cases --check
+      - name: Committed diagrams match their ipmt sources
+        run: go run ./cmd/md-embed --root . --check
+
+  # Cross-compile every shipping binary (the Makefile `build-all` set) for
+  # every supported platform, and upload them as release artifacts.
+  cross-compile:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # All Go-only — no cgo, no platform build tags.
+        target:
+          - { goos: linux,   goarch: amd64 }
+          - { goos: linux,   goarch: arm64 }
+          - { goos: darwin,  goarch: amd64 }
+          - { goos: darwin,  goarch: arm64 }
+          - { goos: windows, goarch: amd64 }
+        binary:
+          - ipmt-parse
+          - layout-gen
+          - ipmsvg-gen
+          - ipm-validate
+          - md-embed
+          - md-html
+          - ipm-rpc
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: 'go.mod'
+          cache: true
+      - name: Build ${{ matrix.binary }} for ${{ matrix.target.goos }}/${{ matrix.target.goarch }}
+        env:
+          GOOS: ${{ matrix.target.goos }}
+          GOARCH: ${{ matrix.target.goarch }}
+          CGO_ENABLED: "0"
+        run: |
+          ext=""
+          if [ "$GOOS" = "windows" ]; then ext=".exe"; fi
+          mkdir -p out/$GOOS-$GOARCH
+          go build -trimpath -ldflags='-s -w' \
+            -o "out/$GOOS-$GOARCH/${{ matrix.binary }}$ext" \
+            ./cmd/${{ matrix.binary }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.binary }}-${{ matrix.target.goos }}-${{ matrix.target.goarch }}
+          path: out/${{ matrix.target.goos }}-${{ matrix.target.goarch }}/*
+          if-no-files-found: error
+          retention-days: 14

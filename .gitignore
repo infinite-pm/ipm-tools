@@ -1,0 +1,36 @@
+# Build output
+/bin/*
+!/bin/.gitkeep
+
+# Scratch / debug renders (never /tmp/)
+/temp/*
+!/temp/.gitkeep
+
+# go run convenience binaries dropped at repo root
+/ipmt-parse
+/layout-gen
+/ipmsvg-gen
+/ipm-validate
+/md-embed
+/md-html
+/ipm-rpc
+/layout-test-runner
+/sync-test-cases
+/gen-test-md
+/gen-test-doc
+/gen-invalid-sidecars
+/solver-example
+/layout-debug
+/layout-explain
+/refs-rehash
+/svg-edges
+/slides-copy
+
+# Rendered doc diagrams under /_ipm ARE tracked (they must show on GitHub);
+# only scratch renders of local temp/ sources stay out.
+/_ipm/temp/
+
+# generated scratch outputs
+/examples/*.zoomlayout.json
+*.bak
+/cmd/ipm-rpc/ipm-rpc
