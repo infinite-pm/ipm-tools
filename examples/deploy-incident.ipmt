@@ -1,0 +1,32 @@
+# Real-world example: a production deployment incident.
+#
+# Main timeline:
+#   deploy started → deploy goes wrong → service restored
+#
+# "deploy goes wrong" is a composite event containing sub-events:
+#   migration runs → app starts crashing → rollback executed
+#
+# Things: people involved (Alice the DBA, Bob the SRE)
+# Concepts: technical artifacts (PostgreSQL, schema lock, connection pool)
+
+deploy started ::e
+  --then--> deploy-e::a deploy goes wrong ::e
+  --then--> service restored ::e
+
+deploy-e <--::P contains-- migration-e::a migration runs ::e
+  --> PostgreSQL ::c
+
+deploy-e <--::P contains-- crash-e::a app starts crashing ::e
+  --> connection pool ::c
+
+deploy-e <--::P contains-- rollback-e::a rollback executed ::e
+  --> schema lock ::c
+
+# Order of sub-events inside the composite event.
+migration-e --> crash-e --> rollback-e
+
+Alice ::t
+Bob ::t
+
+Alice --> migration-e, crash-e
+Bob --> crash-e, rollback-e
