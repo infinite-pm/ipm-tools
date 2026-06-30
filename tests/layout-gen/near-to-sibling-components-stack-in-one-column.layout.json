@@ -1,0 +1,235 @@
+{
+  "version": "26.07-v7",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "event",
+      "label": "e1",
+      "x": 440,
+      "y": 120,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "2",
+      "type": "event",
+      "label": "e2",
+      "x": 440,
+      "y": 240,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "3",
+      "type": "thing",
+      "label": "t1-anchor",
+      "x": 260,
+      "y": 120,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "4",
+      "type": "thing",
+      "label": "g1a",
+      "x": 40,
+      "y": 120,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "5",
+      "type": "thing",
+      "label": "g1b",
+      "x": 40,
+      "y": 220,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "6",
+      "type": "thing",
+      "label": "g2a",
+      "x": 40,
+      "y": 400,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "7",
+      "type": "thing",
+      "label": "g2b",
+      "x": 40,
+      "y": 500,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "8",
+      "type": "boundary",
+      "label": "S",
+      "x": 480,
+      "y": 40,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "9",
+      "type": "boundary",
+      "label": "E",
+      "x": 480,
+      "y": 340,
+      "width": 40,
+      "height": 40
+    }
+  ],
+  "edges": [
+    {
+      "from": "1",
+      "to": "2",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "3",
+      "to": "1",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "4",
+      "to": "5",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "6",
+      "to": "7",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "4",
+      "to": "3",
+      "dir": "undir",
+      "base": "nearto",
+      "style": "nearto",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "6",
+      "to": "3",
+      "dir": "undir",
+      "base": "nearto",
+      "style": "nearto",
+      "route": {
+        "source": {
+          "side": "top",
+          "position": 0.5
+        },
+        "target": {
+          "side": "bottom",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "8",
+      "to": "1",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "2",
+      "to": "9",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    }
+  ],
+  "meta": {
+    "bounds": {
+      "width": 600,
+      "height": 600,
+      "marginX": 40,
+      "marginY": 40
+    },
+    "constants": {
+      "gridStep": 20
+    }
+  }
+}

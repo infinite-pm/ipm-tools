@@ -1,0 +1,126 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "c1-leaf ::c --\u003e c2-mid ::c --\u003e c3-root ::c\nc2-mid ::c --- cX ::c",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          7
+        ],
+        "2": [
+          16,
+          22
+        ],
+        "3": [
+          31,
+          38
+        ],
+        "4": [
+          58,
+          60
+        ]
+      },
+      "edges": {
+        "5": {
+          "arrow": [
+            11,
+            16
+          ],
+          "source": [
+            0,
+            7
+          ],
+          "target": [
+            16,
+            22
+          ]
+        },
+        "6": {
+          "arrow": [
+            26,
+            31
+          ],
+          "source": [
+            16,
+            22
+          ],
+          "target": [
+            31,
+            38
+          ]
+        },
+        "7": {
+          "arrow": [
+            53,
+            58
+          ],
+          "source": [
+            43,
+            49
+          ],
+          "target": [
+            58,
+            60
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "c1-leaf",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 2,
+      "name": "c2-mid",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 3,
+      "name": "c3-root",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 4,
+      "name": "cX",
+      "alias": "",
+      "type": "Concept"
+    }
+  ],
+  "edges": [
+    {
+      "id": 5,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 6,
+      "source": 2,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 7,
+      "source": 2,
+      "target": 4,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

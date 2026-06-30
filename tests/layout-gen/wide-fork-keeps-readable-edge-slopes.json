@@ -1,0 +1,192 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "e1-hub ::e --\u003e wA ::e\ne1-hub --\u003e wB ::e\ne1-hub --\u003e wC ::e\ne1-hub --\u003e wD ::e\ne1-hub --\u003e wE ::e",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          6
+        ],
+        "2": [
+          15,
+          17
+        ],
+        "3": [
+          33,
+          35
+        ],
+        "4": [
+          51,
+          53
+        ],
+        "5": [
+          69,
+          71
+        ],
+        "6": [
+          87,
+          89
+        ]
+      },
+      "edges": {
+        "10": {
+          "arrow": [
+            64,
+            69
+          ],
+          "source": [
+            58,
+            64
+          ],
+          "target": [
+            69,
+            71
+          ]
+        },
+        "11": {
+          "arrow": [
+            82,
+            87
+          ],
+          "source": [
+            76,
+            82
+          ],
+          "target": [
+            87,
+            89
+          ]
+        },
+        "7": {
+          "arrow": [
+            10,
+            15
+          ],
+          "source": [
+            0,
+            6
+          ],
+          "target": [
+            15,
+            17
+          ]
+        },
+        "8": {
+          "arrow": [
+            28,
+            33
+          ],
+          "source": [
+            22,
+            28
+          ],
+          "target": [
+            33,
+            35
+          ]
+        },
+        "9": {
+          "arrow": [
+            46,
+            51
+          ],
+          "source": [
+            40,
+            46
+          ],
+          "target": [
+            51,
+            53
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "e1-hub",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "wA",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "wB",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 4,
+      "name": "wC",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 5,
+      "name": "wD",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 6,
+      "name": "wE",
+      "alias": "",
+      "type": "Event"
+    }
+  ],
+  "edges": [
+    {
+      "id": 7,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 8,
+      "source": 1,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 9,
+      "source": 1,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 10,
+      "source": 1,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 11,
+      "source": 1,
+      "target": 6,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

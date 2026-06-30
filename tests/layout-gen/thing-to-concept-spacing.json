@@ -1,0 +1,93 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "A --\u003e cX ::c\ncX \u003c-- B",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          1
+        ],
+        "2": [
+          6,
+          8
+        ],
+        "3": [
+          20,
+          21
+        ]
+      },
+      "edges": {
+        "4": {
+          "arrow": [
+            1,
+            6
+          ],
+          "source": [
+            0,
+            1
+          ],
+          "target": [
+            6,
+            8
+          ]
+        },
+        "5": {
+          "arrow": [
+            15,
+            20
+          ],
+          "source": [
+            20,
+            21
+          ],
+          "target": [
+            13,
+            15
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "A",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "cX",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 3,
+      "name": "B",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 4,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 5,
+      "source": 3,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

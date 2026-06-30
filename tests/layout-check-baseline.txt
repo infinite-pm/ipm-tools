@@ -1,0 +1,32 @@
+# layout-check baseline: <node-overlaps> <edge-through-node> <edge-edge-crossings> <badge-overlaps> <file>
+# stubbed (hidden) Expresses/NearTo edges are excluded from edge metrics; their
+# badges are checked instead. --legacy-all-edges restores the old measurement.
+# regenerate: make layout-check-baseline  (layout-debug --check --write-baseline <file> <paths...>)
+0 0 1 0 tests/layout-gen-ext/a-bent-ties-approach-follows-its-last-leg.ipmt
+0 1 1 0 tests/layout-gen-ext/a-budgeted-crossing-beats-a-two-bend-detour.ipmt
+0 2 0 0 tests/layout-gen-ext/a-deep-concept-fan-survives-a-foreign-bands-column.ipmt
+0 0 1 0 tests/layout-gen-ext/a-flank-tie-crosses-the-fan-under-the-kind-budget.ipmt
+0 2 1 0 tests/layout-gen-ext/a-late-side-branch-merge-keeps-its-join-edge-short.ipmt
+0 3 0 0 tests/layout-gen-ext/a-satellite-wraps-a-pure-grid-from-the-outer-flank.ipmt
+0 1 0 0 tests/layout-gen-ext/a-shared-child-concept-centres-between-its-column-parents.ipmt
+0 2 1 0 tests/layout-gen-ext/cross-component-arrivals-keep-the-approach-order.ipmt
+0 2 0 0 tests/layout-gen/a-concept-at-every-layer.ipmt
+0 0 1 0 tests/layout-gen/a-diagonal-near-to-connects-the-facing-sides.ipmt
+0 1 0 0 tests/layout-gen/a-far-shared-concept-anchors-to-its-first-usage.ipmt
+0 0 1 0 tests/layout-gen/a-part-of-two-wholes-stays-on-the-root-row.ipmt
+0 2 0 0 tests/layout-gen/a-satellite-wraps-its-own-rows-not-the-whole-flank.ipmt
+0 1 1 0 tests/layout-gen/a-stack-members-own-concept-steps-outward-under-the-shared-one.ipmt
+0 1 0 0 tests/layout-gen/a-standalone-shared-concept-diamond-centres-symmetrically.ipmt
+0 0 3 0 tests/layout-gen/a-stranded-leaf-concept-comes-back-to-its-owner.ipmt
+0 0 2 0 tests/layout-gen/a-sub-grid-return-lane-centres-in-the-free-row-gap.ipmt
+0 3 0 0 tests/layout-gen/a-thing-hierarchy-and-its-concepts-join-the-event-chain.ipmt
+0 2 0 0 tests/layout-gen/an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap.ipmt
+0 1 0 0 tests/layout-gen/aux-chain-gets-its-own-corridor.ipmt
+0 1 0 0 tests/layout-gen/concept-fan-in-keeps-the-chain-gap-below-its-parents.ipmt
+0 4 0 0 tests/layout-gen/diamond-pattern-with-aux-on-every-event.ipmt
+0 1 0 0 tests/layout-gen/event-contains-connected-sub-events-and-sub-sub-events.ipmt
+0 0 1 0 tests/layout-gen/same-side-entries-keep-their-approach-order.ipmt
+0 1 0 0 tests/layout-gen/start-events-with-side-aux-stay-one-gap-apart.ipmt
+0 2 0 0 tests/layout-gen/tall-concept-in-one-column-does-not-inflate-another.ipmt
+0 2 0 0 tests/layout-gen/thing-parts-keep-their-own-concepts-above-the-join.ipmt
+0 2 0 0 tests/layout-gen/things-part-of-a-spine-stack-in-the-left-band.ipmt

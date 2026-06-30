@@ -1,0 +1,192 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "c1-root ::c --\u003e cA ::c\nc1-root --\u003e cB ::c\ncA --\u003e A deliberately very long concept label that wraps onto many many lines and becomes very tall indeed for testing row lift behaviour here tl::a ::c\ncB --\u003e cSmall ::c\ncSmall --\u003e cLeaf ::c",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          7
+        ],
+        "2": [
+          16,
+          18
+        ],
+        "3": [
+          35,
+          37
+        ],
+        "4": [
+          49,
+          184
+        ],
+        "5": [
+          202,
+          208
+        ],
+        "6": [
+          224,
+          229
+        ]
+      },
+      "edges": {
+        "10": {
+          "arrow": [
+            197,
+            202
+          ],
+          "source": [
+            195,
+            197
+          ],
+          "target": [
+            202,
+            208
+          ]
+        },
+        "11": {
+          "arrow": [
+            219,
+            224
+          ],
+          "source": [
+            213,
+            219
+          ],
+          "target": [
+            224,
+            229
+          ]
+        },
+        "7": {
+          "arrow": [
+            11,
+            16
+          ],
+          "source": [
+            0,
+            7
+          ],
+          "target": [
+            16,
+            18
+          ]
+        },
+        "8": {
+          "arrow": [
+            30,
+            35
+          ],
+          "source": [
+            23,
+            30
+          ],
+          "target": [
+            35,
+            37
+          ]
+        },
+        "9": {
+          "arrow": [
+            44,
+            49
+          ],
+          "source": [
+            42,
+            44
+          ],
+          "target": [
+            49,
+            184
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "c1-root",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 2,
+      "name": "cA",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 3,
+      "name": "cB",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 4,
+      "name": "A deliberately very long concept label that wraps onto many many lines and becomes very tall indeed for testing row lift behaviour here",
+      "alias": "tl",
+      "type": "Concept"
+    },
+    {
+      "id": 5,
+      "name": "cSmall",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 6,
+      "name": "cLeaf",
+      "alias": "",
+      "type": "Concept"
+    }
+  ],
+  "edges": [
+    {
+      "id": 7,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 8,
+      "source": 1,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 9,
+      "source": 2,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 10,
+      "source": 3,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 11,
+      "source": 5,
+      "target": 6,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

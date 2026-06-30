@@ -1,0 +1,4 @@
+c-Root ::c --> c-Left ::c
+c-Root --> c-Right ::c
+c-Left --> c-Join ::c
+c-Right --> c-Join

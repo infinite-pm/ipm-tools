@@ -1,0 +1,6 @@
+e1 ::e --> e2 ::e
+t1-anchor --> e1
+g1a ::t --> g1b ::t
+g2a ::t --> g2b ::t
+g1a --- t1-anchor
+g2a --- t1-anchor

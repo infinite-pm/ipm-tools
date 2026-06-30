@@ -1,0 +1,4 @@
+e1 ::e
+tA, tB --> e1
+tC, tD, tE --> e1a ::e --::P--> e1
+tA --- tC

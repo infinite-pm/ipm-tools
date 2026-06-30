@@ -1,0 +1,192 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "e1 ::e\ne2 ::e\ne3 ::e\ne1 --\u003e e3\ne2 --\u003e e3\ne1 --::X--\u003e cX ::c\ne3 --::X--\u003e cY ::c\ne3 \u003c--::P-- tA ::t",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          2
+        ],
+        "2": [
+          7,
+          9
+        ],
+        "3": [
+          14,
+          16
+        ],
+        "4": [
+          53,
+          55
+        ],
+        "5": [
+          72,
+          74
+        ],
+        "6": [
+          91,
+          93
+        ]
+      },
+      "edges": {
+        "10": {
+          "arrow": [
+            62,
+            72
+          ],
+          "source": [
+            60,
+            62
+          ],
+          "target": [
+            72,
+            74
+          ]
+        },
+        "11": {
+          "arrow": [
+            82,
+            90
+          ],
+          "source": [
+            91,
+            93
+          ],
+          "target": [
+            79,
+            81
+          ]
+        },
+        "7": {
+          "arrow": [
+            23,
+            28
+          ],
+          "source": [
+            21,
+            23
+          ],
+          "target": [
+            28,
+            30
+          ]
+        },
+        "8": {
+          "arrow": [
+            33,
+            38
+          ],
+          "source": [
+            31,
+            33
+          ],
+          "target": [
+            38,
+            40
+          ]
+        },
+        "9": {
+          "arrow": [
+            43,
+            53
+          ],
+          "source": [
+            41,
+            43
+          ],
+          "target": [
+            53,
+            55
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "e1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "e2",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "e3",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 4,
+      "name": "cX",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 5,
+      "name": "cY",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 6,
+      "name": "tA",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 7,
+      "source": 1,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 8,
+      "source": 2,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 9,
+      "source": 1,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 10,
+      "source": 3,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 11,
+      "source": 6,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

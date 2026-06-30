@@ -1,0 +1,25 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "c-X ::c",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          3
+        ]
+      },
+      "edges": {}
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "c-X",
+      "alias": "",
+      "type": "Concept"
+    }
+  ],
+  "edges": null
+}

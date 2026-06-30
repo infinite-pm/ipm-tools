@@ -1,0 +1,4 @@
+e1-mid ::e --::P--> e2-outer ::e
+e3-deep ::e --::P--> e1-mid
+e1-mid --> c1-noteA ::c
+e1-mid --> c2-noteB ::c

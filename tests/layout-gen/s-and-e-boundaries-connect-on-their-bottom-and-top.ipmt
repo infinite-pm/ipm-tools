@@ -1,0 +1,4 @@
+e1 ::e --::X--> c1-shared ::c
+e2 ::e --::X--> c1-shared
+e3 ::e --::X--> c1-shared
+e4 ::e --::X--> c1-shared

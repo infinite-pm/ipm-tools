@@ -1,0 +1,251 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "tRoot --\u003e tB, tC, tD, tE\ntB --- tC\ntC --- tD\ntD --- tE\ntB --- tE",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          5
+        ],
+        "2": [
+          10,
+          12
+        ],
+        "3": [
+          14,
+          16
+        ],
+        "4": [
+          18,
+          20
+        ],
+        "5": [
+          22,
+          24
+        ]
+      },
+      "edges": {
+        "10": {
+          "arrow": [
+            27,
+            32
+          ],
+          "source": [
+            25,
+            27
+          ],
+          "target": [
+            32,
+            34
+          ]
+        },
+        "11": {
+          "arrow": [
+            37,
+            42
+          ],
+          "source": [
+            35,
+            37
+          ],
+          "target": [
+            42,
+            44
+          ]
+        },
+        "12": {
+          "arrow": [
+            47,
+            52
+          ],
+          "source": [
+            45,
+            47
+          ],
+          "target": [
+            52,
+            54
+          ]
+        },
+        "13": {
+          "arrow": [
+            57,
+            62
+          ],
+          "source": [
+            55,
+            57
+          ],
+          "target": [
+            62,
+            64
+          ]
+        },
+        "6": {
+          "arrow": [
+            5,
+            10
+          ],
+          "source": [
+            0,
+            5
+          ],
+          "target": [
+            10,
+            12
+          ]
+        },
+        "7": {
+          "arrow": [
+            5,
+            10
+          ],
+          "source": [
+            0,
+            5
+          ],
+          "target": [
+            14,
+            16
+          ]
+        },
+        "8": {
+          "arrow": [
+            5,
+            10
+          ],
+          "source": [
+            0,
+            5
+          ],
+          "target": [
+            18,
+            20
+          ]
+        },
+        "9": {
+          "arrow": [
+            5,
+            10
+          ],
+          "source": [
+            0,
+            5
+          ],
+          "target": [
+            22,
+            24
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "tRoot",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "tB",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 3,
+      "name": "tC",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 4,
+      "name": "tD",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 5,
+      "name": "tE",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 6,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 7,
+      "source": 1,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 8,
+      "source": 1,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 9,
+      "source": 1,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 10,
+      "source": 2,
+      "target": 3,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 11,
+      "source": 3,
+      "target": 4,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 12,
+      "source": 4,
+      "target": 5,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 13,
+      "source": 2,
+      "target": 5,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

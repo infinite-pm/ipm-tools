@@ -1,0 +1,25 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "This thing is very important and has a long description text. It can be so so very very so long.",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          96
+        ]
+      },
+      "edges": {}
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "This thing is very important and has a long description text. It can be so so very very so long.",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": null
+}

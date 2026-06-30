@@ -1,0 +1,184 @@
+{
+  "version": "26.07-v7",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "thing",
+      "label": "A deliberately very long label that wraps onto many many lines so that the aspect ratio width rule grows the width of this node to two hundred and forty pixels while the column stays centered on one line",
+      "alias": "wideH",
+      "x": 40,
+      "y": 120,
+      "width": 240,
+      "height": 180
+    },
+    {
+      "id": "2",
+      "type": "event",
+      "label": "e1",
+      "x": 340,
+      "y": 230,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "3",
+      "type": "thing",
+      "label": "tB",
+      "x": 100,
+      "y": 340,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "4",
+      "type": "event",
+      "label": "e2",
+      "x": 340,
+      "y": 350,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "5",
+      "type": "concept",
+      "label": "cX",
+      "x": 520,
+      "y": 230,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "6",
+      "type": "boundary",
+      "label": "S",
+      "x": 380,
+      "y": 40,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "7",
+      "type": "boundary",
+      "label": "E",
+      "x": 380,
+      "y": 450,
+      "width": 40,
+      "height": 40
+    }
+  ],
+  "edges": [
+    {
+      "from": "1",
+      "to": "2",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.25
+        }
+      }
+    },
+    {
+      "from": "3",
+      "to": "2",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.75
+        }
+      }
+    },
+    {
+      "from": "2",
+      "to": "4",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "2",
+      "to": "5",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "6",
+      "to": "2",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "4",
+      "to": "7",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    }
+  ],
+  "meta": {
+    "bounds": {
+      "width": 680,
+      "height": 530,
+      "marginX": 40,
+      "marginY": 40
+    },
+    "constants": {
+      "gridStep": 20
+    }
+  }
+}

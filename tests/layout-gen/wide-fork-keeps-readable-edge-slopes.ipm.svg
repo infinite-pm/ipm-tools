@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="600" viewBox="0 0 1160 600">
+  <defs>
+  </defs>
+  <g id="container-shells">
+  </g>
+  <g id="node-shadows">
+    <rect x="520" y="120" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="40" y="320" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="280" y="320" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="520" y="320" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="760" y="320" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="1000" y="320" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="560" y="40" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="560" y="520" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+  </g>
+  <g id="edges">
+    <g class="edge" data-edge-idx="0" data-edge-base="leadsto" data-edge-from="1" data-edge-to="2">
+    <line x1="524.75" y1="184.85" x2="121.68" y2="313.10" stroke="#ff8000" stroke-width="3" />
+    <path d="M 115.25 315.15 L 122.46 308.13 L 121.68 313.10 L 125.19 316.71 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="1" data-edge-base="leadsto" data-edge-from="1" data-edge-to="3">
+    <line x1="552.14" y1="185.00" x2="353.55" y2="311.38" stroke="#ff8000" stroke-width="3" />
+    <path d="M 347.86 315.00 L 353.03 306.37 L 353.55 311.38 L 357.87 313.96 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="2" data-edge-base="leadsto" data-edge-from="1" data-edge-to="4">
+    <line x1="580.00" y1="185.00" x2="580.00" y2="308.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 580.00 315.00 L 575.50 306.00 L 580.00 308.25 L 584.50 306.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="3" data-edge-base="leadsto" data-edge-from="1" data-edge-to="5">
+    <line x1="607.86" y1="185.00" x2="806.45" y2="311.38" stroke="#ff8000" stroke-width="3" />
+    <path d="M 812.14 315.00 L 802.13 313.96 L 806.45 311.38 L 806.97 306.37 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="4" data-edge-base="leadsto" data-edge-from="1" data-edge-to="6">
+    <line x1="635.25" y1="184.85" x2="1038.32" y2="313.10" stroke="#ff8000" stroke-width="3" />
+    <path d="M 1044.75 315.15 L 1034.81 316.71 L 1038.32 313.10 L 1037.54 308.13 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="5" data-edge-base="leadsto" data-edge-from="7" data-edge-to="1">
+    <line x1="580.00" y1="85.00" x2="580.00" y2="108.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 580.00 115.00 L 575.50 106.00 L 580.00 108.25 L 584.50 106.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="6" data-edge-base="leadsto" data-edge-from="2" data-edge-to="8">
+    <line x1="115.32" y1="384.60" x2="544.21" y2="513.45" stroke="#ff8000" stroke-width="3" />
+    <path d="M 550.68 515.40 L 540.76 517.12 L 544.21 513.45 L 543.35 508.50 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="7" data-edge-base="leadsto" data-edge-from="3" data-edge-to="8">
+    <line x1="348.32" y1="385.00" x2="558.89" y2="511.52" stroke="#ff8000" stroke-width="3" />
+    <path d="M 564.68 515.00 L 554.65 514.22 L 558.89 511.52 L 559.28 506.51 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="8" data-edge-base="leadsto" data-edge-from="4" data-edge-to="8">
+    <line x1="580.00" y1="385.00" x2="580.00" y2="508.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 580.00 515.00 L 575.50 506.00 L 580.00 508.25 L 584.50 506.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="9" data-edge-base="leadsto" data-edge-from="5" data-edge-to="8">
+    <line x1="811.64" y1="385.00" x2="600.15" y2="511.53" stroke="#ff8000" stroke-width="3" />
+    <path d="M 594.36 515.00 L 599.77 506.52 L 600.15 511.53 L 604.39 514.24 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="10" data-edge-base="leadsto" data-edge-from="6" data-edge-to="8">
+    <line x1="1044.67" y1="384.59" x2="614.79" y2="513.47" stroke="#ff8000" stroke-width="3" />
+    <path d="M 608.33 515.41 L 615.65 508.51 L 614.79 513.47 L 618.24 517.13 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+  </g>
+  <g id="nodes">
+    <rect x="520" y="120" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="580" y="150" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">e1-hub</text>
+    <rect x="40" y="320" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="100" y="350" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">wA</text>
+    <rect x="280" y="320" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="340" y="350" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">wB</text>
+    <rect x="520" y="320" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="580" y="350" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">wC</text>
+    <rect x="760" y="320" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="820" y="350" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">wD</text>
+    <rect x="1000" y="320" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="1060" y="350" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">wE</text>
+    <rect x="560" y="40" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="580" y="60" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">S</text>
+    <rect x="560" y="520" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="580" y="540" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
+  </g>
+</svg>

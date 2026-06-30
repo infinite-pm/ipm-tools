@@ -1,0 +1,9 @@
+e1::a a first event with a long label ::e --> e2::a a second mid event ::e --> e3::a a third event with the longest label ::e
+tA, tB --> e1
+tC::a the first band thing --> e1
+tD --> e2
+tE::a a last band item --> e3
+tB, tD --> e3
+tD --- tC
+tC --> tF
+tD --> tG::a the second whole

@@ -1,0 +1,226 @@
+{
+  "version": "26.07-v7",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "event",
+      "label": "e1",
+      "x": 580,
+      "y": 170,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "2",
+      "type": "thing",
+      "label": "tA",
+      "x": 400,
+      "y": 120,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "3",
+      "type": "thing",
+      "label": "tB",
+      "x": 400,
+      "y": 220,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "4",
+      "type": "concept",
+      "label": "cX",
+      "x": 220,
+      "y": 220,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "5",
+      "type": "concept",
+      "label": "cY",
+      "x": 220,
+      "y": 320,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "6",
+      "type": "concept",
+      "label": "cZ",
+      "x": 40,
+      "y": 270,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "7",
+      "type": "boundary",
+      "label": "S",
+      "x": 620,
+      "y": 40,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "8",
+      "type": "boundary",
+      "label": "E",
+      "x": 620,
+      "y": 420,
+      "width": 40,
+      "height": 40
+    }
+  ],
+  "edges": [
+    {
+      "from": "2",
+      "to": "1",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.25
+        }
+      }
+    },
+    {
+      "from": "3",
+      "to": "1",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.75
+        }
+      }
+    },
+    {
+      "from": "2",
+      "to": "4",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "3",
+      "to": "5",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "right",
+          "position": 0.25
+        }
+      }
+    },
+    {
+      "from": "4",
+      "to": "6",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "left",
+          "position": 0.5
+        },
+        "target": {
+          "side": "right",
+          "position": 0.25
+        }
+      }
+    },
+    {
+      "from": "5",
+      "to": "6",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "left",
+          "position": 0.5
+        },
+        "target": {
+          "side": "right",
+          "position": 0.75
+        }
+      }
+    },
+    {
+      "from": "7",
+      "to": "1",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "1",
+      "to": "8",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    }
+  ],
+  "meta": {
+    "bounds": {
+      "width": 740,
+      "height": 500,
+      "marginX": 40,
+      "marginY": 40
+    },
+    "constants": {
+      "gridStep": 20
+    }
+  }
+}

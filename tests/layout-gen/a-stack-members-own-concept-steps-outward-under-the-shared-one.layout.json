@@ -1,0 +1,312 @@
+{
+  "version": "26.07-v7",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "thing",
+      "label": "tA",
+      "x": 220,
+      "y": 120,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "2",
+      "type": "concept",
+      "label": "cX",
+      "x": 40,
+      "y": 170,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "3",
+      "type": "thing",
+      "label": "tB",
+      "x": 220,
+      "y": 220,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "4",
+      "type": "concept",
+      "label": "cY",
+      "x": 40,
+      "y": 270,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "5",
+      "type": "event",
+      "label": "e1",
+      "x": 400,
+      "y": 220,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "6",
+      "type": "event",
+      "label": "e2",
+      "x": 400,
+      "y": 340,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "7",
+      "type": "concept",
+      "label": "cZ",
+      "x": 580,
+      "y": 340,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "8",
+      "type": "thing",
+      "label": "t1-shared",
+      "x": 220,
+      "y": 320,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "9",
+      "type": "boundary",
+      "label": "S",
+      "x": 440,
+      "y": 40,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "10",
+      "type": "boundary",
+      "label": "E",
+      "x": 440,
+      "y": 440,
+      "width": 40,
+      "height": 40
+    }
+  ],
+  "edges": [
+    {
+      "from": "1",
+      "to": "2",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "left",
+          "position": 0.5
+        },
+        "target": {
+          "side": "right",
+          "position": 0.25
+        }
+      }
+    },
+    {
+      "from": "3",
+      "to": "2",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "left",
+          "position": 0.25
+        },
+        "target": {
+          "side": "right",
+          "position": 0.75
+        }
+      }
+    },
+    {
+      "from": "3",
+      "to": "4",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "left",
+          "position": 0.75
+        },
+        "target": {
+          "side": "right",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "5",
+      "to": "6",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "6",
+      "to": "7",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "1",
+      "to": "5",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.3333333333333333
+        }
+      }
+    },
+    {
+      "from": "3",
+      "to": "5",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "3",
+      "to": "6",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.75
+        },
+        "target": {
+          "side": "left",
+          "position": 0.25
+        }
+      }
+    },
+    {
+      "from": "8",
+      "to": "5",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.25
+        },
+        "target": {
+          "side": "left",
+          "position": 0.6666666666666666
+        }
+      }
+    },
+    {
+      "from": "8",
+      "to": "6",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.75
+        },
+        "target": {
+          "side": "left",
+          "position": 0.4166666666666667
+        }
+      }
+    },
+    {
+      "from": "9",
+      "to": "5",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "6",
+      "to": "10",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    }
+  ],
+  "meta": {
+    "bounds": {
+      "width": 740,
+      "height": 520,
+      "marginX": 40,
+      "marginY": 40
+    },
+    "constants": {
+      "gridStep": 20
+    }
+  }
+}

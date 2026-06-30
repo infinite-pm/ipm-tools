@@ -1,0 +1,238 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "e1 ::e --::L--\u003e e2 ::e --::L--\u003e e3 ::e\ne2a ::e --::P--\u003e e2\ne2b ::e --::P--\u003e e2\ne2a --::L--\u003e e2b\ntA ::t --\u003e e1\ntA --\u003e e2a",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          2
+        ],
+        "2": [
+          16,
+          18
+        ],
+        "3": [
+          32,
+          34
+        ],
+        "4": [
+          39,
+          42
+        ],
+        "5": [
+          59,
+          62
+        ],
+        "6": [
+          96,
+          98
+        ]
+      },
+      "edges": {
+        "10": {
+          "arrow": [
+            66,
+            76
+          ],
+          "source": [
+            59,
+            62
+          ],
+          "target": [
+            76,
+            78
+          ]
+        },
+        "11": {
+          "arrow": [
+            82,
+            92
+          ],
+          "source": [
+            79,
+            82
+          ],
+          "target": [
+            92,
+            95
+          ]
+        },
+        "12": {
+          "arrow": [
+            102,
+            107
+          ],
+          "source": [
+            96,
+            98
+          ],
+          "target": [
+            107,
+            109
+          ]
+        },
+        "13": {
+          "arrow": [
+            112,
+            117
+          ],
+          "source": [
+            110,
+            112
+          ],
+          "target": [
+            117,
+            120
+          ]
+        },
+        "7": {
+          "arrow": [
+            6,
+            16
+          ],
+          "source": [
+            0,
+            2
+          ],
+          "target": [
+            16,
+            18
+          ]
+        },
+        "8": {
+          "arrow": [
+            22,
+            32
+          ],
+          "source": [
+            16,
+            18
+          ],
+          "target": [
+            32,
+            34
+          ]
+        },
+        "9": {
+          "arrow": [
+            46,
+            56
+          ],
+          "source": [
+            39,
+            42
+          ],
+          "target": [
+            56,
+            58
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "e1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "e2",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "e3",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 4,
+      "name": "e2a",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 5,
+      "name": "e2b",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 6,
+      "name": "tA",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 7,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 8,
+      "source": 2,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 9,
+      "source": 4,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 10,
+      "source": 5,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 11,
+      "source": 4,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 12,
+      "source": 6,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 13,
+      "source": 6,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

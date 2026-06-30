@@ -1,0 +1,102 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "etc ::?etc\ntce ::?tce\ncet ::?cet\net ::?et\ntc ::?tc\nce ::?ce",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          3
+        ],
+        "2": [
+          11,
+          14
+        ],
+        "3": [
+          22,
+          25
+        ],
+        "4": [
+          33,
+          35
+        ],
+        "5": [
+          42,
+          44
+        ],
+        "6": [
+          51,
+          53
+        ]
+      },
+      "edges": {}
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "etc",
+      "alias": "",
+      "type": "Unresolved",
+      "candidates": [
+        "Event",
+        "Thing",
+        "Concept"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "tce",
+      "alias": "",
+      "type": "Unresolved",
+      "candidates": [
+        "Thing",
+        "Concept",
+        "Event"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "cet",
+      "alias": "",
+      "type": "Unresolved",
+      "candidates": [
+        "Concept",
+        "Event",
+        "Thing"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "et",
+      "alias": "",
+      "type": "Unresolved",
+      "candidates": [
+        "Event",
+        "Thing"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "tc",
+      "alias": "",
+      "type": "Unresolved",
+      "candidates": [
+        "Thing",
+        "Concept"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "ce",
+      "alias": "",
+      "type": "Unresolved",
+      "candidates": [
+        "Concept",
+        "Event"
+      ]
+    }
+  ],
+  "edges": null
+}

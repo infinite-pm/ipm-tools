@@ -1,0 +1,25 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "t1",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          2
+        ]
+      },
+      "edges": {}
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "t1",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": null
+}

@@ -1,0 +1,5 @@
+e1-start ::e --> e2-leftA ::e
+e1-start --> e3-middleB ::e
+e1-start --> e4-rightA ::e
+e2-leftA --> e5-leftB ::e --> e6-leftC ::e --> e7-leftD ::e
+e4-rightA --> e8-rightB ::e

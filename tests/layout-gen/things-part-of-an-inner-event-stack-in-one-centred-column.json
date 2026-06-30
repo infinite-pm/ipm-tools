@@ -1,0 +1,159 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "e1 ::e\ne1a ::e --::P--\u003e e1\nw1 ::t, w2 ::t, w3 ::t --\u003e e1a",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          2
+        ],
+        "2": [
+          7,
+          10
+        ],
+        "3": [
+          27,
+          29
+        ],
+        "4": [
+          35,
+          37
+        ],
+        "5": [
+          43,
+          45
+        ]
+      },
+      "edges": {
+        "6": {
+          "arrow": [
+            14,
+            24
+          ],
+          "source": [
+            7,
+            10
+          ],
+          "target": [
+            24,
+            26
+          ]
+        },
+        "7": {
+          "arrow": [
+            49,
+            54
+          ],
+          "source": [
+            27,
+            29
+          ],
+          "target": [
+            54,
+            57
+          ]
+        },
+        "8": {
+          "arrow": [
+            49,
+            54
+          ],
+          "source": [
+            35,
+            37
+          ],
+          "target": [
+            54,
+            57
+          ]
+        },
+        "9": {
+          "arrow": [
+            49,
+            54
+          ],
+          "source": [
+            43,
+            45
+          ],
+          "target": [
+            54,
+            57
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "e1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "e1a",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "w1",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 4,
+      "name": "w2",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 5,
+      "name": "w3",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 6,
+      "source": 2,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 7,
+      "source": 3,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 8,
+      "source": 4,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 9,
+      "source": 5,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

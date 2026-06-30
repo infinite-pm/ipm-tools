@@ -1,0 +1,159 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "e1-mid ::e --::P--\u003e e2-outer ::e\ne3-deep ::e --::P--\u003e e1-mid\ne1-mid --\u003e c1-noteA ::c\ne1-mid --\u003e c2-noteB ::c",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          6
+        ],
+        "2": [
+          20,
+          28
+        ],
+        "3": [
+          33,
+          40
+        ],
+        "4": [
+          72,
+          80
+        ],
+        "5": [
+          96,
+          104
+        ]
+      },
+      "edges": {
+        "6": {
+          "arrow": [
+            10,
+            20
+          ],
+          "source": [
+            0,
+            6
+          ],
+          "target": [
+            20,
+            28
+          ]
+        },
+        "7": {
+          "arrow": [
+            44,
+            54
+          ],
+          "source": [
+            33,
+            40
+          ],
+          "target": [
+            54,
+            60
+          ]
+        },
+        "8": {
+          "arrow": [
+            67,
+            72
+          ],
+          "source": [
+            61,
+            67
+          ],
+          "target": [
+            72,
+            80
+          ]
+        },
+        "9": {
+          "arrow": [
+            91,
+            96
+          ],
+          "source": [
+            85,
+            91
+          ],
+          "target": [
+            96,
+            104
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "e1-mid",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "e2-outer",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "e3-deep",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 4,
+      "name": "c1-noteA",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 5,
+      "name": "c2-noteB",
+      "alias": "",
+      "type": "Concept"
+    }
+  ],
+  "edges": [
+    {
+      "id": 6,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 7,
+      "source": 3,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 8,
+      "source": 1,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 9,
+      "source": 1,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

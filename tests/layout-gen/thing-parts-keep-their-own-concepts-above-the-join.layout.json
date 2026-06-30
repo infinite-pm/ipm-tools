@@ -1,0 +1,183 @@
+{
+  "version": "26.07-v7",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "thing",
+      "label": "tA",
+      "x": 40,
+      "y": 140,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "2",
+      "type": "thing",
+      "label": "tB",
+      "x": 220,
+      "y": 140,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "3",
+      "type": "thing",
+      "label": "tC",
+      "x": 400,
+      "y": 140,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "4",
+      "type": "thing",
+      "label": "tD",
+      "x": 220,
+      "y": 240,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "5",
+      "type": "concept",
+      "label": "cX",
+      "x": 40,
+      "y": 40,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "6",
+      "type": "concept",
+      "label": "cY",
+      "x": 220,
+      "y": 40,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "7",
+      "type": "concept",
+      "label": "cZ",
+      "x": 400,
+      "y": 40,
+      "width": 120,
+      "height": 60
+    }
+  ],
+  "edges": [
+    {
+      "from": "1",
+      "to": "4",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.25
+        }
+      }
+    },
+    {
+      "from": "2",
+      "to": "4",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "3",
+      "to": "4",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "right",
+          "position": 0.25
+        }
+      }
+    },
+    {
+      "from": "1",
+      "to": "5",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "top",
+          "position": 0.5
+        },
+        "target": {
+          "side": "bottom",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "2",
+      "to": "6",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "top",
+          "position": 0.5
+        },
+        "target": {
+          "side": "bottom",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "3",
+      "to": "7",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "top",
+          "position": 0.5
+        },
+        "target": {
+          "side": "bottom",
+          "position": 0.5
+        }
+      }
+    }
+  ],
+  "meta": {
+    "bounds": {
+      "width": 560,
+      "height": 340,
+      "marginX": 40,
+      "marginY": 40
+    },
+    "constants": {
+      "gridStep": 20
+    }
+  }
+}

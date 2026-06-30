@@ -1,0 +1,17 @@
+e1 ::e
+tA --> e1
+tB, tC, tD --> e1a ::e --::P--> e1
+tA --- tB
+
+e1b ::e --::P--> e1
+tE, tF --> e1b
+tD --> e1b
+tD --> cX ::c
+e1c ::e --::P--> e1
+tG, tF --> e1c
+tA --- tF
+
+tH, tB --> e1d ::e --::P--> e1
+e1d --> e1a
+tH, tF --> e1e ::e --::P--> e1
+e1e --> e1b --> e1c

@@ -1,0 +1,159 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "t1-aaaa --\u003e t1-aaa --\u003e t1-aa --\u003e t1-a --\u003e t1",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          7
+        ],
+        "2": [
+          12,
+          18
+        ],
+        "3": [
+          23,
+          28
+        ],
+        "4": [
+          33,
+          37
+        ],
+        "5": [
+          42,
+          44
+        ]
+      },
+      "edges": {
+        "6": {
+          "arrow": [
+            7,
+            12
+          ],
+          "source": [
+            0,
+            7
+          ],
+          "target": [
+            12,
+            18
+          ]
+        },
+        "7": {
+          "arrow": [
+            18,
+            23
+          ],
+          "source": [
+            12,
+            18
+          ],
+          "target": [
+            23,
+            28
+          ]
+        },
+        "8": {
+          "arrow": [
+            28,
+            33
+          ],
+          "source": [
+            23,
+            28
+          ],
+          "target": [
+            33,
+            37
+          ]
+        },
+        "9": {
+          "arrow": [
+            37,
+            42
+          ],
+          "source": [
+            33,
+            37
+          ],
+          "target": [
+            42,
+            44
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "t1-aaaa",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "t1-aaa",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 3,
+      "name": "t1-aa",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 4,
+      "name": "t1-a",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 5,
+      "name": "t1",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 6,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 7,
+      "source": 2,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 8,
+      "source": 3,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 9,
+      "source": 4,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

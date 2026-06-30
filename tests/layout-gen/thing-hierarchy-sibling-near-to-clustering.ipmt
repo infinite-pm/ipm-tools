@@ -1,0 +1,4 @@
+tRoot --> tB
+tRoot --> tC
+tRoot --> tD
+tB --- tD

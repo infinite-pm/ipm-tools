@@ -1,0 +1,6 @@
+tA --> cA ::c --> cB ::c --> cL ::c
+cL --> cJ ::c
+cL --- cP ::c
+
+tB --> cD ::c --> cR ::c --> cJ ::c
+cR --- cQ ::c

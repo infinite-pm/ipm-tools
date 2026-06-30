@@ -1,0 +1,393 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "e1::a a first event with a long label ::e --\u003e e2::a a second mid event ::e --\u003e e3::a a third event with the longest label ::e\ntA, tB --\u003e e1\ntC::a the first band thing --\u003e e1\ntD --\u003e e2\ntE::a a last band item --\u003e e3\ntB, tD --\u003e e3\ntD --- tC\ntC --\u003e tF\ntD --\u003e tG::a the second whole",
+    "positions": {
+      "nodes": {
+        "1": [
+          6,
+          37
+        ],
+        "10": [
+          261,
+          277
+        ],
+        "2": [
+          52,
+          70
+        ],
+        "3": [
+          85,
+          121
+        ],
+        "4": [
+          126,
+          128
+        ],
+        "5": [
+          130,
+          132
+        ],
+        "6": [
+          146,
+          166
+        ],
+        "7": [
+          174,
+          176
+        ],
+        "8": [
+          190,
+          206
+        ],
+        "9": [
+          245,
+          247
+        ]
+      },
+      "edges": {
+        "11": {
+          "arrow": [
+            41,
+            46
+          ],
+          "source": [
+            6,
+            37
+          ],
+          "target": [
+            52,
+            70
+          ]
+        },
+        "12": {
+          "arrow": [
+            74,
+            79
+          ],
+          "source": [
+            52,
+            70
+          ],
+          "target": [
+            85,
+            121
+          ]
+        },
+        "13": {
+          "arrow": [
+            132,
+            137
+          ],
+          "source": [
+            126,
+            128
+          ],
+          "target": [
+            137,
+            139
+          ]
+        },
+        "14": {
+          "arrow": [
+            132,
+            137
+          ],
+          "source": [
+            130,
+            132
+          ],
+          "target": [
+            137,
+            139
+          ]
+        },
+        "15": {
+          "arrow": [
+            166,
+            171
+          ],
+          "source": [
+            146,
+            166
+          ],
+          "target": [
+            171,
+            173
+          ]
+        },
+        "16": {
+          "arrow": [
+            176,
+            181
+          ],
+          "source": [
+            174,
+            176
+          ],
+          "target": [
+            181,
+            183
+          ]
+        },
+        "17": {
+          "arrow": [
+            206,
+            211
+          ],
+          "source": [
+            190,
+            206
+          ],
+          "target": [
+            211,
+            213
+          ]
+        },
+        "18": {
+          "arrow": [
+            220,
+            225
+          ],
+          "source": [
+            214,
+            216
+          ],
+          "target": [
+            225,
+            227
+          ]
+        },
+        "19": {
+          "arrow": [
+            220,
+            225
+          ],
+          "source": [
+            218,
+            220
+          ],
+          "target": [
+            225,
+            227
+          ]
+        },
+        "20": {
+          "arrow": [
+            230,
+            235
+          ],
+          "source": [
+            228,
+            230
+          ],
+          "target": [
+            235,
+            237
+          ]
+        },
+        "21": {
+          "arrow": [
+            240,
+            245
+          ],
+          "source": [
+            238,
+            240
+          ],
+          "target": [
+            245,
+            247
+          ]
+        },
+        "22": {
+          "arrow": [
+            250,
+            255
+          ],
+          "source": [
+            248,
+            250
+          ],
+          "target": [
+            261,
+            277
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "a first event with a long label",
+      "alias": "e1",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "a second mid event",
+      "alias": "e2",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "a third event with the longest label",
+      "alias": "e3",
+      "type": "Event"
+    },
+    {
+      "id": 4,
+      "name": "tA",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 5,
+      "name": "tB",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 6,
+      "name": "the first band thing",
+      "alias": "tC",
+      "type": "Thing"
+    },
+    {
+      "id": 7,
+      "name": "tD",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 8,
+      "name": "a last band item",
+      "alias": "tE",
+      "type": "Thing"
+    },
+    {
+      "id": 9,
+      "name": "tF",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 10,
+      "name": "the second whole",
+      "alias": "tG",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 11,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 12,
+      "source": 2,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 13,
+      "source": 4,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 14,
+      "source": 5,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 15,
+      "source": 6,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 16,
+      "source": 7,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 17,
+      "source": 8,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 18,
+      "source": 5,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 19,
+      "source": 7,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 20,
+      "source": 7,
+      "target": 6,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 21,
+      "source": 6,
+      "target": 9,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 22,
+      "source": 7,
+      "target": 10,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

@@ -1,0 +1,225 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "e1 ::e --\u003e e2 ::e\nt1-anchor --\u003e e1\ng1a ::t --\u003e g1b ::t\ng2a ::t --\u003e g2b ::t\ng1a --- t1-anchor\ng2a --- t1-anchor",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          2
+        ],
+        "2": [
+          11,
+          13
+        ],
+        "3": [
+          18,
+          27
+        ],
+        "4": [
+          35,
+          38
+        ],
+        "5": [
+          47,
+          50
+        ],
+        "6": [
+          55,
+          58
+        ],
+        "7": [
+          67,
+          70
+        ]
+      },
+      "edges": {
+        "10": {
+          "arrow": [
+            42,
+            47
+          ],
+          "source": [
+            35,
+            38
+          ],
+          "target": [
+            47,
+            50
+          ]
+        },
+        "11": {
+          "arrow": [
+            62,
+            67
+          ],
+          "source": [
+            55,
+            58
+          ],
+          "target": [
+            67,
+            70
+          ]
+        },
+        "12": {
+          "arrow": [
+            78,
+            83
+          ],
+          "source": [
+            75,
+            78
+          ],
+          "target": [
+            83,
+            92
+          ]
+        },
+        "13": {
+          "arrow": [
+            96,
+            101
+          ],
+          "source": [
+            93,
+            96
+          ],
+          "target": [
+            101,
+            110
+          ]
+        },
+        "8": {
+          "arrow": [
+            6,
+            11
+          ],
+          "source": [
+            0,
+            2
+          ],
+          "target": [
+            11,
+            13
+          ]
+        },
+        "9": {
+          "arrow": [
+            27,
+            32
+          ],
+          "source": [
+            18,
+            27
+          ],
+          "target": [
+            32,
+            34
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "e1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "e2",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "t1-anchor",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 4,
+      "name": "g1a",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 5,
+      "name": "g1b",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 6,
+      "name": "g2a",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 7,
+      "name": "g2b",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 8,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 9,
+      "source": 3,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 10,
+      "source": 4,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 11,
+      "source": 6,
+      "target": 7,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 12,
+      "source": 4,
+      "target": 3,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 13,
+      "source": 6,
+      "target": 3,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

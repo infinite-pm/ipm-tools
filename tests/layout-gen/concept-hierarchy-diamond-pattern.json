@@ -1,0 +1,149 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "c-Root ::c --\u003e c-Left ::c\nc-Root --\u003e c-Right ::c\nc-Left --\u003e c-Join ::c\nc-Right --\u003e c-Join",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          6
+        ],
+        "2": [
+          15,
+          21
+        ],
+        "3": [
+          37,
+          44
+        ],
+        "4": [
+          60,
+          66
+        ]
+      },
+      "edges": {
+        "5": {
+          "arrow": [
+            10,
+            15
+          ],
+          "source": [
+            0,
+            6
+          ],
+          "target": [
+            15,
+            21
+          ]
+        },
+        "6": {
+          "arrow": [
+            32,
+            37
+          ],
+          "source": [
+            26,
+            32
+          ],
+          "target": [
+            37,
+            44
+          ]
+        },
+        "7": {
+          "arrow": [
+            55,
+            60
+          ],
+          "source": [
+            49,
+            55
+          ],
+          "target": [
+            60,
+            66
+          ]
+        },
+        "8": {
+          "arrow": [
+            78,
+            83
+          ],
+          "source": [
+            71,
+            78
+          ],
+          "target": [
+            83,
+            89
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "c-Root",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 2,
+      "name": "c-Left",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 3,
+      "name": "c-Right",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 4,
+      "name": "c-Join",
+      "alias": "",
+      "type": "Concept"
+    }
+  ],
+  "edges": [
+    {
+      "id": 5,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 6,
+      "source": 1,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 7,
+      "source": 2,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 8,
+      "source": 3,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

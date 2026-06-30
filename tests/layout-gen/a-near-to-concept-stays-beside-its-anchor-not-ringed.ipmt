@@ -1,0 +1,2 @@
+c1-leaf ::c --> c2-mid ::c --> c3-root ::c
+c2-mid ::c --- cX ::c

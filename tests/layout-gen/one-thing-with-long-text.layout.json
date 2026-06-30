@@ -1,0 +1,26 @@
+{
+  "version": "26.07-v7",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "thing",
+      "label": "This thing is very important and has a long description text. It can be so so very very so long.",
+      "x": 40,
+      "y": 40,
+      "width": 120,
+      "height": 200
+    }
+  ],
+  "edges": [],
+  "meta": {
+    "bounds": {
+      "width": 200,
+      "height": 280,
+      "marginX": 40,
+      "marginY": 40
+    },
+    "constants": {
+      "gridStep": 20
+    }
+  }
+}

@@ -1,0 +1,2 @@
+e1 ::e --::L--> ea ::e, eb ::e
+e1 --::X "used for"--> "setup tasks like config init or dependency checks" ::c

@@ -1,0 +1,149 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "tRoot --\u003e tB\ntRoot --\u003e tC\ntRoot --\u003e tD\ntB --- tD",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          5
+        ],
+        "2": [
+          10,
+          12
+        ],
+        "3": [
+          23,
+          25
+        ],
+        "4": [
+          36,
+          38
+        ]
+      },
+      "edges": {
+        "5": {
+          "arrow": [
+            5,
+            10
+          ],
+          "source": [
+            0,
+            5
+          ],
+          "target": [
+            10,
+            12
+          ]
+        },
+        "6": {
+          "arrow": [
+            18,
+            23
+          ],
+          "source": [
+            13,
+            18
+          ],
+          "target": [
+            23,
+            25
+          ]
+        },
+        "7": {
+          "arrow": [
+            31,
+            36
+          ],
+          "source": [
+            26,
+            31
+          ],
+          "target": [
+            36,
+            38
+          ]
+        },
+        "8": {
+          "arrow": [
+            41,
+            46
+          ],
+          "source": [
+            39,
+            41
+          ],
+          "target": [
+            46,
+            48
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "tRoot",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "tB",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 3,
+      "name": "tC",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 4,
+      "name": "tD",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 5,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 6,
+      "source": 1,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 7,
+      "source": 1,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 8,
+      "source": 2,
+      "target": 4,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

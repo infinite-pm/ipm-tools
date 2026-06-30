@@ -1,0 +1,1424 @@
+[
+    {
+        "source": "../../docs/dev/layout-gen/layout-alg.md",
+        "source_sha1": "be385fe63ddb9b7ce6eb6be843ba0fd3d988c4b9",
+        "name": "ipmt layout algorithm",
+        "method": "parser",
+        "parser_name": "ipmt-md",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmt"
+        },
+        "items": [
+            {
+                "destination": "one-event",
+                "line": 61,
+                "anchor": "#one-event",
+                "content_sha1": "d0c8e8b11e14db7c638341056cc73ffb07d24bae",
+                "outputs": {
+                    "ipm.svg": "af09cd8aa7b11b27256606a6d75aca0a3c08663e",
+                    "ipmt": "d0c8e8b11e14db7c638341056cc73ffb07d24bae",
+                    "json": "44510e1603c8bf5d907fa98efb75dbcebfc2435c",
+                    "layout.json": "1a7abe33899c4b4692f7d78e0a4414d9b315d879",
+                    "md": "9aa87bbb7c22b01f44aa1e7097b541dbfd78d695"
+                },
+                "heading": "one event",
+                "section": "Events"
+            },
+            {
+                "destination": "one-event-with-long-text",
+                "line": 109,
+                "anchor": "#one-event-with-long-text",
+                "content_sha1": "9515d5117cc77c9d1475b77fb833388036425425",
+                "outputs": {
+                    "ipm.svg": "51fd31b8961de410490e2e06da2b45c0e628c755",
+                    "ipmt": "9515d5117cc77c9d1475b77fb833388036425425",
+                    "json": "de82efad86a01d0419291c2c9455201df1c7cbd4",
+                    "layout.json": "a4a0f2a4aef0fa37963ef0600cc49b8cf054d87d",
+                    "md": "70060e55b03746654b24f18b78ff57afde00c8b8"
+                },
+                "heading": "one event with long text",
+                "section": "Events"
+            },
+            {
+                "destination": "two-events-connected",
+                "line": 147,
+                "anchor": "#two-events-connected",
+                "content_sha1": "29409e2472d985d93e350dba58cbdd92bf1acefa",
+                "outputs": {
+                    "ipm.svg": "1e484be5dbdfa2ae965568734d74ab8629cb0e20",
+                    "ipmt": "29409e2472d985d93e350dba58cbdd92bf1acefa",
+                    "json": "fe5f59ff75e00356e53c332c6b921552f2de07b3",
+                    "layout.json": "594e93e805e2a9c9d2280fc4ad7f7996c4708e51",
+                    "md": "2c4aad77c5a29542ef84b22998bd7127e597647b"
+                },
+                "heading": "two events connected",
+                "section": "Events"
+            },
+            {
+                "destination": "five-events-connected",
+                "line": 168,
+                "anchor": "#five-events-connected",
+                "content_sha1": "a8768d1e75ab3a54aae79eadfd734d2992fd03da",
+                "outputs": {
+                    "ipm.svg": "40d6c94bafc4a929551d8e5c546e2ab4233815fd",
+                    "ipmt": "a8768d1e75ab3a54aae79eadfd734d2992fd03da",
+                    "json": "d8c3f21c8d4a44090b8d9044943fe29abcf6f039",
+                    "layout.json": "d9d358dd5e3fc165ed5b6fc0669dc21f4f8b5325",
+                    "md": "58a94903dfc93ffa679b84fa9c45d24be3317f51"
+                },
+                "heading": "five events connected",
+                "section": "Events"
+            },
+            {
+                "destination": "one-event-leads-to-multiple-events-fork",
+                "line": 189,
+                "anchor": "#one-event-leads-to-multiple-events-fork",
+                "content_sha1": "4d00fb6d01cc1358b50ca08a205cc7584753203d",
+                "outputs": {
+                    "ipm.svg": "8121272a8c1bbb6585d9bc5f00741be31ba1503b",
+                    "ipmt": "4d00fb6d01cc1358b50ca08a205cc7584753203d",
+                    "json": "6be41589cadf250ec6bd1b1fa2eb6d6ec7172bc3",
+                    "layout.json": "158c089e5e98879f96543b9088c4829a6e67b0a8",
+                    "md": "7b6df3d20f34885b14892f7f86ba37e8474c637e"
+                },
+                "heading": "one event leads to multiple events (fork)",
+                "section": "Events"
+            },
+            {
+                "destination": "fork-keeps-siblings-on-one-row-with-a-tall-aux",
+                "line": 215,
+                "anchor": "#fork-keeps-siblings-on-one-row-with-a-tall-aux",
+                "content_sha1": "547c9083f71dca684b119c73e5a803bd745f2677",
+                "outputs": {
+                    "ipm.svg": "78acdd69498b916eb60abc00d0f90da590b24409",
+                    "ipmt": "547c9083f71dca684b119c73e5a803bd745f2677",
+                    "json": "4dcb4521939b7fbc0b11677de178aaf5d4e88594",
+                    "layout.json": "34d536dbdb2a7110f3d21583922ef81771e11310",
+                    "md": "7050b8d746f62e51a081a75ef12f047f7b68fb85"
+                },
+                "heading": "fork keeps siblings on one row with a tall aux",
+                "section": "Events"
+            },
+            {
+                "destination": "wide-fork-keeps-readable-edge-slopes",
+                "line": 243,
+                "anchor": "#wide-fork-keeps-readable-edge-slopes",
+                "content_sha1": "cafc089c6ec0e6958ea67e454c6a2b875803b1ae",
+                "outputs": {
+                    "ipm.svg": "3251defb8208b1518b63b32349638e5895bd5b19",
+                    "ipmt": "cafc089c6ec0e6958ea67e454c6a2b875803b1ae",
+                    "json": "f620903508f70320de606022239bc7fc2eca02df",
+                    "layout.json": "f9b9b008bee309363eee91a17d9278e630e5e5c6",
+                    "md": "fd23af2acc644b3df203ead85b476bd4328396b5"
+                },
+                "heading": "wide fork keeps readable edge slopes",
+                "section": "Events"
+            },
+            {
+                "destination": "asymmetric-terminals-center-the-boundaries",
+                "line": 271,
+                "anchor": "#asymmetric-terminals-center-the-boundaries",
+                "content_sha1": "a3bde3dc0fc5abaadd44079579bb07a073f2ec4d",
+                "outputs": {
+                    "ipm.svg": "2f4649d3752f78b85b66563d58171abcc1eaabf3",
+                    "ipmt": "a3bde3dc0fc5abaadd44079579bb07a073f2ec4d",
+                    "json": "e269f0df411a7534b612a4b4c92b826e4cbb9d85",
+                    "layout.json": "edca4050abd8141623a2654fc0a9af4df4e0e6d8",
+                    "md": "71d3f4579b02bf797c1930f8d8a196691d0c8e43"
+                },
+                "heading": "asymmetric terminals center the boundaries",
+                "section": "Events"
+            },
+            {
+                "destination": "multiple-events-lead-to-one-event-join",
+                "line": 316,
+                "anchor": "#multiple-events-lead-to-one-event-join",
+                "content_sha1": "014c2d84d0158785247c33e8545f2e83f830ebbf",
+                "outputs": {
+                    "ipm.svg": "5b93f685efddaf8b014a989b10421f4db8936a0e",
+                    "ipmt": "014c2d84d0158785247c33e8545f2e83f830ebbf",
+                    "json": "351147b16cc25832d2e62f572edceac77aaf4e07",
+                    "layout.json": "e323ee4f2880b1d8a959a8a43ee16d2f1104df66",
+                    "md": "95b63fea6b93eaa00ef12b8fdd67b92bbcfded6a"
+                },
+                "heading": "multiple events lead to one event (join)",
+                "section": "Events"
+            },
+            {
+                "destination": "join-sharing-fork-branches-cluster-adjacent",
+                "line": 341,
+                "anchor": "#join-sharing-fork-branches-cluster-adjacent",
+                "content_sha1": "6af7b3ba19ba559226becc99b178a1f7c8cafbbb",
+                "outputs": {
+                    "ipm.svg": "e593fd6fe2881d8263b56d27a2fec3dfa9c2e9ba",
+                    "ipmt": "6af7b3ba19ba559226becc99b178a1f7c8cafbbb",
+                    "json": "a96e07235a340432718a6ef29ed0efde51e78652",
+                    "layout.json": "5fce055fbab770e12b1a2caa3196e42e6390022a",
+                    "md": "4cc00b9bc95e2c081f28e7e32d66c3dbf52c24b0"
+                },
+                "heading": "join-sharing fork branches cluster adjacent",
+                "section": "Events"
+            },
+            {
+                "destination": "a-leads-to-edge-stays-straight-past-a-thing-or-concept",
+                "line": 375,
+                "anchor": "#a-leads-to-edge-stays-straight-past-a-thing-or-concept",
+                "content_sha1": "218d17ef629ad640b9e508ea90e608959af936a4",
+                "outputs": {
+                    "ipm.svg": "43b92c9f5c465eac09c8335b835c5c4267c04bcd",
+                    "ipmt": "218d17ef629ad640b9e508ea90e608959af936a4",
+                    "json": "778a63ab237efa451da454bad462eaa2c1054627",
+                    "layout.json": "dc820dd607df8a125c168e5284f6ff32e8bb213d",
+                    "md": "5eb852dd1a08fcd13638e102b84c62aac5080988"
+                },
+                "heading": "a leads-to edge stays straight past a thing or concept",
+                "section": "Events"
+            },
+            {
+                "destination": "diamond-pattern-fork-and-join",
+                "line": 397,
+                "anchor": "#diamond-pattern-fork-and-join",
+                "content_sha1": "68b2134619cfc254a995a1f1cdc7706f5fc96732",
+                "outputs": {
+                    "ipm.svg": "0fee9c595cb3477e3d5b0e79f5aa47d8063c44fe",
+                    "ipmt": "68b2134619cfc254a995a1f1cdc7706f5fc96732",
+                    "json": "3ef7925ccd6ff824f9f889626c085af0fd6f4862",
+                    "layout.json": "79ed9b55a1e988ca65ba41afad0e0e0c795aa25b",
+                    "md": "88c85a2c6105744f83db0c1c8f07c4706d5ceaac"
+                },
+                "heading": "diamond pattern (fork and join)",
+                "section": "Events"
+            },
+            {
+                "destination": "diamond-pattern-with-aux-on-every-event",
+                "line": 423,
+                "anchor": "#diamond-pattern-with-aux-on-every-event",
+                "content_sha1": "23df6f8cb56d034d26f60155330fa3b3c9a77a64",
+                "outputs": {
+                    "ipm.svg": "e515333f2db0ed0c85b600cc60d459349bbcc15c",
+                    "ipmt": "23df6f8cb56d034d26f60155330fa3b3c9a77a64",
+                    "json": "2ed31a6f2838571d25e9a525c86645aa558d4e9d",
+                    "layout.json": "960796a485d88481dbea64e324782e620d3fa987",
+                    "md": "c65cae210a6f1ba5380f9488c1fc8db49e32b586"
+                },
+                "heading": "diamond pattern with aux on every event",
+                "section": "Events"
+            },
+            {
+                "destination": "sibling-events-do-not-cross",
+                "line": 469,
+                "anchor": "#sibling-events-do-not-cross",
+                "content_sha1": "b0afb9ec993e6b2fcda9e383265869cca69fc6a1",
+                "outputs": {
+                    "ipm.svg": "f1db9c425f2c5a37ac4afd4a453746201c836416",
+                    "ipmt": "b0afb9ec993e6b2fcda9e383265869cca69fc6a1",
+                    "json": "abfc4b461bde95f18741ad8901bb70aecd116842",
+                    "layout.json": "3832b0397e11e40e11bac08be8d137a0ad44d5b5",
+                    "md": "06627764003fedd8bdc6d4746f23d4cd39c66ce1"
+                },
+                "heading": "sibling events do not cross",
+                "section": "Events"
+            },
+            {
+                "destination": "uneven-sibling-branches-keep-their-vertical-lanes",
+                "line": 501,
+                "anchor": "#uneven-sibling-branches-keep-their-vertical-lanes",
+                "content_sha1": "80a723d2b1699454fced58fd681bfdfebef28c6c",
+                "outputs": {
+                    "ipm.svg": "73e1e56ff52795b60d60f6d32d58d7acfa8b8444",
+                    "ipmt": "80a723d2b1699454fced58fd681bfdfebef28c6c",
+                    "json": "049b8e56f82dce4dbbcc29e1ca83560be00dd920",
+                    "layout.json": "ad105011fd59aa55c2a5f91dc45742513d7a3eda",
+                    "md": "bdbc89fd3286b37a19428e81f507c1a0f30ebbd3"
+                },
+                "heading": "uneven sibling branches keep their vertical lanes",
+                "section": "Events"
+            },
+            {
+                "destination": "start-boundary-stays-on-the-start-event-over-an-uneven-fan",
+                "line": 539,
+                "anchor": "#start-boundary-stays-on-the-start-event-over-an-uneven-fan",
+                "content_sha1": "05bbf9ecd313542129c7168f3589336dfa848c34",
+                "outputs": {
+                    "ipm.svg": "dd2c18dcee251173f88bec01117b08fa6d963a0a",
+                    "ipmt": "05bbf9ecd313542129c7168f3589336dfa848c34",
+                    "json": "69679231ce168418365cdbcada3edf0b5f3f1f7a",
+                    "layout.json": "17f126d861c4e17d11722ff463fbe69edce8eddf",
+                    "md": "27fc186f054e99273d84fb0bd52daa84f8ca65c5"
+                },
+                "heading": "start boundary stays on the start event over an uneven fan",
+                "section": "Events"
+            },
+            {
+                "destination": "fork-merge-fork-keeps-a-vertical-spine",
+                "line": 569,
+                "anchor": "#fork-merge-fork-keeps-a-vertical-spine",
+                "content_sha1": "90c272ee93499ef3697150bba340b9ace7ff5ced",
+                "outputs": {
+                    "ipm.svg": "a82ddb12f3ffc0d345c26e1ada07a22bd0a89501",
+                    "ipmt": "90c272ee93499ef3697150bba340b9ace7ff5ced",
+                    "json": "86da258a1a6a4d5b3631481897273266c4bdbad4",
+                    "layout.json": "74d35c8d4b3cb3c18491cb78c02805c938b55a1e",
+                    "md": "1735271856a4aaf935f8accd0d63eda8dca48aa6"
+                },
+                "heading": "fork merge fork keeps a vertical spine",
+                "section": "Events"
+            },
+            {
+                "destination": "aux-chain-gets-its-own-corridor",
+                "line": 616,
+                "anchor": "#aux-chain-gets-its-own-corridor",
+                "content_sha1": "b2ebb8f5d1b5b0c9ca806cbc27fbf3e9782b0c78",
+                "outputs": {
+                    "ipm.svg": "b0ffda6ce137d169f83da19be46029471a82dee7",
+                    "ipmt": "b2ebb8f5d1b5b0c9ca806cbc27fbf3e9782b0c78",
+                    "json": "aed041c5d6ea2b613ae75f7ffa5a0d6e20063e2f",
+                    "layout.json": "fe57442a0a7a3b9750b7cee28dbfc20e07c8fdfd",
+                    "md": "76024db624b98c3feb9c251f9e4aff02882e23de"
+                },
+                "heading": "aux chain gets its own corridor",
+                "section": "Events"
+            },
+            {
+                "destination": "event-contains-event",
+                "line": 659,
+                "anchor": "#event-contains-event",
+                "content_sha1": "b9245478471e0708664b591f7736891071111953",
+                "outputs": {
+                    "ipm.svg": "36a5bcfd47318987fa5e29e002f30e8baccd1e1f",
+                    "ipmt": "b9245478471e0708664b591f7736891071111953",
+                    "json": "3cb8085fe193d475fefd5fc297059865ed7e6f99",
+                    "layout.json": "3d6f78bd1038c80b44e128c735b6dd2db085f29b",
+                    "md": "5e7a6efd7b1e5cdab114ab393636e02419ac2a8f"
+                },
+                "heading": "event contains event",
+                "section": "Events"
+            },
+            {
+                "destination": "event-contains-multiple-events",
+                "line": 693,
+                "anchor": "#event-contains-multiple-events",
+                "content_sha1": "59c174bd978638d79b96372f4b6b83fcca0efeb9",
+                "outputs": {
+                    "ipm.svg": "0c5f8628e23f20e5fcd5ca561dfd9fe8f9e43da4",
+                    "ipmt": "59c174bd978638d79b96372f4b6b83fcca0efeb9",
+                    "json": "6633157bed2e094b50e3b52fd1f222648780970a",
+                    "layout.json": "a705b719907bd524f92176782dca9efd715dca18",
+                    "md": "c95d994c787dfa8ba8a906616e903e7fb6636b7c"
+                },
+                "heading": "event contains multiple events",
+                "section": "Events"
+            },
+            {
+                "destination": "a-leads-to-between-sub-events-keeps-the-pair-adjacent",
+                "line": 721,
+                "anchor": "#a-leads-to-between-sub-events-keeps-the-pair-adjacent",
+                "content_sha1": "e9db0341e919ccc3f3459e29205936548347f20b",
+                "outputs": {
+                    "ipm.svg": "0dc914c48b3d7f4b41f10ff9a1bc4f39eba33ed8",
+                    "ipmt": "e9db0341e919ccc3f3459e29205936548347f20b",
+                    "json": "593d8233e7730cbe7524b929507e8627db85ce68",
+                    "layout.json": "57e9ad7aaf01b7b0ac22e26274b951b9abcf4a21",
+                    "md": "6dec51d01bc26651b9fa8c664c9031507ddfd67e"
+                },
+                "heading": "a leads-to between sub-events keeps the pair adjacent",
+                "section": "Events"
+            },
+            {
+                "destination": "event-contains-with-mixed-leads-to",
+                "line": 754,
+                "anchor": "#event-contains-with-mixed-leads-to",
+                "content_sha1": "ba829cd64555135f9f210988e50de978c3c1789a",
+                "outputs": {
+                    "ipm.svg": "db5e6ee84efdb2f4aee0f803533af4c8f70d9a8f",
+                    "ipmt": "ba829cd64555135f9f210988e50de978c3c1789a",
+                    "json": "3471e5ac660c2c534f0f9526d750d1909f768e8d",
+                    "layout.json": "6c6cdbb0e07e7283d7366f4e2fa72c762bb9acf6",
+                    "md": "140c8b2c5907cf72bb20f0a5fa5f619a6cd1a8cc"
+                },
+                "heading": "event contains with mixed leads-to",
+                "section": "Events"
+            },
+            {
+                "destination": "event-contains-sub-events",
+                "line": 777,
+                "anchor": "#event-contains-sub-events",
+                "content_sha1": "45c393ca6295677b3a24a05e73c49663965e1c03",
+                "outputs": {
+                    "ipm.svg": "92412efc8caf12be755c6db52cd8aaa2ec17b953",
+                    "ipmt": "45c393ca6295677b3a24a05e73c49663965e1c03",
+                    "json": "ccc6bbfb0ad78e779a980c0f95862420aee5bf39",
+                    "layout.json": "f3f4aaad2a1d7821a088b641d70905fe0b73e34a",
+                    "md": "92f919844e4cad0b64ccc873a15e0881daddf0fb"
+                },
+                "heading": "event contains sub-events",
+                "section": "Events"
+            },
+            {
+                "destination": "event-contains-sub-events-with-mixed-connections",
+                "line": 820,
+                "anchor": "#event-contains-sub-events-with-mixed-connections",
+                "content_sha1": "13dc631517643e96727845b8eb4d06643dc94f74",
+                "outputs": {
+                    "ipm.svg": "a2965f4821a21cc677c4a1f83f94b840596e416a",
+                    "ipmt": "13dc631517643e96727845b8eb4d06643dc94f74",
+                    "json": "0ba403dacb92bcd65d83f2be085ac9b3547174d9",
+                    "layout.json": "4a1c746f081a6d6365fb65e34387dc08abe865c2",
+                    "md": "ab02c3d5aa4b25428dcbfc99a190b8bbe10c2ea9"
+                },
+                "heading": "event contains sub-events with mixed connections",
+                "section": "Events"
+            },
+            {
+                "destination": "event-contains-connected-sub-events-and-sub-sub-events",
+                "line": 852,
+                "anchor": "#event-contains-connected-sub-events-and-sub-sub-events",
+                "content_sha1": "44511af4ca4b99297346e6946d684d0677f87cb1",
+                "outputs": {
+                    "ipm.svg": "19392604dc731ecf4d96931ca89933f2beefd69a",
+                    "ipmt": "44511af4ca4b99297346e6946d684d0677f87cb1",
+                    "json": "be06896e04601c8030604039d5fa3acda7b32325",
+                    "layout.json": "0dfbea45a7672837600fbb43c89c6cdc3d075158",
+                    "md": "172d8af45dd6844b083b985e240845af24dceea0"
+                },
+                "heading": "event contains connected sub-events and sub-sub-events",
+                "section": "Events"
+            },
+            {
+                "destination": "a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row",
+                "line": 908,
+                "anchor": "#a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row",
+                "content_sha1": "0dcbc5e62cd9348d1880e2f1cda12c2a2ccd7045",
+                "outputs": {
+                    "ipm.svg": "859fdc0fad939e018b57ff5ec0f1565f27609d3c",
+                    "ipmt": "0dcbc5e62cd9348d1880e2f1cda12c2a2ccd7045",
+                    "json": "302650607d4d57a9709a013ecbb08ea19bd9f92f",
+                    "layout.json": "7ca32994d0e8558d08dd77014f8a86459b5d0eba",
+                    "md": "ce91abcd3e6f05a0793d5a4925b943f9c8e08234"
+                },
+                "heading": "a fork inside a sub-structure spreads its branches on one row",
+                "section": "Events"
+            },
+            {
+                "destination": "a-sub-grid-return-lane-centres-in-the-free-row-gap",
+                "line": 951,
+                "anchor": "#a-sub-grid-return-lane-centres-in-the-free-row-gap",
+                "content_sha1": "fbb71872dad7b6edd6208cea304b28b4e322c7f1",
+                "outputs": {
+                    "ipm.svg": "d66f67451e46b1280ec560524dc1d6ba4c6ee155",
+                    "ipmt": "fbb71872dad7b6edd6208cea304b28b4e322c7f1",
+                    "json": "2f9255471016c03622faa98f9357b9bf82a8e8e5",
+                    "layout.json": "afa9b84ebd66b1278bc8533894084f6c087b6725",
+                    "md": "bde01a91bade4e84ded08b582f05f2acded51611"
+                },
+                "heading": "a sub-grid return lane centres in the free row gap",
+                "section": "Events"
+            },
+            {
+                "destination": "sub-event-phases-fork-inside-the-composite",
+                "line": 1028,
+                "anchor": "#sub-event-phases-fork-inside-the-composite",
+                "content_sha1": "4fa33243048be798ed4c0f040c88f8488e447bf3",
+                "outputs": {
+                    "ipm.svg": "4be0e722b29550891615062b3769b20ede892f95",
+                    "ipmt": "4fa33243048be798ed4c0f040c88f8488e447bf3",
+                    "json": "1bbda648a7630e88a84c876bcb39d828d98630fb",
+                    "layout.json": "198637d3a8d5466202832ab9013527e73fddbb1d",
+                    "md": "7f391900ce1ee5d02f4485c2d1d07d74f56877b4"
+                },
+                "heading": "sub-event phases fork inside the composite",
+                "section": "Events"
+            },
+            {
+                "destination": "a-shared-part-keeps-its-band-and-ties-its-second-anchor",
+                "line": 1073,
+                "anchor": "#a-shared-part-keeps-its-band-and-ties-its-second-anchor",
+                "content_sha1": "529671cf9359dd3a4e8af5f4422155764772bfad",
+                "outputs": {
+                    "ipm.svg": "ccfc3a10341eaa71e88341f55a010e125e9991a2",
+                    "ipmt": "529671cf9359dd3a4e8af5f4422155764772bfad",
+                    "json": "9299c9f56f9b00a95300a2a68952fea4be5d4c0d",
+                    "layout.json": "7b7afc0c8a56dab4f62d1a5a84011f127b3f55d8",
+                    "md": "75c699f4127823c3b8e3e0ed68a8f54d81b0889d"
+                },
+                "heading": "a shared part keeps its band and ties its second anchor",
+                "section": "Events"
+            },
+            {
+                "destination": "one-concept-on-the-inner-layer",
+                "line": 1116,
+                "anchor": "#one-concept-on-the-inner-layer",
+                "content_sha1": "71a7827d9ba3dc5dd0c7f70bf78e4ddb9ee6d3e5",
+                "outputs": {
+                    "ipm.svg": "05f3bca13653e1934967dc28306d458819307918",
+                    "ipmt": "71a7827d9ba3dc5dd0c7f70bf78e4ddb9ee6d3e5",
+                    "json": "3441f70e3353744ebc5b1eb0221552dcd77de365",
+                    "layout.json": "44560e73bff48706de357e7cbe1bf3543401df92",
+                    "md": "13812a3b2081b46e12916a3d2638b6e2d3017d15"
+                },
+                "heading": "one concept on the inner layer",
+                "section": "Layered composites with aux"
+            },
+            {
+                "destination": "two-concepts-on-the-inner-layer",
+                "line": 1145,
+                "anchor": "#two-concepts-on-the-inner-layer",
+                "content_sha1": "9b1f209c34c22b864582c7a59c73b7d248af57ea",
+                "outputs": {
+                    "ipm.svg": "84b8507a1bfd358d1d29ee73e27e95f63a73fd40",
+                    "ipmt": "9b1f209c34c22b864582c7a59c73b7d248af57ea",
+                    "json": "bc85dbca4202d5dc45ce35de1b8fc3ee95ace8f4",
+                    "layout.json": "2dff29ef66b3ac720c77aab6fc3169e8fa3238c3",
+                    "md": "db9c353fbfe9c9d1523d56f667280b8489ea1288"
+                },
+                "heading": "two concepts on the inner layer",
+                "section": "Layered composites with aux"
+            },
+            {
+                "destination": "an-inner-events-thing-fan-keeps-its-sole-concept-below",
+                "line": 1174,
+                "anchor": "#an-inner-events-thing-fan-keeps-its-sole-concept-below",
+                "content_sha1": "bcc36b45feba37f3fe1d1323194e24e5886527b8",
+                "outputs": {
+                    "ipm.svg": "3b271ac4f5b72afd0f602bd17f6e95bbba11a85d",
+                    "ipmt": "bcc36b45feba37f3fe1d1323194e24e5886527b8",
+                    "json": "3443332df34b42472c7ac9b06a8111c2ee2e0dbc",
+                    "layout.json": "158a5b5dc30bb6194a63eb583de606461ee8fb8f",
+                    "md": "d96d09003bcd041b41b41d406fb9fda460610f10"
+                },
+                "heading": "an inner event's thing fan keeps its sole concept below",
+                "section": "Layered composites with aux"
+            },
+            {
+                "destination": "a-stack-members-own-concept-steps-outward-under-the-shared-one",
+                "line": 1202,
+                "anchor": "#a-stack-members-own-concept-steps-outward-under-the-shared-one",
+                "content_sha1": "6fee982fe28d3c7f73a6a28acd4640eb862bf609",
+                "outputs": {
+                    "ipm.svg": "f6f50c4412c53a44b09f166b1315fb8fe386524c",
+                    "ipmt": "6fee982fe28d3c7f73a6a28acd4640eb862bf609",
+                    "json": "2fc3928f1a2233e42823b1fa7cc49ae44b675362",
+                    "layout.json": "61398ee419792c381b9b91d1c44293293c442eec",
+                    "md": "ad0e1ad5aed2ae6984862f78f1bdbaee1930ffb2"
+                },
+                "heading": "a stack member's own concept steps outward, under the shared one",
+                "section": "Layered composites with aux"
+            },
+            {
+                "destination": "a-concept-at-every-layer",
+                "line": 1240,
+                "anchor": "#a-concept-at-every-layer",
+                "content_sha1": "b63f1b3783611a1aaaac8942df45545304f45669",
+                "outputs": {
+                    "ipm.svg": "78756183a55d3125cfd56dc9e902bec858a8b9c5",
+                    "ipmt": "b63f1b3783611a1aaaac8942df45545304f45669",
+                    "json": "24353fb819d17334362f01b8dabdfa5ee71a6b5d",
+                    "layout.json": "389f89e87acb8cb43123580563a7a6cdccbc3600",
+                    "md": "69ff3af861177d80700d38df129e1a8c9c8429a5"
+                },
+                "heading": "a concept at every layer",
+                "section": "Layered composites with aux"
+            },
+            {
+                "destination": "forks-at-two-layers-with-aux-everywhere",
+                "line": 1293,
+                "anchor": "#forks-at-two-layers-with-aux-everywhere",
+                "content_sha1": "2c1ef917aef323aff7d28a80cf708e025eb83dfe",
+                "outputs": {
+                    "ipm.svg": "cda96df2e3b0ca77c15bb729cad33b1acd33c07e",
+                    "ipmt": "2c1ef917aef323aff7d28a80cf708e025eb83dfe",
+                    "json": "9d5ecfa39d71299c436cb402ce05b5ee5d8ff49b",
+                    "layout.json": "0a7ae806083476774769d9e6db67190e4be7218d",
+                    "md": "176d6d8f7ce0f7244d79d8d4ef597876d60a8bb8"
+                },
+                "heading": "forks at two layers with aux everywhere",
+                "section": "Layered composites with aux"
+            },
+            {
+                "destination": "thing-connected-to-two-layers",
+                "line": 1359,
+                "anchor": "#thing-connected-to-two-layers",
+                "content_sha1": "138c72f540638c07347b57a2b887ddcb0bf111b4",
+                "outputs": {
+                    "ipm.svg": "6effb15dc2ab2176547c6115a5d30e98f97d8dd1",
+                    "ipmt": "138c72f540638c07347b57a2b887ddcb0bf111b4",
+                    "json": "4d16717e0ebd03858844ff0a2c2275c8b6004e2f",
+                    "layout.json": "5f91887e5bbd8cdeb9e0f65581fa737091f3eeb5",
+                    "md": "ba68a88ce93fe976197e64c9110b4c978f239b09"
+                },
+                "heading": "thing connected to two layers",
+                "section": "Layered composites with aux"
+            },
+            {
+                "destination": "thing-connected-to-three-layers",
+                "line": 1401,
+                "anchor": "#thing-connected-to-three-layers",
+                "content_sha1": "bddbd3097889f3e3c95d8528f1e7a97645623706",
+                "outputs": {
+                    "ipm.svg": "fb9810b7d2639e7d1b39a7f8bac8b159f6632567",
+                    "ipmt": "bddbd3097889f3e3c95d8528f1e7a97645623706",
+                    "json": "88906f694a67c1b9662949f9b86700ad66436189",
+                    "layout.json": "4a0d900d8613e0af1930c783b572dae240ccda14",
+                    "md": "7901ef832c9bca05b6e2e5e4be7d68c7218f1107"
+                },
+                "heading": "thing connected to three layers",
+                "section": "Layered composites with aux"
+            },
+            {
+                "destination": "one-thing",
+                "line": 1439,
+                "anchor": "#one-thing",
+                "content_sha1": "e5353879bd69bfddcb465dad176ff52db8319d6f",
+                "outputs": {
+                    "ipm.svg": "1382c41ce29cdef5f915963e39d1f07633606b3b",
+                    "ipmt": "e5353879bd69bfddcb465dad176ff52db8319d6f",
+                    "json": "dcaefe48b8ad209949b691c83011162409c05322",
+                    "layout.json": "b1103a508c7f06ce5bcb166bd0e5c883c8c3eda5",
+                    "md": "b0324e78b47e1cb77e472ab9a8a23a686d33328a"
+                },
+                "heading": "one thing",
+                "section": "Things"
+            },
+            {
+                "destination": "one-thing-with-long-text",
+                "line": 1461,
+                "anchor": "#one-thing-with-long-text",
+                "content_sha1": "c85256dfbf28adaba1aa8a6c102ce007cac4d32b",
+                "outputs": {
+                    "ipm.svg": "7520b30c9d788b86a9b94d651fcdf5e4634edaf9",
+                    "ipmt": "c85256dfbf28adaba1aa8a6c102ce007cac4d32b",
+                    "json": "05f677374b7ff26ecf4c131c5d1969ca32c54a3c",
+                    "layout.json": "3810aff14d50637376d1d68e15b2422d137263ac",
+                    "md": "e7e1dedcd9aeb7ef195cc276c62dc1fa823de2ca"
+                },
+                "heading": "one thing with long text",
+                "section": "Things"
+            },
+            {
+                "destination": "two-things-connected",
+                "line": 1478,
+                "anchor": "#two-things-connected",
+                "content_sha1": "19ff8aa0e03a1900efe240789008fe2ad99009f3",
+                "outputs": {
+                    "ipm.svg": "309b7f0c7e284cbb7c429aa296a75aa2e2cf28ae",
+                    "ipmt": "19ff8aa0e03a1900efe240789008fe2ad99009f3",
+                    "json": "b44e4bde817d2189252793071dbc5beb38bc2387",
+                    "layout.json": "8a374cd83b888d8604adbb81619a438605fc39a9",
+                    "md": "e97d3fb9385786768065c56f776a99ec99e3d813"
+                },
+                "heading": "two things connected",
+                "section": "Things"
+            },
+            {
+                "destination": "five-things-connected",
+                "line": 1501,
+                "anchor": "#five-things-connected",
+                "content_sha1": "2e3464d0092887176de180c85550ce1e7e76a627",
+                "outputs": {
+                    "ipm.svg": "0af306c0178afbeddf0884ee30c6501c6f1b4b61",
+                    "ipmt": "2e3464d0092887176de180c85550ce1e7e76a627",
+                    "json": "5ff129e47e72404f91f2925b76b77f3f9c9c9217",
+                    "layout.json": "fc28e2d44cb6886fbd389b14bac655b1cf9d762d",
+                    "md": "435b76c2357a766f064788b96f46e89217849b0d"
+                },
+                "heading": "five things connected",
+                "section": "Things"
+            },
+            {
+                "destination": "thing-hierarchy-diamond-pattern",
+                "line": 1532,
+                "anchor": "#thing-hierarchy-diamond-pattern",
+                "content_sha1": "25327a5b14a9ca1d2717389a2ea2b75355c19800",
+                "outputs": {
+                    "ipm.svg": "9f808b4cdfd78a0b5b57838750fcb976df98c62a",
+                    "ipmt": "25327a5b14a9ca1d2717389a2ea2b75355c19800",
+                    "json": "e9868360bdbb4416f31bce4e88c1d38fe4b3e3a7",
+                    "layout.json": "4796c9848ed3b00343388e852451ef7141ffded6",
+                    "md": "d08df58bab4a938734e71e97164a6600f8586c94"
+                },
+                "heading": "thing hierarchy diamond pattern",
+                "section": "Things"
+            },
+            {
+                "destination": "thing-hierarchy-multiple-roots",
+                "line": 1557,
+                "anchor": "#thing-hierarchy-multiple-roots",
+                "content_sha1": "822186063d60abbfb05db136eb81296c173efc12",
+                "outputs": {
+                    "ipm.svg": "1d300a5e10ed1d7659e1fff046f425edd21bc22b",
+                    "ipmt": "822186063d60abbfb05db136eb81296c173efc12",
+                    "json": "35eae269c6e453aedf1c9283f98eb328b609e59f",
+                    "layout.json": "aa286394ec9ef70233fb9022d49b6e7819fdd120",
+                    "md": "a941479ce789930a6448fb9a6966e28403e94919"
+                },
+                "heading": "thing hierarchy multiple roots",
+                "section": "Things"
+            },
+            {
+                "destination": "thing-hierarchy-sibling-near-to-clustering",
+                "line": 1580,
+                "anchor": "#thing-hierarchy-sibling-near-to-clustering",
+                "content_sha1": "d95421e912695b563460b357ea9905b2f9040748",
+                "outputs": {
+                    "ipm.svg": "3cbd4a226169914c7354a05294931355b433f917",
+                    "ipmt": "d95421e912695b563460b357ea9905b2f9040748",
+                    "json": "2c69ecb94397a2261da40eab613a8bc69decea9d",
+                    "layout.json": "d19d1b9daeb922cc776e9b3002b2e49c3925d91e",
+                    "md": "453098d6db615b34ece8600d70642b5bcd28babb"
+                },
+                "heading": "thing hierarchy sibling near-to clustering",
+                "section": "Things"
+            },
+            {
+                "destination": "thing-parts-keep-their-own-concepts-above-the-join",
+                "line": 1616,
+                "anchor": "#thing-parts-keep-their-own-concepts-above-the-join",
+                "content_sha1": "e67a57ff107e5ad5b25a2423168bea5e63298bed",
+                "outputs": {
+                    "ipm.svg": "224ec3fb09767bfe135956a4ca11b5996dc05658",
+                    "ipmt": "e67a57ff107e5ad5b25a2423168bea5e63298bed",
+                    "json": "2af3c9bd279b7ebd43f911e58d067c267099ffa7",
+                    "layout.json": "d3dbe9650964ec8de48536fedd07b96d85c8dcbb",
+                    "md": "f4b8acad28c4ad16abe7eaf63012711a8c8db1fe"
+                },
+                "heading": "thing parts keep their own concepts above the join",
+                "section": "Things"
+            },
+            {
+                "destination": "a-thing-hierarchy-and-its-concepts-join-the-event-chain",
+                "line": 1652,
+                "anchor": "#a-thing-hierarchy-and-its-concepts-join-the-event-chain",
+                "content_sha1": "b0b0e5685884c8d7a7a94ea8160e0d83667874de",
+                "outputs": {
+                    "ipm.svg": "175d3175dc6ada6ddbbec4874770e23334561cb7",
+                    "ipmt": "b0b0e5685884c8d7a7a94ea8160e0d83667874de",
+                    "json": "4ea5dbdb7893545ce31e34d328bc17475d4206a7",
+                    "layout.json": "23f57cb4d11e158b2858e7f708c6984db6b7a2a3",
+                    "md": "a5520cb2739554f0e625d11fdd718a67930015b3"
+                },
+                "heading": "a thing hierarchy and its concepts join the event chain",
+                "section": "Things"
+            },
+            {
+                "destination": "a-part-of-two-wholes-stays-on-the-root-row",
+                "line": 1696,
+                "anchor": "#a-part-of-two-wholes-stays-on-the-root-row",
+                "content_sha1": "eed832c8c9e1c9f5e4ad2775ab621f1ed68d31fd",
+                "outputs": {
+                    "ipm.svg": "833aa6b67e63f1069318e276dccef4ac2cd3cfb6",
+                    "ipmt": "eed832c8c9e1c9f5e4ad2775ab621f1ed68d31fd",
+                    "json": "3d09d48a247edeb915a4bd0725a04e16e438c487",
+                    "layout.json": "134dda2470b5c08b3ed0673c8fc0769dcee7934a",
+                    "md": "fc726d4cbd3bc4f8b13cc3b64ce42cf32348c16b"
+                },
+                "heading": "a part of two wholes stays on the root row",
+                "section": "Things"
+            },
+            {
+                "destination": "concept-fan-in-keeps-the-chain-gap-below-its-parents",
+                "line": 1727,
+                "anchor": "#concept-fan-in-keeps-the-chain-gap-below-its-parents",
+                "content_sha1": "fa2c17b995dc0098ae02d447b5aae3e875831c92",
+                "outputs": {
+                    "ipm.svg": "91abfc23952b5527e168f72f8faadafc36ebcaaa",
+                    "ipmt": "fa2c17b995dc0098ae02d447b5aae3e875831c92",
+                    "json": "0d925879bfedabb47cc14e37c62bb95816aba932",
+                    "layout.json": "6081e371024b7fbb81ad8b03e312c442f44a3148",
+                    "md": "d8388dc32645353c0a384dfb262b7941035056e0"
+                },
+                "heading": "concept fan-in keeps the chain gap below its parents",
+                "section": "Things"
+            },
+            {
+                "destination": "thing-part-of-event",
+                "line": 1750,
+                "anchor": "#thing-part-of-event",
+                "content_sha1": "30094f7335955d0d69386402818cc46ca6f02e96",
+                "outputs": {
+                    "ipm.svg": "81d0877757ab10a4cef1914fdfaf5c8e0071df7c",
+                    "ipmt": "30094f7335955d0d69386402818cc46ca6f02e96",
+                    "json": "fbb1ca22d67abca2b886d23529f82c5f13100b6e",
+                    "layout.json": "f1642439727790f3e2d236777d7404f7a2012ebf",
+                    "md": "f01bae5f0fbc30c8ced3488ce5f6ed27bb5ba9de"
+                },
+                "heading": "thing part of event",
+                "section": "Event - Thing connections"
+            },
+            {
+                "destination": "multiple-things-part-of-event",
+                "line": 1775,
+                "anchor": "#multiple-things-part-of-event",
+                "content_sha1": "58a9f71bebedb0875f1bb1b20e2e9b3b31e1e553",
+                "outputs": {
+                    "ipm.svg": "f2229e1f2912c043eda2d687790024f43daf5f2d",
+                    "ipmt": "58a9f71bebedb0875f1bb1b20e2e9b3b31e1e553",
+                    "json": "550b337d1ebb614cc288a390c7c752dc17a2aa98",
+                    "layout.json": "ed1a2adc9032132f766d0cc816ae840814d7d6a7",
+                    "md": "9c1421475dd8933ba0dd0c6b2b1e25b4abc24caa"
+                },
+                "heading": "multiple things part of event",
+                "section": "Event - Thing connections"
+            },
+            {
+                "destination": "things-part-of-an-inner-event-stack-in-one-centred-column",
+                "line": 1797,
+                "anchor": "#things-part-of-an-inner-event-stack-in-one-centred-column",
+                "content_sha1": "8275458250a607031f9cb819acce08d50f0428c5",
+                "outputs": {
+                    "ipm.svg": "348b1952de93b4bede117b10d78bd899d3e48c3e",
+                    "ipmt": "8275458250a607031f9cb819acce08d50f0428c5",
+                    "json": "14387cfe70b94f034e42e43ca43da593ebd6dc59",
+                    "layout.json": "7fd626e64fea8b6a34235587631125b95b8877f3",
+                    "md": "58c449bf2fe4306ba82026704258e01f1f59c2c7"
+                },
+                "heading": "things part of an inner event stack in one centred column",
+                "section": "Event - Thing connections"
+            },
+            {
+                "destination": "thing-created-by-event",
+                "line": 1828,
+                "anchor": "#thing-created-by-event",
+                "content_sha1": "acb7a2bb8811a170bdfe5e60a51feea6ced245b4",
+                "outputs": {
+                    "ipm.svg": "81d0877757ab10a4cef1914fdfaf5c8e0071df7c",
+                    "ipmt": "acb7a2bb8811a170bdfe5e60a51feea6ced245b4",
+                    "json": "a7690a71715896860f9ecdc1d24e64e034235981",
+                    "layout.json": "f1642439727790f3e2d236777d7404f7a2012ebf",
+                    "md": "1912b37ab743c559398b2765218a5d20bf37c318"
+                },
+                "heading": "thing created by event",
+                "section": "Event - Thing connections"
+            },
+            {
+                "destination": "multiple-things-created-by-event",
+                "line": 1855,
+                "anchor": "#multiple-things-created-by-event",
+                "content_sha1": "9dd5597ff349c8e230f4835fea2303652e670c82",
+                "outputs": {
+                    "ipm.svg": "f2229e1f2912c043eda2d687790024f43daf5f2d",
+                    "ipmt": "9dd5597ff349c8e230f4835fea2303652e670c82",
+                    "json": "ded1ecd49bbb6add9d43c66a6c63bae69b2100bc",
+                    "layout.json": "ed1a2adc9032132f766d0cc816ae840814d7d6a7",
+                    "md": "8d6586e009c671d251a7d4e0506a4ffbe904cba7"
+                },
+                "heading": "multiple things created by event",
+                "section": "Event - Thing connections"
+            },
+            {
+                "destination": "things-part-of-a-spine-stack-in-the-left-band",
+                "line": 1883,
+                "anchor": "#things-part-of-a-spine-stack-in-the-left-band",
+                "content_sha1": "f561153a67427f58bb1d98ffec7dbe2e2d97aad8",
+                "outputs": {
+                    "ipm.svg": "698c36ab4b859cc70e9485971cabd35a1a2bba23",
+                    "ipmt": "f561153a67427f58bb1d98ffec7dbe2e2d97aad8",
+                    "json": "c5c68bc71e18a7a466d042f0abf25b932f9cbb1d",
+                    "layout.json": "7f5b581be4ffaca1b9a07e13b9e74e9f778ede0f",
+                    "md": "4c80b57d65338efa53fe412679ebd32530968a69"
+                },
+                "heading": "things part-of a spine stack in the left band",
+                "section": "Event - Thing connections"
+            },
+            {
+                "destination": "one-concept",
+                "line": 1902,
+                "anchor": "#one-concept",
+                "content_sha1": "cfe4c658bc0e6177f1b1983d6a4caed7406990c7",
+                "outputs": {
+                    "ipm.svg": "f2e8648a91fc2d9bf394c3302058548d0274440e",
+                    "ipmt": "cfe4c658bc0e6177f1b1983d6a4caed7406990c7",
+                    "json": "d2fcc806a48fe7c5616737de78da93647213ccc2",
+                    "layout.json": "9948935cd0f03d99173f12d3cf1ca0ce2e70822a",
+                    "md": "9cf78abc48aea8741142f5b36e3969acdee399bb"
+                },
+                "heading": "one concept",
+                "section": "Concepts"
+            },
+            {
+                "destination": "two-concepts-connected",
+                "line": 1923,
+                "anchor": "#two-concepts-connected",
+                "content_sha1": "28f880de77134a5cfa52323753f5f8628988adf6",
+                "outputs": {
+                    "ipm.svg": "c4327e36166c6b2d4ec57cba8efaae838b388c54",
+                    "ipmt": "28f880de77134a5cfa52323753f5f8628988adf6",
+                    "json": "22476abc633719e8501dc0cd89a93e4abdd28748",
+                    "layout.json": "16bd328f310d9b4fd8e9760579d445254a690363",
+                    "md": "fd94cff7699678075e04e28bd1d21af1ba159765"
+                },
+                "heading": "two concepts connected",
+                "section": "Concepts"
+            },
+            {
+                "destination": "concept-hierarchy-diamond-pattern",
+                "line": 1947,
+                "anchor": "#concept-hierarchy-diamond-pattern",
+                "content_sha1": "af735a3a60a424581ee9377b97d1bd4d7cc57ccd",
+                "outputs": {
+                    "ipm.svg": "8dcd518f7c89ca79fc1f6dd7b1dda6c73decdabc",
+                    "ipmt": "af735a3a60a424581ee9377b97d1bd4d7cc57ccd",
+                    "json": "8d5e6e90a490c6b4aa68fa7dcda40552cc84b88b",
+                    "layout.json": "c3e8b6b7c9f3fe83de2a586cb92e8568777de1cf",
+                    "md": "4dfa292d83354beff33722e865ea7c46096ed8b9"
+                },
+                "heading": "concept hierarchy diamond pattern",
+                "section": "Concepts"
+            },
+            {
+                "destination": "concept-hierarchy-multiple-roots",
+                "line": 1972,
+                "anchor": "#concept-hierarchy-multiple-roots",
+                "content_sha1": "cf90df5e1152a045cae8ea03461d17d0953cc3c0",
+                "outputs": {
+                    "ipm.svg": "4529be13255a6fd54e530c09c68c208cadb6eeac",
+                    "ipmt": "cf90df5e1152a045cae8ea03461d17d0953cc3c0",
+                    "json": "585187856584edbd099d27f24bcfbc5577bd540f",
+                    "layout.json": "b8973f361e53be6355c8c6fc3768723954a1400f",
+                    "md": "76bf50d4078ff14cb600d117a89f619e5f43d3aa"
+                },
+                "heading": "concept hierarchy multiple roots",
+                "section": "Concepts"
+            },
+            {
+                "destination": "tall-concept-in-one-column-does-not-inflate-another",
+                "line": 1995,
+                "anchor": "#tall-concept-in-one-column-does-not-inflate-another",
+                "content_sha1": "36af7c5354ccbe1b4f1533dd2561c4353ba3417f",
+                "outputs": {
+                    "ipm.svg": "c902f56ca19a2604f1757283ea61cf75ab65477b",
+                    "ipmt": "36af7c5354ccbe1b4f1533dd2561c4353ba3417f",
+                    "json": "fa704938a2c8de1ff945775ebe7e4434a9a7c6c5",
+                    "layout.json": "68430f69cc5cb2d36d203ff9dff9ac927225f96c",
+                    "md": "79c8874c5733d95c1587f5c4f0709c94b63fcbbe"
+                },
+                "heading": "tall concept in one column does not inflate another",
+                "section": "Concepts"
+            },
+            {
+                "destination": "concept-near-to-concept",
+                "line": 2019,
+                "anchor": "#concept-near-to-concept",
+                "content_sha1": "eb994b3acdaf5133827ac0f7978a1860d664c289",
+                "outputs": {
+                    "ipm.svg": "c22d7686ec9b16031cf5e3063da39df5855c7713",
+                    "ipmt": "eb994b3acdaf5133827ac0f7978a1860d664c289",
+                    "json": "bec9dfe22b7c753c45d2a24270108ec9e8948623",
+                    "layout.json": "7929fcdb9a41ac5cc66ea7261555c03203d045d4",
+                    "md": "eef998a2803316cf974d98204f9e3b802aa6c28b"
+                },
+                "heading": "concept near to concept",
+                "section": "Concepts"
+            },
+            {
+                "destination": "thing-near-to-thing",
+                "line": 2045,
+                "anchor": "#thing-near-to-thing",
+                "content_sha1": "d09ef23eb5393bb320f73725ff7288b77b220972",
+                "outputs": {
+                    "ipm.svg": "6f34d92493308c8a6ad31731f05c9ac82394b2a4",
+                    "ipmt": "d09ef23eb5393bb320f73725ff7288b77b220972",
+                    "json": "e4f761ed5b7db93a641c424036f438f944c119f1",
+                    "layout.json": "2c94108ffd9302c391726321a9a993d8e70214cb",
+                    "md": "efdd17ab368b7d5e0453e713c7e35c19cfed69e3"
+                },
+                "heading": "thing near to thing",
+                "section": "Concepts"
+            },
+            {
+                "destination": "event-near-to-event",
+                "line": 2069,
+                "anchor": "#event-near-to-event",
+                "content_sha1": "70704c1ff78c2f0a2aee6224b4e3554a9fcd095f",
+                "outputs": {
+                    "ipm.svg": "477e0597a7a9494b6699b5b19c4b72f30bbe7af3",
+                    "ipmt": "70704c1ff78c2f0a2aee6224b4e3554a9fcd095f",
+                    "json": "a8bea09eac053b8d8c7d1b6c66b85198a1cfff14",
+                    "layout.json": "692dc5c8f5cbb50432f6f6f3d8f8eb8a04c171c2",
+                    "md": "3c135dc01f739c515357f091e2f4b0c94eb8d5ae"
+                },
+                "heading": "event near to event",
+                "section": "Concepts"
+            },
+            {
+                "destination": "near-to-sibling-components-stack-in-one-column",
+                "line": 2101,
+                "anchor": "#near-to-sibling-components-stack-in-one-column",
+                "content_sha1": "e413b63968eeddc574da0448892b72f0c1e6a361",
+                "outputs": {
+                    "ipm.svg": "5cabc96fcf3c906c99b853895322dcbc4efd805e",
+                    "ipmt": "e413b63968eeddc574da0448892b72f0c1e6a361",
+                    "json": "006c5c42e7725c0a0affd87bbe4553e142d99c2b",
+                    "layout.json": "5627590bcd66e8aa1a8323eb4a37839c72b1dc65",
+                    "md": "32c3e15436f99af2187eb83ebbf3a3fd53628809"
+                },
+                "heading": "near-to sibling components stack in one column",
+                "section": "Near-to component placement"
+            },
+            {
+                "destination": "near-to-satellite-hoists-to-the-left-of-its-anchor",
+                "line": 2137,
+                "anchor": "#near-to-satellite-hoists-to-the-left-of-its-anchor",
+                "content_sha1": "b9216125ea47fbeab060553c0b96dc6311eaabde",
+                "outputs": {
+                    "ipm.svg": "8bbd7c5fe15e58de49690f4589cd9b919d80be5d",
+                    "ipmt": "b9216125ea47fbeab060553c0b96dc6311eaabde",
+                    "json": "ca9998c8f8d9e3feba95fa975206c62f8ca1e470",
+                    "layout.json": "3fcc3dee984d647b41f1efcaaf162268b117ba0a",
+                    "md": "ab8f22d44b09727a595a6973668c4cf14ac06cae"
+                },
+                "heading": "near-to satellite hoists to the left of its anchor",
+                "section": "Near-to component placement"
+            },
+            {
+                "destination": "not-connected-events",
+                "line": 2177,
+                "anchor": "#not-connected-events",
+                "content_sha1": "65825da5ed86d19fd383074e9cf1593be76dceaa",
+                "outputs": {
+                    "ipm.svg": "085e03ace01842685fd74f23bd1754e86ea09407",
+                    "ipmt": "65825da5ed86d19fd383074e9cf1593be76dceaa",
+                    "json": "c416e5b4b852dbf5827b7050706eab3a1b827805",
+                    "layout.json": "2a266f4f8565f378357d5ed65dcaaa3fe6843ebc",
+                    "md": "0ca349eb5c3c2a06fcaf3ec68fe7177f4cfede54"
+                },
+                "heading": "not connected events",
+                "section": "Not connected nodes"
+            },
+            {
+                "destination": "not-connected-things",
+                "line": 2201,
+                "anchor": "#not-connected-things",
+                "content_sha1": "edd768437a576f991d5e512fc3d74fed148eb19b",
+                "outputs": {
+                    "ipm.svg": "01985ed15386ca2ea5e6dca66f778a760caa1c6f",
+                    "ipmt": "edd768437a576f991d5e512fc3d74fed148eb19b",
+                    "json": "cfb3f7b185491da8ed8a7dbc2db70cc6fbd8ef46",
+                    "layout.json": "89bfa0f35679a64dfc344d1c97daa7806190882a",
+                    "md": "1c90cd07c454718d5c760b446f181fdece25cca6"
+                },
+                "heading": "not connected things",
+                "section": "Not connected nodes"
+            },
+            {
+                "destination": "not-connected-many-events",
+                "line": 2232,
+                "anchor": "#not-connected-many-events",
+                "content_sha1": "2258f6a5e782caaec345546ed54792536741ce08",
+                "outputs": {
+                    "ipm.svg": "09321e10341e57a9d3b57ef724a5f0d35e7de238",
+                    "ipmt": "2258f6a5e782caaec345546ed54792536741ce08",
+                    "json": "eba2f8831fc5f4c77b2b248363bf259ef2d87f61",
+                    "layout.json": "2b3e72d484a4dcfde6f3b4f18731043e8b0db6e7",
+                    "md": "48210e8486dc4d776a7c3561d650cddf3f504705"
+                },
+                "heading": "not connected many events",
+                "section": "Not connected nodes"
+            },
+            {
+                "destination": "start-events-with-side-aux-stay-one-gap-apart",
+                "line": 2255,
+                "anchor": "#start-events-with-side-aux-stay-one-gap-apart",
+                "content_sha1": "91ca5453f149b873eaca881723f629e6e07340f5",
+                "outputs": {
+                    "ipm.svg": "8c5a509400a46e59e74bf8a5ce999781707f00db",
+                    "ipmt": "91ca5453f149b873eaca881723f629e6e07340f5",
+                    "json": "6412b47135f82f5544cdb5821169a6b4e2a4df7f",
+                    "layout.json": "000a9a63201e80ba2254924f0684435799134b16",
+                    "md": "9cb955d979f093386d32fec07f78b55066330014"
+                },
+                "heading": "start events with side aux stay one gap apart",
+                "section": "Not connected nodes"
+            },
+            {
+                "destination": "an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap",
+                "line": 2286,
+                "anchor": "#an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap",
+                "content_sha1": "96476e0393cb7f384c5cec5ed08dc1461c7ddb27",
+                "outputs": {
+                    "ipm.svg": "4170282ba6ba9fed03f9ce9bd079ce2146b28c0e",
+                    "ipmt": "96476e0393cb7f384c5cec5ed08dc1461c7ddb27",
+                    "json": "5012c3d19d2dedcc83617902221b0a88ffce5d12",
+                    "layout.json": "54f14adf32e0171ecc8c9eddfeb30e67c14c9a4f",
+                    "md": "56aca06565a4a5b436684eb685b2728027c04b85"
+                },
+                "heading": "an uneven end fan turns early and E keeps a fan gap",
+                "section": "Not connected nodes"
+            },
+            {
+                "destination": "a-wide-start-fan-grows-its-vertical-gap",
+                "line": 2328,
+                "anchor": "#a-wide-start-fan-grows-its-vertical-gap",
+                "content_sha1": "8faafb3343c97ba399019de77c905f34cc399c13",
+                "outputs": {
+                    "ipm.svg": "6717a235f6f44cbe845bb4bdb664896cda9e3a45",
+                    "ipmt": "8faafb3343c97ba399019de77c905f34cc399c13",
+                    "json": "38b27628b55a4652572971edaf1259ec87c832c0",
+                    "layout.json": "caec0830a334ef042d59e94174a4470ee2eccf17",
+                    "md": "a92ca375992bc60a678294f2dacbd3a536ceafa8"
+                },
+                "heading": "a wide start fan grows its vertical gap",
+                "section": "Not connected nodes"
+            },
+            {
+                "destination": "wide-forks-breathe-sibling-gaps-grow-with-the-fan",
+                "line": 2364,
+                "anchor": "#wide-forks-breathe-sibling-gaps-grow-with-the-fan",
+                "content_sha1": "bf5a9b779c22715a75b63c2dabc81b54b624b360",
+                "outputs": {
+                    "ipm.svg": "6f6ba73b51cb5893f5c2446581a0c117fd60c182",
+                    "ipmt": "bf5a9b779c22715a75b63c2dabc81b54b624b360",
+                    "json": "f19b36f1eecfb14c57df836d5e5d6d77bc25c3f6",
+                    "layout.json": "b2d0b1006b4ba25477ad6e70b214d2afe3287a7e",
+                    "md": "7417ef80e752cf4b6f5d2a5f154c5965585e72a2"
+                },
+                "heading": "wide forks breathe — sibling gaps grow with the fan",
+                "section": "Not connected nodes"
+            },
+            {
+                "destination": "same-side-entries-keep-their-approach-order",
+                "line": 2388,
+                "anchor": "#same-side-entries-keep-their-approach-order",
+                "content_sha1": "71d405542338c714e48d41d9b7513d983f286c0b",
+                "outputs": {
+                    "ipm.svg": "f728ae4de3da6542d8851ae5fd5df3f840243e9f",
+                    "ipmt": "71d405542338c714e48d41d9b7513d983f286c0b",
+                    "json": "4bba9fc0e523971f971bc1685925a3c7f4077b1d",
+                    "layout.json": "89bb3b225a5aab9386c79c1b5ef8800f9e4b5aa4",
+                    "md": "098e5e0042609202c2a36da09898ee6043305ced"
+                },
+                "heading": "same-side entries keep their approach order",
+                "section": "Not connected nodes"
+            },
+            {
+                "destination": "a-stranded-leaf-concept-comes-back-to-its-owner",
+                "line": 2436,
+                "anchor": "#a-stranded-leaf-concept-comes-back-to-its-owner",
+                "content_sha1": "eb8dd5658a66a2bd9f4529f100f68e5030c90999",
+                "outputs": {
+                    "ipm.svg": "449b2aeb76be1f5eebaccdd3a03e528f75a3ba64",
+                    "ipmt": "eb8dd5658a66a2bd9f4529f100f68e5030c90999",
+                    "json": "f7b080ec99e8f4d40e3039c9ed296a89f5ac5a40",
+                    "layout.json": "f1f343775ccc4daf98a6c64331ad8c31ac2b3679",
+                    "md": "14d5cce4633e4c886849744516359b6c819581a3"
+                },
+                "heading": "a stranded leaf concept comes back to its owner",
+                "section": "Not connected nodes"
+            },
+            {
+                "destination": "a-far-tie-draws-long-the-concept-stays-beside-its-anchor",
+                "line": 2489,
+                "anchor": "#a-far-tie-draws-long-the-concept-stays-beside-its-anchor",
+                "content_sha1": "f274625ef8fcd3d7860bb45be0c145432c75aba9",
+                "outputs": {
+                    "ipmt": "f274625ef8fcd3d7860bb45be0c145432c75aba9",
+                    "json": "2778ea12e2294acc73104cb4d807248ae65b56f8",
+                    "layout.json": "a76f760a7b7a4e73e99dbc32d6d4d6ea5ab73c54",
+                    "md": "1872423c787a24ec3bd071d13e15d83633184dc6"
+                },
+                "heading": "a far tie draws long; the concept stays beside its anchor",
+                "section": "Not connected nodes"
+            },
+            {
+                "destination": "a-far-shared-concept-anchors-to-its-first-usage",
+                "line": 2530,
+                "anchor": "#a-far-shared-concept-anchors-to-its-first-usage",
+                "content_sha1": "46ad61e67c1171578f588bf516eb2820440eca5d",
+                "outputs": {
+                    "ipm.svg": "712d8e359ff252d3dd8d17321f301c0869569e7c",
+                    "ipmt": "46ad61e67c1171578f588bf516eb2820440eca5d",
+                    "json": "cf4350ccfc04a13bb6e3b475f9b22ab4a53b59d4",
+                    "layout.json": "771d8b24cc8344352bc467a66e0ea605b6de7bdd",
+                    "md": "dde992e42d051936d9215000c1914f9953d3dd0a"
+                },
+                "heading": "a far-shared concept anchors to its first usage",
+                "section": "Not connected nodes"
+            },
+            {
+                "destination": "component-constellation-places-tied-components-around-the-hub",
+                "line": 2567,
+                "anchor": "#component-constellation-places-tied-components-around-the-hub",
+                "content_sha1": "da118796cd421bf2ac66d6ef5e36e85ff755c95f",
+                "outputs": {
+                    "ipm.svg": "5151008bf9ba1bbd8f72cd2f93a312805ac40664",
+                    "ipmt": "da118796cd421bf2ac66d6ef5e36e85ff755c95f",
+                    "json": "9239e7f4966cd89646cdc86ff9336200585498cc",
+                    "layout.json": "ba5908d55f90ec7f275a05a1fbfc2db179bfe7f5",
+                    "md": "20e1b0fcea475550abaa2348ea76351182f2141a"
+                },
+                "heading": "component constellation places tied components around the hub",
+                "section": "Not connected nodes"
+            },
+            {
+                "destination": "tied-components-ring-the-hub-on-every-side-onion",
+                "line": 2598,
+                "anchor": "#tied-components-ring-the-hub-on-every-side-onion",
+                "content_sha1": "6d807296923b3bdda5ae63a0f3d1f937e7646f33",
+                "outputs": {
+                    "ipm.svg": "83808250592980c72eb9d022c705fc5b06ede7df",
+                    "ipmt": "6d807296923b3bdda5ae63a0f3d1f937e7646f33",
+                    "json": "f6975b882a44060197d4392b09650a81909bbf56",
+                    "layout.json": "e7fd9a6695cab8fb06d8d38d684638c7b10106c6",
+                    "md": "044e8549bfbedfad41340c16f320ebbc6c8086b3"
+                },
+                "heading": "tied components ring the hub on every side (onion)",
+                "section": "Not connected nodes"
+            },
+            {
+                "destination": "single-node-ties-ring-their-core-graph",
+                "line": 2657,
+                "anchor": "#single-node-ties-ring-their-core-graph",
+                "content_sha1": "4b4ac2e1cbe763a82639bd70df6f6863b2666081",
+                "outputs": {
+                    "ipm.svg": "0663f49a5c61064b6d73ed51f66e869c9379fa82",
+                    "ipmt": "4b4ac2e1cbe763a82639bd70df6f6863b2666081",
+                    "json": "589c7b2a7484a8e5c6e9fc5fe7f361fd3f4ba266",
+                    "layout.json": "e7ae00d1b8b074fe439fb3716b3bd90defe3904c",
+                    "md": "0b41270ac17301f6e920a38dc3321de57dc5dd1b"
+                },
+                "heading": "single-node ties ring their core graph",
+                "section": "Not connected nodes"
+            },
+            {
+                "destination": "a-satellite-wraps-its-own-rows-not-the-whole-flank",
+                "line": 2692,
+                "anchor": "#a-satellite-wraps-its-own-rows-not-the-whole-flank",
+                "content_sha1": "c7d5b31701febf6cb59018ca31148a34a7777f94",
+                "outputs": {
+                    "ipm.svg": "0459b76dbc71ab6b1201afb914ac33fa57a31c54",
+                    "ipmt": "c7d5b31701febf6cb59018ca31148a34a7777f94",
+                    "json": "14bb64831f1a87cb5f20a31391f6a89863f43772",
+                    "layout.json": "5bcfbac916c0044b29462279497bb169cd51e06e",
+                    "md": "2e576834c590abf254929767f451409719899590"
+                },
+                "heading": "a satellite wraps its own rows, not the whole flank",
+                "section": "Not connected nodes"
+            },
+            {
+                "destination": "a-near-to-concept-stays-beside-its-anchor-not-ringed",
+                "line": 2737,
+                "anchor": "#a-near-to-concept-stays-beside-its-anchor-not-ringed",
+                "content_sha1": "f8d6a0725908f0eb081eb6a45e3a131560447dcd",
+                "outputs": {
+                    "ipm.svg": "93f6ad885473d147ab7b08057b7eefc973b5b251",
+                    "ipmt": "f8d6a0725908f0eb081eb6a45e3a131560447dcd",
+                    "json": "a87539aca43cf513b65db54b825a7d1b52e00077",
+                    "layout.json": "070eb4412bb8157f0ee6b73aa200324a768d2097",
+                    "md": "95784ed6c7ec51366de1e684598ad15c586d2c3e"
+                },
+                "heading": "a near-to concept stays beside its anchor, not ringed",
+                "section": "Not connected nodes"
+            },
+            {
+                "destination": "unresolved-node-lays-out-as-its-primary-candidate",
+                "line": 2765,
+                "anchor": "#unresolved-node-lays-out-as-its-primary-candidate",
+                "content_sha1": "af9dba5dc89c14a459a1913e305244f95c951ac9",
+                "outputs": {
+                    "ipm.svg": "725fec622ceefa0a4dcd6d7138356c623e25da7b",
+                    "ipmt": "af9dba5dc89c14a459a1913e305244f95c951ac9",
+                    "json": "ca59d51c42ed58d452294858143a1b5dbbd7498b",
+                    "layout.json": "cac0258c65c1338b5dfd426e249b213d39ec0472",
+                    "md": "eff4628660c84cd8f276b7bdd81907c30c5a920b"
+                },
+                "heading": "unresolved node lays out as its primary candidate",
+                "section": "Unresolved nodes"
+            },
+            {
+                "destination": "undecided-borders-weight-the-primary-candidate",
+                "line": 2787,
+                "anchor": "#undecided-borders-weight-the-primary-candidate",
+                "content_sha1": "f292d513b1e8a48bbde37e5337bf005b501caf6d",
+                "outputs": {
+                    "ipm.svg": "aae050045820c225ce24326831285cc54eaca7e1",
+                    "ipmt": "f292d513b1e8a48bbde37e5337bf005b501caf6d",
+                    "json": "c3af1c81edef5bc5cd8038fe725567bb7d7b2107",
+                    "layout.json": "92a1d4ec31d1dd84b23c3429d3010ea9fc5de34c",
+                    "md": "d29ea2c72f544ae47f054eebe9caf164ee3e4b75"
+                },
+                "heading": "undecided borders weight the primary candidate",
+                "section": "Unresolved nodes"
+            },
+            {
+                "destination": "concept-collision-detection",
+                "line": 2820,
+                "anchor": "#concept-collision-detection",
+                "content_sha1": "57bc044b811a2fa9da2b96e268671e87ccd68d46",
+                "outputs": {
+                    "ipm.svg": "62694f02374af27f06a5d3e59ce660c4c8045299",
+                    "ipmt": "57bc044b811a2fa9da2b96e268671e87ccd68d46",
+                    "json": "2491a441cbc06097febec8fcbbdfdc3b0df72ece",
+                    "layout.json": "af06d219dbb86b21387fe453bf75e318a253de09",
+                    "md": "f6d45176353ff8e6f0339a52ff2a13d9128454bb"
+                },
+                "heading": "Concept collision detection",
+                "section": "Other rules"
+            },
+            {
+                "destination": "thing-collision-detection",
+                "line": 2835,
+                "anchor": "#thing-collision-detection",
+                "content_sha1": "b1e477715b284e60e52527ce86bc3fb8ba637c5c",
+                "outputs": {
+                    "ipm.svg": "ae854366da7767af7cc78ac114ded741f95a4dca",
+                    "ipmt": "b1e477715b284e60e52527ce86bc3fb8ba637c5c",
+                    "json": "1fffbad5e2c2e628fad1fd02bbc16f9a9b2816dd",
+                    "layout.json": "aa25035ab1a4edd17958614c0b18b7b56a5512d2",
+                    "md": "fa140deaf339526e95445bccc689956c348a6046"
+                },
+                "heading": "Thing collision detection",
+                "section": "Other rules"
+            },
+            {
+                "destination": "thing-to-concept-spacing",
+                "line": 2851,
+                "anchor": "#thing-to-concept-spacing",
+                "content_sha1": "70d16063d270910b6f58c2c8583e96e7d72a019b",
+                "outputs": {
+                    "ipm.svg": "80b1f9093dfd5a5096ab8116c9be2493ba1c4299",
+                    "ipmt": "70d16063d270910b6f58c2c8583e96e7d72a019b",
+                    "json": "5d775b2d13a8ef8f085a5b4d3fd8c502439edb84",
+                    "layout.json": "5c6d39ba0639f733906be7b772a459663b1353b4",
+                    "md": "6cf06234e690fa550670c6790e228ffb4cfb333a"
+                },
+                "heading": "Thing-to-concept spacing",
+                "section": "Other rules"
+            },
+            {
+                "destination": "long-event-widens-and-stays-centered",
+                "line": 2887,
+                "anchor": "#long-event-widens-and-stays-centered",
+                "content_sha1": "e23ce73bb50db2b8fae280ae3491a1e226aecc95",
+                "outputs": {
+                    "ipm.svg": "2cd13a754d165b74548cef10d3378ae6c620301f",
+                    "ipmt": "e23ce73bb50db2b8fae280ae3491a1e226aecc95",
+                    "json": "9f3b8c6cc20d7cde61b74e0d50692bb8c3d73421",
+                    "layout.json": "0eba536c2abbdd74cdb267980bbe55d24cd3500a",
+                    "md": "83e55b293b41d0537801cb0bac98ea3f60667dd7"
+                },
+                "heading": "long event widens and stays centered",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "s-and-e-boundaries-connect-on-their-bottom-and-top",
+                "line": 2907,
+                "anchor": "#s-and-e-boundaries-connect-on-their-bottom-and-top",
+                "content_sha1": "7c462e11172153ca2f58741647d3450ffea2db9c",
+                "outputs": {
+                    "ipm.svg": "4857aad7595e52d7891e882d1624069c7d6a2d33",
+                    "ipmt": "7c462e11172153ca2f58741647d3450ffea2db9c",
+                    "json": "c1a986b6feb082de78828b55498121873fc2379b",
+                    "layout.json": "41610fa60416c76d0b9cc56c059ed12bb68a1dd2",
+                    "md": "7632da4880a64f98b5444289b7a58f805b4f4ca6"
+                },
+                "heading": "S and E boundaries connect on their bottom and top",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "a-two-concept-fan-mirrors-exactly-about-its-parent",
+                "line": 2956,
+                "anchor": "#a-two-concept-fan-mirrors-exactly-about-its-parent",
+                "content_sha1": "6e8c9c6621975c1c5d4ca821742f064b74ea68c5",
+                "outputs": {
+                    "ipm.svg": "a0ecb172467b03ad593e428f0bd30497401fb6ac",
+                    "ipmt": "6e8c9c6621975c1c5d4ca821742f064b74ea68c5",
+                    "json": "78cf35447b05ad53be71da7ccefeff7405b1d721",
+                    "layout.json": "8ced287c151748d101579fcc8546185f4a14c82d",
+                    "md": "412f8d9c9682b35b3c894f29f82276b3465a04d0"
+                },
+                "heading": "a two-concept fan mirrors exactly about its parent",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "a-standalone-shared-concept-diamond-centres-symmetrically",
+                "line": 2992,
+                "anchor": "#a-standalone-shared-concept-diamond-centres-symmetrically",
+                "content_sha1": "57c149c143a13758c48e88ab15e77106a35e64aa",
+                "outputs": {
+                    "ipm.svg": "8ad28ea99247d2466592c0eb5ad8c7c804435937",
+                    "ipmt": "57c149c143a13758c48e88ab15e77106a35e64aa",
+                    "json": "4e25a9d610a6e5805fba8a52f6c0d71b4d27b3e7",
+                    "layout.json": "99620a04b957134e20348a96a8beda6b86f2469b",
+                    "md": "236c250fd144b17d7f81d94ff7f4127cf9034f36"
+                },
+                "heading": "a standalone shared-concept diamond centres symmetrically",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "shared-thing-anchors-to-its-deepest-composite",
+                "line": 3018,
+                "anchor": "#shared-thing-anchors-to-its-deepest-composite",
+                "content_sha1": "6e82bf59c50e658a1d25aaeaeaa59dd793e82ab9",
+                "outputs": {
+                    "ipm.svg": "4b24170775868d09c196406af3b51a5752c05b4e",
+                    "ipmt": "6e82bf59c50e658a1d25aaeaeaa59dd793e82ab9",
+                    "json": "20b4e923fdeb21476ba84f7b7b7005fe4bae6969",
+                    "layout.json": "f809395be14def8127aa56c4b6e457328b2cdcee",
+                    "md": "c4f56cf8d5633724f1e1d1396dfe33044e3c50eb"
+                },
+                "heading": "shared thing anchors to its deepest composite",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
+                "line": 3053,
+                "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
+                "content_sha1": "49d8e8acbb523c25e56fe87848dba9c88b870b04",
+                "outputs": {
+                    "ipm.svg": "72ceec2acbfe17f4dcd6363eaa69fc22c7b9dceb",
+                    "ipmt": "49d8e8acbb523c25e56fe87848dba9c88b870b04",
+                    "json": "b9e906a6fc531727626db1dd1dd982d54c6581c7",
+                    "layout.json": "2c26c4c5c1d95e6d6df5ca33abaccf02846d9c1a",
+                    "md": "9c735d6a7779001d8689d8916fa3ce8d1c64f140"
+                },
+                "heading": "near-to peers in a column: neighbours link, spanning ties hide",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
+                "line": 3122,
+                "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
+                "content_sha1": "7cde2ceaa4ba7510fd9e5af3a6972ca2bef05172",
+                "outputs": {
+                    "ipm.svg": "ffcf0cc083f05419ffa15ba10f69732e1eaf562d",
+                    "ipmt": "7cde2ceaa4ba7510fd9e5af3a6972ca2bef05172",
+                    "json": "f1be0edcea361bc5ff6c96bd2fd0aec5c89941fd",
+                    "layout.json": "b69c9e7172651a00e1d65ec54dbc010acaf67524",
+                    "md": "8e11284362000fe48a1ba002edc1c5e16ac2fbce"
+                },
+                "heading": "near-to peers in a row: neighbours link, the spanning tie dips below",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "a-diagonal-near-to-connects-the-facing-sides",
+                "line": 3164,
+                "anchor": "#a-diagonal-near-to-connects-the-facing-sides",
+                "content_sha1": "7d6ffddf944b9c45a76fb609aec75818f6c17bf7",
+                "outputs": {
+                    "ipm.svg": "8ab5042ca1ddf120733f8c8ba6ea8b80ce609553",
+                    "ipmt": "7d6ffddf944b9c45a76fb609aec75818f6c17bf7",
+                    "json": "24c2f8e1f004ba7e57ff5e74ae8f6b9fa485dbdf",
+                    "layout.json": "00ad3bf12fc03433c95594c2c9833cdc3224ab0e",
+                    "md": "cee47d7712f2f597482111a75926ee9c2e0018f9"
+                },
+                "heading": "a diagonal near-to connects the facing sides",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
+                "line": 3191,
+                "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
+                "content_sha1": "06dbfb84257835f476231e2e84b0583347e9886e",
+                "outputs": {
+                    "ipm.svg": "66d97c4f4382f047533cd8a44e43a86e2827a104",
+                    "ipmt": "06dbfb84257835f476231e2e84b0583347e9886e",
+                    "json": "81b6e37eb1f60896e6b956f59085774576d049b0",
+                    "layout.json": "f8856bc684b6fbe794c7fbad7e456d8c95e41386",
+                    "md": "a3fe1fddf588f00aaaa6fd1037e05abf87cf4f64"
+                },
+                "heading": "a wide expresses fan orders its sides and lands on the row's tops",
+                "section": "Recent layout behaviours"
+            }
+        ]
+    }
+]

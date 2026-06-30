@@ -1,0 +1,9 @@
+tA --> tB
+tC, tA --> e1 ::e
+tD --> e1
+e1 --> cX ::c
+tD --- tE
+tF --- tA
+tG --> tA
+tH --> tA
+tG --> cY ::c

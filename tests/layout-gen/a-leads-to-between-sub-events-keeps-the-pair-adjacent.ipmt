@@ -1,0 +1,6 @@
+e1-outer ::e
+b ::e --::P--> e1-outer
+a ::e --::P--> e1-outer
+a --> b
+c ::e --::P--> e1-outer
+d ::e --::P--> e1-outer

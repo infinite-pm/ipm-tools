@@ -1,0 +1,324 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "tA --\u003e cA ::c --\u003e cB ::c --\u003e cL ::c\ncL --\u003e cJ ::c\ncL --- cP ::c\n\ntB --\u003e cD ::c --\u003e cR ::c --\u003e cJ ::c\ncR --- cQ ::c",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          2
+        ],
+        "10": [
+          108,
+          110
+        ],
+        "2": [
+          7,
+          9
+        ],
+        "3": [
+          18,
+          20
+        ],
+        "4": [
+          29,
+          31
+        ],
+        "5": [
+          43,
+          45
+        ],
+        "6": [
+          57,
+          59
+        ],
+        "7": [
+          65,
+          67
+        ],
+        "8": [
+          72,
+          74
+        ],
+        "9": [
+          83,
+          85
+        ]
+      },
+      "edges": {
+        "11": {
+          "arrow": [
+            2,
+            7
+          ],
+          "source": [
+            0,
+            2
+          ],
+          "target": [
+            7,
+            9
+          ]
+        },
+        "12": {
+          "arrow": [
+            13,
+            18
+          ],
+          "source": [
+            7,
+            9
+          ],
+          "target": [
+            18,
+            20
+          ]
+        },
+        "13": {
+          "arrow": [
+            24,
+            29
+          ],
+          "source": [
+            18,
+            20
+          ],
+          "target": [
+            29,
+            31
+          ]
+        },
+        "14": {
+          "arrow": [
+            38,
+            43
+          ],
+          "source": [
+            36,
+            38
+          ],
+          "target": [
+            43,
+            45
+          ]
+        },
+        "15": {
+          "arrow": [
+            52,
+            57
+          ],
+          "source": [
+            50,
+            52
+          ],
+          "target": [
+            57,
+            59
+          ]
+        },
+        "16": {
+          "arrow": [
+            67,
+            72
+          ],
+          "source": [
+            65,
+            67
+          ],
+          "target": [
+            72,
+            74
+          ]
+        },
+        "17": {
+          "arrow": [
+            78,
+            83
+          ],
+          "source": [
+            72,
+            74
+          ],
+          "target": [
+            83,
+            85
+          ]
+        },
+        "18": {
+          "arrow": [
+            89,
+            94
+          ],
+          "source": [
+            83,
+            85
+          ],
+          "target": [
+            94,
+            96
+          ]
+        },
+        "19": {
+          "arrow": [
+            103,
+            108
+          ],
+          "source": [
+            101,
+            103
+          ],
+          "target": [
+            108,
+            110
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "tA",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "cA",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 3,
+      "name": "cB",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 4,
+      "name": "cL",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 5,
+      "name": "cJ",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 6,
+      "name": "cP",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 7,
+      "name": "tB",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 8,
+      "name": "cD",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 9,
+      "name": "cR",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 10,
+      "name": "cQ",
+      "alias": "",
+      "type": "Concept"
+    }
+  ],
+  "edges": [
+    {
+      "id": 11,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 12,
+      "source": 2,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 13,
+      "source": 3,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 14,
+      "source": 4,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 15,
+      "source": 4,
+      "target": 6,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 16,
+      "source": 7,
+      "target": 8,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 17,
+      "source": 8,
+      "target": 9,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 18,
+      "source": 9,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 19,
+      "source": 9,
+      "target": 10,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

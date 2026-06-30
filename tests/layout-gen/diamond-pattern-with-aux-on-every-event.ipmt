@@ -1,0 +1,14 @@
+e1 ::e --> e2 ::e, e3a ::e
+e3a --> e3b ::e
+e2 --> e4 ::e
+e3b --> e4
+t1 ::t --> e1
+e1 --> c1 ::c
+t2 ::t --> e2
+e2 --> c2 ::c
+t3a ::t --> e3a
+e3a --> c3a ::c
+t3b ::t --> e3b
+e3b --> c3b ::c
+t4 ::t --> e4
+e4 --> c4 ::c

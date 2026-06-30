@@ -1,0 +1,182 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "e1-outer ::e\nb ::e --::P--\u003e e1-outer\na ::e --::P--\u003e e1-outer\na --\u003e b\nc ::e --::P--\u003e e1-outer\nd ::e --::P--\u003e e1-outer",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          8
+        ],
+        "2": [
+          13,
+          14
+        ],
+        "3": [
+          37,
+          38
+        ],
+        "4": [
+          69,
+          70
+        ],
+        "5": [
+          93,
+          94
+        ]
+      },
+      "edges": {
+        "10": {
+          "arrow": [
+            98,
+            108
+          ],
+          "source": [
+            93,
+            94
+          ],
+          "target": [
+            108,
+            116
+          ]
+        },
+        "6": {
+          "arrow": [
+            18,
+            28
+          ],
+          "source": [
+            13,
+            14
+          ],
+          "target": [
+            28,
+            36
+          ]
+        },
+        "7": {
+          "arrow": [
+            42,
+            52
+          ],
+          "source": [
+            37,
+            38
+          ],
+          "target": [
+            52,
+            60
+          ]
+        },
+        "8": {
+          "arrow": [
+            62,
+            67
+          ],
+          "source": [
+            61,
+            62
+          ],
+          "target": [
+            67,
+            68
+          ]
+        },
+        "9": {
+          "arrow": [
+            74,
+            84
+          ],
+          "source": [
+            69,
+            70
+          ],
+          "target": [
+            84,
+            92
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "e1-outer",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "b",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "a",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 4,
+      "name": "c",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 5,
+      "name": "d",
+      "alias": "",
+      "type": "Event"
+    }
+  ],
+  "edges": [
+    {
+      "id": 6,
+      "source": 2,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 7,
+      "source": 3,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 8,
+      "source": 3,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 9,
+      "source": 4,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 10,
+      "source": 5,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

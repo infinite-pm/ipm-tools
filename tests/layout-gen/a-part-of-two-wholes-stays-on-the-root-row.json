@@ -1,0 +1,347 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "tA --\u003e tB\ntB --\u003e tC\ntD, tE --\u003e tF\ntA --\u003e tF\ntG, tH, tI --\u003e cX ::c\ntD, tE --\u003e cX",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          2
+        ],
+        "10": [
+          59,
+          61
+        ],
+        "2": [
+          7,
+          9
+        ],
+        "3": [
+          17,
+          19
+        ],
+        "4": [
+          20,
+          22
+        ],
+        "5": [
+          24,
+          26
+        ],
+        "6": [
+          31,
+          33
+        ],
+        "7": [
+          44,
+          46
+        ],
+        "8": [
+          48,
+          50
+        ],
+        "9": [
+          52,
+          54
+        ]
+      },
+      "edges": {
+        "11": {
+          "arrow": [
+            2,
+            7
+          ],
+          "source": [
+            0,
+            2
+          ],
+          "target": [
+            7,
+            9
+          ]
+        },
+        "12": {
+          "arrow": [
+            12,
+            17
+          ],
+          "source": [
+            10,
+            12
+          ],
+          "target": [
+            17,
+            19
+          ]
+        },
+        "13": {
+          "arrow": [
+            26,
+            31
+          ],
+          "source": [
+            20,
+            22
+          ],
+          "target": [
+            31,
+            33
+          ]
+        },
+        "14": {
+          "arrow": [
+            26,
+            31
+          ],
+          "source": [
+            24,
+            26
+          ],
+          "target": [
+            31,
+            33
+          ]
+        },
+        "15": {
+          "arrow": [
+            36,
+            41
+          ],
+          "source": [
+            34,
+            36
+          ],
+          "target": [
+            41,
+            43
+          ]
+        },
+        "16": {
+          "arrow": [
+            54,
+            59
+          ],
+          "source": [
+            44,
+            46
+          ],
+          "target": [
+            59,
+            61
+          ]
+        },
+        "17": {
+          "arrow": [
+            54,
+            59
+          ],
+          "source": [
+            48,
+            50
+          ],
+          "target": [
+            59,
+            61
+          ]
+        },
+        "18": {
+          "arrow": [
+            54,
+            59
+          ],
+          "source": [
+            52,
+            54
+          ],
+          "target": [
+            59,
+            61
+          ]
+        },
+        "19": {
+          "arrow": [
+            72,
+            77
+          ],
+          "source": [
+            66,
+            68
+          ],
+          "target": [
+            77,
+            79
+          ]
+        },
+        "20": {
+          "arrow": [
+            72,
+            77
+          ],
+          "source": [
+            70,
+            72
+          ],
+          "target": [
+            77,
+            79
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "tA",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "tB",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 3,
+      "name": "tC",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 4,
+      "name": "tD",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 5,
+      "name": "tE",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 6,
+      "name": "tF",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 7,
+      "name": "tG",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 8,
+      "name": "tH",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 9,
+      "name": "tI",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 10,
+      "name": "cX",
+      "alias": "",
+      "type": "Concept"
+    }
+  ],
+  "edges": [
+    {
+      "id": 11,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 12,
+      "source": 2,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 13,
+      "source": 4,
+      "target": 6,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 14,
+      "source": 5,
+      "target": 6,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 15,
+      "source": 1,
+      "target": 6,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 16,
+      "source": 7,
+      "target": 10,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 17,
+      "source": 8,
+      "target": 10,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 18,
+      "source": 9,
+      "target": 10,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 19,
+      "source": 4,
+      "target": 10,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 20,
+      "source": 5,
+      "target": 10,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

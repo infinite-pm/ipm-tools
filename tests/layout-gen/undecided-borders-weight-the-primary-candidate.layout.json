@@ -1,0 +1,203 @@
+{
+  "version": "26.07-v7",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "unresolved",
+      "label": "etc",
+      "x": 40,
+      "y": 120,
+      "width": 120,
+      "height": 60,
+      "candidates": [
+        "event",
+        "thing",
+        "concept"
+      ]
+    },
+    {
+      "id": "2",
+      "type": "unresolved",
+      "label": "tce",
+      "x": 520,
+      "y": 40,
+      "width": 120,
+      "height": 60,
+      "candidates": [
+        "thing",
+        "concept",
+        "event"
+      ]
+    },
+    {
+      "id": "3",
+      "type": "unresolved",
+      "label": "cet",
+      "x": 40,
+      "y": 380,
+      "width": 120,
+      "height": 60,
+      "candidates": [
+        "concept",
+        "event",
+        "thing"
+      ]
+    },
+    {
+      "id": "4",
+      "type": "unresolved",
+      "label": "et",
+      "x": 280,
+      "y": 120,
+      "width": 120,
+      "height": 60,
+      "candidates": [
+        "event",
+        "thing"
+      ]
+    },
+    {
+      "id": "5",
+      "type": "unresolved",
+      "label": "tc",
+      "x": 280,
+      "y": 380,
+      "width": 120,
+      "height": 60,
+      "candidates": [
+        "thing",
+        "concept"
+      ]
+    },
+    {
+      "id": "6",
+      "type": "unresolved",
+      "label": "ce",
+      "x": 520,
+      "y": 380,
+      "width": 120,
+      "height": 60,
+      "candidates": [
+        "concept",
+        "event"
+      ]
+    },
+    {
+      "id": "7",
+      "type": "boundary",
+      "label": "S",
+      "x": 80,
+      "y": 40,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "8",
+      "type": "boundary",
+      "label": "E",
+      "x": 80,
+      "y": 220,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "9",
+      "type": "boundary",
+      "label": "S",
+      "x": 320,
+      "y": 40,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "10",
+      "type": "boundary",
+      "label": "E",
+      "x": 320,
+      "y": 220,
+      "width": 40,
+      "height": 40
+    }
+  ],
+  "edges": [
+    {
+      "from": "7",
+      "to": "1",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "1",
+      "to": "8",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "9",
+      "to": "4",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "4",
+      "to": "10",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    }
+  ],
+  "meta": {
+    "bounds": {
+      "width": 680,
+      "height": 480,
+      "marginX": 40,
+      "marginY": 40
+    },
+    "constants": {
+      "gridStep": 20
+    }
+  }
+}

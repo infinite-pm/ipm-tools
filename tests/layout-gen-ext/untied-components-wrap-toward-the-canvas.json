@@ -1,0 +1,95 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "a1 ::e\nb1 ::e\nc1 ::e\nd1 ::e\nf1 ::e\ng1 ::e\nh1 ::e\ni1 ::e",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          2
+        ],
+        "2": [
+          7,
+          9
+        ],
+        "3": [
+          14,
+          16
+        ],
+        "4": [
+          21,
+          23
+        ],
+        "5": [
+          28,
+          30
+        ],
+        "6": [
+          35,
+          37
+        ],
+        "7": [
+          42,
+          44
+        ],
+        "8": [
+          49,
+          51
+        ]
+      },
+      "edges": {}
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "a1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "b1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "c1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 4,
+      "name": "d1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 5,
+      "name": "f1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 6,
+      "name": "g1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 7,
+      "name": "h1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 8,
+      "name": "i1",
+      "alias": "",
+      "type": "Event"
+    }
+  ],
+  "edges": null
+}

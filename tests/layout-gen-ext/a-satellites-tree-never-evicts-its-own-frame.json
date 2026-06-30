@@ -1,0 +1,258 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "MJ::a Michal Jurosz --\u003e life::a mj's life stories ::e\nMJ --- mj41, mj41.cz\nmj41 --\u003e nick name ::c\nmj41.cz --\u003e URL ::c, web page ::c, internet server ::c",
+    "positions": {
+      "nodes": {
+        "1": [
+          6,
+          19
+        ],
+        "2": [
+          32,
+          49
+        ],
+        "3": [
+          61,
+          65
+        ],
+        "4": [
+          67,
+          74
+        ],
+        "5": [
+          84,
+          93
+        ],
+        "6": [
+          110,
+          113
+        ],
+        "7": [
+          119,
+          127
+        ],
+        "8": [
+          133,
+          148
+        ]
+      },
+      "edges": {
+        "10": {
+          "arrow": [
+            56,
+            61
+          ],
+          "source": [
+            54,
+            56
+          ],
+          "target": [
+            61,
+            65
+          ]
+        },
+        "11": {
+          "arrow": [
+            56,
+            61
+          ],
+          "source": [
+            54,
+            56
+          ],
+          "target": [
+            67,
+            74
+          ]
+        },
+        "12": {
+          "arrow": [
+            79,
+            84
+          ],
+          "source": [
+            75,
+            79
+          ],
+          "target": [
+            84,
+            93
+          ]
+        },
+        "13": {
+          "arrow": [
+            105,
+            110
+          ],
+          "source": [
+            98,
+            105
+          ],
+          "target": [
+            110,
+            113
+          ]
+        },
+        "14": {
+          "arrow": [
+            105,
+            110
+          ],
+          "source": [
+            98,
+            105
+          ],
+          "target": [
+            119,
+            127
+          ]
+        },
+        "15": {
+          "arrow": [
+            105,
+            110
+          ],
+          "source": [
+            98,
+            105
+          ],
+          "target": [
+            133,
+            148
+          ]
+        },
+        "9": {
+          "arrow": [
+            19,
+            24
+          ],
+          "source": [
+            6,
+            19
+          ],
+          "target": [
+            32,
+            49
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "Michal Jurosz",
+      "alias": "MJ",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "mj's life stories",
+      "alias": "life",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "mj41",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 4,
+      "name": "mj41.cz",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 5,
+      "name": "nick name",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 6,
+      "name": "URL",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 7,
+      "name": "web page",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 8,
+      "name": "internet server",
+      "alias": "",
+      "type": "Concept"
+    }
+  ],
+  "edges": [
+    {
+      "id": 9,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 10,
+      "source": 1,
+      "target": 3,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 11,
+      "source": 1,
+      "target": 4,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 12,
+      "source": 3,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 13,
+      "source": 4,
+      "target": 6,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 14,
+      "source": 4,
+      "target": 7,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 15,
+      "source": 4,
+      "target": 8,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

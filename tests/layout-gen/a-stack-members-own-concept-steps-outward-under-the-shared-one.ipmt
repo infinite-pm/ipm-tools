@@ -1,0 +1,10 @@
+tA ::t --> cX ::c
+tB ::t --> cX
+tB --> cY ::c
+e1 ::e --> e2 ::e
+e2 --> cZ ::c
+tA --> e1
+tB --> e1
+tB --> e2
+t1-shared ::t --> e1
+t1-shared --> e2

@@ -1,0 +1,9 @@
+e1 ::e --> e2 ::e --> e3 ::e
+tA, tB --> e1
+tC --> e1
+tD --> e2
+tE --> e3
+tB, tD --> e3
+tD --> tC
+tC --> tF
+tD --> tG

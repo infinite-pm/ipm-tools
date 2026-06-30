@@ -1,0 +1,499 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "e1-start ::e --\u003e e2-leftA ::e\ne1-start --\u003e e3-midB ::e\ne1-start --\u003e e4-rightA ::e\ne2-leftA --\u003e e5-leftB ::e --\u003e e6-leftC ::e\ne4-rightA --\u003e e7-rightB ::e\ne3-midB --\u003e A deliberately very long event label that wraps onto many many lines so that the aspect ratio width rule grows this event to two hundred and forty pixels wide while every branch lane stays vertical and centered wide::a ::e\n\ny1 ::e --\u003e y2 ::e\ny1 \u003c--::P-- y1a ::e, y1b ::e\ny1a --\u003e y1b\ny1b \u003c--::P-- y1b1 ::e\n\nz1 ::e --\u003e z2 ::e --\u003e z3 ::e",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          8
+        ],
+        "10": [
+          400,
+          402
+        ],
+        "11": [
+          419,
+          422
+        ],
+        "12": [
+          428,
+          431
+        ],
+        "13": [
+          461,
+          465
+        ],
+        "14": [
+          471,
+          473
+        ],
+        "15": [
+          482,
+          484
+        ],
+        "16": [
+          493,
+          495
+        ],
+        "2": [
+          17,
+          25
+        ],
+        "3": [
+          43,
+          50
+        ],
+        "4": [
+          68,
+          77
+        ],
+        "5": [
+          95,
+          103
+        ],
+        "6": [
+          112,
+          120
+        ],
+        "7": [
+          139,
+          148
+        ],
+        "8": [
+          165,
+          375
+        ],
+        "9": [
+          389,
+          391
+        ]
+      },
+      "edges": {
+        "17": {
+          "arrow": [
+            12,
+            17
+          ],
+          "source": [
+            0,
+            8
+          ],
+          "target": [
+            17,
+            25
+          ]
+        },
+        "18": {
+          "arrow": [
+            38,
+            43
+          ],
+          "source": [
+            30,
+            38
+          ],
+          "target": [
+            43,
+            50
+          ]
+        },
+        "19": {
+          "arrow": [
+            63,
+            68
+          ],
+          "source": [
+            55,
+            63
+          ],
+          "target": [
+            68,
+            77
+          ]
+        },
+        "20": {
+          "arrow": [
+            90,
+            95
+          ],
+          "source": [
+            82,
+            90
+          ],
+          "target": [
+            95,
+            103
+          ]
+        },
+        "21": {
+          "arrow": [
+            107,
+            112
+          ],
+          "source": [
+            95,
+            103
+          ],
+          "target": [
+            112,
+            120
+          ]
+        },
+        "22": {
+          "arrow": [
+            134,
+            139
+          ],
+          "source": [
+            125,
+            134
+          ],
+          "target": [
+            139,
+            148
+          ]
+        },
+        "23": {
+          "arrow": [
+            160,
+            165
+          ],
+          "source": [
+            153,
+            160
+          ],
+          "target": [
+            165,
+            375
+          ]
+        },
+        "24": {
+          "arrow": [
+            395,
+            400
+          ],
+          "source": [
+            389,
+            391
+          ],
+          "target": [
+            400,
+            402
+          ]
+        },
+        "25": {
+          "arrow": [
+            410,
+            418
+          ],
+          "source": [
+            419,
+            422
+          ],
+          "target": [
+            407,
+            409
+          ]
+        },
+        "26": {
+          "arrow": [
+            410,
+            418
+          ],
+          "source": [
+            428,
+            431
+          ],
+          "target": [
+            407,
+            409
+          ]
+        },
+        "27": {
+          "arrow": [
+            439,
+            444
+          ],
+          "source": [
+            436,
+            439
+          ],
+          "target": [
+            444,
+            447
+          ]
+        },
+        "28": {
+          "arrow": [
+            452,
+            460
+          ],
+          "source": [
+            461,
+            465
+          ],
+          "target": [
+            448,
+            451
+          ]
+        },
+        "29": {
+          "arrow": [
+            477,
+            482
+          ],
+          "source": [
+            471,
+            473
+          ],
+          "target": [
+            482,
+            484
+          ]
+        },
+        "30": {
+          "arrow": [
+            488,
+            493
+          ],
+          "source": [
+            482,
+            484
+          ],
+          "target": [
+            493,
+            495
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "e1-start",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "e2-leftA",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "e3-midB",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 4,
+      "name": "e4-rightA",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 5,
+      "name": "e5-leftB",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 6,
+      "name": "e6-leftC",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 7,
+      "name": "e7-rightB",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 8,
+      "name": "A deliberately very long event label that wraps onto many many lines so that the aspect ratio width rule grows this event to two hundred and forty pixels wide while every branch lane stays vertical and centered",
+      "alias": "wide",
+      "type": "Event"
+    },
+    {
+      "id": 9,
+      "name": "y1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 10,
+      "name": "y2",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 11,
+      "name": "y1a",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 12,
+      "name": "y1b",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 13,
+      "name": "y1b1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 14,
+      "name": "z1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 15,
+      "name": "z2",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 16,
+      "name": "z3",
+      "alias": "",
+      "type": "Event"
+    }
+  ],
+  "edges": [
+    {
+      "id": 17,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 18,
+      "source": 1,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 19,
+      "source": 1,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 20,
+      "source": 2,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 21,
+      "source": 5,
+      "target": 6,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 22,
+      "source": 4,
+      "target": 7,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 23,
+      "source": 3,
+      "target": 8,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 24,
+      "source": 9,
+      "target": 10,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 25,
+      "source": 11,
+      "target": 9,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 26,
+      "source": 12,
+      "target": 9,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 27,
+      "source": 11,
+      "target": 12,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 28,
+      "source": 13,
+      "target": 12,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 29,
+      "source": 14,
+      "target": 15,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 30,
+      "source": 15,
+      "target": 16,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

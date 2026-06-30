@@ -1,0 +1,182 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "A --\u003e e1 ::e\nA --\u003e B1, B2, B3\nB1 --- B3",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          1
+        ],
+        "2": [
+          6,
+          8
+        ],
+        "3": [
+          19,
+          21
+        ],
+        "4": [
+          23,
+          25
+        ],
+        "5": [
+          27,
+          29
+        ]
+      },
+      "edges": {
+        "10": {
+          "arrow": [
+            32,
+            37
+          ],
+          "source": [
+            30,
+            32
+          ],
+          "target": [
+            37,
+            39
+          ]
+        },
+        "6": {
+          "arrow": [
+            1,
+            6
+          ],
+          "source": [
+            0,
+            1
+          ],
+          "target": [
+            6,
+            8
+          ]
+        },
+        "7": {
+          "arrow": [
+            14,
+            19
+          ],
+          "source": [
+            13,
+            14
+          ],
+          "target": [
+            19,
+            21
+          ]
+        },
+        "8": {
+          "arrow": [
+            14,
+            19
+          ],
+          "source": [
+            13,
+            14
+          ],
+          "target": [
+            23,
+            25
+          ]
+        },
+        "9": {
+          "arrow": [
+            14,
+            19
+          ],
+          "source": [
+            13,
+            14
+          ],
+          "target": [
+            27,
+            29
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "A",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "e1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "B1",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 4,
+      "name": "B2",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 5,
+      "name": "B3",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 6,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 7,
+      "source": 1,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 8,
+      "source": 1,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 9,
+      "source": 1,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 10,
+      "source": 3,
+      "target": 5,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

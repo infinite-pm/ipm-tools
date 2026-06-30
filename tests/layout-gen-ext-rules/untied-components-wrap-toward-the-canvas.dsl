@@ -1,0 +1,2 @@
+@scope local
+all #a1,#b1,#c1,#d1 have same y

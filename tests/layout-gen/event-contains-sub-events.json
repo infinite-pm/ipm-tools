@@ -1,0 +1,93 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "e1a ::e, e1b ::e --::P--\u003e e1 ::e",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          3
+        ],
+        "2": [
+          9,
+          12
+        ],
+        "3": [
+          26,
+          28
+        ]
+      },
+      "edges": {
+        "4": {
+          "arrow": [
+            16,
+            26
+          ],
+          "source": [
+            0,
+            3
+          ],
+          "target": [
+            26,
+            28
+          ]
+        },
+        "5": {
+          "arrow": [
+            16,
+            26
+          ],
+          "source": [
+            9,
+            12
+          ],
+          "target": [
+            26,
+            28
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "e1a",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "e1b",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "e1",
+      "alias": "",
+      "type": "Event"
+    }
+  ],
+  "edges": [
+    {
+      "id": 4,
+      "source": 1,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 5,
+      "source": 2,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

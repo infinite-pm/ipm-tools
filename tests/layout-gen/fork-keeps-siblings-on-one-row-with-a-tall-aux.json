@@ -1,0 +1,126 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "e1 ::e --::L--\u003e ea ::e, eb ::e\ne1 --::X \"used for\"--\u003e \"setup tasks like config init or dependency checks\" ::c",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          2
+        ],
+        "2": [
+          16,
+          18
+        ],
+        "3": [
+          24,
+          26
+        ],
+        "4": [
+          54,
+          105
+        ]
+      },
+      "edges": {
+        "5": {
+          "arrow": [
+            6,
+            16
+          ],
+          "source": [
+            0,
+            2
+          ],
+          "target": [
+            16,
+            18
+          ]
+        },
+        "6": {
+          "arrow": [
+            6,
+            16
+          ],
+          "source": [
+            0,
+            2
+          ],
+          "target": [
+            24,
+            26
+          ]
+        },
+        "7": {
+          "arrow": [
+            33,
+            54
+          ],
+          "source": [
+            31,
+            33
+          ],
+          "target": [
+            54,
+            105
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "e1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "ea",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "eb",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 4,
+      "name": "setup tasks like config init or dependency checks",
+      "alias": "",
+      "type": "Concept"
+    }
+  ],
+  "edges": [
+    {
+      "id": 5,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 6,
+      "source": 1,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 7,
+      "source": 1,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "used for",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+tA --> e1 ::e
+tA --> e2 ::e
+tA --> e3 ::e
+e1 --> cA ::c
+e2 --> cB ::c
+e3 --> cC ::c

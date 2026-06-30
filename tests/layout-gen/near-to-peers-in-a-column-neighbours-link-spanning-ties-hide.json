@@ -1,0 +1,195 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "e1a ::e\ne1b ::e\ne1c ::e\ne1 ::e\ne1a --::P--\u003e e1\ne1b --::P--\u003e e1\ne1c --::P--\u003e e1\ne1a --- e1b\ne1b --- e1c\ne1a --- e1c",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          3
+        ],
+        "2": [
+          8,
+          11
+        ],
+        "3": [
+          16,
+          19
+        ],
+        "4": [
+          24,
+          26
+        ]
+      },
+      "edges": {
+        "10": {
+          "arrow": [
+            106,
+            111
+          ],
+          "source": [
+            103,
+            106
+          ],
+          "target": [
+            111,
+            114
+          ]
+        },
+        "5": {
+          "arrow": [
+            34,
+            44
+          ],
+          "source": [
+            31,
+            34
+          ],
+          "target": [
+            44,
+            46
+          ]
+        },
+        "6": {
+          "arrow": [
+            50,
+            60
+          ],
+          "source": [
+            47,
+            50
+          ],
+          "target": [
+            60,
+            62
+          ]
+        },
+        "7": {
+          "arrow": [
+            66,
+            76
+          ],
+          "source": [
+            63,
+            66
+          ],
+          "target": [
+            76,
+            78
+          ]
+        },
+        "8": {
+          "arrow": [
+            82,
+            87
+          ],
+          "source": [
+            79,
+            82
+          ],
+          "target": [
+            87,
+            90
+          ]
+        },
+        "9": {
+          "arrow": [
+            94,
+            99
+          ],
+          "source": [
+            91,
+            94
+          ],
+          "target": [
+            99,
+            102
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "e1a",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "e1b",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "e1c",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 4,
+      "name": "e1",
+      "alias": "",
+      "type": "Event"
+    }
+  ],
+  "edges": [
+    {
+      "id": 5,
+      "source": 1,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 6,
+      "source": 2,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 7,
+      "source": 3,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 8,
+      "source": 1,
+      "target": 2,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 9,
+      "source": 2,
+      "target": 3,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 10,
+      "source": 1,
+      "target": 3,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

@@ -1,0 +1,447 @@
+[
+    {
+        "source": "../../docs/dev/layout-gen/layout-alg-ext.md",
+        "source_sha1": "0d6e00e6755e9c5c57ebb7ca82b6485db8553994",
+        "name": "ipmt layout algorithm extensions",
+        "method": "parser",
+        "parser_name": "ipmt-md",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmt"
+        },
+        "items": [
+            {
+                "destination": "event-lines",
+                "line": 14,
+                "anchor": "#event-lines",
+                "content_sha1": "1d10fad5c75308c57bcd80955b0ea558fe9b7d80",
+                "outputs": {
+                    "ipm.svg": "867a9275b4ee5f6c7d30748c736938efc3017ee5",
+                    "ipmt": "1d10fad5c75308c57bcd80955b0ea558fe9b7d80",
+                    "json": "e68c053b003134344148cefbdcd08b54c6d2b0b4",
+                    "layout.json": "46552e8c35d281b0c4adb6ff6d283560024b50d2",
+                    "md": "dd454aaa6da57cf27c83a16fbdb73c6e1fbb446a"
+                },
+                "section": "Event lines"
+            },
+            {
+                "destination": "disconnected-graphs-combine-branches-containment-and-a-long-label",
+                "line": 47,
+                "anchor": "#disconnected-graphs-combine-branches-containment-and-a-long-label",
+                "content_sha1": "4865593aacbb18a333757b3b832d19e8e7d4c272",
+                "outputs": {
+                    "ipm.svg": "0ef5d21978078a51f14a47c0184148318368c4ba",
+                    "ipmt": "4865593aacbb18a333757b3b832d19e8e7d4c272",
+                    "json": "332772057c475b56cac4007069870b51152a26ab",
+                    "layout.json": "03d1a5a3c4916cb40e70ae5d08f18f8b4be44d5a",
+                    "md": "54b68bd48bed22df246adb9e8ec0874c7822e263"
+                },
+                "heading": "disconnected graphs combine branches, containment and a long label",
+                "section": "Event lines"
+            },
+            {
+                "destination": "long-thing-widens-and-stays-centered",
+                "line": 101,
+                "anchor": "#long-thing-widens-and-stays-centered",
+                "content_sha1": "ee963f213cbcb22c3c2955a76acc8d59baa6f7b9",
+                "outputs": {
+                    "ipm.svg": "5b16a970c2052e243a7b7d775e59d9c9b581dcd4",
+                    "ipmt": "ee963f213cbcb22c3c2955a76acc8d59baa6f7b9",
+                    "json": "3be3e27707d733ac6be0bf5c980d5f6835dbc07e",
+                    "layout.json": "0f0ac33b18037c7750734b87f68413e48f0bf1e6",
+                    "md": "f167765bb4c0ed1c91772ab3953c6087b0940c8d"
+                },
+                "heading": "long thing widens and stays centered",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "long-concept-widens-and-stays-centered",
+                "line": 120,
+                "anchor": "#long-concept-widens-and-stays-centered",
+                "content_sha1": "da580ce368c57d6b1800a181a88645cacc92245f",
+                "outputs": {
+                    "ipm.svg": "5184fc874b8f2cc833fc5c87bc3506bd8f24fd72",
+                    "ipmt": "da580ce368c57d6b1800a181a88645cacc92245f",
+                    "json": "669a4db6073469f544c9690eeab935bb79ab45d2",
+                    "layout.json": "4bfea1072c2d5ea6038c4609cfadddc7df09f9a8",
+                    "md": "3660760e7259a8c6bfba7ed2517a9165f9b238b6"
+                },
+                "heading": "long concept widens and stays centered",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "diamond-branches-stay-compact-with-outer-concepts",
+                "line": 136,
+                "anchor": "#diamond-branches-stay-compact-with-outer-concepts",
+                "content_sha1": "697586b4e557e589b43eee9e62bdb3f46d1293e7",
+                "outputs": {
+                    "ipm.svg": "ab25b25af9cf772e0a3a169ecd5bf27f9b57cbac",
+                    "ipmt": "697586b4e557e589b43eee9e62bdb3f46d1293e7",
+                    "json": "c3206dbf1deb8b36e3d28f6d1d52263d285a37d7",
+                    "layout.json": "1327060a04214a567dc2d40bc680ec817b378c72",
+                    "md": "d0bf00f424f1f64ad6ebd3a1f4e7675255437996"
+                },
+                "heading": "diamond branches stay compact with outer concepts",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "nested-composites-concept-takes-the-left-flank",
+                "line": 172,
+                "anchor": "#nested-composites-concept-takes-the-left-flank",
+                "content_sha1": "0942ac06a1070effa6dd3c7ca78a8aa96c47ad08",
+                "outputs": {
+                    "ipm.svg": "a513d7d5093ef6182e9e9f2702effc062f82f3ce",
+                    "ipmt": "0942ac06a1070effa6dd3c7ca78a8aa96c47ad08",
+                    "json": "094c9037651b796ddb740a30c1da9e91a2d0724d",
+                    "layout.json": "51a5e5b9139e3bf6c32a3c0a408a7ae998a1ac07",
+                    "md": "dfa3e0e618c28d01695eb8d30ea0f9f84973a445"
+                },
+                "heading": "nested composite's concept takes the left flank",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "wide-thing-in-a-graph-keeps-clearances",
+                "line": 257,
+                "anchor": "#wide-thing-in-a-graph-keeps-clearances",
+                "content_sha1": "f6f02fd88b26a059385c4f9412f6319844961b46",
+                "outputs": {
+                    "ipm.svg": "ab857ddb0e7ff2dd30f7ac8ad2fca52666b0c2f0",
+                    "ipmt": "f6f02fd88b26a059385c4f9412f6319844961b46",
+                    "json": "867803a99fb4af67bc13ec5d88f2d777ba4067b4",
+                    "layout.json": "f5349ae3ed9c9101cefc8ffe239f61557040db55",
+                    "md": "df9249094e7f4be598b021adde993c0bcec0fb90"
+                },
+                "heading": "wide thing in a graph keeps clearances",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-late-side-branch-merge-keeps-its-join-edge-short",
+                "line": 330,
+                "anchor": "#a-late-side-branch-merge-keeps-its-join-edge-short",
+                "content_sha1": "870192f0cc103a224efb981a9d7d40f1fc77fada",
+                "outputs": {
+                    "ipm.svg": "1f3903eea76117dcd492b92e13100ebdfb6a4105",
+                    "ipmt": "870192f0cc103a224efb981a9d7d40f1fc77fada",
+                    "json": "cc1d4f562c7ec4772d444ae0cb9720b66023ed0f",
+                    "layout.json": "1737406067c250310a7e41fd850e8de81a5603e5",
+                    "md": "a6802a78b11e5cbec8810d6705ba8a55cc1cc679"
+                },
+                "heading": "a late side-branch merge keeps its join edge short",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-shared-thing-anchors-to-its-first-event-and-ties-the-rest",
+                "line": 399,
+                "anchor": "#a-shared-thing-anchors-to-its-first-event-and-ties-the-rest",
+                "content_sha1": "563268949fc03634718d9a69f4efaa65c4701a47",
+                "outputs": {
+                    "ipm.svg": "329952f28eaf3e3684f3595838e9d677b1ec7b1a",
+                    "ipmt": "563268949fc03634718d9a69f4efaa65c4701a47",
+                    "json": "53604cedeead54ec66cb173cc310297a490f4175",
+                    "layout.json": "3d24b150554e53cbbb451f6b0a4c36d24926e6e7",
+                    "md": "38816b4bb05d4b276e25329e72cdaadfffcab4fc"
+                },
+                "heading": "a shared thing anchors to its first event and ties the rest",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below",
+                "line": 450,
+                "anchor": "#a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below",
+                "content_sha1": "a119e4cd4eda8b25f788e25fa27137fa5c9f2a98",
+                "outputs": {
+                    "ipm.svg": "a6787f6d922559c15945c405418818e2e39f0e21",
+                    "ipmt": "a119e4cd4eda8b25f788e25fa27137fa5c9f2a98",
+                    "json": "0a47d67e8931d71ce5acbd5def2ff3d7e98d929e",
+                    "layout.json": "cf4b8225fb2f48e6c263a7e2aaafab6c2db79f6a",
+                    "md": "da19e6f29a256866832939af8cb9b3411f61f514"
+                },
+                "heading": "a part-of thing-fan centres on its event and the sole concept drops below",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-middle-branch-thing-widens-only-its-own-gap",
+                "line": 506,
+                "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
+                "content_sha1": "3ba331819d0b73243a523c456564b00f2d1e0546",
+                "outputs": {
+                    "ipm.svg": "823d277b20593bab2b7ef605fe363621b9583422",
+                    "ipmt": "3ba331819d0b73243a523c456564b00f2d1e0546",
+                    "json": "b4582b60be1f10cc96711147ab4404ccf4ef8efa",
+                    "layout.json": "2c3cbae2a2cd71421296453dcf98e8d516d3058f",
+                    "md": "fac44bd79d02f043817b62be19648a1ce440857a"
+                },
+                "heading": "a middle-branch thing widens only its own gap",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
+                "line": 552,
+                "anchor": "#aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
+                "content_sha1": "d15de90bc21e290c7872b6f6749b613dbf8f41ac",
+                "outputs": {
+                    "ipm.svg": "8c2c758dd6cecbbb52a6b7fbcf56041fea5b579f",
+                    "ipmt": "d15de90bc21e290c7872b6f6749b613dbf8f41ac",
+                    "json": "10d88426c73176f800afa17c385300598d4fa2c0",
+                    "layout.json": "f9089750ef455082c8aa849cd88fc9a7c106799c",
+                    "md": "fc7ebb6aff7a2b904f02eb1bfc07a0c4121c12d9"
+                },
+                "heading": "aux sibling affinity clusters the pair and brackets the shared concept",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-sibling-tie-orders-the-stack-adjacent",
+                "line": 584,
+                "anchor": "#a-sibling-tie-orders-the-stack-adjacent",
+                "content_sha1": "5dfc4826e5c80fef6a5c9545d17d0d776a4975a5",
+                "outputs": {
+                    "ipm.svg": "a956977286ca7d4510b4ccaa8051e360877f97da",
+                    "ipmt": "5dfc4826e5c80fef6a5c9545d17d0d776a4975a5",
+                    "json": "b38f2d0a791b6a46be50c18579e9bc40b1f122f2",
+                    "layout.json": "d7047e1415d1005c3c391b7dd5fb6fc0c76fac8c",
+                    "md": "94238abcecb36192278bf5d7ffea2599dafcb91e"
+                },
+                "heading": "a sibling tie orders the stack adjacent",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-shared-thing-beats-the-first-declared-anchor",
+                "line": 614,
+                "anchor": "#a-deep-shared-thing-beats-the-first-declared-anchor",
+                "content_sha1": "227ce01a253ed01b8d60e7e2a0cb1b6b6dfb7c6c",
+                "outputs": {
+                    "ipm.svg": "8437abab46bed6590382f894f5d789e3f0a4f033",
+                    "ipmt": "227ce01a253ed01b8d60e7e2a0cb1b6b6dfb7c6c",
+                    "json": "c6c7d16aeb7cc7e1f1e89937a499a6dce229d013",
+                    "layout.json": "ec8ed13fea49d8567d9ddf4592c04c1104f215a3",
+                    "md": "9719badf59a1d8eca18611dccfc5c4dfc03cc3f6"
+                },
+                "heading": "a deep shared thing beats the first-declared anchor",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-shared-concept-beats-the-first-usage-anchor",
+                "line": 646,
+                "anchor": "#a-deep-shared-concept-beats-the-first-usage-anchor",
+                "content_sha1": "911faed5f5326d8383baa8a0cd3b16930e0fa141",
+                "outputs": {
+                    "ipm.svg": "b402f9c310a69fed027998afbf7ea296ec4d80c7",
+                    "ipmt": "911faed5f5326d8383baa8a0cd3b16930e0fa141",
+                    "json": "cd4238522b57c473600990343b2233f7d703f903",
+                    "layout.json": "962775305ab9d009d7ae2109f142d921361ac8f0",
+                    "md": "9f953469c635e186e73142d2d51a5575cf9ec544"
+                },
+                "heading": "a deep shared concept beats the first-usage anchor",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-concept-fan-survives-a-foreign-bands-column",
+                "line": 682,
+                "anchor": "#a-deep-concept-fan-survives-a-foreign-bands-column",
+                "content_sha1": "f7c7fc19f44b73dcec5722207b95fd962e737191",
+                "outputs": {
+                    "ipmt": "f7c7fc19f44b73dcec5722207b95fd962e737191",
+                    "json": "5c75edb1b404414815f3e3066d22c37379709fb9",
+                    "layout.json": "8b3b6d54d59e7781cce7a8dfc36f731c666d684c",
+                    "md": "f18676ca4b2b578be192166bffa0b1cdf497a195"
+                },
+                "heading": "a deep concept fan survives a foreign band's column",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "cross-component-arrivals-keep-the-approach-order",
+                "line": 722,
+                "anchor": "#cross-component-arrivals-keep-the-approach-order",
+                "content_sha1": "29eed9ea6e5067c36d38fe3ffd17378d0e4e40aa",
+                "outputs": {
+                    "ipmt": "29eed9ea6e5067c36d38fe3ffd17378d0e4e40aa",
+                    "json": "3e2940048a15bd54c17e91f45e5440008a35ba82",
+                    "layout.json": "cb174b0ff5e0eaf834eede808d5974669038f3ab",
+                    "md": "8969321ec5b3c4d74d3ac52678f78580b998855c"
+                },
+                "heading": "cross-component arrivals keep the approach order",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-flank-tie-crosses-the-fan-under-the-kind-budget",
+                "line": 758,
+                "anchor": "#a-flank-tie-crosses-the-fan-under-the-kind-budget",
+                "content_sha1": "22fab99b4b11e82c16708669319e2c9bf5ca75db",
+                "outputs": {
+                    "ipm.svg": "1177f19fc829a1a4650069744894cec45ce5c349",
+                    "ipmt": "22fab99b4b11e82c16708669319e2c9bf5ca75db",
+                    "json": "6a10d5492a0a2d9089e45d04fa1082d6eb220d7d",
+                    "layout.json": "8a00cb7c11c63fa81db0ff10f1e15b251bdfeee1",
+                    "md": "622f4d69234ac9285eacf0a636ab6baf2b9eae26"
+                },
+                "heading": "a flank tie crosses the fan under the kind budget",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "near-to-satellites-wrap-as-the-outermost-layer",
+                "line": 796,
+                "anchor": "#near-to-satellites-wrap-as-the-outermost-layer",
+                "content_sha1": "e9e6159259fc0c0face79ae0b5d06d5686977000",
+                "outputs": {
+                    "ipm.svg": "8ab3bb693a175e7d380a06ea70323f2bc2591b22",
+                    "ipmt": "e9e6159259fc0c0face79ae0b5d06d5686977000",
+                    "json": "4ce8a3dc15bd21dc1bee1198bd8ac1dccc1a9b19",
+                    "layout.json": "58a94e9a3f5ca98dfadaff389de58f610f9a4717",
+                    "md": "e4114cbb9a8fd57537b55f7c92da53e0f8d1aa5e"
+                },
+                "heading": "near-to satellites wrap as the outermost layer",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-satellite-wraps-a-pure-grid-from-the-outer-flank",
+                "line": 833,
+                "anchor": "#a-satellite-wraps-a-pure-grid-from-the-outer-flank",
+                "content_sha1": "91ed73dad3ec9e2cdf93b36ca20e2e956a90d0ee",
+                "outputs": {
+                    "ipm.svg": "d2c8f17bb3750a21295b87aa2d40eb93276756fa",
+                    "ipmt": "91ed73dad3ec9e2cdf93b36ca20e2e956a90d0ee",
+                    "json": "35e66053ae5d20fd9aa38c9ab9966ad95ffbdf5a",
+                    "layout.json": "a4b7a15ebd4aa81faf1227b4907565ebb4cfc8a6",
+                    "md": "7e565b852166f1e8d9bc75f926eb21ed03a82d64"
+                },
+                "heading": "a satellite wraps a pure grid from the outer flank",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-shared-child-concept-centres-between-its-column-parents",
+                "line": 873,
+                "anchor": "#a-shared-child-concept-centres-between-its-column-parents",
+                "content_sha1": "6c0f6198ce37244a54b346a4f385f98061c50916",
+                "outputs": {
+                    "ipm.svg": "9593fe4a534905a68aca0aae95e8854525a303d7",
+                    "ipmt": "6c0f6198ce37244a54b346a4f385f98061c50916",
+                    "json": "339fc7b2c3a424edb76ff7bb8095fef259921b9e",
+                    "layout.json": "b011a8c25e236788d3ef53960b2c400bb5c2891a",
+                    "md": "2c5ee64d494051b796624f536b68826fd893efaf"
+                },
+                "heading": "a shared child concept centres between its column parents",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-sole-band-member-follows-the-dominant-travel-axis",
+                "line": 911,
+                "anchor": "#a-sole-band-member-follows-the-dominant-travel-axis",
+                "content_sha1": "24e9fceeddad6744b59b0af1dabefb9fdef15364",
+                "outputs": {
+                    "ipm.svg": "1f83f44fab399c1b32f64f16266e9615e37fd96f",
+                    "ipmt": "24e9fceeddad6744b59b0af1dabefb9fdef15364",
+                    "json": "582b033550407e09f00c8c768d472e767b11f285",
+                    "layout.json": "f9ec65a3453c54eb4245b91fabc7da3ced3816b6",
+                    "md": "f870d609107d6d9983644be6bcc29ee7518c0fc6"
+                },
+                "heading": "a sole band member follows the dominant travel axis",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-budgeted-crossing-beats-a-two-bend-detour",
+                "line": 948,
+                "anchor": "#a-budgeted-crossing-beats-a-two-bend-detour",
+                "content_sha1": "f2298f5a451abac286eeba704013b69e4b3ddaf5",
+                "outputs": {
+                    "ipm.svg": "ed2fc7562a2a1074b90285ba1917dca378698d9c",
+                    "ipmt": "f2298f5a451abac286eeba704013b69e4b3ddaf5",
+                    "json": "e47c5c29d119efc83887ddf40903aac70fc9d5de",
+                    "layout.json": "c7c17c51a4cd16ffee74077407d6506b06765f8a",
+                    "md": "6c70bd8b82eff3bbd99dced5667901d9c7d3fb79"
+                },
+                "heading": "a budgeted crossing beats a two-bend detour",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-thing-and-its-concept-read-as-one-unit",
+                "line": 991,
+                "anchor": "#a-thing-and-its-concept-read-as-one-unit",
+                "content_sha1": "4352b42e933f4aa60e0c3c18003a8e7a7e704190",
+                "outputs": {
+                    "ipm.svg": "a6f150a6a88f9a7c137cdbadf172b4e8e210c71c",
+                    "ipmt": "4352b42e933f4aa60e0c3c18003a8e7a7e704190",
+                    "json": "504c3de36b3cf2deddb81f4dad54239e12d2d0c5",
+                    "layout.json": "ee9dc9f24cbea673754e78d71b26f6461947b593",
+                    "md": "e2cc88a2ed3ade553c711cdcd1f35d8979a3a47c"
+                },
+                "heading": "a thing and its concept read as one unit",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-bent-ties-approach-follows-its-last-leg",
+                "line": 1018,
+                "anchor": "#a-bent-ties-approach-follows-its-last-leg",
+                "content_sha1": "ce33437abaa2341891128248fd35b46314d59dab",
+                "outputs": {
+                    "ipm.svg": "453f6d03123e1378932d6c62434a3df536c84e62",
+                    "ipmt": "ce33437abaa2341891128248fd35b46314d59dab",
+                    "json": "b3fed8bad4ca1826ece05ab78c1531cc43a7de21",
+                    "layout.json": "7db8dc632585156723bdd677e079f70ef3512261",
+                    "md": "7a18d5840dce357f5f074c844bfcd802265341c3"
+                },
+                "heading": "a bent tie's approach follows its last leg",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-far-join-child-tucks-to-the-parents-column",
+                "line": 1051,
+                "anchor": "#a-far-join-child-tucks-to-the-parents-column",
+                "content_sha1": "59269d973fd3694215e2b2ef38f5eaf72864de42",
+                "outputs": {
+                    "ipm.svg": "f942ef44ea2a6243c551bc9bf917d12db6866d97",
+                    "ipmt": "59269d973fd3694215e2b2ef38f5eaf72864de42",
+                    "json": "ae55abe42f724c178db6ff8173f477b311f476fe",
+                    "layout.json": "6aa4c72ba0615142e30e655f2b67bbff980f7450",
+                    "md": "6fe35997a6019a0b2f8dc22be623fc1341dca621"
+                },
+                "heading": "a far join child tucks to the parents' column",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-satellites-tree-never-evicts-its-own-frame",
+                "line": 1108,
+                "anchor": "#a-satellites-tree-never-evicts-its-own-frame",
+                "content_sha1": "75e469d5c89d0ec6399931f6ca6af2338ca8db2c",
+                "outputs": {
+                    "ipm.svg": "fd2e4bf27c5489113a61d510fd9b0c6467f2e75c",
+                    "ipmt": "75e469d5c89d0ec6399931f6ca6af2338ca8db2c",
+                    "json": "eb064ccba349ad3c4a1abe14b0bbc695603b8c5c",
+                    "layout.json": "93d7f35a7dcd4e2f494ec7bfb5c0866072dd1aea",
+                    "md": "d7f6f4cab5d5c6bac5337a45228cefc43a4dc077"
+                },
+                "heading": "a satellite's tree never evicts its own frame",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "up-to-three-components-share-one-row",
+                "line": 1131,
+                "anchor": "#up-to-three-components-share-one-row",
+                "content_sha1": "191ac0f60fc40ebf0519784b9b8560a2d9e6d611",
+                "outputs": {
+                    "ipm.svg": "90903d22f1dd1a682809c405e9a1124f89dba4ce",
+                    "ipmt": "191ac0f60fc40ebf0519784b9b8560a2d9e6d611",
+                    "json": "b86ea056df1ff624159fc2f55c918b027aaceda5",
+                    "layout.json": "c3ac3c3498aa6910c0a073d648449376d778008a",
+                    "md": "481dc7de0cdeea5f8f40fe3ed596803076d59596"
+                },
+                "heading": "up to three components share one row",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "untied-components-wrap-toward-the-canvas",
+                "line": 1162,
+                "anchor": "#untied-components-wrap-toward-the-canvas",
+                "content_sha1": "0c477965a92823cf12ef9e5ac80d3bcfc5214347",
+                "outputs": {
+                    "ipm.svg": "eba0abbe3d4cb967e612d1825298292166bb2540",
+                    "ipmt": "0c477965a92823cf12ef9e5ac80d3bcfc5214347",
+                    "json": "5f3ae19ff573bd57d49568ce522d6f87d4e6b245",
+                    "layout.json": "86ddbc6a12fa9ec776f7f20e0f89bffd02e5b625",
+                    "md": "dbee5f75791cf1cc148bfe13b44c786460680ff5"
+                },
+                "heading": "untied components wrap toward the canvas",
+                "section": "v7 acceptance targets"
+            }
+        ]
+    }
+]

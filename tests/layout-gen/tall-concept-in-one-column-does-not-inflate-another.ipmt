@@ -1,0 +1,5 @@
+c1-root ::c --> cA ::c
+c1-root --> cB ::c
+cA --> A deliberately very long concept label that wraps onto many many lines and becomes very tall indeed for testing row lift behaviour here tl::a ::c
+cB --> cSmall ::c
+cSmall --> cLeaf ::c

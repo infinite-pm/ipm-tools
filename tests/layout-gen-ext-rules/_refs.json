@@ -1,0 +1,2742 @@
+[
+    {
+        "source": "../../docs/dev/layout-gen/layout-alg-ext.md",
+        "source_sha1": "0d6e00e6755e9c5c57ebb7ca82b6485db8553994",
+        "name": "layout ext test rules",
+        "method": "parser",
+        "parser_name": "ipmdev-layout-rule-md",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmdev-layout-rule"
+        },
+        "items": [
+            {
+                "destination": "event-lines",
+                "line": 35,
+                "anchor": "#event-lines",
+                "content_sha1": "e979483ea06f9000e09831a5bb0052260d36ad52",
+                "outputs": {
+                    "dsl": "e979483ea06f9000e09831a5bb0052260d36ad52"
+                },
+                "section": "Event lines"
+            },
+            {
+                "destination": "disconnected-graphs-combine-branches-containment-and-a-long-label",
+                "line": 78,
+                "anchor": "#disconnected-graphs-combine-branches-containment-and-a-long-label",
+                "content_sha1": "3524deab1eb3cd0bd500377dbf225fb4fc461e3b",
+                "outputs": {
+                    "dsl": "3524deab1eb3cd0bd500377dbf225fb4fc461e3b"
+                },
+                "heading": "disconnected graphs combine branches, containment and a long label",
+                "section": "Event lines"
+            },
+            {
+                "destination": "disconnected-graphs-combine-branches-containment-and-a-long-label-02",
+                "line": 79,
+                "anchor": "#disconnected-graphs-combine-branches-containment-and-a-long-label",
+                "content_sha1": "3897ee8ef1d6851d2a68fd7666f83c8a17bc2976",
+                "outputs": {
+                    "dsl": "3897ee8ef1d6851d2a68fd7666f83c8a17bc2976"
+                },
+                "heading": "disconnected graphs combine branches, containment and a long label",
+                "section": "Event lines"
+            },
+            {
+                "destination": "disconnected-graphs-combine-branches-containment-and-a-long-label-03",
+                "line": 80,
+                "anchor": "#disconnected-graphs-combine-branches-containment-and-a-long-label",
+                "content_sha1": "c9148a7156813a74fa10084daa5d25312502b6e3",
+                "outputs": {
+                    "dsl": "c9148a7156813a74fa10084daa5d25312502b6e3"
+                },
+                "heading": "disconnected graphs combine branches, containment and a long label",
+                "section": "Event lines"
+            },
+            {
+                "destination": "disconnected-graphs-combine-branches-containment-and-a-long-label-04",
+                "line": 81,
+                "anchor": "#disconnected-graphs-combine-branches-containment-and-a-long-label",
+                "content_sha1": "7925a08b9b039cdee067451f7c762de82c4a2024",
+                "outputs": {
+                    "dsl": "7925a08b9b039cdee067451f7c762de82c4a2024"
+                },
+                "heading": "disconnected graphs combine branches, containment and a long label",
+                "section": "Event lines"
+            },
+            {
+                "destination": "disconnected-graphs-combine-branches-containment-and-a-long-label-05",
+                "line": 82,
+                "anchor": "#disconnected-graphs-combine-branches-containment-and-a-long-label",
+                "content_sha1": "a3179194831947720b95e1ba2f824c9d44c8513f",
+                "outputs": {
+                    "dsl": "a3179194831947720b95e1ba2f824c9d44c8513f"
+                },
+                "heading": "disconnected graphs combine branches, containment and a long label",
+                "section": "Event lines"
+            },
+            {
+                "destination": "disconnected-graphs-combine-branches-containment-and-a-long-label-06",
+                "line": 83,
+                "anchor": "#disconnected-graphs-combine-branches-containment-and-a-long-label",
+                "content_sha1": "5eddbd5f26ce8f5a4cb2f74c8ec8afb8b89a1e57",
+                "outputs": {
+                    "dsl": "5eddbd5f26ce8f5a4cb2f74c8ec8afb8b89a1e57"
+                },
+                "heading": "disconnected graphs combine branches, containment and a long label",
+                "section": "Event lines"
+            },
+            {
+                "destination": "disconnected-graphs-combine-branches-containment-and-a-long-label-07",
+                "line": 84,
+                "anchor": "#disconnected-graphs-combine-branches-containment-and-a-long-label",
+                "content_sha1": "8ccff96e8d5bc4f7999870819509973df8d27252",
+                "outputs": {
+                    "dsl": "8ccff96e8d5bc4f7999870819509973df8d27252"
+                },
+                "heading": "disconnected graphs combine branches, containment and a long label",
+                "section": "Event lines"
+            },
+            {
+                "destination": "disconnected-graphs-combine-branches-containment-and-a-long-label-08",
+                "line": 85,
+                "anchor": "#disconnected-graphs-combine-branches-containment-and-a-long-label",
+                "content_sha1": "63ddf054f970f0fc1245f2e66672154ddc9d2f8d",
+                "outputs": {
+                    "dsl": "63ddf054f970f0fc1245f2e66672154ddc9d2f8d"
+                },
+                "heading": "disconnected graphs combine branches, containment and a long label",
+                "section": "Event lines"
+            },
+            {
+                "destination": "disconnected-graphs-combine-branches-containment-and-a-long-label-09",
+                "line": 86,
+                "anchor": "#disconnected-graphs-combine-branches-containment-and-a-long-label",
+                "content_sha1": "3fb493f4f045ab63886e812531e1c8bd7173f959",
+                "outputs": {
+                    "dsl": "3fb493f4f045ab63886e812531e1c8bd7173f959"
+                },
+                "heading": "disconnected graphs combine branches, containment and a long label",
+                "section": "Event lines"
+            },
+            {
+                "destination": "disconnected-graphs-combine-branches-containment-and-a-long-label-10",
+                "line": 87,
+                "anchor": "#disconnected-graphs-combine-branches-containment-and-a-long-label",
+                "content_sha1": "b7ae53b2b08c92981d0a78bf8836f6179388633e",
+                "outputs": {
+                    "dsl": "b7ae53b2b08c92981d0a78bf8836f6179388633e"
+                },
+                "heading": "disconnected graphs combine branches, containment and a long label",
+                "section": "Event lines"
+            },
+            {
+                "destination": "disconnected-graphs-combine-branches-containment-and-a-long-label-11",
+                "line": 88,
+                "anchor": "#disconnected-graphs-combine-branches-containment-and-a-long-label",
+                "content_sha1": "eb33acc77bb9f6948e0387fcfa5f5634308ddacd",
+                "outputs": {
+                    "dsl": "eb33acc77bb9f6948e0387fcfa5f5634308ddacd"
+                },
+                "heading": "disconnected graphs combine branches, containment and a long label",
+                "section": "Event lines"
+            },
+            {
+                "destination": "disconnected-graphs-combine-branches-containment-and-a-long-label-12",
+                "line": 89,
+                "anchor": "#disconnected-graphs-combine-branches-containment-and-a-long-label",
+                "content_sha1": "1246b873df38e5436db0273734aa1c7626dfe805",
+                "outputs": {
+                    "dsl": "1246b873df38e5436db0273734aa1c7626dfe805"
+                },
+                "heading": "disconnected graphs combine branches, containment and a long label",
+                "section": "Event lines"
+            },
+            {
+                "destination": "disconnected-graphs-combine-branches-containment-and-a-long-label-13",
+                "line": 90,
+                "anchor": "#disconnected-graphs-combine-branches-containment-and-a-long-label",
+                "content_sha1": "56eb1f1aab81da12ca67cb745482c847312b940f",
+                "outputs": {
+                    "dsl": "56eb1f1aab81da12ca67cb745482c847312b940f"
+                },
+                "heading": "disconnected graphs combine branches, containment and a long label",
+                "section": "Event lines"
+            },
+            {
+                "destination": "long-thing-widens-and-stays-centered",
+                "line": 111,
+                "anchor": "#long-thing-widens-and-stays-centered",
+                "content_sha1": "8a72c808471d0b45e1e44a8401e5e69b0c18b9b1",
+                "outputs": {
+                    "dsl": "8a72c808471d0b45e1e44a8401e5e69b0c18b9b1"
+                },
+                "heading": "long thing widens and stays centered",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "long-thing-widens-and-stays-centered-02",
+                "line": 112,
+                "anchor": "#long-thing-widens-and-stays-centered",
+                "content_sha1": "a4331eff7b7b374b3fcb7e7e5f475fd991664e7b",
+                "outputs": {
+                    "dsl": "a4331eff7b7b374b3fcb7e7e5f475fd991664e7b"
+                },
+                "heading": "long thing widens and stays centered",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "long-thing-widens-and-stays-centered-03",
+                "line": 113,
+                "anchor": "#long-thing-widens-and-stays-centered",
+                "content_sha1": "a7da5ab86f091e9da99a44c02cd9c7ff64c12400",
+                "outputs": {
+                    "dsl": "a7da5ab86f091e9da99a44c02cd9c7ff64c12400"
+                },
+                "heading": "long thing widens and stays centered",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "long-thing-widens-and-stays-centered-04",
+                "line": 114,
+                "anchor": "#long-thing-widens-and-stays-centered",
+                "content_sha1": "1dd40e12d77d728186991dce6cab6aa0959d16e9",
+                "outputs": {
+                    "dsl": "1dd40e12d77d728186991dce6cab6aa0959d16e9"
+                },
+                "heading": "long thing widens and stays centered",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "long-concept-widens-and-stays-centered",
+                "line": 127,
+                "anchor": "#long-concept-widens-and-stays-centered",
+                "content_sha1": "a802cabfe649e855f50e5cd968cd36d58a36d9fe",
+                "outputs": {
+                    "dsl": "a802cabfe649e855f50e5cd968cd36d58a36d9fe"
+                },
+                "heading": "long concept widens and stays centered",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "long-concept-widens-and-stays-centered-02",
+                "line": 128,
+                "anchor": "#long-concept-widens-and-stays-centered",
+                "content_sha1": "266d6b31a008b2f5e6329f41f8a03ee44c2659a8",
+                "outputs": {
+                    "dsl": "266d6b31a008b2f5e6329f41f8a03ee44c2659a8"
+                },
+                "heading": "long concept widens and stays centered",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "long-concept-widens-and-stays-centered-03",
+                "line": 129,
+                "anchor": "#long-concept-widens-and-stays-centered",
+                "content_sha1": "99bdc3d10043e9200cd741f7b1a3129b24282893",
+                "outputs": {
+                    "dsl": "99bdc3d10043e9200cd741f7b1a3129b24282893"
+                },
+                "heading": "long concept widens and stays centered",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "long-concept-widens-and-stays-centered-04",
+                "line": 130,
+                "anchor": "#long-concept-widens-and-stays-centered",
+                "content_sha1": "c2853f2feca28f31b8b9caee95220f4fbde24df7",
+                "outputs": {
+                    "dsl": "c2853f2feca28f31b8b9caee95220f4fbde24df7"
+                },
+                "heading": "long concept widens and stays centered",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "diamond-branches-stay-compact-with-outer-concepts",
+                "line": 156,
+                "anchor": "#diamond-branches-stay-compact-with-outer-concepts",
+                "content_sha1": "133fcd63695d2c06935cf513e68c215343b0333d",
+                "outputs": {
+                    "dsl": "133fcd63695d2c06935cf513e68c215343b0333d"
+                },
+                "heading": "diamond branches stay compact with outer concepts",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "diamond-branches-stay-compact-with-outer-concepts-02",
+                "line": 157,
+                "anchor": "#diamond-branches-stay-compact-with-outer-concepts",
+                "content_sha1": "8ad54904ca04d1ab4affe6e12223252717d1468d",
+                "outputs": {
+                    "dsl": "8ad54904ca04d1ab4affe6e12223252717d1468d"
+                },
+                "heading": "diamond branches stay compact with outer concepts",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "diamond-branches-stay-compact-with-outer-concepts-03",
+                "line": 158,
+                "anchor": "#diamond-branches-stay-compact-with-outer-concepts",
+                "content_sha1": "a051e5d942b0c65b496cc5449d27729c39c0e7f5",
+                "outputs": {
+                    "dsl": "a051e5d942b0c65b496cc5449d27729c39c0e7f5"
+                },
+                "heading": "diamond branches stay compact with outer concepts",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "diamond-branches-stay-compact-with-outer-concepts-04",
+                "line": 159,
+                "anchor": "#diamond-branches-stay-compact-with-outer-concepts",
+                "content_sha1": "103899df4e84de577130d120588367a1468eddab",
+                "outputs": {
+                    "dsl": "103899df4e84de577130d120588367a1468eddab"
+                },
+                "heading": "diamond branches stay compact with outer concepts",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "diamond-branches-stay-compact-with-outer-concepts-05",
+                "line": 160,
+                "anchor": "#diamond-branches-stay-compact-with-outer-concepts",
+                "content_sha1": "ca74918c52cd055f82ae5002de65fd56780892b6",
+                "outputs": {
+                    "dsl": "ca74918c52cd055f82ae5002de65fd56780892b6"
+                },
+                "heading": "diamond branches stay compact with outer concepts",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "diamond-branches-stay-compact-with-outer-concepts-06",
+                "line": 161,
+                "anchor": "#diamond-branches-stay-compact-with-outer-concepts",
+                "content_sha1": "8d39443c6e94b8080b6d9e3e274b6f883738512c",
+                "outputs": {
+                    "dsl": "8d39443c6e94b8080b6d9e3e274b6f883738512c"
+                },
+                "heading": "diamond branches stay compact with outer concepts",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "nested-composites-concept-takes-the-left-flank",
+                "line": 188,
+                "anchor": "#nested-composites-concept-takes-the-left-flank",
+                "content_sha1": "2c1bf527b555b3cd82e892973785e971e031cec2",
+                "outputs": {
+                    "dsl": "2c1bf527b555b3cd82e892973785e971e031cec2"
+                },
+                "heading": "nested composite's concept takes the left flank",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "nested-composites-concept-takes-the-left-flank-02",
+                "line": 189,
+                "anchor": "#nested-composites-concept-takes-the-left-flank",
+                "content_sha1": "5d25f9c0b8730853f2f23bc1e8ee8eeefa1a9494",
+                "outputs": {
+                    "dsl": "5d25f9c0b8730853f2f23bc1e8ee8eeefa1a9494"
+                },
+                "heading": "nested composite's concept takes the left flank",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "nested-composites-concept-takes-the-left-flank-03",
+                "line": 190,
+                "anchor": "#nested-composites-concept-takes-the-left-flank",
+                "content_sha1": "9ab286a7d118a297e25e57a3ae5feafeb506e79e",
+                "outputs": {
+                    "dsl": "9ab286a7d118a297e25e57a3ae5feafeb506e79e"
+                },
+                "heading": "nested composite's concept takes the left flank",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "nested-composites-concept-takes-the-left-flank-04",
+                "line": 191,
+                "anchor": "#nested-composites-concept-takes-the-left-flank",
+                "content_sha1": "2920865bb2b57d8da6f4ae959a2239b656a1f13e",
+                "outputs": {
+                    "dsl": "2920865bb2b57d8da6f4ae959a2239b656a1f13e"
+                },
+                "heading": "nested composite's concept takes the left flank",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "nested-composites-concept-takes-the-left-flank-05",
+                "line": 192,
+                "anchor": "#nested-composites-concept-takes-the-left-flank",
+                "content_sha1": "dea9e24e8df7c9e4c4bec1fccdd08f11322b5205",
+                "outputs": {
+                    "dsl": "dea9e24e8df7c9e4c4bec1fccdd08f11322b5205"
+                },
+                "heading": "nested composite's concept takes the left flank",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "nested-composites-concept-takes-the-left-flank-06",
+                "line": 193,
+                "anchor": "#nested-composites-concept-takes-the-left-flank",
+                "content_sha1": "50f809d6e6b748892509a3a9f0877537dcf5c97e",
+                "outputs": {
+                    "dsl": "50f809d6e6b748892509a3a9f0877537dcf5c97e"
+                },
+                "heading": "nested composite's concept takes the left flank",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "nested-composites-concept-takes-the-left-flank-07",
+                "line": 194,
+                "anchor": "#nested-composites-concept-takes-the-left-flank",
+                "content_sha1": "f982675dd4aba540280afda2833938ccd4eadaff",
+                "outputs": {
+                    "dsl": "f982675dd4aba540280afda2833938ccd4eadaff"
+                },
+                "heading": "nested composite's concept takes the left flank",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "shared-things-keep-their-band-and-tie-the-second-event",
+                "line": 236,
+                "anchor": "#shared-things-keep-their-band-and-tie-the-second-event",
+                "content_sha1": "58ea22465c36b2219ca5fb48235742aef9ac9f93",
+                "outputs": {
+                    "dsl": "58ea22465c36b2219ca5fb48235742aef9ac9f93"
+                },
+                "heading": "shared things keep their band and tie the second event",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "shared-things-keep-their-band-and-tie-the-second-event-02",
+                "line": 237,
+                "anchor": "#shared-things-keep-their-band-and-tie-the-second-event",
+                "content_sha1": "cbb41774632c0e5bb437473c4014a45ee6178dc3",
+                "outputs": {
+                    "dsl": "cbb41774632c0e5bb437473c4014a45ee6178dc3"
+                },
+                "heading": "shared things keep their band and tie the second event",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "shared-things-keep-their-band-and-tie-the-second-event-03",
+                "line": 238,
+                "anchor": "#shared-things-keep-their-band-and-tie-the-second-event",
+                "content_sha1": "4f7bcac47dce300618b7deab0920a62e1ade41ac",
+                "outputs": {
+                    "dsl": "4f7bcac47dce300618b7deab0920a62e1ade41ac"
+                },
+                "heading": "shared things keep their band and tie the second event",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "shared-things-keep-their-band-and-tie-the-second-event-04",
+                "line": 239,
+                "anchor": "#shared-things-keep-their-band-and-tie-the-second-event",
+                "content_sha1": "7d803619ff871b85ceb2f1d0e2e93c8d459dcbaf",
+                "outputs": {
+                    "dsl": "7d803619ff871b85ceb2f1d0e2e93c8d459dcbaf"
+                },
+                "heading": "shared things keep their band and tie the second event",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "shared-things-keep-their-band-and-tie-the-second-event-05",
+                "line": 240,
+                "anchor": "#shared-things-keep-their-band-and-tie-the-second-event",
+                "content_sha1": "42f38144e396250946b58c0db131f1b104cddeae",
+                "outputs": {
+                    "dsl": "42f38144e396250946b58c0db131f1b104cddeae"
+                },
+                "heading": "shared things keep their band and tie the second event",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "shared-things-keep-their-band-and-tie-the-second-event-06",
+                "line": 241,
+                "anchor": "#shared-things-keep-their-band-and-tie-the-second-event",
+                "content_sha1": "e06e34aa48bd0aca022004342310be5f1cfcbde3",
+                "outputs": {
+                    "dsl": "e06e34aa48bd0aca022004342310be5f1cfcbde3"
+                },
+                "heading": "shared things keep their band and tie the second event",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "shared-things-keep-their-band-and-tie-the-second-event-07",
+                "line": 242,
+                "anchor": "#shared-things-keep-their-band-and-tie-the-second-event",
+                "content_sha1": "dd0b053ed12c9371014c7e6a9d40c5d2520d475a",
+                "outputs": {
+                    "dsl": "dd0b053ed12c9371014c7e6a9d40c5d2520d475a"
+                },
+                "heading": "shared things keep their band and tie the second event",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "shared-things-keep-their-band-and-tie-the-second-event-08",
+                "line": 243,
+                "anchor": "#shared-things-keep-their-band-and-tie-the-second-event",
+                "content_sha1": "d803e2614d92eb021b744623a5d22b0f0a5d90e0",
+                "outputs": {
+                    "dsl": "d803e2614d92eb021b744623a5d22b0f0a5d90e0"
+                },
+                "heading": "shared things keep their band and tie the second event",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "shared-things-keep-their-band-and-tie-the-second-event-09",
+                "line": 244,
+                "anchor": "#shared-things-keep-their-band-and-tie-the-second-event",
+                "content_sha1": "50195bc59fa6f2ce0906cc2d167e2412aa50beb4",
+                "outputs": {
+                    "dsl": "50195bc59fa6f2ce0906cc2d167e2412aa50beb4"
+                },
+                "heading": "shared things keep their band and tie the second event",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "shared-things-keep-their-band-and-tie-the-second-event-10",
+                "line": 245,
+                "anchor": "#shared-things-keep-their-band-and-tie-the-second-event",
+                "content_sha1": "d649ca41ceb161eadcfb7214219334fe67c4cde1",
+                "outputs": {
+                    "dsl": "d649ca41ceb161eadcfb7214219334fe67c4cde1"
+                },
+                "heading": "shared things keep their band and tie the second event",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "shared-things-keep-their-band-and-tie-the-second-event-11",
+                "line": 246,
+                "anchor": "#shared-things-keep-their-band-and-tie-the-second-event",
+                "content_sha1": "b9dd5edc1c96934869a56adc51ead75a7f554f8a",
+                "outputs": {
+                    "dsl": "b9dd5edc1c96934869a56adc51ead75a7f554f8a"
+                },
+                "heading": "shared things keep their band and tie the second event",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "shared-things-keep-their-band-and-tie-the-second-event-12",
+                "line": 247,
+                "anchor": "#shared-things-keep-their-band-and-tie-the-second-event",
+                "content_sha1": "b9ed4a4cb9d7f32e79d66a084304d021561de336",
+                "outputs": {
+                    "dsl": "b9ed4a4cb9d7f32e79d66a084304d021561de336"
+                },
+                "heading": "shared things keep their band and tie the second event",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "wide-thing-in-a-graph-keeps-clearances",
+                "line": 274,
+                "anchor": "#wide-thing-in-a-graph-keeps-clearances",
+                "content_sha1": "3c86e95557b3172a019148f1b9c10242d37a6421",
+                "outputs": {
+                    "dsl": "3c86e95557b3172a019148f1b9c10242d37a6421"
+                },
+                "heading": "wide thing in a graph keeps clearances",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "wide-thing-in-a-graph-keeps-clearances-02",
+                "line": 275,
+                "anchor": "#wide-thing-in-a-graph-keeps-clearances",
+                "content_sha1": "f4f6e9c7799ec44188f4a323f85ce05f06ffefd1",
+                "outputs": {
+                    "dsl": "f4f6e9c7799ec44188f4a323f85ce05f06ffefd1"
+                },
+                "heading": "wide thing in a graph keeps clearances",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "wide-thing-in-a-graph-keeps-clearances-03",
+                "line": 276,
+                "anchor": "#wide-thing-in-a-graph-keeps-clearances",
+                "content_sha1": "20f6b31164872b68b13f66d45e5baab42cd7188a",
+                "outputs": {
+                    "dsl": "20f6b31164872b68b13f66d45e5baab42cd7188a"
+                },
+                "heading": "wide thing in a graph keeps clearances",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "wide-thing-in-a-graph-keeps-clearances-04",
+                "line": 277,
+                "anchor": "#wide-thing-in-a-graph-keeps-clearances",
+                "content_sha1": "c5a353ceab88874bfdd225bdb58afcd86346b1ea",
+                "outputs": {
+                    "dsl": "c5a353ceab88874bfdd225bdb58afcd86346b1ea"
+                },
+                "heading": "wide thing in a graph keeps clearances",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "wide-thing-in-a-graph-keeps-clearances-05",
+                "line": 278,
+                "anchor": "#wide-thing-in-a-graph-keeps-clearances",
+                "content_sha1": "770068b9d59e7d326b5e5eb926d8151b25f7b73b",
+                "outputs": {
+                    "dsl": "770068b9d59e7d326b5e5eb926d8151b25f7b73b"
+                },
+                "heading": "wide thing in a graph keeps clearances",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "wide-thing-in-a-graph-keeps-clearances-06",
+                "line": 279,
+                "anchor": "#wide-thing-in-a-graph-keeps-clearances",
+                "content_sha1": "847ff62ab1dcadda74718694ba35b726b68f84d5",
+                "outputs": {
+                    "dsl": "847ff62ab1dcadda74718694ba35b726b68f84d5"
+                },
+                "heading": "wide thing in a graph keeps clearances",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "wide-thing-in-a-graph-keeps-clearances-07",
+                "line": 280,
+                "anchor": "#wide-thing-in-a-graph-keeps-clearances",
+                "content_sha1": "b607927d42f9460df69961571e103ffd139c2977",
+                "outputs": {
+                    "dsl": "b607927d42f9460df69961571e103ffd139c2977"
+                },
+                "heading": "wide thing in a graph keeps clearances",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "wide-thing-in-a-graph-keeps-clearances-08",
+                "line": 281,
+                "anchor": "#wide-thing-in-a-graph-keeps-clearances",
+                "content_sha1": "be62384ed4b30bd2d622c736a158abbab6138357",
+                "outputs": {
+                    "dsl": "be62384ed4b30bd2d622c736a158abbab6138357"
+                },
+                "heading": "wide thing in a graph keeps clearances",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-late-side-branch-merge-keeps-its-join-edge-short",
+                "line": 371,
+                "anchor": "#a-late-side-branch-merge-keeps-its-join-edge-short",
+                "content_sha1": "9e9a140a039ba6a393e7c5219cea945c079cc594",
+                "outputs": {
+                    "dsl": "9e9a140a039ba6a393e7c5219cea945c079cc594"
+                },
+                "heading": "a late side-branch merge keeps its join edge short",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-late-side-branch-merge-keeps-its-join-edge-short-02",
+                "line": 372,
+                "anchor": "#a-late-side-branch-merge-keeps-its-join-edge-short",
+                "content_sha1": "dc213b0b99e718027951e7cbeda4bdef88646036",
+                "outputs": {
+                    "dsl": "dc213b0b99e718027951e7cbeda4bdef88646036"
+                },
+                "heading": "a late side-branch merge keeps its join edge short",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-late-side-branch-merge-keeps-its-join-edge-short-03",
+                "line": 373,
+                "anchor": "#a-late-side-branch-merge-keeps-its-join-edge-short",
+                "content_sha1": "3d338738c27c9e46dbd0c0f9574255672c6bcc5e",
+                "outputs": {
+                    "dsl": "3d338738c27c9e46dbd0c0f9574255672c6bcc5e"
+                },
+                "heading": "a late side-branch merge keeps its join edge short",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-late-side-branch-merge-keeps-its-join-edge-short-04",
+                "line": 374,
+                "anchor": "#a-late-side-branch-merge-keeps-its-join-edge-short",
+                "content_sha1": "6adf71743e54b764f2d71f5d59832c2f7cfdacaf",
+                "outputs": {
+                    "dsl": "6adf71743e54b764f2d71f5d59832c2f7cfdacaf"
+                },
+                "heading": "a late side-branch merge keeps its join edge short",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-late-side-branch-merge-keeps-its-join-edge-short-05",
+                "line": 375,
+                "anchor": "#a-late-side-branch-merge-keeps-its-join-edge-short",
+                "content_sha1": "27b553b6d85789980811330b1dfa71bc8df6a4a1",
+                "outputs": {
+                    "dsl": "27b553b6d85789980811330b1dfa71bc8df6a4a1"
+                },
+                "heading": "a late side-branch merge keeps its join edge short",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-late-side-branch-merge-keeps-its-join-edge-short-06",
+                "line": 376,
+                "anchor": "#a-late-side-branch-merge-keeps-its-join-edge-short",
+                "content_sha1": "ac65d6616b9f9a5ebae8c0784a887fde6309c2be",
+                "outputs": {
+                    "dsl": "ac65d6616b9f9a5ebae8c0784a887fde6309c2be"
+                },
+                "heading": "a late side-branch merge keeps its join edge short",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-late-side-branch-merge-keeps-its-join-edge-short-07",
+                "line": 377,
+                "anchor": "#a-late-side-branch-merge-keeps-its-join-edge-short",
+                "content_sha1": "d5069e6338dff2bfcf14800e75ca45eb37bd0b0e",
+                "outputs": {
+                    "dsl": "d5069e6338dff2bfcf14800e75ca45eb37bd0b0e"
+                },
+                "heading": "a late side-branch merge keeps its join edge short",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-late-side-branch-merge-keeps-its-join-edge-short-08",
+                "line": 378,
+                "anchor": "#a-late-side-branch-merge-keeps-its-join-edge-short",
+                "content_sha1": "9c6580d214ff5317d02b64d59c37dab5244f9613",
+                "outputs": {
+                    "dsl": "9c6580d214ff5317d02b64d59c37dab5244f9613"
+                },
+                "heading": "a late side-branch merge keeps its join edge short",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-late-side-branch-merge-keeps-its-join-edge-short-09",
+                "line": 379,
+                "anchor": "#a-late-side-branch-merge-keeps-its-join-edge-short",
+                "content_sha1": "8b886b2b6066618c7f6ad8a2a5218ab48555c691",
+                "outputs": {
+                    "dsl": "8b886b2b6066618c7f6ad8a2a5218ab48555c691"
+                },
+                "heading": "a late side-branch merge keeps its join edge short",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-late-side-branch-merge-keeps-its-join-edge-short-10",
+                "line": 380,
+                "anchor": "#a-late-side-branch-merge-keeps-its-join-edge-short",
+                "content_sha1": "86b558159cda1d22957c5d5b2aba99f5d5ff12a2",
+                "outputs": {
+                    "dsl": "86b558159cda1d22957c5d5b2aba99f5d5ff12a2"
+                },
+                "heading": "a late side-branch merge keeps its join edge short",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-shared-thing-anchors-to-its-first-event-and-ties-the-rest",
+                "line": 411,
+                "anchor": "#a-shared-thing-anchors-to-its-first-event-and-ties-the-rest",
+                "content_sha1": "5b60ab4b28de0c405cb8cdfce8dfb438684da398",
+                "outputs": {
+                    "dsl": "5b60ab4b28de0c405cb8cdfce8dfb438684da398"
+                },
+                "heading": "a shared thing anchors to its first event and ties the rest",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-shared-thing-anchors-to-its-first-event-and-ties-the-rest-02",
+                "line": 412,
+                "anchor": "#a-shared-thing-anchors-to-its-first-event-and-ties-the-rest",
+                "content_sha1": "7d803619ff871b85ceb2f1d0e2e93c8d459dcbaf",
+                "outputs": {
+                    "dsl": "7d803619ff871b85ceb2f1d0e2e93c8d459dcbaf"
+                },
+                "heading": "a shared thing anchors to its first event and ties the rest",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-shared-thing-anchors-to-its-first-event-and-ties-the-rest-03",
+                "line": 413,
+                "anchor": "#a-shared-thing-anchors-to-its-first-event-and-ties-the-rest",
+                "content_sha1": "1a31a63f8e3e20cb7b48c6947c8fabf585c6ef24",
+                "outputs": {
+                    "dsl": "1a31a63f8e3e20cb7b48c6947c8fabf585c6ef24"
+                },
+                "heading": "a shared thing anchors to its first event and ties the rest",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-shared-thing-anchors-to-its-first-event-and-ties-the-rest-04",
+                "line": 414,
+                "anchor": "#a-shared-thing-anchors-to-its-first-event-and-ties-the-rest",
+                "content_sha1": "c2dffa0882021cda21eba9b6cfdf0dd7da94aad1",
+                "outputs": {
+                    "dsl": "c2dffa0882021cda21eba9b6cfdf0dd7da94aad1"
+                },
+                "heading": "a shared thing anchors to its first event and ties the rest",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-shared-thing-anchors-to-its-first-event-and-ties-the-rest-05",
+                "line": 415,
+                "anchor": "#a-shared-thing-anchors-to-its-first-event-and-ties-the-rest",
+                "content_sha1": "5731e6c7e9d73626a31a2bfdcccb18548fe869ef",
+                "outputs": {
+                    "dsl": "5731e6c7e9d73626a31a2bfdcccb18548fe869ef"
+                },
+                "heading": "a shared thing anchors to its first event and ties the rest",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-shared-thing-anchors-to-its-first-event-and-ties-the-rest-06",
+                "line": 416,
+                "anchor": "#a-shared-thing-anchors-to-its-first-event-and-ties-the-rest",
+                "content_sha1": "a1d85d4595e5f76f89b24edce14c806d85ed3e2c",
+                "outputs": {
+                    "dsl": "a1d85d4595e5f76f89b24edce14c806d85ed3e2c"
+                },
+                "heading": "a shared thing anchors to its first event and ties the rest",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-shared-thing-anchors-to-its-first-event-and-ties-the-rest-07",
+                "line": 417,
+                "anchor": "#a-shared-thing-anchors-to-its-first-event-and-ties-the-rest",
+                "content_sha1": "4f9272297d7af3d4b8451366e8e2e89b9eabc5eb",
+                "outputs": {
+                    "dsl": "4f9272297d7af3d4b8451366e8e2e89b9eabc5eb"
+                },
+                "heading": "a shared thing anchors to its first event and ties the rest",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-shared-thing-anchors-to-its-first-event-and-ties-the-rest-08",
+                "line": 418,
+                "anchor": "#a-shared-thing-anchors-to-its-first-event-and-ties-the-rest",
+                "content_sha1": "e04abf2e653d13dcd10977c22243cc1efe5fc55a",
+                "outputs": {
+                    "dsl": "e04abf2e653d13dcd10977c22243cc1efe5fc55a"
+                },
+                "heading": "a shared thing anchors to its first event and ties the rest",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-shared-thing-anchors-to-its-first-event-and-ties-the-rest-09",
+                "line": 419,
+                "anchor": "#a-shared-thing-anchors-to-its-first-event-and-ties-the-rest",
+                "content_sha1": "eea749abe5c16b0812c608e6168b056cc0140959",
+                "outputs": {
+                    "dsl": "eea749abe5c16b0812c608e6168b056cc0140959"
+                },
+                "heading": "a shared thing anchors to its first event and ties the rest",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-shared-thing-anchors-to-its-first-event-and-ties-the-rest-10",
+                "line": 420,
+                "anchor": "#a-shared-thing-anchors-to-its-first-event-and-ties-the-rest",
+                "content_sha1": "538c13dbf5afd67b59b8b3f011d5bd77a5b4491b",
+                "outputs": {
+                    "dsl": "538c13dbf5afd67b59b8b3f011d5bd77a5b4491b"
+                },
+                "heading": "a shared thing anchors to its first event and ties the rest",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-shared-thing-anchors-to-its-first-event-and-ties-the-rest-11",
+                "line": 421,
+                "anchor": "#a-shared-thing-anchors-to-its-first-event-and-ties-the-rest",
+                "content_sha1": "6ef4c01d124899a8a218e1dcc2f86c8a66f3d437",
+                "outputs": {
+                    "dsl": "6ef4c01d124899a8a218e1dcc2f86c8a66f3d437"
+                },
+                "heading": "a shared thing anchors to its first event and ties the rest",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below",
+                "line": 464,
+                "anchor": "#a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below",
+                "content_sha1": "c25c1215aba0b4b4bdaf3b3d100c6108a2410cab",
+                "outputs": {
+                    "dsl": "c25c1215aba0b4b4bdaf3b3d100c6108a2410cab"
+                },
+                "heading": "a part-of thing-fan centres on its event and the sole concept drops below",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below-02",
+                "line": 465,
+                "anchor": "#a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below",
+                "content_sha1": "00b9c83078dcc9077bff2abefb5c4c793d8ba04f",
+                "outputs": {
+                    "dsl": "00b9c83078dcc9077bff2abefb5c4c793d8ba04f"
+                },
+                "heading": "a part-of thing-fan centres on its event and the sole concept drops below",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below-03",
+                "line": 466,
+                "anchor": "#a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below",
+                "content_sha1": "4823cba6805d46eb3e4f0839ebe5b49321de180f",
+                "outputs": {
+                    "dsl": "4823cba6805d46eb3e4f0839ebe5b49321de180f"
+                },
+                "heading": "a part-of thing-fan centres on its event and the sole concept drops below",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below-04",
+                "line": 467,
+                "anchor": "#a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below",
+                "content_sha1": "a57d6fbff1e3d132a6efc07befc61249c18d551f",
+                "outputs": {
+                    "dsl": "a57d6fbff1e3d132a6efc07befc61249c18d551f"
+                },
+                "heading": "a part-of thing-fan centres on its event and the sole concept drops below",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below-05",
+                "line": 468,
+                "anchor": "#a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below",
+                "content_sha1": "18e2df7f035bb67e6097b6af7b4d0008464a38c2",
+                "outputs": {
+                    "dsl": "18e2df7f035bb67e6097b6af7b4d0008464a38c2"
+                },
+                "heading": "a part-of thing-fan centres on its event and the sole concept drops below",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below-06",
+                "line": 469,
+                "anchor": "#a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below",
+                "content_sha1": "03778fdd808768f819101a6e2f0b54c7737a89f6",
+                "outputs": {
+                    "dsl": "03778fdd808768f819101a6e2f0b54c7737a89f6"
+                },
+                "heading": "a part-of thing-fan centres on its event and the sole concept drops below",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below-07",
+                "line": 470,
+                "anchor": "#a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below",
+                "content_sha1": "e0d24c2ff73d82560676780930b44e7da9e81c57",
+                "outputs": {
+                    "dsl": "e0d24c2ff73d82560676780930b44e7da9e81c57"
+                },
+                "heading": "a part-of thing-fan centres on its event and the sole concept drops below",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below-08",
+                "line": 471,
+                "anchor": "#a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below",
+                "content_sha1": "c1333a3b6ded95a80ec302bc9cb5af99195759c6",
+                "outputs": {
+                    "dsl": "c1333a3b6ded95a80ec302bc9cb5af99195759c6"
+                },
+                "heading": "a part-of thing-fan centres on its event and the sole concept drops below",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below-09",
+                "line": 472,
+                "anchor": "#a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below",
+                "content_sha1": "9ab286a7d118a297e25e57a3ae5feafeb506e79e",
+                "outputs": {
+                    "dsl": "9ab286a7d118a297e25e57a3ae5feafeb506e79e"
+                },
+                "heading": "a part-of thing-fan centres on its event and the sole concept drops below",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "rules",
+                "line": 489,
+                "anchor": "#rules",
+                "content_sha1": "e979483ea06f9000e09831a5bb0052260d36ad52",
+                "outputs": {
+                    "dsl": "e979483ea06f9000e09831a5bb0052260d36ad52"
+                },
+                "heading": "rules",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-middle-branch-thing-widens-only-its-own-gap",
+                "line": 519,
+                "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
+                "content_sha1": "58ea22465c36b2219ca5fb48235742aef9ac9f93",
+                "outputs": {
+                    "dsl": "58ea22465c36b2219ca5fb48235742aef9ac9f93"
+                },
+                "heading": "a middle-branch thing widens only its own gap",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-middle-branch-thing-widens-only-its-own-gap-02",
+                "line": 520,
+                "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
+                "content_sha1": "e2edb0b775bd53e46dd9d7534dd4d138d2722807",
+                "outputs": {
+                    "dsl": "e2edb0b775bd53e46dd9d7534dd4d138d2722807"
+                },
+                "heading": "a middle-branch thing widens only its own gap",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-middle-branch-thing-widens-only-its-own-gap-03",
+                "line": 521,
+                "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
+                "content_sha1": "2f3dda47483f0fd187d520bb65bef7fb51f358e1",
+                "outputs": {
+                    "dsl": "2f3dda47483f0fd187d520bb65bef7fb51f358e1"
+                },
+                "heading": "a middle-branch thing widens only its own gap",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-middle-branch-thing-widens-only-its-own-gap-04",
+                "line": 522,
+                "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
+                "content_sha1": "4fad19e4f5a46ed876d1ef0094a8d36567a08bfd",
+                "outputs": {
+                    "dsl": "4fad19e4f5a46ed876d1ef0094a8d36567a08bfd"
+                },
+                "heading": "a middle-branch thing widens only its own gap",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-middle-branch-thing-widens-only-its-own-gap-05",
+                "line": 523,
+                "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
+                "content_sha1": "caf505f3e044b3df7a22220359c4f864d6fa6bea",
+                "outputs": {
+                    "dsl": "caf505f3e044b3df7a22220359c4f864d6fa6bea"
+                },
+                "heading": "a middle-branch thing widens only its own gap",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-middle-branch-thing-widens-only-its-own-gap-06",
+                "line": 524,
+                "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
+                "content_sha1": "37313c4bd6a91f74314ed69e5cd2895a1885b6d7",
+                "outputs": {
+                    "dsl": "37313c4bd6a91f74314ed69e5cd2895a1885b6d7"
+                },
+                "heading": "a middle-branch thing widens only its own gap",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-middle-branch-thing-widens-only-its-own-gap-07",
+                "line": 525,
+                "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
+                "content_sha1": "99d78b3f7515cee50cdb82dcb97a1b5451cb60b1",
+                "outputs": {
+                    "dsl": "99d78b3f7515cee50cdb82dcb97a1b5451cb60b1"
+                },
+                "heading": "a middle-branch thing widens only its own gap",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-middle-branch-thing-widens-only-its-own-gap-08",
+                "line": 526,
+                "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
+                "content_sha1": "b02b9ee3719825379493cbfe2a265babe9eafcc4",
+                "outputs": {
+                    "dsl": "b02b9ee3719825379493cbfe2a265babe9eafcc4"
+                },
+                "heading": "a middle-branch thing widens only its own gap",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-middle-branch-thing-widens-only-its-own-gap-09",
+                "line": 527,
+                "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
+                "content_sha1": "ab7640f2f69981e278c6d06aeeb5c7d5466eaf04",
+                "outputs": {
+                    "dsl": "ab7640f2f69981e278c6d06aeeb5c7d5466eaf04"
+                },
+                "heading": "a middle-branch thing widens only its own gap",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-middle-branch-thing-widens-only-its-own-gap-10",
+                "line": 528,
+                "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
+                "content_sha1": "44e87630b092a613190c0c4412504fcc0b831dac",
+                "outputs": {
+                    "dsl": "44e87630b092a613190c0c4412504fcc0b831dac"
+                },
+                "heading": "a middle-branch thing widens only its own gap",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-middle-branch-thing-widens-only-its-own-gap-11",
+                "line": 529,
+                "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
+                "content_sha1": "b130ef253d069a204e70b64152924eba7f06cc87",
+                "outputs": {
+                    "dsl": "b130ef253d069a204e70b64152924eba7f06cc87"
+                },
+                "heading": "a middle-branch thing widens only its own gap",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-middle-branch-thing-widens-only-its-own-gap-12",
+                "line": 530,
+                "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
+                "content_sha1": "9948dd4e9e9fcddc455cdac811fa467deac789c5",
+                "outputs": {
+                    "dsl": "9948dd4e9e9fcddc455cdac811fa467deac789c5"
+                },
+                "heading": "a middle-branch thing widens only its own gap",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-middle-branch-thing-widens-only-its-own-gap-13",
+                "line": 531,
+                "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
+                "content_sha1": "7bee6c85c938e30de7608c3e81f4101a028392b8",
+                "outputs": {
+                    "dsl": "7bee6c85c938e30de7608c3e81f4101a028392b8"
+                },
+                "heading": "a middle-branch thing widens only its own gap",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-middle-branch-thing-widens-only-its-own-gap-14",
+                "line": 532,
+                "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
+                "content_sha1": "784fa36801dd27024e8c99880dd976399f2f547b",
+                "outputs": {
+                    "dsl": "784fa36801dd27024e8c99880dd976399f2f547b"
+                },
+                "heading": "a middle-branch thing widens only its own gap",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-middle-branch-thing-widens-only-its-own-gap-15",
+                "line": 533,
+                "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
+                "content_sha1": "7fc18abf8dfd57b69f686a3907e66e44288c1fc8",
+                "outputs": {
+                    "dsl": "7fc18abf8dfd57b69f686a3907e66e44288c1fc8"
+                },
+                "heading": "a middle-branch thing widens only its own gap",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-middle-branch-thing-widens-only-its-own-gap-16",
+                "line": 534,
+                "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
+                "content_sha1": "a0638fbcdd2c37a2f6772d01bbe50d6d70e91b49",
+                "outputs": {
+                    "dsl": "a0638fbcdd2c37a2f6772d01bbe50d6d70e91b49"
+                },
+                "heading": "a middle-branch thing widens only its own gap",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
+                "line": 561,
+                "anchor": "#aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
+                "content_sha1": "58ea22465c36b2219ca5fb48235742aef9ac9f93",
+                "outputs": {
+                    "dsl": "58ea22465c36b2219ca5fb48235742aef9ac9f93"
+                },
+                "heading": "aux sibling affinity clusters the pair and brackets the shared concept",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept-02",
+                "line": 562,
+                "anchor": "#aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
+                "content_sha1": "cbb41774632c0e5bb437473c4014a45ee6178dc3",
+                "outputs": {
+                    "dsl": "cbb41774632c0e5bb437473c4014a45ee6178dc3"
+                },
+                "heading": "aux sibling affinity clusters the pair and brackets the shared concept",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept-03",
+                "line": 563,
+                "anchor": "#aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
+                "content_sha1": "1c29f0f63eb834630b2622f709142cf4e0b8bf29",
+                "outputs": {
+                    "dsl": "1c29f0f63eb834630b2622f709142cf4e0b8bf29"
+                },
+                "heading": "aux sibling affinity clusters the pair and brackets the shared concept",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept-04",
+                "line": 564,
+                "anchor": "#aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
+                "content_sha1": "a2d1d2b89f48c31dce236d3a59c29aafe55768e3",
+                "outputs": {
+                    "dsl": "a2d1d2b89f48c31dce236d3a59c29aafe55768e3"
+                },
+                "heading": "aux sibling affinity clusters the pair and brackets the shared concept",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept-05",
+                "line": 565,
+                "anchor": "#aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
+                "content_sha1": "7b4c7e2f2349732c9f857d1bd090a103daab19b2",
+                "outputs": {
+                    "dsl": "7b4c7e2f2349732c9f857d1bd090a103daab19b2"
+                },
+                "heading": "aux sibling affinity clusters the pair and brackets the shared concept",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept-06",
+                "line": 566,
+                "anchor": "#aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
+                "content_sha1": "b209bcfa5f06190b04dcadb425a61b339f2eddd1",
+                "outputs": {
+                    "dsl": "b209bcfa5f06190b04dcadb425a61b339f2eddd1"
+                },
+                "heading": "aux sibling affinity clusters the pair and brackets the shared concept",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept-07",
+                "line": 567,
+                "anchor": "#aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
+                "content_sha1": "76b3456af53d4af705d77f0d1ef64a5366303cad",
+                "outputs": {
+                    "dsl": "76b3456af53d4af705d77f0d1ef64a5366303cad"
+                },
+                "heading": "aux sibling affinity clusters the pair and brackets the shared concept",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept-08",
+                "line": 568,
+                "anchor": "#aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
+                "content_sha1": "891b3710a0c2f6ccef3c3ba7bcecb8da2a842ed3",
+                "outputs": {
+                    "dsl": "891b3710a0c2f6ccef3c3ba7bcecb8da2a842ed3"
+                },
+                "heading": "aux sibling affinity clusters the pair and brackets the shared concept",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept-09",
+                "line": 569,
+                "anchor": "#aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
+                "content_sha1": "3bc2feba899916ba8308cf0e8342ac79d8cfd6e0",
+                "outputs": {
+                    "dsl": "3bc2feba899916ba8308cf0e8342ac79d8cfd6e0"
+                },
+                "heading": "aux sibling affinity clusters the pair and brackets the shared concept",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept-10",
+                "line": 570,
+                "anchor": "#aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
+                "content_sha1": "5088509b3f9ec727c013e8af638cd9ed5ca69a0f",
+                "outputs": {
+                    "dsl": "5088509b3f9ec727c013e8af638cd9ed5ca69a0f"
+                },
+                "heading": "aux sibling affinity clusters the pair and brackets the shared concept",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept-11",
+                "line": 571,
+                "anchor": "#aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
+                "content_sha1": "b4317631d33c0fb9455fd96837529362c1fc0cb1",
+                "outputs": {
+                    "dsl": "b4317631d33c0fb9455fd96837529362c1fc0cb1"
+                },
+                "heading": "aux sibling affinity clusters the pair and brackets the shared concept",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-sibling-tie-orders-the-stack-adjacent",
+                "line": 593,
+                "anchor": "#a-sibling-tie-orders-the-stack-adjacent",
+                "content_sha1": "58ea22465c36b2219ca5fb48235742aef9ac9f93",
+                "outputs": {
+                    "dsl": "58ea22465c36b2219ca5fb48235742aef9ac9f93"
+                },
+                "heading": "a sibling tie orders the stack adjacent",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-sibling-tie-orders-the-stack-adjacent-02",
+                "line": 594,
+                "anchor": "#a-sibling-tie-orders-the-stack-adjacent",
+                "content_sha1": "1c29f0f63eb834630b2622f709142cf4e0b8bf29",
+                "outputs": {
+                    "dsl": "1c29f0f63eb834630b2622f709142cf4e0b8bf29"
+                },
+                "heading": "a sibling tie orders the stack adjacent",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-sibling-tie-orders-the-stack-adjacent-03",
+                "line": 595,
+                "anchor": "#a-sibling-tie-orders-the-stack-adjacent",
+                "content_sha1": "a2d1d2b89f48c31dce236d3a59c29aafe55768e3",
+                "outputs": {
+                    "dsl": "a2d1d2b89f48c31dce236d3a59c29aafe55768e3"
+                },
+                "heading": "a sibling tie orders the stack adjacent",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-sibling-tie-orders-the-stack-adjacent-04",
+                "line": 596,
+                "anchor": "#a-sibling-tie-orders-the-stack-adjacent",
+                "content_sha1": "7b4c7e2f2349732c9f857d1bd090a103daab19b2",
+                "outputs": {
+                    "dsl": "7b4c7e2f2349732c9f857d1bd090a103daab19b2"
+                },
+                "heading": "a sibling tie orders the stack adjacent",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-sibling-tie-orders-the-stack-adjacent-05",
+                "line": 597,
+                "anchor": "#a-sibling-tie-orders-the-stack-adjacent",
+                "content_sha1": "b209bcfa5f06190b04dcadb425a61b339f2eddd1",
+                "outputs": {
+                    "dsl": "b209bcfa5f06190b04dcadb425a61b339f2eddd1"
+                },
+                "heading": "a sibling tie orders the stack adjacent",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-sibling-tie-orders-the-stack-adjacent-06",
+                "line": 598,
+                "anchor": "#a-sibling-tie-orders-the-stack-adjacent",
+                "content_sha1": "76b3456af53d4af705d77f0d1ef64a5366303cad",
+                "outputs": {
+                    "dsl": "76b3456af53d4af705d77f0d1ef64a5366303cad"
+                },
+                "heading": "a sibling tie orders the stack adjacent",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-sibling-tie-orders-the-stack-adjacent-07",
+                "line": 599,
+                "anchor": "#a-sibling-tie-orders-the-stack-adjacent",
+                "content_sha1": "891b3710a0c2f6ccef3c3ba7bcecb8da2a842ed3",
+                "outputs": {
+                    "dsl": "891b3710a0c2f6ccef3c3ba7bcecb8da2a842ed3"
+                },
+                "heading": "a sibling tie orders the stack adjacent",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-sibling-tie-orders-the-stack-adjacent-08",
+                "line": 600,
+                "anchor": "#a-sibling-tie-orders-the-stack-adjacent",
+                "content_sha1": "94d4623f7da234980ca88e3dc20bc445ee0eed0d",
+                "outputs": {
+                    "dsl": "94d4623f7da234980ca88e3dc20bc445ee0eed0d"
+                },
+                "heading": "a sibling tie orders the stack adjacent",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-sibling-tie-orders-the-stack-adjacent-09",
+                "line": 601,
+                "anchor": "#a-sibling-tie-orders-the-stack-adjacent",
+                "content_sha1": "2abbce367352247548c78e5ac8f887bbcd401c31",
+                "outputs": {
+                    "dsl": "2abbce367352247548c78e5ac8f887bbcd401c31"
+                },
+                "heading": "a sibling tie orders the stack adjacent",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-shared-thing-beats-the-first-declared-anchor",
+                "line": 626,
+                "anchor": "#a-deep-shared-thing-beats-the-first-declared-anchor",
+                "content_sha1": "58ea22465c36b2219ca5fb48235742aef9ac9f93",
+                "outputs": {
+                    "dsl": "58ea22465c36b2219ca5fb48235742aef9ac9f93"
+                },
+                "heading": "a deep shared thing beats the first-declared anchor",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-shared-thing-beats-the-first-declared-anchor-02",
+                "line": 627,
+                "anchor": "#a-deep-shared-thing-beats-the-first-declared-anchor",
+                "content_sha1": "98f3ac8e5947d13c888f1ef6849b3a51000c7f04",
+                "outputs": {
+                    "dsl": "98f3ac8e5947d13c888f1ef6849b3a51000c7f04"
+                },
+                "heading": "a deep shared thing beats the first-declared anchor",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-shared-thing-beats-the-first-declared-anchor-03",
+                "line": 628,
+                "anchor": "#a-deep-shared-thing-beats-the-first-declared-anchor",
+                "content_sha1": "9bd31380a4de8fa45ca5c93a697943cf240e88e9",
+                "outputs": {
+                    "dsl": "9bd31380a4de8fa45ca5c93a697943cf240e88e9"
+                },
+                "heading": "a deep shared thing beats the first-declared anchor",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-shared-thing-beats-the-first-declared-anchor-04",
+                "line": 629,
+                "anchor": "#a-deep-shared-thing-beats-the-first-declared-anchor",
+                "content_sha1": "28cfc36d511ec291fe6d6f9e57c1b65f5ef71b86",
+                "outputs": {
+                    "dsl": "28cfc36d511ec291fe6d6f9e57c1b65f5ef71b86"
+                },
+                "heading": "a deep shared thing beats the first-declared anchor",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-shared-thing-beats-the-first-declared-anchor-05",
+                "line": 630,
+                "anchor": "#a-deep-shared-thing-beats-the-first-declared-anchor",
+                "content_sha1": "49b4459d8ffeadb0bc0a9dd1faeaf1532ab8d275",
+                "outputs": {
+                    "dsl": "49b4459d8ffeadb0bc0a9dd1faeaf1532ab8d275"
+                },
+                "heading": "a deep shared thing beats the first-declared anchor",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-shared-thing-beats-the-first-declared-anchor-06",
+                "line": 631,
+                "anchor": "#a-deep-shared-thing-beats-the-first-declared-anchor",
+                "content_sha1": "25a342903a76fa9e89e936b6e95bf3adf2d0c78c",
+                "outputs": {
+                    "dsl": "25a342903a76fa9e89e936b6e95bf3adf2d0c78c"
+                },
+                "heading": "a deep shared thing beats the first-declared anchor",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-shared-thing-beats-the-first-declared-anchor-07",
+                "line": 632,
+                "anchor": "#a-deep-shared-thing-beats-the-first-declared-anchor",
+                "content_sha1": "7bf34f139af91da4185385d1419c93bfef492a64",
+                "outputs": {
+                    "dsl": "7bf34f139af91da4185385d1419c93bfef492a64"
+                },
+                "heading": "a deep shared thing beats the first-declared anchor",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-shared-thing-beats-the-first-declared-anchor-08",
+                "line": 633,
+                "anchor": "#a-deep-shared-thing-beats-the-first-declared-anchor",
+                "content_sha1": "7b3f90f5e3f1ccf447177b33b18a196bbfe9788d",
+                "outputs": {
+                    "dsl": "7b3f90f5e3f1ccf447177b33b18a196bbfe9788d"
+                },
+                "heading": "a deep shared thing beats the first-declared anchor",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-shared-thing-beats-the-first-declared-anchor-09",
+                "line": 634,
+                "anchor": "#a-deep-shared-thing-beats-the-first-declared-anchor",
+                "content_sha1": "5b0be9ea6a6d20f013002f494ca421600074140f",
+                "outputs": {
+                    "dsl": "5b0be9ea6a6d20f013002f494ca421600074140f"
+                },
+                "heading": "a deep shared thing beats the first-declared anchor",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-shared-concept-beats-the-first-usage-anchor",
+                "line": 656,
+                "anchor": "#a-deep-shared-concept-beats-the-first-usage-anchor",
+                "content_sha1": "ca8978ade09463c473adaa41aa1dc3633e83ab25",
+                "outputs": {
+                    "dsl": "ca8978ade09463c473adaa41aa1dc3633e83ab25"
+                },
+                "heading": "a deep shared concept beats the first-usage anchor",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-shared-concept-beats-the-first-usage-anchor-02",
+                "line": 657,
+                "anchor": "#a-deep-shared-concept-beats-the-first-usage-anchor",
+                "content_sha1": "58ea22465c36b2219ca5fb48235742aef9ac9f93",
+                "outputs": {
+                    "dsl": "58ea22465c36b2219ca5fb48235742aef9ac9f93"
+                },
+                "heading": "a deep shared concept beats the first-usage anchor",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-shared-concept-beats-the-first-usage-anchor-03",
+                "line": 658,
+                "anchor": "#a-deep-shared-concept-beats-the-first-usage-anchor",
+                "content_sha1": "cbb41774632c0e5bb437473c4014a45ee6178dc3",
+                "outputs": {
+                    "dsl": "cbb41774632c0e5bb437473c4014a45ee6178dc3"
+                },
+                "heading": "a deep shared concept beats the first-usage anchor",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-shared-concept-beats-the-first-usage-anchor-04",
+                "line": 659,
+                "anchor": "#a-deep-shared-concept-beats-the-first-usage-anchor",
+                "content_sha1": "28cfc36d511ec291fe6d6f9e57c1b65f5ef71b86",
+                "outputs": {
+                    "dsl": "28cfc36d511ec291fe6d6f9e57c1b65f5ef71b86"
+                },
+                "heading": "a deep shared concept beats the first-usage anchor",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-shared-concept-beats-the-first-usage-anchor-05",
+                "line": 660,
+                "anchor": "#a-deep-shared-concept-beats-the-first-usage-anchor",
+                "content_sha1": "49b4459d8ffeadb0bc0a9dd1faeaf1532ab8d275",
+                "outputs": {
+                    "dsl": "49b4459d8ffeadb0bc0a9dd1faeaf1532ab8d275"
+                },
+                "heading": "a deep shared concept beats the first-usage anchor",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-shared-concept-beats-the-first-usage-anchor-06",
+                "line": 661,
+                "anchor": "#a-deep-shared-concept-beats-the-first-usage-anchor",
+                "content_sha1": "347ff65b750bd329b23954bd34535bb108417ac9",
+                "outputs": {
+                    "dsl": "347ff65b750bd329b23954bd34535bb108417ac9"
+                },
+                "heading": "a deep shared concept beats the first-usage anchor",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-shared-concept-beats-the-first-usage-anchor-07",
+                "line": 662,
+                "anchor": "#a-deep-shared-concept-beats-the-first-usage-anchor",
+                "content_sha1": "928b35eea94b07aab24df5450101ca4741173fb7",
+                "outputs": {
+                    "dsl": "928b35eea94b07aab24df5450101ca4741173fb7"
+                },
+                "heading": "a deep shared concept beats the first-usage anchor",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-shared-concept-beats-the-first-usage-anchor-08",
+                "line": 663,
+                "anchor": "#a-deep-shared-concept-beats-the-first-usage-anchor",
+                "content_sha1": "4f19ba141fbe54bf9e94db19824e32fb4cdd40d9",
+                "outputs": {
+                    "dsl": "4f19ba141fbe54bf9e94db19824e32fb4cdd40d9"
+                },
+                "heading": "a deep shared concept beats the first-usage anchor",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-shared-concept-beats-the-first-usage-anchor-09",
+                "line": 664,
+                "anchor": "#a-deep-shared-concept-beats-the-first-usage-anchor",
+                "content_sha1": "a7d5024c91a8c3c05cea619f1da643d29172ab1d",
+                "outputs": {
+                    "dsl": "a7d5024c91a8c3c05cea619f1da643d29172ab1d"
+                },
+                "heading": "a deep shared concept beats the first-usage anchor",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-concept-fan-survives-a-foreign-bands-column",
+                "line": 701,
+                "anchor": "#a-deep-concept-fan-survives-a-foreign-bands-column",
+                "content_sha1": "ca8978ade09463c473adaa41aa1dc3633e83ab25",
+                "outputs": {
+                    "dsl": "ca8978ade09463c473adaa41aa1dc3633e83ab25"
+                },
+                "heading": "a deep concept fan survives a foreign band's column",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-concept-fan-survives-a-foreign-bands-column-02",
+                "line": 702,
+                "anchor": "#a-deep-concept-fan-survives-a-foreign-bands-column",
+                "content_sha1": "d07284b81a4b86fa0357cd95bd6e8494b8cb1fb2",
+                "outputs": {
+                    "dsl": "d07284b81a4b86fa0357cd95bd6e8494b8cb1fb2"
+                },
+                "heading": "a deep concept fan survives a foreign band's column",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-concept-fan-survives-a-foreign-bands-column-03",
+                "line": 703,
+                "anchor": "#a-deep-concept-fan-survives-a-foreign-bands-column",
+                "content_sha1": "add6047828987eb1d32dbbf78a9b8467324660ea",
+                "outputs": {
+                    "dsl": "add6047828987eb1d32dbbf78a9b8467324660ea"
+                },
+                "heading": "a deep concept fan survives a foreign band's column",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-concept-fan-survives-a-foreign-bands-column-04",
+                "line": 704,
+                "anchor": "#a-deep-concept-fan-survives-a-foreign-bands-column",
+                "content_sha1": "c8bdf9a2f9d4341d45e1e92796696bbc33aec321",
+                "outputs": {
+                    "dsl": "c8bdf9a2f9d4341d45e1e92796696bbc33aec321"
+                },
+                "heading": "a deep concept fan survives a foreign band's column",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-concept-fan-survives-a-foreign-bands-column-05",
+                "line": 705,
+                "anchor": "#a-deep-concept-fan-survives-a-foreign-bands-column",
+                "content_sha1": "a8b45f825499e4c95d41346e1965dbec7ac8c385",
+                "outputs": {
+                    "dsl": "a8b45f825499e4c95d41346e1965dbec7ac8c385"
+                },
+                "heading": "a deep concept fan survives a foreign band's column",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-concept-fan-survives-a-foreign-bands-column-06",
+                "line": 706,
+                "anchor": "#a-deep-concept-fan-survives-a-foreign-bands-column",
+                "content_sha1": "0a096fc7d8455c8f343884c357c0b4334490aa42",
+                "outputs": {
+                    "dsl": "0a096fc7d8455c8f343884c357c0b4334490aa42"
+                },
+                "heading": "a deep concept fan survives a foreign band's column",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-concept-fan-survives-a-foreign-bands-column-07",
+                "line": 707,
+                "anchor": "#a-deep-concept-fan-survives-a-foreign-bands-column",
+                "content_sha1": "45a95ce5df345fc009a7b7a212f498b16913af39",
+                "outputs": {
+                    "dsl": "45a95ce5df345fc009a7b7a212f498b16913af39"
+                },
+                "heading": "a deep concept fan survives a foreign band's column",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-deep-concept-fan-survives-a-foreign-bands-column-08",
+                "line": 708,
+                "anchor": "#a-deep-concept-fan-survives-a-foreign-bands-column",
+                "content_sha1": "b436c8d0c049d4779683be93861e2d1b5e619eae",
+                "outputs": {
+                    "dsl": "b436c8d0c049d4779683be93861e2d1b5e619eae"
+                },
+                "heading": "a deep concept fan survives a foreign band's column",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "cross-component-arrivals-keep-the-approach-order",
+                "line": 738,
+                "anchor": "#cross-component-arrivals-keep-the-approach-order",
+                "content_sha1": "9fbd9f16791fc9de7ba4c560ccdc64ac6a2d0ab5",
+                "outputs": {
+                    "dsl": "9fbd9f16791fc9de7ba4c560ccdc64ac6a2d0ab5"
+                },
+                "heading": "cross-component arrivals keep the approach order",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "cross-component-arrivals-keep-the-approach-order-02",
+                "line": 739,
+                "anchor": "#cross-component-arrivals-keep-the-approach-order",
+                "content_sha1": "773bd62196fbe1b50153586235167b3049237745",
+                "outputs": {
+                    "dsl": "773bd62196fbe1b50153586235167b3049237745"
+                },
+                "heading": "cross-component arrivals keep the approach order",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "cross-component-arrivals-keep-the-approach-order-03",
+                "line": 740,
+                "anchor": "#cross-component-arrivals-keep-the-approach-order",
+                "content_sha1": "164d478c2592e872e29f19b78aa26e8ab30fab64",
+                "outputs": {
+                    "dsl": "164d478c2592e872e29f19b78aa26e8ab30fab64"
+                },
+                "heading": "cross-component arrivals keep the approach order",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "cross-component-arrivals-keep-the-approach-order-04",
+                "line": 741,
+                "anchor": "#cross-component-arrivals-keep-the-approach-order",
+                "content_sha1": "1766fd68c8b16e3748535d1cd7091997b4ec9a45",
+                "outputs": {
+                    "dsl": "1766fd68c8b16e3748535d1cd7091997b4ec9a45"
+                },
+                "heading": "cross-component arrivals keep the approach order",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "cross-component-arrivals-keep-the-approach-order-05",
+                "line": 742,
+                "anchor": "#cross-component-arrivals-keep-the-approach-order",
+                "content_sha1": "f957127d9917043c7f40850d33d469742005969a",
+                "outputs": {
+                    "dsl": "f957127d9917043c7f40850d33d469742005969a"
+                },
+                "heading": "cross-component arrivals keep the approach order",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "cross-component-arrivals-keep-the-approach-order-06",
+                "line": 743,
+                "anchor": "#cross-component-arrivals-keep-the-approach-order",
+                "content_sha1": "3bac5547390caeaf5e201dd72969f9cf0d367ab0",
+                "outputs": {
+                    "dsl": "3bac5547390caeaf5e201dd72969f9cf0d367ab0"
+                },
+                "heading": "cross-component arrivals keep the approach order",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "cross-component-arrivals-keep-the-approach-order-07",
+                "line": 744,
+                "anchor": "#cross-component-arrivals-keep-the-approach-order",
+                "content_sha1": "fe7f745140b6b10bdd5bc22939e02f4c62779537",
+                "outputs": {
+                    "dsl": "fe7f745140b6b10bdd5bc22939e02f4c62779537"
+                },
+                "heading": "cross-component arrivals keep the approach order",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "cross-component-arrivals-keep-the-approach-order-08",
+                "line": 745,
+                "anchor": "#cross-component-arrivals-keep-the-approach-order",
+                "content_sha1": "c01e10b3b8109552f52a2fbd4c62d45f4db86d56",
+                "outputs": {
+                    "dsl": "c01e10b3b8109552f52a2fbd4c62d45f4db86d56"
+                },
+                "heading": "cross-component arrivals keep the approach order",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-flank-tie-crosses-the-fan-under-the-kind-budget",
+                "line": 770,
+                "anchor": "#a-flank-tie-crosses-the-fan-under-the-kind-budget",
+                "content_sha1": "58ea22465c36b2219ca5fb48235742aef9ac9f93",
+                "outputs": {
+                    "dsl": "58ea22465c36b2219ca5fb48235742aef9ac9f93"
+                },
+                "heading": "a flank tie crosses the fan under the kind budget",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-flank-tie-crosses-the-fan-under-the-kind-budget-02",
+                "line": 771,
+                "anchor": "#a-flank-tie-crosses-the-fan-under-the-kind-budget",
+                "content_sha1": "fe9f5b95eed2757e14be673ccec57e9eff2423f4",
+                "outputs": {
+                    "dsl": "fe9f5b95eed2757e14be673ccec57e9eff2423f4"
+                },
+                "heading": "a flank tie crosses the fan under the kind budget",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-flank-tie-crosses-the-fan-under-the-kind-budget-03",
+                "line": 772,
+                "anchor": "#a-flank-tie-crosses-the-fan-under-the-kind-budget",
+                "content_sha1": "71a96536a10a075942bd0ea74515ca78a3ca12f3",
+                "outputs": {
+                    "dsl": "71a96536a10a075942bd0ea74515ca78a3ca12f3"
+                },
+                "heading": "a flank tie crosses the fan under the kind budget",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-flank-tie-crosses-the-fan-under-the-kind-budget-04",
+                "line": 773,
+                "anchor": "#a-flank-tie-crosses-the-fan-under-the-kind-budget",
+                "content_sha1": "cf4d4810251a04fd511b154145c24b4d64d81c60",
+                "outputs": {
+                    "dsl": "cf4d4810251a04fd511b154145c24b4d64d81c60"
+                },
+                "heading": "a flank tie crosses the fan under the kind budget",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-flank-tie-crosses-the-fan-under-the-kind-budget-05",
+                "line": 774,
+                "anchor": "#a-flank-tie-crosses-the-fan-under-the-kind-budget",
+                "content_sha1": "02be4b83d411fc001cd11c1c6bb2a34b05186a4f",
+                "outputs": {
+                    "dsl": "02be4b83d411fc001cd11c1c6bb2a34b05186a4f"
+                },
+                "heading": "a flank tie crosses the fan under the kind budget",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-flank-tie-crosses-the-fan-under-the-kind-budget-06",
+                "line": 775,
+                "anchor": "#a-flank-tie-crosses-the-fan-under-the-kind-budget",
+                "content_sha1": "ded0a46e58c6745efe2a44fab28c252a52d12dd0",
+                "outputs": {
+                    "dsl": "ded0a46e58c6745efe2a44fab28c252a52d12dd0"
+                },
+                "heading": "a flank tie crosses the fan under the kind budget",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-flank-tie-crosses-the-fan-under-the-kind-budget-07",
+                "line": 776,
+                "anchor": "#a-flank-tie-crosses-the-fan-under-the-kind-budget",
+                "content_sha1": "dd6f8721175463f7aac9fd08bfd715b4ef25ee2d",
+                "outputs": {
+                    "dsl": "dd6f8721175463f7aac9fd08bfd715b4ef25ee2d"
+                },
+                "heading": "a flank tie crosses the fan under the kind budget",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-flank-tie-crosses-the-fan-under-the-kind-budget-08",
+                "line": 777,
+                "anchor": "#a-flank-tie-crosses-the-fan-under-the-kind-budget",
+                "content_sha1": "72d9cc269a16ddd32cf0b0c49e48e4607397451f",
+                "outputs": {
+                    "dsl": "72d9cc269a16ddd32cf0b0c49e48e4607397451f"
+                },
+                "heading": "a flank tie crosses the fan under the kind budget",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-flank-tie-crosses-the-fan-under-the-kind-budget-09",
+                "line": 778,
+                "anchor": "#a-flank-tie-crosses-the-fan-under-the-kind-budget",
+                "content_sha1": "77059fa640f63c8feffcb98c63b49b7ad1bd0fbe",
+                "outputs": {
+                    "dsl": "77059fa640f63c8feffcb98c63b49b7ad1bd0fbe"
+                },
+                "heading": "a flank tie crosses the fan under the kind budget",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-flank-tie-crosses-the-fan-under-the-kind-budget-10",
+                "line": 779,
+                "anchor": "#a-flank-tie-crosses-the-fan-under-the-kind-budget",
+                "content_sha1": "6cf3f6de9d1e11fb63eea49bdeff05b6086efe51",
+                "outputs": {
+                    "dsl": "6cf3f6de9d1e11fb63eea49bdeff05b6086efe51"
+                },
+                "heading": "a flank tie crosses the fan under the kind budget",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "near-to-satellites-wrap-as-the-outermost-layer",
+                "line": 807,
+                "anchor": "#near-to-satellites-wrap-as-the-outermost-layer",
+                "content_sha1": "58ea22465c36b2219ca5fb48235742aef9ac9f93",
+                "outputs": {
+                    "dsl": "58ea22465c36b2219ca5fb48235742aef9ac9f93"
+                },
+                "heading": "near-to satellites wrap as the outermost layer",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "near-to-satellites-wrap-as-the-outermost-layer-02",
+                "line": 808,
+                "anchor": "#near-to-satellites-wrap-as-the-outermost-layer",
+                "content_sha1": "1c29f0f63eb834630b2622f709142cf4e0b8bf29",
+                "outputs": {
+                    "dsl": "1c29f0f63eb834630b2622f709142cf4e0b8bf29"
+                },
+                "heading": "near-to satellites wrap as the outermost layer",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "near-to-satellites-wrap-as-the-outermost-layer-03",
+                "line": 809,
+                "anchor": "#near-to-satellites-wrap-as-the-outermost-layer",
+                "content_sha1": "a2d1d2b89f48c31dce236d3a59c29aafe55768e3",
+                "outputs": {
+                    "dsl": "a2d1d2b89f48c31dce236d3a59c29aafe55768e3"
+                },
+                "heading": "near-to satellites wrap as the outermost layer",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "near-to-satellites-wrap-as-the-outermost-layer-04",
+                "line": 810,
+                "anchor": "#near-to-satellites-wrap-as-the-outermost-layer",
+                "content_sha1": "5bb035bb10f05a1a9de55feeb82899aa205d38d8",
+                "outputs": {
+                    "dsl": "5bb035bb10f05a1a9de55feeb82899aa205d38d8"
+                },
+                "heading": "near-to satellites wrap as the outermost layer",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "near-to-satellites-wrap-as-the-outermost-layer-05",
+                "line": 811,
+                "anchor": "#near-to-satellites-wrap-as-the-outermost-layer",
+                "content_sha1": "3067a0ea5e06a068f6d9e9d326a3be78972c6443",
+                "outputs": {
+                    "dsl": "3067a0ea5e06a068f6d9e9d326a3be78972c6443"
+                },
+                "heading": "near-to satellites wrap as the outermost layer",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "near-to-satellites-wrap-as-the-outermost-layer-06",
+                "line": 812,
+                "anchor": "#near-to-satellites-wrap-as-the-outermost-layer",
+                "content_sha1": "84db9f1bcbc76d8cb12256e93128791445557526",
+                "outputs": {
+                    "dsl": "84db9f1bcbc76d8cb12256e93128791445557526"
+                },
+                "heading": "near-to satellites wrap as the outermost layer",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "near-to-satellites-wrap-as-the-outermost-layer-07",
+                "line": 813,
+                "anchor": "#near-to-satellites-wrap-as-the-outermost-layer",
+                "content_sha1": "50ad931a0a40808c8fc3b9b158b541901c161409",
+                "outputs": {
+                    "dsl": "50ad931a0a40808c8fc3b9b158b541901c161409"
+                },
+                "heading": "near-to satellites wrap as the outermost layer",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "near-to-satellites-wrap-as-the-outermost-layer-08",
+                "line": 814,
+                "anchor": "#near-to-satellites-wrap-as-the-outermost-layer",
+                "content_sha1": "b20ea2ef83efc0bb4d7247ef0a3385531bd78309",
+                "outputs": {
+                    "dsl": "b20ea2ef83efc0bb4d7247ef0a3385531bd78309"
+                },
+                "heading": "near-to satellites wrap as the outermost layer",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "near-to-satellites-wrap-as-the-outermost-layer-09",
+                "line": 815,
+                "anchor": "#near-to-satellites-wrap-as-the-outermost-layer",
+                "content_sha1": "f7d82a63707053b1b10dd20db2a070514c52a73f",
+                "outputs": {
+                    "dsl": "f7d82a63707053b1b10dd20db2a070514c52a73f"
+                },
+                "heading": "near-to satellites wrap as the outermost layer",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "near-to-satellites-wrap-as-the-outermost-layer-10",
+                "line": 816,
+                "anchor": "#near-to-satellites-wrap-as-the-outermost-layer",
+                "content_sha1": "d9f26680f95da2afafa0edbe809ef7ee5807fda6",
+                "outputs": {
+                    "dsl": "d9f26680f95da2afafa0edbe809ef7ee5807fda6"
+                },
+                "heading": "near-to satellites wrap as the outermost layer",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "near-to-satellites-wrap-as-the-outermost-layer-11",
+                "line": 817,
+                "anchor": "#near-to-satellites-wrap-as-the-outermost-layer",
+                "content_sha1": "1038b63ab14e89abc770caa27116e45c05528518",
+                "outputs": {
+                    "dsl": "1038b63ab14e89abc770caa27116e45c05528518"
+                },
+                "heading": "near-to satellites wrap as the outermost layer",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-satellite-wraps-a-pure-grid-from-the-outer-flank",
+                "line": 845,
+                "anchor": "#a-satellite-wraps-a-pure-grid-from-the-outer-flank",
+                "content_sha1": "1fad0a8c4a3f5519e24d3ce812897473db3a6324",
+                "outputs": {
+                    "dsl": "1fad0a8c4a3f5519e24d3ce812897473db3a6324"
+                },
+                "heading": "a satellite wraps a pure grid from the outer flank",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-satellite-wraps-a-pure-grid-from-the-outer-flank-02",
+                "line": 846,
+                "anchor": "#a-satellite-wraps-a-pure-grid-from-the-outer-flank",
+                "content_sha1": "6a30506f88dc56079a957ac1e45f82da09cd1e06",
+                "outputs": {
+                    "dsl": "6a30506f88dc56079a957ac1e45f82da09cd1e06"
+                },
+                "heading": "a satellite wraps a pure grid from the outer flank",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-satellite-wraps-a-pure-grid-from-the-outer-flank-03",
+                "line": 847,
+                "anchor": "#a-satellite-wraps-a-pure-grid-from-the-outer-flank",
+                "content_sha1": "b8737e8a15ec2ecaa754369bf4524dbbaba64239",
+                "outputs": {
+                    "dsl": "b8737e8a15ec2ecaa754369bf4524dbbaba64239"
+                },
+                "heading": "a satellite wraps a pure grid from the outer flank",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-satellite-wraps-a-pure-grid-from-the-outer-flank-04",
+                "line": 848,
+                "anchor": "#a-satellite-wraps-a-pure-grid-from-the-outer-flank",
+                "content_sha1": "f01e5df33dc5fb2b3d4b978c80286bc949654361",
+                "outputs": {
+                    "dsl": "f01e5df33dc5fb2b3d4b978c80286bc949654361"
+                },
+                "heading": "a satellite wraps a pure grid from the outer flank",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-satellite-wraps-a-pure-grid-from-the-outer-flank-05",
+                "line": 849,
+                "anchor": "#a-satellite-wraps-a-pure-grid-from-the-outer-flank",
+                "content_sha1": "5c78abbc4139ab3b95cfc06f292b647f933955e2",
+                "outputs": {
+                    "dsl": "5c78abbc4139ab3b95cfc06f292b647f933955e2"
+                },
+                "heading": "a satellite wraps a pure grid from the outer flank",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-satellite-wraps-a-pure-grid-from-the-outer-flank-06",
+                "line": 850,
+                "anchor": "#a-satellite-wraps-a-pure-grid-from-the-outer-flank",
+                "content_sha1": "d2ab24eb5e019139c25d2bd36eae3bb8734c9bbd",
+                "outputs": {
+                    "dsl": "d2ab24eb5e019139c25d2bd36eae3bb8734c9bbd"
+                },
+                "heading": "a satellite wraps a pure grid from the outer flank",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-satellite-wraps-a-pure-grid-from-the-outer-flank-07",
+                "line": 851,
+                "anchor": "#a-satellite-wraps-a-pure-grid-from-the-outer-flank",
+                "content_sha1": "3f95afbb332bead9793a5b928cb0b662dfee7976",
+                "outputs": {
+                    "dsl": "3f95afbb332bead9793a5b928cb0b662dfee7976"
+                },
+                "heading": "a satellite wraps a pure grid from the outer flank",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-satellite-wraps-a-pure-grid-from-the-outer-flank-08",
+                "line": 852,
+                "anchor": "#a-satellite-wraps-a-pure-grid-from-the-outer-flank",
+                "content_sha1": "892e5491f72b15cb903600a39426a58044d3a6f7",
+                "outputs": {
+                    "dsl": "892e5491f72b15cb903600a39426a58044d3a6f7"
+                },
+                "heading": "a satellite wraps a pure grid from the outer flank",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-satellite-wraps-a-pure-grid-from-the-outer-flank-09",
+                "line": 853,
+                "anchor": "#a-satellite-wraps-a-pure-grid-from-the-outer-flank",
+                "content_sha1": "7d6c45695d4bb6237f9de7e96c16a0e7fda2f688",
+                "outputs": {
+                    "dsl": "7d6c45695d4bb6237f9de7e96c16a0e7fda2f688"
+                },
+                "heading": "a satellite wraps a pure grid from the outer flank",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-satellite-wraps-a-pure-grid-from-the-outer-flank-10",
+                "line": 854,
+                "anchor": "#a-satellite-wraps-a-pure-grid-from-the-outer-flank",
+                "content_sha1": "93c6321a84cab9f58688842af875282feaf1bf1c",
+                "outputs": {
+                    "dsl": "93c6321a84cab9f58688842af875282feaf1bf1c"
+                },
+                "heading": "a satellite wraps a pure grid from the outer flank",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-satellite-wraps-a-pure-grid-from-the-outer-flank-11",
+                "line": 855,
+                "anchor": "#a-satellite-wraps-a-pure-grid-from-the-outer-flank",
+                "content_sha1": "21e2dd53dbbdf94ed9e99c40faebca9d96707641",
+                "outputs": {
+                    "dsl": "21e2dd53dbbdf94ed9e99c40faebca9d96707641"
+                },
+                "heading": "a satellite wraps a pure grid from the outer flank",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-satellite-wraps-a-pure-grid-from-the-outer-flank-12",
+                "line": 856,
+                "anchor": "#a-satellite-wraps-a-pure-grid-from-the-outer-flank",
+                "content_sha1": "3b03c6d8db96e7d3d26082b63296fef2fa222ee9",
+                "outputs": {
+                    "dsl": "3b03c6d8db96e7d3d26082b63296fef2fa222ee9"
+                },
+                "heading": "a satellite wraps a pure grid from the outer flank",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-shared-child-concept-centres-between-its-column-parents",
+                "line": 886,
+                "anchor": "#a-shared-child-concept-centres-between-its-column-parents",
+                "content_sha1": "850f0362e6f4b692c3958dceff7808605ad995e2",
+                "outputs": {
+                    "dsl": "850f0362e6f4b692c3958dceff7808605ad995e2"
+                },
+                "heading": "a shared child concept centres between its column parents",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-shared-child-concept-centres-between-its-column-parents-02",
+                "line": 887,
+                "anchor": "#a-shared-child-concept-centres-between-its-column-parents",
+                "content_sha1": "a1026403067c4d1a1da03f7a3065241d6bf13103",
+                "outputs": {
+                    "dsl": "a1026403067c4d1a1da03f7a3065241d6bf13103"
+                },
+                "heading": "a shared child concept centres between its column parents",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-shared-child-concept-centres-between-its-column-parents-03",
+                "line": 888,
+                "anchor": "#a-shared-child-concept-centres-between-its-column-parents",
+                "content_sha1": "23e0757a86a2e8b7ee0ccffc1284708d084896b4",
+                "outputs": {
+                    "dsl": "23e0757a86a2e8b7ee0ccffc1284708d084896b4"
+                },
+                "heading": "a shared child concept centres between its column parents",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-shared-child-concept-centres-between-its-column-parents-04",
+                "line": 889,
+                "anchor": "#a-shared-child-concept-centres-between-its-column-parents",
+                "content_sha1": "37d236b1c9d0383e427abb18a6960f78b0fb5b31",
+                "outputs": {
+                    "dsl": "37d236b1c9d0383e427abb18a6960f78b0fb5b31"
+                },
+                "heading": "a shared child concept centres between its column parents",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-shared-child-concept-centres-between-its-column-parents-05",
+                "line": 890,
+                "anchor": "#a-shared-child-concept-centres-between-its-column-parents",
+                "content_sha1": "2a90e5e2a95af9415bcc20cce7c7d1f0f5a86b60",
+                "outputs": {
+                    "dsl": "2a90e5e2a95af9415bcc20cce7c7d1f0f5a86b60"
+                },
+                "heading": "a shared child concept centres between its column parents",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-shared-child-concept-centres-between-its-column-parents-06",
+                "line": 891,
+                "anchor": "#a-shared-child-concept-centres-between-its-column-parents",
+                "content_sha1": "5ec303f7b242954066d4487f16dc94c94169d344",
+                "outputs": {
+                    "dsl": "5ec303f7b242954066d4487f16dc94c94169d344"
+                },
+                "heading": "a shared child concept centres between its column parents",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-shared-child-concept-centres-between-its-column-parents-07",
+                "line": 892,
+                "anchor": "#a-shared-child-concept-centres-between-its-column-parents",
+                "content_sha1": "926604079909f688ca40754e82fdf874b2947ba4",
+                "outputs": {
+                    "dsl": "926604079909f688ca40754e82fdf874b2947ba4"
+                },
+                "heading": "a shared child concept centres between its column parents",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-sole-band-member-follows-the-dominant-travel-axis",
+                "line": 929,
+                "anchor": "#a-sole-band-member-follows-the-dominant-travel-axis",
+                "content_sha1": "b43c89deaf9e790ea8d23252678ddcdc4deb4947",
+                "outputs": {
+                    "dsl": "b43c89deaf9e790ea8d23252678ddcdc4deb4947"
+                },
+                "heading": "a sole band member follows the dominant travel axis",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-sole-band-member-follows-the-dominant-travel-axis-02",
+                "line": 930,
+                "anchor": "#a-sole-band-member-follows-the-dominant-travel-axis",
+                "content_sha1": "785d5b19bbbaf387f535babe384dc98c8bfcc76e",
+                "outputs": {
+                    "dsl": "785d5b19bbbaf387f535babe384dc98c8bfcc76e"
+                },
+                "heading": "a sole band member follows the dominant travel axis",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-sole-band-member-follows-the-dominant-travel-axis-03",
+                "line": 931,
+                "anchor": "#a-sole-band-member-follows-the-dominant-travel-axis",
+                "content_sha1": "2e6c76cd8aaa4757058496f73a4dfbb3e4d291d7",
+                "outputs": {
+                    "dsl": "2e6c76cd8aaa4757058496f73a4dfbb3e4d291d7"
+                },
+                "heading": "a sole band member follows the dominant travel axis",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-sole-band-member-follows-the-dominant-travel-axis-04",
+                "line": 932,
+                "anchor": "#a-sole-band-member-follows-the-dominant-travel-axis",
+                "content_sha1": "46943b4b963c76f84f325ec5a8ed4a177bb85b7e",
+                "outputs": {
+                    "dsl": "46943b4b963c76f84f325ec5a8ed4a177bb85b7e"
+                },
+                "heading": "a sole band member follows the dominant travel axis",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-sole-band-member-follows-the-dominant-travel-axis-05",
+                "line": 933,
+                "anchor": "#a-sole-band-member-follows-the-dominant-travel-axis",
+                "content_sha1": "9c64b329e8298f6d2133770d5b53b3e401f47c36",
+                "outputs": {
+                    "dsl": "9c64b329e8298f6d2133770d5b53b3e401f47c36"
+                },
+                "heading": "a sole band member follows the dominant travel axis",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-sole-band-member-follows-the-dominant-travel-axis-06",
+                "line": 934,
+                "anchor": "#a-sole-band-member-follows-the-dominant-travel-axis",
+                "content_sha1": "dd4a1d88388c27b17f61794dab182fb87dc5a440",
+                "outputs": {
+                    "dsl": "dd4a1d88388c27b17f61794dab182fb87dc5a440"
+                },
+                "heading": "a sole band member follows the dominant travel axis",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-budgeted-crossing-beats-a-two-bend-detour",
+                "line": 968,
+                "anchor": "#a-budgeted-crossing-beats-a-two-bend-detour",
+                "content_sha1": "3e9f62b9ce707f2eb2456b0d76c38f03bef95fe2",
+                "outputs": {
+                    "dsl": "3e9f62b9ce707f2eb2456b0d76c38f03bef95fe2"
+                },
+                "heading": "a budgeted crossing beats a two-bend detour",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-budgeted-crossing-beats-a-two-bend-detour-02",
+                "line": 969,
+                "anchor": "#a-budgeted-crossing-beats-a-two-bend-detour",
+                "content_sha1": "0f6befeec49d638d2ebb65e6ab630d3f922e1848",
+                "outputs": {
+                    "dsl": "0f6befeec49d638d2ebb65e6ab630d3f922e1848"
+                },
+                "heading": "a budgeted crossing beats a two-bend detour",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-budgeted-crossing-beats-a-two-bend-detour-03",
+                "line": 970,
+                "anchor": "#a-budgeted-crossing-beats-a-two-bend-detour",
+                "content_sha1": "814a0c4b2cf1046d36b2a9ab0b2f2e2fc4877c1f",
+                "outputs": {
+                    "dsl": "814a0c4b2cf1046d36b2a9ab0b2f2e2fc4877c1f"
+                },
+                "heading": "a budgeted crossing beats a two-bend detour",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-budgeted-crossing-beats-a-two-bend-detour-04",
+                "line": 971,
+                "anchor": "#a-budgeted-crossing-beats-a-two-bend-detour",
+                "content_sha1": "855436731a0224185d4c519a1b5bf07360c87edb",
+                "outputs": {
+                    "dsl": "855436731a0224185d4c519a1b5bf07360c87edb"
+                },
+                "heading": "a budgeted crossing beats a two-bend detour",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-budgeted-crossing-beats-a-two-bend-detour-05",
+                "line": 972,
+                "anchor": "#a-budgeted-crossing-beats-a-two-bend-detour",
+                "content_sha1": "80d39d1d442526acc887c70d989ee5e8007ba1ba",
+                "outputs": {
+                    "dsl": "80d39d1d442526acc887c70d989ee5e8007ba1ba"
+                },
+                "heading": "a budgeted crossing beats a two-bend detour",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-thing-and-its-concept-read-as-one-unit",
+                "line": 1000,
+                "anchor": "#a-thing-and-its-concept-read-as-one-unit",
+                "content_sha1": "d9bf22fee345ef631597abc50820001423ab4832",
+                "outputs": {
+                    "dsl": "d9bf22fee345ef631597abc50820001423ab4832"
+                },
+                "heading": "a thing and its concept read as one unit",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-thing-and-its-concept-read-as-one-unit-02",
+                "line": 1001,
+                "anchor": "#a-thing-and-its-concept-read-as-one-unit",
+                "content_sha1": "d803e2614d92eb021b744623a5d22b0f0a5d90e0",
+                "outputs": {
+                    "dsl": "d803e2614d92eb021b744623a5d22b0f0a5d90e0"
+                },
+                "heading": "a thing and its concept read as one unit",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-thing-and-its-concept-read-as-one-unit-03",
+                "line": 1002,
+                "anchor": "#a-thing-and-its-concept-read-as-one-unit",
+                "content_sha1": "d09863ce9eeda31d32c344ff7c3431194b78c4c2",
+                "outputs": {
+                    "dsl": "d09863ce9eeda31d32c344ff7c3431194b78c4c2"
+                },
+                "heading": "a thing and its concept read as one unit",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-thing-and-its-concept-read-as-one-unit-04",
+                "line": 1003,
+                "anchor": "#a-thing-and-its-concept-read-as-one-unit",
+                "content_sha1": "a6324e0945caca2cf595aab0c85d29272c05f111",
+                "outputs": {
+                    "dsl": "a6324e0945caca2cf595aab0c85d29272c05f111"
+                },
+                "heading": "a thing and its concept read as one unit",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-thing-and-its-concept-read-as-one-unit-05",
+                "line": 1004,
+                "anchor": "#a-thing-and-its-concept-read-as-one-unit",
+                "content_sha1": "991eb172029eb8778dd46afb4d3a490683182802",
+                "outputs": {
+                    "dsl": "991eb172029eb8778dd46afb4d3a490683182802"
+                },
+                "heading": "a thing and its concept read as one unit",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-bent-ties-approach-follows-its-last-leg",
+                "line": 1033,
+                "anchor": "#a-bent-ties-approach-follows-its-last-leg",
+                "content_sha1": "484f552113ad79c8a5fc05f853a645e02bffc12f",
+                "outputs": {
+                    "dsl": "484f552113ad79c8a5fc05f853a645e02bffc12f"
+                },
+                "heading": "a bent tie's approach follows its last leg",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-bent-ties-approach-follows-its-last-leg-02",
+                "line": 1034,
+                "anchor": "#a-bent-ties-approach-follows-its-last-leg",
+                "content_sha1": "6a102eedfd1d683dd3eacad4bc256b88b53cabbd",
+                "outputs": {
+                    "dsl": "6a102eedfd1d683dd3eacad4bc256b88b53cabbd"
+                },
+                "heading": "a bent tie's approach follows its last leg",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-bent-ties-approach-follows-its-last-leg-03",
+                "line": 1035,
+                "anchor": "#a-bent-ties-approach-follows-its-last-leg",
+                "content_sha1": "801bb86247fb2da71b2958c556b6dcd1b32a9d7b",
+                "outputs": {
+                    "dsl": "801bb86247fb2da71b2958c556b6dcd1b32a9d7b"
+                },
+                "heading": "a bent tie's approach follows its last leg",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-far-join-child-tucks-to-the-parents-column",
+                "line": 1064,
+                "anchor": "#a-far-join-child-tucks-to-the-parents-column",
+                "content_sha1": "850f0362e6f4b692c3958dceff7808605ad995e2",
+                "outputs": {
+                    "dsl": "850f0362e6f4b692c3958dceff7808605ad995e2"
+                },
+                "heading": "a far join child tucks to the parents' column",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-far-join-child-tucks-to-the-parents-column-02",
+                "line": 1065,
+                "anchor": "#a-far-join-child-tucks-to-the-parents-column",
+                "content_sha1": "a1026403067c4d1a1da03f7a3065241d6bf13103",
+                "outputs": {
+                    "dsl": "a1026403067c4d1a1da03f7a3065241d6bf13103"
+                },
+                "heading": "a far join child tucks to the parents' column",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-far-join-child-tucks-to-the-parents-column-03",
+                "line": 1066,
+                "anchor": "#a-far-join-child-tucks-to-the-parents-column",
+                "content_sha1": "ad1467035bd93138e5dbf39df04cc21297594619",
+                "outputs": {
+                    "dsl": "ad1467035bd93138e5dbf39df04cc21297594619"
+                },
+                "heading": "a far join child tucks to the parents' column",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-far-join-child-tucks-to-the-parents-column-04",
+                "line": 1067,
+                "anchor": "#a-far-join-child-tucks-to-the-parents-column",
+                "content_sha1": "16a78e14fea1c867879c7aaf9cf46d5af0d66517",
+                "outputs": {
+                    "dsl": "16a78e14fea1c867879c7aaf9cf46d5af0d66517"
+                },
+                "heading": "a far join child tucks to the parents' column",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-far-join-child-tucks-to-the-parents-column-05",
+                "line": 1068,
+                "anchor": "#a-far-join-child-tucks-to-the-parents-column",
+                "content_sha1": "72abc2a348e85db3d00fde6ab9930476a8d55134",
+                "outputs": {
+                    "dsl": "72abc2a348e85db3d00fde6ab9930476a8d55134"
+                },
+                "heading": "a far join child tucks to the parents' column",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-far-join-child-tucks-to-the-parents-column-06",
+                "line": 1069,
+                "anchor": "#a-far-join-child-tucks-to-the-parents-column",
+                "content_sha1": "df04f6ce7ab8cdfbbaf36a0b431c0ca60afc86cd",
+                "outputs": {
+                    "dsl": "df04f6ce7ab8cdfbbaf36a0b431c0ca60afc86cd"
+                },
+                "heading": "a far join child tucks to the parents' column",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-far-join-child-tucks-to-the-parents-column-07",
+                "line": 1070,
+                "anchor": "#a-far-join-child-tucks-to-the-parents-column",
+                "content_sha1": "4b5deb4a45fd28049d793198de48c4c31cd41159",
+                "outputs": {
+                    "dsl": "4b5deb4a45fd28049d793198de48c4c31cd41159"
+                },
+                "heading": "a far join child tucks to the parents' column",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-far-join-child-tucks-to-the-parents-column-08",
+                "line": 1071,
+                "anchor": "#a-far-join-child-tucks-to-the-parents-column",
+                "content_sha1": "37d236b1c9d0383e427abb18a6960f78b0fb5b31",
+                "outputs": {
+                    "dsl": "37d236b1c9d0383e427abb18a6960f78b0fb5b31"
+                },
+                "heading": "a far join child tucks to the parents' column",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-far-join-child-tucks-to-the-parents-column-09",
+                "line": 1072,
+                "anchor": "#a-far-join-child-tucks-to-the-parents-column",
+                "content_sha1": "2a90e5e2a95af9415bcc20cce7c7d1f0f5a86b60",
+                "outputs": {
+                    "dsl": "2a90e5e2a95af9415bcc20cce7c7d1f0f5a86b60"
+                },
+                "heading": "a far join child tucks to the parents' column",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-far-join-child-tucks-to-the-parents-column-10",
+                "line": 1073,
+                "anchor": "#a-far-join-child-tucks-to-the-parents-column",
+                "content_sha1": "d292413c4d7aa2ede3356bb4a530f6cdc3012d3a",
+                "outputs": {
+                    "dsl": "d292413c4d7aa2ede3356bb4a530f6cdc3012d3a"
+                },
+                "heading": "a far join child tucks to the parents' column",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-far-join-child-tucks-to-the-parents-column-11",
+                "line": 1074,
+                "anchor": "#a-far-join-child-tucks-to-the-parents-column",
+                "content_sha1": "8564eb69357778b19235f5abeb629029ea3efa05",
+                "outputs": {
+                    "dsl": "8564eb69357778b19235f5abeb629029ea3efa05"
+                },
+                "heading": "a far join child tucks to the parents' column",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-far-join-child-tucks-to-the-parents-column-12",
+                "line": 1075,
+                "anchor": "#a-far-join-child-tucks-to-the-parents-column",
+                "content_sha1": "0531e8dbdcdb62ed76d83f40449fb7d41e119d89",
+                "outputs": {
+                    "dsl": "0531e8dbdcdb62ed76d83f40449fb7d41e119d89"
+                },
+                "heading": "a far join child tucks to the parents' column",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-far-join-child-tucks-to-the-parents-column-13",
+                "line": 1076,
+                "anchor": "#a-far-join-child-tucks-to-the-parents-column",
+                "content_sha1": "c466ef7f1e5ae103265c23db4f354790a351ad2d",
+                "outputs": {
+                    "dsl": "c466ef7f1e5ae103265c23db4f354790a351ad2d"
+                },
+                "heading": "a far join child tucks to the parents' column",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-satellites-tree-never-evicts-its-own-frame",
+                "line": 1118,
+                "anchor": "#a-satellites-tree-never-evicts-its-own-frame",
+                "content_sha1": "48e214c81ada2c359e70116c5be7aa879fec812b",
+                "outputs": {
+                    "dsl": "48e214c81ada2c359e70116c5be7aa879fec812b"
+                },
+                "heading": "a satellite's tree never evicts its own frame",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-satellites-tree-never-evicts-its-own-frame-02",
+                "line": 1119,
+                "anchor": "#a-satellites-tree-never-evicts-its-own-frame",
+                "content_sha1": "7253892e096380bdcc203737e32182bcdd5c07bd",
+                "outputs": {
+                    "dsl": "7253892e096380bdcc203737e32182bcdd5c07bd"
+                },
+                "heading": "a satellite's tree never evicts its own frame",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-satellites-tree-never-evicts-its-own-frame-03",
+                "line": 1120,
+                "anchor": "#a-satellites-tree-never-evicts-its-own-frame",
+                "content_sha1": "f7bf0c95acff1cc0fa402a8c7a7384311f94b5df",
+                "outputs": {
+                    "dsl": "f7bf0c95acff1cc0fa402a8c7a7384311f94b5df"
+                },
+                "heading": "a satellite's tree never evicts its own frame",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-satellites-tree-never-evicts-its-own-frame-04",
+                "line": 1121,
+                "anchor": "#a-satellites-tree-never-evicts-its-own-frame",
+                "content_sha1": "823353026e837d948eb75ffddf508576c7195b60",
+                "outputs": {
+                    "dsl": "823353026e837d948eb75ffddf508576c7195b60"
+                },
+                "heading": "a satellite's tree never evicts its own frame",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-satellites-tree-never-evicts-its-own-frame-05",
+                "line": 1122,
+                "anchor": "#a-satellites-tree-never-evicts-its-own-frame",
+                "content_sha1": "7c75bb87a3f56a8c94080693945dd28bfeb95873",
+                "outputs": {
+                    "dsl": "7c75bb87a3f56a8c94080693945dd28bfeb95873"
+                },
+                "heading": "a satellite's tree never evicts its own frame",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-satellites-tree-never-evicts-its-own-frame-06",
+                "line": 1123,
+                "anchor": "#a-satellites-tree-never-evicts-its-own-frame",
+                "content_sha1": "8ff96e65dea573292467e9ed338fadea663297a9",
+                "outputs": {
+                    "dsl": "8ff96e65dea573292467e9ed338fadea663297a9"
+                },
+                "heading": "a satellite's tree never evicts its own frame",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-satellites-tree-never-evicts-its-own-frame-07",
+                "line": 1124,
+                "anchor": "#a-satellites-tree-never-evicts-its-own-frame",
+                "content_sha1": "872e6c9ded91fe9c52c4a7a6bfd0ff0bc838f88a",
+                "outputs": {
+                    "dsl": "872e6c9ded91fe9c52c4a7a6bfd0ff0bc838f88a"
+                },
+                "heading": "a satellite's tree never evicts its own frame",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-satellites-tree-never-evicts-its-own-frame-08",
+                "line": 1125,
+                "anchor": "#a-satellites-tree-never-evicts-its-own-frame",
+                "content_sha1": "76c68f0191018a886f2c24a8845ee6ffbbbcd072",
+                "outputs": {
+                    "dsl": "76c68f0191018a886f2c24a8845ee6ffbbbcd072"
+                },
+                "heading": "a satellite's tree never evicts its own frame",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "up-to-three-components-share-one-row",
+                "line": 1146,
+                "anchor": "#up-to-three-components-share-one-row",
+                "content_sha1": "6bd1777e40b07afa0ab487f82ab0de79de6857b6",
+                "outputs": {
+                    "dsl": "6bd1777e40b07afa0ab487f82ab0de79de6857b6"
+                },
+                "heading": "up to three components share one row",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "up-to-three-components-share-one-row-02",
+                "line": 1147,
+                "anchor": "#up-to-three-components-share-one-row",
+                "content_sha1": "e245db62465c21ffde62b85df61f031715caf637",
+                "outputs": {
+                    "dsl": "e245db62465c21ffde62b85df61f031715caf637"
+                },
+                "heading": "up to three components share one row",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "up-to-three-components-share-one-row-03",
+                "line": 1148,
+                "anchor": "#up-to-three-components-share-one-row",
+                "content_sha1": "0e83345fd6260ca0b6b2ba540a16fd7e097052ea",
+                "outputs": {
+                    "dsl": "0e83345fd6260ca0b6b2ba540a16fd7e097052ea"
+                },
+                "heading": "up to three components share one row",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "up-to-three-components-share-one-row-04",
+                "line": 1149,
+                "anchor": "#up-to-three-components-share-one-row",
+                "content_sha1": "80e59d0c40ade9067ba4f129d6325947bbad8bfb",
+                "outputs": {
+                    "dsl": "80e59d0c40ade9067ba4f129d6325947bbad8bfb"
+                },
+                "heading": "up to three components share one row",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "untied-components-wrap-toward-the-canvas",
+                "line": 1176,
+                "anchor": "#untied-components-wrap-toward-the-canvas",
+                "content_sha1": "cdf20d9f4909501627c0d08b37915e5b5a40c219",
+                "outputs": {
+                    "dsl": "cdf20d9f4909501627c0d08b37915e5b5a40c219"
+                },
+                "heading": "untied components wrap toward the canvas",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "untied-components-wrap-toward-the-canvas-02",
+                "line": 1177,
+                "anchor": "#untied-components-wrap-toward-the-canvas",
+                "content_sha1": "85ff40fb2940db10bfa37ef797472cc2188b3f8d",
+                "outputs": {
+                    "dsl": "85ff40fb2940db10bfa37ef797472cc2188b3f8d"
+                },
+                "heading": "untied components wrap toward the canvas",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "untied-components-wrap-toward-the-canvas-03",
+                "line": 1178,
+                "anchor": "#untied-components-wrap-toward-the-canvas",
+                "content_sha1": "0991e1360fdf66af48d8be5e60ef0360b4445899",
+                "outputs": {
+                    "dsl": "0991e1360fdf66af48d8be5e60ef0360b4445899"
+                },
+                "heading": "untied components wrap toward the canvas",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "untied-components-wrap-toward-the-canvas-04",
+                "line": 1179,
+                "anchor": "#untied-components-wrap-toward-the-canvas",
+                "content_sha1": "6897619f1a9db488f7b796bf1913bf3e892f1721",
+                "outputs": {
+                    "dsl": "6897619f1a9db488f7b796bf1913bf3e892f1721"
+                },
+                "heading": "untied components wrap toward the canvas",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "untied-components-wrap-toward-the-canvas-05",
+                "line": 1180,
+                "anchor": "#untied-components-wrap-toward-the-canvas",
+                "content_sha1": "f0888e84d5cb06361b15c1dc1fc7e7afdd31e40e",
+                "outputs": {
+                    "dsl": "f0888e84d5cb06361b15c1dc1fc7e7afdd31e40e"
+                },
+                "heading": "untied components wrap toward the canvas",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "untied-components-wrap-toward-the-canvas-06",
+                "line": 1181,
+                "anchor": "#untied-components-wrap-toward-the-canvas",
+                "content_sha1": "83d53c9322d1a9516a697c09faafb1424e32bcd5",
+                "outputs": {
+                    "dsl": "83d53c9322d1a9516a697c09faafb1424e32bcd5"
+                },
+                "heading": "untied components wrap toward the canvas",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "untied-components-wrap-toward-the-canvas-07",
+                "line": 1182,
+                "anchor": "#untied-components-wrap-toward-the-canvas",
+                "content_sha1": "3e7a435eb055316b32f91d7221f6809f6a99cd20",
+                "outputs": {
+                    "dsl": "3e7a435eb055316b32f91d7221f6809f6a99cd20"
+                },
+                "heading": "untied components wrap toward the canvas",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "untied-components-wrap-toward-the-canvas-08",
+                "line": 1183,
+                "anchor": "#untied-components-wrap-toward-the-canvas",
+                "content_sha1": "cae593ff493c2b1dbb627bb04205c851cf7df3e1",
+                "outputs": {
+                    "dsl": "cae593ff493c2b1dbb627bb04205c851cf7df3e1"
+                },
+                "heading": "untied components wrap toward the canvas",
+                "section": "v7 acceptance targets"
+            }
+        ]
+    }
+]

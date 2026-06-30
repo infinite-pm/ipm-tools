@@ -1,0 +1,25 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "This event happen when many things are involved and the description is long. ::e",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          76
+        ]
+      },
+      "edges": {}
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "This event happen when many things are involved and the description is long.",
+      "alias": "",
+      "type": "Event"
+    }
+  ],
+  "edges": null
+}

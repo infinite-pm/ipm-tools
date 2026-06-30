@@ -1,0 +1,12 @@
+e1 ::e
+tA --> e1
+e1a ::e --::P--> e1
+e1b ::e --::P--> e1
+e1c ::e --::P--> e1
+e1d ::e --::P--> e1
+e1a --> e1b
+e1b --> e1c
+e1b --> e1d
+e1a1 ::e --::P--> e1a
+e1a2 ::e --::P--> e1a
+e1a1 --> e1a2

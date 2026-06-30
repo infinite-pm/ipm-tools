@@ -1,0 +1,9 @@
+e1 ::e --> e2 ::e --> e3 ::e
+e4a ::e --> e4b ::e
+e4a, e4b --::P--> e4 ::e
+e4Cx ::e --> e4Cy ::e --> e4Cz ::e
+e4Cx, e4Cy, e4Cz --::P--> e4a
+e3, e4 --> e5 ::e
+
+e5a ::e --> e5b ::e
+e5a, e5b --::P--> e5
