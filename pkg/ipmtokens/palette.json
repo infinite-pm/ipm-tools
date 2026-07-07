@@ -1,0 +1,28 @@
+{
+  "_comment": "Source of truth for the ipmt token palette (colors + class-suffix mapping). Hand-edit this file; pkg/ipmtokens embeds it and pkg/mdhtml composes CSS from it at runtime, and ../vscode-ipm/scripts/gen-palette.ts generates the editor package.json rules, preview CSS, and src/palette.gen.ts from it. Token-type indices and modifier bits are defined in pkg/ipmtokens/tokens.go (SemanticTokenTypes / SemanticTokenModifiers).",
+  "rules": [
+    { "type": "ipmEvent",      "class": "e-title",          "fg": "#ff8000" },
+    { "type": "ipmEvent",      "mod": "alias",    "class": "e-alias",          "fg": "#ff8000" },
+    { "type": "ipmEvent",      "mod": "hasAlias", "class": "e-title-aliased",  "fg": "#ffaa55" },
+    { "type": "ipmEvent",      "mod": "marker",   "class": "e-marker",         "fg": "#ff8000", "bold": true },
+    { "type": "ipmThing",      "class": "t-title",          "fg": "#4d8a3a" },
+    { "type": "ipmThing",      "mod": "alias",    "class": "t-alias",          "fg": "#4d8a3a" },
+    { "type": "ipmThing",      "mod": "hasAlias", "class": "t-title-aliased",  "fg": "#82b366" },
+    { "type": "ipmThing",      "mod": "marker",   "class": "t-marker",         "fg": "#4d8a3a", "bold": true },
+    { "type": "ipmConcept",    "class": "c-title",          "fg": "#6c8ebf" },
+    { "type": "ipmConcept",    "mod": "alias",    "class": "c-alias",          "fg": "#6c8ebf" },
+    { "type": "ipmConcept",    "mod": "hasAlias", "class": "c-title-aliased",  "fg": "#9bb4d6" },
+    { "type": "ipmConcept",    "mod": "marker",   "class": "c-marker",         "fg": "#6c8ebf", "bold": true },
+    { "type": "ipmArrow",      "class": "arrow",            "fg": "#d4d4d4", "bold": true },
+    { "type": "ipmArrow",      "mod": "leadsTo",   "class": "L",              "fg": "#ff8000", "bold": true },
+    { "type": "ipmArrow",      "mod": "partOf",    "class": "P",              "fg": "#4d8a3a", "bold": true },
+    { "type": "ipmArrow",      "mod": "expresses", "class": "X",              "fg": "#6c8ebf", "bold": true },
+    { "type": "ipmArrow",      "mod": "nearTo",    "class": "N",              "fg": "#aaaaaa", "bold": true },
+    { "type": "ipmTypeMarker", "class": "type-marker",      "fg": "#b08fff" },
+    { "type": "ipmRelation",   "class": "relation",         "fg": "#b08fff" },
+    { "type": "ipmComment",    "class": "comment",          "fg": "#808080", "italic": true },
+    { "type": "ipmString",     "class": "string",           "fg": "#ce9178" },
+    { "type": "ipmTooltip",    "class": "tooltip",          "fg": "#b58900", "italic": true },
+    { "type": "ipmUnresolved", "class": "unresolved",       "fg": "#8a8a8a" }
+  ]
+}
