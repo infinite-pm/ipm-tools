@@ -1,0 +1,27 @@
+/* Syntax highlighting for ```ipmt``` blocks in the rendered HTML / VS Code
+ * markdown preview. The per-token color rules are composed at runtime from
+ * the palette source of truth (pkg/ipmtokens/palette.json) via
+ * ipmtokens.PaletteCSSRules(); this file holds only the static prelude.
+ */
+
+/* Match the editor pane's background + default foreground for ipmt
+ * code blocks. Sourcing from VS Code's CSS variables keeps the match
+ * across themes and theme switches. */
+pre.ipmt-block {
+    background: var(--vscode-editor-background);
+    color: var(--vscode-editor-foreground);
+}
+pre.ipmt-block > code.language-ipmt {
+    background: transparent;
+    color: inherit;
+}
+
+/* Inline ipmt (`<!--ipmt-->` + backtick code span in prose): drop the
+ * inline-code grey background so simultaneous contrast doesn't shift
+ * the per-token colors away from how the same tokens look in the
+ * editor pane / fenced blocks. */
+code.language-ipmt {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+}
