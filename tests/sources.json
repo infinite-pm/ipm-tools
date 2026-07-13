@@ -1,0 +1,111 @@
+[
+    {
+        "name": "skip tests, temp and wip directories",
+        "destination": "",
+        "sources_glob": [ "../tests/**", "../temp/**" ],
+        "method": "ignore"
+    },
+    {
+        "name": "node-kind solver round-trip examples",
+        "destination": "solver",
+        "source_files": [
+            "../docs/solver-examples/leadsto.md",
+            "../docs/solver-examples/partof.md",
+            "../docs/solver-examples/expresses.md",
+            "../docs/solver-examples/nearto.md",
+            "../docs/solver-examples/undecided-and-split.md",
+            "../docs/solver-examples/kubernetes.md"
+        ],
+        "method": "parser",
+        "params": {
+            "parser_name": "ipmt-solver-md"
+        }
+    },
+    {
+        "name": "ipmt specification - invalid cases",
+        "destination": "ipmt/invalid",
+        "source_files": [ "../docs/ipmt-spec.md" ],
+        "method": "parser",
+        "params": {
+            "parser_name": "ipmt-invalid-md"
+        }
+    },
+    {
+        "name": "ipmt specification",
+        "destination": "ipmt/ipmt-spec",
+        "source_files": [ "../docs/ipmt-spec.md" ],
+        "method": "parser",
+        "params": {
+            "parser_name": "ipmt-md",
+            "parser_params": {
+                "filter": "valid"
+            }
+        }
+    },
+    {
+        "name": "ipmt layout algorithm",
+        "destination": "layout-gen",
+        "source_files": [ "../docs/dev/layout-gen/layout-alg.md" ],
+        "method": "parser",
+        "params": {
+            "parser_name": "ipmt-md",
+            "parser_params": {
+                "filter": "valid"
+            }
+        }
+    },
+    {
+        "name": "layout test rules",
+        "destination": "layout-gen-rules",
+        "source_files": [ "../docs/dev/layout-gen/layout-alg.md" ],
+        "method": "parser",
+        "params": {
+            "parser_name": "ipmdev-layout-rule-md",
+            "parser_params": {}
+        }
+    },
+    {
+        "name": "ipmt layout algorithm extensions",
+        "destination": "layout-gen-ext",
+        "source_files": [ "../docs/dev/layout-gen/layout-alg-ext.md" ],
+        "method": "parser",
+        "params": {
+            "parser_name": "ipmt-md",
+            "parser_params": {
+                "filter": "valid"
+            }
+        }
+    },
+    {
+        "name": "layout ext test rules",
+        "destination": "layout-gen-ext-rules",
+        "source_files": [ "../docs/dev/layout-gen/layout-alg-ext.md" ],
+        "method": "parser",
+        "params": {
+            "parser_name": "ipmdev-layout-rule-md",
+            "parser_params": {}
+        }
+    },
+    {
+        "name": "ipmt examples in Markdown files",
+        "destination": "ipmt/files-md",
+        "sources_glob": [ "../**/*.md" ],
+        "method": "parser",
+        "params": {
+            "parser_name": "ipmt-md",
+            "parser_params": {
+                "filter": "valid"
+            }
+        }
+    },
+    {
+        "name": "ipmt files",
+        "destination": "ipmt/files-ipmt",
+        "sources_glob": [ "../**/*.ipmt" ],
+        "method": "parser",
+        "params": {
+            "parser_name": "ipmt-file",
+            "parser_params": {}
+        }
+    }
+]
