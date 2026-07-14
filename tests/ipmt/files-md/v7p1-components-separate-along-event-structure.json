@@ -1,0 +1,136 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "e1 ::e --\u003e e2 ::e\nA ::t --\u003e e1\ne3 ::e --\u003e e4 ::e",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          2
+        ],
+        "2": [
+          11,
+          13
+        ],
+        "3": [
+          18,
+          19
+        ],
+        "4": [
+          31,
+          33
+        ],
+        "5": [
+          42,
+          44
+        ]
+      },
+      "edges": {
+        "6": {
+          "arrow": [
+            6,
+            11
+          ],
+          "source": [
+            0,
+            2
+          ],
+          "target": [
+            11,
+            13
+          ]
+        },
+        "7": {
+          "arrow": [
+            23,
+            28
+          ],
+          "source": [
+            18,
+            19
+          ],
+          "target": [
+            28,
+            30
+          ]
+        },
+        "8": {
+          "arrow": [
+            37,
+            42
+          ],
+          "source": [
+            31,
+            33
+          ],
+          "target": [
+            42,
+            44
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "e1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "e2",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "A",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 4,
+      "name": "e3",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 5,
+      "name": "e4",
+      "alias": "",
+      "type": "Event"
+    }
+  ],
+  "edges": [
+    {
+      "id": 6,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 7,
+      "source": 3,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 8,
+      "source": 4,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

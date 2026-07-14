@@ -1,0 +1,3 @@
+# given
+deploy ::?etc --::L--> rollout ::?etc
+rollout --::X--> safety ::?etc

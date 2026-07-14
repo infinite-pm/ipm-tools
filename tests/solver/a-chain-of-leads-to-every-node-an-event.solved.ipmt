@@ -1,0 +1,4 @@
+# then
+edit ::e --::L--> compile ::e
+compile ::e --::L--> test ::e
+test ::e --::L--> ship ::e

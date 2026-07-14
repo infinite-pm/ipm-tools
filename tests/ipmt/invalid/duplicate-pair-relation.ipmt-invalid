@@ -1,0 +1,3 @@
+# multiple base relation types between same pair
+e1 ::e --::L--> e2 ::e
+e1 --::P--> e2

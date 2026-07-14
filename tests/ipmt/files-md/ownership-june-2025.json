@@ -1,0 +1,192 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "guitar, castle, goldfish --\u003e mark's things\nmark's things --\u003e mark in role of owner(id) ::c \u003c-- mark person",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          6
+        ],
+        "2": [
+          8,
+          14
+        ],
+        "3": [
+          16,
+          24
+        ],
+        "4": [
+          29,
+          42
+        ],
+        "5": [
+          61,
+          86
+        ],
+        "6": [
+          95,
+          106
+        ]
+      },
+      "edges": {
+        "10": {
+          "arrow": [
+            56,
+            61
+          ],
+          "source": [
+            43,
+            56
+          ],
+          "target": [
+            61,
+            86
+          ]
+        },
+        "11": {
+          "arrow": [
+            90,
+            95
+          ],
+          "source": [
+            95,
+            106
+          ],
+          "target": [
+            61,
+            86
+          ]
+        },
+        "7": {
+          "arrow": [
+            24,
+            29
+          ],
+          "source": [
+            0,
+            6
+          ],
+          "target": [
+            29,
+            42
+          ]
+        },
+        "8": {
+          "arrow": [
+            24,
+            29
+          ],
+          "source": [
+            8,
+            14
+          ],
+          "target": [
+            29,
+            42
+          ]
+        },
+        "9": {
+          "arrow": [
+            24,
+            29
+          ],
+          "source": [
+            16,
+            24
+          ],
+          "target": [
+            29,
+            42
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "guitar",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "castle",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 3,
+      "name": "goldfish",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 4,
+      "name": "mark's things",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 5,
+      "name": "mark in role of owner(id)",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 6,
+      "name": "mark person",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 7,
+      "source": 1,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 8,
+      "source": 2,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 9,
+      "source": 3,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 10,
+      "source": 4,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 11,
+      "source": 6,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

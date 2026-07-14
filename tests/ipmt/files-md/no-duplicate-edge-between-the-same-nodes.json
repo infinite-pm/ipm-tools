@@ -1,0 +1,93 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "container --\u003e Deploy ::e\ncontainer --\u003e Build ::e",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          9
+        ],
+        "2": [
+          14,
+          20
+        ],
+        "3": [
+          39,
+          44
+        ]
+      },
+      "edges": {
+        "4": {
+          "arrow": [
+            9,
+            14
+          ],
+          "source": [
+            0,
+            9
+          ],
+          "target": [
+            14,
+            20
+          ]
+        },
+        "5": {
+          "arrow": [
+            34,
+            39
+          ],
+          "source": [
+            25,
+            34
+          ],
+          "target": [
+            39,
+            44
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "container",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "Deploy",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "Build",
+      "alias": "",
+      "type": "Event"
+    }
+  ],
+  "edges": [
+    {
+      "id": 4,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 5,
+      "source": 1,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

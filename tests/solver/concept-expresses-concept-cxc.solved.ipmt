@@ -1,0 +1,3 @@
+# then
+dashboard ::?tec --::X--> metric ::?ce
+metric ::?ce --::X--> goal ::?ce

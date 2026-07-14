@@ -1,0 +1,60 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "e1 \u003c-- tB",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          2
+        ],
+        "2": [
+          7,
+          9
+        ]
+      },
+      "edges": {
+        "3": {
+          "arrow": [
+            2,
+            7
+          ],
+          "source": [
+            7,
+            9
+          ],
+          "target": [
+            0,
+            2
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "e1",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "tB",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 3,
+      "source": 2,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# then defaults
+"apply manifest" ::e --::L--> "schedule pod" ::e
+"schedule pod" ::e --::L--> "run pod" ::e
+container ::t --::P--> pod ::t
+pod ::t --::P--> node ::t
+controller ::t --::X--> "compare states" ::c
+"compare states" ::c --::X--> "desired state" ::c

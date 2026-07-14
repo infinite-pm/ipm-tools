@@ -1,0 +1,126 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "tA \u003c-- tB --\u003e e1 ::e --- e2 ::e",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          2
+        ],
+        "2": [
+          7,
+          9
+        ],
+        "3": [
+          14,
+          16
+        ],
+        "4": [
+          25,
+          27
+        ]
+      },
+      "edges": {
+        "5": {
+          "arrow": [
+            2,
+            7
+          ],
+          "source": [
+            7,
+            9
+          ],
+          "target": [
+            0,
+            2
+          ]
+        },
+        "6": {
+          "arrow": [
+            9,
+            14
+          ],
+          "source": [
+            7,
+            9
+          ],
+          "target": [
+            14,
+            16
+          ]
+        },
+        "7": {
+          "arrow": [
+            20,
+            25
+          ],
+          "source": [
+            14,
+            16
+          ],
+          "target": [
+            25,
+            27
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "tA",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "tB",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 3,
+      "name": "e1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 4,
+      "name": "e2",
+      "alias": "",
+      "type": "Event"
+    }
+  ],
+  "edges": [
+    {
+      "id": 5,
+      "source": 2,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 6,
+      "source": 2,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 7,
+      "source": 3,
+      "target": 4,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "tAp1 --::X--\u003e c-X ::c",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          4
+        ],
+        "2": [
+          14,
+          17
+        ]
+      },
+      "edges": {
+        "3": {
+          "arrow": [
+            4,
+            14
+          ],
+          "source": [
+            0,
+            4
+          ],
+          "target": [
+            14,
+            17
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "tAp1",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "c-X",
+      "alias": "",
+      "type": "Concept"
+    }
+  ],
+  "edges": [
+    {
+      "id": 3,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

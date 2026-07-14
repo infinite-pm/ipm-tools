@@ -1,0 +1,126 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "# Engineer participates in events (thing --\u003e event, part-of)\nJane --\u003e Commit ::e\nJane --\u003e Incident ::e\n\n# Engineer classified by role\nJane --\u003e SRE ::c",
+    "positions": {
+      "nodes": {
+        "1": [
+          61,
+          65
+        ],
+        "2": [
+          70,
+          76
+        ],
+        "3": [
+          90,
+          98
+        ],
+        "4": [
+          143,
+          146
+        ]
+      },
+      "edges": {
+        "5": {
+          "arrow": [
+            65,
+            70
+          ],
+          "source": [
+            61,
+            65
+          ],
+          "target": [
+            70,
+            76
+          ]
+        },
+        "6": {
+          "arrow": [
+            85,
+            90
+          ],
+          "source": [
+            81,
+            85
+          ],
+          "target": [
+            90,
+            98
+          ]
+        },
+        "7": {
+          "arrow": [
+            138,
+            143
+          ],
+          "source": [
+            134,
+            138
+          ],
+          "target": [
+            143,
+            146
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "Jane",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "Commit",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "Incident",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 4,
+      "name": "SRE",
+      "alias": "",
+      "type": "Concept"
+    }
+  ],
+  "edges": [
+    {
+      "id": 5,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 6,
+      "source": 1,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 7,
+      "source": 1,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

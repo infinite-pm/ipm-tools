@@ -1,0 +1,1181 @@
+[
+    {
+        "source": "../../../docs/dev/layout-gen/dsl-reference.md",
+        "source_sha1": "2460df1743b409f001921be4eb3eb2e2941222a2",
+        "name": "ipmt examples in Markdown files",
+        "method": "parser",
+        "parser_name": "ipmt-md",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmt"
+        },
+        "items": [
+            {
+                "destination": "test-tags",
+                "line": 94,
+                "anchor": "#test-tags",
+                "content_sha1": "c65c4ff01e0b2fadab38412ea156d18fe7fe594f",
+                "outputs": {
+                    "ipm.svg": "af09cd8aa7b11b27256606a6d75aca0a3c08663e",
+                    "ipmt": "c65c4ff01e0b2fadab38412ea156d18fe7fe594f",
+                    "json": "0fdb75a9d550103237c42c4f9dcc46672c9e4dfa",
+                    "layout.json": "1a7abe33899c4b4692f7d78e0a4414d9b315d879",
+                    "md": "33c6cbb8b18360c0e460fbfea72a1065d3e58229"
+                },
+                "heading": "Test Tags",
+                "section": "Scope Directives",
+                "tags": [
+                    "simple",
+                    "single-event",
+                    "long-text"
+                ]
+            },
+            {
+                "destination": "one-event",
+                "line": 994,
+                "anchor": "#one-event",
+                "content_sha1": "0a3a7ed7fdf3a829d5d52807837d9e6b83329ee3",
+                "outputs": {
+                    "ipm.svg": "af09cd8aa7b11b27256606a6d75aca0a3c08663e",
+                    "ipmt": "0a3a7ed7fdf3a829d5d52807837d9e6b83329ee3",
+                    "json": "b277229903a0634e2fe67feb85b98f3029926673",
+                    "layout.json": "1a7abe33899c4b4692f7d78e0a4414d9b315d879",
+                    "md": "8452df20bd3716987e1fe7920857b3c9511247df"
+                },
+                "heading": "one event",
+                "section": "Events",
+                "tags": [
+                    "simple"
+                ]
+            },
+            {
+                "destination": "one-event-with-long-text",
+                "line": 1115,
+                "anchor": "#one-event-with-long-text",
+                "content_sha1": "dd75ab28ae0d78a2c33e899fdb68c7c0eed805d7",
+                "outputs": {
+                    "ipm.svg": "af09cd8aa7b11b27256606a6d75aca0a3c08663e",
+                    "ipmt": "dd75ab28ae0d78a2c33e899fdb68c7c0eed805d7",
+                    "json": "8e44fd6e64e311ae208d62244dbbfd61f92bfb0b",
+                    "layout.json": "1a7abe33899c4b4692f7d78e0a4414d9b315d879",
+                    "md": "7c819d399bb2ee465b37858df1530cb9c427ff11"
+                },
+                "heading": "one event with long text",
+                "section": "Events",
+                "tags": [
+                    "long-text"
+                ]
+            }
+        ]
+    },
+    {
+        "source": "../../../docs/dev/layout-gen/layout-principles.md",
+        "source_sha1": "37b8800d362b86b006c35db70cfea356ace91600",
+        "name": "ipmt examples in Markdown files",
+        "method": "parser",
+        "parser_name": "ipmt-md",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmt"
+        },
+        "items": [
+            {
+                "destination": "v7p1-components-separate-along-event-structure",
+                "line": 91,
+                "anchor": "#v7p1-components-separate-along-event-structure",
+                "content_sha1": "9f52e24fde9cfd9e4c7fd842b1e473c75c737f28",
+                "outputs": {
+                    "ipmt": "9f52e24fde9cfd9e4c7fd842b1e473c75c737f28",
+                    "json": "53d231dc62890207cc3418692e258b553cc82783",
+                    "md": "bbdbebc795b9c212d049be9eea3f04adc56f2a5d"
+                },
+                "section": "v7P1 — components separate along event structure"
+            },
+            {
+                "destination": "v7p2-the-most-central-component-first-tied-components-around-it",
+                "line": 202,
+                "anchor": "#v7p2-the-most-central-component-first-tied-components-around-it",
+                "content_sha1": "396f6e517b547186e8a71bc22c9ef8ae2f075397",
+                "outputs": {
+                    "ipmt": "396f6e517b547186e8a71bc22c9ef8ae2f075397",
+                    "json": "dfdc5dceb55ee2eceadf74ffc67be78783ef1aa2",
+                    "md": "e3672d6d6d3613ea64676413f493094122164ad7"
+                },
+                "section": "v7P2 — the most central component first, tied components around it"
+            },
+            {
+                "destination": "v7p2-the-most-central-component-first-tied-components-around-it-02",
+                "line": 221,
+                "anchor": "#v7p2-the-most-central-component-first-tied-components-around-it",
+                "content_sha1": "01e80f0479738c574d1e5a716ff475bae4a526e3",
+                "outputs": {
+                    "ipmt": "01e80f0479738c574d1e5a716ff475bae4a526e3",
+                    "json": "e86bff08ecbcb221bbcd0d9d068406084bd3b5bf",
+                    "md": "be905d04c123c46441009f13a32eb4d4cfdacb70"
+                },
+                "section": "v7P2 — the most central component first, tied components around it"
+            },
+            {
+                "destination": "v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy",
+                "line": 286,
+                "anchor": "#v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-symmetrically",
+                "content_sha1": "0c7f40ee7a5a37218da7ddeaf3da6ea194d484a0",
+                "outputs": {
+                    "ipmt": "0c7f40ee7a5a37218da7ddeaf3da6ea194d484a0",
+                    "json": "49442e66c5f56850ebea7a1465b7770118f14206",
+                    "md": "d6dbc6135fa0b1210330bb14a1ab97f6c7832046"
+                },
+                "section": "v7P3 — the event skeleton: leads-to runs down, part-of indents right, forks spread symmetrically"
+            },
+            {
+                "destination": "v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy-02",
+                "line": 327,
+                "anchor": "#v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-symmetrically",
+                "content_sha1": "466f2b4be1c78a0b043aa5b26a18ec90e11b3901",
+                "outputs": {
+                    "ipmt": "466f2b4be1c78a0b043aa5b26a18ec90e11b3901",
+                    "json": "743fce03d93b227bb48e432c3fef2406958b1cee",
+                    "md": "de7ec83fd22b6434e37206a9a2430dc347cc1213"
+                },
+                "section": "v7P3 — the event skeleton: leads-to runs down, part-of indents right, forks spread symmetrically"
+            },
+            {
+                "destination": "v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept",
+                "line": 504,
+                "anchor": "#v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concepts-down",
+                "content_sha1": "d4bd84b10966e8b5b2cb4be96d09142d056b9596",
+                "outputs": {
+                    "ipmt": "d4bd84b10966e8b5b2cb4be96d09142d056b9596",
+                    "json": "51e928f52d52302af778bfda2cae53692c79b973",
+                    "md": "fb463117a0f6e6c9021d22d8733e17a2ad608916"
+                },
+                "section": "v7P4 — aux attaches in groups: on the event's row, wholes outward, parts above, concepts down"
+            },
+            {
+                "destination": "v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept-02",
+                "line": 543,
+                "anchor": "#v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concepts-down",
+                "content_sha1": "13194370782d7722871d1a43fb14b0f9803b26d7",
+                "outputs": {
+                    "ipmt": "13194370782d7722871d1a43fb14b0f9803b26d7",
+                    "json": "bcdfbe8251de09d5d669b63753b9da71722ea2e1",
+                    "md": "6442aa21693ac3eea85b6fd9388b297e08e7bb75"
+                },
+                "section": "v7P4 — aux attaches in groups: on the event's row, wholes outward, parts above, concepts down"
+            },
+            {
+                "destination": "v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer",
+                "line": 583,
+                "anchor": "#v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer",
+                "content_sha1": "ab8fbced62b3e9735511d3f63befd463f444ac14",
+                "outputs": {
+                    "ipmt": "ab8fbced62b3e9735511d3f63befd463f444ac14",
+                    "json": "d9fc8685d2bf0ae5e04e361d0d021b81f2f083d0",
+                    "md": "60dba8ca48353b0d32d6a9d84fbfe1f023925623"
+                },
+                "section": "v7P5 — same-kind ties: draw, order, or wrap as the outermost layer"
+            },
+            {
+                "destination": "v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact",
+                "line": 830,
+                "anchor": "#v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact",
+                "content_sha1": "2d7572fad701b00336d93185323982c77a5da90e",
+                "outputs": {
+                    "ipmt": "2d7572fad701b00336d93185323982c77a5da90e",
+                    "json": "139e9b47af1fabe6f701ddb6242d0089f07351ef",
+                    "md": "8257d399156db6c76ca3f04a794ef0e035182c54"
+                },
+                "section": "v7P8 — spacing: gaps are minimums, growth is symmetric, the grid is exact"
+            },
+            {
+                "destination": "v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-02",
+                "line": 840,
+                "anchor": "#v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact",
+                "content_sha1": "4de6caa4f77b7d41345b2ab95c8c500e0034ba39",
+                "outputs": {
+                    "ipmt": "4de6caa4f77b7d41345b2ab95c8c500e0034ba39",
+                    "json": "33e793372f6302ea375fafa3e72964e79a341035",
+                    "md": "bdee99cee331dccaeacf742449bd3a126ad74ef3"
+                },
+                "section": "v7P8 — spacing: gaps are minimums, growth is symmetric, the grid is exact"
+            },
+            {
+                "destination": "v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-03",
+                "line": 848,
+                "anchor": "#v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact",
+                "content_sha1": "ed5235eaeca4a77efb0cba65d81180e9777570f3",
+                "outputs": {
+                    "ipmt": "ed5235eaeca4a77efb0cba65d81180e9777570f3",
+                    "json": "cc99276ab96e4acaa6d8ecf024d9e9e7ad1ac16d",
+                    "md": "3e9a89c922260c5cc2d135a89dac39e23767efd6"
+                },
+                "section": "v7P8 — spacing: gaps are minimums, growth is symmetric, the grid is exact"
+            },
+            {
+                "destination": "v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-04",
+                "line": 859,
+                "anchor": "#v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact",
+                "content_sha1": "c8d9176a9d8d8d61ca3620c10cdeb7753335b0dd",
+                "outputs": {
+                    "ipmt": "c8d9176a9d8d8d61ca3620c10cdeb7753335b0dd",
+                    "json": "a37f0dd44929088ab902bcc082c495ba2748ddb8",
+                    "md": "0bf477d15fc0b037f1efcd0191194882dca39749"
+                },
+                "section": "v7P8 — spacing: gaps are minimums, growth is symmetric, the grid is exact"
+            }
+        ]
+    },
+    {
+        "source": "../../../docs/how-to-model.md",
+        "source_sha1": "ccb357ee28188d586a03130d11819845aea53e0d",
+        "name": "ipmt examples in Markdown files",
+        "method": "parser",
+        "parser_name": "ipmt-md",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmt"
+        },
+        "items": [
+            {
+                "destination": "process-flow-leadsto",
+                "line": 41,
+                "anchor": "#process-flow-leadsto",
+                "content_sha1": "edb9ca4b52116cfaafa46b018d8f8e9d482eb936",
+                "outputs": {
+                    "ipm.svg": "ff01d320d1d3b7df8b93e818f05f9b407c62e60c",
+                    "ipmt": "edb9ca4b52116cfaafa46b018d8f8e9d482eb936",
+                    "json": "f793942fde926fefaa87bde6f788634324307b3a",
+                    "layout.json": "23d6cb835408db60827eaca06d4d16c94fb62926",
+                    "md": "0ab4be89d9d9e5ab48533265af27cbaefb78c715"
+                },
+                "heading": "2. Modeling Software Systems and Processes"
+            },
+            {
+                "destination": "events-contain-participants-part-of",
+                "line": 60,
+                "anchor": "#events-contain-participants-part-of",
+                "content_sha1": "a48c38db7fc5208546fb2982288cdf7a782e13ea",
+                "outputs": {
+                    "ipm.svg": "6d16f5617acb890f0c195055429040192940d942",
+                    "ipmt": "a48c38db7fc5208546fb2982288cdf7a782e13ea",
+                    "json": "046098c8e92fec03b791c9ee5ef3204a77be265d",
+                    "layout.json": "4224d0c0002ca74c98526ea323aeae6bd32798f0",
+                    "md": "452c15926732fac501a93bada359071163e5693a"
+                },
+                "heading": "2. Modeling Software Systems and Processes"
+            },
+            {
+                "destination": "component-hierarchy-part-of",
+                "line": 74,
+                "anchor": "#component-hierarchy-part-of",
+                "content_sha1": "68c43228a363a11ed135ca48d63097c457aad9a0",
+                "outputs": {
+                    "ipm.svg": "0027e25a678cdec392df098c5b6e8038f20371d6",
+                    "ipmt": "68c43228a363a11ed135ca48d63097c457aad9a0",
+                    "json": "a4e21f3e73d1674662b52292e1e0e8fcc219cc3e",
+                    "layout.json": "42afceb3cce8c3a4ad1595bc8b98e5570e6a1265",
+                    "md": "0d13f0cdedf90ed692f96f9950d5f32fbebc07b6"
+                },
+                "heading": "2. Modeling Software Systems and Processes"
+            },
+            {
+                "destination": "semantic-classification-expresses",
+                "line": 86,
+                "anchor": "#semantic-classification-expresses",
+                "content_sha1": "d0437f43899285013c2b4462c337382d6c975fc0",
+                "outputs": {
+                    "ipm.svg": "fbb2324b11e016bd3279c6a77cf89bac60cbf999",
+                    "ipmt": "d0437f43899285013c2b4462c337382d6c975fc0",
+                    "json": "bb556686da5edd293d700904985e6478c08eaef8",
+                    "layout.json": "a29bb21cad969a633fb3568f5d87c0f1c3196c0e",
+                    "md": "469b4a9597699edf94482d9f03e12d93e72e6f7d"
+                },
+                "heading": "2. Modeling Software Systems and Processes"
+            },
+            {
+                "destination": "code-people-interaction",
+                "line": 98,
+                "anchor": "#code-people-interaction",
+                "content_sha1": "d324bb8fabbcd33b97e037a35c0d0e843eb3c141",
+                "outputs": {
+                    "ipm.svg": "398750f1338158f34d96c34f3b6c93ea40d0aa38",
+                    "ipmt": "d324bb8fabbcd33b97e037a35c0d0e843eb3c141",
+                    "json": "ce9740ff7ad183bb62b22594240c1483fe3847d4",
+                    "layout.json": "35659c063438866c8d9fc1165a75d390f664632e",
+                    "md": "72ab6f1c850cef708dccac7376dc8e5b3733299f"
+                },
+                "heading": "2. Modeling Software Systems and Processes"
+            },
+            {
+                "destination": "combined-example",
+                "line": 110,
+                "anchor": "#combined-example",
+                "content_sha1": "d774d2d46c56472913cd937bee2426725bd1fccb",
+                "outputs": {
+                    "ipm.svg": "1aa1139ce3b9bd1aaed57f3c4cc150121c174d7d",
+                    "ipmt": "d774d2d46c56472913cd937bee2426725bd1fccb",
+                    "json": "0c51a404ea673db6438c133d237f79655665b1d9",
+                    "layout.json": "8b4e2c7e6c5c70288142ba684e5b3d79f1950edc",
+                    "md": "d3b3f69920115821294b6cfdc45b956bbd55aaa3"
+                },
+                "heading": "2. Modeling Software Systems and Processes"
+            },
+            {
+                "destination": "shared-hierarchies-across-diagrams",
+                "line": 170,
+                "anchor": "#shared-hierarchies-across-diagrams",
+                "content_sha1": "c62046a4d4187cffaf2b5d1238ad87234e0f1417",
+                "outputs": {
+                    "ipm.svg": "3295e00191a42919c9997e0951addecac0e46635",
+                    "ipmt": "c62046a4d4187cffaf2b5d1238ad87234e0f1417",
+                    "json": "e102a8158eb05c0258a9403cf8689d2b2119ca10",
+                    "layout.json": "ddd1817b48b34c80354547a9a83089d281b57979",
+                    "md": "8d359ffa8bebdbd5b5ab28476e4538f52f92c623"
+                },
+                "heading": "3. Best Practices for AI Assistants"
+            },
+            {
+                "destination": "no-duplicate-edge-between-the-same-nodes",
+                "line": 212,
+                "anchor": "#no-duplicate-edge-between-the-same-nodes",
+                "content_sha1": "c587cff042906ed5652e6268b3469a579ecedd11",
+                "outputs": {
+                    "ipmt": "c587cff042906ed5652e6268b3469a579ecedd11",
+                    "json": "3cf9826442602a200a601ee964302ea2a65e3234",
+                    "md": "0cbe9333e61f9735fc22041753ebd90f049f04f9"
+                },
+                "heading": "3. Best Practices for AI Assistants"
+            }
+        ]
+    },
+    {
+        "source": "../../../docs/ipm/ipm-parser-output.md",
+        "source_sha1": "358f92afe089a5bd5ad5dcd05bd48c8af08ae1b7",
+        "name": "ipmt examples in Markdown files",
+        "method": "parser",
+        "parser_name": "ipmt-md",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmt"
+        },
+        "items": [
+            {
+                "destination": "ipmt-graph-json",
+                "line": 4,
+                "anchor": "#ipmt-graph-json",
+                "content_sha1": "b4b5a389515944568059d027f776fd7ed740ad7b",
+                "outputs": {
+                    "ipm.svg": "9712f48a659113f5a0cca8de119af7228ff4f5be",
+                    "ipmt": "b4b5a389515944568059d027f776fd7ed740ad7b",
+                    "json": "afe76d444171ffc117801199749c420a1026adc3",
+                    "layout.json": "f39f804edd23200dd4552b6f564bbe2650d025a6",
+                    "md": "89c2a8d95db73a8ca47a1a9c0659d92e38b2b53e"
+                },
+                "section": "ipmt-graph JSON"
+            }
+        ]
+    },
+    {
+        "source": "../../../docs/ipmt-ex/ipmt-examples.md",
+        "source_sha1": "27bc9155ff63cd6dfa01e2b2eae077f6ec4c7ff9",
+        "name": "ipmt examples in Markdown files",
+        "method": "parser",
+        "parser_name": "ipmt-md",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmt"
+        },
+        "items": [
+            {
+                "destination": "multiline",
+                "line": 5,
+                "anchor": "#multiline",
+                "content_sha1": "5d58dd4314983839b8b988e643b90d072647e656",
+                "outputs": {
+                    "ipm.svg": "c22d7686ec9b16031cf5e3063da39df5855c7713",
+                    "ipmt": "5d58dd4314983839b8b988e643b90d072647e656",
+                    "json": "84f7a5fe30f360e0eb3a6d649ce8f95e2578b0e9",
+                    "layout.json": "7929fcdb9a41ac5cc66ea7261555c03203d045d4",
+                    "md": "bb82fbc5d45b2682f1c3e7dece35a195e87db21e"
+                },
+                "section": "Multiline"
+            },
+            {
+                "destination": "multiline-with-comma-expansion",
+                "line": 13,
+                "anchor": "#multiline-with-comma-expansion",
+                "content_sha1": "1fb60d133c716623eb81b32d18db90b50c76696c",
+                "outputs": {
+                    "ipm.svg": "c4e3c7e4efd170a9ff8f2ac1304bf626b31a1c83",
+                    "ipmt": "1fb60d133c716623eb81b32d18db90b50c76696c",
+                    "json": "80b22106502dc65b1b8ef1b5c381ec1b6b6d3392",
+                    "layout.json": "f9e7a5795beb5e76474b3a918b3b20b49b207f06",
+                    "md": "dbd9d57a371eb4ac0b2da85636fb85015eb0c401"
+                },
+                "section": "Multiline with comma expansion"
+            },
+            {
+                "destination": "tooltip-with-newline",
+                "line": 22,
+                "anchor": "#tooltip-with-newline",
+                "content_sha1": "ea10ef8a08296e5aeb1b317587d7c00c8b5ad0ea",
+                "outputs": {
+                    "ipm.svg": "1e484be5dbdfa2ae965568734d74ab8629cb0e20",
+                    "ipmt": "ea10ef8a08296e5aeb1b317587d7c00c8b5ad0ea",
+                    "json": "08952b79d5f4d4267cdc9b68ba2729c8ef91e190",
+                    "layout.json": "594e93e805e2a9c9d2280fc4ad7f7996c4708e51",
+                    "md": "a98121a2288b4cb6825fa07a7c405cfa43b49cb6"
+                },
+                "section": "Tooltip with newline"
+            },
+            {
+                "destination": "links-explicit-l",
+                "line": 33,
+                "anchor": "#links-explicit-l",
+                "content_sha1": "5d6792dfa0d39c38bf459f527d81551a921580a4",
+                "outputs": {
+                    "ipm.svg": "1e484be5dbdfa2ae965568734d74ab8629cb0e20",
+                    "ipmt": "5d6792dfa0d39c38bf459f527d81551a921580a4",
+                    "json": "8e9a9e55eec669ee2bfd234b6bb6f5d9dce189f4",
+                    "layout.json": "594e93e805e2a9c9d2280fc4ad7f7996c4708e51",
+                    "md": "3e7b068189effc887388c930714af23ca9cc09b1"
+                },
+                "heading": "links-explicit-l",
+                "section": "Additional fixtures"
+            },
+            {
+                "destination": "nodes-alias",
+                "line": 58,
+                "anchor": "#nodes-alias",
+                "content_sha1": "76a3601338c6586037debcd9f3ac318962058868",
+                "outputs": {
+                    "ipm.svg": "b8b628c1b6aba1b0ac14b03c989ff7429f4b4a09",
+                    "ipmt": "76a3601338c6586037debcd9f3ac318962058868",
+                    "json": "1d336dfc56cdb2ca89d2662e833b3cb80d502214",
+                    "layout.json": "6966352b60acc9af148666ae8e13bfb60e7706a6",
+                    "md": "34b6049633e83823fb345ed9cfa2684b1a304421"
+                },
+                "heading": "nodes-alias",
+                "section": "Additional fixtures"
+            },
+            {
+                "destination": "links-explicit-e-multiline",
+                "line": 83,
+                "anchor": "#links-explicit-e-multiline",
+                "content_sha1": "87dd66a12f9fae0ea7a5d4b827999a06dc2a9a98",
+                "outputs": {
+                    "ipm.svg": "0316320a3085d6490e0fb76253517fe6851be8fa",
+                    "ipmt": "87dd66a12f9fae0ea7a5d4b827999a06dc2a9a98",
+                    "json": "53c11b0785d24dc87a88a818914fe6251f3fcceb",
+                    "layout.json": "bcede0f5f2a71fce9f99f04637d58b463fac00a2",
+                    "md": "c2743a5db3d3faf8277c9e5794a926a36a77b9b4"
+                },
+                "heading": "links-explicit-e-multiline",
+                "section": "Additional fixtures"
+            },
+            {
+                "destination": "links-explicit-e",
+                "line": 92,
+                "anchor": "#links-explicit-e",
+                "content_sha1": "955ad2d8c230ced86355090c3c46f120542ab188",
+                "outputs": {
+                    "ipm.svg": "e7fc211b082f41bbb725bc8502d208e71e15e4b8",
+                    "ipmt": "955ad2d8c230ced86355090c3c46f120542ab188",
+                    "json": "88004a72d5f221a79addd4b61f8121cadafe2d2d",
+                    "layout.json": "a01294e723e60b657774a3ae342f5ff719b8f577",
+                    "md": "1e091cbd1a7f213f9bb71c65a9b150c52023719c"
+                },
+                "heading": "links-explicit-e",
+                "section": "Additional fixtures"
+            },
+            {
+                "destination": "links-chained-multiline",
+                "line": 100,
+                "anchor": "#links-chained-multiline",
+                "content_sha1": "69c6b22d7330321fde43798a5c01856b56d496a6",
+                "outputs": {
+                    "ipm.svg": "2de233243496e6da8b447ec6dc7a7ee90c9067ce",
+                    "ipmt": "69c6b22d7330321fde43798a5c01856b56d496a6",
+                    "json": "f641d0e24e24c640d9e4be13fab96f567750dc2a",
+                    "layout.json": "07277ddbbc3e532e63f159298b4d20ff1ab074e6",
+                    "md": "20eb091288959818d6329dc23ef185ea248f47ac"
+                },
+                "heading": "links-chained-multiline",
+                "section": "Additional fixtures"
+            },
+            {
+                "destination": "links-many-edges",
+                "line": 109,
+                "anchor": "#links-many-edges",
+                "content_sha1": "d14d43889aeef2cf046bdada5ce9f74a0b467185",
+                "outputs": {
+                    "ipm.svg": "a3f81620568c6b41a43882e157c4fc92f4e01c02",
+                    "ipmt": "d14d43889aeef2cf046bdada5ce9f74a0b467185",
+                    "json": "1fc9ebb9b9a2675cea0fc350cac4a9c00e88c300",
+                    "layout.json": "c84a7df8c0bde5bed726f2814e0eec9405a645e1",
+                    "md": "316fc0c51a88189cd49dd59e44e7505e6c63fbdb"
+                },
+                "heading": "links-many-edges",
+                "section": "Additional fixtures"
+            },
+            {
+                "destination": "nodes-alias-before",
+                "line": 127,
+                "anchor": "#nodes-alias-before",
+                "content_sha1": "311b08d2e218894f0dd8b0fe12d664cdb3e080c8",
+                "outputs": {
+                    "ipm.svg": "2710c98a921b9662d4cd5b0acb2233fbedca09ac",
+                    "ipmt": "311b08d2e218894f0dd8b0fe12d664cdb3e080c8",
+                    "json": "a888b4c158c9e331b4116670ee9ac265479d3b01",
+                    "layout.json": "e7dde219b7db066e7ec51bc02957adc216d62901",
+                    "md": "d0eaf8ea00b519bdd2d12859251b7a7f9dfc2c80"
+                },
+                "heading": "nodes-alias-before",
+                "section": "Additional fixtures"
+            },
+            {
+                "destination": "links-undirected",
+                "line": 136,
+                "anchor": "#links-undirected",
+                "content_sha1": "dd4317622dc2a90d10b60bdaf13918d39697f385",
+                "outputs": {
+                    "ipm.svg": "a348b419820ce813f1fb8ec972385bc5521503ad",
+                    "ipmt": "dd4317622dc2a90d10b60bdaf13918d39697f385",
+                    "json": "62a02ba23f21a8b70a4d6755a1b1341145a24cab",
+                    "layout.json": "e3bbf8b2508375463debdda47af6e59a695953ad",
+                    "md": "46cc1b461bba6d599c61a5896edd49ff3d179ab4"
+                },
+                "heading": "links-undirected",
+                "section": "Additional fixtures"
+            },
+            {
+                "destination": "links-self-loop",
+                "line": 144,
+                "anchor": "#links-self-loop",
+                "content_sha1": "1bd2f77e9e39b4debc43dc553dee6f5ebb57d84c",
+                "outputs": {
+                    "ipm.svg": "62a36312c1845c780ef6cec11248b2e76ee8eb87",
+                    "ipmt": "1bd2f77e9e39b4debc43dc553dee6f5ebb57d84c",
+                    "json": "d0b64a6e0b177c6fb24f11b719138d7cafb76b3f",
+                    "layout.json": "4e066266571354389dbb1a55f6180c2f7106ec5f",
+                    "md": "a9e3ccf03dd350544e570240bc0f7586a3179886"
+                },
+                "heading": "links-self-loop",
+                "section": "Additional fixtures"
+            },
+            {
+                "destination": "links-compact-arrows",
+                "line": 160,
+                "anchor": "#links-compact-arrows",
+                "content_sha1": "bff84a2b909c43323eebde1d6535920708eea2bf",
+                "outputs": {
+                    "ipm.svg": "17a24692fdb3a6653bedd01507e1d9c73ea0e6d0",
+                    "ipmt": "bff84a2b909c43323eebde1d6535920708eea2bf",
+                    "json": "90d653c76221c5527d457061b8dd4a8b51239671",
+                    "layout.json": "18c395be57d9cebdcf298282dc29b0e435d744bf",
+                    "md": "649dc7680112619bf2ad8ba72e5179daee8337f0"
+                },
+                "heading": "links-compact-arrows",
+                "section": "Additional fixtures"
+            },
+            {
+                "destination": "links-explicit-e-comma",
+                "line": 170,
+                "anchor": "#links-explicit-e-comma",
+                "content_sha1": "ef1e15dfb308ba6a543dc387c46cc5081132543b",
+                "outputs": {
+                    "ipm.svg": "9cf7b5fd0e0d57a4e5c1cd0b562ab92837a27571",
+                    "ipmt": "ef1e15dfb308ba6a543dc387c46cc5081132543b",
+                    "json": "946b17f49e6d857bbade6326d09fcfd904ab3bc1",
+                    "layout.json": "5ac2b1a39c1cc03b6b2e161e429d06b902cbf71c",
+                    "md": "0beb096e592d5f7d214830004d0d768537638600"
+                },
+                "heading": "links-explicit-e-comma",
+                "section": "Additional fixtures"
+            },
+            {
+                "destination": "minimal",
+                "line": 178,
+                "anchor": "#minimal",
+                "content_sha1": "e47f719a2de30c0cb020c9ae9382283dc7fda90d",
+                "outputs": {
+                    "ipm.svg": "dbbfc1cff5999a06a0a18078f38b5590d5c2387a",
+                    "ipmt": "e47f719a2de30c0cb020c9ae9382283dc7fda90d",
+                    "json": "fa5de41b35ed37a992b4a2ddb9c92e8b2be1dc4c",
+                    "layout.json": "c8e094be58936651164637623857d18e67d4f2bd",
+                    "md": "2a83c31fae7420c1c2d40a1aadef3bcf3c357bff"
+                },
+                "heading": "minimal",
+                "section": "Additional fixtures"
+            },
+            {
+                "destination": "links-explicit-n",
+                "line": 188,
+                "anchor": "#links-explicit-n",
+                "content_sha1": "46b71cf3bb9d3958cc6bfbf5560675d345faded2",
+                "outputs": {
+                    "ipm.svg": "b34f17bcf5b80f5aef733b8825135d1bfa57e018",
+                    "ipmt": "46b71cf3bb9d3958cc6bfbf5560675d345faded2",
+                    "json": "9344f4181734a6a5ac94d3500b14a2d4c687e274",
+                    "layout.json": "a61dffc7d259748104b49560e43c56347fccf3b3",
+                    "md": "c9f4713806b9cf448aad60d61d8697ff8199ff7e"
+                },
+                "heading": "links-explicit-n",
+                "section": "Additional fixtures"
+            },
+            {
+                "destination": "links-chained",
+                "line": 196,
+                "anchor": "#links-chained",
+                "content_sha1": "7d347f753f15ace50933d6448e5411a008baf883",
+                "outputs": {
+                    "ipm.svg": "b1b6cadfc781934d9450eb44acdc87f1b9ea42af",
+                    "ipmt": "7d347f753f15ace50933d6448e5411a008baf883",
+                    "json": "c43ec7bc223557fd65b6855271d5f6d43f7b54fe",
+                    "layout.json": "f3dac72177d161514d304af2139274e2fcb28193",
+                    "md": "7d32b17395f00b69ab1c0e6b7dfb815c07973c91"
+                },
+                "heading": "links-chained",
+                "section": "Additional fixtures"
+            },
+            {
+                "destination": "links-explicit-p-comma",
+                "line": 204,
+                "anchor": "#links-explicit-p-comma",
+                "content_sha1": "3273356a7816519fb29fd2023c1f3b6c8679d4e4",
+                "outputs": {
+                    "ipm.svg": "7247f5b2ba511bd71281951d4ffc661bcfad4d06",
+                    "ipmt": "3273356a7816519fb29fd2023c1f3b6c8679d4e4",
+                    "json": "87611f62b3bd8df0356058d4a4ef493a50ec74d7",
+                    "layout.json": "a352ee9893ad59315d5acb86b91e7c7d62bbc6bc",
+                    "md": "18058c83318170c049b0bb992519e77f9009b54f"
+                },
+                "heading": "links-explicit-p-comma",
+                "section": "Additional fixtures"
+            },
+            {
+                "destination": "nodes-tooltip-escaped",
+                "line": 220,
+                "anchor": "#nodes-tooltip-escaped",
+                "content_sha1": "5c3ffd494309b4335d411bf78ef39718b7d2e4c7",
+                "outputs": {
+                    "ipm.svg": "b838378a7377b2b56cb5164d0badaeff6cdd480b",
+                    "ipmt": "5c3ffd494309b4335d411bf78ef39718b7d2e4c7",
+                    "json": "ccf082905c03cf14b379025fda15a71e5d9f564b",
+                    "layout.json": "a3e2ec75dae0dd7bcb87e78f3f96f205753532f3",
+                    "md": "3b468f6794955f7c929e8b7e292e08876533ce26"
+                },
+                "heading": "nodes-tooltip-escaped",
+                "section": "Additional fixtures"
+            },
+            {
+                "destination": "links-explicit-p-multiline",
+                "line": 236,
+                "anchor": "#links-explicit-p-multiline",
+                "content_sha1": "1611d75de44b52bae12fbd6edbc72c937e2fd318",
+                "outputs": {
+                    "ipm.svg": "9bfced6200bf6e2a7831b2b7e5abec73da6e2bc9",
+                    "ipmt": "1611d75de44b52bae12fbd6edbc72c937e2fd318",
+                    "json": "586023833acf09dc064316bf3cf92248d087c789",
+                    "layout.json": "d278e6bc4c8878ea5a6c82e1e8288b108b9d0051",
+                    "md": "92356669abf3c22ef4d64105abdfda68f7ba3610"
+                },
+                "heading": "links-explicit-p-multiline",
+                "section": "Additional fixtures"
+            },
+            {
+                "destination": "links-explicit-l-multiline",
+                "line": 245,
+                "anchor": "#links-explicit-l-multiline",
+                "content_sha1": "f6d1049b6336cc2977ecf19b30c4db2caa6e26eb",
+                "outputs": {
+                    "ipm.svg": "1e484be5dbdfa2ae965568734d74ab8629cb0e20",
+                    "ipmt": "f6d1049b6336cc2977ecf19b30c4db2caa6e26eb",
+                    "json": "74839ca42f3cef68cba2ce8df9f34764c52ccf3b",
+                    "layout.json": "594e93e805e2a9c9d2280fc4ad7f7996c4708e51",
+                    "md": "1294e466969b12ed57fdbf0be04e8a8abe3a10e9"
+                },
+                "heading": "links-explicit-l-multiline",
+                "section": "Additional fixtures"
+            },
+            {
+                "destination": "links-edge-tooltip-escaped",
+                "line": 254,
+                "anchor": "#links-edge-tooltip-escaped",
+                "content_sha1": "79935a10ba2ef3cb4888bbebced77504139b1f51",
+                "outputs": {
+                    "ipm.svg": "4340c2e16fc0516750e70846cc8f7fd3876344f7",
+                    "ipmt": "79935a10ba2ef3cb4888bbebced77504139b1f51",
+                    "json": "57316b9d6c71830b41571c22f5e1d235484f89ac",
+                    "layout.json": "029f9971bbdf6aa6291caee4509788935b46dbe7",
+                    "md": "d5c0abb55e2dbff6592399fc2474c7bf14c781b3"
+                },
+                "heading": "links-edge-tooltip-escaped",
+                "section": "Additional fixtures"
+            },
+            {
+                "destination": "complex-1",
+                "line": 270,
+                "anchor": "#complex-1",
+                "content_sha1": "ab2362d13740e931664b02a8bc23109ed93d47ec",
+                "outputs": {
+                    "ipm.svg": "5449f38f160926b9a3a6b2bed11e364d0860f288",
+                    "ipmt": "ab2362d13740e931664b02a8bc23109ed93d47ec",
+                    "json": "41ffd8033176baec16e763ab2e2f1120eb5effe0",
+                    "layout.json": "0741d01ee7f2dff817e8cbde9a555cad92996046",
+                    "md": "4708b09faa2d83ef063f84b38d00de25f8751ac7"
+                },
+                "heading": "complex 1",
+                "section": "Additional fixtures"
+            },
+            {
+                "destination": "complex-2",
+                "line": 284,
+                "anchor": "#complex-2",
+                "content_sha1": "52304ad278883c9a4f83c34389f0ecd2b8811fe2",
+                "outputs": {
+                    "ipm.svg": "dc292eedd699fa1feb011692bd40e9548d759fe9",
+                    "ipmt": "52304ad278883c9a4f83c34389f0ecd2b8811fe2",
+                    "json": "97af121cfb0fb80db3dcf4fc1e627049e9ead6e4",
+                    "layout.json": "566492f3440c596d363749cae13668e1d8a0d16c",
+                    "md": "0784705100dfad604b85fc5e62a957e6c125f78f"
+                },
+                "heading": "complex 2",
+                "section": "Additional fixtures"
+            },
+            {
+                "destination": "complex-3",
+                "line": 297,
+                "anchor": "#complex-3",
+                "content_sha1": "dc8b91a4c097c180ff444d687cf609da1ee2a8f0",
+                "outputs": {
+                    "ipm.svg": "48fda766dd87c269fdd9faa7fa5a20006ba19a0e",
+                    "ipmt": "dc8b91a4c097c180ff444d687cf609da1ee2a8f0",
+                    "json": "00b3c758391397dbe8badff874549a95026ba003",
+                    "layout.json": "45ee64e7b7dd8c247007ea3c5d4408d6d1fec37a",
+                    "md": "1c2932fcc8cf136fa09d0e1a6e7000f35ed5bbec"
+                },
+                "heading": "complex 3",
+                "section": "Additional fixtures"
+            }
+        ]
+    },
+    {
+        "source": "../../../docs/ipmt-ex/mark-ex/examples.md",
+        "source_sha1": "fe3c1500117a57b933b6dc1f53533cca7eca166b",
+        "name": "ipmt examples in Markdown files",
+        "method": "parser",
+        "parser_name": "ipmt-md",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmt"
+        },
+        "items": [
+            {
+                "destination": "marks-25-08-24-medium-post",
+                "line": 10,
+                "anchor": "#marks-25-08-24-medium-post",
+                "content_sha1": "4dd49c0266ea3984f207119bbcc33ec3cc3ca8a2",
+                "outputs": {
+                    "ipm.svg": "0fe706c84a0964fe7bb70b1167dc928b679fae0e",
+                    "ipmt": "4dd49c0266ea3984f207119bbcc33ec3cc3ca8a2",
+                    "json": "5bcf9dec9f46f07fce2b10920241491c3b55e09b",
+                    "layout.json": "4ae9a948abf1e901b9c6567ebfa228db6567f718",
+                    "md": "b986c0dbcdd7ad805eb79bfe0129619795401194"
+                },
+                "section": "Mark's 25-08-24 medium post"
+            },
+            {
+                "destination": "marks-25-08-24-medium-post-02",
+                "line": 21,
+                "anchor": "#marks-25-08-24-medium-post",
+                "content_sha1": "76bd6fb699a4b5a86a26934af2b551d1647b30e8",
+                "outputs": {
+                    "ipm.svg": "9f15e9bfb822f4b02f590425535b0ac993fcf121",
+                    "ipmt": "76bd6fb699a4b5a86a26934af2b551d1647b30e8",
+                    "json": "9e73e59a6c8a88aa1a82c1fa1781c54bee70e1c3",
+                    "layout.json": "6beaf89e5c6fbea12eaf8da0da66dceb6c2bbe2a",
+                    "md": "8b1b5d75e8447d1190bd0670356967ebc19bd917"
+                },
+                "section": "Mark's 25-08-24 medium post"
+            },
+            {
+                "destination": "murder-mystery-june-2025",
+                "line": 38,
+                "anchor": "#murder-mystery-june-2025",
+                "content_sha1": "a726cc3559ef0211b78b7f4d9d1d9e05aee77d1b",
+                "outputs": {
+                    "ipm.svg": "27bcd0fcf7e342c477350ff281b1880a64055def",
+                    "ipmt": "a726cc3559ef0211b78b7f4d9d1d9e05aee77d1b",
+                    "json": "911d066a5e9e763265a1ed1b9c0126f1ac5a4de4",
+                    "layout.json": "0578e485942637d944253a529051b7246ab2deb3",
+                    "md": "c3a01254a1da503917828cf84e6f91fe7342cb90"
+                },
+                "section": "Murder Mystery, June 2025"
+            },
+            {
+                "destination": "ownership-june-2025",
+                "line": 89,
+                "anchor": "#ownership-june-2025",
+                "content_sha1": "eec0e43b8b984de973571e9fb1e5b386ee8148b4",
+                "outputs": {
+                    "ipm.svg": "c1753447c92b47b4aa0b4b55fe5525638f03a9b4",
+                    "ipmt": "eec0e43b8b984de973571e9fb1e5b386ee8148b4",
+                    "json": "2e8eb3a9cc72900e71f902a9c4119cff57ddb12b",
+                    "layout.json": "5daacd26567236e290ca655922f380b4985c0b33",
+                    "md": "aa22defe9d8661084d68fbc23c629a0d553c5058"
+                },
+                "section": "Ownership, June 2025"
+            }
+        ]
+    },
+    {
+        "source": "../../../docs/ipmt-spec-ex.md",
+        "source_sha1": "52b44a70a1b9dbecaafad2ca31df0c5df7474020",
+        "name": "ipmt examples in Markdown files",
+        "method": "parser",
+        "parser_name": "ipmt-md",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmt"
+        },
+        "items": [
+            {
+                "destination": "thing-to-thing",
+                "line": 11,
+                "anchor": "#thing-to-thing",
+                "content_sha1": "66f1325bd2417d5ef07efd9317a5a9b781246446",
+                "outputs": {
+                    "ipm.svg": "9bfced6200bf6e2a7831b2b7e5abec73da6e2bc9",
+                    "ipmt": "66f1325bd2417d5ef07efd9317a5a9b781246446",
+                    "json": "ad8ac468361faae14c51bfc99b9c2b25c6b1cf7a",
+                    "layout.json": "d278e6bc4c8878ea5a6c82e1e8288b108b9d0051",
+                    "md": "85814bb7ff573e1bb638cab0ac86f415ebfe7e86"
+                },
+                "section": "thing to thing"
+            },
+            {
+                "destination": "thing-to-event",
+                "line": 16,
+                "anchor": "#thing-to-event",
+                "content_sha1": "a6ef47325e565a773f8db7f4a8c611e928de2340",
+                "outputs": {
+                    "ipm.svg": "c3c48695f7210878e5755d8391a6ca02d07b140c",
+                    "ipmt": "a6ef47325e565a773f8db7f4a8c611e928de2340",
+                    "json": "1a087c54798bf357a152a5be0d7a4c54078bb063",
+                    "layout.json": "335fe744642376fd3c7958e3654e582da606739b",
+                    "md": "53ccd25cc5aabd00b338f72ec2b8fb8eaf6abb26"
+                },
+                "section": "thing to event"
+            },
+            {
+                "destination": "thing-to-event-02",
+                "line": 20,
+                "anchor": "#thing-to-event",
+                "content_sha1": "09d029cbc7901efdf39c1b8d79ee3bf4ddfae4a6",
+                "outputs": {
+                    "ipm.svg": "c3c48695f7210878e5755d8391a6ca02d07b140c",
+                    "ipmt": "09d029cbc7901efdf39c1b8d79ee3bf4ddfae4a6",
+                    "json": "4696786a038776e0b903925eaee67ee99c3aead6",
+                    "layout.json": "335fe744642376fd3c7958e3654e582da606739b",
+                    "md": "c4023580e6bd0cced7753d863fa47073ffa5b645"
+                },
+                "section": "thing to event"
+            },
+            {
+                "destination": "event-to-event-part-of",
+                "line": 34,
+                "anchor": "#event-to-event-part-of",
+                "content_sha1": "a1a23a0a14ea42e0e9ee84af5a0dcd569e520c47",
+                "outputs": {
+                    "ipm.svg": "c7029ca943b3fdc3847e90f2c85f5e4325d12f87",
+                    "ipmt": "a1a23a0a14ea42e0e9ee84af5a0dcd569e520c47",
+                    "json": "0afe58dfea806676308bdef24323a4dcfdb54379",
+                    "layout.json": "fafd3e2e74d3ee50b948ce3edff7a947c742be7d",
+                    "md": "c6152cf021b84c379cfecb591ec403514976d67e"
+                },
+                "section": "event to event (part-of)"
+            },
+            {
+                "destination": "event-to-event-expresses",
+                "line": 39,
+                "anchor": "#event-to-event-expresses",
+                "content_sha1": "b8a6d1bd4bf38ea5a3a37dbaeb9c12d46f3cfe14",
+                "outputs": {
+                    "ipm.svg": "9d3c3a91f3ffab82197ea2511e91a1b75c3f82fa",
+                    "ipmt": "b8a6d1bd4bf38ea5a3a37dbaeb9c12d46f3cfe14",
+                    "json": "060118a454dfede3ce58a153d5c3a4ade5645eda",
+                    "layout.json": "da7c4fa57ff720cf305d4ae98242928847f96b4d",
+                    "md": "17427066bd60db8da091af4a4ddea00bbaaba555"
+                },
+                "section": "event to event (expresses)"
+            },
+            {
+                "destination": "thing-to-concept",
+                "line": 44,
+                "anchor": "#thing-to-concept",
+                "content_sha1": "eb44276bc4208e50091a129f9733804f7ad2df13",
+                "outputs": {
+                    "ipm.svg": "563754b01fc5ec059c87a3568e8e4b52be335750",
+                    "ipmt": "eb44276bc4208e50091a129f9733804f7ad2df13",
+                    "json": "af2c590d5a566b1ec734b45225cf432fbe85d6f9",
+                    "layout.json": "41c8fae3f00ddc0ec9f496ddea48aa078e17f13f",
+                    "md": "5404b7a8877acd08049b7353b440e87adef97b77"
+                },
+                "section": "thing to concept"
+            },
+            {
+                "destination": "thing-to-concept-02",
+                "line": 48,
+                "anchor": "#thing-to-concept",
+                "content_sha1": "1f7a8848237cd1e5e0488dd4a5867151502cff48",
+                "outputs": {
+                    "ipm.svg": "563754b01fc5ec059c87a3568e8e4b52be335750",
+                    "ipmt": "1f7a8848237cd1e5e0488dd4a5867151502cff48",
+                    "json": "8755632dd1ea84a96b65be17860ebe44c5810c57",
+                    "layout.json": "41c8fae3f00ddc0ec9f496ddea48aa078e17f13f",
+                    "md": "c165c673ce62ca735bbe606cb9557c5ebe830ecb"
+                },
+                "section": "thing to concept"
+            },
+            {
+                "destination": "event-to-concept",
+                "line": 53,
+                "anchor": "#event-to-concept",
+                "content_sha1": "61361d6fc7f834f6e11afe4af1557e272d7e6d03",
+                "outputs": {
+                    "ipm.svg": "afcc85cc9e32724534b832e6c99848699689231a",
+                    "ipmt": "61361d6fc7f834f6e11afe4af1557e272d7e6d03",
+                    "json": "af49025f258f646f608979c7dbd630bfff6ace2b",
+                    "layout.json": "e747f305eb4f2c81b27749745e733a7156092653",
+                    "md": "86ac5b8ae4420ca3e1953353f824ff41a04bce3e"
+                },
+                "section": "event to concept"
+            },
+            {
+                "destination": "event-to-concept-02",
+                "line": 57,
+                "anchor": "#event-to-concept",
+                "content_sha1": "366ca25ef69fee8f3dadc8593286b22011dfdc26",
+                "outputs": {
+                    "ipm.svg": "afcc85cc9e32724534b832e6c99848699689231a",
+                    "ipmt": "366ca25ef69fee8f3dadc8593286b22011dfdc26",
+                    "json": "294ffda7e0912b1a814758065235444f22671246",
+                    "layout.json": "e747f305eb4f2c81b27749745e733a7156092653",
+                    "md": "b6d49b1145ca45c8dc542ed1f63a90692876cbfc"
+                },
+                "section": "event to concept"
+            },
+            {
+                "destination": "concept-to-concept",
+                "line": 66,
+                "anchor": "#concept-to-concept",
+                "content_sha1": "ac0303452b3911a50de0c6b48c89714ab376ba1b",
+                "outputs": {
+                    "ipm.svg": "c4327e36166c6b2d4ec57cba8efaae838b388c54",
+                    "ipmt": "ac0303452b3911a50de0c6b48c89714ab376ba1b",
+                    "json": "7a251314cef909fbb70be4826ca082f01fab486c",
+                    "layout.json": "16bd328f310d9b4fd8e9760579d445254a690363",
+                    "md": "9a2a07119d0600b75dd6767ce0cae06c49fab33b"
+                },
+                "section": "concept to concept"
+            },
+            {
+                "destination": "event-to-event-near-to",
+                "line": 71,
+                "anchor": "#event-to-event-near-to",
+                "content_sha1": "5bcd51136afd52f8e6d18db2aa2787dfad6a2522",
+                "outputs": {
+                    "ipm.svg": "e18131b7ba94ba571269799ac2cf69c2c6ea2df0",
+                    "ipmt": "5bcd51136afd52f8e6d18db2aa2787dfad6a2522",
+                    "json": "f1ff65a24cfd1c56dbc57637944502c66218217b",
+                    "layout.json": "0bf8b97446a9c2f40ea927ae85e12267ce221290",
+                    "md": "f1983d0fc409fd1f57eb69d028a0312452c8ea81"
+                },
+                "section": "event to event (near to)"
+            },
+            {
+                "destination": "event-to-event-near-to-02",
+                "line": 75,
+                "anchor": "#event-to-event-near-to",
+                "content_sha1": "f0777ab56ca2311bcab5dd86a45d33e492d8815a",
+                "outputs": {
+                    "ipm.svg": "e18131b7ba94ba571269799ac2cf69c2c6ea2df0",
+                    "ipmt": "f0777ab56ca2311bcab5dd86a45d33e492d8815a",
+                    "json": "c4ce8027f938ff1064a88923f7caf7d08bde51f2",
+                    "layout.json": "0bf8b97446a9c2f40ea927ae85e12267ce221290",
+                    "md": "a8fddfde0677a2d57a86bd355aaaa2fa3f9113fb"
+                },
+                "section": "event to event (near to)"
+            },
+            {
+                "destination": "thing-to-thing-near-to",
+                "line": 80,
+                "anchor": "#thing-to-thing-near-to",
+                "content_sha1": "675cf586e7f0df7c2ece7cf9ea946ac0896159ff",
+                "outputs": {
+                    "ipm.svg": "b34f17bcf5b80f5aef733b8825135d1bfa57e018",
+                    "ipmt": "675cf586e7f0df7c2ece7cf9ea946ac0896159ff",
+                    "json": "a159511c321bfe846476af84618623ebf67eb1d7",
+                    "layout.json": "a61dffc7d259748104b49560e43c56347fccf3b3",
+                    "md": "dd03119c3e9bba9e7692da717566422ee01eb2a7"
+                },
+                "section": "thing to thing (near to)"
+            },
+            {
+                "destination": "thing-to-thing-near-to-02",
+                "line": 84,
+                "anchor": "#thing-to-thing-near-to",
+                "content_sha1": "ee9651c383bb90343ccb057d08838b024c77b00e",
+                "outputs": {
+                    "ipm.svg": "b34f17bcf5b80f5aef733b8825135d1bfa57e018",
+                    "ipmt": "ee9651c383bb90343ccb057d08838b024c77b00e",
+                    "json": "60ff30b16323e04f61deef657770e26a92ff5aa5",
+                    "layout.json": "a61dffc7d259748104b49560e43c56347fccf3b3",
+                    "md": "4262eebb1ccb3c8434043e1ba4c3d2d3a40aff63"
+                },
+                "section": "thing to thing (near to)"
+            },
+            {
+                "destination": "concept-to-concept-near-to",
+                "line": 89,
+                "anchor": "#concept-to-concept-near-to",
+                "content_sha1": "b518b6eb3ea4e5ed57d00321b17981f988c7a826",
+                "outputs": {
+                    "ipm.svg": "d0af16286c717dc91b22d7670db0473fc6a1f4bd",
+                    "ipmt": "b518b6eb3ea4e5ed57d00321b17981f988c7a826",
+                    "json": "7182a87f8d8f974151c1a5757318f9e00eccb6ba",
+                    "layout.json": "677a815eb9557580a476f9e1c189e4dd68f0327e",
+                    "md": "4991e75e60c8d6c452d75eeb502a502a4532d2db"
+                },
+                "section": "concept to concept (near to)"
+            },
+            {
+                "destination": "concept-to-concept-near-to-02",
+                "line": 93,
+                "anchor": "#concept-to-concept-near-to",
+                "content_sha1": "679c9478efcd8985725f0bb69fbcab20faac3177",
+                "outputs": {
+                    "ipm.svg": "d0af16286c717dc91b22d7670db0473fc6a1f4bd",
+                    "ipmt": "679c9478efcd8985725f0bb69fbcab20faac3177",
+                    "json": "f5afb0935c0cdcd9e05ba991c87197c80d4b8809",
+                    "layout.json": "677a815eb9557580a476f9e1c189e4dd68f0327e",
+                    "md": "43a7f946cc7a40c47e0d6d52ecd10ad6fda2787d"
+                },
+                "section": "concept to concept (near to)"
+            },
+            {
+                "destination": "event-contains-thing-reverse-part-of",
+                "line": 114,
+                "anchor": "#event-contains-thing-reverse-part-of",
+                "content_sha1": "a314aac23491c7876a71823f6093f96db9b735f6",
+                "outputs": {
+                    "ipm.svg": "c0c9e6dd8608532d9cb0a486c4b0659e3e6c3c86",
+                    "ipmt": "a314aac23491c7876a71823f6093f96db9b735f6",
+                    "json": "37900e72530b4022cd04ce289f48737cf05605f8",
+                    "layout.json": "f1ae6c59c5bfe066a35a995c7bda783be3a359f5",
+                    "md": "db6620d6910f19ab3500df13572099f3d747265d"
+                },
+                "section": "event contains thing (reverse part-of)"
+            },
+            {
+                "destination": "event-follows-event-reverse-leads-to",
+                "line": 124,
+                "anchor": "#event-follows-event-reverse-leads-to",
+                "content_sha1": "d79efddedacebddc7ebebb5736b1ae63963d42f0",
+                "outputs": {
+                    "ipm.svg": "f066018539d6221ed055e3d1b47fc4b996b3475d",
+                    "ipmt": "d79efddedacebddc7ebebb5736b1ae63963d42f0",
+                    "json": "cbe8c7462913d974a768be4616eb5a40dc9ad9c6",
+                    "layout.json": "49260fa76ad4e4cfcfccb64c0c48138c63358680",
+                    "md": "d3a382021cb655387f06a2a291e19b58f460d99e"
+                },
+                "section": "event follows event (reverse leads-to)"
+            },
+            {
+                "destination": "events",
+                "line": 140,
+                "anchor": "#events",
+                "content_sha1": "0f0e073ff5505fe7881c0009ea59d28d117c69d3",
+                "outputs": {
+                    "ipm.svg": "3296e4d1ea947c3f25204d16ca621ccc3459076e",
+                    "ipmt": "0f0e073ff5505fe7881c0009ea59d28d117c69d3",
+                    "json": "81019ecb1a9e9c1366575bdc6acc7db12b19439f",
+                    "layout.json": "58555349a6b9588a10dfc3013cfdc8e83e5b0b66",
+                    "md": "32e5f91dfedae086924fb0496f02cbb4ee61bd57"
+                },
+                "section": "Events"
+            },
+            {
+                "destination": "events-02",
+                "line": 145,
+                "anchor": "#events",
+                "content_sha1": "fcc634e3c3ba8227c40d231ec982d76fab62a1c5",
+                "outputs": {
+                    "ipm.svg": "509bc9dc232bed3a4e0158e12b7cc2ec69334fd9",
+                    "ipmt": "fcc634e3c3ba8227c40d231ec982d76fab62a1c5",
+                    "json": "fc6f132dc173a89aaf49cc1e4a84095a0e492eba",
+                    "layout.json": "0564aa24d4bfca16ea123b006f96a4f5d43d71f2",
+                    "md": "bfb3e859eb527f93b60216f21c251636336a3880"
+                },
+                "section": "Events"
+            },
+            {
+                "destination": "events-03",
+                "line": 150,
+                "anchor": "#events",
+                "content_sha1": "b5ed3c54bbb895f27ca3dffa3d071c995eb2e64c",
+                "outputs": {
+                    "ipm.svg": "477e0597a7a9494b6699b5b19c4b72f30bbe7af3",
+                    "ipmt": "b5ed3c54bbb895f27ca3dffa3d071c995eb2e64c",
+                    "json": "9e81a4890faf9052fbc12e65a51a2bdc1b80e3d2",
+                    "layout.json": "692dc5c8f5cbb50432f6f6f3d8f8eb8a04c171c2",
+                    "md": "bad2b8409584572ceddd88514ea9d5a5d75b5a51"
+                },
+                "section": "Events"
+            }
+        ]
+    },
+    {
+        "source": "../../../docs/md-embed.md",
+        "source_sha1": "65f05109cca6f5b54bdae62562f8548f29d5c4aa",
+        "name": "ipmt examples in Markdown files",
+        "method": "parser",
+        "parser_name": "ipmt-md",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmt"
+        },
+        "items": [
+            {
+                "destination": "hello",
+                "line": 37,
+                "anchor": "#hello",
+                "content_sha1": "68e3b7ad585d2fa80a1a7597ea997b0575b674ea",
+                "outputs": {
+                    "ipm.svg": "96baa28fa39343d679a33c0d647e2aca03a11428",
+                    "ipmt": "68e3b7ad585d2fa80a1a7597ea997b0575b674ea",
+                    "json": "42765aeae98894f97434b7f6c7e65937a19beb0e",
+                    "layout.json": "2e1c2f19f12debf9ca8be11ee8566ec78b7edd75",
+                    "md": "9ca174de427078514666707f01a1334c043b5f05"
+                },
+                "section": "Hello world"
+            },
+            {
+                "destination": "visible-ipmt-fence-in-the-md",
+                "line": 130,
+                "anchor": "#visible-ipmt-fence-in-the-.md",
+                "content_sha1": "c397e9926f4114f7b95da3313d1810d2b0555cfd",
+                "outputs": {
+                    "ipm.svg": "33f16a9c37cba7d2c89c1ebffd5935deaf41b0a2",
+                    "ipmt": "c397e9926f4114f7b95da3313d1810d2b0555cfd",
+                    "json": "32a38ce72622867ec40329c52f27ca603a1302eb",
+                    "layout.json": "84162e5fd48eec0832ff357cac936cde2ec3cd84",
+                    "md": "37763f07cfe8e62adddd11ffc7af3c93734de9ee"
+                },
+                "heading": "Visible — ` ```ipmt ` fence in the `.md`",
+                "section": "Source-block kinds"
+            }
+        ]
+    }
+]

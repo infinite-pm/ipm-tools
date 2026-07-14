@@ -1,0 +1,3 @@
+# mixing different base types
+tA --> tB
+tA --::N-- tB

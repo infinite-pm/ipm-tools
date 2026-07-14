@@ -1,0 +1,60 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "n1 --\"line with a \\\"quote\\\" and a \\\\ backslash\"--\u003e n2",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          2
+        ],
+        "2": [
+          51,
+          53
+        ]
+      },
+      "edges": {
+        "3": {
+          "arrow": [
+            2,
+            51
+          ],
+          "source": [
+            0,
+            2
+          ],
+          "target": [
+            51,
+            53
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "n1",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "n2",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 3,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "line with a \"quote\" and a \\ backslash",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

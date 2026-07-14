@@ -1,0 +1,6 @@
+{
+  "end": 0,
+  "error": "invalid syntax: ambiguous comma with multiple arrows in one line: \"A --\u003e B, C --\u003e D\"",
+  "message": "invalid syntax: ambiguous comma with multiple arrows in one line: \"A --\u003e B, C --\u003e D\"",
+  "start": 0
+}

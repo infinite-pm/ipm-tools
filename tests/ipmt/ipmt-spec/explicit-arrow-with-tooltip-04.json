@@ -1,0 +1,60 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "e1 ::e --::N \"near\"-- e2 ::e",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          2
+        ],
+        "2": [
+          22,
+          24
+        ]
+      },
+      "edges": {
+        "3": {
+          "arrow": [
+            6,
+            22
+          ],
+          "source": [
+            0,
+            2
+          ],
+          "target": [
+            22,
+            24
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "e1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "e2",
+      "alias": "",
+      "type": "Event"
+    }
+  ],
+  "edges": [
+    {
+      "id": 3,
+      "source": 1,
+      "target": 2,
+      "dir": "DirUndir",
+      "tooltip": "near",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

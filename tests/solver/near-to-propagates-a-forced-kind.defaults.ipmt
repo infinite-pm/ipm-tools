@@ -1,0 +1,3 @@
+# then defaults
+trigger ::e --::L--> fire ::e
+fire ::e --::N-- spark ::e

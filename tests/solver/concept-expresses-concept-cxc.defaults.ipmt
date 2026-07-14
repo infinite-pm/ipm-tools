@@ -1,0 +1,3 @@
+# then defaults
+dashboard ::t --::X--> metric ::c
+metric ::c --::X--> goal ::c

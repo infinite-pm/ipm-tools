@@ -1,0 +1,920 @@
+[
+    {
+        "source": "../../../docs/ipmt-spec.md",
+        "source_sha1": "572e90d7537de3f48b311944ec4ccf4f07048748",
+        "name": "ipmt specification",
+        "method": "parser",
+        "parser_name": "ipmt-md",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmt"
+        },
+        "items": [
+            {
+                "destination": "example-hokus1-diagram",
+                "line": 9,
+                "anchor": "#example-hokus1-diagram",
+                "content_sha1": "61048f606b75f29d97ec8e61f9e0d3f1ca54a300",
+                "outputs": {
+                    "ipm.svg": "3cb1d1c8fd0d1aa044d9f5383acd1c245e572c31",
+                    "ipmt": "61048f606b75f29d97ec8e61f9e0d3f1ca54a300",
+                    "json": "3f02bae633abdfb8ff5e7ff999accbc5ccca812d",
+                    "layout.json": "cdb270a08f04e54e86a4fbbe3c3f8d8a625d4b70",
+                    "md": "592bfb71a0b8cd4c35321d335f1d210ab723c776"
+                },
+                "section": "Example Hokus1 diagram"
+            },
+            {
+                "destination": "comments",
+                "line": 37,
+                "anchor": "#comments",
+                "content_sha1": "8b084a330dc2586687a3f2d2bead19ebc8011bf9",
+                "outputs": {
+                    "ipm.svg": "90a71f46b92b5a7e6613ae384b3a9f15ab14d104",
+                    "ipmt": "8b084a330dc2586687a3f2d2bead19ebc8011bf9",
+                    "json": "b048bb572e9ffaac26f33226180dd6a54741e41b",
+                    "layout.json": "f1ba85fafc3e4db1aebd5285c36f1c59a0443cda",
+                    "md": "13edf66c8c8d24639a88f008b873227f2455806b"
+                },
+                "section": "Comments"
+            },
+            {
+                "destination": "comments-02",
+                "line": 45,
+                "anchor": "#comments",
+                "content_sha1": "aae6af67422c20522fc5895bd4e1313e9eec21ad",
+                "outputs": {
+                    "ipm.svg": "60afade213db304cd44bde6af24d96fe85f3c044",
+                    "ipmt": "aae6af67422c20522fc5895bd4e1313e9eec21ad",
+                    "json": "a9da673719670179e6d0d26581b5530fb6cf943d",
+                    "layout.json": "50696ba583f5a237c278c35568c401de4f906a19",
+                    "md": "e91c1ce408e816f4d80a38cd3b253e2cdced9820"
+                },
+                "section": "Comments"
+            },
+            {
+                "destination": "comments-03",
+                "line": 54,
+                "anchor": "#comments",
+                "content_sha1": "2af786350abbb43d726dd7cb0053c13b25ee98b8",
+                "outputs": {
+                    "ipm.svg": "b0d8c6d5fb5242a08e253e05eac37b9db7460ac5",
+                    "ipmt": "2af786350abbb43d726dd7cb0053c13b25ee98b8",
+                    "json": "9f158a3098060a621ab0e8a9c41253e44ff9b8d3",
+                    "layout.json": "803d19c74bfcaedc0dc040be40df46ab8d79df43",
+                    "md": "d51b7e2943585310940e78911ebe75f5b0e8b396"
+                },
+                "section": "Comments"
+            },
+            {
+                "destination": "comments-04",
+                "line": 58,
+                "anchor": "#comments",
+                "content_sha1": "666382fb3d8e30138e9624d6f4d7d94acea6a450",
+                "outputs": {
+                    "ipm.svg": "b0d8c6d5fb5242a08e253e05eac37b9db7460ac5",
+                    "ipmt": "666382fb3d8e30138e9624d6f4d7d94acea6a450",
+                    "json": "417e34c63865eb88a9b1748ce5ea5433df6570cc",
+                    "layout.json": "803d19c74bfcaedc0dc040be40df46ab8d79df43",
+                    "md": "7d1bd506add5a1f1f88c4a7c59136c75abeb5e8f"
+                },
+                "section": "Comments"
+            },
+            {
+                "destination": "comments-05",
+                "line": 65,
+                "anchor": "#comments",
+                "content_sha1": "22dd56cc5d710fd8452f144be24007ccd5dba8b2",
+                "outputs": {
+                    "ipm.svg": "60afade213db304cd44bde6af24d96fe85f3c044",
+                    "ipmt": "22dd56cc5d710fd8452f144be24007ccd5dba8b2",
+                    "json": "a7b796da183371c0cb79a2211cc22005e229be58",
+                    "layout.json": "50696ba583f5a237c278c35568c401de4f906a19",
+                    "md": "160665348f096d4ef9746e9a173f3da669caf8b5"
+                },
+                "section": "Comments"
+            },
+            {
+                "destination": "comments-06",
+                "line": 69,
+                "anchor": "#comments",
+                "content_sha1": "58b404bfc4e1f757881337e0c016058a9668cc63",
+                "outputs": {
+                    "ipm.svg": "60afade213db304cd44bde6af24d96fe85f3c044",
+                    "ipmt": "58b404bfc4e1f757881337e0c016058a9668cc63",
+                    "json": "2a562a28f01b23561825835ac46cc5f72395ffd8",
+                    "layout.json": "50696ba583f5a237c278c35568c401de4f906a19",
+                    "md": "b53713f264706a7803a232e5de829f01a8038ecc"
+                },
+                "section": "Comments"
+            },
+            {
+                "destination": "comments-07",
+                "line": 74,
+                "anchor": "#comments",
+                "content_sha1": "6d0b49992a5971d114206007494dbacce93c5027",
+                "outputs": {
+                    "ipm.svg": "2ea9f73cb868be15f245a6f4c41a9315cf13a883",
+                    "ipmt": "6d0b49992a5971d114206007494dbacce93c5027",
+                    "json": "da20d31c77ac88cc818f888404049a4e882bd230",
+                    "layout.json": "5874012bc48e1b3a78d4f0660ef6c52d3161fbb9",
+                    "md": "022434b074174d9e80ca2df05d51619d938beda7"
+                },
+                "section": "Comments"
+            },
+            {
+                "destination": "node-with-long-name",
+                "line": 83,
+                "anchor": "#node-with-long-name",
+                "content_sha1": "1ff7a2f5cf750d7d5781cf8173b101e802461f82",
+                "outputs": {
+                    "ipm.svg": "1b89d59f4fb72a3750e2e8af7be3ba7e113b7c5e",
+                    "ipmt": "1ff7a2f5cf750d7d5781cf8173b101e802461f82",
+                    "json": "78860a3882829e4cb2f5890eb8017d28fb569406",
+                    "layout.json": "37d5eddf2fa7860bcc8d030e22ad1d554cc002aa",
+                    "md": "c7730671313f0965f758ba69379ff027c416f7e6"
+                },
+                "heading": "Node with long name",
+                "section": "Nodes"
+            },
+            {
+                "destination": "node-with-long-name-02",
+                "line": 87,
+                "anchor": "#node-with-long-name",
+                "content_sha1": "f79bf42fa5a458fdc84e83e78114b0287ce975f2",
+                "outputs": {
+                    "ipm.svg": "1b89d59f4fb72a3750e2e8af7be3ba7e113b7c5e",
+                    "ipmt": "f79bf42fa5a458fdc84e83e78114b0287ce975f2",
+                    "json": "51376f3d6e8e2c4b4107a1f82715017b747835dc",
+                    "layout.json": "37d5eddf2fa7860bcc8d030e22ad1d554cc002aa",
+                    "md": "64f4cf8ddacbaeaedeb625b2c2509199df4c0a56"
+                },
+                "heading": "Node with long name",
+                "section": "Nodes"
+            },
+            {
+                "destination": "node-alias",
+                "line": 97,
+                "anchor": "#node-alias",
+                "content_sha1": "c69c1266a28baff931d0d2b2bb9cdc5c5594a7b1",
+                "outputs": {
+                    "ipm.svg": "1b89d59f4fb72a3750e2e8af7be3ba7e113b7c5e",
+                    "ipmt": "c69c1266a28baff931d0d2b2bb9cdc5c5594a7b1",
+                    "json": "c53df87961f6de6129015e35987e78eec986ca4c",
+                    "layout.json": "aee92d8ef2a1bf8b0af7c632fac4ad8a4c98c6d1",
+                    "md": "fe29dfe5457dca2f7bfef57808015cc10c84fee9"
+                },
+                "heading": "Node alias",
+                "section": "Nodes"
+            },
+            {
+                "destination": "node-alias-02",
+                "line": 102,
+                "anchor": "#node-alias",
+                "content_sha1": "5e00bef074ecee7c983c0d830df9583a8401589f",
+                "outputs": {
+                    "ipm.svg": "1b89d59f4fb72a3750e2e8af7be3ba7e113b7c5e",
+                    "ipmt": "5e00bef074ecee7c983c0d830df9583a8401589f",
+                    "json": "d391b809f0f202a8402df8b33648e58cf0c1148e",
+                    "layout.json": "aee92d8ef2a1bf8b0af7c632fac4ad8a4c98c6d1",
+                    "md": "9d9e028ab900990d501b8115138097c243745e53"
+                },
+                "heading": "Node alias",
+                "section": "Nodes"
+            },
+            {
+                "destination": "node-type",
+                "line": 119,
+                "anchor": "#node-type",
+                "content_sha1": "2988a97da6de1788471bd8883bad713103161839",
+                "outputs": {
+                    "ipm.svg": "ebaaa67ee60345a0c0fb236980e4b59464c41410",
+                    "ipmt": "2988a97da6de1788471bd8883bad713103161839",
+                    "json": "e55e2c6106b1502ae6b1072fb58f6cdb802646c1",
+                    "layout.json": "026e9edde4e9da135d128110e020ed9bd389dee0",
+                    "md": "d01d42a05332c93f93e3fd2460e09afc5ed997e6"
+                },
+                "heading": "Node type",
+                "section": "Nodes"
+            },
+            {
+                "destination": "node-type-02",
+                "line": 133,
+                "anchor": "#node-type",
+                "content_sha1": "2ecfcc0b5514d3fd2d8c1746d8f9cbac04c2347c",
+                "outputs": {
+                    "ipmt": "2ecfcc0b5514d3fd2d8c1746d8f9cbac04c2347c",
+                    "json": "7e6267e1de559751cb4c585d962380b97d69939b",
+                    "md": "831775495d13be0063692f2ad35795b2b94b846a"
+                },
+                "heading": "Node type",
+                "section": "Nodes"
+            },
+            {
+                "destination": "node-tooltip",
+                "line": 143,
+                "anchor": "#node-tooltip",
+                "content_sha1": "10486e4314a58aaa7cdd98fbe7363202e125f85c",
+                "outputs": {
+                    "ipm.svg": "58dabcc90a490df2d6a6bdc143360189cf3b81d4",
+                    "ipmt": "10486e4314a58aaa7cdd98fbe7363202e125f85c",
+                    "json": "5d436d1ed971b9328fef43916506dd1c6eb116e3",
+                    "layout.json": "e704311976ed710fe35db7d8de33e80e61410ea4",
+                    "md": "f144b4451f7f2f69ca27b3c9f2f417146f604203"
+                },
+                "heading": "Node tooltip",
+                "section": "Nodes"
+            },
+            {
+                "destination": "annotation-order",
+                "line": 165,
+                "anchor": "#annotation-order",
+                "content_sha1": "2dda6ffef9a4ffed92f561564d9031d7e46df3c0",
+                "outputs": {
+                    "ipm.svg": "56d7c55f4f71de872bf164247b80f3eb70b84266",
+                    "ipmt": "2dda6ffef9a4ffed92f561564d9031d7e46df3c0",
+                    "json": "770f0925cb4bbe3b6aa2df96a43b01397d221985",
+                    "layout.json": "7773629f4cd2d38b1bec5c5aed58cf292e898805",
+                    "md": "97cb5f194ff6f37d71cc7f2df4e36897eaa90eb7"
+                },
+                "heading": "Annotation order",
+                "section": "Nodes"
+            },
+            {
+                "destination": "simple-arrow",
+                "line": 178,
+                "anchor": "#simple-arrow",
+                "content_sha1": "7bed6fd5dfdc4267245585b807baf9e48645dd86",
+                "outputs": {
+                    "ipm.svg": "133d928f4a4fc77e379ed8a536de408fa56c7099",
+                    "ipmt": "7bed6fd5dfdc4267245585b807baf9e48645dd86",
+                    "json": "84a4ef9ce78da550c8dafe2241bedf40eada91f6",
+                    "layout.json": "da34391728fd6e30211176e37367bf1c6973d103",
+                    "md": "f15632f613a8b7d314ed2ef95cfda60e4b92ce55"
+                },
+                "heading": "Simple arrow",
+                "section": "Links"
+            },
+            {
+                "destination": "reverse-arrow",
+                "line": 250,
+                "anchor": "#reverse-arrow",
+                "content_sha1": "3696b5c5b6549cb7c8a963ab5fbabc2793449b45",
+                "outputs": {
+                    "ipm.svg": "0d3a0cc81a276877d82e1333fbbe7abd45d84bdd",
+                    "ipmt": "3696b5c5b6549cb7c8a963ab5fbabc2793449b45",
+                    "json": "980cb223bee90f3da3f82c1eff685eb9ac75d8f6",
+                    "layout.json": "f88bf3f4f169b2b7b077978f4385308154f8da4d",
+                    "md": "06e3e91d83d43f22d84cca5b1bd40d068169c47b"
+                },
+                "heading": "Reverse arrow",
+                "section": "Links"
+            },
+            {
+                "destination": "reverse-arrow-02",
+                "line": 256,
+                "anchor": "#reverse-arrow",
+                "content_sha1": "7042b400149931b59033f462d192d004a97a128e",
+                "outputs": {
+                    "ipm.svg": "bdb8aa452ada7de29733ad065332f92da884b581",
+                    "ipmt": "7042b400149931b59033f462d192d004a97a128e",
+                    "json": "65c16671ce938acd612df8c93cfb991260cd4926",
+                    "layout.json": "5367e184fa96279b4dcc0fa81985e24716e5cf51",
+                    "md": "c3165d251d6f1c0b6b961cfc275e30ada9976248"
+                },
+                "heading": "Reverse arrow",
+                "section": "Links"
+            },
+            {
+                "destination": "reverse-arrow-03",
+                "line": 260,
+                "anchor": "#reverse-arrow",
+                "content_sha1": "cbad58bc720ff77816c8c2d75ee31647bd03dfd9",
+                "outputs": {
+                    "ipm.svg": "fbf33a907b7d49fdc2b02c0b7de9e9969662a55d",
+                    "ipmt": "cbad58bc720ff77816c8c2d75ee31647bd03dfd9",
+                    "json": "efe18b08842ed19df6ac63cbc5a492492bc2347b",
+                    "layout.json": "10a78487e2e51b15b09cfac71f9f10b2eb81e14d",
+                    "md": "2b96483838d69a86b863b66391293cd882e3cfbe"
+                },
+                "heading": "Reverse arrow",
+                "section": "Links"
+            },
+            {
+                "destination": "reverse-arrow-04",
+                "line": 265,
+                "anchor": "#reverse-arrow",
+                "content_sha1": "616249ce9a21adda78d251431ea790ca078e4756",
+                "outputs": {
+                    "ipm.svg": "f6033b036fe4a2170e236559d918cec89c57a6f3",
+                    "ipmt": "616249ce9a21adda78d251431ea790ca078e4756",
+                    "json": "351803a705b0b13a08600239c52617e9e0f91b46",
+                    "layout.json": "9a12d7a6337a76c13522e46be32bb95b76402051",
+                    "md": "24f02d6427a39f89efc4b63d8c9026d0a5cf929b"
+                },
+                "heading": "Reverse arrow",
+                "section": "Links"
+            },
+            {
+                "destination": "reverse-arrow-05",
+                "line": 269,
+                "anchor": "#reverse-arrow",
+                "content_sha1": "2f000b2c45bf3c93c4857372f3fc40309373b7d9",
+                "outputs": {
+                    "ipm.svg": "0039914ccaabb6ce5558ef8e4e325198292131c6",
+                    "ipmt": "2f000b2c45bf3c93c4857372f3fc40309373b7d9",
+                    "json": "fb01101bf834f9ec6b9b46d109b2bda523f48859",
+                    "layout.json": "73ea2a6defb0ec78d3ec3cdd281e7f65136c0c75",
+                    "md": "23b53cd471411e60b91c4034208cfccce450e289"
+                },
+                "heading": "Reverse arrow",
+                "section": "Links"
+            },
+            {
+                "destination": "edge-tooltip",
+                "line": 275,
+                "anchor": "#edge-tooltip",
+                "content_sha1": "e3ce184acd0b0785865fde66a1ce7cf2ea99b5fe",
+                "outputs": {
+                    "ipm.svg": "1e484be5dbdfa2ae965568734d74ab8629cb0e20",
+                    "ipmt": "e3ce184acd0b0785865fde66a1ce7cf2ea99b5fe",
+                    "json": "38dadbadecc4f93b79f87bc9660a39092d0fda29",
+                    "layout.json": "594e93e805e2a9c9d2280fc4ad7f7996c4708e51",
+                    "md": "e9589d84664900535fe2d1078d1b6d5a2e7db9f6"
+                },
+                "heading": "Edge tooltip",
+                "section": "Links"
+            },
+            {
+                "destination": "edge-tooltip-02",
+                "line": 281,
+                "anchor": "#edge-tooltip",
+                "content_sha1": "b5023f049fa89b9c216314ed03bf2cdfdafb4c10",
+                "outputs": {
+                    "ipm.svg": "367d2d488808cea31329a90f1c6635190054d347",
+                    "ipmt": "b5023f049fa89b9c216314ed03bf2cdfdafb4c10",
+                    "json": "25747517008c32a50e22910bc89c5a65b4f2061f",
+                    "layout.json": "bec0695cba5d60597275ce8cc9020ad15ee292c5",
+                    "md": "b986b3fe46fdee2b61ac7bd181858bf2b9b87b0e"
+                },
+                "heading": "Edge tooltip",
+                "section": "Links"
+            },
+            {
+                "destination": "edge-tooltip-03",
+                "line": 288,
+                "anchor": "#edge-tooltip",
+                "content_sha1": "d21cc21067ac2004538e918e900f984d86646159",
+                "outputs": {
+                    "ipm.svg": "1e484be5dbdfa2ae965568734d74ab8629cb0e20",
+                    "ipmt": "d21cc21067ac2004538e918e900f984d86646159",
+                    "json": "56a88be5ef3c5fa7c0881a988117f2dd8fbd3f9d",
+                    "layout.json": "594e93e805e2a9c9d2280fc4ad7f7996c4708e51",
+                    "md": "60148bdb73e8b878a727586dafedbd2d321745ac"
+                },
+                "heading": "Edge tooltip",
+                "section": "Links"
+            },
+            {
+                "destination": "edge-tooltip-04",
+                "line": 296,
+                "anchor": "#edge-tooltip",
+                "content_sha1": "25ef54fc4bd431bcf0386fcaf264ff09e246b51f",
+                "outputs": {
+                    "ipm.svg": "1e484be5dbdfa2ae965568734d74ab8629cb0e20",
+                    "ipmt": "25ef54fc4bd431bcf0386fcaf264ff09e246b51f",
+                    "json": "343dc900decc69a7879d8a9647745d0269b9627a",
+                    "layout.json": "594e93e805e2a9c9d2280fc4ad7f7996c4708e51",
+                    "md": "d26b78f4a39e6e1be1f0a5651913993254761658"
+                },
+                "heading": "Edge tooltip",
+                "section": "Links"
+            },
+            {
+                "destination": "edge-tooltip-05",
+                "line": 300,
+                "anchor": "#edge-tooltip",
+                "content_sha1": "ef3b9b9fc20067d5ea477f83c582373635335707",
+                "outputs": {
+                    "ipm.svg": "937ae1ff1f26e0b816221b6e60c252dc45e6f988",
+                    "ipmt": "ef3b9b9fc20067d5ea477f83c582373635335707",
+                    "json": "23181b1269c5df708f9fc01c52a7f70394e11c9b",
+                    "layout.json": "f7a1c76c85d75fdfdb5407d59e149f87e6d9bd77",
+                    "md": "e97f5635be151dcf8d078e422c30dbba015a697c"
+                },
+                "heading": "Edge tooltip",
+                "section": "Links"
+            },
+            {
+                "destination": "explicit-arrow-with-tooltip",
+                "line": 309,
+                "anchor": "#explicit-arrow-with-tooltip",
+                "content_sha1": "19e062770343dacfa4ef73e745b6a00adb185a4a",
+                "outputs": {
+                    "ipm.svg": "c214360399d762388ffa12da3b2e5e27da06447c",
+                    "ipmt": "19e062770343dacfa4ef73e745b6a00adb185a4a",
+                    "json": "c25648543e5e2469d5e1f1ae64cc1bca8a97e823",
+                    "layout.json": "d50a95554968947d278f48238b20d71977025e8e",
+                    "md": "7cffa64754945fc1ce84eaf240e274c5363a36c1"
+                },
+                "heading": "Explicit arrow with tooltip",
+                "section": "Links"
+            },
+            {
+                "destination": "explicit-arrow-with-tooltip-02",
+                "line": 315,
+                "anchor": "#explicit-arrow-with-tooltip",
+                "content_sha1": "319bd5f5b90197c8f207182ae14748149bc18612",
+                "outputs": {
+                    "ipm.svg": "c214360399d762388ffa12da3b2e5e27da06447c",
+                    "ipmt": "319bd5f5b90197c8f207182ae14748149bc18612",
+                    "json": "54e7e020bba7fd7f2cb14ef237fa0ef0821cc8c9",
+                    "layout.json": "d50a95554968947d278f48238b20d71977025e8e",
+                    "md": "cc02d741618b063d1c1dc26743435bac6eba7757"
+                },
+                "heading": "Explicit arrow with tooltip",
+                "section": "Links"
+            },
+            {
+                "destination": "explicit-arrow-with-tooltip-03",
+                "line": 320,
+                "anchor": "#explicit-arrow-with-tooltip",
+                "content_sha1": "ea2f59878067db4010b8c8d60b9640394fd5f717",
+                "outputs": {
+                    "ipm.svg": "01d884a64f2fc43cd044053688ca0a8c277f9187",
+                    "ipmt": "ea2f59878067db4010b8c8d60b9640394fd5f717",
+                    "json": "9804038bac5ff5697367c89f77ea27998f802c0d",
+                    "layout.json": "a211ca2a132d87333f0943ea29511ab2f8e2d3a5",
+                    "md": "c7e8332f52d6643310dba9581796a9ad9a389d0f"
+                },
+                "heading": "Explicit arrow with tooltip",
+                "section": "Links"
+            },
+            {
+                "destination": "explicit-arrow-with-tooltip-04",
+                "line": 325,
+                "anchor": "#explicit-arrow-with-tooltip",
+                "content_sha1": "2ab28a1b71b051b86cb6548b4a320420afacebc5",
+                "outputs": {
+                    "ipm.svg": "477e0597a7a9494b6699b5b19c4b72f30bbe7af3",
+                    "ipmt": "2ab28a1b71b051b86cb6548b4a320420afacebc5",
+                    "json": "71a340c55374fcbe0cccacf96b4550fd0cea90fb",
+                    "layout.json": "692dc5c8f5cbb50432f6f6f3d8f8eb8a04c171c2",
+                    "md": "b2b3e00ee2cf60c5d59ed2148cd536a1c248c3d9"
+                },
+                "heading": "Explicit arrow with tooltip",
+                "section": "Links"
+            },
+            {
+                "destination": "chaining-arrows",
+                "line": 333,
+                "anchor": "#chaining-arrows",
+                "content_sha1": "0a5947aca3a2fbc6f633dcd9f0ef71c731ddbdc7",
+                "outputs": {
+                    "ipm.svg": "2de233243496e6da8b447ec6dc7a7ee90c9067ce",
+                    "ipmt": "0a5947aca3a2fbc6f633dcd9f0ef71c731ddbdc7",
+                    "json": "611be30af34ef9b5787fb5229ed515d36bc288b0",
+                    "layout.json": "07277ddbbc3e532e63f159298b4d20ff1ab074e6",
+                    "md": "eb533a3f0e92c64c6667ee265e11a268cfec2ee8"
+                },
+                "section": "Chaining arrows"
+            },
+            {
+                "destination": "chaining-arrows-02",
+                "line": 337,
+                "anchor": "#chaining-arrows",
+                "content_sha1": "9ac8ea358d593f8324cceb91604ad1ae0c58da8e",
+                "outputs": {
+                    "ipm.svg": "2de233243496e6da8b447ec6dc7a7ee90c9067ce",
+                    "ipmt": "9ac8ea358d593f8324cceb91604ad1ae0c58da8e",
+                    "json": "bc41c34362c89536999e5936a9f511fa80243ba4",
+                    "layout.json": "07277ddbbc3e532e63f159298b4d20ff1ab074e6",
+                    "md": "105eaf42423f4aa3b0b34501555cbbcc4d6b333f"
+                },
+                "section": "Chaining arrows"
+            },
+            {
+                "destination": "chaining-arrows-03",
+                "line": 343,
+                "anchor": "#chaining-arrows",
+                "content_sha1": "42f8d3ed3b779e229adaa704f3a9541f877a2a6e",
+                "outputs": {
+                    "ipm.svg": "de2633ba8abd9664061b1fccbc7cb45cc7d64a45",
+                    "ipmt": "42f8d3ed3b779e229adaa704f3a9541f877a2a6e",
+                    "json": "67fef66e6d6ebe3dd98567ff1929089ffbb23d20",
+                    "layout.json": "d14f1b4c0dd903c53e8781dba42dc7d0ded981be",
+                    "md": "3b4ead79d0ccced0fc05e68a44db60242e2cc005"
+                },
+                "section": "Chaining arrows"
+            },
+            {
+                "destination": "chaining-arrows-04",
+                "line": 347,
+                "anchor": "#chaining-arrows",
+                "content_sha1": "fac7b171ebb9346939d025675bd6763bd0d4ad66",
+                "outputs": {
+                    "ipm.svg": "4cbc71fef0146a098f75858a891bf93ce5958c09",
+                    "ipmt": "fac7b171ebb9346939d025675bd6763bd0d4ad66",
+                    "json": "875deee4eea291b87f1d9ec37ffd12ef995906fe",
+                    "layout.json": "a3b04d6c4abae95888d3e183db4057e4568d3deb",
+                    "md": "206206f497cf11aee3d6293eb4de02594ab0fd8d"
+                },
+                "section": "Chaining arrows"
+            },
+            {
+                "destination": "chaining-arrows-05",
+                "line": 354,
+                "anchor": "#chaining-arrows",
+                "content_sha1": "f5e57ac2c1d22b8dea2f473e2fd255c86409482d",
+                "outputs": {
+                    "ipm.svg": "4cbc71fef0146a098f75858a891bf93ce5958c09",
+                    "ipmt": "f5e57ac2c1d22b8dea2f473e2fd255c86409482d",
+                    "json": "4c990acdeb7360fb62ca920525f8c968c9978286",
+                    "layout.json": "a3b04d6c4abae95888d3e183db4057e4568d3deb",
+                    "md": "ebb3061b3e8099685f35e67c1968c6f10242a39b"
+                },
+                "section": "Chaining arrows"
+            },
+            {
+                "destination": "backslash-escape-sequences-inside-double-quotes",
+                "line": 382,
+                "anchor": "#backslash-escape-sequences-inside-double-quotes",
+                "content_sha1": "e982e7bd6ceecb5d2d43b4c26b80ed94b7b6a6c8",
+                "outputs": {
+                    "ipm.svg": "2273de16c0be456586ee33a1f452d64e30cb878b",
+                    "ipmt": "e982e7bd6ceecb5d2d43b4c26b80ed94b7b6a6c8",
+                    "json": "77b7d7d6fd227a5a2aa2f2d426d4bda6a272cde2",
+                    "layout.json": "06ecc1812f421c7c82dc08e6fc35723addcefa1d",
+                    "md": "93000a3b4332a9a397a9099ee8bce615005c5165"
+                },
+                "heading": "Backslash escape sequences inside double quotes",
+                "section": "Double quotes and escapes"
+            },
+            {
+                "destination": "backslash-escapes-outside-double-quotes",
+                "line": 397,
+                "anchor": "#backslash-escapes-outside-double-quotes",
+                "content_sha1": "ec410417f6938ad8610ea6b8b661eea7dd05fa64",
+                "outputs": {
+                    "ipmt": "ec410417f6938ad8610ea6b8b661eea7dd05fa64",
+                    "json": "5dd8b86f6382c4a501e2f1331638e92fbe713b17",
+                    "md": "2453e575d240ea36d140145c8b9115e28f6ff0d8"
+                },
+                "heading": "Backslash escapes outside double quotes",
+                "section": "Double quotes and escapes"
+            },
+            {
+                "destination": "newlines",
+                "line": 416,
+                "anchor": "#newlines",
+                "content_sha1": "a1c015b4f20f66d3dad22aeeaba1e544d41bd982",
+                "outputs": {
+                    "ipm.svg": "b97fdc7e337c16f08c10c5b1cd6ff09674649422",
+                    "ipmt": "a1c015b4f20f66d3dad22aeeaba1e544d41bd982",
+                    "json": "16bf032cf76912aefe3170b6fdafd31d20619e24",
+                    "layout.json": "aa9a5daff97949d5496f17ce39638b0314834a92",
+                    "md": "5831fb61ed83a83500cd33f595afde6167bb3e1f"
+                },
+                "heading": "Newlines",
+                "section": "Whitespace"
+            },
+            {
+                "destination": "newlines-02",
+                "line": 427,
+                "anchor": "#newlines",
+                "content_sha1": "2fe032a4e3137a54ff2d836c9966e8c250c1dfda",
+                "outputs": {
+                    "ipm.svg": "b97fdc7e337c16f08c10c5b1cd6ff09674649422",
+                    "ipmt": "2fe032a4e3137a54ff2d836c9966e8c250c1dfda",
+                    "json": "64268dd3d52c5d6acd5cc52373631489415e481f",
+                    "layout.json": "aa9a5daff97949d5496f17ce39638b0314834a92",
+                    "md": "5b35da4c2584944af13479cdb6e0b86b26a05e18"
+                },
+                "heading": "Newlines",
+                "section": "Whitespace"
+            },
+            {
+                "destination": "newlines-03",
+                "line": 432,
+                "anchor": "#newlines",
+                "content_sha1": "f17dcb9a6f27f25e5834fd0a18137dc7557f829a",
+                "outputs": {
+                    "ipm.svg": "e68742b7a0797b69dc78731fed3e78967879f33a",
+                    "ipmt": "f17dcb9a6f27f25e5834fd0a18137dc7557f829a",
+                    "json": "7d9c28d974e54d6881c13001741b7a34c0c3f9c0",
+                    "layout.json": "4051be0b52bc82568781f0de18676df16bd0ce59",
+                    "md": "cb5c62e1bcbbb80183b99a5b79efb643b43a7bc1"
+                },
+                "heading": "Newlines",
+                "section": "Whitespace"
+            },
+            {
+                "destination": "newlines-outside-double-quotes",
+                "line": 439,
+                "anchor": "#newlines-outside-double-quotes",
+                "content_sha1": "7bc401fb2a9fb328e69c6769b1d11405165632fb",
+                "outputs": {
+                    "ipm.svg": "5935c8c212f10a54047a90db6632f03739e23023",
+                    "ipmt": "7bc401fb2a9fb328e69c6769b1d11405165632fb",
+                    "json": "06a806428a2353625235a76892b92d3f986e24d6",
+                    "layout.json": "f4e5694e3a7ae6f74c43d90c3abca49ef7d0e89f",
+                    "md": "fb88606942012b170506ebcc0447069f0cb1869d"
+                },
+                "heading": "Newlines outside double quotes",
+                "section": "Whitespace"
+            },
+            {
+                "destination": "newlines-outside-double-quotes-02",
+                "line": 445,
+                "anchor": "#newlines-outside-double-quotes",
+                "content_sha1": "da23f1b7e97d2c894261e163e477542e871ee08c",
+                "outputs": {
+                    "ipm.svg": "5935c8c212f10a54047a90db6632f03739e23023",
+                    "ipmt": "da23f1b7e97d2c894261e163e477542e871ee08c",
+                    "json": "70cdff60c35e9931b5264b45cb267b9a618c2de3",
+                    "layout.json": "f4e5694e3a7ae6f74c43d90c3abca49ef7d0e89f",
+                    "md": "3437c3311786c2f7168a25010993d9c9b2838665"
+                },
+                "heading": "Newlines outside double quotes",
+                "section": "Whitespace"
+            },
+            {
+                "destination": "newlines-outside-double-quotes-03",
+                "line": 449,
+                "anchor": "#newlines-outside-double-quotes",
+                "content_sha1": "cb565a8e4be9b6e191ad4218b0fb984755e2419d",
+                "outputs": {
+                    "ipm.svg": "4e5ea9926c38f3b2f841c27512118e4a8bbdefc5",
+                    "ipmt": "cb565a8e4be9b6e191ad4218b0fb984755e2419d",
+                    "json": "54452ca84b298f8147641520ad9c661ea05e0220",
+                    "layout.json": "19a508dc4eb31d811070032a0525ce4453824780",
+                    "md": "1037617168bdf7c953a31738183e72cf7f70938a"
+                },
+                "heading": "Newlines outside double quotes",
+                "section": "Whitespace"
+            },
+            {
+                "destination": "comma-separator",
+                "line": 477,
+                "anchor": "#comma-separator",
+                "content_sha1": "f62d6d80fe506320e1bf90b4fe64a1bc4b90f1fd",
+                "outputs": {
+                    "ipm.svg": "89980c55bbc48758510d61dd2a007fc9e6cc56e3",
+                    "ipmt": "f62d6d80fe506320e1bf90b4fe64a1bc4b90f1fd",
+                    "json": "ef3096db6ff361aaf1631e2c9ca97878cd138ef1",
+                    "layout.json": "7e2147b67cb9da8896319a6bff7d614dc5f2be81",
+                    "md": "4bd64d0d486b38c109596bce62bfebc2ffe8a9e8"
+                },
+                "section": "Comma separator"
+            },
+            {
+                "destination": "comma-separator-02",
+                "line": 482,
+                "anchor": "#comma-separator",
+                "content_sha1": "71cebda9c59331d60d4197de61ce1d0467af9e4d",
+                "outputs": {
+                    "ipm.svg": "89980c55bbc48758510d61dd2a007fc9e6cc56e3",
+                    "ipmt": "71cebda9c59331d60d4197de61ce1d0467af9e4d",
+                    "json": "0567b3c43cefd9d154ef11d2a21d3dbd9f9135a1",
+                    "layout.json": "7e2147b67cb9da8896319a6bff7d614dc5f2be81",
+                    "md": "fa110a0b524b7a2073e8df3a816ed9e3d6c5da7d"
+                },
+                "section": "Comma separator"
+            },
+            {
+                "destination": "comma-separator-03",
+                "line": 492,
+                "anchor": "#comma-separator",
+                "content_sha1": "d0b3991e528464deb8ca497ddad3cb4ec0f27703",
+                "outputs": {
+                    "ipm.svg": "619966897463d8cf1fb9dfde78dcb7c7c23d9af5",
+                    "ipmt": "d0b3991e528464deb8ca497ddad3cb4ec0f27703",
+                    "json": "e14431303210afd2c11c3ccfd3adb71453ce57f9",
+                    "layout.json": "3a79e8d061436472918ee4e8764f61da90d63a35",
+                    "md": "cf97a8c0847121b9751c46db6ef688e5d514d75d"
+                },
+                "section": "Comma separator"
+            },
+            {
+                "destination": "comma-separator-04",
+                "line": 496,
+                "anchor": "#comma-separator",
+                "content_sha1": "1fe26a90b2b7092bd425e4d71e6857577e8620d7",
+                "outputs": {
+                    "ipm.svg": "3852ad7ce00be6720f1cf207de60694d4fa9c2b9",
+                    "ipmt": "1fe26a90b2b7092bd425e4d71e6857577e8620d7",
+                    "json": "9c3316492cd50d9777099198b3efb089507bcbc0",
+                    "layout.json": "0965f7e962096ae1ba14de12f1d00bb94982b5ba",
+                    "md": "c812bc92acf982ca4e12639644310fd1d6000c07"
+                },
+                "section": "Comma separator"
+            },
+            {
+                "destination": "comma-separated-with-more-arrows-on-one-line",
+                "line": 508,
+                "anchor": "#comma-separated-with-more-arrows-on-one-line",
+                "content_sha1": "7f9da77f92643388a5b73f44b11fa7614fd7d3c2",
+                "outputs": {
+                    "ipm.svg": "f0048cf75757ff1f7a50b67e5f9439a7fe37ef01",
+                    "ipmt": "7f9da77f92643388a5b73f44b11fa7614fd7d3c2",
+                    "json": "1a3881f03340d7346ce3cda94974bbbc9872cd30",
+                    "layout.json": "4aaf48c1002c43124bee559e18f055fecd26c13f",
+                    "md": "4e91bae7ac394ad5ad67fdab3f44764e699c0a74"
+                },
+                "heading": "Comma separated with more arrows on one line",
+                "section": "Comma separator"
+            },
+            {
+                "destination": "comma-separated-with-more-arrows-on-one-line-02",
+                "line": 512,
+                "anchor": "#comma-separated-with-more-arrows-on-one-line",
+                "content_sha1": "2f2ea161fe37c3e5392b36d1d40849919546696b",
+                "outputs": {
+                    "ipm.svg": "c1a7bd580e48f0fce4475e48d88ac1248bc8ef96",
+                    "ipmt": "2f2ea161fe37c3e5392b36d1d40849919546696b",
+                    "json": "fd096cb164ae39f76ebeef2f76606877e9f40fc3",
+                    "layout.json": "77d98793195402b050239fc08dd6a4161f6a8be9",
+                    "md": "0fc5c6e804bb76d79238c064f0b80fb74fda2ced"
+                },
+                "heading": "Comma separated with more arrows on one line",
+                "section": "Comma separator"
+            },
+            {
+                "destination": "comma-separated-with-more-arrows-on-one-line-03",
+                "line": 519,
+                "anchor": "#comma-separated-with-more-arrows-on-one-line",
+                "content_sha1": "dff1a184904401c29e645c7881084437de6fbb82",
+                "outputs": {
+                    "ipm.svg": "e6ed6f40f616669fdecb99b50581c4cd87404560",
+                    "ipmt": "dff1a184904401c29e645c7881084437de6fbb82",
+                    "json": "b38f4114e7d48930a1d7a4b07f46fd7edd3a5c55",
+                    "layout.json": "2d46d126fe14dc0ee49d4770db8653de0862f61f",
+                    "md": "a5982d54aa82a933068126f31b72d87f77b915de"
+                },
+                "heading": "Comma separated with more arrows on one line",
+                "section": "Comma separator"
+            },
+            {
+                "destination": "comma-separated-with-more-arrows-on-one-line-04",
+                "line": 523,
+                "anchor": "#comma-separated-with-more-arrows-on-one-line",
+                "content_sha1": "279cb5c0369a8eb9f4a85f85a2884092f714ff98",
+                "outputs": {
+                    "ipm.svg": "e6ed6f40f616669fdecb99b50581c4cd87404560",
+                    "ipmt": "279cb5c0369a8eb9f4a85f85a2884092f714ff98",
+                    "json": "c9eb4409cd8f1214a8ad5cd8cf8b9259f4fb746e",
+                    "layout.json": "2d46d126fe14dc0ee49d4770db8653de0862f61f",
+                    "md": "045b3557d54665c8c6df5df5a9f18864a0ee9c4c"
+                },
+                "heading": "Comma separated with more arrows on one line",
+                "section": "Comma separator"
+            },
+            {
+                "destination": "comma-separated-targets-with-edge-tooltip",
+                "line": 532,
+                "anchor": "#comma-separated-targets-with-edge-tooltip",
+                "content_sha1": "7ecc50f6de72eecc4d7f56acea5457162d413019",
+                "outputs": {
+                    "ipm.svg": "8ec44fb9f9abd75b0919eb6eac2461987a382d3d",
+                    "ipmt": "7ecc50f6de72eecc4d7f56acea5457162d413019",
+                    "json": "baa418e269caafec4cc8cc998326443c8363774a",
+                    "layout.json": "c6c0b35ed06fff2b3747d2c0d691ba618b2409f2",
+                    "md": "d3be4608e26d37308413a76aa1e30bedd5b4cce9"
+                },
+                "heading": "Comma separated targets with edge tooltip",
+                "section": "Comma separator"
+            },
+            {
+                "destination": "comma-separated-targets-with-edge-tooltip-02",
+                "line": 536,
+                "anchor": "#comma-separated-targets-with-edge-tooltip",
+                "content_sha1": "ba63a3afd2e34901bc957f117130c7ab62ae99f5",
+                "outputs": {
+                    "ipm.svg": "8ec44fb9f9abd75b0919eb6eac2461987a382d3d",
+                    "ipmt": "ba63a3afd2e34901bc957f117130c7ab62ae99f5",
+                    "json": "c22007554e303cfb1da4eacc0a7870f24f9b4f11",
+                    "layout.json": "c6c0b35ed06fff2b3747d2c0d691ba618b2409f2",
+                    "md": "04d8f08c587fe2baf7b4e7b26ccbd4e77a4943a8"
+                },
+                "heading": "Comma separated targets with edge tooltip",
+                "section": "Comma separator"
+            },
+            {
+                "destination": "spaces-not-allowed-in-identifiers",
+                "line": 547,
+                "anchor": "#spaces-not-allowed-in-identifiers",
+                "content_sha1": "4a491db12415b45b804199bfe4f10fffabf343a5",
+                "outputs": {
+                    "ipm.svg": "6d71d3d448b7d85e51f22092ec39e1d1187d4273",
+                    "ipmt": "4a491db12415b45b804199bfe4f10fffabf343a5",
+                    "json": "03fe0c7319424c5759d50d50488fb9e3945a49c9",
+                    "layout.json": "8ede844898175c605c8851b9046019353d1896d5",
+                    "md": "59eab4e6c9831676af5b57c49a7a74e1ad4ff61b"
+                },
+                "heading": "Spaces not allowed in identifiers",
+                "section": "Invalid syntax"
+            },
+            {
+                "destination": "spaces-not-allowed-in-identifiers-02",
+                "line": 551,
+                "anchor": "#spaces-not-allowed-in-identifiers",
+                "content_sha1": "92c2323659bfa09489aa846780084ea4ad7a63db",
+                "outputs": {
+                    "ipmt": "92c2323659bfa09489aa846780084ea4ad7a63db",
+                    "json": "9c1cc1873e61e46a8104cc9c298344b19a04cc8e",
+                    "md": "ec5bbbb5cd4d0146e4fbbdcdb4f68c551b269cd3"
+                },
+                "heading": "Spaces not allowed in identifiers",
+                "section": "Invalid syntax"
+            },
+            {
+                "destination": "sequence-of-nodes-without-commas",
+                "line": 582,
+                "anchor": "#sequence-of-nodes-without-commas",
+                "content_sha1": "0c27c40e844173de901d3cb697664a0d22268ea6",
+                "outputs": {
+                    "ipm.svg": "32230e75e28c9b878a886c94ef53b4eb631d2b71",
+                    "ipmt": "0c27c40e844173de901d3cb697664a0d22268ea6",
+                    "json": "7a823f611ca8e1ab5e08bababaf6ce43f1e13164",
+                    "layout.json": "0496f30233a111787d947a6f6f5196b9be65e2db",
+                    "md": "866b962a9ccefccc626580dd7748983e16ed13b7"
+                },
+                "heading": "Sequence of nodes without commas",
+                "section": "Invalid syntax"
+            },
+            {
+                "destination": "ambiguous-separator-use",
+                "line": 594,
+                "anchor": "#ambiguous-separator-use",
+                "content_sha1": "9c2902be172676d7a50a0f8ae97ef9764da0e4f5",
+                "outputs": {
+                    "ipm.svg": "9afaf2b77823ff643e10f8b1e9de10f5f2989351",
+                    "ipmt": "9c2902be172676d7a50a0f8ae97ef9764da0e4f5",
+                    "json": "7392b0f560dc75f879070fcda2cd5bc0917b30a3",
+                    "layout.json": "81829ae33d8d2016afe253083af31f8c83c5ba11",
+                    "md": "b6009ae5105b51e7465048215603f4e542be73cc"
+                },
+                "heading": "Ambiguous separator use",
+                "section": "Invalid syntax"
+            },
+            {
+                "destination": "ambiguous-separator-use-02",
+                "line": 599,
+                "anchor": "#ambiguous-separator-use",
+                "content_sha1": "d125384aa690b04ef0220dfa4cb1c0d9d72cd124",
+                "outputs": {
+                    "ipm.svg": "b405b82c306681cbfb94cb48ce1aa914f73a30dc",
+                    "ipmt": "d125384aa690b04ef0220dfa4cb1c0d9d72cd124",
+                    "json": "3c10f3b50619947f6edd851c3cde333091f7ecdc",
+                    "layout.json": "7367e4e5dffcfb2fbaca4a74361c437f5d3da427",
+                    "md": "4503dfd1cf9ff1a574793c7d7295146b7fa672c6"
+                },
+                "heading": "Ambiguous separator use",
+                "section": "Invalid syntax"
+            },
+            {
+                "destination": "a-creates-link-validity",
+                "line": 646,
+                "anchor": "#a-creates-link-validity",
+                "content_sha1": "93e325a01fe2c5a31d381145b7925e982c10c992",
+                "outputs": {
+                    "ipmt": "93e325a01fe2c5a31d381145b7925e982c10c992",
+                    "json": "d00628e31cd40f600691dbff56d6186427479845",
+                    "md": "9cc02acdea7b1d34660bf4dd61265e5b67653b8f"
+                },
+                "heading": "A creates link validity",
+                "section": "Invalid semantics"
+            },
+            {
+                "destination": "minimal-example",
+                "line": 684,
+                "anchor": "#minimal-example",
+                "content_sha1": "11f1f49126e1ea5e8bac605d4835a43eda26227a",
+                "outputs": {
+                    "ipm.svg": "dbbfc1cff5999a06a0a18078f38b5590d5c2387a",
+                    "ipmt": "11f1f49126e1ea5e8bac605d4835a43eda26227a",
+                    "json": "ef7abcbc111b7b20e458c90d2a7e6e9b5a7fa9a8",
+                    "layout.json": "c8e094be58936651164637623857d18e67d4f2bd",
+                    "md": "fb0929e3fdd17b98ada0cecd0d80c1b0cca0a964"
+                },
+                "heading": "Minimal example",
+                "section": "Examples"
+            },
+            {
+                "destination": "rich-example",
+                "line": 691,
+                "anchor": "#rich-example",
+                "content_sha1": "5ff451447492aef5929cdbd303eca7681b71f93c",
+                "outputs": {
+                    "ipm.svg": "315903bda3b1514847ea1348de823a9b8d5eff39",
+                    "ipmt": "5ff451447492aef5929cdbd303eca7681b71f93c",
+                    "json": "b8975a0a0b7bae6f9fe3699cbe1fb577cab57e5d",
+                    "layout.json": "ef78d20921b491531d706556d08a4115f69302f1",
+                    "md": "1d5474455c441d8377845b0100d03d3685e25df3"
+                },
+                "heading": "Rich example",
+                "section": "Examples"
+            }
+        ]
+    }
+]

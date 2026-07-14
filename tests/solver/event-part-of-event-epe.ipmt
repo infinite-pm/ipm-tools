@@ -1,0 +1,4 @@
+# given
+prep ::?etc --::L--> chop ::?etc
+chop --::P--> cook ::?etc
+cook --::L--> serve ::?etc

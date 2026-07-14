@@ -1,0 +1,6 @@
+{
+  "end": 0,
+  "error": "invalid syntax: multiple sources and multiple targets in one segment: \"A, B --\u003e C, D\"",
+  "message": "invalid syntax: multiple sources and multiple targets in one segment: \"A, B --\u003e C, D\"",
+  "start": 0
+}

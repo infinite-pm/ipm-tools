@@ -1,0 +1,157 @@
+{
+  "version": "26.07-v7",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "thing",
+      "label": "guitar",
+      "x": 40,
+      "y": 40,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "2",
+      "type": "thing",
+      "label": "castle",
+      "x": 220,
+      "y": 40,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "3",
+      "type": "thing",
+      "label": "goldfish",
+      "x": 400,
+      "y": 40,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "4",
+      "type": "thing",
+      "label": "mark's things",
+      "x": 220,
+      "y": 140,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "5",
+      "type": "concept",
+      "label": "mark in role of owner(id)",
+      "x": 400,
+      "y": 240,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "6",
+      "type": "thing",
+      "label": "mark person",
+      "x": 580,
+      "y": 40,
+      "width": 120,
+      "height": 60
+    }
+  ],
+  "edges": [
+    {
+      "from": "1",
+      "to": "4",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.25
+        }
+      }
+    },
+    {
+      "from": "2",
+      "to": "4",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "3",
+      "to": "4",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "right",
+          "position": 0.25
+        }
+      }
+    },
+    {
+      "from": "4",
+      "to": "5",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.25
+        }
+      }
+    },
+    {
+      "from": "6",
+      "to": "5",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    }
+  ],
+  "meta": {
+    "bounds": {
+      "width": 740,
+      "height": 340,
+      "marginX": 40,
+      "marginY": 40
+    },
+    "constants": {
+      "gridStep": 20
+    }
+  }
+}

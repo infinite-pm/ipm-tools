@@ -1,0 +1,3 @@
+# given
+dashboard ::?etc --::X--> metric ::?etc
+metric --::X--> goal ::?etc

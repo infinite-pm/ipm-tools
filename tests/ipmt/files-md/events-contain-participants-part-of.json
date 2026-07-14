@@ -1,0 +1,136 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "service-container --\u003e Deploy ::e\ndeploy-config --\u003e Deploy\non-call-engineer --\u003e Alert ::e",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          17
+        ],
+        "2": [
+          22,
+          28
+        ],
+        "3": [
+          33,
+          46
+        ],
+        "4": [
+          58,
+          74
+        ],
+        "5": [
+          79,
+          84
+        ]
+      },
+      "edges": {
+        "6": {
+          "arrow": [
+            17,
+            22
+          ],
+          "source": [
+            0,
+            17
+          ],
+          "target": [
+            22,
+            28
+          ]
+        },
+        "7": {
+          "arrow": [
+            46,
+            51
+          ],
+          "source": [
+            33,
+            46
+          ],
+          "target": [
+            51,
+            57
+          ]
+        },
+        "8": {
+          "arrow": [
+            74,
+            79
+          ],
+          "source": [
+            58,
+            74
+          ],
+          "target": [
+            79,
+            84
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "service-container",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "Deploy",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "deploy-config",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 4,
+      "name": "on-call-engineer",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 5,
+      "name": "Alert",
+      "alias": "",
+      "type": "Event"
+    }
+  ],
+  "edges": [
+    {
+      "id": 6,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 7,
+      "source": 3,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 8,
+      "source": 4,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

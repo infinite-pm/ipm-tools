@@ -1,0 +1,561 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "# Simplified zoom example based on the murder scenario.\n#\n# Naming is intentionally abstract:\n# - main events: e1, e2, e3\n# - sub-events of e2: e2a1, e2a2, e2a3\n# - deeper sub-event example: e2a3b1\n# - things: t1, t2\n# - concepts: c1, c2, c3, c4\n\ne1 ::e\n  --then--\u003e e2 ::e\n  --then--\u003e e3 ::e\n\ne2 \u003c--::P contains-- e2a1 ::e\n  --\u003e c1 ::c\n\ne2 \u003c--::P contains-- e2a2 ::e\n  --\u003e c2 ::c\n\ne2 \u003c--::P contains-- e2a3 ::e\n  --\u003e c3 ::c\n\ne2a3 \u003c--::P contains-- e2a3b1 ::e\ne2a3b1 --\u003e c4 ::c\n\n# Visible inner event order inside e2.\ne2a1 --\u003e e2a2 --\u003e e2a3\n\nt1 ::t\nt2 ::t\n\nt1 --\u003e e2a1, e2a3\nt2 --\u003e e2a1, e2a2, e2a3, e2a3b1\n",
+    "positions": {
+      "nodes": {
+        "1": [
+          247,
+          249
+        ],
+        "10": [
+          448,
+          454
+        ],
+        "11": [
+          470,
+          472
+        ],
+        "12": [
+          541,
+          543
+        ],
+        "13": [
+          548,
+          550
+        ],
+        "2": [
+          266,
+          268
+        ],
+        "3": [
+          285,
+          287
+        ],
+        "4": [
+          314,
+          318
+        ],
+        "5": [
+          329,
+          331
+        ],
+        "6": [
+          358,
+          362
+        ],
+        "7": [
+          373,
+          375
+        ],
+        "8": [
+          402,
+          406
+        ],
+        "9": [
+          417,
+          419
+        ]
+      },
+      "edges": {
+        "14": {
+          "arrow": [
+            256,
+            266
+          ],
+          "source": [
+            247,
+            249
+          ],
+          "target": [
+            266,
+            268
+          ]
+        },
+        "15": {
+          "arrow": [
+            275,
+            285
+          ],
+          "source": [
+            266,
+            268
+          ],
+          "target": [
+            285,
+            287
+          ]
+        },
+        "16": {
+          "arrow": [
+            296,
+            313
+          ],
+          "source": [
+            314,
+            318
+          ],
+          "target": [
+            293,
+            295
+          ]
+        },
+        "17": {
+          "arrow": [
+            325,
+            329
+          ],
+          "source": [
+            314,
+            318
+          ],
+          "target": [
+            329,
+            331
+          ]
+        },
+        "18": {
+          "arrow": [
+            340,
+            357
+          ],
+          "source": [
+            358,
+            362
+          ],
+          "target": [
+            337,
+            339
+          ]
+        },
+        "19": {
+          "arrow": [
+            369,
+            373
+          ],
+          "source": [
+            358,
+            362
+          ],
+          "target": [
+            373,
+            375
+          ]
+        },
+        "20": {
+          "arrow": [
+            384,
+            401
+          ],
+          "source": [
+            402,
+            406
+          ],
+          "target": [
+            381,
+            383
+          ]
+        },
+        "21": {
+          "arrow": [
+            413,
+            417
+          ],
+          "source": [
+            402,
+            406
+          ],
+          "target": [
+            417,
+            419
+          ]
+        },
+        "22": {
+          "arrow": [
+            430,
+            447
+          ],
+          "source": [
+            448,
+            454
+          ],
+          "target": [
+            425,
+            429
+          ]
+        },
+        "23": {
+          "arrow": [
+            465,
+            470
+          ],
+          "source": [
+            459,
+            465
+          ],
+          "target": [
+            470,
+            472
+          ]
+        },
+        "24": {
+          "arrow": [
+            521,
+            526
+          ],
+          "source": [
+            517,
+            521
+          ],
+          "target": [
+            526,
+            530
+          ]
+        },
+        "25": {
+          "arrow": [
+            530,
+            535
+          ],
+          "source": [
+            526,
+            530
+          ],
+          "target": [
+            535,
+            539
+          ]
+        },
+        "26": {
+          "arrow": [
+            558,
+            563
+          ],
+          "source": [
+            556,
+            558
+          ],
+          "target": [
+            563,
+            567
+          ]
+        },
+        "27": {
+          "arrow": [
+            558,
+            563
+          ],
+          "source": [
+            556,
+            558
+          ],
+          "target": [
+            569,
+            573
+          ]
+        },
+        "28": {
+          "arrow": [
+            576,
+            581
+          ],
+          "source": [
+            574,
+            576
+          ],
+          "target": [
+            581,
+            585
+          ]
+        },
+        "29": {
+          "arrow": [
+            576,
+            581
+          ],
+          "source": [
+            574,
+            576
+          ],
+          "target": [
+            587,
+            591
+          ]
+        },
+        "30": {
+          "arrow": [
+            576,
+            581
+          ],
+          "source": [
+            574,
+            576
+          ],
+          "target": [
+            593,
+            597
+          ]
+        },
+        "31": {
+          "arrow": [
+            576,
+            581
+          ],
+          "source": [
+            574,
+            576
+          ],
+          "target": [
+            599,
+            605
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "e1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "e2",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "e3",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 4,
+      "name": "e2a1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 5,
+      "name": "c1",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 6,
+      "name": "e2a2",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 7,
+      "name": "c2",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 8,
+      "name": "e2a3",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 9,
+      "name": "c3",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 10,
+      "name": "e2a3b1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 11,
+      "name": "c4",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 12,
+      "name": "t1",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 13,
+      "name": "t2",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 14,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "then",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 15,
+      "source": 2,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "then",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 16,
+      "source": 4,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "contains",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 17,
+      "source": 4,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 18,
+      "source": 6,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "contains",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 19,
+      "source": 6,
+      "target": 7,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 20,
+      "source": 8,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "contains",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 21,
+      "source": 8,
+      "target": 9,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 22,
+      "source": 10,
+      "target": 8,
+      "dir": "DirFwd",
+      "tooltip": "contains",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 23,
+      "source": 10,
+      "target": 11,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 24,
+      "source": 4,
+      "target": 6,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 25,
+      "source": 6,
+      "target": 8,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 26,
+      "source": 12,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 27,
+      "source": 12,
+      "target": 8,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 28,
+      "source": 13,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 29,
+      "source": 13,
+      "target": 6,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 30,
+      "source": 13,
+      "target": 8,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 31,
+      "source": 13,
+      "target": 10,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

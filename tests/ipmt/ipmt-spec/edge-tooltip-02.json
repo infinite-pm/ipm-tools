@@ -1,0 +1,136 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "tAp1 --\"tAp1 is part of tA\"--\u003e tA\ntAp1 --\"e1 updates existing tAp1\"--\u003e e1\ntC --e-creates-t--\u003e e2",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          4
+        ],
+        "2": [
+          31,
+          33
+        ],
+        "3": [
+          71,
+          73
+        ],
+        "4": [
+          74,
+          76
+        ],
+        "5": [
+          94,
+          96
+        ]
+      },
+      "edges": {
+        "6": {
+          "arrow": [
+            4,
+            31
+          ],
+          "source": [
+            0,
+            4
+          ],
+          "target": [
+            31,
+            33
+          ]
+        },
+        "7": {
+          "arrow": [
+            38,
+            71
+          ],
+          "source": [
+            34,
+            38
+          ],
+          "target": [
+            71,
+            73
+          ]
+        },
+        "8": {
+          "arrow": [
+            76,
+            94
+          ],
+          "source": [
+            74,
+            76
+          ],
+          "target": [
+            94,
+            96
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "tAp1",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "tA",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 3,
+      "name": "e1",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 4,
+      "name": "tC",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 5,
+      "name": "e2",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 6,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "tAp1 is part of tA",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 7,
+      "source": 1,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "e1 updates existing tAp1",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 8,
+      "source": 4,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "e-creates-t",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

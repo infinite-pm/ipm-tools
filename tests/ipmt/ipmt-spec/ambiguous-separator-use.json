@@ -1,0 +1,103 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "A --\u003e B\nC --\u003e D",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          1
+        ],
+        "2": [
+          6,
+          7
+        ],
+        "3": [
+          8,
+          9
+        ],
+        "4": [
+          14,
+          15
+        ]
+      },
+      "edges": {
+        "5": {
+          "arrow": [
+            1,
+            6
+          ],
+          "source": [
+            0,
+            1
+          ],
+          "target": [
+            6,
+            7
+          ]
+        },
+        "6": {
+          "arrow": [
+            9,
+            14
+          ],
+          "source": [
+            8,
+            9
+          ],
+          "target": [
+            14,
+            15
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "A",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "B",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 3,
+      "name": "C",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 4,
+      "name": "D",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 5,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 6,
+      "source": 3,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "version": "26.07-v7",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "thing",
+      "label": "tA",
+      "x": 40,
+      "y": 40,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "2",
+      "type": "concept",
+      "label": "c-X",
+      "x": 40,
+      "y": 140,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "3",
+      "type": "event",
+      "label": "e1",
+      "x": 280,
+      "y": 140,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "4",
+      "type": "boundary",
+      "label": "S",
+      "x": 320,
+      "y": 60,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "5",
+      "type": "boundary",
+      "label": "E",
+      "x": 320,
+      "y": 240,
+      "width": 40,
+      "height": 40
+    }
+  ],
+  "edges": [
+    {
+      "from": "1",
+      "to": "2",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "3",
+      "to": "2",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "left",
+          "position": 0.5
+        },
+        "target": {
+          "side": "right",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "4",
+      "to": "3",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "3",
+      "to": "5",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    }
+  ],
+  "meta": {
+    "bounds": {
+      "width": 440,
+      "height": 320,
+      "marginX": 40,
+      "marginY": 40
+    },
+    "constants": {
+      "gridStep": 20
+    }
+  }
+}

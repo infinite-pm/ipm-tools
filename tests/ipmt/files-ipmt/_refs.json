@@ -1,0 +1,102 @@
+[
+    {
+        "source": "../../../examples/deploy-incident.ipmt",
+        "source_sha1": "46f70916968dcd11517b0e073bbd6942eca82fde",
+        "name": "ipmt files",
+        "method": "parser",
+        "parser_name": "ipmt-file",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmt"
+        },
+        "items": [
+            {
+                "destination": "deploy-incident",
+                "line": 1,
+                "content_sha1": "46f70916968dcd11517b0e073bbd6942eca82fde",
+                "outputs": {
+                    "ipm.svg": "e11d1a6d375722e951a785b3fe6cd872a9bb96bb",
+                    "ipmt": "46f70916968dcd11517b0e073bbd6942eca82fde",
+                    "json": "a36ec99d0785ba454c7baa709345f4a345b7809b",
+                    "layout.json": "c26481cbf90d755996a5f24628181994d4f2d8bb",
+                    "md": "e34cf28b8ec873e3291138069fe18e6f479e10f5"
+                }
+            }
+        ]
+    },
+    {
+        "source": "../../../examples/murder-full.ipmt",
+        "source_sha1": "cdf02b983e00510bad05d91c710174495c752981",
+        "name": "ipmt files",
+        "method": "parser",
+        "parser_name": "ipmt-file",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmt"
+        },
+        "items": [
+            {
+                "destination": "murder-full",
+                "line": 1,
+                "content_sha1": "cdf02b983e00510bad05d91c710174495c752981",
+                "outputs": {
+                    "ipm.svg": "2d7dde4f5f480223f263d615380156ef1a46d799",
+                    "ipmt": "cdf02b983e00510bad05d91c710174495c752981",
+                    "json": "121c51132e8ab60642b9701dddf35d3e84986f61",
+                    "layout.json": "13f001d5bd85b91c5ebaa0a39b048a56beb72e46",
+                    "md": "62556896ca08112075db3676338d9871ea0f8ab3"
+                }
+            }
+        ]
+    },
+    {
+        "source": "../../../examples/murder-simple.ipmt",
+        "source_sha1": "32704f15668b37b2cb7e436399e7ffbbd437b5c7",
+        "name": "ipmt files",
+        "method": "parser",
+        "parser_name": "ipmt-file",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmt"
+        },
+        "items": [
+            {
+                "destination": "murder-simple",
+                "line": 1,
+                "content_sha1": "32704f15668b37b2cb7e436399e7ffbbd437b5c7",
+                "outputs": {
+                    "ipm.svg": "87e8da9afe4e55f583d3c3623220ef13da0d9978",
+                    "ipmt": "32704f15668b37b2cb7e436399e7ffbbd437b5c7",
+                    "json": "2d55ad8b09b6243d78547d178a082f03e1001df6",
+                    "layout.json": "8e88d3e79cc50914051b89fe2d3a2cedfd880d25",
+                    "md": "6518e1de51089442222fd1034c908de37b13814f"
+                }
+            }
+        ]
+    },
+    {
+        "source": "../../../examples/two-containers.ipmt",
+        "source_sha1": "6d7fa1e8a5c77eef366f009be398e47f1cc16e9c",
+        "name": "ipmt files",
+        "method": "parser",
+        "parser_name": "ipmt-file",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmt"
+        },
+        "items": [
+            {
+                "destination": "two-containers",
+                "line": 1,
+                "content_sha1": "6d7fa1e8a5c77eef366f009be398e47f1cc16e9c",
+                "outputs": {
+                    "ipm.svg": "7323c40ce0562f47bae046f12d9f235e2b3845a6",
+                    "ipmt": "6d7fa1e8a5c77eef366f009be398e47f1cc16e9c",
+                    "json": "256e4c3b6153da49a7d5ab25c280c419c48264f6",
+                    "layout.json": "9009a9eb6b9debea6ba4b536f55a74b5f38ce72b",
+                    "md": "b11315fb6ff1c8148ecb973325f0336e8e08f4a2"
+                }
+            }
+        ]
+    }
+]

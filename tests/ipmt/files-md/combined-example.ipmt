@@ -1,0 +1,12 @@
+# Process flow
+Commit ::e --> Build ::e --> Deploy ::e
+
+# Participants (thing --> event, part-of)
+Jane, repo-main --> Commit
+CI-runner --> Build
+service-container, deploy-config --> Deploy
+
+# Semantic tags
+Jane --> SRE ::c
+Deploy --> production ::c
+service-container --> microservice ::c

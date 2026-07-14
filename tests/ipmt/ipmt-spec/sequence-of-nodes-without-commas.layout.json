@@ -1,0 +1,44 @@
+{
+  "version": "26.07-v7",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "thing",
+      "label": "nodeA",
+      "x": 40,
+      "y": 40,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "2",
+      "type": "thing",
+      "label": "nodeB",
+      "x": 280,
+      "y": 40,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "3",
+      "type": "thing",
+      "label": "nodeC",
+      "x": 520,
+      "y": 40,
+      "width": 120,
+      "height": 60
+    }
+  ],
+  "edges": [],
+  "meta": {
+    "bounds": {
+      "width": 680,
+      "height": 140,
+      "marginX": 40,
+      "marginY": 40
+    },
+    "constants": {
+      "gridStep": 20
+    }
+  }
+}

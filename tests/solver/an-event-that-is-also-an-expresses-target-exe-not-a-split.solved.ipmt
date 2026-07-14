@@ -1,0 +1,3 @@
+# then
+start ::e --::L--> compare ::e
+goal ::e --::X--> compare ::e

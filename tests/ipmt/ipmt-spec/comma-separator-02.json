@@ -1,0 +1,126 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "c-X ::c\nc-Y ::c\nc-Z ::c\ne1 ::e --\u003e c-X\ne1 ::e --\u003e c-Y\ne1 ::e --\u003e c-Z",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          3
+        ],
+        "2": [
+          8,
+          11
+        ],
+        "3": [
+          16,
+          19
+        ],
+        "4": [
+          24,
+          26
+        ]
+      },
+      "edges": {
+        "5": {
+          "arrow": [
+            30,
+            35
+          ],
+          "source": [
+            24,
+            26
+          ],
+          "target": [
+            35,
+            38
+          ]
+        },
+        "6": {
+          "arrow": [
+            45,
+            50
+          ],
+          "source": [
+            39,
+            41
+          ],
+          "target": [
+            50,
+            53
+          ]
+        },
+        "7": {
+          "arrow": [
+            60,
+            65
+          ],
+          "source": [
+            54,
+            56
+          ],
+          "target": [
+            65,
+            68
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "c-X",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 2,
+      "name": "c-Y",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 3,
+      "name": "c-Z",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 4,
+      "name": "e1",
+      "alias": "",
+      "type": "Event"
+    }
+  ],
+  "edges": [
+    {
+      "id": 5,
+      "source": 4,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 6,
+      "source": 4,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 7,
+      "source": 4,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

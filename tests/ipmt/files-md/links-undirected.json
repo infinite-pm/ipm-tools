@@ -1,0 +1,60 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "A --- B",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          1
+        ],
+        "2": [
+          6,
+          7
+        ]
+      },
+      "edges": {
+        "3": {
+          "arrow": [
+            1,
+            6
+          ],
+          "source": [
+            0,
+            1
+          ],
+          "target": [
+            6,
+            7
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "A",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "B",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 3,
+      "source": 1,
+      "target": 2,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+# then defaults
+launch ::e --::L--> liftoff ::e
+rocket ::e --::P--> stage ::e
+liftoff ::e --::N-- rocket ::e

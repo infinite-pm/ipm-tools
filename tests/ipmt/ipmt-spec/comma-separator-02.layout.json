@@ -1,0 +1,157 @@
+{
+  "version": "26.07-v7",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "concept",
+      "label": "c-X",
+      "x": 220,
+      "y": 120,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "2",
+      "type": "concept",
+      "label": "c-Y",
+      "x": 220,
+      "y": 220,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "3",
+      "type": "concept",
+      "label": "c-Z",
+      "x": 220,
+      "y": 320,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "4",
+      "type": "event",
+      "label": "e1",
+      "x": 40,
+      "y": 220,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "5",
+      "type": "boundary",
+      "label": "S",
+      "x": 80,
+      "y": 40,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "6",
+      "type": "boundary",
+      "label": "E",
+      "x": 80,
+      "y": 420,
+      "width": 40,
+      "height": 40
+    }
+  ],
+  "edges": [
+    {
+      "from": "4",
+      "to": "1",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.25
+        },
+        "target": {
+          "side": "left",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "4",
+      "to": "2",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "4",
+      "to": "3",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.75
+        },
+        "target": {
+          "side": "left",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "5",
+      "to": "4",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "4",
+      "to": "6",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    }
+  ],
+  "meta": {
+    "bounds": {
+      "width": 380,
+      "height": 500,
+      "marginX": 40,
+      "marginY": 40
+    },
+    "constants": {
+      "gridStep": 20
+    }
+  }
+}

@@ -1,0 +1,1 @@
+Agent A --> E1::a Event 1 ::e   # leads-to inferred from event

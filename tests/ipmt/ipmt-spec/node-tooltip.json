@@ -1,0 +1,37 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "Thing A part 1. ::t \"This is \\\"Thing A part 1.\\\" tooltip text.\" ::tip\nEvent 1 ::e \"This is\\nEvent 1\\ntooltip text.\" ::tip",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          15
+        ],
+        "2": [
+          70,
+          77
+        ]
+      },
+      "edges": {}
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "Thing A part 1.",
+      "alias": "",
+      "type": "Thing",
+      "tooltip": "This is \"Thing A part 1.\" tooltip text."
+    },
+    {
+      "id": 2,
+      "name": "Event 1",
+      "alias": "",
+      "type": "Event",
+      "tooltip": "This is\nEvent 1\ntooltip text."
+    }
+  ],
+  "edges": null
+}

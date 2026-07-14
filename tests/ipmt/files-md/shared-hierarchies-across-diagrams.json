@@ -1,0 +1,103 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "ipmt Text --\u003e input ::c\nLayout JSON --\u003e output ::c",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          9
+        ],
+        "2": [
+          14,
+          19
+        ],
+        "3": [
+          24,
+          35
+        ],
+        "4": [
+          40,
+          46
+        ]
+      },
+      "edges": {
+        "5": {
+          "arrow": [
+            9,
+            14
+          ],
+          "source": [
+            0,
+            9
+          ],
+          "target": [
+            14,
+            19
+          ]
+        },
+        "6": {
+          "arrow": [
+            35,
+            40
+          ],
+          "source": [
+            24,
+            35
+          ],
+          "target": [
+            40,
+            46
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "ipmt Text",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "input",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 3,
+      "name": "Layout JSON",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 4,
+      "name": "output",
+      "alias": "",
+      "type": "Concept"
+    }
+  ],
+  "edges": [
+    {
+      "id": 5,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 6,
+      "source": 3,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

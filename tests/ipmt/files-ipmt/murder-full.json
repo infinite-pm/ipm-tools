@@ -1,0 +1,983 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "get the party started ::e\n  --then--\u003e murder-e::a ::e Professor Plum murders Miss Scarlet in the library with the bread knife because she refused to marry him\n  --then--\u003e investigation begins ::e\n\nmurder-e \u003c--::P involves-- library-ppms::a ::e Prof Plum \u0026 Miss Scarlett in the library \n  --\u003e In the library ::c\n  --\"answers question\"--\u003e where ::c\n\n# fix: library ::t -\u003e ::c\nIn the library --\"involves\"--\u003e library ::c\n\nmurder-e \u003c--::P contains-- refusal-mspp::a ::e Miss Scarlet refuses to marry Professor Plum \n  \u003c--::P-- refusal-m::a ::e refusal marriage \n  --\u003e marriage ::c\nrefusal-m --\u003e refusal ::c\nrefusal-mspp --\u003e In the library\n\nmurder-e \u003c--::P contains-- ppmms::a ::e Prof Plum murders Miss Scarlet \n  --\u003e In the library\n\nppmms --\"example of\"--\u003e murder-sk::a ::c murder by subtle knife \n  --\"example of\"--\u003e use-sk::a ::c use of subtle knife\n  --\"involves\"--\u003e sk::a ::c subtle knife\n  --\"kind of\"--\u003e knife ::c\n\nmurder-sk --\"answers question\"--\u003e what action ::c\nmurder-sk --\"involves\"--\u003e murder ::c\nuse-sk --\"answers question\"--\u003e how ::c\nsk --\"used for\"--\u003e cutting interdimensional rifts ::c\nsk --\"used for\"--\u003e cutting bread ::c\n\n# fix: add leads-to\nlibrary-ppms --\u003e refusal-mspp --\u003e ppmms\n\nProfessor Plum --\u003e library-ppms, refusal-mspp, refusal-m, ppmms\nMiss Scarlet --\u003e library-ppms, refusal-mspp, refusal-m, ppmms",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          21
+        ],
+        "10": [
+          563,
+          571
+        ],
+        "11": [
+          590,
+          597
+        ],
+        "12": [
+          675,
+          705
+        ],
+        "13": [
+          770,
+          792
+        ],
+        "14": [
+          828,
+          847
+        ],
+        "15": [
+          876,
+          888
+        ],
+        "16": [
+          906,
+          911
+        ],
+        "17": [
+          951,
+          962
+        ],
+        "18": [
+          993,
+          999
+        ],
+        "19": [
+          1035,
+          1038
+        ],
+        "2": [
+          54,
+          158
+        ],
+        "20": [
+          1062,
+          1092
+        ],
+        "21": [
+          1116,
+          1129
+        ],
+        "22": [
+          1196,
+          1210
+        ],
+        "23": [
+          1260,
+          1272
+        ],
+        "3": [
+          171,
+          191
+        ],
+        "4": [
+          244,
+          284
+        ],
+        "5": [
+          292,
+          306
+        ],
+        "6": [
+          337,
+          342
+        ],
+        "7": [
+          405,
+          412
+        ],
+        "8": [
+          465,
+          509
+        ],
+        "9": [
+          539,
+          555
+        ]
+      },
+      "edges": {
+        "24": {
+          "arrow": [
+            28,
+            38
+          ],
+          "source": [
+            0,
+            21
+          ],
+          "target": [
+            54,
+            158
+          ]
+        },
+        "25": {
+          "arrow": [
+            161,
+            171
+          ],
+          "source": [
+            54,
+            158
+          ],
+          "target": [
+            171,
+            191
+          ]
+        },
+        "26": {
+          "arrow": [
+            206,
+            223
+          ],
+          "source": [
+            244,
+            284
+          ],
+          "target": [
+            197,
+            205
+          ]
+        },
+        "27": {
+          "arrow": [
+            288,
+            292
+          ],
+          "source": [
+            244,
+            284
+          ],
+          "target": [
+            292,
+            306
+          ]
+        },
+        "28": {
+          "arrow": [
+            313,
+            337
+          ],
+          "source": [
+            292,
+            306
+          ],
+          "target": [
+            337,
+            342
+          ]
+        },
+        "29": {
+          "arrow": [
+            388,
+            405
+          ],
+          "source": [
+            374,
+            388
+          ],
+          "target": [
+            405,
+            412
+          ]
+        },
+        "30": {
+          "arrow": [
+            427,
+            444
+          ],
+          "source": [
+            465,
+            509
+          ],
+          "target": [
+            418,
+            426
+          ]
+        },
+        "31": {
+          "arrow": [
+            513,
+            521
+          ],
+          "source": [
+            539,
+            555
+          ],
+          "target": [
+            465,
+            509
+          ]
+        },
+        "32": {
+          "arrow": [
+            559,
+            563
+          ],
+          "source": [
+            539,
+            555
+          ],
+          "target": [
+            563,
+            571
+          ]
+        },
+        "33": {
+          "arrow": [
+            585,
+            590
+          ],
+          "source": [
+            576,
+            585
+          ],
+          "target": [
+            590,
+            597
+          ]
+        },
+        "34": {
+          "arrow": [
+            614,
+            619
+          ],
+          "source": [
+            602,
+            614
+          ],
+          "target": [
+            619,
+            633
+          ]
+        },
+        "35": {
+          "arrow": [
+            644,
+            661
+          ],
+          "source": [
+            675,
+            705
+          ],
+          "target": [
+            635,
+            643
+          ]
+        },
+        "36": {
+          "arrow": [
+            709,
+            713
+          ],
+          "source": [
+            675,
+            705
+          ],
+          "target": [
+            713,
+            727
+          ]
+        },
+        "37": {
+          "arrow": [
+            734,
+            753
+          ],
+          "source": [
+            729,
+            734
+          ],
+          "target": [
+            770,
+            792
+          ]
+        },
+        "38": {
+          "arrow": [
+            796,
+            814
+          ],
+          "source": [
+            770,
+            792
+          ],
+          "target": [
+            828,
+            847
+          ]
+        },
+        "39": {
+          "arrow": [
+            850,
+            866
+          ],
+          "source": [
+            828,
+            847
+          ],
+          "target": [
+            876,
+            888
+          ]
+        },
+        "40": {
+          "arrow": [
+            891,
+            906
+          ],
+          "source": [
+            876,
+            888
+          ],
+          "target": [
+            906,
+            911
+          ]
+        },
+        "41": {
+          "arrow": [
+            926,
+            951
+          ],
+          "source": [
+            917,
+            926
+          ],
+          "target": [
+            951,
+            962
+          ]
+        },
+        "42": {
+          "arrow": [
+            976,
+            993
+          ],
+          "source": [
+            967,
+            976
+          ],
+          "target": [
+            993,
+            999
+          ]
+        },
+        "43": {
+          "arrow": [
+            1010,
+            1035
+          ],
+          "source": [
+            1004,
+            1010
+          ],
+          "target": [
+            1035,
+            1038
+          ]
+        },
+        "44": {
+          "arrow": [
+            1045,
+            1062
+          ],
+          "source": [
+            1043,
+            1045
+          ],
+          "target": [
+            1062,
+            1092
+          ]
+        },
+        "45": {
+          "arrow": [
+            1099,
+            1116
+          ],
+          "source": [
+            1097,
+            1099
+          ],
+          "target": [
+            1116,
+            1129
+          ]
+        },
+        "46": {
+          "arrow": [
+            1167,
+            1172
+          ],
+          "source": [
+            1155,
+            1167
+          ],
+          "target": [
+            1172,
+            1184
+          ]
+        },
+        "47": {
+          "arrow": [
+            1184,
+            1189
+          ],
+          "source": [
+            1172,
+            1184
+          ],
+          "target": [
+            1189,
+            1194
+          ]
+        },
+        "48": {
+          "arrow": [
+            1210,
+            1215
+          ],
+          "source": [
+            1196,
+            1210
+          ],
+          "target": [
+            1215,
+            1227
+          ]
+        },
+        "49": {
+          "arrow": [
+            1210,
+            1215
+          ],
+          "source": [
+            1196,
+            1210
+          ],
+          "target": [
+            1229,
+            1241
+          ]
+        },
+        "50": {
+          "arrow": [
+            1210,
+            1215
+          ],
+          "source": [
+            1196,
+            1210
+          ],
+          "target": [
+            1243,
+            1252
+          ]
+        },
+        "51": {
+          "arrow": [
+            1210,
+            1215
+          ],
+          "source": [
+            1196,
+            1210
+          ],
+          "target": [
+            1254,
+            1259
+          ]
+        },
+        "52": {
+          "arrow": [
+            1272,
+            1277
+          ],
+          "source": [
+            1260,
+            1272
+          ],
+          "target": [
+            1277,
+            1289
+          ]
+        },
+        "53": {
+          "arrow": [
+            1272,
+            1277
+          ],
+          "source": [
+            1260,
+            1272
+          ],
+          "target": [
+            1291,
+            1303
+          ]
+        },
+        "54": {
+          "arrow": [
+            1272,
+            1277
+          ],
+          "source": [
+            1260,
+            1272
+          ],
+          "target": [
+            1305,
+            1314
+          ]
+        },
+        "55": {
+          "arrow": [
+            1272,
+            1277
+          ],
+          "source": [
+            1260,
+            1272
+          ],
+          "target": [
+            1316,
+            1321
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "get the party started",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "Professor Plum murders Miss Scarlet in the library with the bread knife because she refused to marry him",
+      "alias": "murder-e",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "investigation begins",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 4,
+      "name": "Prof Plum \u0026 Miss Scarlett in the library",
+      "alias": "library-ppms",
+      "type": "Event"
+    },
+    {
+      "id": 5,
+      "name": "In the library",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 6,
+      "name": "where",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 7,
+      "name": "library",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 8,
+      "name": "Miss Scarlet refuses to marry Professor Plum",
+      "alias": "refusal-mspp",
+      "type": "Event"
+    },
+    {
+      "id": 9,
+      "name": "refusal marriage",
+      "alias": "refusal-m",
+      "type": "Event"
+    },
+    {
+      "id": 10,
+      "name": "marriage",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 11,
+      "name": "refusal",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 12,
+      "name": "Prof Plum murders Miss Scarlet",
+      "alias": "ppmms",
+      "type": "Event"
+    },
+    {
+      "id": 13,
+      "name": "murder by subtle knife",
+      "alias": "murder-sk",
+      "type": "Concept"
+    },
+    {
+      "id": 14,
+      "name": "use of subtle knife",
+      "alias": "use-sk",
+      "type": "Concept"
+    },
+    {
+      "id": 15,
+      "name": "subtle knife",
+      "alias": "sk",
+      "type": "Concept"
+    },
+    {
+      "id": 16,
+      "name": "knife",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 17,
+      "name": "what action",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 18,
+      "name": "murder",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 19,
+      "name": "how",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 20,
+      "name": "cutting interdimensional rifts",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 21,
+      "name": "cutting bread",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 22,
+      "name": "Professor Plum",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 23,
+      "name": "Miss Scarlet",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 24,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "then",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 25,
+      "source": 2,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "then",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 26,
+      "source": 4,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "involves",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 27,
+      "source": 4,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 28,
+      "source": 5,
+      "target": 6,
+      "dir": "DirFwd",
+      "tooltip": "answers question",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 29,
+      "source": 5,
+      "target": 7,
+      "dir": "DirFwd",
+      "tooltip": "involves",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 30,
+      "source": 8,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "contains",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 31,
+      "source": 9,
+      "target": 8,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 32,
+      "source": 9,
+      "target": 10,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 33,
+      "source": 9,
+      "target": 11,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 34,
+      "source": 8,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 35,
+      "source": 12,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "contains",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 36,
+      "source": 12,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 37,
+      "source": 12,
+      "target": 13,
+      "dir": "DirFwd",
+      "tooltip": "example of",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 38,
+      "source": 13,
+      "target": 14,
+      "dir": "DirFwd",
+      "tooltip": "example of",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 39,
+      "source": 14,
+      "target": 15,
+      "dir": "DirFwd",
+      "tooltip": "involves",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 40,
+      "source": 15,
+      "target": 16,
+      "dir": "DirFwd",
+      "tooltip": "kind of",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 41,
+      "source": 13,
+      "target": 17,
+      "dir": "DirFwd",
+      "tooltip": "answers question",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 42,
+      "source": 13,
+      "target": 18,
+      "dir": "DirFwd",
+      "tooltip": "involves",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 43,
+      "source": 14,
+      "target": 19,
+      "dir": "DirFwd",
+      "tooltip": "answers question",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 44,
+      "source": 15,
+      "target": 20,
+      "dir": "DirFwd",
+      "tooltip": "used for",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 45,
+      "source": 15,
+      "target": 21,
+      "dir": "DirFwd",
+      "tooltip": "used for",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 46,
+      "source": 4,
+      "target": 8,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 47,
+      "source": 8,
+      "target": 12,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 48,
+      "source": 22,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 49,
+      "source": 22,
+      "target": 8,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 50,
+      "source": 22,
+      "target": 9,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 51,
+      "source": 22,
+      "target": 12,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 52,
+      "source": 23,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 53,
+      "source": 23,
+      "target": 8,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 54,
+      "source": 23,
+      "target": 9,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 55,
+      "source": 23,
+      "target": 12,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

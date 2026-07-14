@@ -1,0 +1,3 @@
+# given
+start ::?etc --::L--> compare ::?etc
+goal ::?etc --::X--> compare

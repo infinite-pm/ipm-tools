@@ -1,0 +1,43 @@
+{
+  "codes": [
+    "IPMV1.1"
+  ],
+  "errors": [
+    {
+      "code": "IPMV1.1",
+      "severity": "error",
+      "message": "self-loop on node \"tA\" (source == target)",
+      "suggest": "remove the edge or split the node into two distinct nodes",
+      "line": 1,
+      "column": 3,
+      "nodeIds": [
+        1
+      ],
+      "edgeId": 4
+    },
+    {
+      "code": "IPMV1.1",
+      "severity": "error",
+      "message": "self-loop on node \"e1\" (source == target)",
+      "suggest": "remove the edge or split the node into two distinct nodes",
+      "line": 2,
+      "column": 7,
+      "nodeIds": [
+        2
+      ],
+      "edgeId": 5
+    },
+    {
+      "code": "IPMV1.1",
+      "severity": "error",
+      "message": "self-loop on node \"Cx\" (source == target)",
+      "suggest": "remove the edge or split the node into two distinct nodes",
+      "line": 3,
+      "column": 7,
+      "nodeIds": [
+        3
+      ],
+      "edgeId": 6
+    }
+  ]
+}

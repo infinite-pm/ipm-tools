@@ -1,0 +1,6 @@
+# Alice's story
+Alice feels discouraged ::e e1::a
+Alice turns to the Mock Turtle ::e e2::a
+Alice speaks ::e e3::a
+
+e1 --> e2 --> e3

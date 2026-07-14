@@ -1,0 +1,3 @@
+# given
+controller ::?etc --::X--> behaviour ::?etc
+behaviour --::X--> state ::?etc

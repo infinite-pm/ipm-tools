@@ -1,0 +1,93 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "tA --\u003e tAp1\ntAp1 --\u003e tAp1sX",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          2
+        ],
+        "2": [
+          7,
+          11
+        ],
+        "3": [
+          21,
+          27
+        ]
+      },
+      "edges": {
+        "4": {
+          "arrow": [
+            2,
+            7
+          ],
+          "source": [
+            0,
+            2
+          ],
+          "target": [
+            7,
+            11
+          ]
+        },
+        "5": {
+          "arrow": [
+            16,
+            21
+          ],
+          "source": [
+            12,
+            16
+          ],
+          "target": [
+            21,
+            27
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "tA",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "tAp1",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 3,
+      "name": "tAp1sX",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 4,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 5,
+      "source": 2,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

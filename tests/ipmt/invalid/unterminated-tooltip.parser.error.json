@@ -1,0 +1,6 @@
+{
+  "end": 6,
+  "error": "unterminated tooltip: missing closing quote after --\"",
+  "message": "unterminated tooltip: missing closing quote after --\"",
+  "start": 3
+}

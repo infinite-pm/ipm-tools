@@ -1,0 +1,44 @@
+{
+  "version": "26.07-v7",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "thing",
+      "label": "A",
+      "x": 40,
+      "y": 40,
+      "width": 120,
+      "height": 60
+    }
+  ],
+  "edges": [
+    {
+      "from": "1",
+      "to": "1",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    }
+  ],
+  "meta": {
+    "bounds": {
+      "width": 200,
+      "height": 140,
+      "marginX": 40,
+      "marginY": 40
+    },
+    "constants": {
+      "gridStep": 20
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "version": "26.07-v7",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "thing",
+      "label": "Agent A",
+      "x": 40,
+      "y": 120,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "2",
+      "type": "event",
+      "label": "Event 1",
+      "alias": "E1",
+      "x": 220,
+      "y": 120,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "3",
+      "type": "boundary",
+      "label": "S",
+      "x": 260,
+      "y": 40,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "4",
+      "type": "boundary",
+      "label": "E",
+      "x": 260,
+      "y": 220,
+      "width": 40,
+      "height": 40
+    }
+  ],
+  "edges": [
+    {
+      "from": "1",
+      "to": "2",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "3",
+      "to": "2",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "2",
+      "to": "4",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    }
+  ],
+  "meta": {
+    "bounds": {
+      "width": 380,
+      "height": 300,
+      "marginX": 40,
+      "marginY": 40
+    },
+    "constants": {
+      "gridStep": 20
+    }
+  }
+}

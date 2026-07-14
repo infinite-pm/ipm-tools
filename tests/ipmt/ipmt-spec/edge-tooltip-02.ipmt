@@ -1,0 +1,3 @@
+tAp1 --"tAp1 is part of tA"--> tA
+tAp1 --"e1 updates existing tAp1"--> e1
+tC --e-creates-t--> e2

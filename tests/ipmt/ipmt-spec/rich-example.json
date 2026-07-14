@@ -1,0 +1,304 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "Maghull --\"Maghull is near UK\"-- UK\nMaghull --\"Town where Mark was born\"--\u003e BR::a Born ::e\nMark --\u003e BR\nMark --\u003e Enjoy ::e\nBR --\u003e Enjoy\nSB::a school bookshop, books --\u003e Enjoy\nSB --\u003e Banbury --\u003e UK",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          7
+        ],
+        "2": [
+          33,
+          35
+        ],
+        "3": [
+          82,
+          86
+        ],
+        "4": [
+          91,
+          95
+        ],
+        "5": [
+          112,
+          117
+        ],
+        "6": [
+          141,
+          156
+        ],
+        "7": [
+          158,
+          163
+        ],
+        "8": [
+          181,
+          188
+        ]
+      },
+      "edges": {
+        "10": {
+          "arrow": [
+            43,
+            76
+          ],
+          "source": [
+            36,
+            43
+          ],
+          "target": [
+            82,
+            86
+          ]
+        },
+        "11": {
+          "arrow": [
+            95,
+            100
+          ],
+          "source": [
+            91,
+            95
+          ],
+          "target": [
+            100,
+            102
+          ]
+        },
+        "12": {
+          "arrow": [
+            107,
+            112
+          ],
+          "source": [
+            103,
+            107
+          ],
+          "target": [
+            112,
+            117
+          ]
+        },
+        "13": {
+          "arrow": [
+            124,
+            129
+          ],
+          "source": [
+            122,
+            124
+          ],
+          "target": [
+            129,
+            134
+          ]
+        },
+        "14": {
+          "arrow": [
+            163,
+            168
+          ],
+          "source": [
+            141,
+            156
+          ],
+          "target": [
+            168,
+            173
+          ]
+        },
+        "15": {
+          "arrow": [
+            163,
+            168
+          ],
+          "source": [
+            158,
+            163
+          ],
+          "target": [
+            168,
+            173
+          ]
+        },
+        "16": {
+          "arrow": [
+            176,
+            181
+          ],
+          "source": [
+            174,
+            176
+          ],
+          "target": [
+            181,
+            188
+          ]
+        },
+        "17": {
+          "arrow": [
+            188,
+            193
+          ],
+          "source": [
+            181,
+            188
+          ],
+          "target": [
+            193,
+            195
+          ]
+        },
+        "9": {
+          "arrow": [
+            7,
+            33
+          ],
+          "source": [
+            0,
+            7
+          ],
+          "target": [
+            33,
+            35
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "Maghull",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "UK",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 3,
+      "name": "Born",
+      "alias": "BR",
+      "type": "Event"
+    },
+    {
+      "id": 4,
+      "name": "Mark",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 5,
+      "name": "Enjoy",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 6,
+      "name": "school bookshop",
+      "alias": "SB",
+      "type": "Thing"
+    },
+    {
+      "id": 7,
+      "name": "books",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 8,
+      "name": "Banbury",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 9,
+      "source": 1,
+      "target": 2,
+      "dir": "DirUndir",
+      "tooltip": "Maghull is near UK",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 10,
+      "source": 1,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "Town where Mark was born",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 11,
+      "source": 4,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 12,
+      "source": 4,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 13,
+      "source": 3,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 14,
+      "source": 6,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 15,
+      "source": 7,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 16,
+      "source": 6,
+      "target": 8,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 17,
+      "source": 8,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

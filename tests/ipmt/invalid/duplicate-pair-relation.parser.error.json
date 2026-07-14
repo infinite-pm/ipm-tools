@@ -1,0 +1,6 @@
+{
+  "end": 84,
+  "error": "invalid syntax: conflicting SST relations between nodes 1 and 2 (LeadsTo and PartOf); the four base relations are mutually exclusive per pair",
+  "message": "invalid syntax: conflicting SST relations between nodes 1 and 2 (LeadsTo and PartOf); the four base relations are mutually exclusive per pair",
+  "start": 74
+}

@@ -1,0 +1,605 @@
+[
+    {
+        "source": "../../docs/solver-examples/expresses.md",
+        "source_sha1": "dcecd7523ed563872c3075060625ebf79d64a27a",
+        "name": "node-kind solver round-trip examples",
+        "method": "parser",
+        "parser_name": "ipmt-md",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmt"
+        },
+        "items": [
+            {
+                "destination": "thing-expresses-concept-txc",
+                "line": 22,
+                "anchor": "#thing-expresses-concept-txc",
+                "content_sha1": "20af8f9b0a202d6f8b1c7bfcb95c0fdbd1c75704",
+                "outputs": {
+                    "ipmt": "20af8f9b0a202d6f8b1c7bfcb95c0fdbd1c75704",
+                    "md": "5efaf0ea43df230ebe07346d29296f70f980932b"
+                },
+                "section": "Thing expresses concept — `tXc`"
+            },
+            {
+                "destination": "thing-expresses-concept-txc.solved",
+                "line": 26,
+                "anchor": "#thing-expresses-concept-txc",
+                "content_sha1": "8d82cce21a4b3c0d27cdcb68d0d87bdb62ea1dc7",
+                "outputs": {
+                    "ipmt": "8d82cce21a4b3c0d27cdcb68d0d87bdb62ea1dc7",
+                    "md": "987f632b0d229d9fa72848c4af11249d42f0bdf2"
+                },
+                "section": "Thing expresses concept — `tXc`"
+            },
+            {
+                "destination": "thing-expresses-concept-txc.defaults",
+                "line": 30,
+                "anchor": "#thing-expresses-concept-txc",
+                "content_sha1": "6461892c46946ddaab20b0a013a7edc9442cd475",
+                "outputs": {
+                    "ipmt": "6461892c46946ddaab20b0a013a7edc9442cd475",
+                    "md": "27721a96fa2bc93f8b198b43e9e56d301f17ce93"
+                },
+                "section": "Thing expresses concept — `tXc`"
+            },
+            {
+                "destination": "event-expresses-concept-exc",
+                "line": 42,
+                "anchor": "#event-expresses-concept-exc",
+                "content_sha1": "3d32c45a9148637a78a842e4ce9dcd5f695871e8",
+                "outputs": {
+                    "ipmt": "3d32c45a9148637a78a842e4ce9dcd5f695871e8",
+                    "md": "57b52f40cc6b5bd8a6a942a447b3f197cea95318"
+                },
+                "section": "Event expresses concept — `eXc`"
+            },
+            {
+                "destination": "event-expresses-concept-exc.solved",
+                "line": 47,
+                "anchor": "#event-expresses-concept-exc",
+                "content_sha1": "0333e6efa47f55e1aaa3b2b0faa2a5fe43070baa",
+                "outputs": {
+                    "ipmt": "0333e6efa47f55e1aaa3b2b0faa2a5fe43070baa",
+                    "md": "749b6d20b1da0231fb944c56f12362ce4ce58c49"
+                },
+                "section": "Event expresses concept — `eXc`"
+            },
+            {
+                "destination": "event-expresses-concept-exc.defaults",
+                "line": 52,
+                "anchor": "#event-expresses-concept-exc",
+                "content_sha1": "42eef8785856971a9052067d59717c2927a94bfe",
+                "outputs": {
+                    "ipmt": "42eef8785856971a9052067d59717c2927a94bfe",
+                    "md": "90d6282d7b9c5d8431377eda5aa451b00cae95c6"
+                },
+                "section": "Event expresses concept — `eXc`"
+            },
+            {
+                "destination": "concept-expresses-concept-cxc",
+                "line": 68,
+                "anchor": "#concept-expresses-concept-cxc",
+                "content_sha1": "88373f89eda17b52cfd09b6f2e5a04db6152c2ed",
+                "outputs": {
+                    "ipmt": "88373f89eda17b52cfd09b6f2e5a04db6152c2ed",
+                    "md": "0cfdb36131b6897a1eb3c11aa9ef3421fc61980a"
+                },
+                "section": "Concept expresses concept — `cXc`"
+            },
+            {
+                "destination": "concept-expresses-concept-cxc.solved",
+                "line": 73,
+                "anchor": "#concept-expresses-concept-cxc",
+                "content_sha1": "4caac28853803aa23636416d9296cdcd973048e2",
+                "outputs": {
+                    "ipmt": "4caac28853803aa23636416d9296cdcd973048e2",
+                    "md": "52b4102c02c752887d370f83baf75349eb0bb7ed"
+                },
+                "section": "Concept expresses concept — `cXc`"
+            },
+            {
+                "destination": "concept-expresses-concept-cxc.defaults",
+                "line": 78,
+                "anchor": "#concept-expresses-concept-cxc",
+                "content_sha1": "27dadaa9794d295cc019c24a4609c3267cdc4219",
+                "outputs": {
+                    "ipmt": "27dadaa9794d295cc019c24a4609c3267cdc4219",
+                    "md": "7fea3e796211c9463362f9ff77930b35a76be0f3"
+                },
+                "section": "Concept expresses concept — `cXc`"
+            }
+        ]
+    },
+    {
+        "source": "../../docs/solver-examples/kubernetes.md",
+        "source_sha1": "021f43e8e4c75999fdd08d1ffce74b39499d9786",
+        "name": "node-kind solver round-trip examples",
+        "method": "parser",
+        "parser_name": "ipmt-md",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmt"
+        },
+        "items": [
+            {
+                "destination": "a-worked-graph-kubernetes-pod-lifecycle-reconciliation",
+                "line": 23,
+                "anchor": "#a-worked-graph-kubernetes-pod-lifecycle-reconciliation",
+                "content_sha1": "7ecf882e62718d922090c5c41bed0f16fe96cffb",
+                "outputs": {
+                    "ipmt": "7ecf882e62718d922090c5c41bed0f16fe96cffb",
+                    "md": "75c627514c818d5ae2a239f378395f084bbfa17c"
+                }
+            },
+            {
+                "destination": "a-worked-graph-kubernetes-pod-lifecycle-reconciliation.solved",
+                "line": 32,
+                "anchor": "#a-worked-graph-kubernetes-pod-lifecycle-reconciliation",
+                "content_sha1": "858bb6281ce5b489326249e6c41effc95679b7fd",
+                "outputs": {
+                    "ipmt": "858bb6281ce5b489326249e6c41effc95679b7fd",
+                    "md": "332b70563617b3d5999301d51645ffa76793760a"
+                }
+            },
+            {
+                "destination": "a-worked-graph-kubernetes-pod-lifecycle-reconciliation.defaults",
+                "line": 41,
+                "anchor": "#a-worked-graph-kubernetes-pod-lifecycle-reconciliation",
+                "content_sha1": "e64a09a49bd64f7437b2ca93f8d8a8242b3d5a53",
+                "outputs": {
+                    "ipmt": "e64a09a49bd64f7437b2ca93f8d8a8242b3d5a53",
+                    "md": "1bfc126e629053c9b9eec069d56ac3f8c2a2507d"
+                }
+            }
+        ]
+    },
+    {
+        "source": "../../docs/solver-examples/leadsto.md",
+        "source_sha1": "2230506397407869c46d182d8120a639d28f7033",
+        "name": "node-kind solver round-trip examples",
+        "method": "parser",
+        "parser_name": "ipmt-md",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmt"
+        },
+        "items": [
+            {
+                "destination": "two-undecided-nodes-joined-by-leads-to-both-event",
+                "line": 11,
+                "anchor": "#two-undecided-nodes-joined-by-leads-to-both-event",
+                "content_sha1": "bdc1464d1386b095d1970ba79e98e206f77c24e0",
+                "outputs": {
+                    "ipmt": "bdc1464d1386b095d1970ba79e98e206f77c24e0",
+                    "md": "137c96236c25d38e4ace8d0bbee3169c4827b075"
+                },
+                "section": "Two undecided nodes joined by leads-to → both Event"
+            },
+            {
+                "destination": "two-undecided-nodes-joined-by-leads-to-both-event.solved",
+                "line": 15,
+                "anchor": "#two-undecided-nodes-joined-by-leads-to-both-event",
+                "content_sha1": "a991f669164596586ec4fb63d535d14b5e85f25f",
+                "outputs": {
+                    "ipmt": "a991f669164596586ec4fb63d535d14b5e85f25f",
+                    "md": "c9ad945ed1e59fb9e8a849cc3c79eb15d0ccf64e"
+                },
+                "section": "Two undecided nodes joined by leads-to → both Event"
+            },
+            {
+                "destination": "two-undecided-nodes-joined-by-leads-to-both-event.defaults",
+                "line": 19,
+                "anchor": "#two-undecided-nodes-joined-by-leads-to-both-event",
+                "content_sha1": "d2caa123a395e390e6ecf9d2f21f8e4f037bbdf2",
+                "outputs": {
+                    "ipmt": "d2caa123a395e390e6ecf9d2f21f8e4f037bbdf2",
+                    "md": "73584308a631ea4e546c45f2e26ac3ef955090df"
+                },
+                "section": "Two undecided nodes joined by leads-to → both Event"
+            },
+            {
+                "destination": "a-chain-of-leads-to-every-node-an-event",
+                "line": 26,
+                "anchor": "#a-chain-of-leads-to-every-node-an-event",
+                "content_sha1": "418d4ad39e955b582f0ac679f4a007aadd0f7125",
+                "outputs": {
+                    "ipmt": "418d4ad39e955b582f0ac679f4a007aadd0f7125",
+                    "md": "091414b60f54f97970e988d77cf689aeb7945e74"
+                },
+                "section": "A chain of leads-to → every node an Event"
+            },
+            {
+                "destination": "a-chain-of-leads-to-every-node-an-event.solved",
+                "line": 32,
+                "anchor": "#a-chain-of-leads-to-every-node-an-event",
+                "content_sha1": "87d8472c3e1ff4a278e2150b497d78b8afa683a8",
+                "outputs": {
+                    "ipmt": "87d8472c3e1ff4a278e2150b497d78b8afa683a8",
+                    "md": "fa4bb62dab2423db1fdddada5eba5af29e22baa6"
+                },
+                "section": "A chain of leads-to → every node an Event"
+            },
+            {
+                "destination": "a-chain-of-leads-to-every-node-an-event.defaults",
+                "line": 38,
+                "anchor": "#a-chain-of-leads-to-every-node-an-event",
+                "content_sha1": "f11cd4f50e1de48ccf9e9a5c32348f8b693982f2",
+                "outputs": {
+                    "ipmt": "f11cd4f50e1de48ccf9e9a5c32348f8b693982f2",
+                    "md": "5a42b24ea6b8e7d8cc4e264cdcdf390cbe545a3f"
+                },
+                "section": "A chain of leads-to → every node an Event"
+            }
+        ]
+    },
+    {
+        "source": "../../docs/solver-examples/nearto.md",
+        "source_sha1": "03bae9d17b1ce97ca3f320e10da325cd3256ed50",
+        "name": "node-kind solver round-trip examples",
+        "method": "parser",
+        "parser_name": "ipmt-md",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmt"
+        },
+        "items": [
+            {
+                "destination": "isolated-near-to-stays-grey",
+                "line": 25,
+                "anchor": "#isolated-near-to-stays-grey",
+                "content_sha1": "8a40934c73cec931542a3f3cc3a2ff9f88187a79",
+                "outputs": {
+                    "ipmt": "8a40934c73cec931542a3f3cc3a2ff9f88187a79",
+                    "md": "ef6cfd6725b6de2a3d080b5774d314ac84e07d9e"
+                },
+                "section": "Isolated near-to → stays grey"
+            },
+            {
+                "destination": "isolated-near-to-stays-grey.solved",
+                "line": 29,
+                "anchor": "#isolated-near-to-stays-grey",
+                "content_sha1": "22808466cd1b7b4e71f61599c1cefaf2cb465dd4",
+                "outputs": {
+                    "ipmt": "22808466cd1b7b4e71f61599c1cefaf2cb465dd4",
+                    "md": "965fb9fdfc88faa84e8c2a6fd21c3743141711a3"
+                },
+                "section": "Isolated near-to → stays grey"
+            },
+            {
+                "destination": "isolated-near-to-stays-grey.defaults",
+                "line": 33,
+                "anchor": "#isolated-near-to-stays-grey",
+                "content_sha1": "78127a0b01c84908eca885ff91878b0afb61ffd7",
+                "outputs": {
+                    "ipmt": "78127a0b01c84908eca885ff91878b0afb61ffd7",
+                    "md": "98bda967d31876ac86ff04fb07e7b8a7ae011f94"
+                },
+                "section": "Isolated near-to → stays grey"
+            },
+            {
+                "destination": "near-to-propagates-a-forced-kind",
+                "line": 43,
+                "anchor": "#near-to-propagates-a-forced-kind",
+                "content_sha1": "0d15acd10c22c26f82e6a6787d4f6cc7a97347d8",
+                "outputs": {
+                    "ipmt": "0d15acd10c22c26f82e6a6787d4f6cc7a97347d8",
+                    "md": "6b99be86d0589c33f2cc90ddece0e1ccebbf4e43"
+                },
+                "section": "Near-to propagates a forced kind"
+            },
+            {
+                "destination": "near-to-propagates-a-forced-kind.solved",
+                "line": 48,
+                "anchor": "#near-to-propagates-a-forced-kind",
+                "content_sha1": "e32e5541b1a3cc59dccb989291d8a5e9fa2a1d8d",
+                "outputs": {
+                    "ipmt": "e32e5541b1a3cc59dccb989291d8a5e9fa2a1d8d",
+                    "md": "9ebf411abab0e2e72301f8b5b09d2608aef88f63"
+                },
+                "section": "Near-to propagates a forced kind"
+            },
+            {
+                "destination": "near-to-propagates-a-forced-kind.defaults",
+                "line": 53,
+                "anchor": "#near-to-propagates-a-forced-kind",
+                "content_sha1": "5d0ada36ad085431747cc062e955a0235fa95fbe",
+                "outputs": {
+                    "ipmt": "5d0ada36ad085431747cc062e955a0235fa95fbe",
+                    "md": "1a711791728d2d059405fd77019d57c93eaff98b"
+                },
+                "section": "Near-to propagates a forced kind"
+            },
+            {
+                "destination": "near-to-propagates-a-forced-kind-across-the-graph",
+                "line": 67,
+                "anchor": "#near-to-propagates-a-forced-kind-across-the-graph",
+                "content_sha1": "ddb1d90dc5eccfa1a4e5ad8880b2bed81867b1e3",
+                "outputs": {
+                    "ipmt": "ddb1d90dc5eccfa1a4e5ad8880b2bed81867b1e3",
+                    "md": "1f8734e1b05bfb64eb1b05868863dc0a6e8ecb98"
+                },
+                "section": "Near-to propagates a forced kind across the graph"
+            },
+            {
+                "destination": "near-to-propagates-a-forced-kind-across-the-graph.solved",
+                "line": 73,
+                "anchor": "#near-to-propagates-a-forced-kind-across-the-graph",
+                "content_sha1": "b287927b5f1bf6e184f539d2c19085daecca0e2c",
+                "outputs": {
+                    "ipmt": "b287927b5f1bf6e184f539d2c19085daecca0e2c",
+                    "md": "6ca168768b43e5ba26c8843486f02b9ae22b5935"
+                },
+                "section": "Near-to propagates a forced kind across the graph"
+            },
+            {
+                "destination": "near-to-propagates-a-forced-kind-across-the-graph.defaults",
+                "line": 79,
+                "anchor": "#near-to-propagates-a-forced-kind-across-the-graph",
+                "content_sha1": "a8a36195b44dc50b3ffabb712461c70b0d9b71c2",
+                "outputs": {
+                    "ipmt": "a8a36195b44dc50b3ffabb712461c70b0d9b71c2",
+                    "md": "fdbb0ffead9bb565086a0eb73bcd68d5831dd1d9"
+                },
+                "section": "Near-to propagates a forced kind across the graph"
+            }
+        ]
+    },
+    {
+        "source": "../../docs/solver-examples/partof.md",
+        "source_sha1": "21999ea5b4bf8131405832fb3617c2f2c6275660",
+        "name": "node-kind solver round-trip examples",
+        "method": "parser",
+        "parser_name": "ipmt-md",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmt"
+        },
+        "items": [
+            {
+                "destination": "part-of-no-other-signal-tpt-both-grey",
+                "line": 16,
+                "anchor": "#part-of-no-other-signal-tpt-both-grey",
+                "content_sha1": "f3c4b4a7ad346e55e6ad2050da6f5f40babc450d",
+                "outputs": {
+                    "ipmt": "f3c4b4a7ad346e55e6ad2050da6f5f40babc450d",
+                    "md": "5e4dbbe568d4b4e23faf1df407979abe36265c22"
+                },
+                "section": "Part-of, no other signal — `tPt` (both grey)"
+            },
+            {
+                "destination": "part-of-no-other-signal-tpt-both-grey.solved",
+                "line": 20,
+                "anchor": "#part-of-no-other-signal-tpt-both-grey",
+                "content_sha1": "b001543f1bb7d285fc9d69b78aa71fdb3c2fe393",
+                "outputs": {
+                    "ipmt": "b001543f1bb7d285fc9d69b78aa71fdb3c2fe393",
+                    "md": "034a8a963546afd4dd159611707d64c04f5ecace"
+                },
+                "section": "Part-of, no other signal — `tPt` (both grey)"
+            },
+            {
+                "destination": "part-of-no-other-signal-tpt-both-grey.defaults",
+                "line": 24,
+                "anchor": "#part-of-no-other-signal-tpt-both-grey",
+                "content_sha1": "85988884c7431b707b3ca8cc7b83ad0323b876d7",
+                "outputs": {
+                    "ipmt": "85988884c7431b707b3ca8cc7b83ad0323b876d7",
+                    "md": "ac96a0b626f5b1e1435c6eb7cb14ea122212ffa6"
+                },
+                "section": "Part-of, no other signal — `tPt` (both grey)"
+            },
+            {
+                "destination": "part-of-with-a-leads-to-container-tpe",
+                "line": 36,
+                "anchor": "#part-of-with-a-leads-to-container-tpe",
+                "content_sha1": "c65d93fdf9d1d569f9a7eb6fcd20dae404d67270",
+                "outputs": {
+                    "ipmt": "c65d93fdf9d1d569f9a7eb6fcd20dae404d67270",
+                    "md": "be5e932caa760e1d7e7f824708a06ce1978c3a15"
+                },
+                "section": "Part-of with a leads-to container — `tPe`"
+            },
+            {
+                "destination": "part-of-with-a-leads-to-container-tpe.solved",
+                "line": 41,
+                "anchor": "#part-of-with-a-leads-to-container-tpe",
+                "content_sha1": "7a712ee4d6dc7af97896bf0ad39f4573b9e4fd79",
+                "outputs": {
+                    "ipmt": "7a712ee4d6dc7af97896bf0ad39f4573b9e4fd79",
+                    "md": "77825274f4d1788c83231fdeb6d6aa6b719df8e0"
+                },
+                "section": "Part-of with a leads-to container — `tPe`"
+            },
+            {
+                "destination": "part-of-with-a-leads-to-container-tpe.defaults",
+                "line": 46,
+                "anchor": "#part-of-with-a-leads-to-container-tpe",
+                "content_sha1": "092e925ff3d2a0dc55f90e08a15c5ebef893050f",
+                "outputs": {
+                    "ipmt": "092e925ff3d2a0dc55f90e08a15c5ebef893050f",
+                    "md": "d670880a11731edb89c5117c9292cd0fcf18bbf2"
+                },
+                "section": "Part-of with a leads-to container — `tPe`"
+            },
+            {
+                "destination": "event-part-of-event-epe",
+                "line": 58,
+                "anchor": "#event-part-of-event-epe",
+                "content_sha1": "fbc552261d91da47b191ab0612a76b8df9d9f98d",
+                "outputs": {
+                    "ipmt": "fbc552261d91da47b191ab0612a76b8df9d9f98d",
+                    "md": "844c7777552921a3e0422fec308c30ca5bd04e80"
+                },
+                "section": "Event part-of event — `ePe`"
+            },
+            {
+                "destination": "event-part-of-event-epe.solved",
+                "line": 64,
+                "anchor": "#event-part-of-event-epe",
+                "content_sha1": "b6106d4c241b9ae951b079412719ab9bfd35b341",
+                "outputs": {
+                    "ipmt": "b6106d4c241b9ae951b079412719ab9bfd35b341",
+                    "md": "fc0c56d26b495dfcf3b59f72949d72f9df7bdb9f"
+                },
+                "section": "Event part-of event — `ePe`"
+            },
+            {
+                "destination": "event-part-of-event-epe.defaults",
+                "line": 70,
+                "anchor": "#event-part-of-event-epe",
+                "content_sha1": "ff433268920f3b7c9b135b861c1acb114b1c8e8d",
+                "outputs": {
+                    "ipmt": "ff433268920f3b7c9b135b861c1acb114b1c8e8d",
+                    "md": "d7844566df52507ded66db266056b1fb60dad40b"
+                },
+                "section": "Event part-of event — `ePe`"
+            }
+        ]
+    },
+    {
+        "source": "../../docs/solver-examples/undecided-and-split.md",
+        "source_sha1": "21de355a2f7368321b2b04a862e9ef0df989ee52",
+        "name": "node-kind solver round-trip examples",
+        "method": "parser",
+        "parser_name": "ipmt-md",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmt"
+        },
+        "items": [
+            {
+                "destination": "a-node-with-no-edges-stays-grey",
+                "line": 23,
+                "anchor": "#a-node-with-no-edges-stays-grey",
+                "content_sha1": "4d85ec0f64b7838671b4404df8adeafaca529fca",
+                "outputs": {
+                    "ipmt": "4d85ec0f64b7838671b4404df8adeafaca529fca",
+                    "md": "73317c38346d97e5ebd117eb045f869d3d77bd93"
+                },
+                "section": "A node with no edges stays grey"
+            },
+            {
+                "destination": "a-node-with-no-edges-stays-grey.solved",
+                "line": 27,
+                "anchor": "#a-node-with-no-edges-stays-grey",
+                "content_sha1": "70173ff08cf1d482e9861328d97e1bbee1e5c250",
+                "outputs": {
+                    "ipmt": "70173ff08cf1d482e9861328d97e1bbee1e5c250",
+                    "md": "75fb4922ef7cb4772615b2d2e07f9dd45cf8d3ce"
+                },
+                "section": "A node with no edges stays grey"
+            },
+            {
+                "destination": "a-node-with-no-edges-stays-grey.defaults",
+                "line": 31,
+                "anchor": "#a-node-with-no-edges-stays-grey",
+                "content_sha1": "9e64f03cd1b8f1ca6331fc6d8f76c5d8fa749638",
+                "outputs": {
+                    "ipmt": "9e64f03cd1b8f1ca6331fc6d8f76c5d8fa749638",
+                    "md": "be0e91db56024bfd1c6bc06900bffe59d439a33a"
+                },
+                "section": "A node with no edges stays grey"
+            },
+            {
+                "destination": "an-event-that-is-also-an-expresses-target-exe-not-a-split",
+                "line": 45,
+                "anchor": "#an-event-that-is-also-an-expresses-target-exe-not-a-split",
+                "content_sha1": "89480a88b371060e572a0705b8d7af4d3b99b68c",
+                "outputs": {
+                    "ipmt": "89480a88b371060e572a0705b8d7af4d3b99b68c",
+                    "md": "7f8c84961c57d19226a2a59eca62cf92b0863c6a"
+                },
+                "section": "An event that is also an expresses-target — eXe, not a split"
+            },
+            {
+                "destination": "an-event-that-is-also-an-expresses-target-exe-not-a-split.solved",
+                "line": 50,
+                "anchor": "#an-event-that-is-also-an-expresses-target-exe-not-a-split",
+                "content_sha1": "e0e6b3e9f004d0875b884120906eee14e593e743",
+                "outputs": {
+                    "ipmt": "e0e6b3e9f004d0875b884120906eee14e593e743",
+                    "md": "598e00c01b946584ecbd3ff07cf7cd5c790837df"
+                },
+                "section": "An event that is also an expresses-target — eXe, not a split"
+            },
+            {
+                "destination": "an-event-that-is-also-an-expresses-target-exe-not-a-split.defaults",
+                "line": 55,
+                "anchor": "#an-event-that-is-also-an-expresses-target-exe-not-a-split",
+                "content_sha1": "c090209798f361fe0244dc09d8f7ca7051ee362e",
+                "outputs": {
+                    "ipmt": "c090209798f361fe0244dc09d8f7ca7051ee362e",
+                    "md": "8d447717c3fba3a091723735939012df0bc4f801"
+                },
+                "section": "An event that is also an expresses-target — eXe, not a split"
+            },
+            {
+                "destination": "both-an-expresses-target-and-source-stays-grey",
+                "line": 71,
+                "anchor": "#both-an-expresses-target-and-source-stays-grey",
+                "content_sha1": "17602cca343301b3f80e61e0237bb81a2b164e93",
+                "outputs": {
+                    "ipmt": "17602cca343301b3f80e61e0237bb81a2b164e93",
+                    "md": "1915023666f9af57dccde61747011451c322333d"
+                },
+                "section": "Both an expresses target and source — stays grey"
+            },
+            {
+                "destination": "both-an-expresses-target-and-source-stays-grey.solved",
+                "line": 76,
+                "anchor": "#both-an-expresses-target-and-source-stays-grey",
+                "content_sha1": "96a3cc4c83a774cd5b0b22d8b0df8fe7719e2eff",
+                "outputs": {
+                    "ipmt": "96a3cc4c83a774cd5b0b22d8b0df8fe7719e2eff",
+                    "md": "510217da98dea8c99b91cb29c75491d49b5eb014"
+                },
+                "section": "Both an expresses target and source — stays grey"
+            },
+            {
+                "destination": "both-an-expresses-target-and-source-stays-grey.defaults",
+                "line": 81,
+                "anchor": "#both-an-expresses-target-and-source-stays-grey",
+                "content_sha1": "204fbcb5c191bf3f94a1f207f84538b7de57e9b0",
+                "outputs": {
+                    "ipmt": "204fbcb5c191bf3f94a1f207f84538b7de57e9b0",
+                    "md": "8e67d80736e8486968534a750c0b361006acd5e0"
+                },
+                "section": "Both an expresses target and source — stays grey"
+            },
+            {
+                "destination": "partial-resolution-event-forced-the-rest-stays-grey",
+                "line": 97,
+                "anchor": "#partial-resolution-event-forced-the-rest-stays-grey",
+                "content_sha1": "ae5e8243948d0003b21708b2f720f5f577fb706b",
+                "outputs": {
+                    "ipmt": "ae5e8243948d0003b21708b2f720f5f577fb706b",
+                    "md": "989694ea2bb54652813ae80aca6a42e069e7402f"
+                },
+                "section": "Partial resolution — Event forced, the rest stays grey"
+            },
+            {
+                "destination": "partial-resolution-event-forced-the-rest-stays-grey.solved",
+                "line": 103,
+                "anchor": "#partial-resolution-event-forced-the-rest-stays-grey",
+                "content_sha1": "969719222c42e57f9263e39778023cbb042fc4c8",
+                "outputs": {
+                    "ipmt": "969719222c42e57f9263e39778023cbb042fc4c8",
+                    "md": "001adc9143c95437380df33832c4fd4340180c83"
+                },
+                "section": "Partial resolution — Event forced, the rest stays grey"
+            },
+            {
+                "destination": "partial-resolution-event-forced-the-rest-stays-grey.defaults",
+                "line": 109,
+                "anchor": "#partial-resolution-event-forced-the-rest-stays-grey",
+                "content_sha1": "664dcb3457378fc2846714a284bd0dc8986a4a32",
+                "outputs": {
+                    "ipmt": "664dcb3457378fc2846714a284bd0dc8986a4a32",
+                    "md": "4ed3c3a0064d54c633efe656a4fb1d9f5c12aeac"
+                },
+                "section": "Partial resolution — Event forced, the rest stays grey"
+            }
+        ]
+    }
+]

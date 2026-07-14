@@ -1,0 +1,45 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "Event 1 ::e\nConcept X ::c\nThing A ::t",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          7
+        ],
+        "2": [
+          12,
+          21
+        ],
+        "3": [
+          26,
+          33
+        ]
+      },
+      "edges": {}
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "Event 1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "Concept X",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 3,
+      "name": "Thing A",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": null
+}

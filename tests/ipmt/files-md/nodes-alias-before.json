@@ -1,0 +1,60 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "EA::a Event A ::e\nAgent 2 --\u003e EA",
+    "positions": {
+      "nodes": {
+        "1": [
+          6,
+          13
+        ],
+        "2": [
+          18,
+          25
+        ]
+      },
+      "edges": {
+        "3": {
+          "arrow": [
+            25,
+            30
+          ],
+          "source": [
+            18,
+            25
+          ],
+          "target": [
+            30,
+            32
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "Event A",
+      "alias": "EA",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "Agent 2",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 3,
+      "source": 2,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

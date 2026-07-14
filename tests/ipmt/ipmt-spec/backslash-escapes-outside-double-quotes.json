@@ -1,0 +1,25 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "Thing A part 1. ::t line 1\\nline 2 ::tip",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          37
+        ]
+      },
+      "edges": {}
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "Thing A part 1.  line 1\\nline 2 ::tip",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": null
+}

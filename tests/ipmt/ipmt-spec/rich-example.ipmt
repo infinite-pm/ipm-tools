@@ -1,0 +1,7 @@
+Maghull --"Maghull is near UK"-- UK
+Maghull --"Town where Mark was born"--> BR::a Born ::e
+Mark --> BR
+Mark --> Enjoy ::e
+BR --> Enjoy
+SB::a school bookshop, books --> Enjoy
+SB --> Banbury --> UK

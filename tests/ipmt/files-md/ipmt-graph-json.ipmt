@@ -1,0 +1,12 @@
+ipmt graph json ::c
+  --> json ::c
+    --> mime type ::c
+
+ipmt graph json
+  --> ipmt text  ::c
+    --> sub  ::c
+
+ipmt graph json
+  --> ipmt graph  ::c
+    --> structure definition ::c
+      --> sw ::c

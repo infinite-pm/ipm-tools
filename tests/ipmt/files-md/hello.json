@@ -1,0 +1,25 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "World ::e",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          5
+        ]
+      },
+      "edges": {}
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "World",
+      "alias": "",
+      "type": "Event"
+    }
+  ],
+  "edges": null
+}

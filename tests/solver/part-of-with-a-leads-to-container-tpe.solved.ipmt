@@ -1,0 +1,3 @@
+# then
+step ::?te --::P--> process ::e
+process ::e --::L--> finish ::e

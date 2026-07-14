@@ -1,0 +1,93 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "# Alice's story\nAlice feels discouraged ::e e1::a\nAlice turns to the Mock Turtle ::e e2::a\nAlice speaks ::e e3::a\n\ne1 --\u003e e2 --\u003e e3",
+    "positions": {
+      "nodes": {
+        "1": [
+          16,
+          39
+        ],
+        "2": [
+          50,
+          80
+        ],
+        "3": [
+          91,
+          103
+        ]
+      },
+      "edges": {
+        "4": {
+          "arrow": [
+            117,
+            122
+          ],
+          "source": [
+            115,
+            117
+          ],
+          "target": [
+            122,
+            124
+          ]
+        },
+        "5": {
+          "arrow": [
+            124,
+            129
+          ],
+          "source": [
+            122,
+            124
+          ],
+          "target": [
+            129,
+            131
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "Alice feels discouraged",
+      "alias": "e1",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "Alice turns to the Mock Turtle",
+      "alias": "e2",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "Alice speaks",
+      "alias": "e3",
+      "type": "Event"
+    }
+  ],
+  "edges": [
+    {
+      "id": 4,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 5,
+      "source": 2,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

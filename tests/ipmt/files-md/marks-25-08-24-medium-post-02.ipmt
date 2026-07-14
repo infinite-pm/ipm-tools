@@ -1,0 +1,6 @@
+# Company founding
+X --> X founded company Y ::e fe::a
+Y --> fe
+X --> person ::c
+Y --> company ::c
+fe --> Founding is when someone establishes the legal registration of a company ::c

@@ -1,0 +1,297 @@
+{
+  "version": "26.07-v7",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "thing",
+      "label": "Maghull",
+      "x": 400,
+      "y": 120,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "2",
+      "type": "thing",
+      "label": "UK",
+      "x": 40,
+      "y": 340,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "3",
+      "type": "event",
+      "label": "Born",
+      "alias": "BR",
+      "x": 580,
+      "y": 170,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "4",
+      "type": "thing",
+      "label": "Mark",
+      "x": 400,
+      "y": 220,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "5",
+      "type": "event",
+      "label": "Enjoy",
+      "x": 580,
+      "y": 390,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "6",
+      "type": "thing",
+      "label": "school bookshop",
+      "alias": "SB",
+      "x": 400,
+      "y": 340,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "7",
+      "type": "thing",
+      "label": "books",
+      "x": 400,
+      "y": 440,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "8",
+      "type": "thing",
+      "label": "Banbury",
+      "x": 220,
+      "y": 340,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "9",
+      "type": "boundary",
+      "label": "S",
+      "x": 620,
+      "y": 40,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "10",
+      "type": "boundary",
+      "label": "E",
+      "x": 620,
+      "y": 540,
+      "width": 40,
+      "height": 40
+    }
+  ],
+  "edges": [
+    {
+      "from": "1",
+      "to": "2",
+      "dir": "undir",
+      "base": "nearto",
+      "style": "nearto",
+      "route": {
+        "source": {
+          "side": "left",
+          "position": 0.5
+        },
+        "target": {
+          "side": "right",
+          "position": 0.25
+        }
+      }
+    },
+    {
+      "from": "1",
+      "to": "3",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.25
+        }
+      }
+    },
+    {
+      "from": "4",
+      "to": "3",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.25
+        },
+        "target": {
+          "side": "left",
+          "position": 0.75
+        }
+      }
+    },
+    {
+      "from": "4",
+      "to": "5",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.75
+        },
+        "target": {
+          "side": "left",
+          "position": 0.25
+        }
+      }
+    },
+    {
+      "from": "3",
+      "to": "5",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "6",
+      "to": "5",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.60669739994408
+        }
+      }
+    },
+    {
+      "from": "7",
+      "to": "5",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.75
+        }
+      }
+    },
+    {
+      "from": "6",
+      "to": "8",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "left",
+          "position": 0.5
+        },
+        "target": {
+          "side": "right",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "8",
+      "to": "2",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "left",
+          "position": 0.5
+        },
+        "target": {
+          "side": "right",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "9",
+      "to": "3",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "5",
+      "to": "10",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    }
+  ],
+  "meta": {
+    "bounds": {
+      "width": 740,
+      "height": 620,
+      "marginX": 40,
+      "marginY": 40
+    },
+    "constants": {
+      "gridStep": 20
+    }
+  }
+}

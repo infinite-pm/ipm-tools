@@ -1,0 +1,2 @@
+Thing A part 1. ::t "This is \"Thing A part 1.\" tooltip text." ::tip
+Event 1 ::e "This is\nEvent 1\ntooltip text." ::tip

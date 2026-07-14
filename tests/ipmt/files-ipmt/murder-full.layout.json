@@ -1,0 +1,939 @@
+{
+  "version": "26.07-v7",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "event",
+      "label": "get the party started",
+      "x": 40,
+      "y": 120,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "2",
+      "type": "event",
+      "label": "Professor Plum murders Miss Scarlet in the library with the bread knife because she refused to marry him",
+      "alias": "murder-e",
+      "x": 40,
+      "y": 240,
+      "width": 120,
+      "height": 200
+    },
+    {
+      "id": "3",
+      "type": "event",
+      "label": "investigation begins",
+      "x": 40,
+      "y": 500,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "4",
+      "type": "event",
+      "label": "Prof Plum \u0026 Miss Scarlett in the library",
+      "alias": "library-ppms",
+      "x": 520,
+      "y": 120,
+      "width": 120,
+      "height": 80
+    },
+    {
+      "id": "5",
+      "type": "concept",
+      "label": "In the library",
+      "x": 700,
+      "y": 130,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "6",
+      "type": "concept",
+      "label": "where",
+      "x": 660,
+      "y": 230,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "7",
+      "type": "concept",
+      "label": "library",
+      "x": 840,
+      "y": 230,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "8",
+      "type": "event",
+      "label": "Miss Scarlet refuses to marry Professor Plum",
+      "alias": "refusal-mspp",
+      "x": 520,
+      "y": 340,
+      "width": 120,
+      "height": 100
+    },
+    {
+      "id": "9",
+      "type": "event",
+      "label": "refusal marriage",
+      "alias": "refusal-m",
+      "x": 700,
+      "y": 360,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "10",
+      "type": "concept",
+      "label": "marriage",
+      "x": 1020,
+      "y": 410,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "11",
+      "type": "concept",
+      "label": "refusal",
+      "x": 1020,
+      "y": 510,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "12",
+      "type": "event",
+      "label": "Prof Plum murders Miss Scarlet",
+      "alias": "ppmms",
+      "x": 520,
+      "y": 500,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "13",
+      "type": "concept",
+      "label": "murder by subtle knife",
+      "alias": "murder-sk",
+      "x": 700,
+      "y": 500,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "14",
+      "type": "concept",
+      "label": "use of subtle knife",
+      "alias": "use-sk",
+      "x": 480,
+      "y": 600,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "15",
+      "type": "concept",
+      "label": "subtle knife",
+      "alias": "sk",
+      "x": 400,
+      "y": 700,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "16",
+      "type": "concept",
+      "label": "knife",
+      "x": 220,
+      "y": 800,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "17",
+      "type": "concept",
+      "label": "what action",
+      "x": 660,
+      "y": 600,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "18",
+      "type": "concept",
+      "label": "murder",
+      "x": 840,
+      "y": 600,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "19",
+      "type": "concept",
+      "label": "how",
+      "x": 580,
+      "y": 700,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "20",
+      "type": "concept",
+      "label": "cutting interdimensional rifts",
+      "x": 400,
+      "y": 800,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "21",
+      "type": "concept",
+      "label": "cutting bread",
+      "x": 580,
+      "y": 800,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "22",
+      "type": "thing",
+      "label": "Professor Plum",
+      "x": 1020,
+      "y": 210,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "23",
+      "type": "thing",
+      "label": "Miss Scarlet",
+      "x": 1020,
+      "y": 310,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "24",
+      "type": "boundary",
+      "label": "S",
+      "x": 80,
+      "y": 40,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "25",
+      "type": "boundary",
+      "label": "E",
+      "x": 80,
+      "y": 900,
+      "width": 40,
+      "height": 40
+    }
+  ],
+  "edges": [
+    {
+      "from": "1",
+      "to": "2",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "2",
+      "to": "3",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "4",
+      "to": "2",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "left",
+          "position": 0.5
+        },
+        "target": {
+          "side": "right",
+          "position": 0.5431215814362657
+        }
+      }
+    },
+    {
+      "from": "4",
+      "to": "5",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.35
+        }
+      }
+    },
+    {
+      "from": "5",
+      "to": "6",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.25
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "5",
+      "to": "7",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.75
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "8",
+      "to": "2",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "left",
+          "position": 0.5
+        },
+        "target": {
+          "side": "right",
+          "position": 0.5931215814362656
+        }
+      }
+    },
+    {
+      "from": "9",
+      "to": "8",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "left",
+          "position": 0.5
+        },
+        "target": {
+          "side": "right",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "9",
+      "to": "10",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.6
+        },
+        "target": {
+          "side": "left",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "9",
+      "to": "11",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.8
+        },
+        "target": {
+          "side": "left",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "8",
+      "to": "5",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "top",
+          "position": 0.67
+        },
+        "target": {
+          "side": "left",
+          "position": 0.35
+        },
+        "bends": [
+          {
+            "X": 600,
+            "Y": 311
+          }
+        ]
+      }
+    },
+    {
+      "from": "12",
+      "to": "2",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "left",
+          "position": 0.5
+        },
+        "target": {
+          "side": "right",
+          "position": 0.6568784185637344
+        }
+      }
+    },
+    {
+      "from": "12",
+      "to": "5",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "top",
+          "position": 0.3
+        },
+        "target": {
+          "side": "bottom",
+          "position": 0.4
+        },
+        "sourceStub": [
+          {
+            "X": 556,
+            "Y": 500
+          },
+          {
+            "X": 556,
+            "Y": 470
+          }
+        ],
+        "targetStub": [
+          {
+            "X": 748,
+            "Y": 190
+          },
+          {
+            "X": 748,
+            "Y": 210
+          }
+        ]
+      },
+      "visibility": "stubbed"
+    },
+    {
+      "from": "12",
+      "to": "13",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "13",
+      "to": "14",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.25
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "14",
+      "to": "15",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.25
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "15",
+      "to": "16",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.25
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "13",
+      "to": "17",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.8333333333333334
+        }
+      }
+    },
+    {
+      "from": "13",
+      "to": "18",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.75
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "14",
+      "to": "19",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.75
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "15",
+      "to": "20",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "15",
+      "to": "21",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.75
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "4",
+      "to": "8",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "8",
+      "to": "12",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "22",
+      "to": "4",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "top",
+          "position": 0.25
+        },
+        "target": {
+          "side": "top",
+          "position": 0.75
+        },
+        "bends": [
+          {
+            "X": 1010,
+            "Y": 80
+          },
+          {
+            "X": 650,
+            "Y": 80
+          }
+        ]
+      }
+    },
+    {
+      "from": "22",
+      "to": "8",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "left",
+          "position": 0.7
+        },
+        "target": {
+          "side": "right",
+          "position": 0.25
+        },
+        "sourceStub": [
+          {
+            "X": 1020,
+            "Y": 252
+          },
+          {
+            "X": 990,
+            "Y": 252
+          }
+        ],
+        "targetStub": [
+          {
+            "X": 640,
+            "Y": 365
+          },
+          {
+            "X": 670,
+            "Y": 365
+          }
+        ]
+      },
+      "visibility": "stubbed"
+    },
+    {
+      "from": "22",
+      "to": "9",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "22",
+      "to": "12",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "left",
+          "position": 0.3
+        },
+        "target": {
+          "side": "right",
+          "position": 0.25
+        },
+        "sourceStub": [
+          {
+            "X": 1020,
+            "Y": 228
+          },
+          {
+            "X": 990,
+            "Y": 228
+          }
+        ],
+        "targetStub": [
+          {
+            "X": 640,
+            "Y": 515
+          },
+          {
+            "X": 670,
+            "Y": 515
+          }
+        ]
+      },
+      "visibility": "stubbed"
+    },
+    {
+      "from": "23",
+      "to": "4",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "top",
+          "position": 0.7
+        },
+        "target": {
+          "side": "bottom",
+          "position": 0.7
+        },
+        "sourceStub": [
+          {
+            "X": 1104,
+            "Y": 310
+          },
+          {
+            "X": 1104,
+            "Y": 290
+          }
+        ],
+        "targetStub": [
+          {
+            "X": 604,
+            "Y": 200
+          },
+          {
+            "X": 604,
+            "Y": 230
+          }
+        ]
+      },
+      "visibility": "stubbed"
+    },
+    {
+      "from": "23",
+      "to": "8",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "top",
+          "position": 0.25
+        },
+        "target": {
+          "side": "top",
+          "position": 0.83
+        },
+        "bends": [
+          {
+            "X": 1040,
+            "Y": 300
+          },
+          {
+            "X": 660,
+            "Y": 300
+          }
+        ]
+      }
+    },
+    {
+      "from": "23",
+      "to": "9",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "left",
+          "position": 0.5
+        },
+        "target": {
+          "side": "right",
+          "position": 0.43333333333333335
+        }
+      }
+    },
+    {
+      "from": "23",
+      "to": "12",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.7
+        }
+      }
+    },
+    {
+      "from": "24",
+      "to": "1",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "3",
+      "to": "25",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    }
+  ],
+  "meta": {
+    "bounds": {
+      "width": 1180,
+      "height": 980,
+      "marginX": 40,
+      "marginY": 40
+    },
+    "constants": {
+      "gridStep": 20
+    }
+  }
+}

@@ -1,0 +1,449 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "# Real-world example: a production deployment incident.\n#\n# Main timeline:\n#   deploy started → deploy goes wrong → service restored\n#\n# \"deploy goes wrong\" is a composite event containing sub-events:\n#   migration runs → app starts crashing → rollback executed\n#\n# Things: people involved (Alice the DBA, Bob the SRE)\n# Concepts: technical artifacts (PostgreSQL, schema lock, connection pool)\n\ndeploy started ::e\n  --then--\u003e deploy-e::a deploy goes wrong ::e\n  --then--\u003e service restored ::e\n\ndeploy-e \u003c--::P contains-- migration-e::a migration runs ::e\n  --\u003e PostgreSQL ::c\n\ndeploy-e \u003c--::P contains-- crash-e::a app starts crashing ::e\n  --\u003e connection pool ::c\n\ndeploy-e \u003c--::P contains-- rollback-e::a rollback executed ::e\n  --\u003e schema lock ::c\n\n# Order of sub-events inside the composite event.\nmigration-e --\u003e crash-e --\u003e rollback-e\n\nAlice ::t\nBob ::t\n\nAlice --\u003e migration-e, crash-e\nBob --\u003e crash-e, rollback-e\n",
+    "positions": {
+      "nodes": {
+        "1": [
+          403,
+          417
+        ],
+        "10": [
+          850,
+          855
+        ],
+        "11": [
+          860,
+          863
+        ],
+        "2": [
+          446,
+          463
+        ],
+        "3": [
+          480,
+          496
+        ],
+        "4": [
+          544,
+          558
+        ],
+        "5": [
+          569,
+          579
+        ],
+        "6": [
+          623,
+          642
+        ],
+        "7": [
+          653,
+          668
+        ],
+        "8": [
+          715,
+          732
+        ],
+        "9": [
+          743,
+          754
+        ]
+      },
+      "edges": {
+        "12": {
+          "arrow": [
+            424,
+            434
+          ],
+          "source": [
+            403,
+            417
+          ],
+          "target": [
+            446,
+            463
+          ]
+        },
+        "13": {
+          "arrow": [
+            470,
+            480
+          ],
+          "source": [
+            446,
+            463
+          ],
+          "target": [
+            480,
+            496
+          ]
+        },
+        "14": {
+          "arrow": [
+            511,
+            528
+          ],
+          "source": [
+            544,
+            558
+          ],
+          "target": [
+            502,
+            510
+          ]
+        },
+        "15": {
+          "arrow": [
+            565,
+            569
+          ],
+          "source": [
+            544,
+            558
+          ],
+          "target": [
+            569,
+            579
+          ]
+        },
+        "16": {
+          "arrow": [
+            594,
+            611
+          ],
+          "source": [
+            623,
+            642
+          ],
+          "target": [
+            585,
+            593
+          ]
+        },
+        "17": {
+          "arrow": [
+            649,
+            653
+          ],
+          "source": [
+            623,
+            642
+          ],
+          "target": [
+            653,
+            668
+          ]
+        },
+        "18": {
+          "arrow": [
+            683,
+            700
+          ],
+          "source": [
+            715,
+            732
+          ],
+          "target": [
+            674,
+            682
+          ]
+        },
+        "19": {
+          "arrow": [
+            739,
+            743
+          ],
+          "source": [
+            715,
+            732
+          ],
+          "target": [
+            743,
+            754
+          ]
+        },
+        "20": {
+          "arrow": [
+            821,
+            826
+          ],
+          "source": [
+            810,
+            821
+          ],
+          "target": [
+            826,
+            833
+          ]
+        },
+        "21": {
+          "arrow": [
+            833,
+            838
+          ],
+          "source": [
+            826,
+            833
+          ],
+          "target": [
+            838,
+            848
+          ]
+        },
+        "22": {
+          "arrow": [
+            874,
+            879
+          ],
+          "source": [
+            869,
+            874
+          ],
+          "target": [
+            879,
+            890
+          ]
+        },
+        "23": {
+          "arrow": [
+            874,
+            879
+          ],
+          "source": [
+            869,
+            874
+          ],
+          "target": [
+            892,
+            899
+          ]
+        },
+        "24": {
+          "arrow": [
+            903,
+            908
+          ],
+          "source": [
+            900,
+            903
+          ],
+          "target": [
+            908,
+            915
+          ]
+        },
+        "25": {
+          "arrow": [
+            903,
+            908
+          ],
+          "source": [
+            900,
+            903
+          ],
+          "target": [
+            917,
+            927
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "deploy started",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "deploy goes wrong",
+      "alias": "deploy-e",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "service restored",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 4,
+      "name": "migration runs",
+      "alias": "migration-e",
+      "type": "Event"
+    },
+    {
+      "id": 5,
+      "name": "PostgreSQL",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 6,
+      "name": "app starts crashing",
+      "alias": "crash-e",
+      "type": "Event"
+    },
+    {
+      "id": 7,
+      "name": "connection pool",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 8,
+      "name": "rollback executed",
+      "alias": "rollback-e",
+      "type": "Event"
+    },
+    {
+      "id": 9,
+      "name": "schema lock",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 10,
+      "name": "Alice",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 11,
+      "name": "Bob",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 12,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "then",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 13,
+      "source": 2,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "then",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 14,
+      "source": 4,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "contains",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 15,
+      "source": 4,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 16,
+      "source": 6,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "contains",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 17,
+      "source": 6,
+      "target": 7,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 18,
+      "source": 8,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "contains",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 19,
+      "source": 8,
+      "target": 9,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 20,
+      "source": 4,
+      "target": 6,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 21,
+      "source": 6,
+      "target": 8,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 22,
+      "source": 10,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 23,
+      "source": 10,
+      "target": 6,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 24,
+      "source": 11,
+      "target": 6,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 25,
+      "source": 11,
+      "target": 8,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

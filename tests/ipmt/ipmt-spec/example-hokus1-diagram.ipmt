@@ -1,0 +1,8 @@
+e1 ::e --> e2::a Spacetime Event 2. ::e
+tA --> tAp1::a Thing A part 1. --> e1
+tB --> e1
+e2 <-- tC
+tB --- tC
+e1, tAp1 --> c-V ::c
+tC --> c-X ::c --> c-Y ::c
+c-Z ::c --- c-X

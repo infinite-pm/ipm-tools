@@ -1,0 +1,50 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "A --\u003e A",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          1
+        ]
+      },
+      "edges": {
+        "2": {
+          "arrow": [
+            1,
+            6
+          ],
+          "source": [
+            0,
+            1
+          ],
+          "target": [
+            6,
+            7
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "A",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 2,
+      "source": 1,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

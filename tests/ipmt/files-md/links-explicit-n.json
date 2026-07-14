@@ -1,0 +1,60 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "tB --::N--\u003e tC",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          2
+        ],
+        "2": [
+          12,
+          14
+        ]
+      },
+      "edges": {
+        "3": {
+          "arrow": [
+            2,
+            12
+          ],
+          "source": [
+            0,
+            2
+          ],
+          "target": [
+            12,
+            14
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "tB",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "tC",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 3,
+      "source": 1,
+      "target": 2,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

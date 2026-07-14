@@ -1,0 +1,60 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "cJ ::c \u003c--::X-- e1 ::e",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          2
+        ],
+        "2": [
+          16,
+          18
+        ]
+      },
+      "edges": {
+        "3": {
+          "arrow": [
+            7,
+            15
+          ],
+          "source": [
+            16,
+            18
+          ],
+          "target": [
+            0,
+            2
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "cJ",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 2,
+      "name": "e1",
+      "alias": "",
+      "type": "Event"
+    }
+  ],
+  "edges": [
+    {
+      "id": 3,
+      "source": 2,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

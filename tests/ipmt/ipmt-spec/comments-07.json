@@ -1,0 +1,60 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "\"Step # 3\" ::t --\u003e E1::a Event 1 ::e",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          10
+        ],
+        "2": [
+          25,
+          32
+        ]
+      },
+      "edges": {
+        "3": {
+          "arrow": [
+            14,
+            19
+          ],
+          "source": [
+            0,
+            10
+          ],
+          "target": [
+            25,
+            32
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "Step # 3",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "Event 1",
+      "alias": "E1",
+      "type": "Event"
+    }
+  ],
+  "edges": [
+    {
+      "id": 3,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

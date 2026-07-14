@@ -1,0 +1,60 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "   # This is also a comment\nAgent A\n  # And this is a comment in between\n  --\u003e E1::a Event 1 ::e",
+    "positions": {
+      "nodes": {
+        "1": [
+          28,
+          35
+        ],
+        "2": [
+          85,
+          92
+        ]
+      },
+      "edges": {
+        "3": {
+          "arrow": [
+            75,
+            79
+          ],
+          "source": [
+            28,
+            35
+          ],
+          "target": [
+            85,
+            92
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "Agent A",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "Event 1",
+      "alias": "E1",
+      "type": "Event"
+    }
+  ],
+  "edges": [
+    {
+      "id": 3,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

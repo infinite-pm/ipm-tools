@@ -1,0 +1,258 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "ipmt graph json ::c\n  --\u003e json ::c\n    --\u003e mime type ::c\n\nipmt graph json\n  --\u003e ipmt text  ::c\n    --\u003e sub  ::c\n\nipmt graph json\n  --\u003e ipmt graph  ::c\n    --\u003e structure definition ::c\n      --\u003e sw ::c",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          15
+        ],
+        "2": [
+          26,
+          30
+        ],
+        "3": [
+          43,
+          52
+        ],
+        "4": [
+          80,
+          89
+        ],
+        "5": [
+          103,
+          106
+        ],
+        "6": [
+          135,
+          145
+        ],
+        "7": [
+          159,
+          179
+        ],
+        "8": [
+          194,
+          196
+        ]
+      },
+      "edges": {
+        "10": {
+          "arrow": [
+            39,
+            43
+          ],
+          "source": [
+            26,
+            30
+          ],
+          "target": [
+            43,
+            52
+          ]
+        },
+        "11": {
+          "arrow": [
+            76,
+            80
+          ],
+          "source": [
+            58,
+            73
+          ],
+          "target": [
+            80,
+            89
+          ]
+        },
+        "12": {
+          "arrow": [
+            99,
+            103
+          ],
+          "source": [
+            80,
+            89
+          ],
+          "target": [
+            103,
+            106
+          ]
+        },
+        "13": {
+          "arrow": [
+            131,
+            135
+          ],
+          "source": [
+            113,
+            128
+          ],
+          "target": [
+            135,
+            145
+          ]
+        },
+        "14": {
+          "arrow": [
+            155,
+            159
+          ],
+          "source": [
+            135,
+            145
+          ],
+          "target": [
+            159,
+            179
+          ]
+        },
+        "15": {
+          "arrow": [
+            190,
+            194
+          ],
+          "source": [
+            159,
+            179
+          ],
+          "target": [
+            194,
+            196
+          ]
+        },
+        "9": {
+          "arrow": [
+            22,
+            26
+          ],
+          "source": [
+            0,
+            15
+          ],
+          "target": [
+            26,
+            30
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "ipmt graph json",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 2,
+      "name": "json",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 3,
+      "name": "mime type",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 4,
+      "name": "ipmt text",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 5,
+      "name": "sub",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 6,
+      "name": "ipmt graph",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 7,
+      "name": "structure definition",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 8,
+      "name": "sw",
+      "alias": "",
+      "type": "Concept"
+    }
+  ],
+  "edges": [
+    {
+      "id": 9,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 10,
+      "source": 2,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 11,
+      "source": 1,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 12,
+      "source": 4,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 13,
+      "source": 1,
+      "target": 6,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 14,
+      "source": 6,
+      "target": 7,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 15,
+      "source": 7,
+      "target": 8,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

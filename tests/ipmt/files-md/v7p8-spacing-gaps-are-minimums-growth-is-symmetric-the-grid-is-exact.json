@@ -1,0 +1,93 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "e1 ::e\ntD ::t --\u003e e1\ntD --\u003e cX ::c",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          2
+        ],
+        "2": [
+          7,
+          9
+        ],
+        "3": [
+          28,
+          30
+        ]
+      },
+      "edges": {
+        "4": {
+          "arrow": [
+            13,
+            18
+          ],
+          "source": [
+            7,
+            9
+          ],
+          "target": [
+            18,
+            20
+          ]
+        },
+        "5": {
+          "arrow": [
+            23,
+            28
+          ],
+          "source": [
+            21,
+            23
+          ],
+          "target": [
+            28,
+            30
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "e1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "tD",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 3,
+      "name": "cX",
+      "alias": "",
+      "type": "Concept"
+    }
+  ],
+  "edges": [
+    {
+      "id": 4,
+      "source": 2,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 5,
+      "source": 2,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

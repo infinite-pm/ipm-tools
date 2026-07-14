@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="500" viewBox="0 0 380 500">
+  <defs>
+  </defs>
+  <g id="container-shells">
+  </g>
+  <g id="node-shadows">
+    <rect x="40" y="120" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="220" y="220" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="40" y="220" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="40" y="320" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="260" y="40" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="260" y="420" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+  </g>
+  <g id="edges">
+    <g class="edge" data-edge-idx="0" data-edge-base="partof" data-edge-from="1" data-edge-to="2">
+    <line x1="165.00" y1="157.50" x2="211.26" y2="226.88" stroke="#82b366" stroke-width="3" />
+    <path d="M 215.00 232.50 L 206.26 227.51 L 211.26 226.88 L 213.75 222.52 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="1" data-edge-base="partof" data-edge-from="3" data-edge-to="2">
+    <line x1="165.00" y1="250.00" x2="208.25" y2="250.00" stroke="#82b366" stroke-width="3" />
+    <path d="M 215.00 250.00 L 206.00 254.50 L 208.25 250.00 L 206.00 245.50 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="2" data-edge-base="partof" data-edge-from="4" data-edge-to="2">
+    <line x1="165.00" y1="342.50" x2="211.26" y2="273.12" stroke="#82b366" stroke-width="3" />
+    <path d="M 215.00 267.50 L 213.75 277.48 L 211.26 273.12 L 206.26 272.49 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="3" data-edge-base="leadsto" data-edge-from="5" data-edge-to="2">
+    <line x1="280.00" y1="85.00" x2="280.00" y2="208.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 280.00 215.00 L 275.50 206.00 L 280.00 208.25 L 284.50 206.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="4" data-edge-base="leadsto" data-edge-from="2" data-edge-to="6">
+    <line x1="280.00" y1="285.00" x2="280.00" y2="408.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 280.00 415.00 L 275.50 406.00 L 280.00 408.25 L 284.50 406.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+  </g>
+  <g id="nodes">
+    <rect x="40" y="120" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+    <text x="100" y="150" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">Agent 1</text>
+    <rect x="220" y="220" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="280" y="250" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">Event A</text>
+    <rect x="40" y="220" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+    <text x="100" y="250" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">Agent 2</text>
+    <rect x="40" y="320" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+    <text x="100" y="350" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">Artifact X</text>
+    <rect x="260" y="40" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="280" y="60" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">S</text>
+    <rect x="260" y="420" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="280" y="440" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
+  </g>
+</svg>

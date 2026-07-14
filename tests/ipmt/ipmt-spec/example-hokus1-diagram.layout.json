@@ -1,0 +1,355 @@
+{
+  "version": "26.07-v7",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "event",
+      "label": "e1",
+      "x": 620,
+      "y": 270,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "2",
+      "type": "event",
+      "label": "Spacetime Event 2.",
+      "alias": "e2",
+      "x": 620,
+      "y": 440,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "3",
+      "type": "thing",
+      "label": "tA",
+      "x": 440,
+      "y": 120,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "4",
+      "type": "thing",
+      "label": "Thing A part 1.",
+      "alias": "tAp1",
+      "x": 440,
+      "y": 220,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "5",
+      "type": "thing",
+      "label": "tB",
+      "x": 440,
+      "y": 320,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "6",
+      "type": "thing",
+      "label": "tC",
+      "x": 440,
+      "y": 440,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "7",
+      "type": "concept",
+      "label": "c-V",
+      "x": 260,
+      "y": 320,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "8",
+      "type": "concept",
+      "label": "c-X",
+      "x": 260,
+      "y": 540,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "9",
+      "type": "concept",
+      "label": "c-Y",
+      "x": 80,
+      "y": 640,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "10",
+      "type": "concept",
+      "label": "c-Z",
+      "x": 40,
+      "y": 540,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "11",
+      "type": "boundary",
+      "label": "S",
+      "x": 660,
+      "y": 40,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "12",
+      "type": "boundary",
+      "label": "E",
+      "x": 660,
+      "y": 740,
+      "width": 40,
+      "height": 40
+    }
+  ],
+  "edges": [
+    {
+      "from": "1",
+      "to": "2",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "3",
+      "to": "4",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "4",
+      "to": "1",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.3333333333333333
+        }
+      }
+    },
+    {
+      "from": "5",
+      "to": "1",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.6666666666666666
+        }
+      }
+    },
+    {
+      "from": "6",
+      "to": "2",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "5",
+      "to": "6",
+      "dir": "undir",
+      "base": "nearto",
+      "style": "nearto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "1",
+      "to": "7",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "left",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.33
+        },
+        "bends": [
+          {
+            "X": 300,
+            "Y": 300
+          }
+        ]
+      }
+    },
+    {
+      "from": "4",
+      "to": "7",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.65
+        }
+      }
+    },
+    {
+      "from": "6",
+      "to": "8",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "right",
+          "position": 0.25
+        }
+      }
+    },
+    {
+      "from": "8",
+      "to": "9",
+      "dir": "fwd",
+      "base": "expresses",
+      "style": "expresses",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "right",
+          "position": 0.25
+        }
+      }
+    },
+    {
+      "from": "10",
+      "to": "8",
+      "dir": "undir",
+      "base": "nearto",
+      "style": "nearto",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "11",
+      "to": "1",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "2",
+      "to": "12",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    }
+  ],
+  "meta": {
+    "bounds": {
+      "width": 780,
+      "height": 820,
+      "marginX": 40,
+      "marginY": 40
+    },
+    "constants": {
+      "gridStep": 20
+    }
+  }
+}

@@ -1,0 +1,6 @@
+# Engineer participates in events (thing --> event, part-of)
+Jane --> Commit ::e
+Jane --> Incident ::e
+
+# Engineer classified by role
+Jane --> SRE ::c

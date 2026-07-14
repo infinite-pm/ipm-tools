@@ -1,0 +1,225 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "w ::e --\u003e y1 ::e\nw --\u003e y2 ::e\nw --\u003e y3 ::e\nw --\u003e y4 ::e\nw --\u003e y5 ::e\nw --\u003e y6 ::e",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          1
+        ],
+        "2": [
+          10,
+          12
+        ],
+        "3": [
+          23,
+          25
+        ],
+        "4": [
+          36,
+          38
+        ],
+        "5": [
+          49,
+          51
+        ],
+        "6": [
+          62,
+          64
+        ],
+        "7": [
+          75,
+          77
+        ]
+      },
+      "edges": {
+        "10": {
+          "arrow": [
+            31,
+            36
+          ],
+          "source": [
+            30,
+            31
+          ],
+          "target": [
+            36,
+            38
+          ]
+        },
+        "11": {
+          "arrow": [
+            44,
+            49
+          ],
+          "source": [
+            43,
+            44
+          ],
+          "target": [
+            49,
+            51
+          ]
+        },
+        "12": {
+          "arrow": [
+            57,
+            62
+          ],
+          "source": [
+            56,
+            57
+          ],
+          "target": [
+            62,
+            64
+          ]
+        },
+        "13": {
+          "arrow": [
+            70,
+            75
+          ],
+          "source": [
+            69,
+            70
+          ],
+          "target": [
+            75,
+            77
+          ]
+        },
+        "8": {
+          "arrow": [
+            5,
+            10
+          ],
+          "source": [
+            0,
+            1
+          ],
+          "target": [
+            10,
+            12
+          ]
+        },
+        "9": {
+          "arrow": [
+            18,
+            23
+          ],
+          "source": [
+            17,
+            18
+          ],
+          "target": [
+            23,
+            25
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "w",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "y1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "y2",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 4,
+      "name": "y3",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 5,
+      "name": "y4",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 6,
+      "name": "y5",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 7,
+      "name": "y6",
+      "alias": "",
+      "type": "Event"
+    }
+  ],
+  "edges": [
+    {
+      "id": 8,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 9,
+      "source": 1,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 10,
+      "source": 1,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 11,
+      "source": 1,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 12,
+      "source": 1,
+      "target": 6,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 13,
+      "source": 1,
+      "target": 7,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

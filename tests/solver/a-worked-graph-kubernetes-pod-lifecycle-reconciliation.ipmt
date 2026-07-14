@@ -1,0 +1,7 @@
+# given
+"apply manifest" ::?etc --::L--> "schedule pod" ::?etc
+"schedule pod" --::L--> "run pod" ::?etc
+container ::?etc --::P--> pod ::?etc
+pod --::P--> node ::?etc
+controller ::?etc --::X--> "compare states" ::?etc
+"compare states" --::X--> "desired state" ::?etc

@@ -1,0 +1,26 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "Thing A part 1. ::t \"First line with ::e ::tip \u003c--\u003e.\\nSecond line after newline with \\\\ character.\\nThird line with \\\"double quoted text\\\".\" ::tip",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          15
+        ]
+      },
+      "edges": {}
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "Thing A part 1.",
+      "alias": "",
+      "type": "Thing",
+      "tooltip": "First line with ::e ::tip \u003c--\u003e.\nSecond line after newline with \\ character.\nThird line with \"double quoted text\"."
+    }
+  ],
+  "edges": null
+}

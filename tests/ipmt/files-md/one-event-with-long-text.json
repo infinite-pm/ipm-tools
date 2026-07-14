@@ -1,0 +1,25 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "# @test-tags: long-text\ne1 ::e [This is a very long label that needs more height]",
+    "positions": {
+      "nodes": {
+        "1": [
+          24,
+          26
+        ]
+      },
+      "edges": {}
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "e1",
+      "alias": "",
+      "type": "Event"
+    }
+  ],
+  "edges": null
+}

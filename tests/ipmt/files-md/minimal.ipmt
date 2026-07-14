@@ -1,0 +1,3 @@
+Agent 1 --> Event A ::e EA::a
+Agent 2 --> EA
+Artifact X --> EA

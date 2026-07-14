@@ -1,0 +1,6 @@
+{
+  "end": 22,
+  "error": "invalid syntax: duplicate edge between same nodes (pair 1-2)",
+  "message": "invalid syntax: duplicate edge between same nodes (pair 1-2)",
+  "start": 17
+}

@@ -1,0 +1,60 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "Patrick wears black t-shirt ::e\n  --\u003e Patrick swaps t-shirt ::e",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          27
+        ],
+        "2": [
+          38,
+          59
+        ]
+      },
+      "edges": {
+        "3": {
+          "arrow": [
+            34,
+            38
+          ],
+          "source": [
+            0,
+            27
+          ],
+          "target": [
+            38,
+            59
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "Patrick wears black t-shirt",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "Patrick swaps t-shirt",
+      "alias": "",
+      "type": "Event"
+    }
+  ],
+  "edges": [
+    {
+      "id": 3,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "c-X ::c --::N--\u003e\n  c-Y ::c",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          3
+        ],
+        "2": [
+          19,
+          22
+        ]
+      },
+      "edges": {
+        "3": {
+          "arrow": [
+            7,
+            20
+          ],
+          "source": [
+            0,
+            3
+          ],
+          "target": [
+            19,
+            22
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "c-X",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 2,
+      "name": "c-Y",
+      "alias": "",
+      "type": "Concept"
+    }
+  ],
+  "edges": [
+    {
+      "id": 3,
+      "source": 1,
+      "target": 2,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

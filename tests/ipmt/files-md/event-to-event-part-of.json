@@ -1,0 +1,60 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "e5s1 ::e --::P--\u003e e5 ::e",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          4
+        ],
+        "2": [
+          18,
+          20
+        ]
+      },
+      "edges": {
+        "3": {
+          "arrow": [
+            8,
+            18
+          ],
+          "source": [
+            0,
+            4
+          ],
+          "target": [
+            18,
+            20
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "e5s1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "e5",
+      "alias": "",
+      "type": "Event"
+    }
+  ],
+  "edges": [
+    {
+      "id": 3,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

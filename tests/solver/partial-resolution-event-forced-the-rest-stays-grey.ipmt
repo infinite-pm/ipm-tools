@@ -1,0 +1,4 @@
+# given
+u0 ::?etc --::L--> ev ::?etc
+ev --::X--> beh ::?etc
+beh --::X--> prop ::?etc

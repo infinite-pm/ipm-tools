@@ -1,0 +1,2 @@
+# @test-tags: long-text
+e1 ::e [This is a very long label that needs more height]

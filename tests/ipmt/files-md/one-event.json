@@ -1,0 +1,25 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "# @test-tags: simple\ne1 ::e",
+    "positions": {
+      "nodes": {
+        "1": [
+          21,
+          23
+        ]
+      },
+      "edges": {}
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "e1",
+      "alias": "",
+      "type": "Event"
+    }
+  ],
+  "edges": null
+}

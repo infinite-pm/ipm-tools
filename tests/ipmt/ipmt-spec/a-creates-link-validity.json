@@ -1,0 +1,116 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "# semantically invalid (not enforced)\ne1 ::e --\u003e e2 ::e\ne1 \u003c-- tA\ntA --\u003e e2",
+    "positions": {
+      "nodes": {
+        "1": [
+          38,
+          40
+        ],
+        "2": [
+          49,
+          51
+        ],
+        "3": [
+          63,
+          65
+        ]
+      },
+      "edges": {
+        "4": {
+          "arrow": [
+            44,
+            49
+          ],
+          "source": [
+            38,
+            40
+          ],
+          "target": [
+            49,
+            51
+          ]
+        },
+        "5": {
+          "arrow": [
+            58,
+            63
+          ],
+          "source": [
+            63,
+            65
+          ],
+          "target": [
+            56,
+            58
+          ]
+        },
+        "6": {
+          "arrow": [
+            68,
+            73
+          ],
+          "source": [
+            66,
+            68
+          ],
+          "target": [
+            73,
+            75
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "e1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "e2",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "tA",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 4,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 5,
+      "source": 3,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 6,
+      "source": 3,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

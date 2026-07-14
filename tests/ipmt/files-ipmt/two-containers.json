@@ -1,0 +1,802 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "# Two-containers example.\n#\n# Two independent composite events (e2, e4), each holding a different\n# group of children. Demonstrates that clicking inside e2 and clicking\n# inside e4 lead to DIFFERENT level3 states.\n#\n# Sequence: e1 → [e2] → e3 → [e4] → e5\n#\n# e2 children: e2a1 (→ t1), e2a2; both → c1 (full coverage → c1 attaches to e2 shell)\n# e4 children: e4a1 (→ c3), e4a2, e4a3 (→ c5); only e4a1,e4a2 → t2\n#   (partial coverage → t2 stays connected to individual events, not the shell)\n#\n# Thing hierarchy: t1 → t1a → t1b → t1c  (3 levels deep)\n# Concept hierarchy: c1 → c1a, c1b  (one concept with two sub-concepts)\n\ne1 ::e\n  --then--\u003e e2 ::e\n  --then--\u003e e3 ::e\n  --then--\u003e e4 ::e\n  --then--\u003e e5 ::e\n\ne2 \u003c--::P contains-- e2a1 ::e\nt1 ::t --\u003e e2a1\n\ne2 \u003c--::P contains-- e2a2 ::e\ne2a1, e2a2 --\u003e c1 ::c\n\ne2a1 --\u003e e2a2\n\n# Thing hierarchy: t1 → t1a → t1b → t1c\nt1 --\u003e t1a ::t\nt1a --\u003e t1b ::t\nt1b --\u003e t1c ::t\n\n# Concept hierarchy: c1 has two sub-concepts\nc1 --\u003e c1a ::c\nc1 --\u003e c1b ::c\n\ne4 \u003c--::P contains-- e4a1 ::e\ne4a1 --\u003e c3 ::c\n\ne4 \u003c--::P contains-- e4a2 ::e\n\ne4 \u003c--::P contains-- e4a3 ::e\ne4a3 --\u003e c5 ::c\n\nt2 ::t --\u003e e4a1, e4a2\n\ne4a1 --\u003e e4a2 --\u003e e4a3\n\n# e5 is a plain leaf event — it has a concept but no children,\n# so it gets no level2/level3 and is not clickable in zoomIn.\ne5 --\u003e c6 ::c\n",
+    "positions": {
+      "nodes": {
+        "1": [
+          652,
+          654
+        ],
+        "10": [
+          904,
+          907
+        ],
+        "11": [
+          920,
+          923
+        ],
+        "12": [
+          936,
+          939
+        ],
+        "13": [
+          997,
+          1000
+        ],
+        "14": [
+          1012,
+          1015
+        ],
+        "15": [
+          1042,
+          1046
+        ],
+        "16": [
+          1060,
+          1062
+        ],
+        "17": [
+          1089,
+          1093
+        ],
+        "18": [
+          1120,
+          1124
+        ],
+        "19": [
+          1138,
+          1140
+        ],
+        "2": [
+          671,
+          673
+        ],
+        "20": [
+          1146,
+          1148
+        ],
+        "21": [
+          1327,
+          1329
+        ],
+        "3": [
+          690,
+          692
+        ],
+        "4": [
+          709,
+          711
+        ],
+        "5": [
+          728,
+          730
+        ],
+        "6": [
+          757,
+          761
+        ],
+        "7": [
+          766,
+          768
+        ],
+        "8": [
+          804,
+          808
+        ],
+        "9": [
+          828,
+          830
+        ]
+      },
+      "edges": {
+        "22": {
+          "arrow": [
+            661,
+            671
+          ],
+          "source": [
+            652,
+            654
+          ],
+          "target": [
+            671,
+            673
+          ]
+        },
+        "23": {
+          "arrow": [
+            680,
+            690
+          ],
+          "source": [
+            671,
+            673
+          ],
+          "target": [
+            690,
+            692
+          ]
+        },
+        "24": {
+          "arrow": [
+            699,
+            709
+          ],
+          "source": [
+            690,
+            692
+          ],
+          "target": [
+            709,
+            711
+          ]
+        },
+        "25": {
+          "arrow": [
+            718,
+            728
+          ],
+          "source": [
+            709,
+            711
+          ],
+          "target": [
+            728,
+            730
+          ]
+        },
+        "26": {
+          "arrow": [
+            739,
+            756
+          ],
+          "source": [
+            757,
+            761
+          ],
+          "target": [
+            736,
+            738
+          ]
+        },
+        "27": {
+          "arrow": [
+            772,
+            777
+          ],
+          "source": [
+            766,
+            768
+          ],
+          "target": [
+            777,
+            781
+          ]
+        },
+        "28": {
+          "arrow": [
+            786,
+            803
+          ],
+          "source": [
+            804,
+            808
+          ],
+          "target": [
+            783,
+            785
+          ]
+        },
+        "29": {
+          "arrow": [
+            823,
+            828
+          ],
+          "source": [
+            813,
+            817
+          ],
+          "target": [
+            828,
+            830
+          ]
+        },
+        "30": {
+          "arrow": [
+            823,
+            828
+          ],
+          "source": [
+            819,
+            823
+          ],
+          "target": [
+            828,
+            830
+          ]
+        },
+        "31": {
+          "arrow": [
+            840,
+            845
+          ],
+          "source": [
+            836,
+            840
+          ],
+          "target": [
+            845,
+            849
+          ]
+        },
+        "32": {
+          "arrow": [
+            899,
+            904
+          ],
+          "source": [
+            897,
+            899
+          ],
+          "target": [
+            904,
+            907
+          ]
+        },
+        "33": {
+          "arrow": [
+            915,
+            920
+          ],
+          "source": [
+            912,
+            915
+          ],
+          "target": [
+            920,
+            923
+          ]
+        },
+        "34": {
+          "arrow": [
+            931,
+            936
+          ],
+          "source": [
+            928,
+            931
+          ],
+          "target": [
+            936,
+            939
+          ]
+        },
+        "35": {
+          "arrow": [
+            992,
+            997
+          ],
+          "source": [
+            990,
+            992
+          ],
+          "target": [
+            997,
+            1000
+          ]
+        },
+        "36": {
+          "arrow": [
+            1007,
+            1012
+          ],
+          "source": [
+            1005,
+            1007
+          ],
+          "target": [
+            1012,
+            1015
+          ]
+        },
+        "37": {
+          "arrow": [
+            1024,
+            1041
+          ],
+          "source": [
+            1042,
+            1046
+          ],
+          "target": [
+            1021,
+            1023
+          ]
+        },
+        "38": {
+          "arrow": [
+            1055,
+            1060
+          ],
+          "source": [
+            1051,
+            1055
+          ],
+          "target": [
+            1060,
+            1062
+          ]
+        },
+        "39": {
+          "arrow": [
+            1071,
+            1088
+          ],
+          "source": [
+            1089,
+            1093
+          ],
+          "target": [
+            1068,
+            1070
+          ]
+        },
+        "40": {
+          "arrow": [
+            1102,
+            1119
+          ],
+          "source": [
+            1120,
+            1124
+          ],
+          "target": [
+            1099,
+            1101
+          ]
+        },
+        "41": {
+          "arrow": [
+            1133,
+            1138
+          ],
+          "source": [
+            1129,
+            1133
+          ],
+          "target": [
+            1138,
+            1140
+          ]
+        },
+        "42": {
+          "arrow": [
+            1152,
+            1157
+          ],
+          "source": [
+            1146,
+            1148
+          ],
+          "target": [
+            1157,
+            1161
+          ]
+        },
+        "43": {
+          "arrow": [
+            1152,
+            1157
+          ],
+          "source": [
+            1146,
+            1148
+          ],
+          "target": [
+            1163,
+            1167
+          ]
+        },
+        "44": {
+          "arrow": [
+            1173,
+            1178
+          ],
+          "source": [
+            1169,
+            1173
+          ],
+          "target": [
+            1178,
+            1182
+          ]
+        },
+        "45": {
+          "arrow": [
+            1182,
+            1187
+          ],
+          "source": [
+            1178,
+            1182
+          ],
+          "target": [
+            1187,
+            1191
+          ]
+        },
+        "46": {
+          "arrow": [
+            1322,
+            1327
+          ],
+          "source": [
+            1320,
+            1322
+          ],
+          "target": [
+            1327,
+            1329
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "e1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "e2",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "e3",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 4,
+      "name": "e4",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 5,
+      "name": "e5",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 6,
+      "name": "e2a1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 7,
+      "name": "t1",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 8,
+      "name": "e2a2",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 9,
+      "name": "c1",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 10,
+      "name": "t1a",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 11,
+      "name": "t1b",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 12,
+      "name": "t1c",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 13,
+      "name": "c1a",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 14,
+      "name": "c1b",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 15,
+      "name": "e4a1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 16,
+      "name": "c3",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 17,
+      "name": "e4a2",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 18,
+      "name": "e4a3",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 19,
+      "name": "c5",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 20,
+      "name": "t2",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 21,
+      "name": "c6",
+      "alias": "",
+      "type": "Concept"
+    }
+  ],
+  "edges": [
+    {
+      "id": 22,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "then",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 23,
+      "source": 2,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "then",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 24,
+      "source": 3,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "then",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 25,
+      "source": 4,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "then",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 26,
+      "source": 6,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "contains",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 27,
+      "source": 7,
+      "target": 6,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 28,
+      "source": 8,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "contains",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 29,
+      "source": 6,
+      "target": 9,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 30,
+      "source": 8,
+      "target": 9,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 31,
+      "source": 6,
+      "target": 8,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 32,
+      "source": 7,
+      "target": 10,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 33,
+      "source": 10,
+      "target": 11,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 34,
+      "source": 11,
+      "target": 12,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 35,
+      "source": 9,
+      "target": 13,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 36,
+      "source": 9,
+      "target": 14,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 37,
+      "source": 15,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "contains",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 38,
+      "source": 15,
+      "target": 16,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 39,
+      "source": 17,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "contains",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 40,
+      "source": 18,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "contains",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 41,
+      "source": 18,
+      "target": 19,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 42,
+      "source": 20,
+      "target": 15,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 43,
+      "source": 20,
+      "target": 17,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 44,
+      "source": 15,
+      "target": 17,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 45,
+      "source": 17,
+      "target": 18,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 46,
+      "source": 5,
+      "target": 21,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

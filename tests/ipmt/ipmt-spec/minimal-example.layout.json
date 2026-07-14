@@ -1,0 +1,158 @@
+{
+  "version": "26.07-v7",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "thing",
+      "label": "Agent 1",
+      "x": 40,
+      "y": 120,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "2",
+      "type": "event",
+      "label": "Event A",
+      "alias": "EA",
+      "x": 220,
+      "y": 220,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "3",
+      "type": "thing",
+      "label": "Agent 2",
+      "x": 40,
+      "y": 220,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "4",
+      "type": "thing",
+      "label": "Artifact X",
+      "x": 40,
+      "y": 320,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "5",
+      "type": "boundary",
+      "label": "S",
+      "x": 260,
+      "y": 40,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "6",
+      "type": "boundary",
+      "label": "E",
+      "x": 260,
+      "y": 420,
+      "width": 40,
+      "height": 40
+    }
+  ],
+  "edges": [
+    {
+      "from": "1",
+      "to": "2",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.3333333333333333
+        }
+      }
+    },
+    {
+      "from": "3",
+      "to": "2",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "4",
+      "to": "2",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.6666666666666666
+        }
+      }
+    },
+    {
+      "from": "5",
+      "to": "2",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "2",
+      "to": "6",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    }
+  ],
+  "meta": {
+    "bounds": {
+      "width": 380,
+      "height": 500,
+      "marginX": 40,
+      "marginY": 40
+    },
+    "constants": {
+      "gridStep": 20
+    }
+  }
+}

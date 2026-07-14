@@ -1,0 +1,93 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "tA, e1 ::e --\u003e c-X ::c",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          2
+        ],
+        "2": [
+          4,
+          6
+        ],
+        "3": [
+          15,
+          18
+        ]
+      },
+      "edges": {
+        "4": {
+          "arrow": [
+            10,
+            15
+          ],
+          "source": [
+            0,
+            2
+          ],
+          "target": [
+            15,
+            18
+          ]
+        },
+        "5": {
+          "arrow": [
+            10,
+            15
+          ],
+          "source": [
+            4,
+            6
+          ],
+          "target": [
+            15,
+            18
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "tA",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "e1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "c-X",
+      "alias": "",
+      "type": "Concept"
+    }
+  ],
+  "edges": [
+    {
+      "id": 4,
+      "source": 1,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 5,
+      "source": 2,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

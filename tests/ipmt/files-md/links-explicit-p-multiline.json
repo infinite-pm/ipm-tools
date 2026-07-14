@@ -1,0 +1,60 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "tAp1 ::t --::P--\u003e\n  tA ::t",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          4
+        ],
+        "2": [
+          20,
+          22
+        ]
+      },
+      "edges": {
+        "3": {
+          "arrow": [
+            8,
+            21
+          ],
+          "source": [
+            0,
+            4
+          ],
+          "target": [
+            20,
+            22
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "tAp1",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "tA",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 3,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

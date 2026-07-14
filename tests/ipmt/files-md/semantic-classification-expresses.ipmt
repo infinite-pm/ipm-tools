@@ -1,0 +1,4 @@
+microservice-A --> billing ::c
+deployment-pod --> kubernetes-workload ::c
+Deploy ::e --> production ::c
+Alert ::e --> high-severity ::c

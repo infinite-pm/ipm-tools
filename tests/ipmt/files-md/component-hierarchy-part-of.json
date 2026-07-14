@@ -1,0 +1,93 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "deployment-pod --\u003e microservice-A\nsource-file-X --\u003e microservice-A",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          14
+        ],
+        "2": [
+          19,
+          33
+        ],
+        "3": [
+          34,
+          47
+        ]
+      },
+      "edges": {
+        "4": {
+          "arrow": [
+            14,
+            19
+          ],
+          "source": [
+            0,
+            14
+          ],
+          "target": [
+            19,
+            33
+          ]
+        },
+        "5": {
+          "arrow": [
+            47,
+            52
+          ],
+          "source": [
+            34,
+            47
+          ],
+          "target": [
+            52,
+            66
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "deployment-pod",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "microservice-A",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 3,
+      "name": "source-file-X",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 4,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 5,
+      "source": 3,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

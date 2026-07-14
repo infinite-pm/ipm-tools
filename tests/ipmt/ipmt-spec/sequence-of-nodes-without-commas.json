@@ -1,0 +1,45 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "nodeA ::t, nodeB ::t, nodeC ::t",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          5
+        ],
+        "2": [
+          11,
+          16
+        ],
+        "3": [
+          22,
+          27
+        ]
+      },
+      "edges": {}
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "nodeA",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "nodeB",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 3,
+      "name": "nodeC",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": null
+}

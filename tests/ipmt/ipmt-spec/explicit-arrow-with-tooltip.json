@@ -1,0 +1,60 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "e2a ::e --::P \"e2a is part of e2\"--\u003e e2 ::e",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          3
+        ],
+        "2": [
+          37,
+          39
+        ]
+      },
+      "edges": {
+        "3": {
+          "arrow": [
+            7,
+            37
+          ],
+          "source": [
+            0,
+            3
+          ],
+          "target": [
+            37,
+            39
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "e2a",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "e2",
+      "alias": "",
+      "type": "Event"
+    }
+  ],
+  "edges": [
+    {
+      "id": 3,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "e2a is part of e2",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

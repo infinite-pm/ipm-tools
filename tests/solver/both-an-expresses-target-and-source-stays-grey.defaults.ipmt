@@ -1,0 +1,3 @@
+# then defaults
+controller ::t --::X--> behaviour ::c
+behaviour ::c --::X--> state ::c

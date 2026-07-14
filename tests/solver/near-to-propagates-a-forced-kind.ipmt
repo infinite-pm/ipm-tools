@@ -1,0 +1,3 @@
+# given
+trigger ::?etc --::L--> fire ::?etc
+fire --::N-- spark ::?etc

@@ -1,0 +1,3 @@
+# given
+step ::?etc --::P--> process ::?etc
+process --::L--> finish ::?etc

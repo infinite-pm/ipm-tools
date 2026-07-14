@@ -1,0 +1,6 @@
+{
+  "end": 0,
+  "error": "invalid syntax: a node may have at most one type marker (::e, ::c, or ::t)",
+  "message": "invalid syntax: a node may have at most one type marker (::e, ::c, or ::t)",
+  "start": 0
+}

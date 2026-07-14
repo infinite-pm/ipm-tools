@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="140" viewBox="0 0 200 140">
+  <defs>
+  </defs>
+  <g id="container-shells">
+  </g>
+  <g id="node-shadows">
+    <rect x="40" y="40" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+  </g>
+  <g id="edges">
+  </g>
+  <g id="nodes">
+    <g>
+      <title>line 1 line 2</title>
+    <rect x="40" y="40" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+    <text x="100" y="60" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">Thing A part</text>
+    <text x="100" y="80" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">1.</text>
+    </g>
+  </g>
+</svg>

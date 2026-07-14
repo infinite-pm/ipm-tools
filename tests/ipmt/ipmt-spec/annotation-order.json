@@ -1,0 +1,25 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "ste2::a Spacetime Event 2 ::e",
+    "positions": {
+      "nodes": {
+        "1": [
+          8,
+          25
+        ]
+      },
+      "edges": {}
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "Spacetime Event 2",
+      "alias": "ste2",
+      "type": "Event"
+    }
+  ],
+  "edges": null
+}

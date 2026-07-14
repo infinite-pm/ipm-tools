@@ -1,0 +1,149 @@
+{
+  "version": "26.07-v7",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "thing",
+      "label": "A",
+      "x": 500,
+      "y": 40,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "2",
+      "type": "thing",
+      "label": "B",
+      "x": 500,
+      "y": 140,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "3",
+      "type": "thing",
+      "label": "C",
+      "x": 500,
+      "y": 240,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "4",
+      "type": "thing",
+      "label": "F",
+      "x": 740,
+      "y": 140,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "5",
+      "type": "thing",
+      "label": "G",
+      "x": 740,
+      "y": 40,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "6",
+      "type": "thing",
+      "label": "H",
+      "x": 40,
+      "y": 40,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "7",
+      "type": "thing",
+      "label": "I",
+      "x": 260,
+      "y": 40,
+      "width": 120,
+      "height": 60
+    }
+  ],
+  "edges": [
+    {
+      "from": "1",
+      "to": "2",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "2",
+      "to": "3",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "5",
+      "to": "4",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "6",
+      "to": "7",
+      "dir": "undir",
+      "base": "nearto",
+      "style": "nearto",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.5
+        }
+      }
+    }
+  ],
+  "meta": {
+    "bounds": {
+      "width": 900,
+      "height": 340,
+      "marginX": 40,
+      "marginY": 40
+    },
+    "constants": {
+      "gridStep": 20
+    }
+  }
+}

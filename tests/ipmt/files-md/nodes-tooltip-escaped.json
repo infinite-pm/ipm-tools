@@ -1,0 +1,26 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "Thing A ::t \"Line 1 with \\\"quote\\\" and \\\\ backslash.\\nLine 2 after newline.\" ::tip",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          7
+        ]
+      },
+      "edges": {}
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "Thing A",
+      "alias": "",
+      "type": "Thing",
+      "tooltip": "Line 1 with \"quote\" and \\ backslash.\nLine 2 after newline."
+    }
+  ],
+  "edges": null
+}

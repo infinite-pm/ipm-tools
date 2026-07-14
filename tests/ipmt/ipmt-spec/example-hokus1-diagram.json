@@ -1,0 +1,370 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "e1 ::e --\u003e e2::a Spacetime Event 2. ::e\ntA --\u003e tAp1::a Thing A part 1. --\u003e e1\ntB --\u003e e1\ne2 \u003c-- tC\ntB --- tC\ne1, tAp1 --\u003e c-V ::c\ntC --\u003e c-X ::c --\u003e c-Y ::c\nc-Z ::c --- c-X",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          2
+        ],
+        "10": [
+          156,
+          159
+        ],
+        "2": [
+          17,
+          35
+        ],
+        "3": [
+          40,
+          42
+        ],
+        "4": [
+          55,
+          70
+        ],
+        "5": [
+          78,
+          80
+        ],
+        "6": [
+          95,
+          97
+        ],
+        "7": [
+          121,
+          124
+        ],
+        "8": [
+          136,
+          139
+        ],
+        "9": [
+          148,
+          151
+        ]
+      },
+      "edges": {
+        "11": {
+          "arrow": [
+            6,
+            11
+          ],
+          "source": [
+            0,
+            2
+          ],
+          "target": [
+            17,
+            35
+          ]
+        },
+        "12": {
+          "arrow": [
+            42,
+            47
+          ],
+          "source": [
+            40,
+            42
+          ],
+          "target": [
+            55,
+            70
+          ]
+        },
+        "13": {
+          "arrow": [
+            70,
+            75
+          ],
+          "source": [
+            55,
+            70
+          ],
+          "target": [
+            75,
+            77
+          ]
+        },
+        "14": {
+          "arrow": [
+            80,
+            85
+          ],
+          "source": [
+            78,
+            80
+          ],
+          "target": [
+            85,
+            87
+          ]
+        },
+        "15": {
+          "arrow": [
+            90,
+            95
+          ],
+          "source": [
+            95,
+            97
+          ],
+          "target": [
+            88,
+            90
+          ]
+        },
+        "16": {
+          "arrow": [
+            100,
+            105
+          ],
+          "source": [
+            98,
+            100
+          ],
+          "target": [
+            105,
+            107
+          ]
+        },
+        "17": {
+          "arrow": [
+            116,
+            121
+          ],
+          "source": [
+            108,
+            110
+          ],
+          "target": [
+            121,
+            124
+          ]
+        },
+        "18": {
+          "arrow": [
+            116,
+            121
+          ],
+          "source": [
+            112,
+            116
+          ],
+          "target": [
+            121,
+            124
+          ]
+        },
+        "19": {
+          "arrow": [
+            131,
+            136
+          ],
+          "source": [
+            129,
+            131
+          ],
+          "target": [
+            136,
+            139
+          ]
+        },
+        "20": {
+          "arrow": [
+            143,
+            148
+          ],
+          "source": [
+            136,
+            139
+          ],
+          "target": [
+            148,
+            151
+          ]
+        },
+        "21": {
+          "arrow": [
+            163,
+            168
+          ],
+          "source": [
+            156,
+            159
+          ],
+          "target": [
+            168,
+            171
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "e1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "Spacetime Event 2.",
+      "alias": "e2",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "tA",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 4,
+      "name": "Thing A part 1.",
+      "alias": "tAp1",
+      "type": "Thing"
+    },
+    {
+      "id": 5,
+      "name": "tB",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 6,
+      "name": "tC",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 7,
+      "name": "c-V",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 8,
+      "name": "c-X",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 9,
+      "name": "c-Y",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 10,
+      "name": "c-Z",
+      "alias": "",
+      "type": "Concept"
+    }
+  ],
+  "edges": [
+    {
+      "id": 11,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 12,
+      "source": 3,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 13,
+      "source": 4,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 14,
+      "source": 5,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 15,
+      "source": 6,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 16,
+      "source": 5,
+      "target": 6,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 17,
+      "source": 1,
+      "target": 7,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 18,
+      "source": 4,
+      "target": 7,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 19,
+      "source": 6,
+      "target": 8,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 20,
+      "source": 8,
+      "target": 9,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 21,
+      "source": 10,
+      "target": 8,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

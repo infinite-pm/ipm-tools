@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="870" viewBox="0 0 1500 870">
+  <defs>
+  </defs>
+  <g id="container-shells">
+  </g>
+  <g id="node-shadows">
+    <rect x="800" y="200" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="400" y="590" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="220" y="690" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="400" y="690" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="980" y="210" width="120" height="80" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="1160" y="120" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="1120" y="220" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="1300" y="220" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="980" y="530" width="120" height="100" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="1160" y="550" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="1340" y="500" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="800" y="320" width="120" height="200" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="1340" y="600" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="1160" y="320" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="1160" y="420" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="840" y="40" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="840" y="790" width="40" height="40" rx="4" ry="4" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="800" y="580" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="620" y="390" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="300" y="490" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="220" y="590" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="40" y="690" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="480" y="490" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="660" y="490" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+  </g>
+  <g id="edges">
+    <g class="edge" data-edge-idx="0" data-edge-base="leadsto" data-edge-from="1" data-edge-to="2">
+    <line x1="860.00" y1="265.00" x2="860.00" y2="308.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 860.00 315.00 L 855.50 306.00 L 860.00 308.25 L 864.50 306.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="1" data-edge-base="leadsto" data-edge-from="2" data-edge-to="3">
+    <line x1="860.00" y1="525.00" x2="860.00" y2="568.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 860.00 575.00 L 855.50 566.00 L 860.00 568.25 L 864.50 566.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="2" data-edge-base="expresses" data-edge-from="2" data-edge-to="4">
+    <line x1="795.00" y1="420.00" x2="751.75" y2="420.00" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 745.00 420.00 L 754.00 415.50 L 751.75 420.00 L 754.00 424.50 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="3" data-edge-base="expresses" data-edge-from="4" data-edge-to="5">
+    <line x1="634.15" y1="452.19" x2="382.54" y2="486.89" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 375.85 487.81 L 384.15 482.13 L 382.54 486.89 L 385.38 491.04 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="4" data-edge-base="expresses" data-edge-from="5" data-edge-to="6">
+    <line x1="323.75" y1="555.00" x2="291.52" y2="580.78" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 286.25 585.00 L 290.47 575.86 L 291.52 580.78 L 296.09 582.89 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="5" data-edge-base="expresses" data-edge-from="6" data-edge-to="7">
+    <line x1="234.54" y1="654.12" x2="121.98" y2="684.14" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 115.46 685.88 L 123.00 679.21 L 121.98 684.14 L 125.32 687.91 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="6" data-edge-base="expresses" data-edge-from="4" data-edge-to="8">
+    <line x1="664.62" y1="454.40" x2="561.87" y2="483.75" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 555.38 485.60 L 562.80 478.81 L 561.87 483.75 L 565.27 487.46 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="7" data-edge-base="expresses" data-edge-from="4" data-edge-to="9">
+    <line x1="710.00" y1="455.00" x2="710.00" y2="478.25" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 710.00 485.00 L 705.50 476.00 L 710.00 478.25 L 714.50 476.00 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="8" data-edge-base="expresses" data-edge-from="5" data-edge-to="10">
+    <line x1="398.75" y1="555.00" x2="445.39" y2="581.65" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 451.25 585.00 L 441.20 584.44 L 445.39 581.65 L 445.67 576.63 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="9" data-edge-base="expresses" data-edge-from="6" data-edge-to="11">
+    <line x1="280.00" y1="655.00" x2="280.00" y2="678.25" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 280.00 685.00 L 275.50 676.00 L 280.00 678.25 L 284.50 676.00 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="10" data-edge-base="expresses" data-edge-from="6" data-edge-to="12">
+    <line x1="325.46" y1="654.12" x2="438.02" y2="684.14" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 444.54 685.88 L 434.68 687.91 L 438.02 684.14 L 437.00 679.21 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="11" data-edge-base="partof" data-edge-from="13" data-edge-to="2">
+    <line x1="975.00" y1="260.00" x2="928.02" y2="353.96" stroke="#82b366" stroke-width="3" />
+    <path d="M 925.00 360.00 L 925.00 349.94 L 928.02 353.96 L 933.05 353.96 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="12" data-edge-base="expresses" data-edge-from="13" data-edge-to="14">
+    <line x1="1105.00" y1="223.33" x2="1150.95" y2="162.07" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 1155.00 156.67 L 1153.20 166.57 L 1150.95 162.07 L 1146.00 161.17 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="13" data-edge-base="expresses" data-edge-from="14" data-edge-to="15">
+    <line x1="1190.00" y1="185.00" x2="1190.00" y2="208.25" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 1190.00 215.00 L 1185.50 206.00 L 1190.00 208.25 L 1194.50 206.00 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="14" data-edge-base="expresses" data-edge-from="14" data-edge-to="16">
+    <line x1="1263.75" y1="185.00" x2="1339.91" y2="212.69" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 1346.25 215.00 L 1336.25 216.15 L 1339.91 212.69 L 1339.33 207.70 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="15" data-edge-base="partof" data-edge-from="17" data-edge-to="2">
+    <line x1="975.00" y1="570.83" x2="928.23" y2="485.09" stroke="#82b366" stroke-width="3" />
+    <path d="M 925.00 479.17 L 933.26 484.91 L 928.23 485.09 L 925.36 489.22 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="16" data-edge-base="partof" data-edge-from="18" data-edge-to="17">
+    <line x1="1155.00" y1="580.00" x2="1111.75" y2="580.00" stroke="#82b366" stroke-width="3" />
+    <path d="M 1105.00 580.00 L 1114.00 575.50 L 1111.75 580.00 L 1114.00 584.50 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="17" data-edge-base="expresses" data-edge-from="18" data-edge-to="19">
+    <line x1="1285.00" y1="562.08" x2="1329.17" y2="536.32" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 1335.00 532.92 L 1329.49 541.34 L 1329.17 536.32 L 1324.96 533.56 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="18" data-edge-base="expresses" data-edge-from="18" data-edge-to="20">
+    <line x1="1285.00" y1="597.92" x2="1329.17" y2="623.68" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 1335.00 627.08 L 1324.96 626.44 L 1329.17 623.68 L 1329.49 618.66 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="19" data-edge-base="leadsto" data-edge-from="13" data-edge-to="17">
+    <line x1="1040.00" y1="295.00" x2="1040.00" y2="518.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 1040.00 525.00 L 1035.50 516.00 L 1040.00 518.25 L 1044.50 516.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="20" data-edge-base="partof" data-edge-from="21" data-edge-to="13">
+    <polyline points="1155.00,339.00 1069,339 1069.76,301.75" fill="none" stroke="#82b366" stroke-width="3" />
+    <path d="M 1069.90 295.00 L 1074.21 304.09 L 1069.76 301.75 L 1065.22 303.91 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="21" data-edge-base="partof" data-edge-from="21" data-edge-to="17">
+    <polyline points="1165.00,360.00 1169,360 1076.31,519.17" fill="none" stroke="#82b366" stroke-width="3" />
+    <path d="M 1072.91 525.00 L 1073.55 514.96 L 1076.31 519.17 L 1081.33 519.49 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="22" data-edge-base="partof" data-edge-from="22" data-edge-to="13">
+    <line x1="1155.00" y1="421.25" x2="1107.31" y2="290.09" stroke="#82b366" stroke-width="3" />
+    <path d="M 1105.00 283.75 L 1112.30 290.67 L 1107.31 290.09 L 1103.85 293.75 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="23" data-edge-base="partof" data-edge-from="22" data-edge-to="17">
+    <line x1="1155.00" y1="472.50" x2="1108.74" y2="541.88" stroke="#82b366" stroke-width="3" />
+    <path d="M 1105.00 547.50 L 1106.25 537.52 L 1108.74 541.88 L 1113.74 542.51 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="24" data-edge-base="leadsto" data-edge-from="23" data-edge-to="1">
+    <line x1="860.00" y1="85.00" x2="860.00" y2="188.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 860.00 195.00 L 855.50 186.00 L 860.00 188.25 L 864.50 186.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="25" data-edge-base="leadsto" data-edge-from="3" data-edge-to="24">
+    <line x1="860.00" y1="645.00" x2="860.00" y2="778.25" stroke="#ff8000" stroke-width="3" />
+    <path d="M 860.00 785.00 L 855.50 776.00 L 860.00 778.25 L 864.50 776.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+  </g>
+  <g id="nodes">
+    <rect x="800" y="200" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="860" y="211" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">get the</text>
+    <text x="860" y="230" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">party</text>
+    <text x="860" y="249" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">started</text>
+    <rect x="400" y="590" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="460" y="620" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">how</text>
+    <rect x="220" y="690" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="280" y="701" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">cutting</text>
+    <text x="280" y="720" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">interdimensi</text>
+    <text x="280" y="739" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">onal rifts</text>
+    <rect x="400" y="690" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="460" y="710" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">cutting</text>
+    <text x="460" y="730" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">bread</text>
+    <rect x="980" y="210" width="120" height="80" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="1040" y="225" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">Prof Plum</text>
+    <text x="1040" y="242" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">&amp; Miss</text>
+    <text x="1040" y="258" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">Scarlett in</text>
+    <text x="1040" y="275" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">the library</text>
+    <rect x="1160" y="120" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="1220" y="140" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">In the</text>
+    <text x="1220" y="160" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">library</text>
+    <rect x="1120" y="220" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="1180" y="250" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">where</text>
+    <rect x="1300" y="220" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="1360" y="250" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">library</text>
+    <rect x="980" y="530" width="120" height="100" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="1040" y="555" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">Miss Scarlet</text>
+    <text x="1040" y="572" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">refuses to</text>
+    <text x="1040" y="588" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">marry</text>
+    <text x="1040" y="605" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">Professor Plum</text>
+    <rect x="1160" y="550" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="1220" y="570" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">refusal</text>
+    <text x="1220" y="590" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">marriage</text>
+    <rect x="1340" y="500" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="1400" y="530" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">marriage</text>
+    <rect x="800" y="320" width="120" height="200" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="860" y="361" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">Professor Plum</text>
+    <text x="860" y="378" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">murders Miss</text>
+    <text x="860" y="395" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">Scarlet in the</text>
+    <text x="860" y="412" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">library with</text>
+    <text x="860" y="428" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">the bread</text>
+    <text x="860" y="445" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">knife because</text>
+    <text x="860" y="462" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">she refused to</text>
+    <text x="860" y="479" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="14" font-weight="bold" fill="#ff8000">marry him</text>
+    <rect x="1340" y="600" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="1400" y="630" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">refusal</text>
+    <rect x="1160" y="320" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+    <text x="1220" y="340" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">Professor</text>
+    <text x="1220" y="360" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">Plum</text>
+    <rect x="1160" y="420" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+    <text x="1220" y="450" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">Miss Scarlet</text>
+    <rect x="840" y="40" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="860" y="60" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">S</text>
+    <rect x="840" y="790" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="860" y="810" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">E</text>
+    <rect x="800" y="580" width="120" height="60" rx="6" ry="6" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
+    <text x="860" y="600" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">investigatio</text>
+    <text x="860" y="620" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">n begins</text>
+    <rect x="620" y="390" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="680" y="410" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">murder by</text>
+    <text x="680" y="430" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">subtle knife</text>
+    <rect x="300" y="490" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="360" y="510" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">use of</text>
+    <text x="360" y="530" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">subtle knife</text>
+    <rect x="220" y="590" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="280" y="620" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">subtle knife</text>
+    <rect x="40" y="690" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="100" y="720" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">knife</text>
+    <rect x="480" y="490" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="540" y="520" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">what action</text>
+    <rect x="660" y="490" width="120" height="60" rx="6" ry="6" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+    <text x="720" y="520" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">murder</text>
+  </g>
+</svg>

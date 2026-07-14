@@ -1,0 +1,93 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "# This is a comment\nAgent A --\u003e E1::a Event 1 ::e\n# Another comment\nAgent B --\u003e E1",
+    "positions": {
+      "nodes": {
+        "1": [
+          20,
+          27
+        ],
+        "2": [
+          38,
+          45
+        ],
+        "3": [
+          68,
+          75
+        ]
+      },
+      "edges": {
+        "4": {
+          "arrow": [
+            27,
+            32
+          ],
+          "source": [
+            20,
+            27
+          ],
+          "target": [
+            38,
+            45
+          ]
+        },
+        "5": {
+          "arrow": [
+            75,
+            80
+          ],
+          "source": [
+            68,
+            75
+          ],
+          "target": [
+            80,
+            82
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "Agent A",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "Event 1",
+      "alias": "E1",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "Agent B",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 4,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 5,
+      "source": 3,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "klm-opq::a Text abc ::t",
+    "positions": {
+      "nodes": {
+        "1": [
+          11,
+          19
+        ]
+      },
+      "edges": {}
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "Text abc",
+      "alias": "klm-opq",
+      "type": "Thing"
+    }
+  ],
+  "edges": null
+}

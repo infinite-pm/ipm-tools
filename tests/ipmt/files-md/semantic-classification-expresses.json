@@ -1,0 +1,189 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "microservice-A --\u003e billing ::c\ndeployment-pod --\u003e kubernetes-workload ::c\nDeploy ::e --\u003e production ::c\nAlert ::e --\u003e high-severity ::c",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          14
+        ],
+        "2": [
+          19,
+          26
+        ],
+        "3": [
+          31,
+          45
+        ],
+        "4": [
+          50,
+          69
+        ],
+        "5": [
+          74,
+          80
+        ],
+        "6": [
+          89,
+          99
+        ],
+        "7": [
+          104,
+          109
+        ],
+        "8": [
+          118,
+          131
+        ]
+      },
+      "edges": {
+        "10": {
+          "arrow": [
+            45,
+            50
+          ],
+          "source": [
+            31,
+            45
+          ],
+          "target": [
+            50,
+            69
+          ]
+        },
+        "11": {
+          "arrow": [
+            84,
+            89
+          ],
+          "source": [
+            74,
+            80
+          ],
+          "target": [
+            89,
+            99
+          ]
+        },
+        "12": {
+          "arrow": [
+            113,
+            118
+          ],
+          "source": [
+            104,
+            109
+          ],
+          "target": [
+            118,
+            131
+          ]
+        },
+        "9": {
+          "arrow": [
+            14,
+            19
+          ],
+          "source": [
+            0,
+            14
+          ],
+          "target": [
+            19,
+            26
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "microservice-A",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "billing",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 3,
+      "name": "deployment-pod",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 4,
+      "name": "kubernetes-workload",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 5,
+      "name": "Deploy",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 6,
+      "name": "production",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 7,
+      "name": "Alert",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 8,
+      "name": "high-severity",
+      "alias": "",
+      "type": "Concept"
+    }
+  ],
+  "edges": [
+    {
+      "id": 9,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 10,
+      "source": 3,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 11,
+      "source": 5,
+      "target": 6,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 12,
+      "source": 7,
+      "target": 8,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

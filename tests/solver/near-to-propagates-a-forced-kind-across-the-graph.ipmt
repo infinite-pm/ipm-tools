@@ -1,0 +1,4 @@
+# given
+launch ::?etc --::L--> liftoff ::?etc
+rocket ::?etc --::P--> stage ::?etc
+liftoff --::N-- rocket

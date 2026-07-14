@@ -1,0 +1,357 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "# Process flow\nCommit ::e --\u003e Build ::e --\u003e Deploy ::e\n\n# Participants (thing --\u003e event, part-of)\nJane, repo-main --\u003e Commit\nCI-runner --\u003e Build\nservice-container, deploy-config --\u003e Deploy\n\n# Semantic tags\nJane --\u003e SRE ::c\nDeploy --\u003e production ::c\nservice-container --\u003e microservice ::c",
+    "positions": {
+      "nodes": {
+        "1": [
+          15,
+          21
+        ],
+        "10": [
+          234,
+          244
+        ],
+        "11": [
+          271,
+          283
+        ],
+        "2": [
+          30,
+          35
+        ],
+        "3": [
+          44,
+          50
+        ],
+        "4": [
+          98,
+          102
+        ],
+        "5": [
+          104,
+          113
+        ],
+        "6": [
+          125,
+          134
+        ],
+        "7": [
+          145,
+          162
+        ],
+        "8": [
+          164,
+          177
+        ],
+        "9": [
+          215,
+          218
+        ]
+      },
+      "edges": {
+        "12": {
+          "arrow": [
+            25,
+            30
+          ],
+          "source": [
+            15,
+            21
+          ],
+          "target": [
+            30,
+            35
+          ]
+        },
+        "13": {
+          "arrow": [
+            39,
+            44
+          ],
+          "source": [
+            30,
+            35
+          ],
+          "target": [
+            44,
+            50
+          ]
+        },
+        "14": {
+          "arrow": [
+            113,
+            118
+          ],
+          "source": [
+            98,
+            102
+          ],
+          "target": [
+            118,
+            124
+          ]
+        },
+        "15": {
+          "arrow": [
+            113,
+            118
+          ],
+          "source": [
+            104,
+            113
+          ],
+          "target": [
+            118,
+            124
+          ]
+        },
+        "16": {
+          "arrow": [
+            134,
+            139
+          ],
+          "source": [
+            125,
+            134
+          ],
+          "target": [
+            139,
+            144
+          ]
+        },
+        "17": {
+          "arrow": [
+            177,
+            182
+          ],
+          "source": [
+            145,
+            162
+          ],
+          "target": [
+            182,
+            188
+          ]
+        },
+        "18": {
+          "arrow": [
+            177,
+            182
+          ],
+          "source": [
+            164,
+            177
+          ],
+          "target": [
+            182,
+            188
+          ]
+        },
+        "19": {
+          "arrow": [
+            210,
+            215
+          ],
+          "source": [
+            206,
+            210
+          ],
+          "target": [
+            215,
+            218
+          ]
+        },
+        "20": {
+          "arrow": [
+            229,
+            234
+          ],
+          "source": [
+            223,
+            229
+          ],
+          "target": [
+            234,
+            244
+          ]
+        },
+        "21": {
+          "arrow": [
+            266,
+            271
+          ],
+          "source": [
+            249,
+            266
+          ],
+          "target": [
+            271,
+            283
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "Commit",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "Build",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "Deploy",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 4,
+      "name": "Jane",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 5,
+      "name": "repo-main",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 6,
+      "name": "CI-runner",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 7,
+      "name": "service-container",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 8,
+      "name": "deploy-config",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 9,
+      "name": "SRE",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 10,
+      "name": "production",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 11,
+      "name": "microservice",
+      "alias": "",
+      "type": "Concept"
+    }
+  ],
+  "edges": [
+    {
+      "id": 12,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 13,
+      "source": 2,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 14,
+      "source": 4,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 15,
+      "source": 5,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 16,
+      "source": 6,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 17,
+      "source": 7,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 18,
+      "source": 8,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 19,
+      "source": 4,
+      "target": 9,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 20,
+      "source": 3,
+      "target": 10,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 21,
+      "source": 7,
+      "target": 11,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "Event 1 ::e E1::a\nThing A ::t TA::a",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          7
+        ],
+        "2": [
+          18,
+          25
+        ]
+      },
+      "edges": {}
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "Event 1",
+      "alias": "E1",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "Thing A",
+      "alias": "TA",
+      "type": "Thing"
+    }
+  ],
+  "edges": null
+}

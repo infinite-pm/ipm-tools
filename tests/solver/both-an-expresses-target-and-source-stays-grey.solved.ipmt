@@ -1,0 +1,3 @@
+# then
+controller ::?tec --::X--> behaviour ::?ce
+behaviour ::?ce --::X--> state ::?ce

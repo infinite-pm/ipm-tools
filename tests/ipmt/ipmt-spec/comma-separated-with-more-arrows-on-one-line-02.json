@@ -1,0 +1,159 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "c-V ::c --\u003e c-X ::c\nc-W ::c --\u003e c-X ::c\nc-X ::c --\u003e c-Y ::c --\u003e c-Z ::c",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          3
+        ],
+        "2": [
+          12,
+          15
+        ],
+        "3": [
+          20,
+          23
+        ],
+        "4": [
+          52,
+          55
+        ],
+        "5": [
+          64,
+          67
+        ]
+      },
+      "edges": {
+        "6": {
+          "arrow": [
+            7,
+            12
+          ],
+          "source": [
+            0,
+            3
+          ],
+          "target": [
+            12,
+            15
+          ]
+        },
+        "7": {
+          "arrow": [
+            27,
+            32
+          ],
+          "source": [
+            20,
+            23
+          ],
+          "target": [
+            32,
+            35
+          ]
+        },
+        "8": {
+          "arrow": [
+            47,
+            52
+          ],
+          "source": [
+            40,
+            43
+          ],
+          "target": [
+            52,
+            55
+          ]
+        },
+        "9": {
+          "arrow": [
+            59,
+            64
+          ],
+          "source": [
+            52,
+            55
+          ],
+          "target": [
+            64,
+            67
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "c-V",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 2,
+      "name": "c-X",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 3,
+      "name": "c-W",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 4,
+      "name": "c-Y",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 5,
+      "name": "c-Z",
+      "alias": "",
+      "type": "Concept"
+    }
+  ],
+  "edges": [
+    {
+      "id": 6,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 7,
+      "source": 3,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 8,
+      "source": 2,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 9,
+      "source": 4,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

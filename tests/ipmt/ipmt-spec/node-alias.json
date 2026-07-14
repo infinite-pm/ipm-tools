@@ -1,0 +1,25 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "tAp1::a Thing A part 1.",
+    "positions": {
+      "nodes": {
+        "1": [
+          8,
+          23
+        ]
+      },
+      "edges": {}
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "Thing A part 1.",
+      "alias": "tAp1",
+      "type": "Thing"
+    }
+  ],
+  "edges": null
+}
