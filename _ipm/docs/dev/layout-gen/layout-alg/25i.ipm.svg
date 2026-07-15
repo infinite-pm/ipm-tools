@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="280" viewBox="0 0 740 280">
+  <!-- ipm-svg meta: generated-by=md-embed@dev hash=da3b00b5 source-file=docs/dev/layout-gen/layout-alg.md source-id=25i -->
+
+  <defs>
+  </defs>
+  <g id="container-shells">
+  </g>
+  <g id="node-shadows">
+    <rect x="300" y="40" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="40" y="140" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="220" y="140" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="400" y="140" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+    <rect x="580" y="140" width="120" height="60" rx="6" ry="6" fill="#000000" stroke="#000000" stroke-width="2" opacity="0.25" transform="translate(2,3)"/>
+  </g>
+  <g id="edges">
+    <g class="edge" data-edge-idx="0" data-edge-base="partof" data-edge-from="1" data-edge-to="2">
+    <line x1="308.25" y1="102.81" x2="122.40" y2="136.00" stroke="#82b366" stroke-width="3" />
+    <path d="M 115.75 137.19 L 123.82 131.18 L 122.40 136.00 L 125.40 140.04 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="1" data-edge-base="partof" data-edge-from="1" data-edge-to="3">
+    <line x1="339.50" y1="105.00" x2="294.32" y2="131.58" stroke="#82b366" stroke-width="3" />
+    <path d="M 288.50 135.00 L 293.98 126.56 L 294.32 131.58 L 298.54 134.32 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="2" data-edge-base="partof" data-edge-from="1" data-edge-to="4">
+    <line x1="383.00" y1="105.00" x2="442.86" y2="132.21" stroke="#82b366" stroke-width="3" />
+    <path d="M 449.00 135.00 L 438.94 135.37 L 442.86 132.21 L 442.67 127.18 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="3" data-edge-base="partof" data-edge-from="1" data-edge-to="5">
+    <line x1="411.79" y1="102.59" x2="617.55" y2="136.32" stroke="#82b366" stroke-width="3" />
+    <path d="M 624.21 137.41 L 614.60 140.40 L 617.55 136.32 L 616.06 131.51 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    </g>
+    <g class="edge" data-edge-idx="4" data-edge-base="nearto" data-edge-from="2" data-edge-to="3">
+    <line x1="165.00" y1="170.00" x2="215.00" y2="170.00" stroke="#999999" stroke-width="3" stroke-linecap="round" stroke-dasharray="0 6.250" />
+    </g>
+    <g class="edge" data-edge-idx="5" data-edge-base="nearto" data-edge-from="3" data-edge-to="4">
+    <line x1="345.00" y1="170.00" x2="395.00" y2="170.00" stroke="#999999" stroke-width="3" stroke-linecap="round" stroke-dasharray="0 6.250" />
+    </g>
+    <g class="edge" data-edge-idx="6" data-edge-base="nearto" data-edge-from="4" data-edge-to="5">
+    <line x1="525.00" y1="170.00" x2="575.00" y2="170.00" stroke="#999999" stroke-width="3" stroke-linecap="round" stroke-dasharray="0 6.250" />
+    </g>
+    <g class="edge" data-edge-idx="7" data-edge-base="nearto" data-edge-from="2" data-edge-to="5">
+    <polyline points="135.00,205.00 170,240 570,240 605.00,205.00" fill="none" stroke="#999999" stroke-width="3" stroke-linecap="round" stroke-dasharray="0 6.012" />
+    </g>
+  </g>
+  <g id="nodes">
+    <rect x="300" y="40" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+    <text x="360" y="70" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">tRoot</text>
+    <rect x="40" y="140" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+    <text x="100" y="170" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">tB</text>
+    <rect x="220" y="140" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+    <text x="280" y="170" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">tC</text>
+    <rect x="400" y="140" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+    <text x="460" y="170" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">tD</text>
+    <rect x="580" y="140" width="120" height="60" rx="6" ry="6" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+    <text x="640" y="170" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#009900">tE</text>
+  </g>
+</svg>
