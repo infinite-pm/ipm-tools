@@ -3,8 +3,11 @@ name: CI
 on:
   push:
     branches: [main]
+    tags: ['v*']
   pull_request:
     branches: [main]
+  # Lets `cross-compile` produce binaries on demand without cutting a tag.
+  workflow_dispatch:
 
 jobs:
   # Run vet and tests on the host platform.
@@ -50,7 +53,19 @@ jobs:
 
   # Cross-compile every shipping binary (the Makefile `build-all` set) for
   # every supported platform, and upload them as release artifacts.
+  #
+  # Tags (and manual runs) only — 35 matrix jobs per commit is not worth paying
+  # on every push and PR. Nothing consumes these artifacts continuously: the
+  # extension repo builds its bundled ipm-rpc from ipm-tools *source* at a
+  # pinned ref (vscode-ipm .github/workflows/build-vsix.yml), so between
+  # releases they were uploaded and left to expire. Nor do they gate much: the
+  # tree has no platform-specific code — no _windows.go/_darwin.go files, no
+  # GOOS build tags, CGO_ENABLED=0 — so a target that compiles on linux
+  # compiles everywhere, which the `test` job already proves.
   cross-compile:
+    if: startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch'
+    # Don't publish binaries for a tag that fails its own gates.
+    needs: [test, gates]
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -93,4 +108,6 @@ jobs:
           name: ${{ matrix.binary }}-${{ matrix.target.goos }}-${{ matrix.target.goarch }}
           path: out/${{ matrix.target.goos }}-${{ matrix.target.goarch }}/*
           if-no-files-found: error
-          retention-days: 14
+          # Release artifacts, so keep them well past the 14 days that suited
+          # throwaway per-push builds.
+          retention-days: 90
