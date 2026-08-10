@@ -67,7 +67,14 @@ go run ./cmd/ipmsvg-gen  --in temp/murder.layout.json     --out temp/murder.ipm.
 go run ./cmd/md-embed --root path/to/docs
 ```
 
-### Building binaries
+### Getting the binaries
+
+Tagged releases carry the whole toolset — every shipping command, one archive
+per platform — on the
+[releases page](https://github.com/infinite-pm/ipm-tools/releases), with
+`SHA256SUMS` and build provenance. Unpack and put the binaries on your `PATH`.
+
+With a Go toolchain you can build them yourself instead:
 
 ```bash
 make build-all   # all shipping commands into ./bin/

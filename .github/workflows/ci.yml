@@ -111,3 +111,81 @@ jobs:
           # Release artifacts, so keep them well past the 14 days that suited
           # throwaway per-push builds.
           retention-days: 90
+
+  # A tag ships the WHOLE toolset, not one binary: every shipping command for
+  # every platform, in one archive per platform. The VS Code extension does not
+  # consume these — it builds ipm-rpc from source at the ref it pins — so this
+  # exists for people who want the tools without a Go toolchain.
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: cross-compile
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write        # gh release create
+      id-token: write        # provenance attestation
+      attestations: write
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [linux-amd64, linux-arm64, darwin-amd64, darwin-arm64, windows-amd64]
+    steps:
+      # cross-compile uploads one artifact per (binary, platform); this pattern
+      # regroups a platform's seven binaries back into a single directory.
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: '*-${{ matrix.platform }}'
+          merge-multiple: true
+          path: stage
+      - name: Archive ${{ matrix.platform }}
+        run: |
+          set -euo pipefail
+          name="ipm-tools-${GITHUB_REF_NAME}-${{ matrix.platform }}"
+          mkdir -p "dist/$name"
+          cp stage/* "dist/$name/"
+          # Artifact download drops the executable bit; restore it so the
+          # archive is usable straight out of the box.
+          chmod +x "dist/$name"/* || true
+          count=$(ls -1 "dist/$name" | wc -l)
+          [ "$count" -eq 7 ] || { echo "expected 7 binaries, got $count:"; ls -l "dist/$name"; exit 1; }
+          case "${{ matrix.platform }}" in
+            windows-*) (cd dist && zip -qr "$name.zip" "$name") ;;
+            *)         tar -C dist -czf "dist/$name.tar.gz" "$name" ;;
+          esac
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-${{ matrix.platform }}
+          path: |
+            dist/*.tar.gz
+            dist/*.zip
+          if-no-files-found: error
+          retention-days: 90
+
+  publish-release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+      attestations: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: 'release-*'
+          merge-multiple: true
+          path: dist
+      - name: Checksums
+        run: cd dist && sha256sum * > SHA256SUMS && cat SHA256SUMS
+      - uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: 'dist/ipm-tools-*'
+      # No checkout in this job — gh works off --repo and the token, and
+      # --generate-notes is computed server-side from the tag range.
+      - name: Create the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/* \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "$GITHUB_REF_NAME" \
+            --generate-notes
