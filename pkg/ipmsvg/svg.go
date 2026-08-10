@@ -488,7 +488,8 @@ func (g *Generator) Generate(graph *layout.Graph) ([]byte, error) {
 		if strings.TrimSpace(label) == "" {
 			label = fmt.Sprintf("%s:%s", n.Type, n.ID)
 		}
-		label = html.EscapeString(label)
+		// The label stays raw through sizing and wrapping — both measure the
+		// text the reader sees — and is escaped line by line on the way out.
 		fontSize := 16
 		if len(label) > 30 {
 			fontSize = 14
@@ -1011,6 +1012,11 @@ func edgeStyleFor(e layout.Edge) edgeStyle {
 	return style
 }
 
+// writeNodeLabel takes the label RAW and escapes each wrapped line itself.
+// Escaping first would spend the per-line character budget on entities ("'"
+// costing five) and, worse, let the hard split inside an over-long word land
+// in the middle of one — "&#39;" cut to "&#3" is not valid XML, and a browser
+// refuses the whole document over it.
 func writeNodeLabel(b *strings.Builder, label string, n layout.Node, style nodeStyle, fontSize int) {
 	lines := wrapText(label, maxLabelChars(n.Width, fontSize))
 	if len(lines) == 0 {
@@ -1027,7 +1033,7 @@ func writeNodeLabel(b *strings.Builder, label string, n layout.Node, style nodeS
 
 	for i, line := range lines {
 		y := startY + lineHeight*float64(i)
-		fmt.Fprintf(b, "    <text x=\"%d\" y=\"%.0f\" text-anchor=\"middle\" dominant-baseline=\"middle\" font-family=\"Helvetica,Inter,Segoe UI,Arial\" font-size=\"%d\" font-weight=\"%s\" fill=\"%s\">%s</text>\n", cx, y, fontSize, weight, style.Text, line)
+		fmt.Fprintf(b, "    <text x=\"%d\" y=\"%.0f\" text-anchor=\"middle\" dominant-baseline=\"middle\" font-family=\"Helvetica,Inter,Segoe UI,Arial\" font-size=\"%d\" font-weight=\"%s\" fill=\"%s\">%s</text>\n", cx, y, fontSize, weight, style.Text, html.EscapeString(line))
 	}
 }
 

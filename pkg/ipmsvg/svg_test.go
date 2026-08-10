@@ -1,6 +1,8 @@
 package ipmsvg
 
 import (
+	"encoding/xml"
+	"io"
 	"strings"
 	"testing"
 
@@ -61,5 +63,43 @@ func TestGenerateKeepsNearToArrowless(t *testing.T) {
 	}
 	if strings.Contains(out, "<path d=\"M 280.00 150.00") || strings.Contains(out, "<path d=\"M 160.00 150.00") {
 		t.Fatalf("near-to edge should not render arrowheads, got: %s", out)
+	}
+}
+
+// A label wide enough to be hard-split mid-word, with apostrophes sitting where
+// the split lands. Escaping before wrapping turned the "&#39;" entities into
+// budget-eating five-character words and let the split cut one in half, which
+// made the whole document unparseable.
+func TestGenerateEscapesNodeLabelAfterWrapping(t *testing.T) {
+	graph := &layout.Graph{
+		Nodes: []layout.Node{
+			{ID: "1", Type: "thing", Label: "tAB'tC'tD'tE'tF", X: 40, Y: 120, Width: 120, Height: 60},
+			{ID: "2", Type: "concept", Label: "cA \"cB\" & cC", X: 280, Y: 120, Width: 120, Height: 60},
+		},
+		Edges: []layout.Edge{{From: "1", To: "2", Dir: "fwd", Base: "expresses", Style: "expresses"}},
+		Meta:  layout.Meta{Bounds: layout.Bounds{Width: 440, Height: 300}},
+	}
+
+	svg, err := Render(graph)
+	if err != nil {
+		t.Fatalf("Render() error = %v", err)
+	}
+	out := string(svg)
+
+	dec := xml.NewDecoder(strings.NewReader(out))
+	for {
+		_, err := dec.Token()
+		if err == io.EOF {
+			break
+		}
+		if err != nil {
+			t.Fatalf("rendered SVG is not well-formed XML: %v\ngot: %s", err, out)
+		}
+	}
+
+	// The wrap budget counts what the reader sees, so a 17-character label in a
+	// 12-character-wide node splits once — not four times, once per entity.
+	if n := strings.Count(out, "<text"); n > 4 {
+		t.Fatalf("label wrapped on escaped text (%d <text> elements), got: %s", n, out)
 	}
 }
