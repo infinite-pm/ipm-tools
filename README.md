@@ -74,7 +74,13 @@ per platform — on the
 [releases page](https://github.com/infinite-pm/ipm-tools/releases), with
 `SHA256SUMS` and build provenance. Unpack and put the binaries on your `PATH`.
 
-With a Go toolchain you can build them yourself instead:
+With a Go toolchain, `go install` works per command:
+
+```bash
+go install github.com/infinite-pm/ipm-tools/cmd/ipm-rpc@latest
+```
+
+or build the whole set from a checkout:
 
 ```bash
 make build-all   # all shipping commands into ./bin/
