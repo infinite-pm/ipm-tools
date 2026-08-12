@@ -84,11 +84,18 @@ or build the whole set from a checkout:
 
 ```bash
 make build-all   # all shipping commands into ./bin/
-make build-rpc   # just the ipm-rpc LSP server (for the VS Code extension)
+make build-rpc   # just the ipm-rpc LSP server (for developing against the extension)
 ```
 
-The VS Code extension is configured to find the language server through the
-`ipm.serverPath` setting (or `./bin` on `PATH`). See [`docs/ipm-rpc.md`](docs/ipm-rpc.md).
+Writing `ipmt` in an editor? Nothing here needs building: the VS Code extension
+bundles a matching `ipm-rpc`. Install
+[**infinite.pm**](https://marketplace.visualstudio.com/items?itemName=infinite-pm.vscode-infinite-pm)
+from the Marketplace, or `code --install-extension infinite-pm.vscode-infinite-pm`.
+
+To point it at a server you built instead, note the order it resolves: the
+`ipm.serverPath` setting, then `ipm-rpc` on `PATH`, then its bundled copy. So set
+`ipm.serverPath`, or put this repo's `./bin` on your `PATH`.
+See [`docs/ipm-rpc.md`](docs/ipm-rpc.md).
 
 ## Development
 
@@ -117,8 +124,9 @@ All `infinite.pm` repositories live under the
 
 - [`ipm-intro`](https://github.com/infinite-pm/ipm-intro) — the newcomer's introduction.
 - [`vscode-infinite-pm`](https://github.com/infinite-pm/vscode-infinite-pm) — the VS Code
-  extension: ipmt highlighting and live preview on top of `ipm-rpc`. Published under the
-  [`infinite-pm` publisher](https://marketplace.visualstudio.com/publishers/infinite-pm).
+  extension: ipmt highlighting, diagnostics, hover, live preview and embed-on-save, with
+  `ipm-rpc` bundled. Install from the
+  [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=infinite-pm.vscode-infinite-pm).
 
 ## Authors & credits
 

@@ -86,7 +86,15 @@ jobs:
           - md-html
           - ipm-rpc
     steps:
+      # fetch-depth: 0 so the tag is in the checkout. Go stamps the version a
+      # binary reports from the VCS tag it can see, and a checkout without one
+      # yields a v0.0.0-<time>-<sha> pseudo-version instead. A tag push happens
+      # to bring its own tag, so this is belt-and-braces here — but the sibling
+      # repo builds this same code at a pinned SHA, where the tag is genuinely
+      # absent, and shipped exactly that pseudo-version in its 0.4.1.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-go@v5
         with:
           go-version-file: 'go.mod'
@@ -147,6 +155,19 @@ jobs:
           chmod +x "dist/$name"/* || true
           count=$(ls -1 "dist/$name" | wc -l)
           [ "$count" -eq 7 ] || { echo "expected 7 binaries, got $count:"; ls -l "dist/$name"; exit 1; }
+          # Ask a binary we can actually execute what version it thinks it is.
+          # Counting files does not catch the failure that matters: a build
+          # whose checkout had no tag reports a v0.0.0-<time>-<sha>
+          # pseudo-version, exits 0, and ships looking perfectly healthy.
+          if [ "${{ matrix.platform }}" = "linux-amd64" ]; then
+            got=$("dist/$name/ipm-rpc" --version)
+            [ "$got" = "ipm-rpc ${GITHUB_REF_NAME}" ] || {
+              echo "version mismatch: expected \"ipm-rpc ${GITHUB_REF_NAME}\", got \"$got\""
+              echo "the build did not see the tag — check fetch-depth on the cross-compile checkout"
+              exit 1
+            }
+            echo "version check: $got"
+          fi
           case "${{ matrix.platform }}" in
             windows-*) (cd dist && zip -qr "$name.zip" "$name") ;;
             *)         tar -C dist -czf "dist/$name.tar.gz" "$name" ;;
@@ -179,8 +200,16 @@ jobs:
       - uses: actions/attest-build-provenance@v2
         with:
           subject-path: 'dist/ipm-tools-*'
-      # No checkout in this job — gh works off --repo and the token, and
-      # --generate-notes is computed server-side from the tag range.
+      # Checked out for CHANGELOG.md: the release body is the section written
+      # for this tag. --generate-notes produced only a "Full Changelog" link
+      # here, because the history has no merged PRs to summarise.
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: 'go.mod'
+          cache: true
+      - name: Release notes from CHANGELOG.md
+        run: go run ./cmd-dev/release-notes "$GITHUB_REF_NAME" > "$RUNNER_TEMP/notes.md"
       - name: Create the GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
@@ -188,4 +217,5 @@ jobs:
           gh release create "$GITHUB_REF_NAME" dist/* \
             --repo "$GITHUB_REPOSITORY" \
             --title "$GITHUB_REF_NAME" \
-            --generate-notes
+            --notes-file "$RUNNER_TEMP/notes.md" \
+            --verify-tag
