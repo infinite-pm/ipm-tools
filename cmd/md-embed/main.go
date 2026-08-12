@@ -77,6 +77,7 @@ func main() {
 	flag.BoolVar(&cfg.verbose, "verbose", false, "print one line per block (insert / rehash / rerender / ok) with file, line, kind, id, svg-path")
 	flag.BoolVar(&cfg.quiet, "quiet", false, "suppress non-error logs (implies !verbose)")
 	flag.StringVar(&cfg.in, "in", "", "process only this single file (default: walk --root for .md files)")
+	version := cli.VersionFlag(flag.CommandLine, toolName)
 
 	flag.Usage = func() {
 		fmt.Fprintf(os.Stderr, "Usage: %s [--root <dir>] [--svg-dir _ipm] [--check] [--no-prune] [--dry-run] [--force] [--in <file.md>]\n", toolName)
@@ -88,6 +89,9 @@ func main() {
 		cli.PrintDefaults(flag.CommandLine, os.Stderr)
 	}
 	flag.Parse()
+	if version(os.Stdout) {
+		return
+	}
 
 	cfg.prune = !cfg.noPrune
 

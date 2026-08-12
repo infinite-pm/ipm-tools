@@ -60,6 +60,7 @@ func main() {
 	inMD := flag.Bool("in-md", false, "treat input as markdown with ```ipmt fenced blocks")
 	listChecks := flag.Bool("list-checks", false, "list registered checks and exit")
 	strict := flag.Bool("strict-undecided", false, "treat Unresolved (grey) node kinds as errors — the publish gate")
+	version := cli.VersionFlag(flag.CommandLine, "ipm-validate")
 	flag.Usage = func() {
 		fmt.Fprintln(os.Stderr, "Usage: ipm-validate [--in <file>] [--json] [--in-json|--in-md] [--list-checks] [--strict-undecided]")
 		fmt.Fprintln(os.Stderr, "Reads from stdin when --in is omitted.")
@@ -73,6 +74,9 @@ func main() {
 		cli.PrintDefaults(flag.CommandLine, os.Stderr)
 	}
 	flag.Parse()
+	if version(os.Stdout) {
+		return
+	}
 	strictUndecided = *strict
 
 	if *listChecks {

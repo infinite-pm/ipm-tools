@@ -29,6 +29,7 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/infinite-pm/ipm-tools/pkg/cli"
 	"github.com/infinite-pm/ipm-tools/pkg/mdhtml"
 )
 
@@ -36,7 +37,11 @@ func main() {
 	configPath := flag.String("config", "md-html.conf.json", "path to the md-html config file")
 	check := flag.Bool("check", false, "dry run: resolve mappings + validate sources, write no files")
 	verbose := flag.Bool("verbose", false, "log one line per file processed")
+	version := cli.VersionFlag(flag.CommandLine, "md-html")
 	flag.Parse()
+	if version(os.Stdout) {
+		return
+	}
 
 	if err := run(*configPath, *check, *verbose); err != nil {
 		fmt.Fprintf(os.Stderr, "md-html: %v\n", err)

@@ -23,12 +23,16 @@ func main() {
 
 	flag.StringVar(&inPath, "in", "-", "input file: .ipmt, .ipm.json (IPM graph), or .layout.json (use - for stdin)")
 	flag.StringVar(&outPath, "out", "-", "output SVG file (use - for stdout)")
+	version := cli.VersionFlag(flag.CommandLine, "ipmsvg-gen")
 	flag.Usage = func() {
 		fmt.Fprintln(os.Stderr, "Usage: ipmsvg-gen [--in <file.ipmt|file.ipm.json|file.layout.json|->] [--out <diagram.ipm.svg>|-]")
 		fmt.Fprintln(os.Stderr, "\nFlags:")
 		cli.PrintDefaults(flag.CommandLine, os.Stderr)
 	}
 	flag.Parse()
+	if version(os.Stdout) {
+		return
+	}
 
 	src, err := readInput(inPath)
 	if err != nil {

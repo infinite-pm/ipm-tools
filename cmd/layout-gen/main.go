@@ -22,12 +22,16 @@ func main() {
 	c := cli.RegisterCommon(flag.CommandLine)
 	var debugJSON string
 	flag.StringVar(&debugJSON, "debug-json", "", "also record the run — trace events plus the resulting graph — to this path as a throwaway .debug.json; the dev tools (layout-debug, layout-explain) then narrate it with --in <path> WITHOUT re-generating. The flag only installs the trace hook (otherwise nil); it costs nothing when absent")
+	version := cli.VersionFlag(flag.CommandLine, "layout-gen")
 	flag.Usage = func() {
 		fmt.Fprintln(os.Stderr, "Usage: layout-gen [--in <file.ipmt|file.ipm.json|file.layout.json|->] [--out <layout.json>|-] [--pretty=true] [--debug-json <path>]")
 		fmt.Fprintln(os.Stderr, "\nFlags:")
 		cli.PrintDefaults(flag.CommandLine, os.Stderr)
 	}
 	flag.Parse()
+	if version(os.Stdout) {
+		return
+	}
 
 	// Recording path: run with the trace, write the layout as usual, and
 	// dump the recorded run for the dev tools to replay.

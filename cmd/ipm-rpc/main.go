@@ -22,12 +22,12 @@ import (
 	"log/slog"
 	"os"
 	"os/signal"
-	"runtime/debug"
 	"syscall"
 
 	"github.com/creachadair/jrpc2"
 	"github.com/creachadair/jrpc2/channel"
 
+	"github.com/infinite-pm/ipm-tools/pkg/cli"
 	iplog "github.com/infinite-pm/ipm-tools/pkg/ipm/log"
 )
 
@@ -119,9 +119,4 @@ func jrpcLogger(l *slog.Logger) jrpc2.Logger {
 	return func(text string) { l.Debug(text) }
 }
 
-func versionString() string {
-	if info, ok := debug.ReadBuildInfo(); ok {
-		return info.Main.Version
-	}
-	return "(devel)"
-}
+func versionString() string { return cli.Version() }

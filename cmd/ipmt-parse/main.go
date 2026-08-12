@@ -19,6 +19,7 @@ import (
 func main() {
 	inFile := flag.String("in", "", "input .ipmt file (default: stdin)")
 	pretty := flag.Bool("pretty", true, "pretty-print JSON output")
+	version := cli.VersionFlag(flag.CommandLine, "ipmt-parse")
 	flag.Usage = func() {
 		fmt.Fprintln(os.Stderr, "Usage: ipmt-parse [--in <file.ipmt>] [--pretty=true]")
 		fmt.Fprintln(os.Stderr, "Reads from stdin when --in is omitted.")
@@ -26,6 +27,9 @@ func main() {
 		cli.PrintDefaults(flag.CommandLine, os.Stderr)
 	}
 	flag.Parse()
+	if version(os.Stdout) {
+		return
+	}
 
 	var data []byte
 	var err error
