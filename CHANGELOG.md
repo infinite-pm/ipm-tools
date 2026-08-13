@@ -9,7 +9,7 @@ extension keeps its own changelog in
 
 - `ipm.embedBuffer` accepts `tokensOnly: true`, which returns each block's
   `source` and `tokens` without laying out an SVG (110 ms → 35 ms on a
-  3234-line, 95-block document; 926 KB → 130 KB). An editor colouring a live
+  3234-line, 95-block document; 926 KB → 130 KB). An editor coloring a live
   buffer needs tokens for the text as it stands on this keystroke, while the
   diagram can wait for a pause — this lets a client run the two on separate
   cadences. Every other field is unchanged, and a server that predates the

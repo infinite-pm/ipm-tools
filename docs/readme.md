@@ -36,6 +36,8 @@
 - [`dev/model-structure.md`](dev/model-structure.md), [`dev/parser.md`](dev/parser.md) — internals.
 - [`dev/test-data-structure.md`](dev/test-data-structure.md) — fixture corpus
   layout, file naming and the `sources.json` metadata.
+- [`dev/live-preview-colors.md`](dev/live-preview-colors.md) — how ipmt fences
+  stay colored while the user types, and the two clocks that make it awkward.
 - [`dev/layout-gen/layout7-engine.md`](dev/layout-gen/layout7-engine.md) and
   [`dev/layout-gen/`](dev/layout-gen/) —
   the layout algorithm, its DSL rules, and design notes.
