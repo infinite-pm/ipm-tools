@@ -5,7 +5,7 @@ they produce, and to the `ipm-rpc` server editors connect to. The VS Code
 extension keeps its own changelog in
 [`vscode-infinite-pm`](https://github.com/infinite-pm/vscode-infinite-pm/blob/main/CHANGELOG.md).
 
-## 0.4.2 — unreleased
+## 0.4.2 — 2026-08-13
 
 - `ipm.embedBuffer` accepts `tokensOnly: true`, which returns each block's
   `source` and `tokens` without laying out an SVG (110 ms → 35 ms on a
