@@ -7,6 +7,13 @@ extension keeps its own changelog in
 
 ## 0.4.2 — unreleased
 
+- `ipm.embedBuffer` accepts `tokensOnly: true`, which returns each block's
+  `source` and `tokens` without laying out an SVG (110 ms → 35 ms on a
+  3234-line, 95-block document; 926 KB → 130 KB). An editor colouring a live
+  buffer needs tokens for the text as it stands on this keystroke, while the
+  diagram can wait for a pause — this lets a client run the two on separate
+  cadences. Every other field is unchanged, and a server that predates the
+  flag ignores it and renders in full.
 - Every shipping command answers `--version`, printing `<tool> <version>` taken
   from the build information the Go toolchain embeds — so a binary unpacked from
   a release archive can say what it is. Previously only `ipm-rpc` could be asked,

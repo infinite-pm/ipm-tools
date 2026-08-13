@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"reflect"
 	"strings"
 	"testing"
 	"time"
@@ -15,13 +16,19 @@ import (
 )
 
 // embedBufferViaLSP is a small helper to call ipm.embedBuffer through the
-// LSP test client and unmarshal the typed response.
+// LSP test client and unmarshal the typed response. `extra` entries are
+// merged into the argument object, for flags like {"tokensOnly": true}.
 func embedBufferViaLSP(t *testing.T, cli interface {
 	CallResult(context.Context, string, any, any) error
-}, uri string) (*embedBufferResult, error) {
+}, uri string, extra ...map[string]any) (*embedBufferResult, error) {
 	t.Helper()
 	var raw json.RawMessage
 	args := map[string]any{"uri": uri}
+	for _, m := range extra {
+		for k, v := range m {
+			args[k] = v
+		}
+	}
 	err := cli.CallResult(t.Context(), "workspace/executeCommand", &lsp.ExecuteCommandParams{
 		Command:   "ipm.embedBuffer",
 		Arguments: []any{args},
@@ -300,6 +307,99 @@ func TestEmbedBuffer_ipmtURIRendersWholeBufferAsOneBlock(t *testing.T) {
 	}
 	if len(b.Tokens) == 0 {
 		t.Errorf("want non-empty tokens for the preview block; got %+v", b)
+	}
+}
+
+func TestEmbedBuffer_tokensOnlySkipsSVGRender(t *testing.T) {
+	// tokensOnly is what makes per-keystroke coloring affordable in the
+	// markdown preview: same scan, same tokens, no layout. The client
+	// runs it on every edit and keeps the full render on a debounce, so
+	// the two MUST agree on `source` and `tokens` — only `svgBase64`
+	// may differ.
+	cli, _ := startTestServer(t)
+	ctx, cancel := context.WithTimeout(t.Context(), 5*time.Second)
+	defer cancel()
+	if err := cli.CallResult(ctx, "initialize", &lsp.InitializeParams{}, &lsp.InitializeResult{}); err != nil {
+		t.Fatal(err)
+	}
+
+	mdContent := "# t\n\n```ipmt\nA ::e --> B ::e\n```\n\n```ipmt\nbob ::t --> Alice ::e\n```\n"
+	uri := makeMdInTmpRepo(t, "README.md", mdContent)
+	if err := cli.Notify(ctx, "textDocument/didOpen", &lsp.DidOpenTextDocumentParams{
+		TextDocument: lsp.TextDocumentItem{
+			URI: lsp.DocumentURI(uri), LanguageID: "markdown", Version: 1, Text: mdContent,
+		},
+	}); err != nil {
+		t.Fatal(err)
+	}
+
+	full, err := embedBufferViaLSP(t, cli, uri)
+	if err != nil {
+		t.Fatalf("embedBuffer: %v", err)
+	}
+	lean, err := embedBufferViaLSP(t, cli, uri, map[string]any{"tokensOnly": true})
+	if err != nil {
+		t.Fatalf("embedBuffer tokensOnly: %v", err)
+	}
+
+	if len(lean.Blocks) != len(full.Blocks) || len(lean.Blocks) != 2 {
+		t.Fatalf("want the same 2 blocks either way; full=%d lean=%d", len(full.Blocks), len(lean.Blocks))
+	}
+	for i, lb := range lean.Blocks {
+		fb := full.Blocks[i]
+		if lb.SVGBase64 != "" {
+			t.Errorf("block %d: tokensOnly must not render an SVG, got %d bytes of base64", i, len(lb.SVGBase64))
+		}
+		if fb.SVGBase64 == "" {
+			t.Errorf("block %d: the full call must still render an SVG", i)
+		}
+		if lb.Source != fb.Source || lb.Hash != fb.Hash || lb.ID != fb.ID {
+			t.Errorf("block %d: identity must not depend on tokensOnly\n full=%+v\n lean=%+v", i, fb, lb)
+		}
+		if len(lb.Tokens) == 0 {
+			t.Errorf("block %d: tokensOnly must still return tokens", i)
+		}
+		if !reflect.DeepEqual(lb.Tokens, fb.Tokens) {
+			t.Errorf("block %d: tokens must be identical either way\n full=%v\n lean=%v",
+				i, tokenTypeSummary(fb.Tokens), tokenTypeSummary(lb.Tokens))
+		}
+	}
+}
+
+func TestEmbedBuffer_tokensOnlyIpmtURI(t *testing.T) {
+	// The `.ipmt` branch takes a different code path (whole buffer as one
+	// block) and must honour the flag too — the preview pane's coloring
+	// runs through the same cache.
+	cli, _ := startTestServer(t)
+	ctx, cancel := context.WithTimeout(t.Context(), 5*time.Second)
+	defer cancel()
+	if err := cli.CallResult(ctx, "initialize", &lsp.InitializeParams{}, &lsp.InitializeResult{}); err != nil {
+		t.Fatal(err)
+	}
+
+	ipmtSource := "bob ::t --> Alice ::e\n"
+	uri := makeMdInTmpRepo(t, "diagram.ipmt", ipmtSource)
+	if err := cli.Notify(ctx, "textDocument/didOpen", &lsp.DidOpenTextDocumentParams{
+		TextDocument: lsp.TextDocumentItem{
+			URI: lsp.DocumentURI(uri), LanguageID: "ipmt", Version: 1, Text: ipmtSource,
+		},
+	}); err != nil {
+		t.Fatal(err)
+	}
+
+	res, err := embedBufferViaLSP(t, cli, uri, map[string]any{"tokensOnly": true})
+	if err != nil {
+		t.Fatalf("embedBuffer tokensOnly: %v", err)
+	}
+	if len(res.Blocks) != 1 {
+		t.Fatalf("want exactly 1 block for .ipmt URI, got %d", len(res.Blocks))
+	}
+	b := res.Blocks[0]
+	if b.SVGBase64 != "" {
+		t.Errorf("tokensOnly must not render an SVG for a .ipmt URI")
+	}
+	if b.Source != ipmtSource || len(b.Tokens) == 0 {
+		t.Errorf("tokensOnly must still return source + tokens; got %+v", b)
 	}
 }
 

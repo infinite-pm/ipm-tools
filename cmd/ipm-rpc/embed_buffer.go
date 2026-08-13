@@ -81,9 +81,16 @@ type bufferToken struct {
 }
 
 // cmdEmbedBuffer implements workspace/executeCommand "ipm.embedBuffer".
-// Argument: {"uri": "file://…"}. The URI must be for a document the server
-// is currently tracking (didOpen received); otherwise the call errors so
-// the client can fall back to disk-based rendering.
+// Argument: {"uri": "file://…", "tokensOnly": false}. The URI must be for a
+// document the server is currently tracking (didOpen received); otherwise the
+// call errors so the client can fall back to disk-based rendering.
+//
+// tokensOnly skips the SVG render (the expensive half — layout runs per
+// block) and returns just source + tokens. Colors and diagrams have very
+// different freshness needs: the preview's fence text must match the buffer
+// on the keystroke, while a diagram can lag until the typist pauses. A
+// tokens-only call is roughly an order of magnitude cheaper, which is what
+// makes per-keystroke coloring affordable on a large document.
 func (s *server) cmdEmbedBuffer(ctx context.Context, args []any) (*embedBufferResult, error) {
 	if len(args) < 1 {
 		return nil, fmt.Errorf("missing argument: {uri: ...}")
@@ -96,6 +103,7 @@ func (s *server) cmdEmbedBuffer(ctx context.Context, args []any) (*embedBufferRe
 	if uriArg == "" {
 		return nil, fmt.Errorf("missing or empty 'uri'")
 	}
+	tokensOnly, _ := argMap["tokensOnly"].(bool)
 
 	docURI := lsp.DocumentURI(uriArg)
 	s.mu.Lock()
@@ -122,7 +130,7 @@ func (s *server) cmdEmbedBuffer(ctx context.Context, args []any) (*embedBufferRe
 	// Render the whole buffer as one block and return the SVG in-memory
 	// so the preview pane can show it without touching disk.
 	if strings.HasSuffix(strings.ToLower(mdAbs), ".ipmt") {
-		return renderIpmtBuffer(uriArg, mdAbs, rootAbs, bufferText)
+		return renderIpmtBuffer(uriArg, mdAbs, rootAbs, bufferText, tokensOnly)
 	}
 
 	analysis, err := mdembed.AnalyzeMarkdown(mdAbs, bufferText, mdembed.AnalyzeOptions{
@@ -173,6 +181,14 @@ func (s *server) cmdEmbedBuffer(ctx context.Context, args []any) (*embedBufferRe
 			continue
 		}
 
+		if tokensOnly {
+			// Caller wants coloring only; the SVG stays whatever the last
+			// full call produced (the client keys SVGs by block id, tokens
+			// by source, so the two caches never contradict each other).
+			res.Blocks = append(res.Blocks, bb)
+			continue
+		}
+
 		svgBytes, err := mdembed.RenderSVGBytes(rootAbs, mdAbs, br, generatedBy)
 		if err != nil {
 			// Common during typing — partial fences, transient parse errors.
@@ -192,7 +208,10 @@ func (s *server) cmdEmbedBuffer(ctx context.Context, args []any) (*embedBufferRe
 // scanning), rendered to SVG in-memory, and returned alongside its
 // block-relative semantic tokens. Used by the `.ipmt` preview pane —
 // no disk writes; the SVG never persists.
-func renderIpmtBuffer(uriArg, mdAbs, rootAbs, bufferText string) (*embedBufferResult, error) {
+//
+// tokensOnly returns the tokens without rendering, same contract as the
+// markdown path.
+func renderIpmtBuffer(uriArg, mdAbs, rootAbs, bufferText string, tokensOnly bool) (*embedBufferResult, error) {
 	res := &embedBufferResult{Uri: uriArg}
 	if strings.TrimSpace(bufferText) == "" {
 		return res, nil
@@ -221,6 +240,11 @@ func renderIpmtBuffer(uriArg, mdAbs, rootAbs, bufferText string) (*embedBufferRe
 	if metaErr != nil {
 		bb.Outcome = string(mdembed.OutcomeBadMeta)
 		bb.Error = metaErr.Error()
+		res.Blocks = append(res.Blocks, bb)
+		return res, nil
+	}
+
+	if tokensOnly {
 		res.Blocks = append(res.Blocks, bb)
 		return res, nil
 	}

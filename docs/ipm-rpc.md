@@ -74,11 +74,21 @@ Runs the same logic [`cmd/md-embed`](md-embed.md) runs headlessly: scans `​```
 ```json
 {
   "command": "ipm.embedBuffer",
-  "arguments": [{ "uri": "file:///path/to/x.md" }]
+  "arguments": [{ "uri": "file:///path/to/x.md", "tokensOnly": false }]
 }
 ```
 
 Same scan + render logic as `ipm.embed`, but renders against the LSP's **in-memory buffer** (the latest `textDocument/didChange` content) and **never writes to disk**. Returns each block's rendered SVG as base64, plus the block-relative semantic tokens used by the markdown preview to highlight the code-fence text. The document MUST have been opened (`textDocument/didOpen`) first; the server returns `document not open in server` otherwise.
+
+`tokensOnly` (optional, default `false`) skips the SVG layout and returns `source` + `tokens` only — every other field is identical. Colors and diagrams have different freshness needs: a preview highlights fence text by matching the block source exactly, so its tokens must describe the buffer as of the current keystroke, while a diagram can lag until the typist pauses. Skipping layout is what makes the per-keystroke call affordable:
+
+| document | full | `tokensOnly` |
+| --- | --- | --- |
+| 1 block, 11 lines | 1.4 ms / 11 KB | 0.5 ms / 1 KB |
+| 6 blocks, 61 lines | 5.5 ms / 70 KB | 2.1 ms / 9 KB |
+| 95 blocks, 3234 lines | 110 ms / 926 KB | 35 ms / 130 KB |
+
+Older servers ignore the flag and return a full render, which is slower but still correct.
 
 ```jsonc
 {
