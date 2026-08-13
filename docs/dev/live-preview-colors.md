@@ -102,6 +102,12 @@ machine from 63% to 46% busy with no colored frames lost.
 
 ## Gotchas
 
+- **Colors have exactly one source: `ipm.embedBuffer`.** There is no
+  client-side tokenizer and no TextMate fallback in the preview, so anything
+  that stops that call from running leaves every fence black — permanently,
+  not just while typing. `ipm.liveRefresh` used to gate it, which meant a
+  setting about *diagrams* silently switched off *syntax highlighting*; it
+  now gates only the SVG swap. Keep that separation when adding conditions.
 - **An unterminated `​```ipmt` fence gets no tokens at all.** The scanner
   reports `unterminated` with no content (`gl:pkg/mdembed/scan.go`) and
   `semanticTokensFull` skips blocks with `EndLine < 0`
