@@ -104,8 +104,21 @@ func TestEmbedBuffer_rendersOpenBuffer(t *testing.T) {
 	if err != nil {
 		t.Fatalf("svg not valid base64: %v", err)
 	}
-	if !strings.Contains(string(dec), "<svg") {
-		t.Fatalf("decoded SVG missing <svg root: %q", string(dec)[:80])
+	svg := string(dec)
+	if !strings.Contains(svg, "<svg") {
+		t.Fatalf("decoded SVG missing <svg root: %q", svg[:80])
+	}
+	// Not just "is it an SVG". A layout that collapsed every node onto the
+	// origin, or dropped every edge, still produces a well-formed SVG and
+	// still passes a substring check — while rendering a picture nobody can
+	// read. Assert what the source said should be in it.
+	for _, label := range []string{">A<", ">B<"} {
+		if !strings.Contains(svg, label) {
+			t.Errorf("the block names %s and the diagram does not carry it", label)
+		}
+	}
+	if !strings.Contains(svg, "data-edge-base") {
+		t.Error("the block has an arrow; the diagram has no edge geometry")
 	}
 
 	// Piggybacked semantic tokens: the block carries block-relative
