@@ -55,11 +55,15 @@ type week struct {
 	Subject   string   `json:"subject,omitempty"`
 	Note      string   `json:"note,omitempty"`    // why a week has no comparison
 	Span      string   `json:"span,omitempty"`    // how many commits this column covers
+	Source    string   `json:"source,omitempty"`  // which lineage the commit came from
 	Against   string   `json:"against,omitempty"` // the snapshot this week is diffed against
 	Changes   []change `json:"changes,omitempty"`
 	Identical int      `json:"identical"`
 	Skipped   int      `json:"skipped"`
 	Rendered  int      `json:"-"`
+	// PanesDropped marks a column whose pictures were dropped to keep the
+	// report openable (trimPanes); its tables and commands are intact.
+	PanesDropped bool `json:"panesDropped,omitempty"`
 }
 
 func main() { os.Exit(run()) }
@@ -389,14 +393,13 @@ func plan(repo, rev, since, until string, weeks int) ([]time.Time, error) {
 func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagram,
 	limitPerWeek int, noSVG, verbose bool, jobs, maxMB int) []week {
 	budget := maxMB * 1024 * 1024
-	spent := 0
 	var out []week
 	var prevBin string   // the newest engine successfully built so far
 	var prevLabel string // the week that engine came from
 	var lastSeen string  // the previous snapshot that resolved to a commit
 
 	for _, s := range snaps {
-		w := week{Snap: s, Label: s.Label(), SHA: s.SHA, Subject: s.Subject, Span: s.Span()}
+		w := week{Snap: s, Label: s.Label(), SHA: s.SHA, Subject: s.Subject, Span: s.Span(), Source: s.Source}
 		switch {
 		case s.SHA == "":
 			w.Note = "no commits yet"
@@ -410,7 +413,15 @@ func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagra
 		}
 		lastSeen = s.Label()
 
-		eng, err := layoutaudit.BuildEngine(repo, s.SHA, s.Label(), cache, "", verbose)
+		// The commit lives in ITS OWN lineage's checkout, which is not this
+		// repository once a config chains several: building it against the
+		// wrong one fails at rev-parse, and every column then reports
+		// "engine could not be built" while the binary sits in the cache.
+		from := repo
+		if s.Repo != "" {
+			from = s.Repo
+		}
+		eng, err := layoutaudit.BuildEngine(from, s.SHA, s.Label(), cache, "", verbose)
 		if err != nil {
 			// An early commit may predate cmd/layout-gen entirely; that is a
 			// fact about the history, not a failure of the run.
@@ -438,14 +449,8 @@ func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagra
 			case "skipped":
 				w.Skipped++
 			default:
-				// The panes are the whole weight of the report. Past the
-				// budget the rows still appear — with their change tables and
-				// their commands — but without the pictures, because a report
-				// too heavy to open answers nothing.
-				overBudget := budget > 0 && spent >= budget
-				if !noSVG && !overBudget && (limitPerWeek == 0 || w.Rendered < limitPerWeek) {
+				if !noSVG && (limitPerWeek == 0 || w.Rendered < limitPerWeek) {
 					renderPanes(&c, p)
-					spent += len(c.OldSVG) + len(c.NewSVG)
 					w.Rendered++
 				}
 				w.Changes = append(w.Changes, c)
@@ -471,7 +476,51 @@ func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagra
 		prevBin, prevLabel = eng.LayoutGen, s.Label()
 		out = append(out, w)
 	}
+	if dropped := trimPanes(out, budget); dropped > 0 && verbose {
+		fmt.Fprintf(os.Stderr, "layout-timeline: dropped panes from %d older column(s) to stay under the size limit\n", dropped)
+	}
 	return out
+}
+
+// trimPanes keeps the report openable by dropping diagram panes from the
+// OLDEST columns first.
+//
+// Which end matters: a reader of a long history is nearly always asking about
+// its recent end, so spending the budget in chronological order — as a running
+// total during the sweep does — starves exactly the columns they came for. The
+// rows themselves stay either way, with their change tables, findings and
+// commands; only the pictures go.
+func trimPanes(weeks []week, budget int) int {
+	if budget <= 0 {
+		return 0
+	}
+	total := 0
+	for _, w := range weeks {
+		for _, c := range w.Changes {
+			total += len(c.OldSVG) + len(c.NewSVG)
+		}
+	}
+	dropped := 0
+	for i := range weeks {
+		if total <= budget {
+			break
+		}
+		had := false
+		for j := range weeks[i].Changes {
+			c := &weeks[i].Changes[j]
+			if len(c.OldSVG)+len(c.NewSVG) == 0 {
+				continue
+			}
+			total -= len(c.OldSVG) + len(c.NewSVG)
+			c.OldSVG, c.NewSVG = nil, nil
+			had = true
+		}
+		if had {
+			dropped++
+			weeks[i].PanesDropped = true
+		}
+	}
+	return dropped
 }
 
 func diffPair(p layoutaudit.Pair) change {

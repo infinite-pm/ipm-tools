@@ -59,7 +59,8 @@ type vmRow struct {
 
 type vmWeek struct {
 	Label, SHA, Subject, Note   string
-	Against, Span               string
+	Against, Span, Source       string
+	PanesDropped                bool
 	Changed, Identical, Skipped int
 	Rows                        []vmRow
 	Unrendered                  []string
@@ -129,10 +130,12 @@ func renderHTML(in timelineInput) string {
 
 	for _, w := range in.Weeks {
 		vw := vmWeek{Label: w.Label, SHA: layoutaudit.Short(w.SHA), Subject: w.Subject,
-			Note: w.Note, Against: w.Against, Span: w.Span,
-			Changed: len(w.Changes), Identical: w.Identical, Skipped: w.Skipped}
+			Note: w.Note, Against: w.Against, Span: w.Span, Source: w.Source,
+			PanesDropped: w.PanesDropped,
+			Changed:      len(w.Changes), Identical: w.Identical, Skipped: w.Skipped}
 		for _, c := range w.Changes {
 			if len(c.OldSVG) == 0 && len(c.NewSVG) == 0 && c.Status == "changed" {
+				_ = w.PanesDropped
 				vw.Unrendered = append(vw.Unrendered, c.ID)
 				continue
 			}
@@ -309,6 +312,7 @@ pre{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:
 <section class="week">
   <div class="weekhead">
     <span class="date">{{.Label}}</span>
+    {{if .Source}}<span class="pill">{{.Source}}</span>{{end}}
     {{if .SHA}}<span class="sha">{{.SHA}}</span>{{end}}
     <span class="subject">{{.Subject}}</span>
     {{if .Against}}<span class="quiet">vs {{.Against}}</span>{{end}}
@@ -316,6 +320,7 @@ pre{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:
     <span class="tallies">{{if .Changed}}{{.Changed}} changed · {{end}}{{.Identical}} identical{{if .Skipped}} · {{.Skipped}} skipped{{end}}</span>
   </div>
   {{if .Note}}<div class="note">{{.Note}}</div>{{end}}
+  {{if .PanesDropped}}<div class="note">diagrams not drawn for this column — the report would not open; the changes below are complete</div>{{end}}
   {{range .Rows}}
   <div class="row auto{{if not .OldSVG}} no-before{{end}}" id="{{.Anchor}}">
     <div class="rowhead">
