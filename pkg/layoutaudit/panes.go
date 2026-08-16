@@ -47,8 +47,8 @@ var PaneCycle = []string{ModeBefore, ModeFirst, ModeSecond}
 // from current is this"). An old column is nearly always read with the second
 // question in mind, so it must not require opening another report.
 const (
-	LeftPrevious = "previous" // the column immediately before this one
-	LeftCurrent  = "current"  // the newest engine's rendering of the same diagram
+	LeftBefore  = "before"  // the column immediately before this one
+	LeftCurrent = "current" // the newest engine's rendering of the same diagram
 )
 
 // PaneCSS styles the panes and implements the three modes.
@@ -71,32 +71,39 @@ const PaneCSS = `
    what makes the swap readable — anything that holds still did not move. */
 .stack{display:grid}
 .stack > .layer{grid-area:1/1;position:relative;align-self:start;justify-self:start}
-.layer-before{opacity:0}
 .layer .chip{position:absolute;top:0;right:0;font-size:10px;line-height:1.5;padding:0 6px;
   border-radius:0 0 0 5px;background:#3b4148;color:#fff;letter-spacing:.4px}
 
-/* The LEFT pane: the reference, switchable between the previous column and
-   what the newest engine draws today. */
+/* EVERY layer rule names the pane it belongs to.
+   Two reasons, both learned the hard way. The panes share layer names —
+   "before" means the same picture in each — so an unscoped rule written for
+   one silently governs the other. And specificity decides which of two
+   competing rules wins: a base hide of ".pane .stack > .layer" (three
+   classes) beat a show of ".pane-old .layer-before" (two), and the reference
+   pane rendered blank while holding a perfectly good diagram. */
+
+/* LEFT — the reference: the column before this one, or what ships today. */
 .pane-old .stack > .layer{opacity:0}
-.pane-old .layer-prev{opacity:1}
-.row.leftcurrent .pane-old .layer-prev{opacity:0}
-.row.leftcurrent .pane-old .layer-current{opacity:1}
+.pane-old .stack > .layer-before{opacity:1}
+.row.leftcurrent .pane-old .stack > .layer-before{opacity:0}
+.row.leftcurrent .pane-old .stack > .layer-current{opacity:1}
 .lefts{display:inline-flex;gap:3px;text-transform:none;letter-spacing:0}
 .lefts button{font:inherit;font-size:11px;line-height:1.6;padding:0 7px;border-radius:5px;
   border:1px solid #d3d7dd;background:#fff;color:#3b4148;cursor:pointer}
 .lefts button:hover{border-color:#9aa3ad}
 .lefts button[aria-pressed="true"]{background:#3b4148;border-color:#3b4148;color:#fff;font-weight:600}
 
-/* Pinned states. Nothing here animates, and nothing responds to hover: once a
-   reader has chosen, the picture holds still until they choose again. */
-.row.before .layer-before{opacity:1;animation:none}
-.row.before .layer-after{opacity:0;animation:none}
-.row.first  .layer-before{opacity:0;animation:none}
-.row.first  .layer-after{opacity:1;animation:none}
-.row.first  .audit-overlay{opacity:0;animation:none}
-.row.second .layer-before{opacity:0;animation:none}
-.row.second .layer-after{opacity:1;animation:none}
-.row.second .audit-overlay{opacity:1;animation:none}
+/* RIGHT — the three pinned states. Nothing animates and nothing responds to
+   hover: once a reader has chosen, the picture holds still. */
+.pane-new .stack > .layer-before{opacity:0}
+.row.before .pane-new .layer-before{opacity:1;animation:none}
+.row.before .pane-new .layer-after{opacity:0;animation:none}
+.row.first  .pane-new .layer-before{opacity:0;animation:none}
+.row.first  .pane-new .layer-after{opacity:1;animation:none}
+.row.first  .pane-new .audit-overlay{opacity:0;animation:none}
+.row.second .pane-new .layer-before{opacity:0;animation:none}
+.row.second .pane-new .layer-after{opacity:1;animation:none}
+.row.second .pane-new .audit-overlay{opacity:1;animation:none}
 
 /* auto: before → first → second, on one timeline so the three layers can
    never disagree about which state is showing.
@@ -105,30 +112,30 @@ const PaneCSS = `
    once is not a nicety to fix later — 843 continuously animating SVG layers
    took a VS Code webview down. Off-screen rows hold still and cost nothing. */
 .audit-overlay{opacity:0}
-.row.auto.live .layer-before{animation:cyc-before 3.6s linear infinite}
-.row.auto.live .layer-after{animation:cyc-after 3.6s linear infinite}
-.row.auto.live .audit-overlay{animation:cyc-marks 3.6s linear infinite}
+.row.auto.live .pane-new .layer-before{animation:cyc-before 3.6s linear infinite}
+.row.auto.live .pane-new .layer-after{animation:cyc-after 3.6s linear infinite}
+.row.auto.live .pane-new .audit-overlay{animation:cyc-marks 3.6s linear infinite}
 @keyframes cyc-before{0%,30%{opacity:1}34%,100%{opacity:0}}
 @keyframes cyc-after{0%,30%{opacity:0}34%,100%{opacity:1}}
 @keyframes cyc-marks{0%,63%{opacity:0}67%,96%{opacity:1}100%{opacity:0}}
 
 /* A row whose old diagram could not be rendered (the engine failed on it)
    has no "before" to show, so auto falls back to the two-state alternation. */
-.row.no-before.auto .layer-after{animation:none;opacity:1}
-.row.no-before.auto.live .audit-overlay{animation:flap 2.4s ease-in-out infinite}
+.row.no-before.auto .pane-new .layer-after{animation:none;opacity:1}
+.row.no-before.auto.live .pane-new .audit-overlay{animation:flap 2.4s ease-in-out infinite}
 .row.no-before .modes button[data-mode="before"]{display:none}
 @keyframes flap{0%,42%{opacity:0}52%,92%{opacity:1}100%{opacity:0}}
 
 /* Until the observer speaks — no JS, or a row that has never been on screen —
    a row shows its "after" state and nothing moves. Safe by default. */
-.row.auto:not(.live) .layer-before{opacity:0}
-.row.auto:not(.live) .layer-after{opacity:1}
+.row.auto:not(.live) .pane-new .layer-before{opacity:0}
+.row.auto:not(.live) .pane-new .layer-after{opacity:1}
 
 @media (prefers-reduced-motion: reduce){
   /* No timer at all: the reader picks a state with the controls. */
-  .row.auto .layer-before{animation:none;opacity:0}
-  .row.auto .layer-after{animation:none;opacity:1}
-  .row.auto .audit-overlay{animation:none;opacity:0}
+  .row.auto .pane-new .layer-before{animation:none;opacity:0}
+  .row.auto .pane-new .layer-after{animation:none;opacity:1}
+  .row.auto .pane-new .audit-overlay{animation:none;opacity:0}
 }
 `
 
@@ -142,10 +149,12 @@ const PaneControls = `<span class="modes">
         <button type="button" data-mode="auto" title="cycle before → first → second"><span class="glyph">⟳</span>auto</button>
       </span>`
 
-// LeftControls switches the reference pane between the previous column and
-// the current engine's rendering. Rendered only when a "current" is available.
+// LeftControls switches the reference pane between the column before this one
+// and the current engine's rendering. Rendered only when a "current" exists.
+// "before" is deliberately the same word the right pane uses for the same
+// picture: one vocabulary, or the reader has to hold two.
 const LeftControls = `<span class="lefts">
-        <button type="button" data-left="previous" title="the column before this one"><span class="glyph">◀</span>previous</button>
+        <button type="button" data-left="before" title="the column before this one"><span class="glyph">◑</span>before</button>
         <button type="button" data-left="current" title="what the newest engine draws today"><span class="glyph">★</span>current</button>
       </span>`
 
@@ -201,7 +210,7 @@ document.addEventListener('keydown', e => {
 });
 document.querySelectorAll('.row').forEach(r => {
   setMode(r, modeOf(r));
-  setLeft(r, r.classList.contains('leftcurrent') ? 'current' : 'previous');
+  setLeft(r, r.classList.contains('leftcurrent') ? 'current' : 'before');
 });
 
 // Animate only what is on screen. Without this every row in the report runs

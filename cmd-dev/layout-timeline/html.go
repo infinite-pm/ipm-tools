@@ -483,7 +483,7 @@ nav a{color:var(--muted)}
     <div class="pane pane-old">
       <h4><span>reference</span>{{if .CurSVG}}{{leftControls}}{{end}}</h4>
       <div class="stack">
-        <div class="layer layer-prev" style="width:{{.OldWidth}}">{{.OldSVG}}<span class="chip">previous</span></div>
+        {{if .OldSVG}}<div class="layer layer-before" style="width:{{.OldWidth}}">{{.OldSVG}}<span class="chip">before</span></div>{{end}}
         {{if .CurSVG}}<div class="layer layer-current" style="width:{{.CurWidth}}">{{.CurSVG}}<span class="chip">current</span></div>{{end}}
       </div>
     </div>
