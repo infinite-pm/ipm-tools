@@ -192,7 +192,7 @@ func pickDetour(x1, y1, x2, y2 int, blockers, obstacles []Node, fromID, toID str
 		}
 	}
 
-	bestScore := [3]int{1 << 30, 1 << 30, 1 << 30}
+	bestScore := [4]int{1 << 30, 1 << 30, 1 << 30, 1 << 30}
 	var best []Position
 	consider := func(c []Position) {
 		pts := append([][2]int{{x1, y1}}, positionsToPts(c)...)
@@ -200,14 +200,21 @@ func pickDetour(x1, y1, x2, y2 int, blockers, obstacles []Node, fromID, toID str
 		if pathCuts(pts, obstacles, fromID, toID) {
 			return
 		}
-		score := [3]int{
+		// Grazes, then crossings, then SHARED LANES, then length: a detour
+		// that lies on another edge's run reads as one line with two heads
+		// (four same-row edges into a closed composite all took the same
+		// lane under the row, 740px of it in common) — the wide lane is a
+		// candidate for exactly that, and it costs only length.
+		score := [4]int{
 			pathGrazes(pts, obstacles, fromID, toID),
 			pathCrossings(pts, paths, self),
+			pathOverlaps(pts, paths, self),
 			pathLength(pts),
 		}
 		if score[0] < bestScore[0] ||
 			(score[0] == bestScore[0] && score[1] < bestScore[1]) ||
-			(score[0] == bestScore[0] && score[1] == bestScore[1] && score[2] < bestScore[2]) {
+			(score[0] == bestScore[0] && score[1] == bestScore[1] && score[2] < bestScore[2]) ||
+			(score[0] == bestScore[0] && score[1] == bestScore[1] && score[2] == bestScore[2] && score[3] < bestScore[3]) {
 			bestScore, best = score, c
 		}
 	}
@@ -305,6 +312,42 @@ func pathCrossings(pts [][2]int, paths [][][2]int, self int) int {
 	return n
 }
 
+// pathOverlaps counts the other paths that share a LANE with pts: an
+// axis-aligned segment of theirs collinear with one of ours (same y for a
+// horizontal run, same x for a vertical one, within the visible-gap margin)
+// and overlapping it for at least one arrowhead — a parallel run at zero
+// distance reads as one line.
+func pathOverlaps(pts [][2]int, paths [][][2]int, self int) int {
+	const near, minShared = 4, 20
+	n := 0
+	for j, other := range paths {
+		if j == self || len(other) < 2 {
+			continue
+		}
+		hit := false
+		for i := 0; i+1 < len(pts) && !hit; i++ {
+			a0, a1 := pts[i], pts[i+1]
+			for k := 0; k+1 < len(other) && !hit; k++ {
+				b0, b1 := other[k], other[k+1]
+				switch {
+				case a0[1] == a1[1] && b0[1] == b1[1] && absInt(a0[1]-b0[1]) <= near: // both horizontal
+					lo := maxInt(minInt(a0[0], a1[0]), minInt(b0[0], b1[0]))
+					hi := minInt(maxInt(a0[0], a1[0]), maxInt(b0[0], b1[0]))
+					hit = hi-lo >= minShared
+				case a0[0] == a1[0] && b0[0] == b1[0] && absInt(a0[0]-b0[0]) <= near: // both vertical
+					lo := maxInt(minInt(a0[1], a1[1]), minInt(b0[1], b1[1]))
+					hi := minInt(maxInt(a0[1], a1[1]), maxInt(b0[1], b1[1]))
+					hit = hi-lo >= minShared
+				}
+			}
+		}
+		if hit {
+			n++
+		}
+	}
+	return n
+}
+
 func pathsCross(a, b [][2]int) bool {
 	for i := 0; i+1 < len(a); i++ {
 		for j := 0; j+1 < len(b); j++ {
@@ -330,4 +373,25 @@ func pathLength(pts [][2]int) int {
 		total += dx + dy
 	}
 	return total
+}
+
+func absInt(v int) int {
+	if v < 0 {
+		return -v
+	}
+	return v
+}
+
+func minInt(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func maxInt(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }

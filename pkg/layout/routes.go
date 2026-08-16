@@ -7,8 +7,10 @@ const routeShrink = 2
 
 // RoutesOf returns the edge routes of a graph: the emitted ones (every
 // engine output carries explicit routes). A route-less edge — a
-// hand-written layout.json — falls back to centre ports resolved by
-// geometry.
+// hand-written layout.json, or one a consumer synthesized — falls back to
+// its FromPort/ToPort pins (the Edge contract: a pin overrides the
+// auto-computed port), else to centre ports resolved by geometry. A pin
+// set AFTER the route was emitted is not read here — see ApplyPortPins.
 func RoutesOf(g *Graph) []EdgeRoute {
 	routes := make([]EdgeRoute, len(g.Edges))
 	for i := range g.Edges {
@@ -17,6 +19,12 @@ func RoutesOf(g *Graph) []EdgeRoute {
 			routes[i] = EdgeRoute{
 				Source: EdgePort{Side: "center", Position: 0.5},
 				Target: EdgePort{Side: "center", Position: 0.5},
+			}
+			if p := g.Edges[i].FromPort; p != nil {
+				routes[i].Source = *p
+			}
+			if p := g.Edges[i].ToPort; p != nil {
+				routes[i].Target = *p
 			}
 			continue
 		}
@@ -91,4 +99,44 @@ func segmentsCross(ax1, ay1, ax2, ay2, bx1, by1, bx2, by2 int) bool {
 	o3 := o(bx1, by1, bx2, by2, ax1, ay1)
 	o4 := o(bx1, by1, bx2, by2, ax2, ay2)
 	return o1 != o2 && o3 != o4 && o1 != 0 && o2 != 0 && o3 != 0 && o4 != 0
+}
+
+// ApplyPortPins materialises every FromPort/ToPort pin into the edge's
+// emitted Route, creating the Route (from RoutesOf) when there is none, and
+// returns how many ports it changed. For a consumer that pins ports AFTER
+// the engine routed — the zoom canvas pins a lifted edge to the row its
+// hidden child sits on, spreads a shell's fan, and synthesizes shell edges
+// with only a pin — this is what makes the pin real: every downstream
+// reader (OrderSharedPorts, DetourBlockedEdges, the SVG renderer) reads the
+// Route, so an un-materialised pin is silently a centre port. Bends are
+// left as they are; a consumer that moved nodes drops them first.
+func ApplyPortPins(g *Graph) int {
+	if g == nil {
+		return 0
+	}
+	routes := RoutesOf(g)
+	changed := 0
+	for i := range g.Edges {
+		e := &g.Edges[i]
+		if e.FromPort == nil && e.ToPort == nil {
+			continue
+		}
+		if e.Route == nil {
+			e.Route = &EdgeRouteJSON{
+				Source: PortJSON{Side: routes[i].Source.Side, Position: routes[i].Source.Position},
+				Target: PortJSON{Side: routes[i].Target.Side, Position: routes[i].Target.Position},
+			}
+			changed++
+			continue
+		}
+		if p := e.FromPort; p != nil && (e.Route.Source.Side != p.Side || e.Route.Source.Position != p.Position) {
+			e.Route.Source = PortJSON{Side: p.Side, Position: p.Position}
+			changed++
+		}
+		if p := e.ToPort; p != nil && (e.Route.Target.Side != p.Side || e.Route.Target.Position != p.Position) {
+			e.Route.Target = PortJSON{Side: p.Side, Position: p.Position}
+			changed++
+		}
+	}
+	return changed
 }
