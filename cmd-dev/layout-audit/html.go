@@ -252,7 +252,7 @@ pre{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:
 <main>
 {{if .LimitNote}}<p class="note">{{.LimitNote}}</p>{{end}}
 {{range .Rows}}
-<section class="row auto{{if not .OldSVG}} no-before{{end}}" data-tier="{{.Tier}}" data-id="{{.ID}}">
+<section class="row first{{if not .OldSVG}} no-before{{end}}" data-tier="{{.Tier}}" data-id="{{.ID}}">
   <div class="rowhead">
     <span class="rank">{{.Rank}}</span>
     <span class="id">{{.ID}}</span>

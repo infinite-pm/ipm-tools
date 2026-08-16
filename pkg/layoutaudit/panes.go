@@ -4,9 +4,14 @@ import "html/template"
 
 // The before/after pane pair, shared by every report this package backs.
 //
-// The right pane cycles THREE states in one place: the old diagram
+// The right pane holds THREE states in one place: the old diagram
 // ("before"), the new one ("first"), and the new one with the differences
 // drawn over it ("second"). "auto" runs them in that order.
+//
+// A row opens on "first" and stands still. Alternation is a tool the reader
+// reaches for, not a state the page starts in: a report is opened to be read
+// first and compared second, and a page that moves on arrival decides for the
+// reader where to look.
 //
 // Showing the old diagram in the RIGHT pane, at the same pixel scale and the
 // same origin as the new one, is what makes this a blink comparator: a node
@@ -126,7 +131,10 @@ function setMode(row, mode){
   row.querySelectorAll('.modes button').forEach(b =>
     b.setAttribute('aria-pressed', String(b.dataset.mode === mode)));
 }
-function modeOf(row){ return MODES.find(m => row.classList.contains(m)) || 'auto'; }
+// The default is "first": the new diagram, standing still. Motion is opt-in,
+// because a page that starts moving decides for the reader what to look at,
+// and a report is opened to be read before it is compared.
+function modeOf(row){ return MODES.find(m => row.classList.contains(m)) || 'first'; }
 
 // Clicking the image pins it. From "auto" that means stopping on the marked
 // state — holding the highlight is why anyone clicks — and from then on each

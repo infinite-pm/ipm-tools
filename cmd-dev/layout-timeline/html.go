@@ -322,7 +322,7 @@ pre{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:
   {{if .Note}}<div class="note">{{.Note}}</div>{{end}}
   {{if .PanesDropped}}<div class="note">diagrams not drawn for this column — the report would not open; the changes below are complete</div>{{end}}
   {{range .Rows}}
-  <div class="row auto{{if not .OldSVG}} no-before{{end}}" id="{{.Anchor}}">
+  <div class="row first{{if not .OldSVG}} no-before{{end}}" id="{{.Anchor}}">
     <div class="rowhead">
       <span class="id">{{.ID}}</span>
       <span class="pill {{tier .Tier}}">{{.Tier}}</span>

@@ -79,7 +79,7 @@ The right pane cycles THREE states in one frame, with controls above it:
 | ◑ **before** | the OLD diagram — the left pane's picture, drawn in this frame |
 | ▢ **first** | the new diagram as rendered |
 | ◆ **second** | the new diagram with the differences drawn over it |
-| ⟳ **auto** | runs before → first → second on a ~3.6 s cycle (the default) |
+| ⟳ **auto** | runs before → first → second on a ~3.6 s cycle |
 
 Both diagrams occupy **one grid cell**, at the same pixel scale and the same
 origin, which is what makes the right pane a blink comparator: a node that did
@@ -87,6 +87,11 @@ not move stays perfectly still while the picture swaps, so the one that did
 move is the only thing that jumps. The left pane keeps both visible at once for
 reading; the right pane is for finding. A corner chip names whichever is
 showing.
+
+**A row opens on ▢ first, standing still.** Alternation is a tool the reader
+reaches for, not a state the page starts in — a report is opened to be read
+before it is compared, and a page that moves on arrival decides for the reader
+where to look. Press ⟳ auto (or `a`) when you want the comparison.
 
 **A click pins.** Clicking the image — or any control — stops the cycle, and
 from then on the picture never changes on its own: not on a timer, not on

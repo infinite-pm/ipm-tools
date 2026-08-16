@@ -111,6 +111,18 @@ func TestOnlyVisibleRowsAnimate(t *testing.T) {
 	}
 }
 
+// A report opens STILL. Motion is opt-in: a page that starts animating
+// decides for the reader what to look at, and these pages are read before
+// they are compared.
+func TestDefaultModeIsStill(t *testing.T) {
+	if !strings.Contains(PaneJS, `|| 'first'`) {
+		t.Error("a row with no mode class falls back to something other than first")
+	}
+	if strings.Contains(PaneJS, `|| 'auto'`) {
+		t.Error("auto is still a fallback somewhere")
+	}
+}
+
 // The controls must show which state is current, or a pinned pane looks the
 // same as an alternating one that happens to be mid-cycle.
 func TestActiveControlIsMarked(t *testing.T) {
