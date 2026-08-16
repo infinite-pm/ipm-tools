@@ -1,5 +1,6 @@
 .PHONY: help build test vet sync-test-cases gen-test-md gen-invalid-sidecars update-test-docs \
         refs-rehash layout-test layout-fitness layout-check layout-check-baseline \
+        layout-audit \
         build-rpc build-all build-dev build-notrace
 
 BIN_DIR ?= bin
@@ -12,12 +13,13 @@ help:
 	@echo "  vet              - go vet ./..."
 	@echo "  build-rpc        - Build the ipm-rpc LSP binary into $(BIN_DIR)/ (for the VS Code extension)"
 	@echo "  build-all        - Build every shipping + dev binary into $(BIN_DIR)/"
-	@echo "  build-dev        - Build just the dev binaries (layout-debug, layout-explain)"
+	@echo "  build-dev        - Build just the dev binaries (layout-debug, layout-explain, layout-audit)"
 	@echo ""
 	@echo "Layout regression testing:"
 	@echo "  layout-test      - Run layout regression tests (verbose)"
 	@echo "  layout-fitness   - Show the fitness score only"
 	@echo "  layout-check     - Ratchet the universal-invariant findings vs the baseline"
+	@echo "  layout-audit     - HTML report: which diagrams a change moved, ranked (OLD=<ref>)"
 	@echo ""
 	@echo "Fixture maintenance (dev):"
 	@echo "  sync-test-cases  - Verify and update generated fixture coverage"
@@ -65,7 +67,7 @@ build-all: build-dev
 # (bin/layout-debug did exactly that, 2026-07-27, and sent a diagnosis the
 # wrong way). build-all rebuilds them alongside the shipping set so the two
 # can never drift; `make build-dev` refreshes just these.
-DEV := layout-debug layout-explain
+DEV := layout-debug layout-explain layout-audit
 build-dev:
 	@mkdir -p $(BIN_DIR)
 	@for c in $(DEV); do \
@@ -95,6 +97,19 @@ layout-check:
 
 layout-check-baseline:
 	@go run ./cmd-dev/layout-debug --check --write-baseline tests/layout-check-baseline.txt $(CHECK_PATHS) 2>/dev/null
+
+# What a change DID, rather than whether it passed: builds the engine at OLD
+# (default HEAD), sweeps both engines over the same diagrams and writes an HTML
+# report ranked by significance. docs/dev-tools/layout-audit.md.
+#   make layout-audit                     # HEAD vs the working tree
+#   make layout-audit OLD=v0.4.2
+#   make layout-audit OLD=abc123~1 NEW=abc123
+OLD ?= HEAD
+NEW ?= workdir
+AUDIT_PATHS ?= $(CHECK_PATHS) examples docs
+
+layout-audit:
+	@go run ./cmd-dev/layout-audit --old "$(OLD)" --new "$(NEW)" $(AUDIT_PATHS)
 
 # Fixture maintenance. These REWRITE tracked files, so CI never runs them; CI
 # runs the read-only counterparts instead (`sync-test-cases --check`,

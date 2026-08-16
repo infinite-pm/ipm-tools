@@ -52,6 +52,21 @@ make build-all          # refresh bin/ — SHIPPING plus the dev binaries
                         # ipm-rpc; `make build-dev` alone covers only the two.
 ```
 
+Then see what the change actually MOVED — the corpora say whether anything
+pinned broke, not what changed:
+
+```bash
+make layout-audit          # HEAD vs the working tree; OLD=<ref> to pick another
+```
+
+It sweeps both corpora, `examples/` and every doc diagram through the engine at
+`OLD` and the one in the working tree, ranks every diagram that changed
+(invariant regressions first, then structural, then geometry) and writes
+`temp/layout-audit/index.html`. Open it: a change that is green on fitness AND
+on the ratchet can still have moved a diagram nobody pinned — that is what this
+catches, and it is where the "snapshot the examples before/after" step below
+now happens automatically. `gl:docs/dev-tools/layout-audit.md`.
+
 Then re-render the doc diagrams so a human can review them:
 
 ```bash

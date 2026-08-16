@@ -41,7 +41,8 @@
 - [`dev/layout-gen/layout7-engine.md`](dev/layout-gen/layout7-engine.md) and
   [`dev/layout-gen/`](dev/layout-gen/) —
   the layout algorithm, its DSL rules, and design notes.
-- [`dev-tools/`](dev-tools/) — notes on the `cmd-dev/` utilities.
+- [`dev-tools/`](dev-tools/) — notes on the `cmd-dev/` utilities, including
+  [`layout-audit`](dev-tools/layout-audit.md) (what an engine change moved, ranked).
 
 ### The `gl:` link convention
 

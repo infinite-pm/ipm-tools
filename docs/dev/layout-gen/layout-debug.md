@@ -18,6 +18,11 @@ layout-gen — `layout-debug` accepts its full flag set plus its own addons (`la
   `<in-stem>.explain.md` (pass `--out temp/…` to keep it in `temp/`). For reviewing a render, ratifying a
   convention, onboarding into the engine.
 
+A THIRD tool answers a question neither can: `cmd-dev/layout-audit` compares
+TWO engines over EVERY diagram and ranks what changed — the view for "my
+engine change is green on fitness and the ratchet, so what did it actually
+move?" (`gl:docs/dev-tools/layout-audit.md`).
+
 Layout analysis goes through THESE interfaces and no others:
 
 ```bash
@@ -28,6 +33,7 @@ go run ./cmd-dev/layout-debug --in case.ipmt --facts              # observed rul
 go run ./cmd-dev/layout-debug --in case.ipmt --table              # or --edges: geometry tables
 go run ./cmd-dev/layout-debug --in case.ipmt --check              # universal invariants, one diagram
 go run ./cmd-dev/layout-explain --in doc.md --block "heading"     # narrated .md report + SVG
+go run ./cmd-dev/layout-audit                                     # every diagram, HEAD vs workdir
 ```
 
 RECORDED mode — capture once, ask many questions of the SAME run
@@ -93,6 +99,7 @@ The tools:
 | `cmd-dev/layout-debug --why/--facts/--table/--edges/--candidates/--sel` | terminal views, composable with grep/diff |
 | `cmd-dev/layout-debug --check` | universal-invariant findings for one diagram, or the ratchet over many paths |
 | `cmd-dev/layout-explain` | ONE ipmt block → narrated `.explain.md` report + SVG companion (`docs/dev-tools/layout-explain.md`) |
+| `cmd-dev/layout-audit` | EVERY diagram, TWO engines: builds the engine at a git ref, sweeps both over the same sources, ranks what moved, writes an HTML report with the old diagram beside the new one flapping to a highlighted overlay (`gl:docs/dev-tools/layout-audit.md`) |
 
 ### Stripped builds
 
