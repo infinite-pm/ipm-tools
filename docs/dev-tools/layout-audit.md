@@ -103,6 +103,14 @@ Other repositories work too — the engine is this one's, only the sources move:
 go run ./cmd-dev/layout-audit ../ipm-k8s-case/prd ../ipm-drawio/docs
 ```
 
+The richest set to point it at is the demo recorder's captured states — the
+diagrams a user types, mid-construction, which no authored fixture contains
+(`gl:docs/dev-tools/states-corpus.md`):
+
+```bash
+go run ./cmd-dev/layout-audit ../vscode-infinite-pm-dev/demo/states/ipmt-preview
+```
+
 ## Flags
 
 | flag | default | |

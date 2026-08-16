@@ -42,7 +42,9 @@
   [`dev/layout-gen/`](dev/layout-gen/) —
   the layout algorithm, its DSL rules, and design notes.
 - [`dev-tools/`](dev-tools/) — notes on the `cmd-dev/` utilities, including
-  [`layout-audit`](dev-tools/layout-audit.md) (what an engine change moved, ranked).
+  [`layout-audit`](dev-tools/layout-audit.md) (what an engine change moved, ranked)
+  and [`states-corpus`](dev-tools/states-corpus.md) (the demo recorder's typed
+  diagram states, captured as a layout corpus).
 
 ### The `gl:` link convention
 
