@@ -1,4 +1,4 @@
-package main
+package layoutaudit
 
 // The diagram set, and running both engines over it.
 //
@@ -26,9 +26,9 @@ import (
 	"github.com/infinite-pm/ipm-tools/pkg/mdembed"
 )
 
-// diagram is one thing to compare: an ipmt source with an identity a human
+// Diagram is one thing to compare: an ipmt source with an identity a human
 // recognises and a tool can grep for.
-type diagram struct {
+type Diagram struct {
 	// ID is repo-relative: "tests/layout-gen/foo.ipmt" for a file,
 	// "docs/x.md#100" for a block (the id being mdembed's marker key, so the
 	// row points at the same artifact `_ipm/docs/x/100.ipm.svg` does).
@@ -50,13 +50,13 @@ var skipDirs = map[string]bool{
 	"bin": true, "out": true, "dist": true,
 }
 
-// collect enumerates diagrams under the given paths (files or directories).
+// Collect enumerates diagrams under the given paths (files or directories).
 // Markdown blocks are extracted with mdembed, so the set is exactly what
 // md-embed would render — fence meta, `# ipmt:` pragmas, includes and the
 // `embed=false` / invalid lanes all decided in one place rather than
 // re-derived here.
-func collect(root string, paths []string, srcDir string) ([]diagram, []string, error) {
-	var out []diagram
+func Collect(root string, paths []string, srcDir string) ([]Diagram, []string, error) {
+	var out []Diagram
 	var warns []string
 	if err := os.MkdirAll(srcDir, 0o755); err != nil {
 		return nil, nil, err
@@ -98,7 +98,7 @@ func collect(root string, paths []string, srcDir string) ([]diagram, []string, e
 	for _, f := range files {
 		rel := relTo(root, f)
 		if strings.HasSuffix(f, ".ipmt") {
-			out = append(out, diagram{ID: rel, Path: f, Origin: f})
+			out = append(out, Diagram{ID: rel, Path: f, Origin: f})
 			continue
 		}
 		ds, w := blocksOf(root, f, rel, srcDir)
@@ -118,9 +118,9 @@ func collect(root string, paths []string, srcDir string) ([]diagram, []string, e
 // are one diagram. Identical source cannot lay out differently: the engine
 // is deterministic. The dropped names are kept on the survivor so the row
 // still says where else it appears.
-func dedupe(in []diagram) []diagram {
+func dedupe(in []Diagram) []Diagram {
 	seen := map[string]int{} // content hash → index in out
-	var out []diagram
+	var out []Diagram
 	for _, d := range in {
 		data, err := os.ReadFile(d.Path)
 		if err != nil {
@@ -139,7 +139,7 @@ func dedupe(in []diagram) []diagram {
 }
 
 // blocksOf extracts every renderable ipmt block of one markdown file.
-func blocksOf(root, mdPath, rel, srcDir string) ([]diagram, []string) {
+func blocksOf(root, mdPath, rel, srcDir string) ([]Diagram, []string) {
 	text, err := os.ReadFile(mdPath)
 	if err != nil {
 		return nil, []string{fmt.Sprintf("skip %s: %v", rel, err)}
@@ -148,7 +148,7 @@ func blocksOf(root, mdPath, rel, srcDir string) ([]diagram, []string) {
 	if err != nil {
 		return nil, []string{fmt.Sprintf("skip %s: analyze: %v", rel, err)}
 	}
-	var out []diagram
+	var out []Diagram
 	var warns []string
 	for _, br := range analysis.Blocks {
 		switch br.Outcome {
@@ -163,19 +163,20 @@ func blocksOf(root, mdPath, rel, srcDir string) ([]diagram, []string) {
 		if id == "" {
 			id = fmt.Sprintf("L%d", br.OpenLine+1)
 		}
-		path := filepath.Join(srcDir, sanitize(rel+"#"+id)+".ipmt")
+		path := filepath.Join(srcDir, Sanitize(rel+"#"+id)+".ipmt")
 		if err := os.WriteFile(path, []byte(br.Content), 0o644); err != nil {
 			warns = append(warns, fmt.Sprintf("skip %s#%s: %v", rel, id, err))
 			continue
 		}
-		out = append(out, diagram{
+		out = append(out, Diagram{
 			ID: rel + "#" + id, Path: path, Origin: mdPath, Line: br.OpenLine + 1,
 		})
 	}
 	return out, warns
 }
 
-func sanitize(s string) string {
+// Sanitize turns a diagram identity into a filename fragment.
+func Sanitize(s string) string {
 	r := strings.NewReplacer("/", "_", "\\", "_", "#", "-", " ", "_", ":", "-")
 	return r.Replace(s)
 }
@@ -187,15 +188,15 @@ func relTo(root, p string) string {
 	return filepath.ToSlash(p)
 }
 
-// generated is one engine's result for one diagram.
-type generated struct {
+// Generated is one engine's result for one diagram.
+type Generated struct {
 	Graph *layout.Graph
 	Err   string
 	JSON  []byte
 }
 
-// runEngine generates one diagram's layout with one engine.
-func runEngine(bin string, d diagram) generated {
+// RunEngine generates one diagram's layout with one engine.
+func RunEngine(bin string, d Diagram) Generated {
 	cmd := exec.Command(bin, "--in", d.Path, "--out", "-", "--pretty=true")
 	var stderr strings.Builder
 	cmd.Stderr = &stderr
@@ -205,13 +206,13 @@ func runEngine(bin string, d diagram) generated {
 		if msg == "" {
 			msg = err.Error()
 		}
-		return generated{Err: firstLine(msg)}
+		return Generated{Err: firstLine(msg)}
 	}
 	var g layout.Graph
 	if err := json.Unmarshal(out, &g); err != nil {
-		return generated{Err: "decode layout json: " + err.Error()}
+		return Generated{Err: "decode layout json: " + err.Error()}
 	}
-	return generated{Graph: &g, JSON: out}
+	return Generated{Graph: &g, JSON: out}
 }
 
 func firstLine(s string) string {
@@ -221,17 +222,17 @@ func firstLine(s string) string {
 	return s
 }
 
-// pair is both engines' results for one diagram.
-type pair struct {
-	Diagram diagram
-	Old     generated
-	New     generated
+// Pair is two engines' results for one diagram.
+type Pair struct {
+	Diagram Diagram
+	Old     Generated
+	New     Generated
 }
 
-// sweep runs every diagram through both engines, in parallel across
+// Sweep runs every diagram through both engines, in parallel across
 // diagrams. Deterministic: results come back in input order.
-func sweep(diagrams []diagram, oldBin, newBin string) []pair {
-	pairs := make([]pair, len(diagrams))
+func Sweep(diagrams []Diagram, oldBin, newBin string) []Pair {
+	pairs := make([]Pair, len(diagrams))
 	workers := runtime.NumCPU()
 	if workers > 8 {
 		workers = 8
@@ -247,7 +248,7 @@ func sweep(diagrams []diagram, oldBin, newBin string) []pair {
 			defer wg.Done()
 			for i := range jobs {
 				d := diagrams[i]
-				pairs[i] = pair{Diagram: d, Old: runEngine(oldBin, d), New: runEngine(newBin, d)}
+				pairs[i] = Pair{Diagram: d, Old: RunEngine(oldBin, d), New: RunEngine(newBin, d)}
 			}
 		}()
 	}

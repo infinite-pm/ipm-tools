@@ -1,6 +1,6 @@
-package main
+package layoutaudit
 
-// Getting the OLD engine: resolve a git ref, export that tree, build it.
+// Getting an engine: resolve a git ref, export that tree, build it.
 //
 // `git archive` rather than `git worktree`: there is no bookkeeping to leak,
 // nothing to prune if the run dies, and it works on a dirty repository —
@@ -17,11 +17,15 @@ import (
 	"strings"
 )
 
-// engine is one side of the comparison: a layout-gen binary and the story of
-// where it came from, which the report prints so a reader knows what they are
-// looking at.
-type engine struct {
-	Name      string // "old" / "new"
+// WorkdirRef names the working tree as a pseudo-ref, so a caller can accept
+// "HEAD", "v0.4.2" and "workdir" through one option.
+const WorkdirRef = "workdir"
+
+// Engine is one build of the layout engine: a layout-gen binary and the story
+// of where it came from, which a report prints so a reader knows what they
+// are looking at.
+type Engine struct {
+	Name      string // a label for the report ("old", "new", "2026-06-29")
 	Ref       string // the ref as typed ("HEAD", "workdir", "v0.4.2")
 	SHA       string // resolved commit, empty for the working tree
 	Subject   string // commit subject, or the dirty-file count for a workdir
@@ -30,33 +34,34 @@ type engine struct {
 	LayoutDbg string // path to the built layout-debug ("" if that ref has none)
 }
 
-// Describe renders the one-line provenance the report shows.
-func (e engine) Describe() string {
+// Describe renders the one-line provenance a report shows.
+func (e Engine) Describe() string {
 	switch {
 	case e.SHA == "":
 		return fmt.Sprintf("%s — %s", e.Ref, e.Subject)
 	case e.Dirty:
-		return fmt.Sprintf("%s (%s, dirty) — %s", e.Ref, short(e.SHA), e.Subject)
+		return fmt.Sprintf("%s (%s, dirty) — %s", e.Ref, Short(e.SHA), e.Subject)
 	default:
-		return fmt.Sprintf("%s (%s) — %s", e.Ref, short(e.SHA), e.Subject)
+		return fmt.Sprintf("%s (%s) — %s", e.Ref, Short(e.SHA), e.Subject)
 	}
 }
 
-func short(sha string) string {
+// Short is the 7-character commit form the reports print.
+func Short(sha string) string {
 	if len(sha) > 7 {
 		return sha[:7]
 	}
 	return sha
 }
 
-// buildEngine produces a layout-gen (and, when the ref has one, a
+// BuildEngine produces a layout-gen (and, when the ref has one, a
 // layout-debug) for ref. "workdir" builds the working tree as it stands.
 //
 // Builds are cached under <cache>/<sha>/; a second run against the same
 // commit costs nothing. The working tree is never cached — that is the side
 // being iterated on.
-func buildEngine(repo, ref, name, cache string, prebuilt string, verbose bool) (engine, error) {
-	e := engine{Name: name, Ref: ref}
+func BuildEngine(repo, ref, name, cache string, prebuilt string, verbose bool) (Engine, error) {
+	e := Engine{Name: name, Ref: ref}
 
 	if prebuilt != "" {
 		abs, err := filepath.Abs(prebuilt)
@@ -70,7 +75,7 @@ func buildEngine(repo, ref, name, cache string, prebuilt string, verbose bool) (
 		return e, nil
 	}
 
-	if ref == workdirRef {
+	if ref == WorkdirRef {
 		e.Subject = workdirSubject(repo)
 		e.Dirty = strings.Contains(e.Subject, "uncommitted")
 		binDir := filepath.Join(cache, "workdir")
@@ -82,16 +87,16 @@ func buildEngine(repo, ref, name, cache string, prebuilt string, verbose bool) (
 		return e, nil
 	}
 
-	sha, err := git(repo, "rev-parse", ref+"^{commit}")
+	sha, err := Git(repo, "rev-parse", ref+"^{commit}")
 	if err != nil {
 		return e, fmt.Errorf("resolve %q: %w", ref, err)
 	}
 	e.SHA = sha
-	if subj, err := git(repo, "log", "-1", "--format=%s", sha); err == nil {
+	if subj, err := Git(repo, "log", "-1", "--format=%s", sha); err == nil {
 		e.Subject = subj
 	}
 
-	binDir := filepath.Join(cache, short(sha))
+	binDir := filepath.Join(cache, Short(sha))
 	gen := filepath.Join(binDir, "layout-gen")
 	dbg := filepath.Join(binDir, "layout-debug")
 	if _, err := os.Stat(gen); err == nil {
@@ -100,12 +105,12 @@ func buildEngine(repo, ref, name, cache string, prebuilt string, verbose bool) (
 			e.LayoutDbg = dbg
 		}
 		if verbose {
-			fmt.Fprintf(os.Stderr, "layout-audit: %s engine cached (%s)\n", name, short(sha))
+			fmt.Fprintf(os.Stderr, "layout-audit: %s engine cached (%s)\n", name, Short(sha))
 		}
 		return e, nil
 	}
 
-	srcDir := filepath.Join(cache, "src", short(sha))
+	srcDir := filepath.Join(cache, "src", Short(sha))
 	if err := exportTree(repo, sha, srcDir); err != nil {
 		return e, err
 	}
@@ -138,13 +143,13 @@ func exportTree(repo, sha, dir string) error {
 		return err
 	}
 	if err := archive.Run(); err != nil {
-		return fmt.Errorf("git archive %s: %v: %s", short(sha), err, stderr.String())
+		return fmt.Errorf("git archive %s: %v: %s", Short(sha), err, stderr.String())
 	}
 	if err := pipe.Close(); err != nil && !errIsClosed(err) {
 		return err
 	}
 	if err := untar.Wait(); err != nil {
-		return fmt.Errorf("untar %s: %v: %s", short(sha), err, stderr.String())
+		return fmt.Errorf("untar %s: %v: %s", Short(sha), err, stderr.String())
 	}
 	return nil
 }
@@ -181,7 +186,8 @@ func goBuildOne(dir, out, pkg string) (string, error) {
 	return string(b), err
 }
 
-func git(repo string, args ...string) (string, error) {
+// Git runs a git command in repo and returns its trimmed stdout.
+func Git(repo string, args ...string) (string, error) {
 	cmd := exec.Command("git", append([]string{"-C", repo}, args...)...)
 	var stderr bytes.Buffer
 	cmd.Stderr = &stderr
@@ -196,11 +202,11 @@ func git(repo string, args ...string) (string, error) {
 // described: dirty is RECORDED, never hidden, because a report produced from
 // uncommitted work cannot be reproduced from a commit alone.
 func workdirSubject(repo string) string {
-	head, err := git(repo, "log", "-1", "--format=%h %s")
+	head, err := Git(repo, "log", "-1", "--format=%h %s")
 	if err != nil {
 		head = "(no commits)"
 	}
-	status, err := git(repo, "status", "--porcelain")
+	status, err := Git(repo, "status", "--porcelain")
 	if err != nil || strings.TrimSpace(status) == "" {
 		return "clean working tree at " + head
 	}

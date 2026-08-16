@@ -99,6 +99,7 @@ The tools:
 | `cmd-dev/layout-debug --why/--facts/--table/--edges/--candidates/--sel` | terminal views, composable with grep/diff |
 | `cmd-dev/layout-debug --check` | universal-invariant findings for one diagram, or the ratchet over many paths |
 | `cmd-dev/layout-explain` | ONE ipmt block → narrated `.explain.md` report + SVG companion (`docs/dev-tools/layout-explain.md`) |
+| `cmd-dev/layout-timeline` | EVERY diagram, EVERY WEEK: the commit at the start of each Monday, today's diagrams through each of those engines, and a grid saying when each one last moved (`gl:docs/dev-tools/layout-timeline.md`) |
 | `cmd-dev/layout-audit` | EVERY diagram, TWO engines: builds the engine at a git ref, sweeps both over the same sources, ranks what moved, writes an HTML report with the old diagram beside the new one flapping to a highlighted overlay (`gl:docs/dev-tools/layout-audit.md`) |
 
 ### Stripped builds

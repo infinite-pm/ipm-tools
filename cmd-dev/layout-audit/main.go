@@ -35,12 +35,13 @@ import (
 
 	"github.com/infinite-pm/ipm-tools/pkg/cli"
 	"github.com/infinite-pm/ipm-tools/pkg/ipmsvg"
+	"github.com/infinite-pm/ipm-tools/pkg/layoutaudit"
 	"github.com/infinite-pm/ipm-tools/pkg/layoutdiff"
 )
 
 // workdirRef names the working tree as a pseudo-ref, so --old and --new share
 // one vocabulary ("HEAD", "v0.4.2", "workdir").
-const workdirRef = "workdir"
+const workdirRef = layoutaudit.WorkdirRef
 
 // defaultPaths is what a bare invocation sweeps in this repository: both
 // fitness corpora, the hand-kept examples, and every rendered doc diagram.
@@ -58,15 +59,15 @@ const (
 )
 
 type result struct {
-	Diagram diagram           `json:"-"`
-	ID      string            `json:"id"`
-	Origin  string            `json:"origin"`
-	Aliases []string          `json:"aliases,omitempty"`
-	Line    int               `json:"line,omitempty"`
-	Status  string            `json:"status"`
-	OldErr  string            `json:"oldError,omitempty"`
-	NewErr  string            `json:"newError,omitempty"`
-	Report  layoutdiff.Report `json:"report"`
+	Diagram layoutaudit.Diagram `json:"-"`
+	ID      string              `json:"id"`
+	Origin  string              `json:"origin"`
+	Aliases []string            `json:"aliases,omitempty"`
+	Line    int                 `json:"line,omitempty"`
+	Status  string              `json:"status"`
+	OldErr  string              `json:"oldError,omitempty"`
+	NewErr  string              `json:"newError,omitempty"`
+	Report  layoutdiff.Report   `json:"report"`
 
 	OldSVG    []byte `json:"-"`
 	NewSVG    []byte `json:"-"`
@@ -137,11 +138,11 @@ func run() int {
 		return fail("create %s: %v", cache, err)
 	}
 
-	oldEng, err := buildEngine(repoAbs, oldRef, "old", cache, oldBin, verbose)
+	oldEng, err := layoutaudit.BuildEngine(repoAbs, oldRef, "old", cache, oldBin, verbose)
 	if err != nil {
 		return fail("old engine: %v", err)
 	}
-	newEng, err := buildEngine(repoAbs, newRef, "new", cache, newBin, verbose)
+	newEng, err := layoutaudit.BuildEngine(repoAbs, newRef, "new", cache, newBin, verbose)
 	if err != nil {
 		return fail("new engine: %v", err)
 	}
@@ -152,7 +153,7 @@ func run() int {
 	if len(paths) == 0 {
 		paths = defaultPaths
 	}
-	diagrams, warns, err := collect(repoAbs, paths, filepath.Join(outAbs, "src"))
+	diagrams, warns, err := layoutaudit.Collect(repoAbs, paths, filepath.Join(outAbs, "src"))
 	if err != nil {
 		return fail("collect: %v", err)
 	}
@@ -163,7 +164,7 @@ func run() int {
 		return fail("no diagrams under %s", strings.Join(paths, " "))
 	}
 
-	pairs := sweep(diagrams, oldEng.LayoutGen, newEng.LayoutGen)
+	pairs := layoutaudit.Sweep(diagrams, oldEng.LayoutGen, newEng.LayoutGen)
 	results := classify(pairs, layoutdiff.Options{KeepCarried: carried})
 	rank(results)
 
@@ -220,7 +221,7 @@ func run() int {
 }
 
 // classify turns raw engine results into ranked rows.
-func classify(pairs []pair, opts layoutdiff.Options) []result {
+func classify(pairs []layoutaudit.Pair, opts layoutdiff.Options) []result {
 	out := make([]result, 0, len(pairs))
 	for _, p := range pairs {
 		r := result{
@@ -277,8 +278,8 @@ func rank(rs []result) {
 // That is deliberate: a renderer difference between the two refs would
 // otherwise show up as a diagram difference, and the question here is what
 // the ENGINE did.
-func render(r *result, p pair, pairDir string) {
-	base := filepath.Join(pairDir, sanitize(r.ID))
+func render(r *result, p layoutaudit.Pair, pairDir string) {
+	base := filepath.Join(pairDir, layoutaudit.Sanitize(r.ID))
 	if p.Old.Graph != nil {
 		if svg, err := ipmsvg.Render(p.Old.Graph); err == nil {
 			r.OldSVG = svg
@@ -299,7 +300,7 @@ func render(r *result, p pair, pairDir string) {
 	}
 }
 
-func indexOf(pairs []pair, id string) int {
+func indexOf(pairs []layoutaudit.Pair, id string) int {
 	for i := range pairs {
 		if pairs[i].Diagram.ID == id {
 			return i

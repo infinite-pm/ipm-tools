@@ -1,0 +1,210 @@
+package main
+
+// Finding the engine at the start of each Monday.
+//
+// "The commit at the start of Monday" is the last commit strictly BEFORE that
+// Monday's 00:00 — the state the repository was in when the week began. Not
+// the first commit ON Monday: that one already contains a week's first work,
+// so a series built from it would attribute Monday's changes to the week
+// before. Use --at=first-of-week for that reading when what is wanted is "the
+// first thing done each week" rather than "what stood at the week's start".
+//
+// Weeks with no commits collapse: the snapshot repeats the previous SHA, and
+// the report says the engine did not change rather than diffing a commit
+// against itself.
+
+import (
+	"fmt"
+	"strings"
+	"time"
+
+	"github.com/infinite-pm/ipm-tools/pkg/layoutaudit"
+)
+
+// Git is the repository helper, aliased so this file reads as git work.
+var Git = layoutaudit.Git
+
+// snapshot is one week's engine.
+type snapshot struct {
+	Monday  time.Time // the week boundary this snapshot stands for
+	SHA     string    // resolved commit, "" when the repo had no commits yet
+	Subject string
+	Date    time.Time // the commit's own date
+	// SameAsPrev marks a week in which nothing was committed: the engine is
+	// byte-identical to the previous snapshot's.
+	SameAsPrev bool
+	// Now marks the extra trailing snapshot for the current HEAD, which is
+	// not a Monday and says so.
+	Now bool
+}
+
+// Label is how a week is named in the report and on the command line.
+func (s snapshot) Label() string {
+	if s.Now {
+		return s.Monday.Format("2006-01-02") + " now"
+	}
+	return s.Monday.Format("2006-01-02")
+}
+
+func (s snapshot) Describe() string {
+	if s.SHA == "" {
+		return s.Label() + " — no commits yet"
+	}
+	d := fmt.Sprintf("%s (%s) %s", s.Label(), layoutaudit.Short(s.SHA), s.Subject)
+	if s.SameAsPrev {
+		d += " — engine unchanged this week"
+	}
+	return d
+}
+
+// mondaysBetween lists every Monday 00:00 in [from, to], in local time.
+//
+// Local time on purpose: "Monday" is a fact about the person reading the
+// report, not about UTC, and a Sunday-evening commit should belong to the week
+// a human would put it in.
+func mondaysBetween(from, to time.Time) []time.Time {
+	first := startOfWeek(from)
+	if first.Before(from) {
+		first = first.AddDate(0, 0, 7)
+	}
+	var out []time.Time
+	for d := first; !d.After(to); d = d.AddDate(0, 0, 7) {
+		out = append(out, d)
+	}
+	return out
+}
+
+// startOfWeek is the Monday 00:00 at or before t.
+func startOfWeek(t time.Time) time.Time {
+	day := time.Date(t.Year(), t.Month(), t.Day(), 0, 0, 0, 0, t.Location())
+	// Go's Weekday: Sunday = 0 … Saturday = 6. Monday-based offset, so
+	// Sunday belongs to the week that started six days earlier rather than
+	// starting one of its own.
+	offset := (int(day.Weekday()) + 6) % 7
+	return day.AddDate(0, 0, -offset)
+}
+
+// atMode selects which commit of a week stands for it.
+type atMode string
+
+const (
+	atWeekStart   atMode = "week-start"    // last commit before Monday 00:00
+	atFirstOfWeek atMode = "first-of-week" // first commit on or after Monday 00:00
+)
+
+// resolveSnapshots asks git for the commit standing at each Monday.
+func resolveSnapshots(repo string, mondays []time.Time, mode atMode) ([]snapshot, error) {
+	var out []snapshot
+	prev := ""
+	for _, m := range mondays {
+		s := snapshot{Monday: m}
+		sha, err := commitAt(repo, m, mode)
+		if err != nil {
+			return nil, err
+		}
+		// A week with no commit of its own is not a gap in the series: the
+		// engine simply did not change, so the previous snapshot stands.
+		// (week-start never produces this after the first commit; first-of-week
+		// does, for every quiet week.)
+		if sha == "" && prev != "" {
+			sha = prev
+		}
+		s.SHA = sha
+		if sha != "" {
+			if subject, err := Git(repo, "log", "-1", "--format=%s", sha); err == nil {
+				s.Subject = subject
+			}
+			if ts, err := Git(repo, "log", "-1", "--format=%cI", sha); err == nil {
+				if d, perr := time.Parse(time.RFC3339, ts); perr == nil {
+					s.Date = d
+				}
+			}
+			s.SameAsPrev = sha == prev
+			prev = sha
+		}
+		out = append(out, s)
+	}
+	return out, nil
+}
+
+// commitAt resolves one week's commit. An empty string means the repository
+// had no qualifying commit — before its first one, or after its last.
+func commitAt(repo string, monday time.Time, mode atMode) (string, error) {
+	// Git's --before/--after are inclusive of the timestamp, so week-start
+	// asks for strictly-before by stepping back one second: a commit made
+	// exactly at 00:00 Monday belongs to the new week, not to the old one.
+	var args []string
+	switch mode {
+	case atFirstOfWeek:
+		// --reverse lists oldest first and the first line is what is wanted;
+		// `-1 --reverse` would still hand back the NEWEST commit, because the
+		// limit is applied before the reversal.
+		//
+		// BOUNDED BY THE WEEK'S END. Without --until, a week in which nothing
+		// was committed silently borrows the next commit there IS — so a quiet
+		// July week would present an engine built in August, from its own
+		// future. An empty answer here is correct and handled by the caller:
+		// the week carries the previous snapshot forward.
+		end := monday.AddDate(0, 0, 7).Add(-time.Second)
+		args = []string{"rev-list", "--reverse",
+			"--since=" + monday.Format(time.RFC3339),
+			"--until=" + end.Format(time.RFC3339), "HEAD"}
+	default:
+		args = []string{"rev-list", "-1", "--before=" + monday.Add(-time.Second).Format(time.RFC3339), "HEAD"}
+	}
+	out, err := Git(repo, args...)
+	if err != nil {
+		return "", fmt.Errorf("rev-list for %s: %w", monday.Format("2006-01-02"), err)
+	}
+	out = strings.TrimSpace(out)
+	if out == "" {
+		return "", nil
+	}
+	if i := strings.IndexByte(out, '\n'); i >= 0 {
+		out = out[:i]
+	}
+	return out, nil
+}
+
+// appendHead adds the CURRENT HEAD as a final snapshot when the last weekly
+// one is older than it.
+//
+// Without it the series stops at the start of the current week, so everything
+// committed since Monday — often the very work the reader is asking about —
+// would be invisible. The column is labelled with today's date and marked
+// "now" rather than pretending to be a Monday.
+func appendHead(repo string, snaps []snapshot) ([]snapshot, error) {
+	head, err := Git(repo, "rev-parse", "HEAD")
+	if err != nil {
+		return snaps, err
+	}
+	last := ""
+	for i := len(snaps) - 1; i >= 0; i-- {
+		if snaps[i].SHA != "" {
+			last = snaps[i].SHA
+			break
+		}
+	}
+	if head == last {
+		return snaps, nil
+	}
+	s := snapshot{Monday: time.Now(), SHA: head, Now: true}
+	if subject, err := Git(repo, "log", "-1", "--format=%s", head); err == nil {
+		s.Subject = subject
+	}
+	return append(snaps, s), nil
+}
+
+// firstCommitDate is when the repository starts, so a bare invocation can
+// cover its whole life without the caller knowing the date.
+func firstCommitDate(repo string) (time.Time, error) {
+	out, err := Git(repo, "log", "--reverse", "--format=%cI", "--max-parents=0")
+	if err != nil {
+		return time.Time{}, err
+	}
+	line := out
+	if i := strings.IndexByte(line, '\n'); i >= 0 {
+		line = line[:i]
+	}
+	return time.Parse(time.RFC3339, strings.TrimSpace(line))
+}

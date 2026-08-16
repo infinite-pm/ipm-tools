@@ -1,6 +1,6 @@
 .PHONY: help build test vet sync-test-cases gen-test-md gen-invalid-sidecars update-test-docs \
         refs-rehash layout-test layout-fitness layout-check layout-check-baseline \
-        layout-audit \
+        layout-audit layout-timeline \
         build-rpc build-all build-dev build-notrace
 
 BIN_DIR ?= bin
@@ -13,13 +13,14 @@ help:
 	@echo "  vet              - go vet ./..."
 	@echo "  build-rpc        - Build the ipm-rpc LSP binary into $(BIN_DIR)/ (for the VS Code extension)"
 	@echo "  build-all        - Build every shipping + dev binary into $(BIN_DIR)/"
-	@echo "  build-dev        - Build just the dev binaries (layout-debug, layout-explain, layout-audit)"
+	@echo "  build-dev        - Build just the dev binaries (layout-debug, layout-explain, layout-audit, layout-timeline)"
 	@echo ""
 	@echo "Layout regression testing:"
 	@echo "  layout-test      - Run layout regression tests (verbose)"
 	@echo "  layout-fitness   - Show the fitness score only"
 	@echo "  layout-check     - Ratchet the universal-invariant findings vs the baseline"
 	@echo "  layout-audit     - HTML report: which diagrams a change moved, ranked (OLD=<ref>)"
+	@echo "  layout-timeline  - HTML report: today's diagrams through each Monday's engine"
 	@echo ""
 	@echo "Fixture maintenance (dev):"
 	@echo "  sync-test-cases  - Verify and update generated fixture coverage"
@@ -67,7 +68,7 @@ build-all: build-dev
 # (bin/layout-debug did exactly that, 2026-07-27, and sent a diagnosis the
 # wrong way). build-all rebuilds them alongside the shipping set so the two
 # can never drift; `make build-dev` refreshes just these.
-DEV := layout-debug layout-explain layout-audit
+DEV := layout-debug layout-explain layout-audit layout-timeline
 build-dev:
 	@mkdir -p $(BIN_DIR)
 	@for c in $(DEV); do \
@@ -110,6 +111,16 @@ AUDIT_PATHS ?= $(CHECK_PATHS) examples docs
 
 layout-audit:
 	@go run ./cmd-dev/layout-audit --old "$(OLD)" --new "$(NEW)" $(AUDIT_PATHS)
+
+# When each diagram last moved: the commit at the start of every Monday, the
+# engine built at each, and TODAY's diagrams run through all of them — so a
+# cell in the grid means the ENGINE changed the picture, never that someone
+# edited the diagram. docs/dev-tools/layout-timeline.md.
+#   make layout-timeline              # the whole history
+#   make layout-timeline WEEKS=6
+WEEKS ?=
+layout-timeline:
+	@go run ./cmd-dev/layout-timeline $(if $(WEEKS),--weeks $(WEEKS),) $(AUDIT_PATHS)
 
 # Fixture maintenance. These REWRITE tracked files, so CI never runs them; CI
 # runs the read-only counterparts instead (`sync-test-cases --check`,

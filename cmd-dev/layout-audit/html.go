@@ -16,15 +16,14 @@ package main
 import (
 	"fmt"
 	"html/template"
-	"sort"
 	"strings"
 	"time"
 
-	"github.com/infinite-pm/ipm-tools/pkg/layoutdiff"
+	"github.com/infinite-pm/ipm-tools/pkg/layoutaudit"
 )
 
 type reportInput struct {
-	Old, New engine
+	Old, New layoutaudit.Engine
 	Paths    []string
 	Results  []result
 	Elapsed  time.Duration
@@ -100,13 +99,13 @@ func renderHTML(in reportInput) string {
 	return b.String()
 }
 
-func buildRow(rank int, r result, oldEng engine) vmRow {
+func buildRow(rank int, r result, oldEng layoutaudit.Engine) vmRow {
 	row := vmRow{
 		Rank: rank, ID: r.ID, Origin: r.Origin, Line: r.Line, Aliases: r.Aliases,
 		Status: r.Status, Tier: r.Report.Tier.String(),
 		Score:         fmt.Sprintf("%.0f", r.Report.Score),
-		OldSVG:        template.HTML(inlineSVG(r.OldSVG)), //nolint:gosec // our own renderer's output
-		NewSVG:        template.HTML(inlineSVG(r.NewSVG)), //nolint:gosec
+		OldSVG:        template.HTML(layoutaudit.InlineSVG(r.OldSVG)), //nolint:gosec // our own renderer's output
+		NewSVG:        template.HTML(layoutaudit.InlineSVG(r.NewSVG)), //nolint:gosec
 		FindingsAdded: r.Report.FindingsAdded,
 		FindingsFixed: r.Report.FindingsFixed,
 		OldLayout:     relLink(r.OldLayout),
@@ -126,8 +125,8 @@ func buildRow(rank int, r result, oldEng engine) vmRow {
 	if ob == nb {
 		row.Bounds = fmt.Sprintf("%d×%d", nb.Width, nb.Height)
 	}
-	row.OldWidth, row.NewWidth = paneWidths(ob.Width, nb.Width)
-	row.Summary = summarize(r.Report)
+	row.OldWidth, row.NewWidth = layoutaudit.PaneWidths(ob.Width, nb.Width)
+	row.Summary = layoutaudit.Summarize(r.Report)
 
 	for _, c := range r.Report.Changes {
 		row.Changes = append(row.Changes, vmChange{
@@ -135,134 +134,12 @@ func buildRow(rank int, r result, oldEng engine) vmRow {
 		})
 	}
 
-	sel := selectors(r.Report)
+	sel := layoutaudit.Selectors(r.Report)
 	row.NewCmd = fmt.Sprintf("go run ./cmd-dev/layout-debug --in %s --why%s", r.Diagram.Path, sel)
 	if oldEng.LayoutDbg != "" {
 		row.OldCmd = fmt.Sprintf("%s --in %s --why%s", oldEng.LayoutDbg, r.Diagram.Path, sel)
 	}
 	return row
-}
-
-// summarize is the one line under the heading: what changed, in counts, in
-// severity order. It is what makes the ranking explainable — a reader can
-// see WHY this row is above that one without opening either.
-func summarize(rep layoutdiff.Report) string {
-	if len(rep.Counts) == 0 {
-		return ""
-	}
-	order := []struct {
-		kind, one, many string
-	}{
-		{layoutdiff.KindFindingAdded, "invariant broken", "invariants broken"},
-		{layoutdiff.KindNodeAdded, "node added", "nodes added"},
-		{layoutdiff.KindNodeRemoved, "node removed", "nodes removed"},
-		{layoutdiff.KindEdgeAdded, "edge added", "edges added"},
-		{layoutdiff.KindEdgeRemoved, "edge removed", "edges removed"},
-		{layoutdiff.KindVisibility, "visibility flip", "visibility flips"},
-		{layoutdiff.KindDeferred, "deferred flip", "deferred flips"},
-		{layoutdiff.KindPortSide, "port changed side", "ports changed side"},
-		{layoutdiff.KindBendCount, "route re-bent", "routes re-bent"},
-		{layoutdiff.KindRelabelled, "label changed", "labels changed"},
-		{layoutdiff.KindContainerShell, "shell changed", "shells changed"},
-		{layoutdiff.KindNodeMoved, "node moved", "nodes moved"},
-		{layoutdiff.KindNodeResized, "node resized", "nodes resized"},
-		{layoutdiff.KindPortSlide, "port slid", "ports slid"},
-		{layoutdiff.KindBendMoved, "bend moved", "bends moved"},
-		{layoutdiff.KindBoundsChanged, "canvas resized", "canvas resized"},
-		{layoutdiff.KindFindingFixed, "invariant fixed", "invariants fixed"},
-	}
-	var parts []string
-	for _, o := range order {
-		n := rep.Counts[o.kind]
-		if n == 0 {
-			continue
-		}
-		word := o.one
-		if n > 1 {
-			word = o.many
-		}
-		parts = append(parts, fmt.Sprintf("%d %s", n, word))
-	}
-	if rep.TranslationX != 0 || rep.TranslationY != 0 {
-		parts = append(parts, fmt.Sprintf("canvas shift %+d,%+d removed", rep.TranslationX, rep.TranslationY))
-	}
-	return strings.Join(parts, " · ")
-}
-
-// selectors builds the `--sel` list for the copy-paste commands: the nodes
-// this diagram's changes are about, so the pasted command answers THIS row
-// rather than dumping the whole decision story.
-func selectors(rep layoutdiff.Report) string {
-	seen := map[string]bool{}
-	var names []string
-	for _, c := range rep.Changes {
-		for _, part := range strings.Split(c.Label, "→") {
-			part = strings.TrimSpace(part)
-			if part == "" || seen[part] || strings.ContainsAny(part, ",\"'") {
-				continue
-			}
-			seen[part] = true
-			names = append(names, part)
-		}
-	}
-	sort.Strings(names)
-	if len(names) == 0 {
-		return ""
-	}
-	if len(names) > 6 {
-		names = names[:6]
-	}
-	return " --sel " + strings.Join(names, ",")
-}
-
-// paneWidths puts both panes on ONE pixel scale: the wider canvas fills the
-// column, the narrower one takes its true proportion of it.
-func paneWidths(oldW, newW int) (string, string) {
-	max := oldW
-	if newW > max {
-		max = newW
-	}
-	if max <= 0 {
-		return "100%", "100%"
-	}
-	pct := func(w int) string {
-		if w <= 0 {
-			return "0%"
-		}
-		return fmt.Sprintf("%.2f%%", float64(w)/float64(max)*100)
-	}
-	return pct(oldW), pct(newW)
-}
-
-// inlineSVG strips the XML declaration so the markup can be embedded in HTML,
-// and drops the fixed width/height so CSS owns the scale (the viewBox keeps
-// the aspect ratio).
-func inlineSVG(svg []byte) string {
-	s := string(svg)
-	if i := strings.Index(s, "<svg"); i > 0 {
-		s = s[i:]
-	}
-	if i := strings.Index(s, ">"); i > 0 {
-		head := s[:i]
-		head = removeAttr(head, "width")
-		head = removeAttr(head, "height")
-		s = head + s[i:]
-	}
-	return s
-}
-
-func removeAttr(tag, attr string) string {
-	for {
-		i := strings.Index(tag, " "+attr+"=\"")
-		if i < 0 {
-			return tag
-		}
-		j := strings.Index(tag[i+len(attr)+3:], "\"")
-		if j < 0 {
-			return tag
-		}
-		tag = tag[:i] + tag[i+len(attr)+3+j+1:]
-	}
 }
 
 func relLink(abs string) string {

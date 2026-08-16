@@ -153,6 +153,7 @@ It is the third view in the layout tooling
 | DEBUG (`layout-debug`) | one diagram, one engine, terminal |
 | EXPLAIN (`layout-explain`) | one diagram, one engine, narrated report |
 | **AUDIT** (`layout-audit`) | **every diagram, two engines, visual** |
+| TIMELINE (`layout-timeline`) | every diagram, every week (`gl:docs/dev-tools/layout-timeline.md`) |
 
 ## Also emitted
 
