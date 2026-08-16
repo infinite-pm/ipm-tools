@@ -197,28 +197,48 @@ type state struct {
 
 type recorder struct {
 	mu  sync.Mutex
+	dir string
 	w   *os.File
 	enc *json.Encoder
 	seq int
+	off bool // capture disabled (unwritable, or no directory)
 }
 
 func newRecorder(dir string) (*recorder, error) {
 	if dir == "" {
-		return &recorder{}, errors.New("no output directory (set IPM_TEE_OUT or --out)")
+		return &recorder{off: true}, errors.New("no output directory (set IPM_TEE_OUT or --out)")
 	}
 	if err := os.MkdirAll(dir, 0o755); err != nil {
-		return &recorder{}, err
+		return &recorder{off: true}, err
 	}
-	// One file per proxy process, and the recorder never renames it: each
-	// scene launches its own VS Code, so one file IS one scene. Which scene
-	// is derivable from the URIs inside, so nothing has to be told.
-	path := filepath.Join(dir, fmt.Sprintf("session-%d.jsonl", os.Getpid()))
+	return &recorder{dir: dir}, nil
+}
+
+// open creates the capture file on the FIRST state, not at startup.
+//
+// The extension probes the server with --version before it starts a session,
+// and a restart spawns another process; each of those reaches the tee and
+// would otherwise leave an empty session file behind for the curator to sift.
+// One file per proxy process that actually saw something, and the recorder
+// never renames it: a scene launches its own VS Code, so one file IS one
+// scene, and which scene is derivable from the URIs inside.
+func (r *recorder) open() bool {
+	if r.enc != nil {
+		return true
+	}
+	if r.off || r.dir == "" {
+		return false
+	}
+	path := filepath.Join(r.dir, fmt.Sprintf("session-%d.jsonl", os.Getpid()))
 	f, err := os.OpenFile(path, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0o644)
 	if err != nil {
-		return &recorder{}, err
+		fmt.Fprintf(os.Stderr, "%s: capture open: %v\n", toolName, err)
+		r.off = true
+		return false
 	}
 	fmt.Fprintf(os.Stderr, "%s: capturing to %s\n", toolName, path)
-	return &recorder{w: f, enc: json.NewEncoder(f)}, nil
+	r.w, r.enc = f, json.NewEncoder(f)
+	return true
 }
 
 func (r *recorder) Close() {
@@ -229,17 +249,20 @@ func (r *recorder) Close() {
 }
 
 func (r *recorder) write(s state) {
-	if r == nil || r.enc == nil {
+	if r == nil {
 		return
 	}
 	r.mu.Lock()
 	defer r.mu.Unlock()
+	if !r.open() {
+		return
+	}
 	r.seq++
 	s.Seq = r.seq
 	s.TS = time.Now().UTC().Format(time.RFC3339Nano)
 	if err := r.enc.Encode(s); err != nil {
 		fmt.Fprintf(os.Stderr, "%s: capture write: %v\n", toolName, err)
-		r.enc = nil // stop trying; the session continues either way
+		r.off = true // stop trying; the session continues either way
 	}
 }
 

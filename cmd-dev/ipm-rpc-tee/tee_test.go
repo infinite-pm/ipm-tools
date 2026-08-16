@@ -241,6 +241,33 @@ func TestCaptureRecordsEveryBufferState(t *testing.T) {
 	}
 }
 
+// A version probe or a restart also reaches the tee. Neither carries a
+// state, and neither should leave a file for the curator to sift.
+func TestAProbeWithNoStatesLeavesNoCaptureFile(t *testing.T) {
+	dir := t.TempDir()
+	rpc := buildBinary(t, dir, "./cmd/ipm-rpc", "ipm-rpc")
+	tee := buildBinary(t, dir, "./cmd-dev/ipm-rpc-tee", "ipm-rpc-tee")
+	capture := filepath.Join(dir, "capture")
+
+	s := startSession(t, tee, "IPM_TEE_REAL="+rpc, "IPM_TEE_OUT="+capture)
+	s.send(initReq)
+	s.waitForResponse(1)
+	_ = s.stdin.Close()
+	_ = s.cmd.Wait()
+
+	entries, err := os.ReadDir(capture)
+	if err != nil {
+		return // the directory was never created at all: also fine
+	}
+	for _, e := range entries {
+		info, _ := e.Info()
+		if info != nil && info.Size() > 0 {
+			t.Fatalf("a session with no states wrote %s (%d bytes)", e.Name(), info.Size())
+		}
+		t.Fatalf("a session with no states created %s", e.Name())
+	}
+}
+
 // A capture that cannot be written must degrade to a plain passthrough: the
 // recording session is worth more than the corpus entry.
 func TestUnwritableCaptureStillProxies(t *testing.T) {
