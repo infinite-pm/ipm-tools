@@ -72,22 +72,32 @@ table, the invariant findings on both sides, links to both `layout.json`s, and
 copy-paste `layout-debug --why --sel …` commands for **both** engines (the old
 one is built too, when that ref has it).
 
-The right pane holds ONE diagram in two states, with three controls above it:
+The right pane cycles THREE states in one frame, with controls above it:
 
 | control | shows |
 |---|---|
-| ▢ **first** | the diagram as rendered |
-| ◆ **second** | the same diagram with the differences drawn over it |
-| ⟳ **auto** | alternates them on a ~2.4 s cycle (the default) |
+| ◑ **before** | the OLD diagram — the left pane's picture, drawn in this frame |
+| ▢ **first** | the new diagram as rendered |
+| ◆ **second** | the new diagram with the differences drawn over it |
+| ⟳ **auto** | runs before → first → second on a ~3.6 s cycle (the default) |
 
-**A click pins.** Clicking the image — or any control — stops the alternation,
-and from then on the picture never changes on its own: not on a timer, not on
-hover. Further clicks on the image toggle first ⇄ second; getting the
-alternation back is a deliberate act on ⟳ auto. A diagram that moves while it
-is being studied is worse than one that never moved.
+Both diagrams occupy **one grid cell**, at the same pixel scale and the same
+origin, which is what makes the right pane a blink comparator: a node that did
+not move stays perfectly still while the picture swaps, so the one that did
+move is the only thing that jumps. The left pane keeps both visible at once for
+reading; the right pane is for finding. A corner chip names whichever is
+showing.
 
-Keys `1` / `2` / `a` set every row at once. `prefers-reduced-motion` starts
-with no alternation at all; hover still peeks while a row is on auto.
+**A click pins.** Clicking the image — or any control — stops the cycle, and
+from then on the picture never changes on its own: not on a timer, not on
+hover. Each further click steps the cycle (second → before → first → second);
+getting the alternation back is a deliberate act on ⟳ auto. A diagram that
+moves while it is being studied is worse than one that never moved.
+
+Keys `0` / `1` / `2` / `a` set every row at once, and space stops every pane on
+the marked state. `prefers-reduced-motion` starts with no cycling at all. A row
+whose OLD diagram could not be rendered has no *before* to show: its control is
+hidden and auto falls back to alternating the other two.
 
 Both panes render through the SAME `gl:pkg/ipmsvg` — this binary's — so a
 renderer difference between the two refs cannot masquerade as an engine

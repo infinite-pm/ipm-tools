@@ -229,6 +229,7 @@ pre{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:
     {{if .Counts.Repaired}}<span class="pill">{{.Counts.Repaired}} repaired</span>{{end}}
   </div>
   <div class="controls">
+    <button onclick="setAll('before')">all before (0)</button>
     <button onclick="setAll('first')">all first (1)</button>
     <button onclick="setAll('second')">all second (2)</button>
     <button onclick="setAll('auto')">all auto (a)</button>
@@ -245,13 +246,13 @@ pre{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:
     <span><i style="background:var(--better)"></i>added / invariant fixed</span>
     <span><i style="background:var(--changed)"></i>drawn differently</span>
     <span><i style="background:var(--moved)"></i>moved</span>
-    <span>the right pane alternates until you click it — a click pins it for good; the controls above each pane do the same</span>
+    <span>the right pane cycles old → new → marked in one frame; click it (or a control) to pin it for good</span>
   </div>
 </header>
 <main>
 {{if .LimitNote}}<p class="note">{{.LimitNote}}</p>{{end}}
 {{range .Rows}}
-<section class="row auto" data-tier="{{.Tier}}" data-id="{{.ID}}">
+<section class="row auto{{if not .OldSVG}} no-before{{end}}" data-tier="{{.Tier}}" data-id="{{.ID}}">
   <div class="rowhead">
     <span class="rank">{{.Rank}}</span>
     <span class="id">{{.ID}}</span>
@@ -268,7 +269,10 @@ pre{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:
     </div>
     <div class="pane pane-new">
       <h4><span>new</span>{{paneControls}}</h4>
-      <div class="svgwrap" style="width:{{.NewWidth}}">{{.NewSVG}}</div>
+      <div class="stack">
+        {{if .OldSVG}}<div class="layer layer-before" style="width:{{.OldWidth}}">{{.OldSVG}}<span class="chip">before</span></div>{{end}}
+        <div class="layer layer-after" style="width:{{.NewWidth}}">{{.NewSVG}}<span class="chip">after</span></div>
+      </div>
     </div>
   </div>
   <details>

@@ -56,6 +56,19 @@ func TestTimelineReportRenders(t *testing.T) {
 
 // The grid is the report: one row per diagram that ever moved, one cell per
 // week it moved in.
+// A row whose old diagram could not be rendered has no "before" to show; it
+// must say so, or auto would blink to a blank frame.
+func TestRowWithoutAnOldDiagramIsMarked(t *testing.T) {
+	weeks := sampleWeeks()
+	html := renderHTML(timelineInput{Weeks: weeks, Diagrams: 1})
+	if !strings.Contains(html, "no-before") {
+		t.Error("a row with no old SVG is not marked no-before")
+	}
+	if strings.Contains(html, `class="layer layer-before"`) {
+		t.Error("an empty before layer was rendered anyway")
+	}
+}
+
 func TestGridHasOneRowPerMovedDiagram(t *testing.T) {
 	weeks := sampleWeeks()
 	weeks[2].Changes = []change{{ID: "docs/y.md#1", Status: "broken", Err: "boom"}}

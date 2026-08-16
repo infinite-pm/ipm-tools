@@ -315,7 +315,7 @@ pre{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:
   </div>
   {{if .Note}}<div class="note">{{.Note}}</div>{{end}}
   {{range .Rows}}
-  <div class="row auto" id="{{.Anchor}}">
+  <div class="row auto{{if not .OldSVG}} no-before{{end}}" id="{{.Anchor}}">
     <div class="rowhead">
       <span class="id">{{.ID}}</span>
       <span class="pill {{tier .Tier}}">{{.Tier}}</span>
@@ -327,7 +327,10 @@ pre{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:
       <div class="pane"><h4><span>before</span></h4><div style="width:{{.OldWidth}}">{{.OldSVG}}</div></div>
       <div class="pane pane-new">
         <h4><span>this week</span>{{paneControls}}</h4>
-        <div class="svgwrap" style="width:{{.NewWidth}}">{{.NewSVG}}</div>
+        <div class="stack">
+          {{if .OldSVG}}<div class="layer layer-before" style="width:{{.OldWidth}}">{{.OldSVG}}<span class="chip">before</span></div>{{end}}
+          <div class="layer layer-after" style="width:{{.NewWidth}}">{{.NewSVG}}<span class="chip">this week</span></div>
+        </div>
       </div>
     </div>
     <details>

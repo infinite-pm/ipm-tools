@@ -61,7 +61,6 @@ func TestReportRendersWithoutTemplateError(t *testing.T) {
 		`data-mode="first"`,       // the three controls reach the page…
 		`data-mode="second"`,
 		`data-mode="auto"`,
-		`class="svgwrap"`, // …and the image is clickable as well
 	} {
 		if !strings.Contains(html, want) {
 			t.Errorf("report is missing %q", want)
