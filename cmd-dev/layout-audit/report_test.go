@@ -57,7 +57,11 @@ func TestReportRendersWithoutTemplateError(t *testing.T) {
 		"tests/layout-gen/x.ipmt", // the alias is surfaced, not hidden by dedupe
 		"edges cross",             // the finding text
 		"source-side=left",        // the change detail, in rule-DSL vocabulary
-		"audit-overlay",           // the CSS hook the flap toggles
+		"audit-overlay",           // the CSS hook the modes toggle
+		`data-mode="first"`,       // the three controls reach the page…
+		`data-mode="second"`,
+		`data-mode="auto"`,
+		`class="svgwrap"`, // …and the image is clickable as well
 	} {
 		if !strings.Contains(html, want) {
 			t.Errorf("report is missing %q", want)

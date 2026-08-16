@@ -61,8 +61,11 @@ ever been broken" by looking rather than reading.
 
 **The weeks**: each snapshot with its commit and subject, what it was compared
 against, and for each changed diagram the before/after panes with the same
-plain⇄highlighted flap `layout-audit` uses (hover holds, click pins,
-`a`/`h`/`n`/`space` for all rows). `--limit-per-week` (default 6) caps how many
+three controls `layout-audit` uses — ▢ first (as rendered), ◆ second (with the
+differences marked), ⟳ auto (alternating). A click on the image or a control
+pins it, and a pinned pane never changes on its own again; `1` / `2` / `a` set
+every row at once. The behaviour is one implementation shared by both reports
+(`gl:pkg/layoutaudit/panes.go`). `--limit-per-week` (default 6) caps how many
 are rendered; the rest are listed by name. `--no-svg` drops the panes entirely.
 
 Each row carries the `layout-audit --old … --new …` command that reproduces

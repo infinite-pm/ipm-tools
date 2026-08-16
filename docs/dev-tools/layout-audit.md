@@ -72,10 +72,22 @@ table, the invariant findings on both sides, links to both `layout.json`s, and
 copy-paste `layout-debug --why --sel …` commands for **both** engines (the old
 one is built too, when that ref has it).
 
-The right pane flaps on a ~2.4 s cycle. **Hover** holds the highlight,
-**click** pins plain / highlighted / auto, and the header has `a` / `h` / `n` /
-`space` for all rows at once. `prefers-reduced-motion` turns the flap off and
-leaves hover working.
+The right pane holds ONE diagram in two states, with three controls above it:
+
+| control | shows |
+|---|---|
+| ▢ **first** | the diagram as rendered |
+| ◆ **second** | the same diagram with the differences drawn over it |
+| ⟳ **auto** | alternates them on a ~2.4 s cycle (the default) |
+
+**A click pins.** Clicking the image — or any control — stops the alternation,
+and from then on the picture never changes on its own: not on a timer, not on
+hover. Further clicks on the image toggle first ⇄ second; getting the
+alternation back is a deliberate act on ⟳ auto. A diagram that moves while it
+is being studied is worse than one that never moved.
+
+Keys `1` / `2` / `a` set every row at once. `prefers-reduced-motion` starts
+with no alternation at all; hover still peeks while a row is on auto.
 
 Both panes render through the SAME `gl:pkg/ipmsvg` — this binary's — so a
 renderer difference between the two refs cannot masquerade as an engine

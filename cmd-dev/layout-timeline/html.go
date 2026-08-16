@@ -205,9 +205,9 @@ func shortID(id string) string {
 // tierOf is used by the template to colour a cell.
 func tierClass(t string) string { return t }
 
-var timelineTmpl = template.Must(template.New("timeline").Funcs(template.FuncMap{
-	"tier": tierClass,
-}).Parse(`<!doctype html>
+var timelineTmpl = template.Must(template.New("timeline").
+	Funcs(template.FuncMap{"tier": tierClass}).
+	Funcs(layoutaudit.PaneFuncs()).Parse(`<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>layout timeline</title>
@@ -256,19 +256,7 @@ a.cell{opacity:1;text-decoration:none}
 .pill.geometry{border-color:var(--moved);color:var(--moved)}
 .pill.broken{background:var(--worse);color:#fff;border-color:var(--worse);font-weight:700}
 .summary{padding:0 16px 8px;font-size:13px;color:var(--muted)}
-.panes{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
-.pane{background:var(--pane);padding:10px}
-.pane h4{margin:0 0 6px;font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:#5c636b}
-.pane svg{display:block;height:auto;max-width:100%}
-.pane-new{cursor:pointer}
-.audit-overlay{opacity:0}
-.row.auto .pane-new .audit-overlay{animation:flap 2.4s ease-in-out infinite}
-.row.high .audit-overlay{opacity:1;animation:none}
-.row.plain .audit-overlay{opacity:0;animation:none}
-.pane-new:hover .audit-overlay{opacity:1;animation:none}
-body.paused .audit-overlay{animation-play-state:paused!important}
-@keyframes flap{0%,42%{opacity:0}52%,92%{opacity:1}100%{opacity:0}}
-@media (prefers-reduced-motion: reduce){ .row.auto .pane-new .audit-overlay{animation:none;opacity:0} }
+{{paneCSS}}
 details{border-top:1px solid var(--line)}
 summary{padding:7px 16px;font-size:13px;cursor:pointer;color:var(--muted)}
 .detail{padding:0 16px 12px}
@@ -336,8 +324,11 @@ pre{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:
     {{if .Summary}}<div class="summary">{{.Summary}}</div>{{end}}
     {{if .Err}}<div class="summary">{{.Err}}</div>{{end}}
     <div class="panes">
-      <div class="pane"><h4>before</h4><div style="width:{{.OldWidth}}">{{.OldSVG}}</div></div>
-      <div class="pane pane-new" onclick="cycle(this)"><h4>this week</h4><div style="width:{{.NewWidth}}">{{.NewSVG}}</div></div>
+      <div class="pane"><h4><span>before</span></h4><div style="width:{{.OldWidth}}">{{.OldSVG}}</div></div>
+      <div class="pane pane-new">
+        <h4><span>this week</span>{{paneControls}}</h4>
+        <div class="svgwrap" style="width:{{.NewWidth}}">{{.NewSVG}}</div>
+      </div>
     </div>
     <details>
       <summary>{{len .Changes}} change(s)</summary>
@@ -359,19 +350,7 @@ pre{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:
 {{end}}
 </main>
 <script>
-const MODES = ['auto','high','plain'];
-function cycle(pane){
-  const row = pane.closest('.row');
-  const cur = MODES.find(m => row.classList.contains(m)) || 'auto';
-  row.classList.remove(...MODES);
-  row.classList.add(MODES[(MODES.indexOf(cur)+1) % MODES.length]);
-}
-document.addEventListener('keydown', e => {
-  if (e.target.tagName === 'INPUT' || e.metaKey || e.ctrlKey) return;
-  if (e.key === ' ') { e.preventDefault(); document.body.classList.toggle('paused'); }
-  const set = {h:'high', n:'plain', a:'auto'}[e.key];
-  if (set) document.querySelectorAll('.row').forEach(r => { r.classList.remove(...MODES); r.classList.add(set); });
-});
+{{paneJS}}
 </script>
 </body></html>
 `))

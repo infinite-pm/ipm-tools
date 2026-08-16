@@ -152,7 +152,7 @@ func relLink(abs string) string {
 	return abs
 }
 
-var reportTmpl = template.Must(template.New("report").Parse(`<!doctype html>
+var reportTmpl = template.Must(template.New("report").Funcs(layoutaudit.PaneFuncs()).Parse(`<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>layout audit</title>
@@ -194,23 +194,7 @@ main{padding:20px 26px 60px;max-width:1600px;margin:0 auto}
 .id{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;word-break:break-all}
 .score{margin-left:auto;color:var(--muted);font-size:12px}
 .summary{padding:8px 16px;font-size:13px;color:var(--muted);border-bottom:1px solid var(--line)}
-.panes{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
-.pane{background:var(--pane);padding:10px;min-height:80px;position:relative}
-.pane h4{margin:0 0 6px;font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:#5c636b;
-  display:flex;justify-content:space-between;align-items:center}
-.pane svg{display:block;height:auto;max-width:100%}
-.pane-new{cursor:pointer}
-.state{font-size:10px;padding:1px 6px;border-radius:999px;background:#0002;color:#333}
-.audit-overlay{opacity:0}
-.row.auto .pane-new .audit-overlay{animation:flap 2.4s ease-in-out infinite}
-.row.high .audit-overlay{opacity:1;animation:none}
-.row.plain .audit-overlay{opacity:0;animation:none}
-.pane-new:hover .audit-overlay{opacity:1;animation:none}
-body.paused .audit-overlay{animation-play-state:paused!important}
-@keyframes flap{0%,42%{opacity:0}52%,92%{opacity:1}100%{opacity:0}}
-@media (prefers-reduced-motion: reduce){
-  .row.auto .pane-new .audit-overlay{animation:none;opacity:0}
-}
+{{paneCSS}}
 details{border-top:1px solid var(--line)}
 summary{padding:8px 16px;font-size:13px;cursor:pointer;color:var(--muted)}
 .detail{padding:0 16px 14px}
@@ -245,10 +229,9 @@ pre{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:
     {{if .Counts.Repaired}}<span class="pill">{{.Counts.Repaired}} repaired</span>{{end}}
   </div>
   <div class="controls">
-    <button onclick="setAll('auto')">flap (a)</button>
-    <button onclick="setAll('high')">highlighted (h)</button>
-    <button onclick="setAll('plain')">plain (n)</button>
-    <button onclick="togglePause()">pause (space)</button>
+    <button onclick="setAll('first')">all first (1)</button>
+    <button onclick="setAll('second')">all second (2)</button>
+    <button onclick="setAll('auto')">all auto (a)</button>
     <select id="tier" onchange="filter()">
       <option value="">all severities</option>
       <option value="broken">broken only</option>
@@ -262,7 +245,7 @@ pre{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:
     <span><i style="background:var(--better)"></i>added / invariant fixed</span>
     <span><i style="background:var(--changed)"></i>drawn differently</span>
     <span><i style="background:var(--moved)"></i>moved</span>
-    <span>hover a right pane to hold the highlight · click to pin</span>
+    <span>the right pane alternates until you click it — a click pins it for good; the controls above each pane do the same</span>
   </div>
 </header>
 <main>
@@ -283,9 +266,9 @@ pre{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:
       <h4><span>old</span></h4>
       <div style="width:{{.OldWidth}}">{{.OldSVG}}</div>
     </div>
-    <div class="pane pane-new" onclick="cycle(this)">
-      <h4><span>new</span><span class="state">flap</span></h4>
-      <div style="width:{{.NewWidth}}">{{.NewSVG}}</div>
+    <div class="pane pane-new">
+      <h4><span>new</span>{{paneControls}}</h4>
+      <div class="svgwrap" style="width:{{.NewWidth}}">{{.NewSVG}}</div>
     </div>
   </div>
   <details>
@@ -327,20 +310,8 @@ pre{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:
 {{end}}
 </main>
 <script>
-const MODES = ['auto','high','plain'];
-function setMode(row, mode){
-  row.classList.remove('auto','high','plain');
-  row.classList.add(mode);
-  const s = row.querySelector('.state');
-  if (s) s.textContent = mode === 'auto' ? 'flap' : mode;
-}
-function cycle(pane){
-  const row = pane.closest('.row');
-  const cur = MODES.find(m => row.classList.contains(m)) || 'auto';
-  setMode(row, MODES[(MODES.indexOf(cur)+1) % MODES.length]);
-}
-function setAll(mode){ document.querySelectorAll('.row').forEach(r => setMode(r, mode)); }
-function togglePause(){ document.body.classList.toggle('paused'); }
+{{paneJS}}
+
 const RANK = {broken:0, invariant:1, structural:2, geometry:3, repaired:4};
 function filter(){
   const want = document.getElementById('tier').value;
@@ -352,13 +323,6 @@ function filter(){
     r.classList.toggle('hide', !(okTier && okText));
   });
 }
-document.addEventListener('keydown', e => {
-  if (e.target.tagName === 'INPUT' || e.metaKey || e.ctrlKey) return;
-  if (e.key === ' ') { e.preventDefault(); togglePause(); }
-  if (e.key === 'h') setAll('high');
-  if (e.key === 'n') setAll('plain');
-  if (e.key === 'a') setAll('auto');
-});
 </script>
 </body></html>
 `))
