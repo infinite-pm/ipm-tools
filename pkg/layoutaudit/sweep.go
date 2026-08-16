@@ -229,13 +229,23 @@ type Pair struct {
 	New     Generated
 }
 
-// Sweep runs every diagram through both engines, in parallel across
-// diagrams. Deterministic: results come back in input order.
+// Sweep runs every diagram through both engines with a default worker count.
 func Sweep(diagrams []Diagram, oldBin, newBin string) []Pair {
+	return SweepN(diagrams, oldBin, newBin, 0)
+}
+
+// SweepN is Sweep with an explicit worker count; 0 picks the default.
+//
+// Worth being able to turn down: a sweep spawns two processes per diagram, so
+// a long history runs tens of thousands of them, and a machine that is also
+// running an editor and a language server has other work to do.
+func SweepN(diagrams []Diagram, oldBin, newBin string, workers int) []Pair {
 	pairs := make([]Pair, len(diagrams))
-	workers := runtime.NumCPU()
-	if workers > 8 {
-		workers = 8
+	if workers <= 0 {
+		workers = runtime.NumCPU()
+		if workers > 8 {
+			workers = 8
+		}
 	}
 	if workers < 1 {
 		workers = 1

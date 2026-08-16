@@ -26,11 +26,16 @@ var Git = layoutaudit.Git
 
 // snapshot is one column: an engine, and the story of which commit it is.
 type snapshot struct {
-	label   string    // what the column is called
-	Monday  time.Time // the week boundary this snapshot stands for (week columns)
-	SHA     string    // resolved commit, "" when the repo had no commits yet
-	Subject string
-	Date    time.Time // the commit's own date
+	label  string // what the column is called
+	Repo   string // the checkout this commit lives in
+	Source string // the lineage's name, when there is more than one
+	// EnginePaths is what counts as the engine in THIS lineage; package
+	// layouts change across a rewrite (pkg/layoutpasses became pkg/layout7).
+	EnginePaths []string
+	Monday      time.Time // the week boundary this snapshot stands for (week columns)
+	SHA         string    // resolved commit, "" when the repo had no commits yet
+	Subject     string
+	Date        time.Time // the commit's own date
 	// SameAsPrev marks a week in which nothing was committed: the engine is
 	// byte-identical to the previous snapshot's.
 	SameAsPrev bool
@@ -63,7 +68,11 @@ func (s snapshot) Describe() string {
 	if s.SHA == "" {
 		return s.Label() + " — no commits yet"
 	}
-	d := fmt.Sprintf("%s (%s) %s", s.Label(), layoutaudit.Short(s.SHA), s.Subject)
+	src := ""
+	if s.Source != "" {
+		src = "[" + s.Source + "] "
+	}
+	d := fmt.Sprintf("%s %s(%s) %s", s.Label(), src, layoutaudit.Short(s.SHA), s.Subject)
 	if s.SameAsPrev {
 		d += " — engine unchanged this week"
 	}
@@ -109,6 +118,7 @@ const (
 // rev (a branch, tag or HEAD) rather than assuming the checked-out one — the
 // history worth walking is often on a branch nobody has checked out.
 func resolveSnapshots(repo, rev string, mondays []time.Time, mode atMode) ([]snapshot, error) {
+	_ = repo
 	var out []snapshot
 	prev := ""
 	for _, m := range mondays {
@@ -125,6 +135,7 @@ func resolveSnapshots(repo, rev string, mondays []time.Time, mode atMode) ([]sna
 			sha = prev
 		}
 		s.label = m.Format("2006-01-02")
+		s.Repo = repo
 		s.SHA = sha
 		if sha != "" {
 			if subject, err := Git(repo, "log", "-1", "--format=%s", sha); err == nil {
@@ -190,6 +201,12 @@ func commitAt(repo, rev string, monday time.Time, mode atMode) (string, error) {
 // would be invisible. The column is labelled with today's date and marked
 // "now" rather than pretending to be a Monday.
 func appendHead(repo, rev string, snaps []snapshot) ([]snapshot, error) {
+	return appendHeadOf(repo, rev, "", snaps)
+}
+
+// appendHeadOf is appendHead for a named lineage — the newest one, when a
+// config chains several.
+func appendHeadOf(repo, rev, source string, snaps []snapshot) ([]snapshot, error) {
 	head, err := Git(repo, "rev-parse", rev)
 	if err != nil {
 		return snaps, err
@@ -204,7 +221,7 @@ func appendHead(repo, rev string, snaps []snapshot) ([]snapshot, error) {
 	if head == last {
 		return snaps, nil
 	}
-	s := snapshot{Monday: time.Now(), SHA: head, Now: true}
+	s := snapshot{Monday: time.Now(), SHA: head, Now: true, Repo: repo, Source: source}
 	s.label = "tip"
 	if d, err := Git(repo, "log", "-1", "--format=%cs", head); err == nil {
 		s.label = d + " tip"
@@ -213,6 +230,80 @@ func appendHead(repo, rev string, snaps []snapshot) ([]snapshot, error) {
 		s.Subject = subject
 	}
 	return append(snaps, s), nil
+}
+
+// resolveAcrossWindows walks a chained history: each Monday is answered by
+// the lineage that OWNS that date (config.chainWindows), so a series can span
+// a rebase without the reader having to know one happened.
+func resolveAcrossWindows(wins []window, mondays []time.Time, mode atMode) ([]snapshot, error) {
+	var out []snapshot
+	prev := ""
+	for _, m := range mondays {
+		w, ok := windowFor(wins, m)
+		if !ok {
+			continue
+		}
+		sha, err := commitAt(w.src.Repo, w.src.Rev, m, mode)
+		if err != nil {
+			return nil, err
+		}
+		s := snapshot{Monday: m, Repo: w.src.Repo, Source: w.src.Name, EnginePaths: w.src.EnginePaths}
+		s.label = m.Format("2006-01-02")
+		if sha == "" && prev != "" {
+			sha = prev
+		}
+		s.SHA = sha
+		if sha != "" {
+			s.Subject, _ = Git(w.src.Repo, "log", "-1", "--format=%s", sha)
+			if ts, err := Git(w.src.Repo, "log", "-1", "--format=%cI", sha); err == nil {
+				if d, perr := time.Parse(time.RFC3339, ts); perr == nil {
+					s.Date = d
+				}
+			}
+			s.SameAsPrev = sha == prev
+			prev = sha
+		}
+		out = append(out, s)
+	}
+	return out, nil
+}
+
+// windowFor is the lineage that owns a date: the first whose span reaches it.
+// A date past every tip belongs to the newest lineage, which is the one still
+// being committed to.
+func windowFor(wins []window, at time.Time) (window, bool) {
+	for _, w := range wins {
+		if !at.After(w.to) {
+			return w, true
+		}
+	}
+	if len(wins) == 0 {
+		return window{}, false
+	}
+	return wins[len(wins)-1], true
+}
+
+// engineCommitsAcross concatenates each lineage's engine commits within the
+// span it owns.
+func engineCommitsAcross(wins []window) ([]snapshot, error) {
+	var out []snapshot
+	for _, w := range wins {
+		from := w.from
+		if from.IsZero() {
+			from = time.Unix(0, 0)
+		}
+		snaps, err := engineCommits(w.src.Repo, w.src.Rev, w.src.EnginePaths, from, w.to)
+		if err != nil {
+			return nil, err
+		}
+		for i := range snaps {
+			snaps[i].Repo = w.src.Repo
+			snaps[i].Source = w.src.Name
+			snaps[i].EnginePaths = w.src.EnginePaths
+		}
+		out = append(out, snaps...)
+	}
+	return out, nil
 }
 
 // engineCommits builds one snapshot per commit that touched the engine.
@@ -243,6 +334,7 @@ func engineCommits(repo, rev string, paths []string, from, to time.Time) ([]snap
 			}
 		}
 		s.label = s.Date.Format("2006-01-02") + " " + layoutaudit.Short(sha)
+		s.Repo = repo
 		snaps = append(snaps, s)
 	}
 	return snaps, nil
@@ -252,19 +344,35 @@ func engineCommits(repo, rev string, paths []string, from, to time.Time) ([]snap
 // touched the engine.
 func countSpan(repo string, snaps []snapshot, enginePaths []string) {
 	prev := ""
+	prevRepo := ""
 	for i := range snaps {
 		cur := snaps[i].SHA
 		if cur == "" || cur == prev {
 			continue
 		}
+		repo := repo
+		if snaps[i].Repo != "" {
+			repo = snaps[i].Repo
+		}
+		// A span across two lineages is not a range git can count: the
+		// commits live in different histories. Count only what this lineage
+		// added, which is what the column is actually reporting.
+		if prevRepo != "" && prevRepo != repo {
+			prev = ""
+		}
+		prevRepo = repo
 		rng := cur
 		if prev != "" {
 			rng = prev + ".." + cur
 		}
-		if n, err := Git(repo, append([]string{"rev-list", "--count", rng}, "--")...); err == nil {
+		paths := enginePaths
+		if len(snaps[i].EnginePaths) > 0 {
+			paths = snaps[i].EnginePaths
+		}
+		if n, err := Git(repo, "rev-list", "--count", rng); err == nil {
 			snaps[i].Commits = atoi(n)
 		}
-		if n, err := Git(repo, append(append([]string{"rev-list", "--count", rng, "--"}, enginePaths...))...); err == nil {
+		if n, err := Git(repo, append([]string{"rev-list", "--count", rng, "--"}, paths...)...); err == nil {
 			snaps[i].EngineCommits = atoi(n)
 		}
 		prev = cur

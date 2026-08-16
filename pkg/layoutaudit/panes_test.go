@@ -89,6 +89,28 @@ func TestImageClickStepsTheCycleAndNeverRestoresAuto(t *testing.T) {
 	}
 }
 
+// A long history's report holds hundreds of diagrams. Animating them all at
+// once is not a performance nicety: 843 continuously animating SVG layers
+// took a VS Code webview down. Only rows on screen may move.
+func TestOnlyVisibleRowsAnimate(t *testing.T) {
+	for _, line := range strings.Split(PaneCSS, "\n") {
+		line = strings.TrimSpace(line)
+		if !strings.Contains(line, "animation:cyc") && !strings.Contains(line, "animation:flap") {
+			continue
+		}
+		if !strings.Contains(line, ".live") {
+			t.Errorf("an animation runs regardless of visibility: %s", line)
+		}
+	}
+	if !strings.Contains(PaneJS, "IntersectionObserver") {
+		t.Error("nothing marks rows as visible, so .live would never be set")
+	}
+	// And a row that has never been seen must still show something.
+	if !strings.Contains(PaneCSS, ".row.auto:not(.live) .layer-after") {
+		t.Error("an unobserved row has no defined appearance")
+	}
+}
+
 // The controls must show which state is current, or a pinned pane looks the
 // same as an alternating one that happens to be mid-cycle.
 func TestActiveControlIsMarked(t *testing.T) {

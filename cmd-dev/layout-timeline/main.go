@@ -68,13 +68,21 @@ func run() int {
 	var (
 		repo, since, until, out, cache, at string
 		by, enginePaths, rev, sources      string
+		configPath                         string
 		weeks, limitPerWeek                int
 		list, noSVG, verbose, head         bool
+		buildOnly, showExample             bool
+		jobs, maxMB                        int
 	)
 	flag.StringVar(&repo, "repo", ".", "engine repository to take the weekly snapshots from")
 	flag.StringVar(&since, "since", "", "first Monday to cover (YYYY-MM-DD); default: the repository's first commit")
 	flag.StringVar(&until, "until", "", "last Monday to cover (YYYY-MM-DD); default: today")
 	flag.IntVar(&weeks, "weeks", 0, "cover only the last N weeks (overrides --since)")
+	flag.StringVar(&configPath, "config", "", "history config naming the lineages to walk (default: "+DefaultConfigName+" beside --repo, when present)")
+	flag.BoolVar(&showExample, "config-example", false, "print a config to start from, and exit")
+	flag.BoolVar(&buildOnly, "build-only", false, "PHASE 1: resolve the columns and build every engine into the cache, then stop — the report run afterwards is sweeps only")
+	flag.IntVar(&jobs, "jobs", 2, "parallel engine builds AND sweep workers. A long history spawns tens of thousands of processes; this is the knob for a machine that is also running an editor")
+	flag.IntVar(&maxMB, "max-mb", 8, "stop inlining diagram panes once the report reaches this many MB (0 = no limit). Hundreds of inline SVGs is what makes a report unopenable")
 	flag.StringVar(&rev, "rev", "HEAD", "branch, tag or commit whose history is walked — the series worth seeing is often on a branch nobody has checked out")
 	flag.StringVar(&sources, "sources", "", "directory to take the DIAGRAMS from (default: --repo). Point it at another checkout to run an old engine over today's diagrams")
 	flag.StringVar(&by, "by", "week", "what a column is: week (a snapshot per Monday) | engine-commit (a snapshot per commit that touched the engine — the granularity that answers \"when did the layout change\")")
@@ -100,6 +108,10 @@ func run() int {
 	if version(os.Stdout) {
 		return 0
 	}
+	if showExample {
+		fmt.Print(configExample)
+		return 0
+	}
 
 	started := time.Now()
 	repoAbs, err := filepath.Abs(repo)
@@ -108,38 +120,40 @@ func run() int {
 	}
 
 	engine := strings.Fields(enginePaths)
+	paths := flag.Args()
+
+	// A config turns the flags into a WHOLE history: several lineages, each
+	// owning the span after the one it replaced. Without one the tool works
+	// on a single repository, as before.
+	cfgPath := configPath
+	if cfgPath == "" {
+		cfgPath = filepath.Join(repoAbs, DefaultConfigName)
+	}
+	cfg, err := loadConfig(cfgPath)
+	if err != nil {
+		return fail("%v", err)
+	}
+
 	var snaps []snapshot
-	switch by {
-	case "engine-commit":
-		from, to, err := window(repoAbs, rev, since, until, weeks)
-		if err != nil {
+	if cfg == nil {
+		if snaps, err = resolveOne(repoAbs, rev, by, at, since, until, weeks, engine, head); err != nil {
 			return fail("%v", err)
 		}
-		if snaps, err = engineCommits(repoAbs, rev, engine, from, to); err != nil {
+	} else {
+		if verbose || list {
+			fmt.Fprintf(os.Stderr, "layout-timeline: %s — %s\n", cfgPath, cfg.describeSources())
+		}
+		if snaps, err = resolveChained(cfg, repoAbs, rev, by, at, since, until, weeks, head, verbose || list); err != nil {
 			return fail("%v", err)
 		}
-		if len(snaps) == 0 {
-			return fail("no commit in range touched %s", enginePaths)
-		}
-	case "week":
-		mondays, err := plan(repoAbs, rev, since, until, weeks)
-		if err != nil {
-			return fail("%v", err)
-		}
-		if len(mondays) == 0 {
-			return fail("no Mondays in range")
-		}
-		if snaps, err = resolveSnapshots(repoAbs, rev, mondays, atMode(at)); err != nil {
-			return fail("%v", err)
-		}
-	default:
-		return fail("--by must be week or engine-commit, got %q", by)
-	}
-	if head {
-		if snaps, err = appendHead(repoAbs, rev, snaps); err != nil {
-			return fail("resolve HEAD: %v", err)
+		if len(paths) == 0 && len(cfg.Diagrams) > 0 {
+			paths = cfg.Diagrams
 		}
 	}
+	if len(snaps) == 0 {
+		return fail("no columns in range")
+	}
+
 	countSpan(repoAbs, snaps, engine)
 	if list {
 		for _, s := range snaps {
@@ -174,7 +188,7 @@ func run() int {
 			return fail("resolve --sources: %v", err)
 		}
 	}
-	diagrams, warns, err := layoutaudit.Collect(srcRoot, pathsOf(), filepath.Join(outAbs, "src"))
+	diagrams, warns, err := layoutaudit.Collect(srcRoot, paths, filepath.Join(outAbs, "src"))
 	if err != nil {
 		return fail("collect: %v", err)
 	}
@@ -182,19 +196,32 @@ func run() int {
 		fmt.Fprintln(os.Stderr, "layout-timeline:", w)
 	}
 	if len(diagrams) == 0 {
-		return fail("no diagrams under %s", strings.Join(pathsOf(), " "))
+		return fail("no diagrams under %s", strings.Join(paths, " "))
 	}
 	fmt.Fprintf(os.Stderr, "layout-timeline: %d diagrams from %s, %d snapshots of %s@%s\n",
 		len(diagrams), srcRoot, len(snaps), filepath.Base(repoAbs), rev)
 
-	weeksOut := compare(repoAbs, cacheAbs, snaps, diagrams, limitPerWeek, noSVG, verbose)
+	// PHASE 1 — the slow half: every column's engine, built once and cached by
+	// commit. Splitting it out is what makes the report cheap to regenerate:
+	// a long history is mostly `go build`, and nothing about it changes when
+	// the diagrams or the report do.
+	built, failed := buildAll(snaps, cacheAbs, jobs, verbose)
+	fmt.Fprintf(os.Stderr, "layout-timeline: %d engine(s) ready, %d unbuildable [%s]\n",
+		built, failed, time.Since(started).Round(time.Millisecond))
+	if buildOnly {
+		fmt.Println(cacheAbs)
+		return 0
+	}
+
+	// PHASE 2 — sweeps and the report, off the cached binaries.
+	weeksOut := compare(repoAbs, cacheAbs, snaps, diagrams, limitPerWeek, noSVG, verbose, jobs, maxMB)
 
 	if err := os.MkdirAll(outAbs, 0o755); err != nil {
 		return fail("create %s: %v", outAbs, err)
 	}
 	reportPath := filepath.Join(outAbs, "index.html")
 	html := renderHTML(timelineInput{
-		Repo: repoAbs + " @ " + rev, Sources: srcRoot, Paths: pathsOf(), Diagrams: len(diagrams),
+		Repo: repoDesc(cfg, repoAbs, rev), Sources: srcRoot, Paths: paths, Diagrams: len(diagrams),
 		Weeks: weeksOut, Elapsed: time.Since(started), At: at + " / " + by, NoSVG: noSVG,
 	})
 	if err := os.WriteFile(reportPath, []byte(html), 0o644); err != nil {
@@ -208,22 +235,96 @@ func run() int {
 	for _, w := range weeksOut {
 		moved += len(w.Changes)
 	}
-	fmt.Fprintf(os.Stderr, "layout-timeline: %d week(s), %d diagram-change(s) in total [%s]\n",
-		len(weeksOut), moved, time.Since(started).Round(time.Millisecond))
+	fmt.Fprintf(os.Stderr, "layout-timeline: %d column(s), %d diagram-change(s), report %.1f MB [%s]\n",
+		len(weeksOut), moved, float64(len(html))/(1024*1024), time.Since(started).Round(time.Millisecond))
+	if maxMB > 0 && len(html) > maxMB*1024*1024 {
+		fmt.Fprintf(os.Stderr, "layout-timeline: the report passed --max-mb=%d; later columns kept their tables but lost their panes\n", maxMB)
+	}
 	fmt.Println(reportPath)
 	return 0
 }
 
-// pathsOf is the positional path list, or the default set.
-func pathsOf() []string {
-	if p := flag.Args(); len(p) > 0 {
-		return p
+// repoDesc names what the columns came from, for the report header.
+func repoDesc(cfg *Config, repoAbs, rev string) string {
+	if cfg != nil {
+		return cfg.describeSources()
 	}
-	return defaultPaths
+	return repoAbs + " @ " + rev
 }
 
-// window turns the date flags into a plain [from, to] range.
-func window(repo, rev, since, until string, weeks int) (time.Time, time.Time, error) {
+// resolveOne is the single-repository path: one lineage, walked directly.
+func resolveOne(repoAbs, rev, by, at, since, until string, weeks int, engine []string, head bool) ([]snapshot, error) {
+	var snaps []snapshot
+	var err error
+	switch by {
+	case "engine-commit":
+		from, to, derr := dateRange(repoAbs, rev, since, until, weeks)
+		if derr != nil {
+			return nil, derr
+		}
+		if snaps, err = engineCommits(repoAbs, rev, engine, from, to); err != nil {
+			return nil, err
+		}
+	case "week":
+		mondays, perr := plan(repoAbs, rev, since, until, weeks)
+		if perr != nil {
+			return nil, perr
+		}
+		if snaps, err = resolveSnapshots(repoAbs, rev, mondays, atMode(at)); err != nil {
+			return nil, err
+		}
+	default:
+		return nil, fmt.Errorf("--by must be week or engine-commit, got %q", by)
+	}
+	if head {
+		return appendHead(repoAbs, rev, snaps)
+	}
+	return snaps, nil
+}
+
+// resolveChained walks every lineage the config names, each within the span
+// it owns, and hands back one series in date order.
+func resolveChained(cfg *Config, repoAbs, rev, by, at, since, until string, weeks int, head, announce bool) ([]snapshot, error) {
+	if err := cfg.resolveTips(); err != nil {
+		return nil, err
+	}
+	// The range defaults to the OLDEST lineage's first commit, not the
+	// current repository's: with a chained history the published repo starts
+	// where the story is nearly over, and defaulting to it would silently
+	// truncate everything the config was written to reach.
+	oldest := cfg.Sources[0]
+	from, to, err := dateRange(oldest.Repo, oldest.Rev, since, until, weeks)
+	if err != nil {
+		return nil, err
+	}
+	wins := cfg.chainWindows(to)
+	if announce {
+		for _, w := range wins {
+			fmt.Fprintln(os.Stderr, "layout-timeline:  lineage", w.String())
+		}
+	}
+	var snaps []snapshot
+	switch by {
+	case "engine-commit":
+		if snaps, err = engineCommitsAcross(wins); err != nil {
+			return nil, err
+		}
+	case "week":
+		if snaps, err = resolveAcrossWindows(wins, mondaysBetween(from, to), atMode(at)); err != nil {
+			return nil, err
+		}
+	default:
+		return nil, fmt.Errorf("--by must be week or engine-commit, got %q", by)
+	}
+	if head {
+		last := cfg.Sources[len(cfg.Sources)-1]
+		return appendHeadOf(last.Repo, last.Rev, last.Name, snaps)
+	}
+	return snaps, nil
+}
+
+// dateRange turns the date flags into a plain [from, to] range.
+func dateRange(repo, rev, since, until string, weeks int) (time.Time, time.Time, error) {
 	to := time.Now()
 	if until != "" {
 		t, err := time.ParseInLocation("2006-01-02", until, time.Local)
@@ -286,7 +387,9 @@ func plan(repo, rev, since, until string, weeks int) ([]time.Time, error) {
 // Streaming on purpose: only two sweeps are ever held at once, so the memory
 // cost does not grow with the number of weeks.
 func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagram,
-	limitPerWeek int, noSVG, verbose bool) []week {
+	limitPerWeek int, noSVG, verbose bool, jobs, maxMB int) []week {
+	budget := maxMB * 1024 * 1024
+	spent := 0
 	var out []week
 	var prevBin string   // the newest engine successfully built so far
 	var prevLabel string // the week that engine came from
@@ -326,7 +429,7 @@ func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagra
 		// unbuildable stretch is older than one week. The report says so
 		// rather than letting the column imply a seven-day span.
 		w.Against = prevLabel
-		pairs := layoutaudit.Sweep(diagrams, prevBin, eng.LayoutGen)
+		pairs := layoutaudit.SweepN(diagrams, prevBin, eng.LayoutGen, jobs)
 		for _, p := range pairs {
 			c := diffPair(p)
 			switch c.Status {
@@ -335,8 +438,14 @@ func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagra
 			case "skipped":
 				w.Skipped++
 			default:
-				if !noSVG && (limitPerWeek == 0 || w.Rendered < limitPerWeek) {
+				// The panes are the whole weight of the report. Past the
+				// budget the rows still appear — with their change tables and
+				// their commands — but without the pictures, because a report
+				// too heavy to open answers nothing.
+				overBudget := budget > 0 && spent >= budget
+				if !noSVG && !overBudget && (limitPerWeek == 0 || w.Rendered < limitPerWeek) {
 					renderPanes(&c, p)
+					spent += len(c.OldSVG) + len(c.NewSVG)
 					w.Rendered++
 				}
 				w.Changes = append(w.Changes, c)

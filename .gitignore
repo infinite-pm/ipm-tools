@@ -2,6 +2,11 @@
 /bin/*
 !/bin/.gitkeep
 
+# Local history map for cmd-dev/layout-timeline: names sibling checkouts that
+# hold the pre-rebase lineages, so it is true only on the machine that has
+# them. `layout-timeline --config-example` prints one.
+/layout-history.json
+
 # Scratch / debug renders (never /tmp/)
 /temp/*
 !/temp/.gitkeep

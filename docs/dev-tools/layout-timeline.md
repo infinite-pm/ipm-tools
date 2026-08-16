@@ -21,6 +21,35 @@ It prints the report path. Everything lands in `temp/layout-timeline/`
 (gitignored); engine builds are shared with `layout-audit`'s cache, so a
 commit is built once.
 
+## Two phases, and a config for where the history lives
+
+A long history is mostly `go build`, and that half never changes: a commit's
+engine is the same today as it was last week. So it is separated.
+
+```bash
+go run ./cmd-dev/layout-timeline --build-only     # phase 1: every engine, cached by commit
+go run ./cmd-dev/layout-timeline                  # phase 2: sweeps + report, off the cache
+```
+
+Phase 1 is idempotent — a commit already built is skipped — so the second and
+every later report costs sweeps only.
+
+Where the old engines live is written down once, in `layout-history.json`
+beside the repository (gitignored; it names sibling checkouts that exist only
+on your machine). `--config-example` prints one to start from:
+
+```bash
+go run ./cmd-dev/layout-timeline --config-example > layout-history.json
+```
+
+Each lineage owns the span **after the one it replaced** — which is exactly
+what a rebase did to the history. Lineages overlap in wall-clock time (a branch
+rewritten in July still carries commits dated March), so slicing by "when a
+lineage's commits happen" would double-count the rewritten past; slicing by
+"what each lineage added after its predecessor" does not. With the three
+lineages of this project the weekly series runs from **2024-12 to today, 89
+columns**, and each says which lineage it came from.
+
 ## The sources are fixed; only the engine moves
 
 This is the point of the tool. Every column runs the SAME diagrams — so a cell
@@ -105,6 +134,11 @@ that week as a full audit.
 
 | flag | default | |
 |---|---|---|
+| `--config` | `layout-history.json` beside `--repo` | the lineages to chain; absent = a single repository |
+| `--config-example` | | print a config to start from |
+| `--build-only` | off | phase 1: build every engine into the cache, then stop |
+| `--jobs` | `2` | parallel builds AND sweep workers |
+| `--max-mb` | `8` | stop inlining panes past this size (0 = no limit) |
 | `--repo` | `.` | repository whose history is walked and whose engines are built |
 | `--rev` | `HEAD` | branch, tag or commit to walk — the series worth seeing is often on a branch nobody has checked out |
 | `--sources` | `--repo` | where the DIAGRAMS come from; point it at another checkout to run old engines over today's diagrams |
@@ -131,6 +165,29 @@ A long history costs its builds: 311 diagrams × **86** engine commits from
 cache is keyed by commit, so the second run over the same range is sweeps only.
 `--out` and `--cache` resolve against the CURRENT directory, not `--repo`, so a
 report about another repository's history never lands in that repository.
+
+## Weight
+
+Two things make a long history's report expensive, and both are capped.
+
+**Processes.** A sweep spawns two per diagram, so 143 columns × 311 diagrams is
+~89,000 of them, plus one `go build` per commit. `--jobs` (default 2) bounds
+both, because the machine running this is usually also running an editor and a
+language server.
+
+**The page.** Panes are inlined SVG, and a report of a long history can carry
+hundreds. That is not merely large: **843 continuously animating SVG layers
+took a VS Code webview down**. Two guards, both on by default —
+
+- only rows **on screen** animate (an `IntersectionObserver` sets `.live`);
+  everything else holds still and costs nothing;
+- `--max-mb` (default 8) stops inlining panes once the report reaches that
+  size. Later columns keep their change tables, their findings and their
+  commands, and lose only the pictures — a report too heavy to open answers
+  nothing.
+
+For a very long history prefer `--no-svg`, or narrow with `--since` /
+`--weeks`, and open the big ones in a browser rather than an editor preview.
 
 ## Where it fits
 

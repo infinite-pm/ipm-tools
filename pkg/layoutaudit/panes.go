@@ -72,11 +72,15 @@ const PaneCSS = `
 .row.second .audit-overlay{opacity:1;animation:none}
 
 /* auto: before → first → second, on one timeline so the three layers can
-   never disagree about which state is showing. */
+   never disagree about which state is showing.
+   ONLY WHILE ON SCREEN (.live, set by an IntersectionObserver). A report of a
+   long history carries hundreds of diagrams; animating every one of them at
+   once is not a nicety to fix later — 843 continuously animating SVG layers
+   took a VS Code webview down. Off-screen rows hold still and cost nothing. */
 .audit-overlay{opacity:0}
-.row.auto .layer-before{animation:cyc-before 3.6s linear infinite}
-.row.auto .layer-after{animation:cyc-after 3.6s linear infinite}
-.row.auto .audit-overlay{animation:cyc-marks 3.6s linear infinite}
+.row.auto.live .layer-before{animation:cyc-before 3.6s linear infinite}
+.row.auto.live .layer-after{animation:cyc-after 3.6s linear infinite}
+.row.auto.live .audit-overlay{animation:cyc-marks 3.6s linear infinite}
 @keyframes cyc-before{0%,30%{opacity:1}34%,100%{opacity:0}}
 @keyframes cyc-after{0%,30%{opacity:0}34%,100%{opacity:1}}
 @keyframes cyc-marks{0%,63%{opacity:0}67%,96%{opacity:1}100%{opacity:0}}
@@ -84,9 +88,14 @@ const PaneCSS = `
 /* A row whose old diagram could not be rendered (the engine failed on it)
    has no "before" to show, so auto falls back to the two-state alternation. */
 .row.no-before.auto .layer-after{animation:none;opacity:1}
-.row.no-before.auto .audit-overlay{animation:flap 2.4s ease-in-out infinite}
+.row.no-before.auto.live .audit-overlay{animation:flap 2.4s ease-in-out infinite}
 .row.no-before .modes button[data-mode="before"]{display:none}
 @keyframes flap{0%,42%{opacity:0}52%,92%{opacity:1}100%{opacity:0}}
+
+/* Until the observer speaks — no JS, or a row that has never been on screen —
+   a row shows its "after" state and nothing moves. Safe by default. */
+.row.auto:not(.live) .layer-before{opacity:0}
+.row.auto:not(.live) .layer-after{opacity:1}
 
 @media (prefers-reduced-motion: reduce){
   /* No timer at all: the reader picks a state with the controls. */
@@ -145,6 +154,18 @@ document.addEventListener('keydown', e => {
   if (pick) setAll(pick);
 });
 document.querySelectorAll('.row').forEach(r => setMode(r, modeOf(r)));
+
+// Animate only what is on screen. Without this every row in the report runs
+// three CSS animations for as long as the page is open, which on a long
+// history means hundreds of them at once — enough to take a webview down.
+if (window.IntersectionObserver){
+  const io = new IntersectionObserver(
+    es => es.forEach(e => e.target.classList.toggle('live', e.isIntersecting)),
+    {rootMargin: '150px'});
+  document.querySelectorAll('.row').forEach(r => io.observe(r));
+} else {
+  document.querySelectorAll('.row').forEach(r => r.classList.add('live'));
+}
 `
 
 // PaneFuncs are the template helpers that inject the three constants. Reports
