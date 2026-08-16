@@ -134,12 +134,12 @@
       "style": "partof",
       "route": {
         "source": {
-          "side": "bottom",
-          "position": 0.25
+          "side": "left",
+          "position": 0.6166666666666667
         },
         "target": {
-          "side": "top",
-          "position": 0.75
+          "side": "right",
+          "position": 0.5
         }
       }
     },
@@ -151,12 +151,12 @@
       "style": "partof",
       "route": {
         "source": {
-          "side": "bottom",
+          "side": "left",
           "position": 0.75
         },
         "target": {
-          "side": "top",
-          "position": 0.75
+          "side": "right",
+          "position": 0.5
         }
       }
     },

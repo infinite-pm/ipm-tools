@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L805-L811 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-flank-tie-crosses-the-fan-under-the-kind-budget)
+**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L834-L840 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-flank-tie-crosses-the-fan-under-the-kind-budget)
 
 ## ipmt Content
 

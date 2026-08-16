@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L920-L927 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-shared-child-concept-centres-between-its-column-parents)
+**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L949-L956 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-shared-child-concept-centres-between-its-column-parents)
 
 ## ipmt Content
 

@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L553-L560 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-middle-branch-thing-widens-only-its-own-gap)
+**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L582-L589 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-middle-branch-thing-widens-only-its-own-gap)
 
 ## ipmt Content
 

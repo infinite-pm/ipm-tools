@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L631-L634 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-sibling-tie-orders-the-stack-adjacent)
+**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L660-L663 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-sibling-tie-orders-the-stack-adjacent)
 
 ## ipmt Content
 

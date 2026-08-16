@@ -47,8 +47,8 @@
     <path d="M 575.00 150.00 L 566.00 154.50 L 568.25 150.00 L 566.00 145.50 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
     </g>
     <g class="edge" data-edge-idx="7" data-edge-base="expresses" data-edge-from="5" data-edge-to="6">
-    <line x1="524.23" y1="374.57" x2="573.99" y2="192.94" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
-    <path d="M 575.77 186.43 L 577.73 196.30 L 573.99 192.94 L 569.05 193.92 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="524.12" y1="374.54" x2="574.14" y2="186.98" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
+    <path d="M 575.88 180.46 L 577.91 190.32 L 574.14 186.98 L 569.21 188.00 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
     </g>
     <g class="edge" data-edge-idx="8" data-edge-base="expresses" data-edge-from="4" data-edge-to="7">
     <line x1="525.00" y1="270.00" x2="568.25" y2="270.00" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />

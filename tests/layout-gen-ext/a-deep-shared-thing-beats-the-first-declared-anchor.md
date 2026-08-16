@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L661-L667 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-deep-shared-thing-beats-the-first-declared-anchor)
+**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L690-L696 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-deep-shared-thing-beats-the-first-declared-anchor)
 
 ## ipmt Content
 

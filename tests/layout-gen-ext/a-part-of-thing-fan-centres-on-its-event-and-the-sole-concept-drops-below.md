@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L497-L505 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below)
+**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L526-L534 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below)
 
 ## ipmt Content
 

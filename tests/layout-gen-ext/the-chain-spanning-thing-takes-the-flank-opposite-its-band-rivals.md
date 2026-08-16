@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L442-L449 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals)
+**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L455-L462 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals)
 
 ## ipmt Content
 
@@ -23,7 +23,14 @@ tB --> e2, e3
 ## Generated Files
 
 - [the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals.ipmt](the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals.ipmt) - ipmt input
+- [the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals.json](the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals.json) - Parsed structure
+- [the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals.layout.json](the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals.layout.json) - Layout coordinates
+- [the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals.ipm.svg](the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals.ipm.svg) - Rendered diagram
+
+## Rendered Diagram
+
+![the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals](the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals.ipm.svg)
 
 This test case was automatically generated from the specification document.
 
-The ipmt code block was extracted using [sync-test-cases](../../docs/dev/testing.md) and saved to [the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals.ipmt](the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals.ipmt).
+The ipmt code block was extracted using [sync-test-cases](../../docs/dev/testing.md) and saved to [the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals.ipmt](the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals.ipmt), then parsed into the [JSON structure](the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals.json) and laid out into [layout coordinates](the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals.layout.json). The [SVG diagram](the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals.ipm.svg) was rendered using [ipmsvg-gen](../../docs/ipmsvg-gen.md).

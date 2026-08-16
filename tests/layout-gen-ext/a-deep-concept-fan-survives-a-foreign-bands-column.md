@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L729-L742 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-deep-concept-fan-survives-a-foreign-bands-column)
+**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L758-L771 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-deep-concept-fan-survives-a-foreign-bands-column)
 
 ## ipmt Content
 

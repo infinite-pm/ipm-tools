@@ -30,12 +30,12 @@
     <path d="M 345.00 150.00 L 354.00 145.50 L 351.75 150.00 L 354.00 154.50 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
     </g>
     <g class="edge" data-edge-idx="3" data-edge-base="partof" data-edge-from="4" data-edge-to="2">
-    <line x1="420.00" y1="185.00" x2="326.04" y2="231.98" stroke="#82b366" stroke-width="3" />
-    <path d="M 320.00 235.00 L 326.04 226.95 L 326.04 231.98 L 330.06 235.00 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="395.00" y1="166.42" x2="348.17" y2="254.62" stroke="#82b366" stroke-width="3" />
+    <path d="M 345.00 260.58 L 345.25 250.52 L 348.17 254.62 L 353.20 254.74 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
     </g>
     <g class="edge" data-edge-idx="4" data-edge-base="partof" data-edge-from="4" data-edge-to="3">
-    <line x1="485.00" y1="185.00" x2="319.77" y2="350.23" stroke="#82b366" stroke-width="3" />
-    <path d="M 315.00 355.00 L 318.18 345.45 L 319.77 350.23 L 324.55 351.82 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
+    <line x1="395.88" y1="180.46" x2="345.86" y2="368.02" stroke="#82b366" stroke-width="3" />
+    <path d="M 344.12 374.54 L 342.09 364.68 L 345.86 368.02 L 350.79 367.00 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
     </g>
     <g class="edge" data-edge-idx="5" data-edge-base="partof" data-edge-from="5" data-edge-to="1">
     <line x1="165.00" y1="150.00" x2="208.25" y2="150.00" stroke="#82b366" stroke-width="3" />

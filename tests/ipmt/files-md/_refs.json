@@ -70,7 +70,7 @@
     },
     {
         "source": "../../../docs/dev/layout-gen/layout-principles.md",
-        "source_sha1": "37b8800d362b86b006c35db70cfea356ace91600",
+        "source_sha1": "6f9fca753144d70fb9e67872d55e939ed14abad5",
         "name": "ipmt examples in Markdown files",
         "method": "parser",
         "parser_name": "ipmt-md",

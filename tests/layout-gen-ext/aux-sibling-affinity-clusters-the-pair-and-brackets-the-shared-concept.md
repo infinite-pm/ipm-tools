@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L599-L602 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept)
+**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L628-L631 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept)
 
 ## ipmt Content
 
