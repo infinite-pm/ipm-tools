@@ -242,6 +242,80 @@ func (g *graph) buildGroups(m *membership) *groupsPlan {
 		}
 	}
 
+	// Span-flank election (v7P4): two thing roots stacked in ONE anchor
+	// band that BOTH tie further along the spine cannot both draw clean
+	// from one flank — whichever sits higher must fan past the other's
+	// edges. The band's widest-spanning root — part-of strictly MORE
+	// same-component events than every band rival (an equal span keeps the
+	// canon: the split needs a unique protagonist) — takes the RIGHT flank
+	// instead, when that flank is free over every event it ties: no
+	// concept or whole band, no sub-event column, balanced split in force
+	// (user: "Patrick should be on opposite side then other things").
+	// Cross-component ties ride the v7P2 grid, not this flank, so they do
+	// not count toward the span.
+	hasSubGrid := map[int]bool{}
+	for _, e := range g.edges {
+		if e.structural && e.rel == RelPartOf &&
+			g.nodes[e.from].kind == KindEvent && g.nodes[e.to].kind == KindEvent {
+			hasSubGrid[e.to] = true
+		}
+	}
+	tiedEvents := func(r int) []int {
+		var evs []int
+		for _, e := range g.edges {
+			if e.rel != RelPartOf || e.from != r || g.nodes[e.to].kind != KindEvent {
+				continue
+			}
+			if (!e.structural && !e.demotedTie) || g.nodes[e.to].comp != g.nodes[r].comp {
+				continue
+			}
+			evs = append(evs, e.to)
+		}
+		return evs
+	}
+	spanHints := g.sideHints()
+	for _, comp := range g.comps {
+		for _, ev := range comp.events {
+			roots := leftRoots[ev]
+			if len(roots) < 2 || spanHints[ev] != 0 {
+				continue
+			}
+			rivals, best, bestSpan, unique := 0, -1, 0, false
+			for _, r := range roots {
+				s := len(tiedEvents(r))
+				if s >= 2 {
+					rivals++
+				}
+				if s > bestSpan {
+					best, bestSpan, unique = r, s, true
+				} else if s == bestSpan {
+					unique = false
+				}
+			}
+			if rivals < 2 || !unique || bestSpan < 2 {
+				continue
+			}
+			free := true
+			for _, te := range tiedEvents(best) {
+				if len(rightRoots[te]) > 0 || hasSubGrid[te] || spanHints[te] != 0 {
+					free = false
+					break
+				}
+			}
+			if !free {
+				continue
+			}
+			kept := roots[:0]
+			for _, r := range roots {
+				if r != best {
+					kept = append(kept, r)
+				}
+			}
+			leftRoots[ev] = kept
+			rightRoots[ev] = append(rightRoots[ev], best)
+		}
+	}
+
 	placed := map[int]bool{}
 	// place registers a node's offset relative to its event. Aux never
 	// overlaps aux (v7P8's minimums): a placement landing on an

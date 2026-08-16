@@ -421,6 +421,53 @@ edge #tA,#e3 has visibility=visible
 edge #tA,#e3 has max-bends=2
 ```
 
+### the chain-spanning thing takes the flank opposite its band rivals
+
+Three things share one three-event chain with OVERLAPPING windows: `tP` is
+part-of EVERY chain event, `tA` of the first two, `tB` of the last two
+(a person wearing, swapping and wearing again — the shirts local to their
+steps). The canon (things left) would stack `tP` and `tA` in e1's one left
+band — and two band-mates that BOTH tie down the spine cannot both draw
+clean from one flank: whichever sits higher must fan past the other's edges
+(tP→e2 crossed tA→e1; tP→e3 laned around the whole left column). So the
+band election SPLITS them: the widest-spanning root — the thing part-of
+MORE chain events than any band rival — takes the RIGHT flank when it is
+free (no concepts, no sub-event columns on its events), and the step-local
+things keep the canon left band (user: "Patrick should be on opposite side
+then other things"). Two rivals of EQUAL span keep the canon — the split
+needs a unique protagonist ('shared things keep their band' above stays as
+it is).
+
+```ipmt
+e1 ::e
+  --> e2 ::e
+  --> e3 ::e
+
+tP --> e1, e2, e3
+tA --> e1, e2
+tB --> e2, e3
+```
+<!-- ipm-svg id=19i hash=a6942e84 -->
+![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/19i.ipm.svg)
+
+```ipmdev-layout-rule
+@scope local
+all #e1,#e2,#e3 have same center-x
+#tA is left-of #e1 with gap=60
+#tB is left-of #e2 with gap=60
+#tP is right-of #e1 with gap=60
+edge #tP,#e1 has visibility=visible
+edge #tP,#e2 has visibility=visible
+edge #tP,#e3 has visibility=visible
+edge #tA,#e1 has visibility=visible
+edge #tA,#e2 has visibility=visible
+edge #tB,#e2 has visibility=visible
+edge #tB,#e3 has visibility=visible
+edge #tP,#e2 does not cross edge #tA,#e1
+edge #tP,#e3 does not cross edge #tA,#e1
+edge #tP,#e3 does not cross edge #tB,#e2
+```
+
 ### a part-of thing-fan centres on its event and the sole concept drops below
 
 Combines `multiple things part-of event`, the shared fan-in concept (a concept

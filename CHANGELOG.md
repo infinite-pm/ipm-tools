@@ -5,6 +5,18 @@ they produce, and to the `ipm-rpc` server editors connect to. The VS Code
 extension keeps its own changelog in
 [`vscode-infinite-pm`](https://github.com/infinite-pm/vscode-infinite-pm/blob/main/CHANGELOG.md).
 
+## 0.4.3 — unreleased
+
+- Layout: a thing that is part-of MORE chain events than the other things in
+  its band takes the flank OPPOSITE them. Two things stacked in one band that
+  both tie further down the spine could not both draw clean from one side —
+  the higher one fanned across the other's edges (a person part-of every step,
+  the shirts part-of two steps each: the person's ties crossed the shirts').
+  The band's unique widest-spanning thing now moves to the free right flank;
+  equal spans keep the canon (things left, concepts right). Fixture: "the
+  chain-spanning thing takes the flank opposite its band rivals" in
+  `docs/dev/layout-gen/layout-alg-ext.md`.
+
 ## 0.4.2 — 2026-08-13
 
 - `ipm.embedBuffer` accepts `tokensOnly: true`, which returns each block's
