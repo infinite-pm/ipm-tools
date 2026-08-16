@@ -22,6 +22,10 @@
 /solver-example
 /layout-debug
 /layout-explain
+/layout-audit
+/layout-timeline
+/ipm-rpc-tee
+/states-curate
 /refs-rehash
 /svg-edges
 /slides-copy
