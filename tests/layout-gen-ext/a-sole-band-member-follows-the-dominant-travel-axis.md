@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L911-L923 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-sole-band-member-follows-the-dominant-travel-axis)
+**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L958-L970 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-sole-band-member-follows-the-dominant-travel-axis)
 
 ## ipmt Content
 

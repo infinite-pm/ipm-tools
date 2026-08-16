@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L1108-L1112 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-satellites-tree-never-evicts-its-own-frame)
+**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L1155-L1159 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-satellites-tree-never-evicts-its-own-frame)
 
 ## ipmt Content
 

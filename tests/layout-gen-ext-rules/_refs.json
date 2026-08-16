@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-ext.md",
-        "source_sha1": "0d6e00e6755e9c5c57ebb7ca82b6485db8553994",
+        "source_sha1": "bdb4b6cc95f319ced0275149660b901933b2a697",
         "name": "layout ext test rules",
         "method": "parser",
         "parser_name": "ipmdev-layout-rule-md",
@@ -846,8 +846,162 @@
                 "section": "Wide things and concepts"
             },
             {
-                "destination": "a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below",
+                "destination": "the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals",
+                "line": 455,
+                "anchor": "#the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals",
+                "content_sha1": "7d8357e9fffcb6e21e17e7f2690f1d461197d5c9",
+                "outputs": {
+                    "dsl": "7d8357e9fffcb6e21e17e7f2690f1d461197d5c9"
+                },
+                "heading": "the chain-spanning thing takes the flank opposite its band rivals",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals-02",
+                "line": 456,
+                "anchor": "#the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals",
+                "content_sha1": "7d803619ff871b85ceb2f1d0e2e93c8d459dcbaf",
+                "outputs": {
+                    "dsl": "7d803619ff871b85ceb2f1d0e2e93c8d459dcbaf"
+                },
+                "heading": "the chain-spanning thing takes the flank opposite its band rivals",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals-03",
+                "line": 457,
+                "anchor": "#the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals",
+                "content_sha1": "92d59cf8c9882612dc9333d93bd5c0a007f4b0bd",
+                "outputs": {
+                    "dsl": "92d59cf8c9882612dc9333d93bd5c0a007f4b0bd"
+                },
+                "heading": "the chain-spanning thing takes the flank opposite its band rivals",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals-04",
+                "line": 458,
+                "anchor": "#the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals",
+                "content_sha1": "01c8deeb6d1f74f5dab0b28e0ae531e22791a21c",
+                "outputs": {
+                    "dsl": "01c8deeb6d1f74f5dab0b28e0ae531e22791a21c"
+                },
+                "heading": "the chain-spanning thing takes the flank opposite its band rivals",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals-05",
+                "line": 459,
+                "anchor": "#the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals",
+                "content_sha1": "743b565c07497ffa45e94a9dac4e418ff62467eb",
+                "outputs": {
+                    "dsl": "743b565c07497ffa45e94a9dac4e418ff62467eb"
+                },
+                "heading": "the chain-spanning thing takes the flank opposite its band rivals",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals-06",
+                "line": 460,
+                "anchor": "#the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals",
+                "content_sha1": "7fa8a9a31c771c84634618b20837d2fbd940efba",
+                "outputs": {
+                    "dsl": "7fa8a9a31c771c84634618b20837d2fbd940efba"
+                },
+                "heading": "the chain-spanning thing takes the flank opposite its band rivals",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals-07",
+                "line": 461,
+                "anchor": "#the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals",
+                "content_sha1": "99f77c56e1b62d0264a7abe33acfa9928d8df3e4",
+                "outputs": {
+                    "dsl": "99f77c56e1b62d0264a7abe33acfa9928d8df3e4"
+                },
+                "heading": "the chain-spanning thing takes the flank opposite its band rivals",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals-08",
+                "line": 462,
+                "anchor": "#the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals",
+                "content_sha1": "a1d85d4595e5f76f89b24edce14c806d85ed3e2c",
+                "outputs": {
+                    "dsl": "a1d85d4595e5f76f89b24edce14c806d85ed3e2c"
+                },
+                "heading": "the chain-spanning thing takes the flank opposite its band rivals",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals-09",
+                "line": 463,
+                "anchor": "#the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals",
+                "content_sha1": "4f9272297d7af3d4b8451366e8e2e89b9eabc5eb",
+                "outputs": {
+                    "dsl": "4f9272297d7af3d4b8451366e8e2e89b9eabc5eb"
+                },
+                "heading": "the chain-spanning thing takes the flank opposite its band rivals",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals-10",
                 "line": 464,
+                "anchor": "#the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals",
+                "content_sha1": "d649ca41ceb161eadcfb7214219334fe67c4cde1",
+                "outputs": {
+                    "dsl": "d649ca41ceb161eadcfb7214219334fe67c4cde1"
+                },
+                "heading": "the chain-spanning thing takes the flank opposite its band rivals",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals-11",
+                "line": 465,
+                "anchor": "#the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals",
+                "content_sha1": "d7728d48dc6b1802af37d16d77667ffc4573b83a",
+                "outputs": {
+                    "dsl": "d7728d48dc6b1802af37d16d77667ffc4573b83a"
+                },
+                "heading": "the chain-spanning thing takes the flank opposite its band rivals",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals-12",
+                "line": 466,
+                "anchor": "#the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals",
+                "content_sha1": "11dc8523e031c3013b38a32c54580089ab463041",
+                "outputs": {
+                    "dsl": "11dc8523e031c3013b38a32c54580089ab463041"
+                },
+                "heading": "the chain-spanning thing takes the flank opposite its band rivals",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals-13",
+                "line": 467,
+                "anchor": "#the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals",
+                "content_sha1": "2ae52a2e89990173d06dec3b1b4d0756ea4b728e",
+                "outputs": {
+                    "dsl": "2ae52a2e89990173d06dec3b1b4d0756ea4b728e"
+                },
+                "heading": "the chain-spanning thing takes the flank opposite its band rivals",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals-14",
+                "line": 468,
+                "anchor": "#the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals",
+                "content_sha1": "0e08a8fc1cb4433b31dcfe780b0232ea0a57ee37",
+                "outputs": {
+                    "dsl": "0e08a8fc1cb4433b31dcfe780b0232ea0a57ee37"
+                },
+                "heading": "the chain-spanning thing takes the flank opposite its band rivals",
+                "section": "Wide things and concepts"
+            },
+            {
+                "destination": "a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below",
+                "line": 511,
                 "anchor": "#a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below",
                 "content_sha1": "c25c1215aba0b4b4bdaf3b3d100c6108a2410cab",
                 "outputs": {
@@ -858,7 +1012,7 @@
             },
             {
                 "destination": "a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below-02",
-                "line": 465,
+                "line": 512,
                 "anchor": "#a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below",
                 "content_sha1": "00b9c83078dcc9077bff2abefb5c4c793d8ba04f",
                 "outputs": {
@@ -869,7 +1023,7 @@
             },
             {
                 "destination": "a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below-03",
-                "line": 466,
+                "line": 513,
                 "anchor": "#a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below",
                 "content_sha1": "4823cba6805d46eb3e4f0839ebe5b49321de180f",
                 "outputs": {
@@ -880,7 +1034,7 @@
             },
             {
                 "destination": "a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below-04",
-                "line": 467,
+                "line": 514,
                 "anchor": "#a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below",
                 "content_sha1": "a57d6fbff1e3d132a6efc07befc61249c18d551f",
                 "outputs": {
@@ -891,7 +1045,7 @@
             },
             {
                 "destination": "a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below-05",
-                "line": 468,
+                "line": 515,
                 "anchor": "#a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below",
                 "content_sha1": "18e2df7f035bb67e6097b6af7b4d0008464a38c2",
                 "outputs": {
@@ -902,7 +1056,7 @@
             },
             {
                 "destination": "a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below-06",
-                "line": 469,
+                "line": 516,
                 "anchor": "#a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below",
                 "content_sha1": "03778fdd808768f819101a6e2f0b54c7737a89f6",
                 "outputs": {
@@ -913,7 +1067,7 @@
             },
             {
                 "destination": "a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below-07",
-                "line": 470,
+                "line": 517,
                 "anchor": "#a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below",
                 "content_sha1": "e0d24c2ff73d82560676780930b44e7da9e81c57",
                 "outputs": {
@@ -924,7 +1078,7 @@
             },
             {
                 "destination": "a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below-08",
-                "line": 471,
+                "line": 518,
                 "anchor": "#a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below",
                 "content_sha1": "c1333a3b6ded95a80ec302bc9cb5af99195759c6",
                 "outputs": {
@@ -935,7 +1089,7 @@
             },
             {
                 "destination": "a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below-09",
-                "line": 472,
+                "line": 519,
                 "anchor": "#a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below",
                 "content_sha1": "9ab286a7d118a297e25e57a3ae5feafeb506e79e",
                 "outputs": {
@@ -946,7 +1100,7 @@
             },
             {
                 "destination": "rules",
-                "line": 489,
+                "line": 536,
                 "anchor": "#rules",
                 "content_sha1": "e979483ea06f9000e09831a5bb0052260d36ad52",
                 "outputs": {
@@ -957,7 +1111,7 @@
             },
             {
                 "destination": "a-middle-branch-thing-widens-only-its-own-gap",
-                "line": 519,
+                "line": 566,
                 "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
                 "content_sha1": "58ea22465c36b2219ca5fb48235742aef9ac9f93",
                 "outputs": {
@@ -968,7 +1122,7 @@
             },
             {
                 "destination": "a-middle-branch-thing-widens-only-its-own-gap-02",
-                "line": 520,
+                "line": 567,
                 "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
                 "content_sha1": "e2edb0b775bd53e46dd9d7534dd4d138d2722807",
                 "outputs": {
@@ -979,7 +1133,7 @@
             },
             {
                 "destination": "a-middle-branch-thing-widens-only-its-own-gap-03",
-                "line": 521,
+                "line": 568,
                 "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
                 "content_sha1": "2f3dda47483f0fd187d520bb65bef7fb51f358e1",
                 "outputs": {
@@ -990,7 +1144,7 @@
             },
             {
                 "destination": "a-middle-branch-thing-widens-only-its-own-gap-04",
-                "line": 522,
+                "line": 569,
                 "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
                 "content_sha1": "4fad19e4f5a46ed876d1ef0094a8d36567a08bfd",
                 "outputs": {
@@ -1001,7 +1155,7 @@
             },
             {
                 "destination": "a-middle-branch-thing-widens-only-its-own-gap-05",
-                "line": 523,
+                "line": 570,
                 "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
                 "content_sha1": "caf505f3e044b3df7a22220359c4f864d6fa6bea",
                 "outputs": {
@@ -1012,7 +1166,7 @@
             },
             {
                 "destination": "a-middle-branch-thing-widens-only-its-own-gap-06",
-                "line": 524,
+                "line": 571,
                 "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
                 "content_sha1": "37313c4bd6a91f74314ed69e5cd2895a1885b6d7",
                 "outputs": {
@@ -1023,7 +1177,7 @@
             },
             {
                 "destination": "a-middle-branch-thing-widens-only-its-own-gap-07",
-                "line": 525,
+                "line": 572,
                 "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
                 "content_sha1": "99d78b3f7515cee50cdb82dcb97a1b5451cb60b1",
                 "outputs": {
@@ -1034,7 +1188,7 @@
             },
             {
                 "destination": "a-middle-branch-thing-widens-only-its-own-gap-08",
-                "line": 526,
+                "line": 573,
                 "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
                 "content_sha1": "b02b9ee3719825379493cbfe2a265babe9eafcc4",
                 "outputs": {
@@ -1045,7 +1199,7 @@
             },
             {
                 "destination": "a-middle-branch-thing-widens-only-its-own-gap-09",
-                "line": 527,
+                "line": 574,
                 "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
                 "content_sha1": "ab7640f2f69981e278c6d06aeeb5c7d5466eaf04",
                 "outputs": {
@@ -1056,7 +1210,7 @@
             },
             {
                 "destination": "a-middle-branch-thing-widens-only-its-own-gap-10",
-                "line": 528,
+                "line": 575,
                 "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
                 "content_sha1": "44e87630b092a613190c0c4412504fcc0b831dac",
                 "outputs": {
@@ -1067,7 +1221,7 @@
             },
             {
                 "destination": "a-middle-branch-thing-widens-only-its-own-gap-11",
-                "line": 529,
+                "line": 576,
                 "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
                 "content_sha1": "b130ef253d069a204e70b64152924eba7f06cc87",
                 "outputs": {
@@ -1078,7 +1232,7 @@
             },
             {
                 "destination": "a-middle-branch-thing-widens-only-its-own-gap-12",
-                "line": 530,
+                "line": 577,
                 "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
                 "content_sha1": "9948dd4e9e9fcddc455cdac811fa467deac789c5",
                 "outputs": {
@@ -1089,7 +1243,7 @@
             },
             {
                 "destination": "a-middle-branch-thing-widens-only-its-own-gap-13",
-                "line": 531,
+                "line": 578,
                 "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
                 "content_sha1": "7bee6c85c938e30de7608c3e81f4101a028392b8",
                 "outputs": {
@@ -1100,7 +1254,7 @@
             },
             {
                 "destination": "a-middle-branch-thing-widens-only-its-own-gap-14",
-                "line": 532,
+                "line": 579,
                 "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
                 "content_sha1": "784fa36801dd27024e8c99880dd976399f2f547b",
                 "outputs": {
@@ -1111,7 +1265,7 @@
             },
             {
                 "destination": "a-middle-branch-thing-widens-only-its-own-gap-15",
-                "line": 533,
+                "line": 580,
                 "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
                 "content_sha1": "7fc18abf8dfd57b69f686a3907e66e44288c1fc8",
                 "outputs": {
@@ -1122,7 +1276,7 @@
             },
             {
                 "destination": "a-middle-branch-thing-widens-only-its-own-gap-16",
-                "line": 534,
+                "line": 581,
                 "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
                 "content_sha1": "a0638fbcdd2c37a2f6772d01bbe50d6d70e91b49",
                 "outputs": {
@@ -1133,7 +1287,7 @@
             },
             {
                 "destination": "aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
-                "line": 561,
+                "line": 608,
                 "anchor": "#aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
                 "content_sha1": "58ea22465c36b2219ca5fb48235742aef9ac9f93",
                 "outputs": {
@@ -1144,7 +1298,7 @@
             },
             {
                 "destination": "aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept-02",
-                "line": 562,
+                "line": 609,
                 "anchor": "#aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
                 "content_sha1": "cbb41774632c0e5bb437473c4014a45ee6178dc3",
                 "outputs": {
@@ -1155,7 +1309,7 @@
             },
             {
                 "destination": "aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept-03",
-                "line": 563,
+                "line": 610,
                 "anchor": "#aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
                 "content_sha1": "1c29f0f63eb834630b2622f709142cf4e0b8bf29",
                 "outputs": {
@@ -1166,7 +1320,7 @@
             },
             {
                 "destination": "aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept-04",
-                "line": 564,
+                "line": 611,
                 "anchor": "#aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
                 "content_sha1": "a2d1d2b89f48c31dce236d3a59c29aafe55768e3",
                 "outputs": {
@@ -1177,7 +1331,7 @@
             },
             {
                 "destination": "aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept-05",
-                "line": 565,
+                "line": 612,
                 "anchor": "#aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
                 "content_sha1": "7b4c7e2f2349732c9f857d1bd090a103daab19b2",
                 "outputs": {
@@ -1188,7 +1342,7 @@
             },
             {
                 "destination": "aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept-06",
-                "line": 566,
+                "line": 613,
                 "anchor": "#aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
                 "content_sha1": "b209bcfa5f06190b04dcadb425a61b339f2eddd1",
                 "outputs": {
@@ -1199,7 +1353,7 @@
             },
             {
                 "destination": "aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept-07",
-                "line": 567,
+                "line": 614,
                 "anchor": "#aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
                 "content_sha1": "76b3456af53d4af705d77f0d1ef64a5366303cad",
                 "outputs": {
@@ -1210,7 +1364,7 @@
             },
             {
                 "destination": "aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept-08",
-                "line": 568,
+                "line": 615,
                 "anchor": "#aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
                 "content_sha1": "891b3710a0c2f6ccef3c3ba7bcecb8da2a842ed3",
                 "outputs": {
@@ -1221,7 +1375,7 @@
             },
             {
                 "destination": "aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept-09",
-                "line": 569,
+                "line": 616,
                 "anchor": "#aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
                 "content_sha1": "3bc2feba899916ba8308cf0e8342ac79d8cfd6e0",
                 "outputs": {
@@ -1232,7 +1386,7 @@
             },
             {
                 "destination": "aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept-10",
-                "line": 570,
+                "line": 617,
                 "anchor": "#aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
                 "content_sha1": "5088509b3f9ec727c013e8af638cd9ed5ca69a0f",
                 "outputs": {
@@ -1243,7 +1397,7 @@
             },
             {
                 "destination": "aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept-11",
-                "line": 571,
+                "line": 618,
                 "anchor": "#aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
                 "content_sha1": "b4317631d33c0fb9455fd96837529362c1fc0cb1",
                 "outputs": {
@@ -1254,7 +1408,7 @@
             },
             {
                 "destination": "a-sibling-tie-orders-the-stack-adjacent",
-                "line": 593,
+                "line": 640,
                 "anchor": "#a-sibling-tie-orders-the-stack-adjacent",
                 "content_sha1": "58ea22465c36b2219ca5fb48235742aef9ac9f93",
                 "outputs": {
@@ -1265,7 +1419,7 @@
             },
             {
                 "destination": "a-sibling-tie-orders-the-stack-adjacent-02",
-                "line": 594,
+                "line": 641,
                 "anchor": "#a-sibling-tie-orders-the-stack-adjacent",
                 "content_sha1": "1c29f0f63eb834630b2622f709142cf4e0b8bf29",
                 "outputs": {
@@ -1276,7 +1430,7 @@
             },
             {
                 "destination": "a-sibling-tie-orders-the-stack-adjacent-03",
-                "line": 595,
+                "line": 642,
                 "anchor": "#a-sibling-tie-orders-the-stack-adjacent",
                 "content_sha1": "a2d1d2b89f48c31dce236d3a59c29aafe55768e3",
                 "outputs": {
@@ -1287,7 +1441,7 @@
             },
             {
                 "destination": "a-sibling-tie-orders-the-stack-adjacent-04",
-                "line": 596,
+                "line": 643,
                 "anchor": "#a-sibling-tie-orders-the-stack-adjacent",
                 "content_sha1": "7b4c7e2f2349732c9f857d1bd090a103daab19b2",
                 "outputs": {
@@ -1298,7 +1452,7 @@
             },
             {
                 "destination": "a-sibling-tie-orders-the-stack-adjacent-05",
-                "line": 597,
+                "line": 644,
                 "anchor": "#a-sibling-tie-orders-the-stack-adjacent",
                 "content_sha1": "b209bcfa5f06190b04dcadb425a61b339f2eddd1",
                 "outputs": {
@@ -1309,7 +1463,7 @@
             },
             {
                 "destination": "a-sibling-tie-orders-the-stack-adjacent-06",
-                "line": 598,
+                "line": 645,
                 "anchor": "#a-sibling-tie-orders-the-stack-adjacent",
                 "content_sha1": "76b3456af53d4af705d77f0d1ef64a5366303cad",
                 "outputs": {
@@ -1320,7 +1474,7 @@
             },
             {
                 "destination": "a-sibling-tie-orders-the-stack-adjacent-07",
-                "line": 599,
+                "line": 646,
                 "anchor": "#a-sibling-tie-orders-the-stack-adjacent",
                 "content_sha1": "891b3710a0c2f6ccef3c3ba7bcecb8da2a842ed3",
                 "outputs": {
@@ -1331,7 +1485,7 @@
             },
             {
                 "destination": "a-sibling-tie-orders-the-stack-adjacent-08",
-                "line": 600,
+                "line": 647,
                 "anchor": "#a-sibling-tie-orders-the-stack-adjacent",
                 "content_sha1": "94d4623f7da234980ca88e3dc20bc445ee0eed0d",
                 "outputs": {
@@ -1342,7 +1496,7 @@
             },
             {
                 "destination": "a-sibling-tie-orders-the-stack-adjacent-09",
-                "line": 601,
+                "line": 648,
                 "anchor": "#a-sibling-tie-orders-the-stack-adjacent",
                 "content_sha1": "2abbce367352247548c78e5ac8f887bbcd401c31",
                 "outputs": {
@@ -1353,7 +1507,7 @@
             },
             {
                 "destination": "a-deep-shared-thing-beats-the-first-declared-anchor",
-                "line": 626,
+                "line": 673,
                 "anchor": "#a-deep-shared-thing-beats-the-first-declared-anchor",
                 "content_sha1": "58ea22465c36b2219ca5fb48235742aef9ac9f93",
                 "outputs": {
@@ -1364,7 +1518,7 @@
             },
             {
                 "destination": "a-deep-shared-thing-beats-the-first-declared-anchor-02",
-                "line": 627,
+                "line": 674,
                 "anchor": "#a-deep-shared-thing-beats-the-first-declared-anchor",
                 "content_sha1": "98f3ac8e5947d13c888f1ef6849b3a51000c7f04",
                 "outputs": {
@@ -1375,7 +1529,7 @@
             },
             {
                 "destination": "a-deep-shared-thing-beats-the-first-declared-anchor-03",
-                "line": 628,
+                "line": 675,
                 "anchor": "#a-deep-shared-thing-beats-the-first-declared-anchor",
                 "content_sha1": "9bd31380a4de8fa45ca5c93a697943cf240e88e9",
                 "outputs": {
@@ -1386,7 +1540,7 @@
             },
             {
                 "destination": "a-deep-shared-thing-beats-the-first-declared-anchor-04",
-                "line": 629,
+                "line": 676,
                 "anchor": "#a-deep-shared-thing-beats-the-first-declared-anchor",
                 "content_sha1": "28cfc36d511ec291fe6d6f9e57c1b65f5ef71b86",
                 "outputs": {
@@ -1397,7 +1551,7 @@
             },
             {
                 "destination": "a-deep-shared-thing-beats-the-first-declared-anchor-05",
-                "line": 630,
+                "line": 677,
                 "anchor": "#a-deep-shared-thing-beats-the-first-declared-anchor",
                 "content_sha1": "49b4459d8ffeadb0bc0a9dd1faeaf1532ab8d275",
                 "outputs": {
@@ -1408,7 +1562,7 @@
             },
             {
                 "destination": "a-deep-shared-thing-beats-the-first-declared-anchor-06",
-                "line": 631,
+                "line": 678,
                 "anchor": "#a-deep-shared-thing-beats-the-first-declared-anchor",
                 "content_sha1": "25a342903a76fa9e89e936b6e95bf3adf2d0c78c",
                 "outputs": {
@@ -1419,7 +1573,7 @@
             },
             {
                 "destination": "a-deep-shared-thing-beats-the-first-declared-anchor-07",
-                "line": 632,
+                "line": 679,
                 "anchor": "#a-deep-shared-thing-beats-the-first-declared-anchor",
                 "content_sha1": "7bf34f139af91da4185385d1419c93bfef492a64",
                 "outputs": {
@@ -1430,7 +1584,7 @@
             },
             {
                 "destination": "a-deep-shared-thing-beats-the-first-declared-anchor-08",
-                "line": 633,
+                "line": 680,
                 "anchor": "#a-deep-shared-thing-beats-the-first-declared-anchor",
                 "content_sha1": "7b3f90f5e3f1ccf447177b33b18a196bbfe9788d",
                 "outputs": {
@@ -1441,7 +1595,7 @@
             },
             {
                 "destination": "a-deep-shared-thing-beats-the-first-declared-anchor-09",
-                "line": 634,
+                "line": 681,
                 "anchor": "#a-deep-shared-thing-beats-the-first-declared-anchor",
                 "content_sha1": "5b0be9ea6a6d20f013002f494ca421600074140f",
                 "outputs": {
@@ -1452,7 +1606,7 @@
             },
             {
                 "destination": "a-deep-shared-concept-beats-the-first-usage-anchor",
-                "line": 656,
+                "line": 703,
                 "anchor": "#a-deep-shared-concept-beats-the-first-usage-anchor",
                 "content_sha1": "ca8978ade09463c473adaa41aa1dc3633e83ab25",
                 "outputs": {
@@ -1463,7 +1617,7 @@
             },
             {
                 "destination": "a-deep-shared-concept-beats-the-first-usage-anchor-02",
-                "line": 657,
+                "line": 704,
                 "anchor": "#a-deep-shared-concept-beats-the-first-usage-anchor",
                 "content_sha1": "58ea22465c36b2219ca5fb48235742aef9ac9f93",
                 "outputs": {
@@ -1474,7 +1628,7 @@
             },
             {
                 "destination": "a-deep-shared-concept-beats-the-first-usage-anchor-03",
-                "line": 658,
+                "line": 705,
                 "anchor": "#a-deep-shared-concept-beats-the-first-usage-anchor",
                 "content_sha1": "cbb41774632c0e5bb437473c4014a45ee6178dc3",
                 "outputs": {
@@ -1485,7 +1639,7 @@
             },
             {
                 "destination": "a-deep-shared-concept-beats-the-first-usage-anchor-04",
-                "line": 659,
+                "line": 706,
                 "anchor": "#a-deep-shared-concept-beats-the-first-usage-anchor",
                 "content_sha1": "28cfc36d511ec291fe6d6f9e57c1b65f5ef71b86",
                 "outputs": {
@@ -1496,7 +1650,7 @@
             },
             {
                 "destination": "a-deep-shared-concept-beats-the-first-usage-anchor-05",
-                "line": 660,
+                "line": 707,
                 "anchor": "#a-deep-shared-concept-beats-the-first-usage-anchor",
                 "content_sha1": "49b4459d8ffeadb0bc0a9dd1faeaf1532ab8d275",
                 "outputs": {
@@ -1507,7 +1661,7 @@
             },
             {
                 "destination": "a-deep-shared-concept-beats-the-first-usage-anchor-06",
-                "line": 661,
+                "line": 708,
                 "anchor": "#a-deep-shared-concept-beats-the-first-usage-anchor",
                 "content_sha1": "347ff65b750bd329b23954bd34535bb108417ac9",
                 "outputs": {
@@ -1518,7 +1672,7 @@
             },
             {
                 "destination": "a-deep-shared-concept-beats-the-first-usage-anchor-07",
-                "line": 662,
+                "line": 709,
                 "anchor": "#a-deep-shared-concept-beats-the-first-usage-anchor",
                 "content_sha1": "928b35eea94b07aab24df5450101ca4741173fb7",
                 "outputs": {
@@ -1529,7 +1683,7 @@
             },
             {
                 "destination": "a-deep-shared-concept-beats-the-first-usage-anchor-08",
-                "line": 663,
+                "line": 710,
                 "anchor": "#a-deep-shared-concept-beats-the-first-usage-anchor",
                 "content_sha1": "4f19ba141fbe54bf9e94db19824e32fb4cdd40d9",
                 "outputs": {
@@ -1540,7 +1694,7 @@
             },
             {
                 "destination": "a-deep-shared-concept-beats-the-first-usage-anchor-09",
-                "line": 664,
+                "line": 711,
                 "anchor": "#a-deep-shared-concept-beats-the-first-usage-anchor",
                 "content_sha1": "a7d5024c91a8c3c05cea619f1da643d29172ab1d",
                 "outputs": {
@@ -1551,7 +1705,7 @@
             },
             {
                 "destination": "a-deep-concept-fan-survives-a-foreign-bands-column",
-                "line": 701,
+                "line": 748,
                 "anchor": "#a-deep-concept-fan-survives-a-foreign-bands-column",
                 "content_sha1": "ca8978ade09463c473adaa41aa1dc3633e83ab25",
                 "outputs": {
@@ -1562,7 +1716,7 @@
             },
             {
                 "destination": "a-deep-concept-fan-survives-a-foreign-bands-column-02",
-                "line": 702,
+                "line": 749,
                 "anchor": "#a-deep-concept-fan-survives-a-foreign-bands-column",
                 "content_sha1": "d07284b81a4b86fa0357cd95bd6e8494b8cb1fb2",
                 "outputs": {
@@ -1573,7 +1727,7 @@
             },
             {
                 "destination": "a-deep-concept-fan-survives-a-foreign-bands-column-03",
-                "line": 703,
+                "line": 750,
                 "anchor": "#a-deep-concept-fan-survives-a-foreign-bands-column",
                 "content_sha1": "add6047828987eb1d32dbbf78a9b8467324660ea",
                 "outputs": {
@@ -1584,7 +1738,7 @@
             },
             {
                 "destination": "a-deep-concept-fan-survives-a-foreign-bands-column-04",
-                "line": 704,
+                "line": 751,
                 "anchor": "#a-deep-concept-fan-survives-a-foreign-bands-column",
                 "content_sha1": "c8bdf9a2f9d4341d45e1e92796696bbc33aec321",
                 "outputs": {
@@ -1595,7 +1749,7 @@
             },
             {
                 "destination": "a-deep-concept-fan-survives-a-foreign-bands-column-05",
-                "line": 705,
+                "line": 752,
                 "anchor": "#a-deep-concept-fan-survives-a-foreign-bands-column",
                 "content_sha1": "a8b45f825499e4c95d41346e1965dbec7ac8c385",
                 "outputs": {
@@ -1606,7 +1760,7 @@
             },
             {
                 "destination": "a-deep-concept-fan-survives-a-foreign-bands-column-06",
-                "line": 706,
+                "line": 753,
                 "anchor": "#a-deep-concept-fan-survives-a-foreign-bands-column",
                 "content_sha1": "0a096fc7d8455c8f343884c357c0b4334490aa42",
                 "outputs": {
@@ -1617,7 +1771,7 @@
             },
             {
                 "destination": "a-deep-concept-fan-survives-a-foreign-bands-column-07",
-                "line": 707,
+                "line": 754,
                 "anchor": "#a-deep-concept-fan-survives-a-foreign-bands-column",
                 "content_sha1": "45a95ce5df345fc009a7b7a212f498b16913af39",
                 "outputs": {
@@ -1628,7 +1782,7 @@
             },
             {
                 "destination": "a-deep-concept-fan-survives-a-foreign-bands-column-08",
-                "line": 708,
+                "line": 755,
                 "anchor": "#a-deep-concept-fan-survives-a-foreign-bands-column",
                 "content_sha1": "b436c8d0c049d4779683be93861e2d1b5e619eae",
                 "outputs": {
@@ -1639,7 +1793,7 @@
             },
             {
                 "destination": "cross-component-arrivals-keep-the-approach-order",
-                "line": 738,
+                "line": 785,
                 "anchor": "#cross-component-arrivals-keep-the-approach-order",
                 "content_sha1": "9fbd9f16791fc9de7ba4c560ccdc64ac6a2d0ab5",
                 "outputs": {
@@ -1650,7 +1804,7 @@
             },
             {
                 "destination": "cross-component-arrivals-keep-the-approach-order-02",
-                "line": 739,
+                "line": 786,
                 "anchor": "#cross-component-arrivals-keep-the-approach-order",
                 "content_sha1": "773bd62196fbe1b50153586235167b3049237745",
                 "outputs": {
@@ -1661,7 +1815,7 @@
             },
             {
                 "destination": "cross-component-arrivals-keep-the-approach-order-03",
-                "line": 740,
+                "line": 787,
                 "anchor": "#cross-component-arrivals-keep-the-approach-order",
                 "content_sha1": "164d478c2592e872e29f19b78aa26e8ab30fab64",
                 "outputs": {
@@ -1672,7 +1826,7 @@
             },
             {
                 "destination": "cross-component-arrivals-keep-the-approach-order-04",
-                "line": 741,
+                "line": 788,
                 "anchor": "#cross-component-arrivals-keep-the-approach-order",
                 "content_sha1": "1766fd68c8b16e3748535d1cd7091997b4ec9a45",
                 "outputs": {
@@ -1683,7 +1837,7 @@
             },
             {
                 "destination": "cross-component-arrivals-keep-the-approach-order-05",
-                "line": 742,
+                "line": 789,
                 "anchor": "#cross-component-arrivals-keep-the-approach-order",
                 "content_sha1": "f957127d9917043c7f40850d33d469742005969a",
                 "outputs": {
@@ -1694,7 +1848,7 @@
             },
             {
                 "destination": "cross-component-arrivals-keep-the-approach-order-06",
-                "line": 743,
+                "line": 790,
                 "anchor": "#cross-component-arrivals-keep-the-approach-order",
                 "content_sha1": "3bac5547390caeaf5e201dd72969f9cf0d367ab0",
                 "outputs": {
@@ -1705,7 +1859,7 @@
             },
             {
                 "destination": "cross-component-arrivals-keep-the-approach-order-07",
-                "line": 744,
+                "line": 791,
                 "anchor": "#cross-component-arrivals-keep-the-approach-order",
                 "content_sha1": "fe7f745140b6b10bdd5bc22939e02f4c62779537",
                 "outputs": {
@@ -1716,7 +1870,7 @@
             },
             {
                 "destination": "cross-component-arrivals-keep-the-approach-order-08",
-                "line": 745,
+                "line": 792,
                 "anchor": "#cross-component-arrivals-keep-the-approach-order",
                 "content_sha1": "c01e10b3b8109552f52a2fbd4c62d45f4db86d56",
                 "outputs": {
@@ -1727,7 +1881,7 @@
             },
             {
                 "destination": "a-flank-tie-crosses-the-fan-under-the-kind-budget",
-                "line": 770,
+                "line": 817,
                 "anchor": "#a-flank-tie-crosses-the-fan-under-the-kind-budget",
                 "content_sha1": "58ea22465c36b2219ca5fb48235742aef9ac9f93",
                 "outputs": {
@@ -1738,7 +1892,7 @@
             },
             {
                 "destination": "a-flank-tie-crosses-the-fan-under-the-kind-budget-02",
-                "line": 771,
+                "line": 818,
                 "anchor": "#a-flank-tie-crosses-the-fan-under-the-kind-budget",
                 "content_sha1": "fe9f5b95eed2757e14be673ccec57e9eff2423f4",
                 "outputs": {
@@ -1749,7 +1903,7 @@
             },
             {
                 "destination": "a-flank-tie-crosses-the-fan-under-the-kind-budget-03",
-                "line": 772,
+                "line": 819,
                 "anchor": "#a-flank-tie-crosses-the-fan-under-the-kind-budget",
                 "content_sha1": "71a96536a10a075942bd0ea74515ca78a3ca12f3",
                 "outputs": {
@@ -1760,7 +1914,7 @@
             },
             {
                 "destination": "a-flank-tie-crosses-the-fan-under-the-kind-budget-04",
-                "line": 773,
+                "line": 820,
                 "anchor": "#a-flank-tie-crosses-the-fan-under-the-kind-budget",
                 "content_sha1": "cf4d4810251a04fd511b154145c24b4d64d81c60",
                 "outputs": {
@@ -1771,7 +1925,7 @@
             },
             {
                 "destination": "a-flank-tie-crosses-the-fan-under-the-kind-budget-05",
-                "line": 774,
+                "line": 821,
                 "anchor": "#a-flank-tie-crosses-the-fan-under-the-kind-budget",
                 "content_sha1": "02be4b83d411fc001cd11c1c6bb2a34b05186a4f",
                 "outputs": {
@@ -1782,7 +1936,7 @@
             },
             {
                 "destination": "a-flank-tie-crosses-the-fan-under-the-kind-budget-06",
-                "line": 775,
+                "line": 822,
                 "anchor": "#a-flank-tie-crosses-the-fan-under-the-kind-budget",
                 "content_sha1": "ded0a46e58c6745efe2a44fab28c252a52d12dd0",
                 "outputs": {
@@ -1793,7 +1947,7 @@
             },
             {
                 "destination": "a-flank-tie-crosses-the-fan-under-the-kind-budget-07",
-                "line": 776,
+                "line": 823,
                 "anchor": "#a-flank-tie-crosses-the-fan-under-the-kind-budget",
                 "content_sha1": "dd6f8721175463f7aac9fd08bfd715b4ef25ee2d",
                 "outputs": {
@@ -1804,7 +1958,7 @@
             },
             {
                 "destination": "a-flank-tie-crosses-the-fan-under-the-kind-budget-08",
-                "line": 777,
+                "line": 824,
                 "anchor": "#a-flank-tie-crosses-the-fan-under-the-kind-budget",
                 "content_sha1": "72d9cc269a16ddd32cf0b0c49e48e4607397451f",
                 "outputs": {
@@ -1815,7 +1969,7 @@
             },
             {
                 "destination": "a-flank-tie-crosses-the-fan-under-the-kind-budget-09",
-                "line": 778,
+                "line": 825,
                 "anchor": "#a-flank-tie-crosses-the-fan-under-the-kind-budget",
                 "content_sha1": "77059fa640f63c8feffcb98c63b49b7ad1bd0fbe",
                 "outputs": {
@@ -1826,7 +1980,7 @@
             },
             {
                 "destination": "a-flank-tie-crosses-the-fan-under-the-kind-budget-10",
-                "line": 779,
+                "line": 826,
                 "anchor": "#a-flank-tie-crosses-the-fan-under-the-kind-budget",
                 "content_sha1": "6cf3f6de9d1e11fb63eea49bdeff05b6086efe51",
                 "outputs": {
@@ -1837,7 +1991,7 @@
             },
             {
                 "destination": "near-to-satellites-wrap-as-the-outermost-layer",
-                "line": 807,
+                "line": 854,
                 "anchor": "#near-to-satellites-wrap-as-the-outermost-layer",
                 "content_sha1": "58ea22465c36b2219ca5fb48235742aef9ac9f93",
                 "outputs": {
@@ -1848,7 +2002,7 @@
             },
             {
                 "destination": "near-to-satellites-wrap-as-the-outermost-layer-02",
-                "line": 808,
+                "line": 855,
                 "anchor": "#near-to-satellites-wrap-as-the-outermost-layer",
                 "content_sha1": "1c29f0f63eb834630b2622f709142cf4e0b8bf29",
                 "outputs": {
@@ -1859,7 +2013,7 @@
             },
             {
                 "destination": "near-to-satellites-wrap-as-the-outermost-layer-03",
-                "line": 809,
+                "line": 856,
                 "anchor": "#near-to-satellites-wrap-as-the-outermost-layer",
                 "content_sha1": "a2d1d2b89f48c31dce236d3a59c29aafe55768e3",
                 "outputs": {
@@ -1870,7 +2024,7 @@
             },
             {
                 "destination": "near-to-satellites-wrap-as-the-outermost-layer-04",
-                "line": 810,
+                "line": 857,
                 "anchor": "#near-to-satellites-wrap-as-the-outermost-layer",
                 "content_sha1": "5bb035bb10f05a1a9de55feeb82899aa205d38d8",
                 "outputs": {
@@ -1881,7 +2035,7 @@
             },
             {
                 "destination": "near-to-satellites-wrap-as-the-outermost-layer-05",
-                "line": 811,
+                "line": 858,
                 "anchor": "#near-to-satellites-wrap-as-the-outermost-layer",
                 "content_sha1": "3067a0ea5e06a068f6d9e9d326a3be78972c6443",
                 "outputs": {
@@ -1892,7 +2046,7 @@
             },
             {
                 "destination": "near-to-satellites-wrap-as-the-outermost-layer-06",
-                "line": 812,
+                "line": 859,
                 "anchor": "#near-to-satellites-wrap-as-the-outermost-layer",
                 "content_sha1": "84db9f1bcbc76d8cb12256e93128791445557526",
                 "outputs": {
@@ -1903,7 +2057,7 @@
             },
             {
                 "destination": "near-to-satellites-wrap-as-the-outermost-layer-07",
-                "line": 813,
+                "line": 860,
                 "anchor": "#near-to-satellites-wrap-as-the-outermost-layer",
                 "content_sha1": "50ad931a0a40808c8fc3b9b158b541901c161409",
                 "outputs": {
@@ -1914,7 +2068,7 @@
             },
             {
                 "destination": "near-to-satellites-wrap-as-the-outermost-layer-08",
-                "line": 814,
+                "line": 861,
                 "anchor": "#near-to-satellites-wrap-as-the-outermost-layer",
                 "content_sha1": "b20ea2ef83efc0bb4d7247ef0a3385531bd78309",
                 "outputs": {
@@ -1925,7 +2079,7 @@
             },
             {
                 "destination": "near-to-satellites-wrap-as-the-outermost-layer-09",
-                "line": 815,
+                "line": 862,
                 "anchor": "#near-to-satellites-wrap-as-the-outermost-layer",
                 "content_sha1": "f7d82a63707053b1b10dd20db2a070514c52a73f",
                 "outputs": {
@@ -1936,7 +2090,7 @@
             },
             {
                 "destination": "near-to-satellites-wrap-as-the-outermost-layer-10",
-                "line": 816,
+                "line": 863,
                 "anchor": "#near-to-satellites-wrap-as-the-outermost-layer",
                 "content_sha1": "d9f26680f95da2afafa0edbe809ef7ee5807fda6",
                 "outputs": {
@@ -1947,7 +2101,7 @@
             },
             {
                 "destination": "near-to-satellites-wrap-as-the-outermost-layer-11",
-                "line": 817,
+                "line": 864,
                 "anchor": "#near-to-satellites-wrap-as-the-outermost-layer",
                 "content_sha1": "1038b63ab14e89abc770caa27116e45c05528518",
                 "outputs": {
@@ -1958,7 +2112,7 @@
             },
             {
                 "destination": "a-satellite-wraps-a-pure-grid-from-the-outer-flank",
-                "line": 845,
+                "line": 892,
                 "anchor": "#a-satellite-wraps-a-pure-grid-from-the-outer-flank",
                 "content_sha1": "1fad0a8c4a3f5519e24d3ce812897473db3a6324",
                 "outputs": {
@@ -1969,7 +2123,7 @@
             },
             {
                 "destination": "a-satellite-wraps-a-pure-grid-from-the-outer-flank-02",
-                "line": 846,
+                "line": 893,
                 "anchor": "#a-satellite-wraps-a-pure-grid-from-the-outer-flank",
                 "content_sha1": "6a30506f88dc56079a957ac1e45f82da09cd1e06",
                 "outputs": {
@@ -1980,7 +2134,7 @@
             },
             {
                 "destination": "a-satellite-wraps-a-pure-grid-from-the-outer-flank-03",
-                "line": 847,
+                "line": 894,
                 "anchor": "#a-satellite-wraps-a-pure-grid-from-the-outer-flank",
                 "content_sha1": "b8737e8a15ec2ecaa754369bf4524dbbaba64239",
                 "outputs": {
@@ -1991,7 +2145,7 @@
             },
             {
                 "destination": "a-satellite-wraps-a-pure-grid-from-the-outer-flank-04",
-                "line": 848,
+                "line": 895,
                 "anchor": "#a-satellite-wraps-a-pure-grid-from-the-outer-flank",
                 "content_sha1": "f01e5df33dc5fb2b3d4b978c80286bc949654361",
                 "outputs": {
@@ -2002,7 +2156,7 @@
             },
             {
                 "destination": "a-satellite-wraps-a-pure-grid-from-the-outer-flank-05",
-                "line": 849,
+                "line": 896,
                 "anchor": "#a-satellite-wraps-a-pure-grid-from-the-outer-flank",
                 "content_sha1": "5c78abbc4139ab3b95cfc06f292b647f933955e2",
                 "outputs": {
@@ -2013,7 +2167,7 @@
             },
             {
                 "destination": "a-satellite-wraps-a-pure-grid-from-the-outer-flank-06",
-                "line": 850,
+                "line": 897,
                 "anchor": "#a-satellite-wraps-a-pure-grid-from-the-outer-flank",
                 "content_sha1": "d2ab24eb5e019139c25d2bd36eae3bb8734c9bbd",
                 "outputs": {
@@ -2024,7 +2178,7 @@
             },
             {
                 "destination": "a-satellite-wraps-a-pure-grid-from-the-outer-flank-07",
-                "line": 851,
+                "line": 898,
                 "anchor": "#a-satellite-wraps-a-pure-grid-from-the-outer-flank",
                 "content_sha1": "3f95afbb332bead9793a5b928cb0b662dfee7976",
                 "outputs": {
@@ -2035,7 +2189,7 @@
             },
             {
                 "destination": "a-satellite-wraps-a-pure-grid-from-the-outer-flank-08",
-                "line": 852,
+                "line": 899,
                 "anchor": "#a-satellite-wraps-a-pure-grid-from-the-outer-flank",
                 "content_sha1": "892e5491f72b15cb903600a39426a58044d3a6f7",
                 "outputs": {
@@ -2046,7 +2200,7 @@
             },
             {
                 "destination": "a-satellite-wraps-a-pure-grid-from-the-outer-flank-09",
-                "line": 853,
+                "line": 900,
                 "anchor": "#a-satellite-wraps-a-pure-grid-from-the-outer-flank",
                 "content_sha1": "7d6c45695d4bb6237f9de7e96c16a0e7fda2f688",
                 "outputs": {
@@ -2057,7 +2211,7 @@
             },
             {
                 "destination": "a-satellite-wraps-a-pure-grid-from-the-outer-flank-10",
-                "line": 854,
+                "line": 901,
                 "anchor": "#a-satellite-wraps-a-pure-grid-from-the-outer-flank",
                 "content_sha1": "93c6321a84cab9f58688842af875282feaf1bf1c",
                 "outputs": {
@@ -2068,7 +2222,7 @@
             },
             {
                 "destination": "a-satellite-wraps-a-pure-grid-from-the-outer-flank-11",
-                "line": 855,
+                "line": 902,
                 "anchor": "#a-satellite-wraps-a-pure-grid-from-the-outer-flank",
                 "content_sha1": "21e2dd53dbbdf94ed9e99c40faebca9d96707641",
                 "outputs": {
@@ -2079,7 +2233,7 @@
             },
             {
                 "destination": "a-satellite-wraps-a-pure-grid-from-the-outer-flank-12",
-                "line": 856,
+                "line": 903,
                 "anchor": "#a-satellite-wraps-a-pure-grid-from-the-outer-flank",
                 "content_sha1": "3b03c6d8db96e7d3d26082b63296fef2fa222ee9",
                 "outputs": {
@@ -2090,7 +2244,7 @@
             },
             {
                 "destination": "a-shared-child-concept-centres-between-its-column-parents",
-                "line": 886,
+                "line": 933,
                 "anchor": "#a-shared-child-concept-centres-between-its-column-parents",
                 "content_sha1": "850f0362e6f4b692c3958dceff7808605ad995e2",
                 "outputs": {
@@ -2101,7 +2255,7 @@
             },
             {
                 "destination": "a-shared-child-concept-centres-between-its-column-parents-02",
-                "line": 887,
+                "line": 934,
                 "anchor": "#a-shared-child-concept-centres-between-its-column-parents",
                 "content_sha1": "a1026403067c4d1a1da03f7a3065241d6bf13103",
                 "outputs": {
@@ -2112,7 +2266,7 @@
             },
             {
                 "destination": "a-shared-child-concept-centres-between-its-column-parents-03",
-                "line": 888,
+                "line": 935,
                 "anchor": "#a-shared-child-concept-centres-between-its-column-parents",
                 "content_sha1": "23e0757a86a2e8b7ee0ccffc1284708d084896b4",
                 "outputs": {
@@ -2123,7 +2277,7 @@
             },
             {
                 "destination": "a-shared-child-concept-centres-between-its-column-parents-04",
-                "line": 889,
+                "line": 936,
                 "anchor": "#a-shared-child-concept-centres-between-its-column-parents",
                 "content_sha1": "37d236b1c9d0383e427abb18a6960f78b0fb5b31",
                 "outputs": {
@@ -2134,7 +2288,7 @@
             },
             {
                 "destination": "a-shared-child-concept-centres-between-its-column-parents-05",
-                "line": 890,
+                "line": 937,
                 "anchor": "#a-shared-child-concept-centres-between-its-column-parents",
                 "content_sha1": "2a90e5e2a95af9415bcc20cce7c7d1f0f5a86b60",
                 "outputs": {
@@ -2145,7 +2299,7 @@
             },
             {
                 "destination": "a-shared-child-concept-centres-between-its-column-parents-06",
-                "line": 891,
+                "line": 938,
                 "anchor": "#a-shared-child-concept-centres-between-its-column-parents",
                 "content_sha1": "5ec303f7b242954066d4487f16dc94c94169d344",
                 "outputs": {
@@ -2156,7 +2310,7 @@
             },
             {
                 "destination": "a-shared-child-concept-centres-between-its-column-parents-07",
-                "line": 892,
+                "line": 939,
                 "anchor": "#a-shared-child-concept-centres-between-its-column-parents",
                 "content_sha1": "926604079909f688ca40754e82fdf874b2947ba4",
                 "outputs": {
@@ -2167,7 +2321,7 @@
             },
             {
                 "destination": "a-sole-band-member-follows-the-dominant-travel-axis",
-                "line": 929,
+                "line": 976,
                 "anchor": "#a-sole-band-member-follows-the-dominant-travel-axis",
                 "content_sha1": "b43c89deaf9e790ea8d23252678ddcdc4deb4947",
                 "outputs": {
@@ -2178,7 +2332,7 @@
             },
             {
                 "destination": "a-sole-band-member-follows-the-dominant-travel-axis-02",
-                "line": 930,
+                "line": 977,
                 "anchor": "#a-sole-band-member-follows-the-dominant-travel-axis",
                 "content_sha1": "785d5b19bbbaf387f535babe384dc98c8bfcc76e",
                 "outputs": {
@@ -2189,7 +2343,7 @@
             },
             {
                 "destination": "a-sole-band-member-follows-the-dominant-travel-axis-03",
-                "line": 931,
+                "line": 978,
                 "anchor": "#a-sole-band-member-follows-the-dominant-travel-axis",
                 "content_sha1": "2e6c76cd8aaa4757058496f73a4dfbb3e4d291d7",
                 "outputs": {
@@ -2200,7 +2354,7 @@
             },
             {
                 "destination": "a-sole-band-member-follows-the-dominant-travel-axis-04",
-                "line": 932,
+                "line": 979,
                 "anchor": "#a-sole-band-member-follows-the-dominant-travel-axis",
                 "content_sha1": "46943b4b963c76f84f325ec5a8ed4a177bb85b7e",
                 "outputs": {
@@ -2211,7 +2365,7 @@
             },
             {
                 "destination": "a-sole-band-member-follows-the-dominant-travel-axis-05",
-                "line": 933,
+                "line": 980,
                 "anchor": "#a-sole-band-member-follows-the-dominant-travel-axis",
                 "content_sha1": "9c64b329e8298f6d2133770d5b53b3e401f47c36",
                 "outputs": {
@@ -2222,7 +2376,7 @@
             },
             {
                 "destination": "a-sole-band-member-follows-the-dominant-travel-axis-06",
-                "line": 934,
+                "line": 981,
                 "anchor": "#a-sole-band-member-follows-the-dominant-travel-axis",
                 "content_sha1": "dd4a1d88388c27b17f61794dab182fb87dc5a440",
                 "outputs": {
@@ -2233,7 +2387,7 @@
             },
             {
                 "destination": "a-budgeted-crossing-beats-a-two-bend-detour",
-                "line": 968,
+                "line": 1015,
                 "anchor": "#a-budgeted-crossing-beats-a-two-bend-detour",
                 "content_sha1": "3e9f62b9ce707f2eb2456b0d76c38f03bef95fe2",
                 "outputs": {
@@ -2244,7 +2398,7 @@
             },
             {
                 "destination": "a-budgeted-crossing-beats-a-two-bend-detour-02",
-                "line": 969,
+                "line": 1016,
                 "anchor": "#a-budgeted-crossing-beats-a-two-bend-detour",
                 "content_sha1": "0f6befeec49d638d2ebb65e6ab630d3f922e1848",
                 "outputs": {
@@ -2255,7 +2409,7 @@
             },
             {
                 "destination": "a-budgeted-crossing-beats-a-two-bend-detour-03",
-                "line": 970,
+                "line": 1017,
                 "anchor": "#a-budgeted-crossing-beats-a-two-bend-detour",
                 "content_sha1": "814a0c4b2cf1046d36b2a9ab0b2f2e2fc4877c1f",
                 "outputs": {
@@ -2266,7 +2420,7 @@
             },
             {
                 "destination": "a-budgeted-crossing-beats-a-two-bend-detour-04",
-                "line": 971,
+                "line": 1018,
                 "anchor": "#a-budgeted-crossing-beats-a-two-bend-detour",
                 "content_sha1": "855436731a0224185d4c519a1b5bf07360c87edb",
                 "outputs": {
@@ -2277,7 +2431,7 @@
             },
             {
                 "destination": "a-budgeted-crossing-beats-a-two-bend-detour-05",
-                "line": 972,
+                "line": 1019,
                 "anchor": "#a-budgeted-crossing-beats-a-two-bend-detour",
                 "content_sha1": "80d39d1d442526acc887c70d989ee5e8007ba1ba",
                 "outputs": {
@@ -2288,7 +2442,7 @@
             },
             {
                 "destination": "a-thing-and-its-concept-read-as-one-unit",
-                "line": 1000,
+                "line": 1047,
                 "anchor": "#a-thing-and-its-concept-read-as-one-unit",
                 "content_sha1": "d9bf22fee345ef631597abc50820001423ab4832",
                 "outputs": {
@@ -2299,7 +2453,7 @@
             },
             {
                 "destination": "a-thing-and-its-concept-read-as-one-unit-02",
-                "line": 1001,
+                "line": 1048,
                 "anchor": "#a-thing-and-its-concept-read-as-one-unit",
                 "content_sha1": "d803e2614d92eb021b744623a5d22b0f0a5d90e0",
                 "outputs": {
@@ -2310,7 +2464,7 @@
             },
             {
                 "destination": "a-thing-and-its-concept-read-as-one-unit-03",
-                "line": 1002,
+                "line": 1049,
                 "anchor": "#a-thing-and-its-concept-read-as-one-unit",
                 "content_sha1": "d09863ce9eeda31d32c344ff7c3431194b78c4c2",
                 "outputs": {
@@ -2321,7 +2475,7 @@
             },
             {
                 "destination": "a-thing-and-its-concept-read-as-one-unit-04",
-                "line": 1003,
+                "line": 1050,
                 "anchor": "#a-thing-and-its-concept-read-as-one-unit",
                 "content_sha1": "a6324e0945caca2cf595aab0c85d29272c05f111",
                 "outputs": {
@@ -2332,7 +2486,7 @@
             },
             {
                 "destination": "a-thing-and-its-concept-read-as-one-unit-05",
-                "line": 1004,
+                "line": 1051,
                 "anchor": "#a-thing-and-its-concept-read-as-one-unit",
                 "content_sha1": "991eb172029eb8778dd46afb4d3a490683182802",
                 "outputs": {
@@ -2343,7 +2497,7 @@
             },
             {
                 "destination": "a-bent-ties-approach-follows-its-last-leg",
-                "line": 1033,
+                "line": 1080,
                 "anchor": "#a-bent-ties-approach-follows-its-last-leg",
                 "content_sha1": "484f552113ad79c8a5fc05f853a645e02bffc12f",
                 "outputs": {
@@ -2354,7 +2508,7 @@
             },
             {
                 "destination": "a-bent-ties-approach-follows-its-last-leg-02",
-                "line": 1034,
+                "line": 1081,
                 "anchor": "#a-bent-ties-approach-follows-its-last-leg",
                 "content_sha1": "6a102eedfd1d683dd3eacad4bc256b88b53cabbd",
                 "outputs": {
@@ -2365,7 +2519,7 @@
             },
             {
                 "destination": "a-bent-ties-approach-follows-its-last-leg-03",
-                "line": 1035,
+                "line": 1082,
                 "anchor": "#a-bent-ties-approach-follows-its-last-leg",
                 "content_sha1": "801bb86247fb2da71b2958c556b6dcd1b32a9d7b",
                 "outputs": {
@@ -2376,7 +2530,7 @@
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column",
-                "line": 1064,
+                "line": 1111,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "850f0362e6f4b692c3958dceff7808605ad995e2",
                 "outputs": {
@@ -2387,7 +2541,7 @@
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column-02",
-                "line": 1065,
+                "line": 1112,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "a1026403067c4d1a1da03f7a3065241d6bf13103",
                 "outputs": {
@@ -2398,7 +2552,7 @@
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column-03",
-                "line": 1066,
+                "line": 1113,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "ad1467035bd93138e5dbf39df04cc21297594619",
                 "outputs": {
@@ -2409,7 +2563,7 @@
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column-04",
-                "line": 1067,
+                "line": 1114,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "16a78e14fea1c867879c7aaf9cf46d5af0d66517",
                 "outputs": {
@@ -2420,7 +2574,7 @@
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column-05",
-                "line": 1068,
+                "line": 1115,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "72abc2a348e85db3d00fde6ab9930476a8d55134",
                 "outputs": {
@@ -2431,7 +2585,7 @@
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column-06",
-                "line": 1069,
+                "line": 1116,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "df04f6ce7ab8cdfbbaf36a0b431c0ca60afc86cd",
                 "outputs": {
@@ -2442,7 +2596,7 @@
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column-07",
-                "line": 1070,
+                "line": 1117,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "4b5deb4a45fd28049d793198de48c4c31cd41159",
                 "outputs": {
@@ -2453,7 +2607,7 @@
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column-08",
-                "line": 1071,
+                "line": 1118,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "37d236b1c9d0383e427abb18a6960f78b0fb5b31",
                 "outputs": {
@@ -2464,7 +2618,7 @@
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column-09",
-                "line": 1072,
+                "line": 1119,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "2a90e5e2a95af9415bcc20cce7c7d1f0f5a86b60",
                 "outputs": {
@@ -2475,7 +2629,7 @@
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column-10",
-                "line": 1073,
+                "line": 1120,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "d292413c4d7aa2ede3356bb4a530f6cdc3012d3a",
                 "outputs": {
@@ -2486,7 +2640,7 @@
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column-11",
-                "line": 1074,
+                "line": 1121,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "8564eb69357778b19235f5abeb629029ea3efa05",
                 "outputs": {
@@ -2497,7 +2651,7 @@
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column-12",
-                "line": 1075,
+                "line": 1122,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "0531e8dbdcdb62ed76d83f40449fb7d41e119d89",
                 "outputs": {
@@ -2508,7 +2662,7 @@
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column-13",
-                "line": 1076,
+                "line": 1123,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "c466ef7f1e5ae103265c23db4f354790a351ad2d",
                 "outputs": {
@@ -2519,7 +2673,7 @@
             },
             {
                 "destination": "a-satellites-tree-never-evicts-its-own-frame",
-                "line": 1118,
+                "line": 1165,
                 "anchor": "#a-satellites-tree-never-evicts-its-own-frame",
                 "content_sha1": "48e214c81ada2c359e70116c5be7aa879fec812b",
                 "outputs": {
@@ -2530,7 +2684,7 @@
             },
             {
                 "destination": "a-satellites-tree-never-evicts-its-own-frame-02",
-                "line": 1119,
+                "line": 1166,
                 "anchor": "#a-satellites-tree-never-evicts-its-own-frame",
                 "content_sha1": "7253892e096380bdcc203737e32182bcdd5c07bd",
                 "outputs": {
@@ -2541,7 +2695,7 @@
             },
             {
                 "destination": "a-satellites-tree-never-evicts-its-own-frame-03",
-                "line": 1120,
+                "line": 1167,
                 "anchor": "#a-satellites-tree-never-evicts-its-own-frame",
                 "content_sha1": "f7bf0c95acff1cc0fa402a8c7a7384311f94b5df",
                 "outputs": {
@@ -2552,7 +2706,7 @@
             },
             {
                 "destination": "a-satellites-tree-never-evicts-its-own-frame-04",
-                "line": 1121,
+                "line": 1168,
                 "anchor": "#a-satellites-tree-never-evicts-its-own-frame",
                 "content_sha1": "823353026e837d948eb75ffddf508576c7195b60",
                 "outputs": {
@@ -2563,7 +2717,7 @@
             },
             {
                 "destination": "a-satellites-tree-never-evicts-its-own-frame-05",
-                "line": 1122,
+                "line": 1169,
                 "anchor": "#a-satellites-tree-never-evicts-its-own-frame",
                 "content_sha1": "7c75bb87a3f56a8c94080693945dd28bfeb95873",
                 "outputs": {
@@ -2574,7 +2728,7 @@
             },
             {
                 "destination": "a-satellites-tree-never-evicts-its-own-frame-06",
-                "line": 1123,
+                "line": 1170,
                 "anchor": "#a-satellites-tree-never-evicts-its-own-frame",
                 "content_sha1": "8ff96e65dea573292467e9ed338fadea663297a9",
                 "outputs": {
@@ -2585,7 +2739,7 @@
             },
             {
                 "destination": "a-satellites-tree-never-evicts-its-own-frame-07",
-                "line": 1124,
+                "line": 1171,
                 "anchor": "#a-satellites-tree-never-evicts-its-own-frame",
                 "content_sha1": "872e6c9ded91fe9c52c4a7a6bfd0ff0bc838f88a",
                 "outputs": {
@@ -2596,7 +2750,7 @@
             },
             {
                 "destination": "a-satellites-tree-never-evicts-its-own-frame-08",
-                "line": 1125,
+                "line": 1172,
                 "anchor": "#a-satellites-tree-never-evicts-its-own-frame",
                 "content_sha1": "76c68f0191018a886f2c24a8845ee6ffbbbcd072",
                 "outputs": {
@@ -2607,7 +2761,7 @@
             },
             {
                 "destination": "up-to-three-components-share-one-row",
-                "line": 1146,
+                "line": 1193,
                 "anchor": "#up-to-three-components-share-one-row",
                 "content_sha1": "6bd1777e40b07afa0ab487f82ab0de79de6857b6",
                 "outputs": {
@@ -2618,7 +2772,7 @@
             },
             {
                 "destination": "up-to-three-components-share-one-row-02",
-                "line": 1147,
+                "line": 1194,
                 "anchor": "#up-to-three-components-share-one-row",
                 "content_sha1": "e245db62465c21ffde62b85df61f031715caf637",
                 "outputs": {
@@ -2629,7 +2783,7 @@
             },
             {
                 "destination": "up-to-three-components-share-one-row-03",
-                "line": 1148,
+                "line": 1195,
                 "anchor": "#up-to-three-components-share-one-row",
                 "content_sha1": "0e83345fd6260ca0b6b2ba540a16fd7e097052ea",
                 "outputs": {
@@ -2640,7 +2794,7 @@
             },
             {
                 "destination": "up-to-three-components-share-one-row-04",
-                "line": 1149,
+                "line": 1196,
                 "anchor": "#up-to-three-components-share-one-row",
                 "content_sha1": "80e59d0c40ade9067ba4f129d6325947bbad8bfb",
                 "outputs": {
@@ -2651,7 +2805,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas",
-                "line": 1176,
+                "line": 1223,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "cdf20d9f4909501627c0d08b37915e5b5a40c219",
                 "outputs": {
@@ -2662,7 +2816,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-02",
-                "line": 1177,
+                "line": 1224,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "85ff40fb2940db10bfa37ef797472cc2188b3f8d",
                 "outputs": {
@@ -2673,7 +2827,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-03",
-                "line": 1178,
+                "line": 1225,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "0991e1360fdf66af48d8be5e60ef0360b4445899",
                 "outputs": {
@@ -2684,7 +2838,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-04",
-                "line": 1179,
+                "line": 1226,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "6897619f1a9db488f7b796bf1913bf3e892f1721",
                 "outputs": {
@@ -2695,7 +2849,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-05",
-                "line": 1180,
+                "line": 1227,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "f0888e84d5cb06361b15c1dc1fc7e7afdd31e40e",
                 "outputs": {
@@ -2706,7 +2860,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-06",
-                "line": 1181,
+                "line": 1228,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "83d53c9322d1a9516a697c09faafb1424e32bcd5",
                 "outputs": {
@@ -2717,7 +2871,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-07",
-                "line": 1182,
+                "line": 1229,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "3e7a435eb055316b32f91d7221f6809f6a99cd20",
                 "outputs": {
@@ -2728,7 +2882,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-08",
-                "line": 1183,
+                "line": 1230,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "cae593ff493c2b1dbb627bb04205c851cf7df3e1",
                 "outputs": {

@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L1051-L1058 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-far-join-child-tucks-to-the-parents-column)
+**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L1098-L1105 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-far-join-child-tucks-to-the-parents-column)
 
 ## ipmt Content
 

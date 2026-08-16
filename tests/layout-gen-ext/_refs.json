@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-ext.md",
-        "source_sha1": "0d6e00e6755e9c5c57ebb7ca82b6485db8553994",
+        "source_sha1": "bdb4b6cc95f319ced0275149660b901933b2a697",
         "name": "ipmt layout algorithm extensions",
         "method": "parser",
         "parser_name": "ipmt-md",
@@ -145,8 +145,23 @@
                 "section": "Wide things and concepts"
             },
             {
+                "destination": "the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals",
+                "line": 442,
+                "anchor": "#the-chain-spanning-thing-takes-the-flank-opposite-its-band-rivals",
+                "content_sha1": "c5ff6f77726a1cfab30b6ae1ecfb7246e2aa687b",
+                "outputs": {
+                    "ipm.svg": "6a58b15bd0bb76ebec97789dbaac06144d40dbe1",
+                    "ipmt": "c5ff6f77726a1cfab30b6ae1ecfb7246e2aa687b",
+                    "json": "291e31b012d929923e4c04115c9494a7190a0fb4",
+                    "layout.json": "7a51d4de64c21d00d74040e5cd6f7ffd50db15a0",
+                    "md": "269944cbfc6723af93418a5f3ce3d86fd5cf790c"
+                },
+                "heading": "the chain-spanning thing takes the flank opposite its band rivals",
+                "section": "Wide things and concepts"
+            },
+            {
                 "destination": "a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below",
-                "line": 450,
+                "line": 497,
                 "anchor": "#a-part-of-thing-fan-centres-on-its-event-and-the-sole-concept-drops-below",
                 "content_sha1": "a119e4cd4eda8b25f788e25fa27137fa5c9f2a98",
                 "outputs": {
@@ -154,14 +169,14 @@
                     "ipmt": "a119e4cd4eda8b25f788e25fa27137fa5c9f2a98",
                     "json": "0a47d67e8931d71ce5acbd5def2ff3d7e98d929e",
                     "layout.json": "cf4b8225fb2f48e6c263a7e2aaafab6c2db79f6a",
-                    "md": "da19e6f29a256866832939af8cb9b3411f61f514"
+                    "md": "3bb415cd4d25610da109e736c1a9a2ffe6aad6cf"
                 },
                 "heading": "a part-of thing-fan centres on its event and the sole concept drops below",
                 "section": "Wide things and concepts"
             },
             {
                 "destination": "a-middle-branch-thing-widens-only-its-own-gap",
-                "line": 506,
+                "line": 553,
                 "anchor": "#a-middle-branch-thing-widens-only-its-own-gap",
                 "content_sha1": "3ba331819d0b73243a523c456564b00f2d1e0546",
                 "outputs": {
@@ -169,14 +184,14 @@
                     "ipmt": "3ba331819d0b73243a523c456564b00f2d1e0546",
                     "json": "b4582b60be1f10cc96711147ab4404ccf4ef8efa",
                     "layout.json": "2c3cbae2a2cd71421296453dcf98e8d516d3058f",
-                    "md": "fac44bd79d02f043817b62be19648a1ce440857a"
+                    "md": "1e25602fc1c91383ae369d3779dddc854ac55a50"
                 },
                 "heading": "a middle-branch thing widens only its own gap",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
-                "line": 552,
+                "line": 599,
                 "anchor": "#aux-sibling-affinity-clusters-the-pair-and-brackets-the-shared-concept",
                 "content_sha1": "d15de90bc21e290c7872b6f6749b613dbf8f41ac",
                 "outputs": {
@@ -184,14 +199,14 @@
                     "ipmt": "d15de90bc21e290c7872b6f6749b613dbf8f41ac",
                     "json": "10d88426c73176f800afa17c385300598d4fa2c0",
                     "layout.json": "f9089750ef455082c8aa849cd88fc9a7c106799c",
-                    "md": "fc7ebb6aff7a2b904f02eb1bfc07a0c4121c12d9"
+                    "md": "798aa7fdaa2fabc080c96ed826ae81a5f7d72a5e"
                 },
                 "heading": "aux sibling affinity clusters the pair and brackets the shared concept",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-sibling-tie-orders-the-stack-adjacent",
-                "line": 584,
+                "line": 631,
                 "anchor": "#a-sibling-tie-orders-the-stack-adjacent",
                 "content_sha1": "5dfc4826e5c80fef6a5c9545d17d0d776a4975a5",
                 "outputs": {
@@ -199,14 +214,14 @@
                     "ipmt": "5dfc4826e5c80fef6a5c9545d17d0d776a4975a5",
                     "json": "b38f2d0a791b6a46be50c18579e9bc40b1f122f2",
                     "layout.json": "d7047e1415d1005c3c391b7dd5fb6fc0c76fac8c",
-                    "md": "94238abcecb36192278bf5d7ffea2599dafcb91e"
+                    "md": "2337b4f43e29e358e88f24d31c9dbbb5b2a46dfc"
                 },
                 "heading": "a sibling tie orders the stack adjacent",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-deep-shared-thing-beats-the-first-declared-anchor",
-                "line": 614,
+                "line": 661,
                 "anchor": "#a-deep-shared-thing-beats-the-first-declared-anchor",
                 "content_sha1": "227ce01a253ed01b8d60e7e2a0cb1b6b6dfb7c6c",
                 "outputs": {
@@ -214,14 +229,14 @@
                     "ipmt": "227ce01a253ed01b8d60e7e2a0cb1b6b6dfb7c6c",
                     "json": "c6c7d16aeb7cc7e1f1e89937a499a6dce229d013",
                     "layout.json": "ec8ed13fea49d8567d9ddf4592c04c1104f215a3",
-                    "md": "9719badf59a1d8eca18611dccfc5c4dfc03cc3f6"
+                    "md": "9d7358e512fd790f8e8e96a5e560ec8123dc5212"
                 },
                 "heading": "a deep shared thing beats the first-declared anchor",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-deep-shared-concept-beats-the-first-usage-anchor",
-                "line": 646,
+                "line": 693,
                 "anchor": "#a-deep-shared-concept-beats-the-first-usage-anchor",
                 "content_sha1": "911faed5f5326d8383baa8a0cd3b16930e0fa141",
                 "outputs": {
@@ -229,42 +244,42 @@
                     "ipmt": "911faed5f5326d8383baa8a0cd3b16930e0fa141",
                     "json": "cd4238522b57c473600990343b2233f7d703f903",
                     "layout.json": "962775305ab9d009d7ae2109f142d921361ac8f0",
-                    "md": "9f953469c635e186e73142d2d51a5575cf9ec544"
+                    "md": "48c681c8bf17032b23a589f68155ea077dc34e1c"
                 },
                 "heading": "a deep shared concept beats the first-usage anchor",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-deep-concept-fan-survives-a-foreign-bands-column",
-                "line": 682,
+                "line": 729,
                 "anchor": "#a-deep-concept-fan-survives-a-foreign-bands-column",
                 "content_sha1": "f7c7fc19f44b73dcec5722207b95fd962e737191",
                 "outputs": {
                     "ipmt": "f7c7fc19f44b73dcec5722207b95fd962e737191",
                     "json": "5c75edb1b404414815f3e3066d22c37379709fb9",
                     "layout.json": "8b3b6d54d59e7781cce7a8dfc36f731c666d684c",
-                    "md": "f18676ca4b2b578be192166bffa0b1cdf497a195"
+                    "md": "5074054466798daa19f261b7b96c6e88e05e9deb"
                 },
                 "heading": "a deep concept fan survives a foreign band's column",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "cross-component-arrivals-keep-the-approach-order",
-                "line": 722,
+                "line": 769,
                 "anchor": "#cross-component-arrivals-keep-the-approach-order",
                 "content_sha1": "29eed9ea6e5067c36d38fe3ffd17378d0e4e40aa",
                 "outputs": {
                     "ipmt": "29eed9ea6e5067c36d38fe3ffd17378d0e4e40aa",
                     "json": "3e2940048a15bd54c17e91f45e5440008a35ba82",
                     "layout.json": "cb174b0ff5e0eaf834eede808d5974669038f3ab",
-                    "md": "8969321ec5b3c4d74d3ac52678f78580b998855c"
+                    "md": "ee4f55a62266d6a7f9b439fd7fa1cbf24f686051"
                 },
                 "heading": "cross-component arrivals keep the approach order",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-flank-tie-crosses-the-fan-under-the-kind-budget",
-                "line": 758,
+                "line": 805,
                 "anchor": "#a-flank-tie-crosses-the-fan-under-the-kind-budget",
                 "content_sha1": "22fab99b4b11e82c16708669319e2c9bf5ca75db",
                 "outputs": {
@@ -272,14 +287,14 @@
                     "ipmt": "22fab99b4b11e82c16708669319e2c9bf5ca75db",
                     "json": "6a10d5492a0a2d9089e45d04fa1082d6eb220d7d",
                     "layout.json": "8a00cb7c11c63fa81db0ff10f1e15b251bdfeee1",
-                    "md": "622f4d69234ac9285eacf0a636ab6baf2b9eae26"
+                    "md": "3350c2eed3e14ca26df4294e64275aa09ae4dad1"
                 },
                 "heading": "a flank tie crosses the fan under the kind budget",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "near-to-satellites-wrap-as-the-outermost-layer",
-                "line": 796,
+                "line": 843,
                 "anchor": "#near-to-satellites-wrap-as-the-outermost-layer",
                 "content_sha1": "e9e6159259fc0c0face79ae0b5d06d5686977000",
                 "outputs": {
@@ -287,14 +302,14 @@
                     "ipmt": "e9e6159259fc0c0face79ae0b5d06d5686977000",
                     "json": "4ce8a3dc15bd21dc1bee1198bd8ac1dccc1a9b19",
                     "layout.json": "58a94e9a3f5ca98dfadaff389de58f610f9a4717",
-                    "md": "e4114cbb9a8fd57537b55f7c92da53e0f8d1aa5e"
+                    "md": "5b96f4267f72a8e591e13256192c9c62d3266367"
                 },
                 "heading": "near-to satellites wrap as the outermost layer",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-satellite-wraps-a-pure-grid-from-the-outer-flank",
-                "line": 833,
+                "line": 880,
                 "anchor": "#a-satellite-wraps-a-pure-grid-from-the-outer-flank",
                 "content_sha1": "91ed73dad3ec9e2cdf93b36ca20e2e956a90d0ee",
                 "outputs": {
@@ -302,14 +317,14 @@
                     "ipmt": "91ed73dad3ec9e2cdf93b36ca20e2e956a90d0ee",
                     "json": "35e66053ae5d20fd9aa38c9ab9966ad95ffbdf5a",
                     "layout.json": "a4b7a15ebd4aa81faf1227b4907565ebb4cfc8a6",
-                    "md": "7e565b852166f1e8d9bc75f926eb21ed03a82d64"
+                    "md": "4fafc5a027521c0caaf0a808af8af75ff3ddcc1e"
                 },
                 "heading": "a satellite wraps a pure grid from the outer flank",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-shared-child-concept-centres-between-its-column-parents",
-                "line": 873,
+                "line": 920,
                 "anchor": "#a-shared-child-concept-centres-between-its-column-parents",
                 "content_sha1": "6c0f6198ce37244a54b346a4f385f98061c50916",
                 "outputs": {
@@ -317,14 +332,14 @@
                     "ipmt": "6c0f6198ce37244a54b346a4f385f98061c50916",
                     "json": "339fc7b2c3a424edb76ff7bb8095fef259921b9e",
                     "layout.json": "b011a8c25e236788d3ef53960b2c400bb5c2891a",
-                    "md": "2c5ee64d494051b796624f536b68826fd893efaf"
+                    "md": "c1957bda1b8a95a120c434446ac2f82de7131300"
                 },
                 "heading": "a shared child concept centres between its column parents",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-sole-band-member-follows-the-dominant-travel-axis",
-                "line": 911,
+                "line": 958,
                 "anchor": "#a-sole-band-member-follows-the-dominant-travel-axis",
                 "content_sha1": "24e9fceeddad6744b59b0af1dabefb9fdef15364",
                 "outputs": {
@@ -332,14 +347,14 @@
                     "ipmt": "24e9fceeddad6744b59b0af1dabefb9fdef15364",
                     "json": "582b033550407e09f00c8c768d472e767b11f285",
                     "layout.json": "f9ec65a3453c54eb4245b91fabc7da3ced3816b6",
-                    "md": "f870d609107d6d9983644be6bcc29ee7518c0fc6"
+                    "md": "aa06c100aaab087bb2d7ab10f2a697a35c7e8714"
                 },
                 "heading": "a sole band member follows the dominant travel axis",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-budgeted-crossing-beats-a-two-bend-detour",
-                "line": 948,
+                "line": 995,
                 "anchor": "#a-budgeted-crossing-beats-a-two-bend-detour",
                 "content_sha1": "f2298f5a451abac286eeba704013b69e4b3ddaf5",
                 "outputs": {
@@ -347,14 +362,14 @@
                     "ipmt": "f2298f5a451abac286eeba704013b69e4b3ddaf5",
                     "json": "e47c5c29d119efc83887ddf40903aac70fc9d5de",
                     "layout.json": "c7c17c51a4cd16ffee74077407d6506b06765f8a",
-                    "md": "6c70bd8b82eff3bbd99dced5667901d9c7d3fb79"
+                    "md": "3da312a55a96dd9d9a21ba531d93169d030610ab"
                 },
                 "heading": "a budgeted crossing beats a two-bend detour",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-thing-and-its-concept-read-as-one-unit",
-                "line": 991,
+                "line": 1038,
                 "anchor": "#a-thing-and-its-concept-read-as-one-unit",
                 "content_sha1": "4352b42e933f4aa60e0c3c18003a8e7a7e704190",
                 "outputs": {
@@ -362,14 +377,14 @@
                     "ipmt": "4352b42e933f4aa60e0c3c18003a8e7a7e704190",
                     "json": "504c3de36b3cf2deddb81f4dad54239e12d2d0c5",
                     "layout.json": "ee9dc9f24cbea673754e78d71b26f6461947b593",
-                    "md": "e2cc88a2ed3ade553c711cdcd1f35d8979a3a47c"
+                    "md": "d0ca70fbd53681b6c25045ae674f30542bbcf739"
                 },
                 "heading": "a thing and its concept read as one unit",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-bent-ties-approach-follows-its-last-leg",
-                "line": 1018,
+                "line": 1065,
                 "anchor": "#a-bent-ties-approach-follows-its-last-leg",
                 "content_sha1": "ce33437abaa2341891128248fd35b46314d59dab",
                 "outputs": {
@@ -377,14 +392,14 @@
                     "ipmt": "ce33437abaa2341891128248fd35b46314d59dab",
                     "json": "b3fed8bad4ca1826ece05ab78c1531cc43a7de21",
                     "layout.json": "7db8dc632585156723bdd677e079f70ef3512261",
-                    "md": "7a18d5840dce357f5f074c844bfcd802265341c3"
+                    "md": "88c80332c1d6099f4aa488645415123fc836bcf6"
                 },
                 "heading": "a bent tie's approach follows its last leg",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column",
-                "line": 1051,
+                "line": 1098,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "59269d973fd3694215e2b2ef38f5eaf72864de42",
                 "outputs": {
@@ -392,14 +407,14 @@
                     "ipmt": "59269d973fd3694215e2b2ef38f5eaf72864de42",
                     "json": "ae55abe42f724c178db6ff8173f477b311f476fe",
                     "layout.json": "6aa4c72ba0615142e30e655f2b67bbff980f7450",
-                    "md": "6fe35997a6019a0b2f8dc22be623fc1341dca621"
+                    "md": "7e501ee6ad2d3149c1cceacb320e6dd63bb7a885"
                 },
                 "heading": "a far join child tucks to the parents' column",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-satellites-tree-never-evicts-its-own-frame",
-                "line": 1108,
+                "line": 1155,
                 "anchor": "#a-satellites-tree-never-evicts-its-own-frame",
                 "content_sha1": "75e469d5c89d0ec6399931f6ca6af2338ca8db2c",
                 "outputs": {
@@ -407,14 +422,14 @@
                     "ipmt": "75e469d5c89d0ec6399931f6ca6af2338ca8db2c",
                     "json": "eb064ccba349ad3c4a1abe14b0bbc695603b8c5c",
                     "layout.json": "93d7f35a7dcd4e2f494ec7bfb5c0866072dd1aea",
-                    "md": "d7f6f4cab5d5c6bac5337a45228cefc43a4dc077"
+                    "md": "bb9846a51f0a7c9e231de4982fc03f20538eb7b6"
                 },
                 "heading": "a satellite's tree never evicts its own frame",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "up-to-three-components-share-one-row",
-                "line": 1131,
+                "line": 1178,
                 "anchor": "#up-to-three-components-share-one-row",
                 "content_sha1": "191ac0f60fc40ebf0519784b9b8560a2d9e6d611",
                 "outputs": {
@@ -422,14 +437,14 @@
                     "ipmt": "191ac0f60fc40ebf0519784b9b8560a2d9e6d611",
                     "json": "b86ea056df1ff624159fc2f55c918b027aaceda5",
                     "layout.json": "c3ac3c3498aa6910c0a073d648449376d778008a",
-                    "md": "481dc7de0cdeea5f8f40fe3ed596803076d59596"
+                    "md": "e524852cff8a45101c77980582de19f704fa5ae6"
                 },
                 "heading": "up to three components share one row",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas",
-                "line": 1162,
+                "line": 1209,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "0c477965a92823cf12ef9e5ac80d3bcfc5214347",
                 "outputs": {
@@ -437,7 +452,7 @@
                     "ipmt": "0c477965a92823cf12ef9e5ac80d3bcfc5214347",
                     "json": "5f3ae19ff573bd57d49568ce522d6f87d4e6b245",
                     "layout.json": "86ddbc6a12fa9ec776f7f20e0f89bffd02e5b625",
-                    "md": "dbee5f75791cf1cc148bfe13b44c786460680ff5"
+                    "md": "0f3491738543b1a01872c1ccc19c75f7557f66b4"
                 },
                 "heading": "untied components wrap toward the canvas",
                 "section": "v7 acceptance targets"

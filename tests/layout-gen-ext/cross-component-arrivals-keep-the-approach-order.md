@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L722-L732 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#cross-component-arrivals-keep-the-approach-order)
+**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L769-L779 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#cross-component-arrivals-keep-the-approach-order)
 
 ## ipmt Content
 

@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L833-L839 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-satellite-wraps-a-pure-grid-from-the-outer-flank)
+**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L880-L886 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-satellite-wraps-a-pure-grid-from-the-outer-flank)
 
 ## ipmt Content
 

@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L796-L801 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#near-to-satellites-wrap-as-the-outermost-layer)
+**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L843-L848 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#near-to-satellites-wrap-as-the-outermost-layer)
 
 ## ipmt Content
 
