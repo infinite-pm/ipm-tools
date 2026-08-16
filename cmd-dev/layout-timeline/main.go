@@ -45,6 +45,11 @@ type change struct {
 	OldSVG []byte `json:"-"`
 	NewSVG []byte `json:"-"`
 	Err    string `json:"error,omitempty"`
+
+	// pair is held only until the panes are rendered — which happens AFTER
+	// the column is sorted, so the limit falls on the rows a reader sees
+	// first rather than on whichever ones the sweep happened to reach first.
+	pair *layoutaudit.Pair
 }
 
 // week is one snapshot and what it did to the diagrams.
@@ -91,7 +96,7 @@ func run() int {
 	flag.StringVar(&at, "at", string(atWeekStart), "which commit stands for a week: week-start (last commit before Monday 00:00) | first-of-week")
 	flag.StringVar(&out, "out", "temp/layout-timeline", "output directory for the report")
 	flag.StringVar(&cache, "cache", "temp/layout-audit/bin", "engine build cache, shared with layout-audit so a commit is built once")
-	flag.IntVar(&limitPerWeek, "limit-per-week", 6, "render at most N changed diagrams per week (0 = all); the rest are listed by name")
+	flag.IntVar(&limitPerWeek, "limit-per-column", 0, "render at most N changed diagrams per column page (0 = all, bounded by --max-mb); the rest are listed by name")
 	flag.BoolVar(&head, "head", true, "add the current HEAD as a final column, so work committed since Monday is not invisible")
 	flag.BoolVar(&list, "list", false, "print the weekly commits and exit — no builds, no sweep")
 	flag.BoolVar(&noSVG, "no-svg", false, "skip the diagram panes; produce the grid and the change tables only")
@@ -466,22 +471,34 @@ func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagra
 		// rather than letting the column imply a seven-day span.
 		w.Against = prevLabel
 		pairs := layoutaudit.SweepN(diagrams, prevBin, eng.LayoutGen, jobs)
-		for _, p := range pairs {
-			c := diffPair(p)
+		for i := range pairs {
+			c := diffPair(pairs[i])
 			switch c.Status {
 			case "identical":
 				w.Identical++
 			case "skipped":
 				w.Skipped++
 			default:
-				if !noSVG && (limitPerWeek == 0 || w.Rendered < limitPerWeek) {
-					renderPanes(&c, p)
-					w.Rendered++
-				}
+				c.pair = &pairs[i]
 				w.Changes = append(w.Changes, c)
 			}
 		}
 		sortChanges(w.Changes)
+
+		// Panes AFTER the sort. Rendering them during the sweep meant the cap
+		// fell on the first N diagrams the sweep reached, and the page then
+		// sorted by severity — so the row at the top, the one a reader looks
+		// at first, was routinely one that had no picture at all.
+		for i := range w.Changes {
+			if noSVG || (limitPerWeek > 0 && w.Rendered >= limitPerWeek) {
+				break
+			}
+			renderPanes(&w.Changes[i], *w.Changes[i].pair)
+			w.Rendered++
+		}
+		for i := range w.Changes {
+			w.Changes[i].pair = nil
+		}
 		if len(w.Changes) == 0 && s.EngineCommits > 0 {
 			// Worth saying out loud, because "engine changed, nothing moved"
 			// reads as reassurance and is sometimes a blind spot instead:

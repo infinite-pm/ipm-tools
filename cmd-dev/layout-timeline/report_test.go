@@ -137,6 +137,59 @@ func TestGridHasOneRowPerMovedDiagram(t *testing.T) {
 	}
 }
 
+// The row a reader sees FIRST must be one that was drawn. Rendering panes
+// during the sweep and sorting the column afterwards put the cap on whichever
+// diagrams the sweep reached first, so the top row — the most severe one —
+// routinely had no picture at all.
+func TestTheDrawnRowsAreTheOnesShownFirst(t *testing.T) {
+	rep := func(tier layoutdiff.Tier, score float64) layoutdiff.Report {
+		return layoutdiff.Report{Tier: tier, Score: score, Counts: map[string]int{}}
+	}
+	svg := []byte(`<svg viewBox="0 0 10 10"></svg>`)
+	// Sweep order: geometry first, invariant last — the reverse of severity.
+	w := week{Label: "c", Changes: []change{
+		{ID: "geo", Status: "changed", Report: rep(layoutdiff.TierGeometry, 1)},
+		{ID: "inv", Status: "changed", Report: rep(layoutdiff.TierInvariant, 900)},
+	}}
+	sortChanges(w.Changes)
+	if w.Changes[0].ID != "inv" {
+		t.Fatalf("severity sort broken: %s first", w.Changes[0].ID)
+	}
+	// Only the first row gets panes, as a limit of 1 would give it.
+	w.Changes[0].OldSVG, w.Changes[0].NewSVG = svg, svg
+
+	html := renderPage(timelineInput{Weeks: []week{w}}, 0)
+	first := strings.Index(html, `id="d-inv"`)
+	if first < 0 {
+		t.Fatal("the most severe row is not on the page")
+	}
+	if strings.Contains(html, `id="d-geo"`) {
+		t.Error("a row with no panes of its own was drawn as an empty frame")
+	}
+	if !strings.Contains(html, "not drawn") || !strings.Contains(html, "geo") {
+		t.Error("the undrawn row is not listed either — it vanished")
+	}
+}
+
+// A row whose own panes are missing must be LISTED, never drawn: the
+// current-engine overlay is not a substitute for the comparison itself.
+func TestCurrentOverlayDoesNotResurrectAnEmptyRow(t *testing.T) {
+	w := week{Label: "c", Changes: []change{
+		{ID: "docs/x.md#100", Status: "changed",
+			Report: layoutdiff.Report{Tier: layoutdiff.TierInvariant, Counts: map[string]int{}}},
+	}}
+	html := renderPage(timelineInput{
+		Weeks:   []week{w},
+		Current: map[string][]byte{"docs/x.md#100": []byte(`<svg viewBox="0 0 10 10"></svg>`)},
+	}, 0)
+	if strings.Contains(html, `id="d-docs_dev`) || strings.Contains(html, `class="row first`) {
+		t.Error("drew a row whose before and after are both missing")
+	}
+	if !strings.Contains(html, "not drawn") {
+		t.Error("the row was neither drawn nor listed")
+	}
+}
+
 // One page's diagrams are capped, not the whole report's: splitting the
 // report is what made the cap almost never bind.
 func TestPageBudgetPushesRowsToTheList(t *testing.T) {

@@ -215,12 +215,17 @@ func buildPage(in timelineInput, i int) vmPage {
 	spent := 0
 	for _, c := range w.Changes {
 		cur := in.Current[c.ID]
-		size := len(c.OldSVG) + len(c.NewSVG) + len(cur)
+		// "Has something to draw" is about the row's OWN panes. Counting the
+		// current-engine overlay here drew rows whose before/after were both
+		// missing as empty frames with one lonely picture in the reference —
+		// which is what a reader sees as a broken page.
+		own := len(c.OldSVG) + len(c.NewSVG)
+		size := own + len(cur)
 		// Decide BEFORE drawing, or the row that breaks the budget is the one
 		// that gets drawn. The first row is always drawn: a page with a cap
 		// and no picture would be a worse answer than a page slightly over.
 		over := in.MaxBytes > 0 && spent > 0 && spent+size > in.MaxBytes
-		if over || (size == 0 && c.Status == "changed") {
+		if over || (own == 0 && c.Status == "changed") {
 			p.Unrendered = append(p.Unrendered, c.ID)
 			continue
 		}
