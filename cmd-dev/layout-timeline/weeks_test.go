@@ -118,7 +118,7 @@ func TestWeekStartTakesTheLastCommitBeforeMonday(t *testing.T) {
 	})
 	monday := mustTime(t, "2026-08-10 00:00")
 
-	sha, err := commitAt(repo, monday, atWeekStart)
+	sha, err := commitAt(repo, "HEAD", monday, atWeekStart)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -126,7 +126,7 @@ func TestWeekStartTakesTheLastCommitBeforeMonday(t *testing.T) {
 		t.Fatalf("week-start picked %q, want the last commit before Monday 00:00", got)
 	}
 
-	sha, err = commitAt(repo, monday, atFirstOfWeek)
+	sha, err = commitAt(repo, "HEAD", monday, atFirstOfWeek)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -144,7 +144,7 @@ func TestFirstOfWeekNeverReachesIntoALaterWeek(t *testing.T) {
 	})
 	quiet := mustTime(t, "2026-07-27 00:00") // the week between them: nothing committed
 
-	sha, err := commitAt(repo, quiet, atFirstOfWeek)
+	sha, err := commitAt(repo, "HEAD", quiet, atFirstOfWeek)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -155,7 +155,7 @@ func TestFirstOfWeekNeverReachesIntoALaterWeek(t *testing.T) {
 
 	// And the series must still be continuous: the quiet week carries the
 	// previous engine rather than leaving a hole.
-	snaps, err := resolveSnapshots(repo, mondaysBetween(
+	snaps, err := resolveSnapshots(repo, "HEAD", mondaysBetween(
 		mustTime(t, "2026-07-20 00:00"), mustTime(t, "2026-08-17 00:00")), atFirstOfWeek)
 	if err != nil {
 		t.Fatal(err)
@@ -175,7 +175,7 @@ func TestFirstOfWeekNeverReachesIntoALaterWeek(t *testing.T) {
 
 func TestWeekBeforeTheFirstCommitHasNoSnapshot(t *testing.T) {
 	repo := gitRepo(t, []struct{ when, msg string }{{"2026-08-12 09:00", "only"}})
-	sha, err := commitAt(repo, mustTime(t, "2026-08-10 00:00"), atWeekStart)
+	sha, err := commitAt(repo, "HEAD", mustTime(t, "2026-08-10 00:00"), atWeekStart)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -193,7 +193,7 @@ func TestQuietWeeksRepeatTheSnapshotAndAreMarked(t *testing.T) {
 		{"2026-08-12 10:00", "much-later"},
 	})
 	mondays := mondaysBetween(mustTime(t, "2026-07-13 00:00"), mustTime(t, "2026-08-17 00:00"))
-	snaps, err := resolveSnapshots(repo, mondays, atWeekStart)
+	snaps, err := resolveSnapshots(repo, "HEAD", mondays, atWeekStart)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -256,7 +256,7 @@ func TestEngineCommitsSelectOnlyCommitsTouchingThePaths(t *testing.T) {
 	commit("2026-08-05 10:00", "docs/y.md", "docs again")
 	commit("2026-08-06 10:00", "engine/a.go", "engine two")
 
-	snaps, err := engineCommits(repo, []string{"engine"},
+	snaps, err := engineCommits(repo, "HEAD", []string{"engine"},
 		mustTime(t, "2026-08-01 00:00"), mustTime(t, "2026-08-10 00:00"))
 	if err != nil {
 		t.Fatal(err)
@@ -287,12 +287,12 @@ func TestAppendHeadAddsTheCurrentCommitWhenNewer(t *testing.T) {
 		{"2026-07-08 10:00", "old"},
 		{"2026-08-12 10:00", "newest"},
 	})
-	snaps, err := resolveSnapshots(repo, mondaysBetween(
+	snaps, err := resolveSnapshots(repo, "HEAD", mondaysBetween(
 		mustTime(t, "2026-07-13 00:00"), mustTime(t, "2026-08-10 00:00")), atWeekStart)
 	if err != nil {
 		t.Fatal(err)
 	}
-	withHead, err := appendHead(repo, snaps)
+	withHead, err := appendHead(repo, "HEAD", snaps)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -305,7 +305,7 @@ func TestAppendHeadAddsTheCurrentCommitWhenNewer(t *testing.T) {
 	}
 
 	// And it must NOT duplicate a week that already is HEAD.
-	again, err := appendHead(repo, withHead)
+	again, err := appendHead(repo, "HEAD", withHead)
 	if err != nil {
 		t.Fatal(err)
 	}

@@ -11,6 +11,10 @@ go run ./cmd-dev/layout-timeline                        # the whole history
 go run ./cmd-dev/layout-timeline --by engine-commit     # a column per ENGINE commit
 go run ./cmd-dev/layout-timeline --weeks 6 docs
 make layout-timeline                                    # same, via the Makefile
+
+# another repository's history, over THIS repository's diagrams
+go run ./cmd-dev/layout-timeline --repo ../pre-ipm-tools --rev main-pre1 \
+  --sources . --by engine-commit
 ```
 
 It prints the report path. Everything lands in `temp/layout-timeline/`
@@ -19,10 +23,16 @@ commit is built once.
 
 ## The sources are fixed; only the engine moves
 
-This is the point of the tool. Every column runs the SAME diagrams — the ones
-in the working tree right now — so a cell that lights up means **the engine
-changed the picture**, never that someone edited the diagram. A timeline built
-from each week's own sources would confuse the two beyond repair.
+This is the point of the tool. Every column runs the SAME diagrams — so a cell
+that lights up means **the engine changed the picture**, never that someone
+edited the diagram. A timeline built from each column's own sources would
+confuse the two beyond repair.
+
+The diagrams come from `--sources` (default: `--repo`), and the history walked
+is `--rev` (default: `HEAD`). Splitting them is what lets a rebased repository
+be understood at all: point `--repo` at the checkout that still holds the
+pre-rebase history, `--rev` at its branch, and `--sources` at today's tree.
+Then eighteen months of engines run over the diagrams that exist now.
 
 ## Weeks, or engine commits
 
@@ -95,6 +105,9 @@ that week as a full audit.
 
 | flag | default | |
 |---|---|---|
+| `--repo` | `.` | repository whose history is walked and whose engines are built |
+| `--rev` | `HEAD` | branch, tag or commit to walk — the series worth seeing is often on a branch nobody has checked out |
+| `--sources` | `--repo` | where the DIAGRAMS come from; point it at another checkout to run old engines over today's diagrams |
 | `--since` / `--until` | first commit / today | the Monday range (YYYY-MM-DD) |
 | `--weeks` | | cover only the last N weeks (overrides `--since`) |
 | `--by` | `week` | `week` or `engine-commit` |
@@ -111,7 +124,13 @@ that week as a full audit.
 
 311 diagrams × 13 weekly engines: **~9 s** cold (six distinct engines to build),
 **~1.5 s** with the cache warm. Only two sweeps are held in memory at a time,
-so the cost does not grow with the number of weeks.
+so the cost does not grow with the number of columns.
+
+A long history costs its builds: 311 diagrams × **86** engine commits from
+`pre-ipm-tools@main-pre1` took **3 minutes** cold, most of it `go build`. The
+cache is keyed by commit, so the second run over the same range is sweeps only.
+`--out` and `--cache` resolve against the CURRENT directory, not `--repo`, so a
+report about another repository's history never lands in that repository.
 
 ## Where it fits
 

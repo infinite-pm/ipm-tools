@@ -67,7 +67,7 @@ func main() { os.Exit(run()) }
 func run() int {
 	var (
 		repo, since, until, out, cache, at string
-		by, enginePaths                    string
+		by, enginePaths, rev, sources      string
 		weeks, limitPerWeek                int
 		list, noSVG, verbose, head         bool
 	)
@@ -75,6 +75,8 @@ func run() int {
 	flag.StringVar(&since, "since", "", "first Monday to cover (YYYY-MM-DD); default: the repository's first commit")
 	flag.StringVar(&until, "until", "", "last Monday to cover (YYYY-MM-DD); default: today")
 	flag.IntVar(&weeks, "weeks", 0, "cover only the last N weeks (overrides --since)")
+	flag.StringVar(&rev, "rev", "HEAD", "branch, tag or commit whose history is walked — the series worth seeing is often on a branch nobody has checked out")
+	flag.StringVar(&sources, "sources", "", "directory to take the DIAGRAMS from (default: --repo). Point it at another checkout to run an old engine over today's diagrams")
 	flag.StringVar(&by, "by", "week", "what a column is: week (a snapshot per Monday) | engine-commit (a snapshot per commit that touched the engine — the granularity that answers \"when did the layout change\")")
 	flag.StringVar(&enginePaths, "engine-paths", "pkg/layout7 pkg/layout cmd/layout-gen", "space-separated paths that count as the engine, for --by engine-commit and for the per-column commit counts")
 	flag.StringVar(&at, "at", string(atWeekStart), "which commit stands for a week: week-start (last commit before Monday 00:00) | first-of-week")
@@ -109,32 +111,32 @@ func run() int {
 	var snaps []snapshot
 	switch by {
 	case "engine-commit":
-		from, to, err := window(repoAbs, since, until, weeks)
+		from, to, err := window(repoAbs, rev, since, until, weeks)
 		if err != nil {
 			return fail("%v", err)
 		}
-		if snaps, err = engineCommits(repoAbs, engine, from, to); err != nil {
+		if snaps, err = engineCommits(repoAbs, rev, engine, from, to); err != nil {
 			return fail("%v", err)
 		}
 		if len(snaps) == 0 {
 			return fail("no commit in range touched %s", enginePaths)
 		}
 	case "week":
-		mondays, err := plan(repoAbs, since, until, weeks)
+		mondays, err := plan(repoAbs, rev, since, until, weeks)
 		if err != nil {
 			return fail("%v", err)
 		}
 		if len(mondays) == 0 {
 			return fail("no Mondays in range")
 		}
-		if snaps, err = resolveSnapshots(repoAbs, mondays, atMode(at)); err != nil {
+		if snaps, err = resolveSnapshots(repoAbs, rev, mondays, atMode(at)); err != nil {
 			return fail("%v", err)
 		}
 	default:
 		return fail("--by must be week or engine-commit, got %q", by)
 	}
 	if head {
-		if snaps, err = appendHead(repoAbs, snaps); err != nil {
+		if snaps, err = appendHead(repoAbs, rev, snaps); err != nil {
 			return fail("resolve HEAD: %v", err)
 		}
 	}
@@ -150,14 +152,29 @@ func run() int {
 		return 0
 	}
 
-	outAbs, cacheAbs := abs(repoAbs, out), abs(repoAbs, cache)
+	// Output goes where the reader is standing, not into the repository being
+	// walked: with --repo pointing at another checkout, a relative --out
+	// resolved against it drops the report in someone else's tree.
+	cwd, err := os.Getwd()
+	if err != nil {
+		return fail("cwd: %v", err)
+	}
+	outAbs, cacheAbs := abs(cwd, out), abs(cwd, cache)
 	if err := os.MkdirAll(cacheAbs, 0o755); err != nil {
 		return fail("create %s: %v", cacheAbs, err)
 	}
 
-	// The diagram set is collected ONCE, from the working tree: the sources
-	// are the constant, the engine is the variable.
-	diagrams, warns, err := layoutaudit.Collect(repoAbs, pathsOf(), filepath.Join(outAbs, "src"))
+	// The diagram set is collected ONCE, from one working tree: the sources
+	// are the constant, the engine is the variable. That tree need not be the
+	// engine's — running yesterday's engines over TODAY's diagrams is the
+	// comparison that means something.
+	srcRoot := repoAbs
+	if sources != "" {
+		if srcRoot, err = filepath.Abs(sources); err != nil {
+			return fail("resolve --sources: %v", err)
+		}
+	}
+	diagrams, warns, err := layoutaudit.Collect(srcRoot, pathsOf(), filepath.Join(outAbs, "src"))
 	if err != nil {
 		return fail("collect: %v", err)
 	}
@@ -167,8 +184,8 @@ func run() int {
 	if len(diagrams) == 0 {
 		return fail("no diagrams under %s", strings.Join(pathsOf(), " "))
 	}
-	fmt.Fprintf(os.Stderr, "layout-timeline: %d diagrams from the working tree, %d weekly snapshots\n",
-		len(diagrams), len(snaps))
+	fmt.Fprintf(os.Stderr, "layout-timeline: %d diagrams from %s, %d snapshots of %s@%s\n",
+		len(diagrams), srcRoot, len(snaps), filepath.Base(repoAbs), rev)
 
 	weeksOut := compare(repoAbs, cacheAbs, snaps, diagrams, limitPerWeek, noSVG, verbose)
 
@@ -177,7 +194,7 @@ func run() int {
 	}
 	reportPath := filepath.Join(outAbs, "index.html")
 	html := renderHTML(timelineInput{
-		Repo: repoAbs, Paths: pathsOf(), Diagrams: len(diagrams),
+		Repo: repoAbs + " @ " + rev, Sources: srcRoot, Paths: pathsOf(), Diagrams: len(diagrams),
 		Weeks: weeksOut, Elapsed: time.Since(started), At: at + " / " + by, NoSVG: noSVG,
 	})
 	if err := os.WriteFile(reportPath, []byte(html), 0o644); err != nil {
@@ -206,7 +223,7 @@ func pathsOf() []string {
 }
 
 // window turns the date flags into a plain [from, to] range.
-func window(repo, since, until string, weeks int) (time.Time, time.Time, error) {
+func window(repo, rev, since, until string, weeks int) (time.Time, time.Time, error) {
 	to := time.Now()
 	if until != "" {
 		t, err := time.ParseInLocation("2006-01-02", until, time.Local)
@@ -225,7 +242,7 @@ func window(repo, since, until string, weeks int) (time.Time, time.Time, error) 
 		}
 		return t, to, nil
 	}
-	first, err := firstCommitDate(repo)
+	first, err := firstCommitDate(repo, rev)
 	if err != nil {
 		return to, to, fmt.Errorf("find the first commit: %w", err)
 	}
@@ -233,7 +250,7 @@ func window(repo, since, until string, weeks int) (time.Time, time.Time, error) 
 }
 
 // plan turns the date flags into the list of Mondays to cover.
-func plan(repo, since, until string, weeks int) ([]time.Time, error) {
+func plan(repo, rev, since, until string, weeks int) ([]time.Time, error) {
 	to := time.Now()
 	if until != "" {
 		t, err := time.ParseInLocation("2006-01-02", until, time.Local)
@@ -253,7 +270,7 @@ func plan(repo, since, until string, weeks int) ([]time.Time, error) {
 		}
 		from = t
 	default:
-		first, err := firstCommitDate(repo)
+		first, err := firstCommitDate(repo, rev)
 		if err != nil {
 			return nil, fmt.Errorf("find the first commit: %w", err)
 		}

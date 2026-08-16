@@ -20,6 +20,7 @@ import (
 
 type timelineInput struct {
 	Repo     string
+	Sources  string
 	Paths    []string
 	Diagrams int
 	Weeks    []week
@@ -65,18 +66,18 @@ type vmWeek struct {
 }
 
 type vmModel struct {
-	Repo, Paths, Elapsed, At string
-	Diagrams                 int
-	WeekLabels               []string
-	Grid                     []vmGridRow
-	Weeks                    []vmWeek
-	TotalMoves               int
-	NoSVG                    bool
+	Repo, Sources, Paths, Elapsed, At string
+	Diagrams                          int
+	WeekLabels                        []string
+	Grid                              []vmGridRow
+	Weeks                             []vmWeek
+	TotalMoves                        int
+	NoSVG                             bool
 }
 
 func renderHTML(in timelineInput) string {
 	m := vmModel{
-		Repo: in.Repo, Paths: strings.Join(in.Paths, " "), Diagrams: in.Diagrams,
+		Repo: in.Repo, Sources: in.Sources, Paths: strings.Join(in.Paths, " "), Diagrams: in.Diagrams,
 		Elapsed: in.Elapsed.Round(time.Millisecond).String(), At: in.At, NoSVG: in.NoSVG,
 	}
 
@@ -273,7 +274,7 @@ pre{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:
   <h1>layout timeline — today's diagrams, week by week</h1>
   <div class="prov">
     <b>repo</b><span>{{.Repo}}</span>
-    <b>sources</b><span>{{.Diagrams}} diagrams from the WORKING TREE ({{.Paths}}) — only the engine moves</span>
+    <b>sources</b><span>{{.Diagrams}} diagrams from {{.Sources}} ({{.Paths}}) — fixed; only the engine moves</span>
     <b>weeks</b><span>{{len .WeekLabels}} Monday snapshots ({{.At}}), {{.TotalMoves}} diagram-change(s), {{.Elapsed}}</span>
   </div>
   <div class="legend">

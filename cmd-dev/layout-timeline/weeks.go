@@ -105,13 +105,15 @@ const (
 	atFirstOfWeek atMode = "first-of-week" // first commit on or after Monday 00:00
 )
 
-// resolveSnapshots asks git for the commit standing at each Monday.
-func resolveSnapshots(repo string, mondays []time.Time, mode atMode) ([]snapshot, error) {
+// resolveSnapshots asks git for the commit standing at each Monday, walking
+// rev (a branch, tag or HEAD) rather than assuming the checked-out one — the
+// history worth walking is often on a branch nobody has checked out.
+func resolveSnapshots(repo, rev string, mondays []time.Time, mode atMode) ([]snapshot, error) {
 	var out []snapshot
 	prev := ""
 	for _, m := range mondays {
 		s := snapshot{Monday: m}
-		sha, err := commitAt(repo, m, mode)
+		sha, err := commitAt(repo, rev, m, mode)
 		if err != nil {
 			return nil, err
 		}
@@ -143,7 +145,7 @@ func resolveSnapshots(repo string, mondays []time.Time, mode atMode) ([]snapshot
 
 // commitAt resolves one week's commit. An empty string means the repository
 // had no qualifying commit — before its first one, or after its last.
-func commitAt(repo string, monday time.Time, mode atMode) (string, error) {
+func commitAt(repo, rev string, monday time.Time, mode atMode) (string, error) {
 	// Git's --before/--after are inclusive of the timestamp, so week-start
 	// asks for strictly-before by stepping back one second: a commit made
 	// exactly at 00:00 Monday belongs to the new week, not to the old one.
@@ -162,9 +164,9 @@ func commitAt(repo string, monday time.Time, mode atMode) (string, error) {
 		end := monday.AddDate(0, 0, 7).Add(-time.Second)
 		args = []string{"rev-list", "--reverse",
 			"--since=" + monday.Format(time.RFC3339),
-			"--until=" + end.Format(time.RFC3339), "HEAD"}
+			"--until=" + end.Format(time.RFC3339), rev}
 	default:
-		args = []string{"rev-list", "-1", "--before=" + monday.Add(-time.Second).Format(time.RFC3339), "HEAD"}
+		args = []string{"rev-list", "-1", "--before=" + monday.Add(-time.Second).Format(time.RFC3339), rev}
 	}
 	out, err := Git(repo, args...)
 	if err != nil {
@@ -187,8 +189,8 @@ func commitAt(repo string, monday time.Time, mode atMode) (string, error) {
 // committed since Monday — often the very work the reader is asking about —
 // would be invisible. The column is labelled with today's date and marked
 // "now" rather than pretending to be a Monday.
-func appendHead(repo string, snaps []snapshot) ([]snapshot, error) {
-	head, err := Git(repo, "rev-parse", "HEAD")
+func appendHead(repo, rev string, snaps []snapshot) ([]snapshot, error) {
+	head, err := Git(repo, "rev-parse", rev)
 	if err != nil {
 		return snaps, err
 	}
@@ -203,7 +205,10 @@ func appendHead(repo string, snaps []snapshot) ([]snapshot, error) {
 		return snaps, nil
 	}
 	s := snapshot{Monday: time.Now(), SHA: head, Now: true}
-	s.label = s.Monday.Format("2006-01-02") + " now"
+	s.label = "tip"
+	if d, err := Git(repo, "log", "-1", "--format=%cs", head); err == nil {
+		s.label = d + " tip"
+	}
 	if subject, err := Git(repo, "log", "-1", "--format=%s", head); err == nil {
 		s.Subject = subject
 	}
@@ -217,9 +222,9 @@ func appendHead(repo string, snaps []snapshot) ([]snapshot, error) {
 // history was squashed on import — the engine arriving as one commit, then
 // months of nothing, then three changes in a day — weekly columns hide every
 // change inside one of them, and the grid reads as "nothing ever happened".
-func engineCommits(repo string, paths []string, from, to time.Time) ([]snapshot, error) {
+func engineCommits(repo, rev string, paths []string, from, to time.Time) ([]snapshot, error) {
 	args := []string{"rev-list", "--reverse",
-		"--since=" + from.Format(time.RFC3339), "--until=" + to.Format(time.RFC3339), "HEAD", "--"}
+		"--since=" + from.Format(time.RFC3339), "--until=" + to.Format(time.RFC3339), rev, "--"}
 	args = append(args, paths...)
 	out, err := Git(repo, args...)
 	if err != nil {
@@ -279,8 +284,8 @@ func atoi(s string) int {
 
 // firstCommitDate is when the repository starts, so a bare invocation can
 // cover its whole life without the caller knowing the date.
-func firstCommitDate(repo string) (time.Time, error) {
-	out, err := Git(repo, "log", "--reverse", "--format=%cI", "--max-parents=0")
+func firstCommitDate(repo, rev string) (time.Time, error) {
+	out, err := Git(repo, "log", "--reverse", "--format=%cI", "--max-parents=0", rev)
 	if err != nil {
 		return time.Time{}, err
 	}
