@@ -24,9 +24,10 @@ import (
 // Git is the repository helper, aliased so this file reads as git work.
 var Git = layoutaudit.Git
 
-// snapshot is one week's engine.
+// snapshot is one column: an engine, and the story of which commit it is.
 type snapshot struct {
-	Monday  time.Time // the week boundary this snapshot stands for
+	label   string    // what the column is called
+	Monday  time.Time // the week boundary this snapshot stands for (week columns)
 	SHA     string    // resolved commit, "" when the repo had no commits yet
 	Subject string
 	Date    time.Time // the commit's own date
@@ -36,14 +37,26 @@ type snapshot struct {
 	// Now marks the extra trailing snapshot for the current HEAD, which is
 	// not a Monday and says so.
 	Now bool
+	// Commits / EngineCommits count what this column spans (see Span).
+	Commits       int
+	EngineCommits int
 }
 
-// Label is how a week is named in the report and on the command line.
-func (s snapshot) Label() string {
-	if s.Now {
-		return s.Monday.Format("2006-01-02") + " now"
+// Label is how a column is named in the report and on the command line.
+func (s snapshot) Label() string { return s.label }
+
+// Commits/EngineCommits are how much this column HIDES: the commits between
+// the previous snapshot and this one, and how many of them touched the engine.
+// A column spanning twenty commits must not look like one spanning none —
+// that is exactly how a quiet-looking grid misleads.
+func (s snapshot) Span() string {
+	if s.Commits == 0 {
+		return ""
 	}
-	return s.Monday.Format("2006-01-02")
+	if s.EngineCommits == 0 {
+		return fmt.Sprintf("%d commit(s), none touching the engine", s.Commits)
+	}
+	return fmt.Sprintf("%d commit(s), %d touching the engine", s.Commits, s.EngineCommits)
 }
 
 func (s snapshot) Describe() string {
@@ -109,6 +122,7 @@ func resolveSnapshots(repo string, mondays []time.Time, mode atMode) ([]snapshot
 		if sha == "" && prev != "" {
 			sha = prev
 		}
+		s.label = m.Format("2006-01-02")
 		s.SHA = sha
 		if sha != "" {
 			if subject, err := Git(repo, "log", "-1", "--format=%s", sha); err == nil {
@@ -189,10 +203,78 @@ func appendHead(repo string, snaps []snapshot) ([]snapshot, error) {
 		return snaps, nil
 	}
 	s := snapshot{Monday: time.Now(), SHA: head, Now: true}
+	s.label = s.Monday.Format("2006-01-02") + " now"
 	if subject, err := Git(repo, "log", "-1", "--format=%s", head); err == nil {
 		s.Subject = subject
 	}
 	return append(snaps, s), nil
+}
+
+// engineCommits builds one snapshot per commit that touched the engine.
+//
+// This is the granularity that answers "when did the layout change", as
+// opposed to "what did it look like each Monday". In a repository whose
+// history was squashed on import — the engine arriving as one commit, then
+// months of nothing, then three changes in a day — weekly columns hide every
+// change inside one of them, and the grid reads as "nothing ever happened".
+func engineCommits(repo string, paths []string, from, to time.Time) ([]snapshot, error) {
+	args := []string{"rev-list", "--reverse",
+		"--since=" + from.Format(time.RFC3339), "--until=" + to.Format(time.RFC3339), "HEAD", "--"}
+	args = append(args, paths...)
+	out, err := Git(repo, args...)
+	if err != nil {
+		return nil, fmt.Errorf("rev-list over %v: %w", paths, err)
+	}
+	var snaps []snapshot
+	for _, sha := range strings.Fields(out) {
+		s := snapshot{SHA: sha}
+		if subject, err := Git(repo, "log", "-1", "--format=%s", sha); err == nil {
+			s.Subject = subject
+		}
+		if ts, err := Git(repo, "log", "-1", "--format=%cI", sha); err == nil {
+			if d, perr := time.Parse(time.RFC3339, ts); perr == nil {
+				s.Date = d
+				s.Monday = d
+			}
+		}
+		s.label = s.Date.Format("2006-01-02") + " " + layoutaudit.Short(sha)
+		snaps = append(snaps, s)
+	}
+	return snaps, nil
+}
+
+// countSpan fills in how many commits a column covers, and how many of those
+// touched the engine.
+func countSpan(repo string, snaps []snapshot, enginePaths []string) {
+	prev := ""
+	for i := range snaps {
+		cur := snaps[i].SHA
+		if cur == "" || cur == prev {
+			continue
+		}
+		rng := cur
+		if prev != "" {
+			rng = prev + ".." + cur
+		}
+		if n, err := Git(repo, append([]string{"rev-list", "--count", rng}, "--")...); err == nil {
+			snaps[i].Commits = atoi(n)
+		}
+		if n, err := Git(repo, append(append([]string{"rev-list", "--count", rng, "--"}, enginePaths...))...); err == nil {
+			snaps[i].EngineCommits = atoi(n)
+		}
+		prev = cur
+	}
+}
+
+func atoi(s string) int {
+	n := 0
+	for _, c := range strings.TrimSpace(s) {
+		if c < '0' || c > '9' {
+			return n
+		}
+		n = n*10 + int(c-'0')
+	}
+	return n
 }
 
 // firstCommitDate is when the repository starts, so a bare invocation can

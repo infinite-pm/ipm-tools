@@ -6,10 +6,11 @@ Monday, builds the engine at each one, and runs **the current working tree's**
 diagram last moved, and to what.
 
 ```bash
-go run ./cmd-dev/layout-timeline --list        # just the weekly commits
-go run ./cmd-dev/layout-timeline               # the whole history
+go run ./cmd-dev/layout-timeline --list                 # just the weekly commits
+go run ./cmd-dev/layout-timeline                        # the whole history
+go run ./cmd-dev/layout-timeline --by engine-commit     # a column per ENGINE commit
 go run ./cmd-dev/layout-timeline --weeks 6 docs
-make layout-timeline                           # same, via the Makefile
+make layout-timeline                                    # same, via the Makefile
 ```
 
 It prints the report path. Everything lands in `temp/layout-timeline/`
@@ -22,6 +23,23 @@ This is the point of the tool. Every column runs the SAME diagrams — the ones
 in the working tree right now — so a cell that lights up means **the engine
 changed the picture**, never that someone edited the diagram. A timeline built
 from each week's own sources would confuse the two beyond repair.
+
+## Weeks, or engine commits
+
+`--by week` (the default) gives one column per Monday. `--by engine-commit`
+gives one per commit that touched the engine (`--engine-paths`, default
+`pkg/layout7 pkg/layout cmd/layout-gen`), which is the granularity that
+answers *when did the layout change*.
+
+Prefer it when a repository's history is bursty or was squashed on import.
+This one is both: 5 of 40 commits touch the engine, the whole v7 engine
+arrived as ONE commit of 28,799 lines, and every behavioural change since
+landed on a single day — so the weekly grid puts all of them inside one
+column and reads as "nothing ever happened".
+
+Which is why **every column states what it hides**: `23 commit(s), 4 touching
+the engine`. A column spanning twenty commits must never look like one
+spanning none.
 
 ## Which commit stands for a week
 
@@ -79,7 +97,9 @@ that week as a full audit.
 |---|---|---|
 | `--since` / `--until` | first commit / today | the Monday range (YYYY-MM-DD) |
 | `--weeks` | | cover only the last N weeks (overrides `--since`) |
-| `--at` | `week-start` | `week-start` or `first-of-week` |
+| `--by` | `week` | `week` or `engine-commit` |
+| `--engine-paths` | `pkg/layout7 pkg/layout cmd/layout-gen` | what counts as the engine |
+| `--at` | `week-start` | `week-start` or `first-of-week` (week columns only) |
 | `--head` | on | append the current HEAD as a final column |
 | `--list` | off | print the weekly commits and exit — no builds, no sweep |
 | `--limit-per-week` | `6` | rendered diagrams per week (0 = all) |
@@ -101,6 +121,20 @@ so the cost does not grow with the number of weeks.
 | EXPLAIN (`layout-explain`) | one diagram, one engine, narrated |
 | AUDIT (`layout-audit`) | every diagram, two engines, visual |
 | **TIMELINE** (`layout-timeline`) | **every diagram, every week, visual** |
+
+## What this report cannot see
+
+It measures what `cmd/layout-gen` produces. `pkg/layout`'s post-placement
+passes — `OrderSharedPorts` and `DetourBlockedEdges` — are **not reachable
+from the engine** (`gl:docs/dev/layout-gen/layout7-engine.md`), so a change
+confined to them cannot move a single diagram here however large it is. A real
+example from this repository: `372f0a8` rewrote pin/detour handling and moved
+**zero** of 311 diagrams, while its own measurements over ipm-drawio's zoom
+corpus showed crossings 44,442 → 21,247.
+
+So a column that reports engine commits and no diagram change says so
+explicitly, rather than leaving the reader with false reassurance. Measure
+those passes against a consumer's corpus instead.
 
 Point it at any diagram set, including the demo recorder's captured states
 (`gl:docs/dev-tools/states-corpus.md`):

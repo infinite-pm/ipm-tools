@@ -4,6 +4,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strings"
 	"testing"
 	"time"
 )
@@ -214,6 +215,67 @@ func TestQuietWeeksRepeatTheSnapshotAndAreMarked(t *testing.T) {
 	last := snaps[len(snaps)-1]
 	if subjectAt(t, repo, last.SHA) != "much-later" {
 		t.Fatalf("the last week should see the newer commit, got %q", subjectAt(t, repo, last.SHA))
+	}
+}
+
+// Weekly columns hide bursts: in a repository whose history was squashed on
+// import, every engine change can land inside ONE column, and the grid then
+// reads as "nothing ever happened". Per-commit granularity is the answer, and
+// the span counts are what stop the weekly view from lying in the meantime.
+func TestEngineCommitsSelectOnlyCommitsTouchingThePaths(t *testing.T) {
+	dir := t.TempDir()
+	repo := dir
+	run := func(env []string, args ...string) {
+		t.Helper()
+		cmd := exec.Command("git", args...)
+		cmd.Dir = repo
+		cmd.Env = append(os.Environ(),
+			"GIT_AUTHOR_NAME=t", "GIT_AUTHOR_EMAIL=t@example.com",
+			"GIT_COMMITTER_NAME=t", "GIT_COMMITTER_EMAIL=t@example.com")
+		cmd.Env = append(cmd.Env, env...)
+		if out, err := cmd.CombinedOutput(); err != nil {
+			t.Fatalf("git %v: %v\n%s", args, err, out)
+		}
+	}
+	commit := func(when, path, msg string) {
+		t.Helper()
+		full := filepath.Join(repo, path)
+		if err := os.MkdirAll(filepath.Dir(full), 0o755); err != nil {
+			t.Fatal(err)
+		}
+		if err := os.WriteFile(full, []byte(msg), 0o644); err != nil {
+			t.Fatal(err)
+		}
+		run(nil, "add", ".")
+		ts := mustTime(t, when).Format(time.RFC3339)
+		run([]string{"GIT_AUTHOR_DATE=" + ts, "GIT_COMMITTER_DATE=" + ts}, "commit", "-q", "-m", msg)
+	}
+	run(nil, "init", "-q", "-b", "main")
+	commit("2026-08-03 10:00", "engine/a.go", "engine one")
+	commit("2026-08-04 10:00", "docs/x.md", "docs only")
+	commit("2026-08-05 10:00", "docs/y.md", "docs again")
+	commit("2026-08-06 10:00", "engine/a.go", "engine two")
+
+	snaps, err := engineCommits(repo, []string{"engine"},
+		mustTime(t, "2026-08-01 00:00"), mustTime(t, "2026-08-10 00:00"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(snaps) != 2 {
+		t.Fatalf("selected %d snapshots, want the 2 engine commits", len(snaps))
+	}
+	if snaps[0].Subject != "engine one" || snaps[1].Subject != "engine two" {
+		t.Fatalf("wrong commits, oldest first: %q, %q", snaps[0].Subject, snaps[1].Subject)
+	}
+
+	// The span counts must say what the second column swallowed: three
+	// commits since the first, one of them the engine's.
+	countSpan(repo, snaps, []string{"engine"})
+	if snaps[1].Commits != 3 || snaps[1].EngineCommits != 1 {
+		t.Fatalf("span = %d commits / %d engine, want 3 / 1", snaps[1].Commits, snaps[1].EngineCommits)
+	}
+	if snaps[1].Span() == "" || !strings.Contains(snaps[1].Span(), "touching the engine") {
+		t.Fatalf("the column does not say what it hides: %q", snaps[1].Span())
 	}
 }
 

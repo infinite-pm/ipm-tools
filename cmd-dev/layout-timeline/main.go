@@ -54,6 +54,7 @@ type week struct {
 	SHA       string   `json:"sha,omitempty"`
 	Subject   string   `json:"subject,omitempty"`
 	Note      string   `json:"note,omitempty"`    // why a week has no comparison
+	Span      string   `json:"span,omitempty"`    // how many commits this column covers
 	Against   string   `json:"against,omitempty"` // the snapshot this week is diffed against
 	Changes   []change `json:"changes,omitempty"`
 	Identical int      `json:"identical"`
@@ -66,6 +67,7 @@ func main() { os.Exit(run()) }
 func run() int {
 	var (
 		repo, since, until, out, cache, at string
+		by, enginePaths                    string
 		weeks, limitPerWeek                int
 		list, noSVG, verbose, head         bool
 	)
@@ -73,6 +75,8 @@ func run() int {
 	flag.StringVar(&since, "since", "", "first Monday to cover (YYYY-MM-DD); default: the repository's first commit")
 	flag.StringVar(&until, "until", "", "last Monday to cover (YYYY-MM-DD); default: today")
 	flag.IntVar(&weeks, "weeks", 0, "cover only the last N weeks (overrides --since)")
+	flag.StringVar(&by, "by", "week", "what a column is: week (a snapshot per Monday) | engine-commit (a snapshot per commit that touched the engine — the granularity that answers \"when did the layout change\")")
+	flag.StringVar(&enginePaths, "engine-paths", "pkg/layout7 pkg/layout cmd/layout-gen", "space-separated paths that count as the engine, for --by engine-commit and for the per-column commit counts")
 	flag.StringVar(&at, "at", string(atWeekStart), "which commit stands for a week: week-start (last commit before Monday 00:00) | first-of-week")
 	flag.StringVar(&out, "out", "temp/layout-timeline", "output directory for the report")
 	flag.StringVar(&cache, "cache", "temp/layout-audit/bin", "engine build cache, shared with layout-audit so a commit is built once")
@@ -101,25 +105,47 @@ func run() int {
 		return fail("resolve --repo: %v", err)
 	}
 
-	mondays, err := plan(repoAbs, since, until, weeks)
-	if err != nil {
-		return fail("%v", err)
-	}
-	if len(mondays) == 0 {
-		return fail("no Mondays in range")
-	}
-	snaps, err := resolveSnapshots(repoAbs, mondays, atMode(at))
-	if err != nil {
-		return fail("%v", err)
+	engine := strings.Fields(enginePaths)
+	var snaps []snapshot
+	switch by {
+	case "engine-commit":
+		from, to, err := window(repoAbs, since, until, weeks)
+		if err != nil {
+			return fail("%v", err)
+		}
+		if snaps, err = engineCommits(repoAbs, engine, from, to); err != nil {
+			return fail("%v", err)
+		}
+		if len(snaps) == 0 {
+			return fail("no commit in range touched %s", enginePaths)
+		}
+	case "week":
+		mondays, err := plan(repoAbs, since, until, weeks)
+		if err != nil {
+			return fail("%v", err)
+		}
+		if len(mondays) == 0 {
+			return fail("no Mondays in range")
+		}
+		if snaps, err = resolveSnapshots(repoAbs, mondays, atMode(at)); err != nil {
+			return fail("%v", err)
+		}
+	default:
+		return fail("--by must be week or engine-commit, got %q", by)
 	}
 	if head {
 		if snaps, err = appendHead(repoAbs, snaps); err != nil {
 			return fail("resolve HEAD: %v", err)
 		}
 	}
+	countSpan(repoAbs, snaps, engine)
 	if list {
 		for _, s := range snaps {
-			fmt.Println(s.Describe())
+			line := s.Describe()
+			if span := s.Span(); span != "" {
+				line += " — " + span
+			}
+			fmt.Println(line)
 		}
 		return 0
 	}
@@ -152,7 +178,7 @@ func run() int {
 	reportPath := filepath.Join(outAbs, "index.html")
 	html := renderHTML(timelineInput{
 		Repo: repoAbs, Paths: pathsOf(), Diagrams: len(diagrams),
-		Weeks: weeksOut, Elapsed: time.Since(started), At: at, NoSVG: noSVG,
+		Weeks: weeksOut, Elapsed: time.Since(started), At: at + " / " + by, NoSVG: noSVG,
 	})
 	if err := os.WriteFile(reportPath, []byte(html), 0o644); err != nil {
 		return fail("write report: %v", err)
@@ -177,6 +203,33 @@ func pathsOf() []string {
 		return p
 	}
 	return defaultPaths
+}
+
+// window turns the date flags into a plain [from, to] range.
+func window(repo, since, until string, weeks int) (time.Time, time.Time, error) {
+	to := time.Now()
+	if until != "" {
+		t, err := time.ParseInLocation("2006-01-02", until, time.Local)
+		if err != nil {
+			return to, to, fmt.Errorf("--until: %w", err)
+		}
+		to = t
+	}
+	switch {
+	case weeks > 0:
+		return startOfWeek(to).AddDate(0, 0, -7*(weeks-1)), to, nil
+	case since != "":
+		t, err := time.ParseInLocation("2006-01-02", since, time.Local)
+		if err != nil {
+			return to, to, fmt.Errorf("--since: %w", err)
+		}
+		return t, to, nil
+	}
+	first, err := firstCommitDate(repo)
+	if err != nil {
+		return to, to, fmt.Errorf("find the first commit: %w", err)
+	}
+	return first.In(time.Local).Add(-time.Second), to, nil
 }
 
 // plan turns the date flags into the list of Mondays to cover.
@@ -223,7 +276,7 @@ func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagra
 	var lastSeen string  // the previous snapshot that resolved to a commit
 
 	for _, s := range snaps {
-		w := week{Snap: s, Label: s.Label(), SHA: s.SHA, Subject: s.Subject}
+		w := week{Snap: s, Label: s.Label(), SHA: s.SHA, Subject: s.Subject, Span: s.Span()}
 		switch {
 		case s.SHA == "":
 			w.Note = "no commits yet"
@@ -273,6 +326,18 @@ func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagra
 			}
 		}
 		sortChanges(w.Changes)
+		if len(w.Changes) == 0 && s.EngineCommits > 0 {
+			// Worth saying out loud, because "engine changed, nothing moved"
+			// reads as reassurance and is sometimes a blind spot instead:
+			// pkg/layout's post-placement passes are not reachable from
+			// layout-gen (gl:docs/dev/layout-gen/layout7-engine.md), so a
+			// change confined to them CANNOT show here whatever it did.
+			w.Note = fmt.Sprintf("%d engine commit(s) here and no diagram moved — "+
+				"if the change was in pkg/layout's post-placement passes "+
+				"(OrderSharedPorts / DetourBlockedEdges) it cannot show in this report: "+
+				"layout-gen never calls them. Measure those against a consumer's corpus.",
+				s.EngineCommits)
+		}
 		if verbose {
 			fmt.Fprintf(os.Stderr, "layout-timeline: %s — %d changed, %d identical\n",
 				s.Label(), len(w.Changes), w.Identical)

@@ -177,6 +177,17 @@ It is the third view in the layout tooling
 | **AUDIT** (`layout-audit`) | **every diagram, two engines, visual** |
 | TIMELINE (`layout-timeline`) | every diagram, every week (`gl:docs/dev-tools/layout-timeline.md`) |
 
+## What this report cannot see
+
+The audit runs `cmd/layout-gen`, so it sees what that produces.
+`pkg/layout`'s post-placement passes — `OrderSharedPorts`,
+`DetourBlockedEdges` — are not reachable from the engine
+(`gl:docs/dev/layout-gen/layout7-engine.md`), and a change confined to them
+moves nothing here however large it is: `372f0a8` rewrote pin and detour
+handling, moved **0 of 311** diagrams in this report, and cut crossings by half
+over ipm-drawio's zoom corpus. A green audit means "nothing that layout-gen
+draws moved", not "nothing moved anywhere".
+
 ## Also emitted
 
 - `temp/layout-audit/manifest.json` — every diagram's status, tier, score and
