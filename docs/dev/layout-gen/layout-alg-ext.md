@@ -438,6 +438,19 @@ then other things"). Two rivals of EQUAL span keep the canon — the split
 needs a unique protagonist ('shared things keep their band' above stays as
 it is).
 
+Ports (v7P9 "use one side for the same edge type and direction", the
+band reading): `tP` sits ON `e1`'s row and meets it on the HORIZONTAL
+through its facing side; its same-rel ties to the other chain events fan
+from that SAME side and land on the events' facing sides — not off `tP`'s
+bottom onto the events' top corners (user: "if Patrick is connected via
+his left side at the top-most connection, the other two should prefer the
+left side too"). That mirrors what `tA`/`tB` do from the left band by
+construction. Each join holds inside the 150° cap (border gaps) and on a
+clean trial straight, and a side takes at most two such arrivals; a
+steeper or third tie keeps its vertical exit while the facing ties stay
+put. Nodes with NO aligned band edge keep the vertical unification
+('thing connected to two layers' still leaves the top).
+
 ```ipmt
 e1 ::e
   --> e2 ::e
@@ -466,6 +479,22 @@ edge #tB,#e3 has visibility=visible
 edge #tP,#e2 does not cross edge #tA,#e1
 edge #tP,#e3 does not cross edge #tA,#e1
 edge #tP,#e3 does not cross edge #tB,#e2
+each edge has max-bends=0
+edge #tP,#e1 has source-side=left
+edge #tP,#e2 has source-side=left
+edge #tP,#e3 has source-side=left
+edge #tP,#e1 has target-side=right
+edge #tP,#e2 has target-side=right
+edge #tP,#e3 has target-side=right
+edge #tA,#e1 has source-side=right
+edge #tA,#e2 has source-side=right
+edge #tB,#e2 has source-side=right
+edge #tB,#e3 has source-side=right
+edge #tA,#e2 has target-side=left
+edge #tB,#e3 has target-side=left
+edge #tP,#e3 does not cross edge #tP,#e2
+edge #tP,#e3 does not cross edge #e1,#e2
+edge #tP,#e3 does not cross edge #e2,#e3
 ```
 
 ### a part-of thing-fan centres on its event and the sole concept drops below
@@ -979,6 +1008,45 @@ edge #e1b,#cX has target-side=top
 edge #e1b,#cX has max-bends=0
 edge #e1b,#cX has visibility=visible
 edge #e1b,#cX does not cross edge #e1c,#e1
+```
+
+### a band member's ties up the chain fan from its facing side too
+
+The mirror of the previous case's port rule, going UP: `tP` anchors at the
+LAST chain event (its first declared user, all three equally deep) and
+ties the two events above it. All three leave `tP`'s facing side and land
+on the events' facing sides — and the exits stay in APPROACH ORDER around
+the on-row one: the tie to the farthest event highest, the on-row edge on
+the midline, nothing folding back across it (the old spread nudged the
+displaced middle end one step DOWN regardless of which side of the pinned
+end it belonged to, and the straights crossed at the exit).
+
+```ipmt
+e1 ::e
+  --> e2 ::e
+  --> e3 ::e
+
+tP --> e3, e2, e1
+```
+<!-- ipm-svg id=1if hash=1277ceb4 -->
+![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1if.ipm.svg)
+
+```ipmdev-layout-rule
+@scope local
+each edge has max-bends=0
+#tP is left-of #e3 with gap=60
+all #tP,#e3 have same y
+edge #tP,#e3 has source-side=right
+edge #tP,#e2 has source-side=right
+edge #tP,#e1 has source-side=right
+edge #tP,#e3 has target-side=left
+edge #tP,#e2 has target-side=left
+edge #tP,#e1 has target-side=left
+edge #tP,#e3 has source-position=0.5
+edge #tP,#e1 has source-position=0.25
+edge #tP,#e1 does not cross edge #tP,#e2
+edge #tP,#e2 does not cross edge #tP,#e3
+edge #tP,#e1 does not cross edge #tP,#e3
 ```
 
 ### a budgeted crossing beats a two-bend detour

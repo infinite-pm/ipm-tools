@@ -184,6 +184,159 @@ func (g *graph) route() []routed {
 		}
 	}
 
+	// ---- 1a. a BAND MEMBER's same-kind event ties fan from its FACING
+	// side (v7P9 "use one side for the same edge type and direction", the
+	// band reading): an aux node that sits ON THE ROW of an event it
+	// connects to meets that event on the horizontal through its facing
+	// side — its other same-rel ties to events in the SAME horizontal
+	// direction join that side and land on the events' facing sides,
+	// instead of leaving the bottom onto the events' top corners (a
+	// person part-of every step of a chain, on the right flank: the
+	// top-most tie went left, the other two dropped off the bottom onto
+	// the events' top-right — "the other two should prefer the left side
+	// too"). Each join must keep the drawn line inside the 150° cap by
+	// BORDER gaps (a steeper tie keeps its vertical exit — prefer, not
+	// force), have a real horizontal run, pass a clean trial straight
+	// (no hit, no graze, no flow or band chord cut), and find room: a
+	// receiving side takes at most two band arrivals. Every same-rel tie
+	// on the facing side — joined or there already — is PINNED: 1b below
+	// never pulls one back onto a farther sibling's vertical side.
+	sidePinned := map[*edge]bool{}
+	{
+		type akey struct {
+			n     int
+			rel   Rel
+			right bool // partner lies to the node's right
+		}
+		aligned := map[akey]bool{}
+		bandOf := func(e *edge) (aux, ev *node, auxIsFrom bool, ok bool) {
+			if g.isFlow(e) {
+				return nil, nil, false, false
+			}
+			f, t := g.nodes[e.from], g.nodes[e.to]
+			if f.boundary || t.boundary {
+				return nil, nil, false, false
+			}
+			if f.kind != KindEvent && t.kind == KindEvent {
+				return f, t, true, true
+			}
+			if f.kind == KindEvent && t.kind != KindEvent {
+				return t, f, false, true
+			}
+			return nil, nil, false, false
+		}
+		facing := func(aux, ev *node) (ap, ep [2]int, auxSide, evSide string) {
+			if ev.x > aux.x {
+				return [2]int{aux.x + aux.w, aux.y + aux.h/2}, [2]int{ev.x, ev.y + ev.h/2}, "right", "left"
+			}
+			return [2]int{aux.x, aux.y + aux.h/2}, [2]int{ev.x + ev.w, ev.y + ev.h/2}, "left", "right"
+		}
+		for _, e := range g.edges {
+			aux, ev, auxIsFrom, ok := bandOf(e)
+			if !ok {
+				continue
+			}
+			side := sideOf[e.idx][0]
+			if !auxIsFrom {
+				side = sideOf[e.idx][1]
+			}
+			if side != "left" && side != "right" {
+				continue
+			}
+			dy := (ev.y + ev.h/2) - (aux.y + aux.h/2)
+			if dy < -10 || dy > 10 {
+				continue
+			}
+			// ... and it must actually MEET the event through that side:
+			// an on-row connection whose straight is blocked — a box in
+			// the way, or a flow corridor it would cut (v7P6: a hierarchy
+			// tie never slices the timeline) — leaves for a lane off the
+			// top instead (controllers → its loop, across the loop's own
+			// sub-event link); no side to share, the premise fails.
+			ap, ep, _, _ := facing(aux, ev)
+			if g.hitsNode([][2]int{ap, ep}, e) || g.grazeCount([][2]int{ap, ep}, e) > 0 ||
+				g.cutsFlowChord(ap, ep) {
+				continue
+			}
+			aligned[akey{aux.idx, e.rel, ev.x > aux.x}] = true
+		}
+		// arrivals already assigned to a node's side (arrowheads need
+		// room: a side takes at most TWO band arrivals — the on-row one
+		// and one joined; a third would stack its head on a neighbour's)
+		arrivals := func(n int, side string) int {
+			c := 0
+			for _, o := range g.edges {
+				if o.to == n && sideOf[o.idx][1] == side {
+					c++
+				}
+			}
+			return c
+		}
+		for _, e := range g.edges {
+			aux, ev, auxIsFrom, ok := bandOf(e)
+			if !ok {
+				continue
+			}
+			right := ev.x > aux.x
+			if !aligned[akey{aux.idx, e.rel, right}] {
+				continue
+			}
+			ap, ep, auxSide, evSide := facing(aux, ev)
+			side := sideOf[e.idx][0]
+			if !auxIsFrom {
+				side = sideOf[e.idx][1]
+			}
+			if side == auxSide {
+				// already on the facing side (the near tie, dominant
+				// axis): PIN it too, else 1b's vertical unification pulls
+				// it away under a farther sibling that stayed vertical
+				sidePinned[e] = true
+				continue
+			}
+			if side != "top" && side != "bottom" {
+				continue
+			}
+			gapX := maxInt(aux.x, ev.x) - minInt(aux.x+aux.w, ev.x+ev.w)
+			gapY := maxInt(aux.y, ev.y) - minInt(aux.y+aux.h, ev.y+ev.h)
+			if gapY < 0 {
+				gapY = 0
+			}
+			// the 150° cap by BORDER gaps (as 1b measures it) — and, since
+			// TALL boxes lie the other way (a side port sits half a box
+			// below the border gap's end), the CENTRE delta must not run
+			// past ~79° either (a 240px event's tie read near-vertical)
+			dyC := (ev.y + ev.h/2) - (aux.y + aux.h/2)
+			if dyC < 0 {
+				dyC = -dyC
+			}
+			if gapX < GridStep || gapY*100 > gapX*373 || dyC*100 > gapX*500 {
+				continue
+			}
+			recv, recvSide := ev.idx, evSide
+			if !auxIsFrom {
+				recv, recvSide = aux.idx, auxSide
+			}
+			if arrivals(recv, recvSide) >= 2 {
+				continue
+			}
+			// (a band-mate's on-row chord in the way is NOT a refusal:
+			// one same-kind crossing is within the router's budget, and
+			// refusing the side only sends the tie to a worse shape —
+			// the router's currency decides, not this pass)
+			trial := [][2]int{ap, ep}
+			if g.hitsNode(trial, e) || g.grazeCount(trial, e) > 0 ||
+				g.cutsFlowChord(ap, ep) {
+				continue
+			}
+			if auxIsFrom {
+				sideOf[e.idx] = [2]string{auxSide, evSide}
+			} else {
+				sideOf[e.idx] = [2]string{evSide, auxSide}
+			}
+			sidePinned[e] = true
+		}
+	}
+
 	// ---- 1b. same-kind edges from one aux node UNIFY their exit side
 	// (v7P9: "aim for symmetry — use one side
 	// for the same edge type and direction"): when a node's same-rel
@@ -227,7 +380,7 @@ func (g *graph) route() []routed {
 				continue
 			}
 			for _, e := range es {
-				if sideOf[e.idx][0] == "top" || sideOf[e.idx][0] == "bottom" {
+				if sideOf[e.idx][0] == "top" || sideOf[e.idx][0] == "bottom" || sidePinned[e] {
 					continue
 				}
 				f, t := g.nodes[e.from], g.nodes[e.to]
@@ -361,6 +514,28 @@ func (g *graph) route() []routed {
 					alignedCount++
 				}
 			}
+			// A lone ALIGNED partner takes 0.5 wherever it falls in the
+			// approach order, and the others STAY ON THEIR SIDE of it —
+			// every end before it in the order below 0.5, every end after
+			// it above, each at least one slot step away — so the fan
+			// never folds back across the horizontal (a band member's
+			// ties UP the chain sort before its on-row edge; the "+one
+			// step" nudge assumed the aligned end was the natural middle
+			// and left the middle end BELOW the horizontal though its
+			// partner lay above — the straights crossed at the exit). A
+			// lone FLOW port keeps the nudge as it was: on a wide fan
+			// into a composite the flow's approach index is a poor guide
+			// to its dogleg arrivals, and ordering everything around it
+			// crammed the fan into half the border.
+			alignedIdx := -1
+			if flowCount == 0 && alignedCount == 1 {
+				for i, end := range ends {
+					if aligned(end) {
+						alignedIdx = i
+					}
+				}
+			}
+			step := 0.5 / float64(len(ends)+1)
 			for i, end := range ends {
 				pos := float64(i+1) / float64(len(ends)+1)
 				if len(ends) == 2 {
@@ -372,10 +547,14 @@ func (g *graph) route() []routed {
 				switch {
 				case flowCount == 1 && g.isFlow(end.edge):
 					pos = 0.5
-				case flowCount == 0 && alignedCount == 1 && aligned(end):
+				case alignedIdx < 0 && (flowCount == 1 || alignedCount == 1) && pos == 0.5:
+					pos += step
+				case i == alignedIdx:
 					pos = 0.5
-				case (flowCount == 1 || alignedCount == 1) && pos == 0.5:
-					pos += 0.5 / float64(len(ends)+1)
+				case alignedIdx >= 0 && i < alignedIdx:
+					pos = math.Min(pos, 0.5-float64(alignedIdx-i)*step)
+				case alignedIdx >= 0 && i > alignedIdx:
+					pos = math.Max(pos, 0.5+float64(i-alignedIdx)*step)
 				}
 				pp := portPos[end.edge]
 				if end.atFrom {
@@ -3450,6 +3629,33 @@ func crossPoint(a0, a1, b0, b1 [2]int) (float64, float64) {
 	}
 	t := ((x1-x3)*(y3-y4) - (y1-y3)*(x3-x4)) / den
 	return x1 + t*(x2-x1), y1 + t*(y2-y1)
+}
+
+// cutsFlowChord reports whether the segment a0→a1 properly crosses the
+// pinned chord of any flow edge (leads-to / boundary link) between placed
+// nodes — bottom centre to top centre, the corridor a flow edge holds
+// before routing (v7P6). A pre-routing stand-in for the router's
+// prohibitive corridor cut, used where ports are still being decided.
+func (g *graph) cutsFlowChord(a0, a1 [2]int) bool {
+	for _, fe := range g.edges {
+		if !g.isFlow(fe) {
+			continue
+		}
+		f, t := g.nodes[fe.from], g.nodes[fe.to]
+		if !f.placed || !t.placed {
+			continue
+		}
+		b0 := [2]int{f.x + f.w/2, f.y + f.h}
+		b1 := [2]int{t.x + t.w/2, t.y}
+		if t.y+t.h/2 < f.y+f.h/2 {
+			b0 = [2]int{f.x + f.w/2, f.y}
+			b1 = [2]int{t.x + t.w/2, t.y + t.h}
+		}
+		if segsCross(a0, a1, b0, b1) {
+			return true
+		}
+	}
+	return false
 }
 
 func segsCross(a0, a1, b0, b1 [2]int) bool {

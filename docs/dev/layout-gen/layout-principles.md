@@ -984,21 +984,44 @@ PORTS face the partner, by these rules:
   same-rel children land uniformly on their tops — the ratified
   sibling-cluster look), and a side landing never pays: hit, new
   crossing, graze, a taken side, or broken approach order all revert;
-- same-kind edges from one AUX node share ONE exit side: when a node's
-  same-rel edges toward the same vertical direction split between
+- same-kind edges from one AUX node share ONE exit side — the user
+  wrote one relation, and anchor-vs-tie is the engine's internal coin
+  (v7P7). A BAND MEMBER's side is its FACING side: an aux node that sits
+  ON THE ROW of an event it connects to meets that event on the
+  horizontal, and its other same-rel ties to events in the same
+  horizontal direction join that side and land on the events' facing
+  sides — not off its bottom onto their top corners (Patrick, part-of
+  every step from the right flank: "if he is connected via his left side
+  at the top-most connection, the other two should prefer the left side
+  too"); the near tie that already faces is held there too, so a
+  farther sibling left vertical never drags it away. Otherwise, when a
+  node's same-rel edges toward the same vertical direction split between
   vertical and horizontal exits, the horizontal ones join the vertical
-  side — the user wrote one relation, and anchor-vs-tie is the engine's
-  internal coin (v7P7). Only with a clean trial: the box gap must keep
-  the line inside the 150° cap (border gaps — wide boxes lie) and the
-  joined straight must not hit or graze (the late-branch tB kept its
-  stub); a far member whose line would fall flat keeps its side exit —
-  symmetry never grows the canvas (span's two
-  part-ofs both leave the top);
+  side (span's two part-ofs both leave the top). Either join only with a
+  clean trial: the box gap must keep the line inside the 150° cap
+  (border gaps — wide boxes lie; and tall boxes lie the other way, so
+  the centre delta stays under five times the horizontal gap too), the
+  joined straight must not hit, graze or cut a flow corridor (the
+  late-branch tB kept its stub), and the receiving side must have room —
+  a side takes at most TWO band arrivals, the on-row one and one more,
+  a third would stack its head on a neighbour's (three chain events
+  expressing one concept: the far one still lands on its bottom); a
+  member whose line would fall flat — or too steep for the side — keeps
+  its own exit: symmetry never grows the canvas, and a band join is a
+  preference, not a force. The premise itself needs the on-row straight
+  to be CLEAN: an on-row edge that must lane around its event's own aux
+  (controllers → its loop) shares no side;
 - an edge never runs ALONG a border it touches: a detour's ports face
   its FIRST segment (a horizontal-first dogleg leaves the side's centre,
   not the top border) — the sibling of the no-corner rule;
 - several edges sharing a border SPREAD around the PINNED port — never
-  all from one point, never at corners — and slots RE-DERIVE from the
+  all from one point, never at corners — in APPROACH ORDER on both sides
+  of it: every end before the pinned one in the order sits below the
+  midline, every end after it above, each at least one slot step away,
+  so a fan never folds back across the pinned line (a band member's ties
+  UP the chain sort before its on-row edge; nudging the displaced middle
+  end one step DOWN put it under the horizontal though its partner lay
+  above, and the straights crossed at the exit) — and slots RE-DERIVE from the
   FINAL side membership after routing: when a co-slotted edge leaves
   for a flank lane, the survivor re-centres instead of keeping an
   abandoned quarter (s1—s2); a PAIR takes the QUARTERS

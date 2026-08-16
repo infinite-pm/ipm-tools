@@ -16,6 +16,21 @@ extension keeps its own changelog in
   equal spans keep the canon (things left, concepts right). Fixture: "the
   chain-spanning thing takes the flank opposite its band rivals" in
   `docs/dev/layout-gen/layout-alg-ext.md`.
+- Layout: a band member's ties fan from its FACING side. A thing on the row
+  of an event it is part-of meets that event on the horizontal; its other
+  part-of ties to events in the same direction now leave the same side and
+  land on the events' facing sides, instead of dropping off its bottom onto
+  the events' top corners (Patrick's second and third ties left his bottom
+  and landed top-right of the events while the first left his side). Each
+  join keeps the 150° cap and a clean straight, and a side takes at most
+  two such arrivals; a steeper or third tie keeps its vertical exit. Nodes
+  with no on-row event edge keep the previous vertical unification. Same
+  fixture as above, plus "a band member's ties up the chain fan from its
+  facing side too".
+- Layout: a fan sharing one border keeps its approach order on both sides
+  of the pinned (flow / on-row) port — the displaced end used to be nudged
+  one step down regardless of which side of the pinned end it belonged
+  to, so ties up a chain crossed their on-row edge at the exit.
 
 ## 0.4.2 — 2026-08-13
 
