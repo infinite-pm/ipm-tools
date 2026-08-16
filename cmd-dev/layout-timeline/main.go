@@ -61,9 +61,6 @@ type week struct {
 	Identical int      `json:"identical"`
 	Skipped   int      `json:"skipped"`
 	Rendered  int      `json:"-"`
-	// PanesDropped marks a column whose pictures were dropped to keep the
-	// report openable (trimPanes); its tables and commands are intact.
-	PanesDropped bool `json:"panesDropped,omitempty"`
 }
 
 func main() { os.Exit(run()) }
@@ -86,7 +83,7 @@ func run() int {
 	flag.BoolVar(&showExample, "config-example", false, "print a config to start from, and exit")
 	flag.BoolVar(&buildOnly, "build-only", false, "PHASE 1: resolve the columns and build every engine into the cache, then stop — the report run afterwards is sweeps only")
 	flag.IntVar(&jobs, "jobs", 2, "parallel engine builds AND sweep workers. A long history spawns tens of thousands of processes; this is the knob for a machine that is also running an editor")
-	flag.IntVar(&maxMB, "max-mb", 8, "stop inlining diagram panes once the report reaches this many MB (0 = no limit). Hundreds of inline SVGs is what makes a report unopenable")
+	flag.IntVar(&maxMB, "max-mb", 8, "cap ONE COLUMN PAGE's inlined diagrams, in MB (0 = no cap)")
 	flag.StringVar(&rev, "rev", "HEAD", "branch, tag or commit whose history is walked — the series worth seeing is often on a branch nobody has checked out")
 	flag.StringVar(&sources, "sources", "", "directory to take the DIAGRAMS from (default: --repo). Point it at another checkout to run an old engine over today's diagrams")
 	flag.StringVar(&by, "by", "week", "what a column is: week (a snapshot per Monday) | engine-commit (a snapshot per commit that touched the engine — the granularity that answers \"when did the layout change\")")
@@ -218,18 +215,50 @@ func run() int {
 	}
 
 	// PHASE 2 — sweeps and the report, off the cached binaries.
-	weeksOut := compare(repoAbs, cacheAbs, snaps, diagrams, limitPerWeek, noSVG, verbose, jobs, maxMB)
+	weeksOut := compare(repoAbs, cacheAbs, snaps, diagrams, limitPerWeek, noSVG, verbose, jobs)
+
+	// Every column can also be compared against TODAY, not only against the
+	// column before it: "what did this week look like next to what we ship
+	// now" is the question a reader of an old column actually has. One extra
+	// sweep with the newest engine answers it for every row.
+	current := map[string][]byte{}
+	if !noSVG {
+		current = renderCurrent(repoAbs, cacheAbs, snaps, diagrams, weeksOut, jobs, verbose)
+	}
 
 	if err := os.MkdirAll(outAbs, 0o755); err != nil {
 		return fail("create %s: %v", outAbs, err)
 	}
-	reportPath := filepath.Join(outAbs, "index.html")
-	html := renderHTML(timelineInput{
+	in := timelineInput{
 		Repo: repoDesc(cfg, repoAbs, rev), Sources: srcRoot, Paths: paths, Diagrams: len(diagrams),
 		Weeks: weeksOut, Elapsed: time.Since(started), At: at + " / " + by, NoSVG: noSVG,
-	})
-	if err := os.WriteFile(reportPath, []byte(html), 0o644); err != nil {
-		return fail("write report: %v", err)
+		Current: current, MaxBytes: maxMB * 1024 * 1024,
+	}
+
+	// One page per column, and an index over them. A single page for a long
+	// history is unopenable however carefully it is rationed; this way the
+	// index stays a few kilobytes and each page carries only its own
+	// diagrams.
+	reportPath := filepath.Join(outAbs, "index.html")
+	if err := os.RemoveAll(filepath.Join(outAbs, "w")); err != nil {
+		return fail("clear pages: %v", err)
+	}
+	pages := 0
+	for i, w := range weeksOut {
+		if !hasPage(w) {
+			continue
+		}
+		dir := filepath.Join(outAbs, filepath.FromSlash(pageDir(w.Label)))
+		if err := os.MkdirAll(dir, 0o755); err != nil {
+			return fail("create %s: %v", dir, err)
+		}
+		if err := os.WriteFile(filepath.Join(dir, "index.html"), []byte(renderPage(in, i)), 0o644); err != nil {
+			return fail("write page: %v", err)
+		}
+		pages++
+	}
+	if err := os.WriteFile(reportPath, []byte(renderIndex(in)), 0o644); err != nil {
+		return fail("write index: %v", err)
 	}
 	if data, err := json.MarshalIndent(weeksOut, "", " "); err == nil {
 		_ = os.WriteFile(filepath.Join(outAbs, "manifest.json"), append(data, '\n'), 0o644)
@@ -239,11 +268,8 @@ func run() int {
 	for _, w := range weeksOut {
 		moved += len(w.Changes)
 	}
-	fmt.Fprintf(os.Stderr, "layout-timeline: %d column(s), %d diagram-change(s), report %.1f MB [%s]\n",
-		len(weeksOut), moved, float64(len(html))/(1024*1024), time.Since(started).Round(time.Millisecond))
-	if maxMB > 0 && len(html) > maxMB*1024*1024 {
-		fmt.Fprintf(os.Stderr, "layout-timeline: the report passed --max-mb=%d; later columns kept their tables but lost their panes\n", maxMB)
-	}
+	fmt.Fprintf(os.Stderr, "layout-timeline: %d column(s), %d diagram-change(s), %d page(s) [%s]\n",
+		len(weeksOut), moved, pages, time.Since(started).Round(time.Millisecond))
 	fmt.Println(reportPath)
 	return 0
 }
@@ -391,8 +417,7 @@ func plan(repo, rev, since, until string, weeks int) ([]time.Time, error) {
 // Streaming on purpose: only two sweeps are ever held at once, so the memory
 // cost does not grow with the number of weeks.
 func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagram,
-	limitPerWeek int, noSVG, verbose bool, jobs, maxMB int) []week {
-	budget := maxMB * 1024 * 1024
+	limitPerWeek int, noSVG, verbose bool, jobs int) []week {
 	var out []week
 	var prevBin string   // the newest engine successfully built so far
 	var prevLabel string // the week that engine came from
@@ -476,51 +501,58 @@ func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagra
 		prevBin, prevLabel = eng.LayoutGen, s.Label()
 		out = append(out, w)
 	}
-	if dropped := trimPanes(out, budget); dropped > 0 && verbose {
-		fmt.Fprintf(os.Stderr, "layout-timeline: dropped panes from %d older column(s) to stay under the size limit\n", dropped)
-	}
 	return out
 }
 
-// trimPanes keeps the report openable by dropping diagram panes from the
-// OLDEST columns first.
-//
-// Which end matters: a reader of a long history is nearly always asking about
-// its recent end, so spending the budget in chronological order — as a running
-// total during the sweep does — starves exactly the columns they came for. The
-// rows themselves stay either way, with their change tables, findings and
-// commands; only the pictures go.
-func trimPanes(weeks []week, budget int) int {
-	if budget <= 0 {
-		return 0
-	}
-	total := 0
-	for _, w := range weeks {
-		for _, c := range w.Changes {
-			total += len(c.OldSVG) + len(c.NewSVG)
-		}
-	}
-	dropped := 0
-	for i := range weeks {
-		if total <= budget {
+// renderCurrent lays out every diagram that appears in the report with the
+// NEWEST engine, so each row can offer "what this looks like today" beside
+// what it looked like then. One sweep, and only the diagrams that actually
+// changed somewhere are rendered.
+func renderCurrent(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagram,
+	weeks []week, jobs int, verbose bool) map[string][]byte {
+	var tip snapshot
+	for i := len(snaps) - 1; i >= 0; i-- {
+		if snaps[i].SHA != "" {
+			tip = snaps[i]
 			break
 		}
-		had := false
-		for j := range weeks[i].Changes {
-			c := &weeks[i].Changes[j]
-			if len(c.OldSVG)+len(c.NewSVG) == 0 {
-				continue
-			}
-			total -= len(c.OldSVG) + len(c.NewSVG)
-			c.OldSVG, c.NewSVG = nil, nil
-			had = true
+	}
+	if tip.SHA == "" {
+		return nil
+	}
+	from := repo
+	if tip.Repo != "" {
+		from = tip.Repo
+	}
+	eng, err := layoutaudit.BuildEngine(from, tip.SHA, tip.Label(), cache, "", false)
+	if err != nil {
+		if verbose {
+			fmt.Fprintf(os.Stderr, "layout-timeline: no current engine (%v)\n", err)
 		}
-		if had {
-			dropped++
-			weeks[i].PanesDropped = true
+		return nil
+	}
+	wanted := map[string]bool{}
+	for _, w := range weeks {
+		for _, c := range w.Changes {
+			wanted[c.ID] = true
 		}
 	}
-	return dropped
+	var subset []layoutaudit.Diagram
+	for _, d := range diagrams {
+		if wanted[d.ID] {
+			subset = append(subset, d)
+		}
+	}
+	out := map[string][]byte{}
+	for _, p := range layoutaudit.SweepN(subset, eng.LayoutGen, eng.LayoutGen, jobs) {
+		if p.New.Graph == nil {
+			continue
+		}
+		if svg, err := ipmsvg.Render(p.New.Graph); err == nil {
+			out[p.Diagram.ID] = svg
+		}
+	}
+	return out
 }
 
 func diffPair(p layoutaudit.Pair) change {

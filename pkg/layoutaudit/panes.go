@@ -41,6 +41,16 @@ const (
 // PaneCycle is the pinned order a click steps through.
 var PaneCycle = []string{ModeBefore, ModeFirst, ModeSecond}
 
+// The LEFT pane's two states. It is the reference the right pane is read
+// against, and which reference is wanted depends on the question: the column
+// before this one ("what did this change do"), or what ships today ("how far
+// from current is this"). An old column is nearly always read with the second
+// question in mind, so it must not require opening another report.
+const (
+	LeftPrevious = "previous" // the column immediately before this one
+	LeftCurrent  = "current"  // the newest engine's rendering of the same diagram
+)
+
 // PaneCSS styles the panes and implements the three modes.
 const PaneCSS = `
 .panes{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
@@ -64,6 +74,18 @@ const PaneCSS = `
 .layer-before{opacity:0}
 .layer .chip{position:absolute;top:0;right:0;font-size:10px;line-height:1.5;padding:0 6px;
   border-radius:0 0 0 5px;background:#3b4148;color:#fff;letter-spacing:.4px}
+
+/* The LEFT pane: the reference, switchable between the previous column and
+   what the newest engine draws today. */
+.pane-old .stack > .layer{opacity:0}
+.pane-old .layer-prev{opacity:1}
+.row.leftcurrent .pane-old .layer-prev{opacity:0}
+.row.leftcurrent .pane-old .layer-current{opacity:1}
+.lefts{display:inline-flex;gap:3px;text-transform:none;letter-spacing:0}
+.lefts button{font:inherit;font-size:11px;line-height:1.6;padding:0 7px;border-radius:5px;
+  border:1px solid #d3d7dd;background:#fff;color:#3b4148;cursor:pointer}
+.lefts button:hover{border-color:#9aa3ad}
+.lefts button[aria-pressed="true"]{background:#3b4148;border-color:#3b4148;color:#fff;font-weight:600}
 
 /* Pinned states. Nothing here animates, and nothing responds to hover: once a
    reader has chosen, the picture holds still until they choose again. */
@@ -120,6 +142,13 @@ const PaneControls = `<span class="modes">
         <button type="button" data-mode="auto" title="cycle before → first → second"><span class="glyph">⟳</span>auto</button>
       </span>`
 
+// LeftControls switches the reference pane between the previous column and
+// the current engine's rendering. Rendered only when a "current" is available.
+const LeftControls = `<span class="lefts">
+        <button type="button" data-left="previous" title="the column before this one"><span class="glyph">◀</span>previous</button>
+        <button type="button" data-left="current" title="what the newest engine draws today"><span class="glyph">★</span>current</button>
+      </span>`
+
 // PaneJS wires the controls, the image click and the keyboard shortcuts.
 const PaneJS = `
 const CYCLE = ['before','first','second'];
@@ -148,7 +177,16 @@ function pokeImage(row){
 }
 function setAll(mode){ document.querySelectorAll('.row').forEach(r => setMode(r, mode)); }
 
+// The left pane's reference: previous column, or what ships today.
+function setLeft(row, which){
+  row.classList.toggle('leftcurrent', which === 'current');
+  row.querySelectorAll('.lefts button').forEach(b =>
+    b.setAttribute('aria-pressed', String(b.dataset.left === which)));
+}
+
 document.addEventListener('click', e => {
+  const lb = e.target.closest('.lefts button');
+  if (lb){ setLeft(lb.closest('.row'), lb.dataset.left); return; }
   const btn = e.target.closest('.modes button');
   if (btn){ setMode(btn.closest('.row'), btn.dataset.mode); return; }
   const img = e.target.closest('.pane-new .stack');
@@ -161,7 +199,10 @@ document.addEventListener('keydown', e => {
   const pick = {0:'before', 1:'first', 2:'second', a:'auto', b:'before'}[e.key];
   if (pick) setAll(pick);
 });
-document.querySelectorAll('.row').forEach(r => setMode(r, modeOf(r)));
+document.querySelectorAll('.row').forEach(r => {
+  setMode(r, modeOf(r));
+  setLeft(r, r.classList.contains('leftcurrent') ? 'current' : 'previous');
+});
 
 // Animate only what is on screen. Without this every row in the report runs
 // three CSS animations for as long as the page is open, which on a long
@@ -182,6 +223,7 @@ func PaneFuncs() template.FuncMap {
 	return template.FuncMap{
 		"paneCSS":      func() template.CSS { return template.CSS(PaneCSS) },
 		"paneControls": func() template.HTML { return template.HTML(PaneControls) }, //nolint:gosec // a constant
+		"leftControls": func() template.HTML { return template.HTML(LeftControls) }, //nolint:gosec // a constant
 		"paneJS":       func() template.JS { return template.JS(PaneJS) },
 	}
 }

@@ -107,7 +107,20 @@ about — would be invisible.
 
 ## The report
 
-Two parts.
+An **index** and a **page per column**, under `temp/layout-timeline/`:
+
+```
+index.html              the grid and the column list
+w/2026-07-13/index.html one column: its changed diagrams
+w/2026-06-15/index.html …
+```
+
+One page for a long history does not work — the whole-history report was
+3.8 MB of inline diagrams and only stayed openable by throwing panes away.
+Splitting is better than rationing: the index is a few hundred KB whatever the
+history's length (no diagram is inlined in it at all), each column page carries
+only its own, and nothing has to be dropped. It also matches how the thing is
+read: scan the grid, pick the column that moved, look at that column.
 
 **The grid**: one row per diagram that ever moved, one column per week, a
 coloured cell where it moved (red = an invariant got worse, violet = drawn
@@ -116,9 +129,20 @@ became layoutable). Rows are ordered by how often the diagram moved; a cell
 links to that week's row. This answers "when did this last change, and has it
 ever been broken" by looking rather than reading.
 
-**The weeks**: each snapshot with its commit and subject, what it was compared
-against, and for each changed diagram the before/after panes with the same
-controls `layout-audit` uses — ◑ before (the previous week's diagram, in this
+**The column list** on the index: every column with its lineage, commit,
+change count and what happened — including the quiet ones, which have no page
+because a link to an empty room is worse than no link.
+
+**A column page**: its commit and subject, what it was compared against, links
+to the previous and next columns that moved, and for each changed diagram the
+reference/after panes.
+
+The LEFT pane is the reference, and it switches: **◀ previous** (the column
+before this one — "what did this change do") or **★ current** (what the newest
+engine draws today — "how far from what we ship is this"). An old column is
+nearly always read with the second question in mind, so it does not require
+opening another report. The right pane keeps the same controls `layout-audit`
+uses — ◑ before (the previous week's diagram, in this
 frame), ▢ first (this week's), ◆ second (this week's with the differences
 marked), ⟳ auto (cycling). Rows open on ▢ first and stand still; alternation
 is opt-in. Both weeks' diagrams share one grid cell at one pixel scale, so
