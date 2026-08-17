@@ -15,6 +15,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 	"strings"
 	"time"
 
@@ -494,4 +495,169 @@ func firstCommitDate(repo, rev string) (time.Time, error) {
 		line = line[:i]
 	}
 	return time.Parse(time.RFC3339, strings.TrimSpace(line))
+}
+
+// recentLayoutCommits is the tail of the report: the last few commits that
+// could plausibly have moved a diagram, each as its own column.
+//
+// A daily column is "the commit standing at the start of that day", which
+// hides a day with three engine commits in it — exactly the day on which the
+// question "which of mine did this" is being asked. So the end of the history
+// is sampled by COMMIT rather than by date.
+//
+// "Could plausibly have moved a diagram" is two signals, because neither is
+// enough alone:
+//
+//   - it TOUCHED the engine paths. Reliable, and the reason this works at all.
+//   - its message mentions layout. Catches the changes made outside those
+//     paths that still move pictures — a renderer, a golden, a shared helper —
+//     which a path filter silently drops.
+//
+// The union over-reports rather than under-reports, which is the right way for
+// a tool whose failure mode is "your change is not in the report".
+func recentLayoutCommits(repo, rev string, paths []string, n int) ([]snapshot, error) {
+	if n <= 0 {
+		return nil, nil
+	}
+	seen := map[string]bool{}
+	var shas []string
+	add := func(out string, err error) {
+		if err != nil {
+			return
+		}
+		for _, sha := range strings.Fields(out) {
+			if !seen[sha] {
+				seen[sha] = true
+				shas = append(shas, sha)
+			}
+		}
+	}
+	// Look deeper than n in each: either signal alone may be sparse, and the
+	// union is trimmed to n by DATE afterwards.
+	depth := fmt.Sprintf("-n%d", n*8)
+	add(Git(repo, append([]string{"rev-list", depth, rev, "--"}, paths...)...))
+	// The message signal is scoped to the TREES THE ENGINE LIVES IN (pkg, cmd
+	// — one level up from --engine-paths). Unscoped, it matched every commit
+	// to this very tool: "layout-timeline: …" says layout and cannot move a
+	// diagram, so the newest columns filled up with changes that were
+	// guaranteed to report nothing.
+	grep := []string{"rev-list", depth, "--regexp-ignore-case", "--grep=layout", rev}
+	if trees := topLevels(paths); len(trees) > 0 {
+		grep = append(append(grep, "--"), trees...)
+		for _, mine := range auditsItself {
+			grep = append(grep, ":(exclude)"+mine)
+		}
+	}
+	add(Git(repo, grep...))
+	if len(shas) == 0 {
+		return nil, nil
+	}
+
+	// Order by git's OWN walk, not by timestamp. Commits made within the same
+	// second are ordinary in scripted work, and sorting by date puts those in
+	// an arbitrary order — which would tell the reader the wrong one came
+	// first, on exactly the day they are trying to pin down.
+	order := map[string]int{}
+	if out, err := Git(repo, "rev-list", "-n5000", rev); err == nil {
+		for i, sha := range strings.Fields(out) {
+			order[sha] = i
+		}
+	}
+	type dated struct {
+		sha     string
+		subject string
+		when    time.Time
+		at      int
+	}
+	var all []dated
+	for _, sha := range shas {
+		d := dated{sha: sha, at: len(order) + 1}
+		if i, ok := order[sha]; ok {
+			d.at = i
+		}
+		d.subject, _ = Git(repo, "log", "-1", "--format=%s", sha)
+		if ts, err := Git(repo, "log", "-1", "--format=%cI", sha); err == nil {
+			d.when, _ = time.Parse(time.RFC3339, ts)
+		}
+		all = append(all, d)
+	}
+	sort.SliceStable(all, func(i, j int) bool {
+		if all[i].at != all[j].at {
+			return all[i].at < all[j].at // nearer to rev = newer
+		}
+		return all[i].when.After(all[j].when) // outside the walk window
+	})
+	if len(all) > n {
+		all = all[:n]
+	}
+	// Oldest first, so the tail reads in the same direction as the rest.
+	out := make([]snapshot, 0, len(all))
+	for i := len(all) - 1; i >= 0; i-- {
+		d := all[i]
+		s := snapshot{SHA: d.sha, Subject: d.subject, Date: d.when, Monday: d.when, Repo: repo, Now: true}
+		s.label = d.when.Format("2006-01-02") + " " + layoutaudit.Short(d.sha)
+		out = append(out, s)
+	}
+	return out, nil
+}
+
+// auditsItself are the packages the REPORT is built from. The engine does not
+// import them, so a change to them cannot move a diagram — a commit touching
+// only these is noise in a report about the engine, and every commit to this
+// tool says "layout" in its message. This is the tool declining to report on
+// itself.
+//
+// It applies only to the fuzzy message signal. A path named in --engine-paths
+// is an explicit statement about what the engine is, and is never second-
+// guessed here.
+var auditsItself = []string{"pkg/layoutaudit", "pkg/layoutdiff", "cmd-dev"}
+
+// topLevels is the distinct first path segment of each engine path, in order:
+// ["pkg/layout7", "pkg/layout", "cmd/layout-gen"] -> ["pkg", "cmd"].
+//
+// A pathspec of "cmd" matches cmd/ and NOT cmd-dev/, which is what keeps this
+// tool's own commits out of its own report.
+func topLevels(paths []string) []string {
+	seen := map[string]bool{}
+	var out []string
+	for _, p := range paths {
+		top := p
+		if i := strings.IndexAny(p, "/\\"); i > 0 {
+			top = p[:i]
+		}
+		if top != "" && !seen[top] {
+			seen[top] = true
+			out = append(out, top)
+		}
+	}
+	return out
+}
+
+// appendRecent puts those columns on the end, then the working tree.
+//
+// Anything already covered by an earlier column is dropped: a commit that a
+// weekly column already stands for would otherwise be compared against itself
+// and report, truthfully but uselessly, that nothing moved.
+func appendRecent(repo, rev, source string, paths []string, n int, snaps []snapshot) ([]snapshot, error) {
+	recent, err := recentLayoutCommits(repo, rev, paths, n)
+	if err != nil {
+		return snaps, err
+	}
+	have := map[string]bool{}
+	for _, s := range snaps {
+		if s.SHA != "" {
+			have[s.SHA] = true
+		}
+	}
+	for _, s := range recent {
+		if have[s.SHA] {
+			continue
+		}
+		have[s.SHA] = true
+		s.Source = source
+		snaps = append(snaps, s)
+	}
+	// The working tree last, and only when it differs from what is now the
+	// final column — that is the whole point of it.
+	return appendHeadOf(repo, rev, source, snaps)
 }

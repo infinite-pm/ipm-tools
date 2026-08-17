@@ -50,6 +50,10 @@ type timelineInput struct {
 	// to be: a diagram page of fourteen versions displayed the same picture
 	// fourteen times, and the report looked convincing while saying nothing.
 	Panes map[string]string
+	// Head is the commit this report was generated against, and whether the
+	// tree was clean. A report is a snapshot of a moving target: without it,
+	// two reports that disagree cannot be placed against each other.
+	Head string
 	// IPMT is each diagram's source text. Every picture on a diagram page is
 	// this one input read by a different engine, so the input is the thing
 	// worth having at hand when the pictures disagree — and worth copying out
@@ -177,6 +181,7 @@ type vmHistCell struct {
 
 type vmIndex struct {
 	Repo, Sources, Paths, Elapsed, At string
+	Head                              string
 	Diagrams, TotalMoves              int
 	WeekLabels                        []string
 	Grid                              []vmGridRow
@@ -403,7 +408,7 @@ func renderDiagram(in timelineInput, id string) string {
 // buildIndex assembles the front page: the grid, then the columns in order.
 func buildIndex(in timelineInput) vmIndex {
 	m := vmIndex{
-		Repo: in.Repo, Sources: in.Sources, Paths: strings.Join(in.Paths, " "),
+		Repo: in.Repo, Head: in.Head, Sources: in.Sources, Paths: strings.Join(in.Paths, " "),
 		Diagrams: in.Diagrams, Elapsed: in.Elapsed.Round(time.Millisecond).String(), At: in.At,
 		Corpus: in.Corpus,
 	}
@@ -715,6 +720,7 @@ td.date{white-space:nowrap;font-weight:600}
   <h1>layout timeline — today's diagrams, column by column</h1>
   <div class="prov">
     <b>history</b><span>{{.Repo}}</span>
+    {{if .Head}}<b>generated at</b><span>{{.Head}}</span>{{end}}
     <b>sources</b><span>{{.Diagrams}} diagrams from {{.Sources}} ({{.Paths}}) — fixed; only the engine moves</span>
     <b>columns</b><span>{{len .WeekLabels}} that moved{{if .QuietTotal}} (+{{.QuietTotal}} with no change, folded in){{end}} · {{.At}} · {{.TotalMoves}} diagram-change(s) · {{.Elapsed}}</span>
   </div>

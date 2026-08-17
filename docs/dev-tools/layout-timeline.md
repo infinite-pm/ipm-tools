@@ -202,10 +202,12 @@ Weeks the tool handles without pretending:
 | the engine cannot be built at that commit | *engine could not be built at this commit: …* — an early commit may predate `cmd/layout-gen` entirely; the next buildable week then compares against the last one that built, and the heading says **vs \<week\>** so the span is never implied to be seven days |
 | the first buildable week | *first engine in range — nothing to compare against* |
 
-`--head` (on by default) appends a final column for **what you have right
-now**. Without it the series stops at the start of the current week, and
-everything since Monday — often the very work being asked about — is
-invisible.
+`--head` (on by default) appends columns for **what you have right now**: the
+last `--head-commits` (default 3) layout-relevant commits, each on its own,
+then the working tree. Without it the series stops at the start of the current
+week, and everything since Monday — often the very work being asked about — is
+invisible. One HEAD column was not enough either: a day with three engine
+commits in it collapsed to one, which is the day you most need separated.
 
 That column is the **working tree** whenever the tree is dirty, labelled
 `<date> workdir` and saying how many files are uncommitted. It is built from
@@ -258,6 +260,31 @@ rather than reading.
 The grid leads BOTH ways, which is the whole navigation: a **cell** opens that
 diagram's own page (one diagram, every version of it), a **column header**
 opens that column's page (one column, every diagram that moved in it).
+
+**Provenance**: the index says which commit the report was *generated at*, and
+whether the tree was dirty. A report is a snapshot of a moving target — the
+engine and the diagrams both change under it — so that line is what lets two
+reports be placed against each other, and what anyone filing a bug found in one
+has to quote.
+
+**The tail is sampled by COMMIT, not by date.** A daily column is "the commit
+standing at the start of that day", which hides a day with three engine commits
+in it — exactly the day on which "which of mine did this" is asked. So the last
+`--head-commits` (default 3) layout-relevant commits each get their own column,
+followed by the working tree.
+
+"Layout-relevant" is two signals, because neither is enough alone: the commit
+**touched** `--engine-paths` (reliable, and why this works at all), or its
+**message says layout** and it touched the trees the engine lives in (catches
+changes made outside those paths that still move pictures — a renderer, a
+shared helper). The union over-reports rather than under-reports, which is the
+right way round for a tool whose failure mode is "your change is not in the
+report".
+
+The message signal excludes `pkg/layoutaudit`, `pkg/layoutdiff` and `cmd-dev` —
+the packages the report itself is built from. Every commit to this tool says
+"layout" and none of them can move a diagram, so without that the newest
+columns filled with changes guaranteed to report nothing.
 
 **The column list** on the index: every column with its lineage, commit,
 change count and what happened — including the quiet ones, which have no page
@@ -321,7 +348,8 @@ ship") belongs to a column page.
 | `--by` | `week` | `week` or `engine-commit` |
 | `--engine-paths` | `pkg/layout7 pkg/layout cmd/layout-gen` | what counts as the engine |
 | `--at` | `week-start` | `week-start` or `first-of-week` (week columns only) |
-| `--head` | on | append the current HEAD as a final column |
+| `--head` | on | append the newest work as trailing columns |
+| `--head-commits` | `3` | how many recent layout-relevant commits get their own column |
 | `--list` | off | print the weekly commits and exit — no builds, no sweep |
 | `--limit-per-week` | `6` | rendered diagrams per week (0 = all) |
 | `--no-svg` | off | grid and tables only |

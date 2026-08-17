@@ -985,3 +985,25 @@ func TestBisectUsesThisLineagesEnginePaths(t *testing.T) {
 		t.Errorf("no engine paths at all:\n%s", got)
 	}
 }
+
+// A report is a snapshot of a moving target — the engine and the diagrams
+// both change under it — so the commit it was generated at is what lets two
+// reports be placed against each other, and what anyone filing something
+// found in one has to quote.
+func TestIndexNamesTheCommitItWasGeneratedAt(t *testing.T) {
+	html := renderIndex(timelineInput{
+		Repo: "/repo @ HEAD", Weeks: sampleWeeks(), Diagrams: 1,
+		Head: "ipm-tools@HEAD 1a2b3c4 route ties first (2026-08-17)",
+	})
+	if !strings.Contains(html, "generated at") {
+		t.Error("the index does not say which commit it was generated at")
+	}
+	if !strings.Contains(html, "1a2b3c4 route ties first") {
+		t.Error("the head commit is not on the index")
+	}
+	// Without one, no empty row promising provenance it does not have.
+	bare := renderIndex(timelineInput{Weeks: sampleWeeks(), Diagrams: 1})
+	if strings.Contains(bare, "generated at") {
+		t.Error("drew an empty provenance row")
+	}
+}

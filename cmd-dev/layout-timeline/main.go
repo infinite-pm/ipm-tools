@@ -82,6 +82,7 @@ func run() int {
 		by, enginePaths, rev, sources      string
 		configPath                         string
 		days, weeks, limitPerWeek          int
+		headCommits                        int
 		list, noSVG, verbose, head         bool
 		buildOnly, showExample             bool
 		jobs, maxMB                        int
@@ -104,7 +105,8 @@ func run() int {
 	flag.StringVar(&out, "out", "temp/layout-timeline", "output directory for the report")
 	flag.StringVar(&cache, "cache", layoutaudit.DefaultCache(), "engine build cache, shared with layout-audit so a commit is built once (outside the repo: it is a cache, not output)")
 	flag.IntVar(&limitPerWeek, "limit-per-column", 0, "render at most N changed diagrams per column page (0 = all, bounded by --max-mb); the rest are listed by name")
-	flag.BoolVar(&head, "head", true, "add the current HEAD as a final column, so work committed since Monday is not invisible")
+	flag.BoolVar(&head, "head", true, "add columns for the newest work, so what was committed since Monday is not invisible")
+	flag.IntVar(&headCommits, "head-commits", 3, "how many of the most recent LAYOUT-RELEVANT commits get their own column at the end (touching --engine-paths, or saying \"layout\"). A daily column hides a day with three engine commits in it — which is the day you need to see")
 	flag.BoolVar(&list, "list", false, "print the weekly commits and exit — no builds, no sweep")
 	flag.BoolVar(&noSVG, "no-svg", false, "skip the diagram panes; produce the grid and the change tables only")
 	flag.BoolVar(&verbose, "verbose", false, "log every build and sweep")
@@ -149,14 +151,14 @@ func run() int {
 
 	var snaps []snapshot
 	if cfg == nil {
-		if snaps, err = resolveOne(repoAbs, rev, by, at, since, until, days, weeks, engine, head); err != nil {
+		if snaps, err = resolveOne(repoAbs, rev, by, at, since, until, days, weeks, engine, head, headCommits); err != nil {
 			return fail("%v", err)
 		}
 	} else {
 		if verbose || list {
 			fmt.Fprintf(os.Stderr, "layout-timeline: %s — %s\n", cfgPath, cfg.describeSources())
 		}
-		if snaps, err = resolveChained(cfg, repoAbs, rev, by, at, since, until, days, weeks, head, verbose || list); err != nil {
+		if snaps, err = resolveChained(cfg, repoAbs, rev, by, at, since, until, days, weeks, head, verbose || list, headCommits); err != nil {
 			return fail("%v", err)
 		}
 		if len(paths) == 0 && len(cfg.Diagrams) > 0 {
@@ -258,7 +260,8 @@ func run() int {
 		return fail("create %s: %v", outAbs, err)
 	}
 	in := timelineInput{
-		Repo: repoDesc(cfg, repoAbs, rev), Sources: srcRoot, Paths: paths, Diagrams: len(diagrams),
+		Repo: repoDesc(cfg, repoAbs, rev), Head: headDesc(repoAbs, rev),
+		Sources: srcRoot, Paths: paths, Diagrams: len(diagrams),
 		Weeks: weeksOut, Elapsed: time.Since(started), At: at + " / " + by, NoSVG: noSVG,
 		Current: current, MaxBytes: maxMB * 1024 * 1024,
 		Corpus: corpus,
@@ -329,6 +332,35 @@ func run() int {
 }
 
 // repoDesc names what the columns came from, for the report header.
+// headDesc is the commit this report was generated against.
+//
+// A report is a snapshot of a moving target — the engine AND the diagrams
+// change under it — so the commit it was made at is what lets two reports be
+// placed against each other, and what a reader needs before filing anything
+// found in one. An uncommitted tree is named as such: the newest column was
+// built from files that exist nowhere else.
+func headDesc(repoAbs, rev string) string {
+	sha, err := Git(repoAbs, "rev-parse", rev+"^{commit}")
+	if err != nil {
+		return ""
+	}
+	desc := layoutaudit.Short(sha)
+	if subject, err := Git(repoAbs, "log", "-1", "--format=%s", sha); err == nil {
+		desc += " " + subject
+	}
+	if when, err := Git(repoAbs, "log", "-1", "--format=%cs", sha); err == nil {
+		desc += " (" + when + ")"
+	}
+	if status, err := Git(repoAbs, "status", "--porcelain"); err == nil {
+		if n := len(strings.Fields(strings.TrimSpace(status))); n > 0 {
+			dirty := len(strings.Split(strings.TrimSpace(status), "\n"))
+			desc += fmt.Sprintf(" + %d uncommitted file(s) — the newest column was built from those, not from %s",
+				dirty, layoutaudit.Short(sha))
+		}
+	}
+	return filepath.Base(repoAbs) + "@" + rev + " " + desc
+}
+
 func repoDesc(cfg *Config, repoAbs, rev string) string {
 	if cfg != nil {
 		return cfg.describeSources()
@@ -337,7 +369,7 @@ func repoDesc(cfg *Config, repoAbs, rev string) string {
 }
 
 // resolveOne is the single-repository path: one lineage, walked directly.
-func resolveOne(repoAbs, rev, by, at, since, until string, days, weeks int, engine []string, head bool) ([]snapshot, error) {
+func resolveOne(repoAbs, rev, by, at, since, until string, days, weeks int, engine []string, head bool, headCommits int) ([]snapshot, error) {
 	var snaps []snapshot
 	var err error
 	switch by {
@@ -363,14 +395,14 @@ func resolveOne(repoAbs, rev, by, at, since, until string, days, weeks int, engi
 		return nil, fmt.Errorf("--by must be week or engine-commit, got %q", by)
 	}
 	if head {
-		return appendHead(repoAbs, rev, snaps)
+		return appendRecent(repoAbs, rev, "", engine, headCommits, snaps)
 	}
 	return snaps, nil
 }
 
 // resolveChained walks every lineage the config names, each within the span
 // it owns, and hands back one series in date order.
-func resolveChained(cfg *Config, repoAbs, rev, by, at, since, until string, days, weeks int, head, announce bool) ([]snapshot, error) {
+func resolveChained(cfg *Config, repoAbs, rev, by, at, since, until string, days, weeks int, head, announce bool, headCommits int) ([]snapshot, error) {
 	if err := cfg.resolveTips(); err != nil {
 		return nil, err
 	}
@@ -408,7 +440,7 @@ func resolveChained(cfg *Config, repoAbs, rev, by, at, since, until string, days
 	}
 	if head {
 		last := cfg.Sources[len(cfg.Sources)-1]
-		return appendHeadOf(last.Repo, last.Rev, last.Name, snaps)
+		return appendRecent(last.Repo, last.Rev, last.Name, last.EnginePaths, headCommits, snaps)
 	}
 	return snaps, nil
 }

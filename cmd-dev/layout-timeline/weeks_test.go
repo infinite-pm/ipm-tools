@@ -418,3 +418,167 @@ func TestAppendHeadAddsTheCurrentCommitWhenNewer(t *testing.T) {
 		t.Fatal("appendHead duplicated a snapshot that already was HEAD")
 	}
 }
+
+// The tail of the report is sampled by COMMIT, not by date.
+//
+// A daily column is "the commit standing at the start of that day", which
+// hides a day with three engine commits in it — exactly the day on which
+// "which of mine did this" is being asked.
+func TestRecentLayoutCommitsGetTheirOwnColumns(t *testing.T) {
+	repo := t.TempDir()
+	run := func(args ...string) {
+		t.Helper()
+		cmd := exec.Command("git", args...)
+		cmd.Dir = repo
+		cmd.Env = append(os.Environ(), "GIT_CONFIG_GLOBAL=/dev/null", "GIT_CONFIG_SYSTEM=/dev/null")
+		if out, err := cmd.CombinedOutput(); err != nil {
+			t.Skipf("git %v: %v: %s", args, err, out)
+		}
+	}
+	write := func(rel, body string) {
+		t.Helper()
+		if err := os.MkdirAll(filepath.Dir(filepath.Join(repo, rel)), 0o755); err != nil {
+			t.Fatal(err)
+		}
+		if err := os.WriteFile(filepath.Join(repo, rel), []byte(body), 0o644); err != nil {
+			t.Fatal(err)
+		}
+	}
+	run("init", "-q")
+	run("config", "user.email", "t@example.com")
+	run("config", "user.name", "t")
+	commit := func(path, body, msg string) {
+		write(path, body)
+		run("add", "-A")
+		run("commit", "-qm", msg)
+	}
+	// Three of these five should be picked: two touch the engine, one only
+	// says so in its message. The two unrelated ones must not crowd them out.
+	commit("readme.md", "1", "docs: unrelated")
+	commit("pkg/layout7/a.go", "package layout7", "engine: tighten spans")   // path
+	commit("readme.md", "2", "docs: nothing to do with it")                  // neither
+	commit("pkg/ipmsvg/r.go", "package ipmsvg", "layout: renderer rounding") // message
+	commit("pkg/layout7/b.go", "package layout7", "engine: route ties")      // path
+
+	got, err := recentLayoutCommits(repo, "HEAD", []string{"pkg/layout7"}, 3)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(got) != 3 {
+		t.Fatalf("got %d columns, want 3", len(got))
+	}
+	// Oldest first, so the tail reads the same direction as the rest.
+	want := []string{"engine: tighten spans", "layout: renderer rounding", "engine: route ties"}
+	for i, w := range want {
+		if got[i].Subject != w {
+			t.Errorf("column %d is %q, want %q", i, got[i].Subject, w)
+		}
+	}
+	for _, s := range got {
+		if s.SHA == "" || s.Label() == "" {
+			t.Errorf("column %+v has no commit or no label", s)
+		}
+	}
+}
+
+// A commit an earlier column already stands for must not come back as a tail
+// column: it would be compared against itself and report, truthfully but
+// uselessly, that nothing moved.
+func TestTailDoesNotRepeatAColumnAlreadyThere(t *testing.T) {
+	repo := t.TempDir()
+	for _, args := range [][]string{{"init", "-q"},
+		{"config", "user.email", "t@e"}, {"config", "user.name", "t"}} {
+		cmd := exec.Command("git", args...)
+		cmd.Dir = repo
+		cmd.Env = append(os.Environ(), "GIT_CONFIG_GLOBAL=/dev/null", "GIT_CONFIG_SYSTEM=/dev/null")
+		if out, err := cmd.CombinedOutput(); err != nil {
+			t.Skipf("git: %v: %s", err, out)
+		}
+	}
+	if err := os.MkdirAll(filepath.Join(repo, "pkg/layout7"), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	os.WriteFile(filepath.Join(repo, "pkg/layout7/a.go"), []byte("package layout7"), 0o644)
+	for _, args := range [][]string{{"add", "-A"}, {"commit", "-qm", "engine: only commit"}} {
+		cmd := exec.Command("git", args...)
+		cmd.Dir = repo
+		cmd.Env = append(os.Environ(), "GIT_CONFIG_GLOBAL=/dev/null", "GIT_CONFIG_SYSTEM=/dev/null")
+		cmd.CombinedOutput()
+	}
+	head, err := Git(repo, "rev-parse", "HEAD")
+	if err != nil {
+		t.Skip("no git")
+	}
+
+	// A weekly column already stands for that commit.
+	snaps := []snapshot{{SHA: head, label: "2026-08-10"}}
+	got, err := appendRecent(repo, "HEAD", "", []string{"pkg/layout7"}, 3, snaps)
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, s := range got[1:] {
+		if s.SHA == head && !s.Workdir {
+			t.Error("the tail repeated a commit an earlier column already covers")
+		}
+	}
+}
+
+// Every commit to this tool says "layout" in its message and none of them can
+// move a diagram — the engine does not import the report. Left in, the newest
+// columns filled with changes guaranteed to report nothing.
+func TestTheReportDoesNotReportOnItself(t *testing.T) {
+	repo := t.TempDir()
+	git := func(args ...string) {
+		t.Helper()
+		cmd := exec.Command("git", args...)
+		cmd.Dir = repo
+		cmd.Env = append(os.Environ(), "GIT_CONFIG_GLOBAL=/dev/null", "GIT_CONFIG_SYSTEM=/dev/null")
+		if out, err := cmd.CombinedOutput(); err != nil {
+			t.Skipf("git %v: %v: %s", args, err, out)
+		}
+	}
+	commit := func(rel, msg string) {
+		t.Helper()
+		p := filepath.Join(repo, rel)
+		if err := os.MkdirAll(filepath.Dir(p), 0o755); err != nil {
+			t.Fatal(err)
+		}
+		if err := os.WriteFile(p, []byte("x"), 0o644); err != nil {
+			t.Fatal(err)
+		}
+		git("add", "-A")
+		git("commit", "-qm", msg)
+	}
+	git("init", "-q")
+	git("config", "user.email", "t@e")
+	git("config", "user.name", "t")
+
+	commit("pkg/layout7/a.go", "engine: a real one")
+	// All three of these say "layout" and none can move a diagram.
+	commit("pkg/layoutaudit/x.go", "layout-timeline: a page per diagram")
+	commit("pkg/layoutdiff/y.go", "layout-audit: rank by tier")
+	commit("cmd-dev/layout-timeline/z.go", "layout-timeline: copy buttons")
+
+	got, err := recentLayoutCommits(repo, "HEAD", []string{"pkg/layout7"}, 3)
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, s := range got {
+		for _, mine := range []string{"layout-timeline:", "layout-audit:"} {
+			if strings.HasPrefix(s.Subject, mine) {
+				t.Errorf("the report gave a column to its own change: %q", s.Subject)
+			}
+		}
+	}
+	if len(got) != 1 || got[0].Subject != "engine: a real one" {
+		t.Errorf("got %d column(s) %v, want only the engine commit", len(got), subjectsOf(got))
+	}
+}
+
+func subjectsOf(snaps []snapshot) []string {
+	var out []string
+	for _, s := range snaps {
+		out = append(out, s.Subject)
+	}
+	return out
+}
