@@ -71,42 +71,68 @@ side, 40% down" — and survive a node moving; the bend waypoints and stub
 polylines are ABSOLUTE and do not. A consumer that repositions nodes after
 `Generate` therefore has to discard the bends, and is otherwise left drawing
 every edge straight through whatever now sits in the way. `pkg/layout` carries
-two geometry-only passes for that case. Neither is reachable from the engine,
-so neither can affect the fitness corpora.
+geometry-only passes for that case. None is reachable from the engine, so none
+can affect the fitness corpora.
 
 | pass | what it does |
 |---|---|
-| `OrderSharedPorts(g)` | permutes the fractional slots WITHIN each (node, side) group so their order matches the partners' order along that side |
-| `DetourBlockedEdges(g)` | gives a bend path to every edge whose straight port-to-port line cuts a node box |
+| `OrderSharedPorts(g)` | assigns the fractional slots WITHIN each (node, side) group so their order matches the partners' order along that side; a flow end holds its slot, and no two ends share one |
+| `RouteFrameEdges(g)` | routes every edge on the final boxes with the v7P8/P9 rules — clearance, lanes, a crossing budget with hide-as-stub, the leads-to and last-connection guards — and re-faces the ports of a U-turn edge when that routes at least as well |
+| `DetourBlockedEdges(g)` | the older, smaller repair: a bend path for every edge whose straight port-to-port line cuts a box, nothing else; superseded by `RouteFrameEdges` in the zoom pipeline, kept for callers that want only that |
 
 `OrderSharedPorts` fixes the crossing you get when several edges leave one side
 of a node in the wrong order: the engine spread the fan for where the partners
 were when it placed them, and once nodes move, two edges sharing a side can end
 up assigned the opposite way round and cross immediately, right next to the
-node they share. The SET of fractions is unchanged — the engine's spacing is
-kept exactly, only which edge gets which slot changes — and no edge moves to a
-different side. After the permutation the ports are monotonic in the partner
-coordinate, which is the definition of "these two do not cross at this end", so
-it cannot introduce a crossing it did not remove.
+node they share. After the permutation the ports are monotonic in the partner
+coordinate, which is the definition of "these two do not cross at this end". No
+edge moves to a different side. Three things it does to the slot SET, beyond
+permuting it:
 
-`DetourBlockedEdges` is conservative by construction and cannot make a diagram
-worse: a clear edge is never touched, and an edge with no clean detour is left
-STRAIGHT rather than bent and still blocked. Candidates are scored
-grazes-first (the same 8px margin the universal invariants use), then
-crossings, then length. Container nodes are not obstacles — a shell encloses
-its members, so counting it would block every edge inside a container. When no
-curated candidate is clean it falls back to a coarse grid sweep, stepped at one
-node width because the gaps between obstacles are what it is looking for; only
-edges that are blocked AND have no curated route pay for that.
+- a **flow end** — S/E's edge, or a leads-to between events — keeps the slot it
+  has. The corridor owns its node's midline (v7P6) and a tie must not be
+  permuted onto it; before this, a stale tie holding 0.5 pushed
+  `S → a process` to 0.25 and the flow was no longer vertical;
+- with a flow on the side, the tie slots are **mirrored across the flow's slot**
+  until as many lie on each side of it as there are partners on that side of
+  the flow's own partner — a tie the engine put at 0.25 whose partner is now
+  right of the flow line would otherwise cross the S stub at the port. The
+  divider is the flow's partner position, not the node's centre: in a frame E
+  is wherever it ended up;
+- **no two ends on one slot** — pins can collide (every edge lifted out of a
+  closed composite is pinned to its child's Y, so two edges lifted from one
+  child share a slot), and two lines out of one point can only overlap; a
+  duplicate is nudged to the nearest free slot, outward from the flow.
+
+`RouteFrameEdges` is what the zoom pipeline runs after the ports: routing on
+final geometry, per state, with the same vocabulary as the engine's own router
+(clearance 10 as a RULE with layout7's neighbour exemption, boundaries 20; lane
+separation for interior segments; a budget of 1.0 priced by relation kind, with
+a tie crossing the flow over budget alone; grazes priced in the checker's 8px
+band; hide-as-stub over budget, never a leads-to or a node's last connection,
+which draw the least-bad candidate instead; a tie longer than 3200px hidden
+outright, an engine stub un-hidden only when short and clean). It also owns
+the one port change the order pass may not make: a **U-turn** edge — both ports
+facing away from the partner because the frame moved the boxes after the
+engine chose the sides (A pod stacked over a process, then set beside it: the
+near-to left the pod's bottom, ran under both and rose into the process's top)
+— is also evaluated on the sides `pickPortSide` names for the final boxes, and
+takes them only when they route at least as well. Re-facing blind, before the
+router, hid edges whose re-faced straight met a third box the U had cleared;
+re-facing a single stale end put a port under a box its own-border rail had
+cleared. Both were measured on the corpus and rejected — the router knows, a
+pass does not.
 
 Run them in that order: ports first, so the routes are chosen against the
 corrected endpoints rather than bent around a tangle that is about to be
-untangled.
+untangled. `cmd-dev/framecheck` in ipm-drawio measures the frames of one file
+against the universal invariants — the number a change to these passes is
+judged by, since the fitness corpora cannot see them.
 
-Neither is a second layout engine, and neither can match the engine's own
-kind-aware routing (no crossing budget by relation kind, no hide ordering).
-They remove the edges that visibly cut through a box, and untangle a fan whose
-slots outlived their order — nothing more.
+Neither is a second layout engine: a frame is not the document's graph (it
+carries synthetic shells and synthesized edges), and routing it properly means
+containers as first-class layout objects. These passes remove what visibly
+cuts, hugs, stacks or tangles on the final boxes — nothing structural.
 
 ## Running
 

@@ -450,7 +450,7 @@ For a very long history prefer `--no-svg`, or narrow with `--since` /
 ## What this report cannot see
 
 It measures what `cmd/layout-gen` produces. `pkg/layout`'s post-placement
-passes — `OrderSharedPorts` and `DetourBlockedEdges` — are **not reachable
+passes — `OrderSharedPorts`, `RouteFrameEdges`, `DetourBlockedEdges` — are **not reachable
 from the engine** (`gl:docs/dev/layout-gen/layout7-engine.md`), so a change
 confined to them cannot move a single diagram here however large it is. A real
 example from this repository: `372f0a8` rewrote pin/detour handling and moved

@@ -197,7 +197,7 @@ It is the third view in the layout tooling
 ## What this report cannot see
 
 The audit runs `cmd/layout-gen`, so it sees what that produces.
-`pkg/layout`'s post-placement passes — `OrderSharedPorts`,
+`pkg/layout`'s post-placement passes — `OrderSharedPorts`, `RouteFrameEdges`,
 `DetourBlockedEdges` — are not reachable from the engine
 (`gl:docs/dev/layout-gen/layout7-engine.md`), and a change confined to them
 moves nothing here however large it is: `372f0a8` rewrote pin and detour

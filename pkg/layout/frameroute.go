@@ -57,6 +57,7 @@ const (
 	crossBrushNear     = 0.25 // P9: two edges MEETING at a shared node brush near it; a quarter, not a tangle
 	brushNearWithin    = 40   // px from the shared node within which a crossing is a brush (layout7 Clearance)
 	grazeCost          = 0.5
+	frameGrazeBand     = 8   // px: the checker's band (layoutcheck "within 8px"). pathGrazes' fat box is +8 shrunk by routeShrink, so 6..8px was free to the router and a fault to the checker; a V that skimmed Billie's corner at 8px beat a clean 40px detour on crossings alone
 	grazeBoundaryMult  = 3.0 // P8 (ee960980): hugging S or E is prohibitive — boundaries weigh triple
 	overlapCost        = 1.0 // dcc3ebf4: a covered line is a crossing you cannot even see — priced as one
 	detourTaxOver      = 1.5
@@ -88,6 +89,7 @@ type FrameRouteStats struct {
 	Routed      int // edges given bends
 	Straight    int // edges left straight (clear, or unroutable and drawn least-bad)
 	Hidden      int // edges set to Visibility "stubbed" here
+	Refaced     int // U-turn edges drawn on re-faced ports (both sides re-chosen on the final boxes)
 	Separated   int // lane shifts applied
 	Unseparated int // overlaps that could not be shifted without a new fault
 	// The bounding box every drawn route needs, ports and bends included.
@@ -259,61 +261,94 @@ func RouteFrameEdges(g *Graph) FrameRouteStats {
 			continue
 		}
 		nb := neighbourSet(adj, e.From, e.To)
-		blocked := pathBlocked(straight, obstacles, e.From, e.To, nb)
+		mustDraw := e.Base == string(EdgeLeadsTo) || visible[e.From] <= 1 || visible[e.To] <= 1
 
-		var chosen [][2]int
-		var cost float64
-		if !blocked {
-			chosen = straight
-			cost = pathCost(straight, obstacles, paths, i, e.Base, g)
-		}
-		// The least-bad route, kept alongside the clean search: route.go's
-		// leastBad scores every candidate INCLUDING the blocked ones (a hit
-		// costs +100 there), so an edge that must draw — a leads-to, a last
-		// connection — draws the least damaging thing available, not the raw
-		// straight. Without this, etcd's last visible edge was a diagonal
-		// through five boxes when a two-bend route that cleared four of them
-		// existed and simply was not "clean".
-		var leastBad [][2]int
-		leastBadCost := 1e18
-		if blocked || cost > frameBudget {
-			// Look for a clean route. A candidate must be clear (not blocked)
-			// to be considered at all; among clean ones the cheapest wins.
-			cands := frameCandidates(ends[i], obstacles, e.From, e.To)
-			var best [][2]int
-			bestCost := 1e18
-			// Least-bad is only ever USED for an edge the guards force to
-			// draw. Scoring the full badness of every blocked candidate — 900
-			// grid points, each swept against every box three times — is what
-			// took NDA (248 nodes) from 40s to 60s and over corpus-gallery's
-			// per-bundle timeout. So it is computed only when it can matter.
-			mustDraw := e.Base == string(EdgeLeadsTo) || visible[e.From] <= 1 || visible[e.To] <= 1
-			for _, c := range cands {
-				if !inCanvas(c) {
-					continue
-				}
-				if pathBlocked(c, obstacles, e.From, e.To, nb) {
-					if !mustDraw {
+		// evalEnds routes ONE end-pair: the clean choice (straight if clear,
+		// else the cheapest clean candidate) and the least-bad fallback the
+		// guards may need. It is a closure so the same evaluation can be
+		// run for the engine's ports and, below, for a re-faced pair.
+		evalEnds := func(seg detourSeg) (chosen [][2]int, cost float64, leastBad [][2]int, leastBadCost float64) {
+			straight := [][2]int{{seg.x1, seg.y1}, {seg.x2, seg.y2}}
+			blocked := pathBlocked(straight, obstacles, e.From, e.To, nb)
+			leastBadCost = 1e18
+			if !blocked {
+				chosen = straight
+				cost = pathCost(straight, obstacles, paths, i, e.Base, g)
+			}
+			// The least-bad route, kept alongside the clean search: route.go's
+			// leastBad scores every candidate INCLUDING the blocked ones (a hit
+			// costs +100 there), so an edge that must draw — a leads-to, a last
+			// connection — draws the least damaging thing available, not the raw
+			// straight. Without this, etcd's last visible edge was a diagonal
+			// through five boxes when a two-bend route that cleared four of them
+			// existed and simply was not "clean".
+			if blocked || cost > frameBudget {
+				// Look for a clean route. A candidate must be clear (not blocked)
+				// to be considered at all; among clean ones the cheapest wins.
+				cands := frameCandidates(seg, obstacles, e.From, e.To)
+				var best [][2]int
+				bestCost := 1e18
+				// Least-bad is only ever USED for an edge the guards force to
+				// draw. Scoring the full badness of every blocked candidate — 900
+				// grid points, each swept against every box three times — is what
+				// took NDA (248 nodes) from 40s to 60s and over corpus-gallery's
+				// per-bundle timeout. So it is computed only when it can matter.
+				for _, c := range cands {
+					if !inCanvas(c) {
 						continue
 					}
-					cc := pathCost(c, obstacles, paths, i, e.Base, g) + badness(c, obstacles, e.From, e.To, nb)
-					if cc < leastBadCost || (cc == leastBadCost && pathLength(c) < pathLength(leastBad)) {
+					if pathBlocked(c, obstacles, e.From, e.To, nb) {
+						if !mustDraw {
+							continue
+						}
+						cc := pathCost(c, obstacles, paths, i, e.Base, g) + badness(c, obstacles, e.From, e.To, nb)
+						if cc < leastBadCost || (cc == leastBadCost && pathLength(c) < pathLength(leastBad)) {
+							leastBad, leastBadCost = c, cc
+						}
+						continue
+					}
+					cc := pathCost(c, obstacles, paths, i, e.Base, g)
+					if cc < bestCost || (cc == bestCost && pathLength(c) < pathLength(best)) {
+						best, bestCost = c, cc
+					}
+					if cc < leastBadCost {
 						leastBad, leastBadCost = c, cc
 					}
-					continue
 				}
-				cc := pathCost(c, obstacles, paths, i, e.Base, g)
-				if cc < bestCost || (cc == bestCost && pathLength(c) < pathLength(best)) {
-					best, bestCost = c, cc
-				}
-				if cc < leastBadCost {
-					leastBad, leastBadCost = c, cc
+				if best != nil && (chosen == nil || bestCost < cost) {
+					chosen, cost = best, bestCost
 				}
 			}
-			if best != nil && (chosen == nil || bestCost < cost) {
-				chosen, cost = best, bestCost
+			return chosen, cost, leastBad, leastBadCost
+		}
+
+		chosen, cost, leastBad, leastBadCost := evalEnds(ends[i])
+
+		// A U-TURN edge — both ports face AWAY from the partner, because the
+		// frame moved the boxes after the engine chose the sides (A pod was
+		// stacked over a process, then set beside it: the near-to left the
+		// pod's bottom, ran under both, and climbed into the process's top) —
+		// is also tried on re-faced ports, the sides pickPortSide names on
+		// the FINAL boxes. The re-faced pair wins only when it routes at
+		// least as well: a re-facing pass that ran blind before the router
+		// hid 36 more edges in the reasoning corpus, where the re-faced
+		// straight ran into a third box the U had cleared. The router knows;
+		// the pass did not.
+		if alt, okAlt := uturnEnds(g, byID, routes, i, e); okAlt {
+			c2, k2, lb2, lbk2 := evalEnds(alt.seg)
+			if c2 != nil && (chosen == nil || k2 <= cost) {
+				chosen, cost, leastBad, leastBadCost = c2, k2, lb2, lbk2
+				ends[i] = alt.seg
+				if e.Route == nil {
+					e.Route = &EdgeRouteJSON{}
+				}
+				e.Route.Source, e.Route.Target = alt.source, alt.target
+				routes[i].Source = EdgePort{Side: alt.source.Side, Position: alt.source.Position}
+				routes[i].Target = EdgePort{Side: alt.target.Side, Position: alt.target.Position}
+				st.Refaced++
 			}
 		}
+		straight = [][2]int{{ends[i].x1, ends[i].y1}, {ends[i].x2, ends[i].y2}}
 
 		switch {
 		case chosen != nil && cost <= frameBudget:
@@ -550,7 +585,7 @@ func pathCost(pts [][2]int, obstacles []Node, paths [][][2]int, self int, base s
 		if o.ID == me.From || o.ID == me.To {
 			continue
 		}
-		if pathGrazes(pts, []Node{o}, me.From, me.To) > 0 {
+		if pathGrazesWithin(pts, o, frameGrazeBand) {
 			if o.Type == "boundary" {
 				c += grazeCost * grazeBoundaryMult
 			} else {
@@ -983,4 +1018,108 @@ func ptsToPositions(pts [][2]int) []Position {
 		out[i] = Position{X: p[0], Y: p[1]}
 	}
 	return out
+}
+
+// uturnAlt is a re-faced end-pair for a U-turn edge: the ports and the
+// segment between them.
+type uturnAlt struct {
+	source, target PortJSON
+	seg            detourSeg
+}
+
+// uturnEnds returns re-faced ports for edge i when BOTH its ports face away
+// from the partner — the partner's near edge lies BEHIND the port's side, so
+// no line out of that side reaches it without turning back. Sides are
+// pickPortSide's choice on the final boxes; the slot on the new side is the
+// midline unless another edge of the node already holds it, then the first
+// free of 0.35/0.65/0.25/0.75, so the re-faced end does not land on a port
+// the engine spread there.
+//
+// One stale end is NOT a U-turn and is left alone: an L, or a run along the
+// box's own border, still reaches the partner, and whether the other side
+// would route better depends on obstacles — re-facing single ends put K8s'
+// port under a box its own-border rail had cleared (kubernetes s:87+116).
+func uturnEnds(g *Graph, byID map[string]Node, routes []EdgeRoute, i int, e *Edge) (uturnAlt, bool) {
+	from, okF := byID[e.From]
+	to, okT := byID[e.To]
+	if !okF || !okT || from.Container != nil || to.Container != nil || e.From == e.To {
+		return uturnAlt{}, false
+	}
+	sF := refacedSide(from, to, routes[i].Source.Side)
+	sT := refacedSide(to, from, routes[i].Target.Side)
+	if sF == "" || sT == "" {
+		return uturnAlt{}, false
+	}
+	src := PortJSON{Side: sF, Position: freeSlot(g, routes, i, e.From, sF)}
+	tgt := PortJSON{Side: sT, Position: freeSlot(g, routes, i, e.To, sT)}
+	x1, y1 := EdgePortPoint(from, to, EdgePort{Side: src.Side, Position: src.Position})
+	x2, y2 := EdgePortPoint(to, from, EdgePort{Side: tgt.Side, Position: tgt.Position})
+	return uturnAlt{source: src, target: tgt, seg: detourSeg{x1, y1, x2, y2}}, true
+}
+
+// refacedSide returns the side `node`'s port should move to when `side` no
+// longer faces `other` at all, or "" when it still does. "No longer faces"
+// is strict: the partner's NEAR edge lies behind the side's line — for a
+// bottom port, the partner's top is above the node's bottom. A partner that
+// is in front of the side but far off its axis (a satellite column beside a
+// hub) keeps the engine's side: that is the engine's fan onto one face.
+func refacedSide(node, other Node, side string) string {
+	inFront := true
+	switch side {
+	case "top":
+		inFront = other.Y+other.Height <= node.Y
+	case "bottom":
+		inFront = other.Y >= node.Y+node.Height
+	case "left":
+		inFront = other.X+other.Width <= node.X
+	case "right":
+		inFront = other.X >= node.X+node.Width
+	default:
+		return ""
+	}
+	if inFront {
+		return ""
+	}
+	want := pickPortSide(node, other)
+	if want == side {
+		return ""
+	}
+	return want
+}
+
+// freeSlot picks a slot on (node, side) not held by another edge's port.
+func freeSlot(g *Graph, routes []EdgeRoute, self int, node, side string) float64 {
+	used := map[float64]bool{}
+	for j := range g.Edges {
+		if j == self || g.Edges[j].Visibility == visibilityStubbed {
+			continue
+		}
+		if g.Edges[j].From == node && routes[j].Source.Side == side {
+			used[routes[j].Source.Position] = true
+		}
+		if g.Edges[j].To == node && routes[j].Target.Side == side {
+			used[routes[j].Target.Position] = true
+		}
+	}
+	for _, p := range []float64{0.5, 0.35, 0.65, 0.25, 0.75} {
+		if !used[p] {
+			return p
+		}
+	}
+	return 0.5
+}
+
+// pathGrazesWithin says whether any segment of pts passes within `band` px
+// of box o (the box grown by band, tested UNSHRUNK — segmentCutsBox shrinks
+// by routeShrink, so the growth compensates).
+func pathGrazesWithin(pts [][2]int, o Node, band int) bool {
+	fat := o
+	fat.X, fat.Y = o.X-band-routeShrink, o.Y-band-routeShrink
+	fat.Width, fat.Height = o.Width+2*(band+routeShrink), o.Height+2*(band+routeShrink)
+	for i := 0; i+1 < len(pts); i++ {
+		if segmentCutsBox(pts[i][0], pts[i][1], pts[i+1][0], pts[i+1][1], fat) {
+			return true
+		}
+	}
+	return false
 }
