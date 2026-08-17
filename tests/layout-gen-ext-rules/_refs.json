@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-ext.md",
-        "source_sha1": "debf965319e17db2c7b88097aed1d92267c33307",
+        "source_sha1": "44c219eb0a170d27977afd96cd1775f0cbd7b7e6",
         "name": "layout ext test rules",
         "method": "parser",
         "parser_name": "ipmdev-layout-rule-md",
@@ -2562,162 +2562,8 @@
                 "section": "v7 acceptance targets"
             },
             {
-                "destination": "a-band-members-ties-up-the-chain-fan-from-its-facing-side-too",
-                "line": 1036,
-                "anchor": "#a-band-members-ties-up-the-chain-fan-from-its-facing-side-too",
-                "content_sha1": "ca8978ade09463c473adaa41aa1dc3633e83ab25",
-                "outputs": {
-                    "dsl": "ca8978ade09463c473adaa41aa1dc3633e83ab25"
-                },
-                "heading": "a band member's ties up the chain fan from its facing side too",
-                "section": "v7 acceptance targets"
-            },
-            {
-                "destination": "a-band-members-ties-up-the-chain-fan-from-its-facing-side-too-02",
-                "line": 1037,
-                "anchor": "#a-band-members-ties-up-the-chain-fan-from-its-facing-side-too",
-                "content_sha1": "2d0b77576feaae14e00b0a5c82849ca0bf989e31",
-                "outputs": {
-                    "dsl": "2d0b77576feaae14e00b0a5c82849ca0bf989e31"
-                },
-                "heading": "a band member's ties up the chain fan from its facing side too",
-                "section": "v7 acceptance targets"
-            },
-            {
-                "destination": "a-band-members-ties-up-the-chain-fan-from-its-facing-side-too-03",
-                "line": 1038,
-                "anchor": "#a-band-members-ties-up-the-chain-fan-from-its-facing-side-too",
-                "content_sha1": "ac606226f136e1a50dcdde9c09383e57d3712968",
-                "outputs": {
-                    "dsl": "ac606226f136e1a50dcdde9c09383e57d3712968"
-                },
-                "heading": "a band member's ties up the chain fan from its facing side too",
-                "section": "v7 acceptance targets"
-            },
-            {
-                "destination": "a-band-members-ties-up-the-chain-fan-from-its-facing-side-too-04",
-                "line": 1039,
-                "anchor": "#a-band-members-ties-up-the-chain-fan-from-its-facing-side-too",
-                "content_sha1": "df6da3c94be5dbd8d71ac8d470e374a5eceb2c94",
-                "outputs": {
-                    "dsl": "df6da3c94be5dbd8d71ac8d470e374a5eceb2c94"
-                },
-                "heading": "a band member's ties up the chain fan from its facing side too",
-                "section": "v7 acceptance targets"
-            },
-            {
-                "destination": "a-band-members-ties-up-the-chain-fan-from-its-facing-side-too-05",
-                "line": 1040,
-                "anchor": "#a-band-members-ties-up-the-chain-fan-from-its-facing-side-too",
-                "content_sha1": "39a18b01b4a7adcfd2f4c99e9f0416549cf40cd8",
-                "outputs": {
-                    "dsl": "39a18b01b4a7adcfd2f4c99e9f0416549cf40cd8"
-                },
-                "heading": "a band member's ties up the chain fan from its facing side too",
-                "section": "v7 acceptance targets"
-            },
-            {
-                "destination": "a-band-members-ties-up-the-chain-fan-from-its-facing-side-too-06",
-                "line": 1041,
-                "anchor": "#a-band-members-ties-up-the-chain-fan-from-its-facing-side-too",
-                "content_sha1": "82d119ec2fc283dbab4bc901a352767595c99a7d",
-                "outputs": {
-                    "dsl": "82d119ec2fc283dbab4bc901a352767595c99a7d"
-                },
-                "heading": "a band member's ties up the chain fan from its facing side too",
-                "section": "v7 acceptance targets"
-            },
-            {
-                "destination": "a-band-members-ties-up-the-chain-fan-from-its-facing-side-too-07",
-                "line": 1042,
-                "anchor": "#a-band-members-ties-up-the-chain-fan-from-its-facing-side-too",
-                "content_sha1": "be614a43105cb11f2eac656908df9c8d863aecfb",
-                "outputs": {
-                    "dsl": "be614a43105cb11f2eac656908df9c8d863aecfb"
-                },
-                "heading": "a band member's ties up the chain fan from its facing side too",
-                "section": "v7 acceptance targets"
-            },
-            {
-                "destination": "a-band-members-ties-up-the-chain-fan-from-its-facing-side-too-08",
-                "line": 1043,
-                "anchor": "#a-band-members-ties-up-the-chain-fan-from-its-facing-side-too",
-                "content_sha1": "650a1ce3526e09b83b77c7a29e9195000e37ce0f",
-                "outputs": {
-                    "dsl": "650a1ce3526e09b83b77c7a29e9195000e37ce0f"
-                },
-                "heading": "a band member's ties up the chain fan from its facing side too",
-                "section": "v7 acceptance targets"
-            },
-            {
-                "destination": "a-band-members-ties-up-the-chain-fan-from-its-facing-side-too-09",
-                "line": 1044,
-                "anchor": "#a-band-members-ties-up-the-chain-fan-from-its-facing-side-too",
-                "content_sha1": "20e3abbb836a48178643b9c94a391e46ebe348e2",
-                "outputs": {
-                    "dsl": "20e3abbb836a48178643b9c94a391e46ebe348e2"
-                },
-                "heading": "a band member's ties up the chain fan from its facing side too",
-                "section": "v7 acceptance targets"
-            },
-            {
-                "destination": "a-band-members-ties-up-the-chain-fan-from-its-facing-side-too-10",
-                "line": 1045,
-                "anchor": "#a-band-members-ties-up-the-chain-fan-from-its-facing-side-too",
-                "content_sha1": "d3829f700dec51099d416b0e71935721819160e8",
-                "outputs": {
-                    "dsl": "d3829f700dec51099d416b0e71935721819160e8"
-                },
-                "heading": "a band member's ties up the chain fan from its facing side too",
-                "section": "v7 acceptance targets"
-            },
-            {
-                "destination": "a-band-members-ties-up-the-chain-fan-from-its-facing-side-too-11",
-                "line": 1046,
-                "anchor": "#a-band-members-ties-up-the-chain-fan-from-its-facing-side-too",
-                "content_sha1": "8bbb15a315dcab22a07786ae6e6ccc2e53a69e30",
-                "outputs": {
-                    "dsl": "8bbb15a315dcab22a07786ae6e6ccc2e53a69e30"
-                },
-                "heading": "a band member's ties up the chain fan from its facing side too",
-                "section": "v7 acceptance targets"
-            },
-            {
-                "destination": "a-band-members-ties-up-the-chain-fan-from-its-facing-side-too-12",
-                "line": 1047,
-                "anchor": "#a-band-members-ties-up-the-chain-fan-from-its-facing-side-too",
-                "content_sha1": "d7b70d892dc4063ed57df876a7b6cc3edb9f7b23",
-                "outputs": {
-                    "dsl": "d7b70d892dc4063ed57df876a7b6cc3edb9f7b23"
-                },
-                "heading": "a band member's ties up the chain fan from its facing side too",
-                "section": "v7 acceptance targets"
-            },
-            {
-                "destination": "a-band-members-ties-up-the-chain-fan-from-its-facing-side-too-13",
-                "line": 1048,
-                "anchor": "#a-band-members-ties-up-the-chain-fan-from-its-facing-side-too",
-                "content_sha1": "15bc2c29a25887315ef71217c13091fde6fbd65b",
-                "outputs": {
-                    "dsl": "15bc2c29a25887315ef71217c13091fde6fbd65b"
-                },
-                "heading": "a band member's ties up the chain fan from its facing side too",
-                "section": "v7 acceptance targets"
-            },
-            {
-                "destination": "a-band-members-ties-up-the-chain-fan-from-its-facing-side-too-14",
-                "line": 1049,
-                "anchor": "#a-band-members-ties-up-the-chain-fan-from-its-facing-side-too",
-                "content_sha1": "cc698a8f6fd3f34358d9924608c13beff5e21878",
-                "outputs": {
-                    "dsl": "cc698a8f6fd3f34358d9924608c13beff5e21878"
-                },
-                "heading": "a band member's ties up the chain fan from its facing side too",
-                "section": "v7 acceptance targets"
-            },
-            {
                 "destination": "a-budgeted-crossing-beats-a-two-bend-detour",
-                "line": 1083,
+                "line": 1044,
                 "anchor": "#a-budgeted-crossing-beats-a-two-bend-detour",
                 "content_sha1": "3e9f62b9ce707f2eb2456b0d76c38f03bef95fe2",
                 "outputs": {
@@ -2728,7 +2574,7 @@
             },
             {
                 "destination": "a-budgeted-crossing-beats-a-two-bend-detour-02",
-                "line": 1084,
+                "line": 1045,
                 "anchor": "#a-budgeted-crossing-beats-a-two-bend-detour",
                 "content_sha1": "0f6befeec49d638d2ebb65e6ab630d3f922e1848",
                 "outputs": {
@@ -2739,7 +2585,7 @@
             },
             {
                 "destination": "a-budgeted-crossing-beats-a-two-bend-detour-03",
-                "line": 1085,
+                "line": 1046,
                 "anchor": "#a-budgeted-crossing-beats-a-two-bend-detour",
                 "content_sha1": "814a0c4b2cf1046d36b2a9ab0b2f2e2fc4877c1f",
                 "outputs": {
@@ -2750,7 +2596,7 @@
             },
             {
                 "destination": "a-budgeted-crossing-beats-a-two-bend-detour-04",
-                "line": 1086,
+                "line": 1047,
                 "anchor": "#a-budgeted-crossing-beats-a-two-bend-detour",
                 "content_sha1": "855436731a0224185d4c519a1b5bf07360c87edb",
                 "outputs": {
@@ -2761,7 +2607,7 @@
             },
             {
                 "destination": "a-budgeted-crossing-beats-a-two-bend-detour-05",
-                "line": 1087,
+                "line": 1048,
                 "anchor": "#a-budgeted-crossing-beats-a-two-bend-detour",
                 "content_sha1": "80d39d1d442526acc887c70d989ee5e8007ba1ba",
                 "outputs": {
@@ -2772,7 +2618,7 @@
             },
             {
                 "destination": "a-thing-and-its-concept-read-as-one-unit",
-                "line": 1115,
+                "line": 1076,
                 "anchor": "#a-thing-and-its-concept-read-as-one-unit",
                 "content_sha1": "d9bf22fee345ef631597abc50820001423ab4832",
                 "outputs": {
@@ -2783,7 +2629,7 @@
             },
             {
                 "destination": "a-thing-and-its-concept-read-as-one-unit-02",
-                "line": 1116,
+                "line": 1077,
                 "anchor": "#a-thing-and-its-concept-read-as-one-unit",
                 "content_sha1": "d803e2614d92eb021b744623a5d22b0f0a5d90e0",
                 "outputs": {
@@ -2794,7 +2640,7 @@
             },
             {
                 "destination": "a-thing-and-its-concept-read-as-one-unit-03",
-                "line": 1117,
+                "line": 1078,
                 "anchor": "#a-thing-and-its-concept-read-as-one-unit",
                 "content_sha1": "d09863ce9eeda31d32c344ff7c3431194b78c4c2",
                 "outputs": {
@@ -2805,7 +2651,7 @@
             },
             {
                 "destination": "a-thing-and-its-concept-read-as-one-unit-04",
-                "line": 1118,
+                "line": 1079,
                 "anchor": "#a-thing-and-its-concept-read-as-one-unit",
                 "content_sha1": "a6324e0945caca2cf595aab0c85d29272c05f111",
                 "outputs": {
@@ -2816,7 +2662,7 @@
             },
             {
                 "destination": "a-thing-and-its-concept-read-as-one-unit-05",
-                "line": 1119,
+                "line": 1080,
                 "anchor": "#a-thing-and-its-concept-read-as-one-unit",
                 "content_sha1": "991eb172029eb8778dd46afb4d3a490683182802",
                 "outputs": {
@@ -2827,7 +2673,7 @@
             },
             {
                 "destination": "a-bent-ties-approach-follows-its-last-leg",
-                "line": 1148,
+                "line": 1109,
                 "anchor": "#a-bent-ties-approach-follows-its-last-leg",
                 "content_sha1": "484f552113ad79c8a5fc05f853a645e02bffc12f",
                 "outputs": {
@@ -2838,7 +2684,7 @@
             },
             {
                 "destination": "a-bent-ties-approach-follows-its-last-leg-02",
-                "line": 1149,
+                "line": 1110,
                 "anchor": "#a-bent-ties-approach-follows-its-last-leg",
                 "content_sha1": "6a102eedfd1d683dd3eacad4bc256b88b53cabbd",
                 "outputs": {
@@ -2849,7 +2695,7 @@
             },
             {
                 "destination": "a-bent-ties-approach-follows-its-last-leg-03",
-                "line": 1150,
+                "line": 1111,
                 "anchor": "#a-bent-ties-approach-follows-its-last-leg",
                 "content_sha1": "801bb86247fb2da71b2958c556b6dcd1b32a9d7b",
                 "outputs": {
@@ -2860,7 +2706,7 @@
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column",
-                "line": 1179,
+                "line": 1140,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "850f0362e6f4b692c3958dceff7808605ad995e2",
                 "outputs": {
@@ -2871,7 +2717,7 @@
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column-02",
-                "line": 1180,
+                "line": 1141,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "a1026403067c4d1a1da03f7a3065241d6bf13103",
                 "outputs": {
@@ -2882,7 +2728,7 @@
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column-03",
-                "line": 1181,
+                "line": 1142,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "ad1467035bd93138e5dbf39df04cc21297594619",
                 "outputs": {
@@ -2893,7 +2739,7 @@
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column-04",
-                "line": 1182,
+                "line": 1143,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "16a78e14fea1c867879c7aaf9cf46d5af0d66517",
                 "outputs": {
@@ -2904,7 +2750,7 @@
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column-05",
-                "line": 1183,
+                "line": 1144,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "72abc2a348e85db3d00fde6ab9930476a8d55134",
                 "outputs": {
@@ -2915,7 +2761,7 @@
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column-06",
-                "line": 1184,
+                "line": 1145,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "df04f6ce7ab8cdfbbaf36a0b431c0ca60afc86cd",
                 "outputs": {
@@ -2926,7 +2772,7 @@
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column-07",
-                "line": 1185,
+                "line": 1146,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "4b5deb4a45fd28049d793198de48c4c31cd41159",
                 "outputs": {
@@ -2937,7 +2783,7 @@
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column-08",
-                "line": 1186,
+                "line": 1147,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "37d236b1c9d0383e427abb18a6960f78b0fb5b31",
                 "outputs": {
@@ -2948,7 +2794,7 @@
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column-09",
-                "line": 1187,
+                "line": 1148,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "2a90e5e2a95af9415bcc20cce7c7d1f0f5a86b60",
                 "outputs": {
@@ -2959,7 +2805,7 @@
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column-10",
-                "line": 1188,
+                "line": 1149,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "d292413c4d7aa2ede3356bb4a530f6cdc3012d3a",
                 "outputs": {
@@ -2970,7 +2816,7 @@
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column-11",
-                "line": 1189,
+                "line": 1150,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "8564eb69357778b19235f5abeb629029ea3efa05",
                 "outputs": {
@@ -2981,7 +2827,7 @@
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column-12",
-                "line": 1190,
+                "line": 1151,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "0531e8dbdcdb62ed76d83f40449fb7d41e119d89",
                 "outputs": {
@@ -2992,7 +2838,7 @@
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column-13",
-                "line": 1191,
+                "line": 1152,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "c466ef7f1e5ae103265c23db4f354790a351ad2d",
                 "outputs": {
@@ -3003,7 +2849,7 @@
             },
             {
                 "destination": "a-satellites-tree-never-evicts-its-own-frame",
-                "line": 1233,
+                "line": 1194,
                 "anchor": "#a-satellites-tree-never-evicts-its-own-frame",
                 "content_sha1": "48e214c81ada2c359e70116c5be7aa879fec812b",
                 "outputs": {
@@ -3014,7 +2860,7 @@
             },
             {
                 "destination": "a-satellites-tree-never-evicts-its-own-frame-02",
-                "line": 1234,
+                "line": 1195,
                 "anchor": "#a-satellites-tree-never-evicts-its-own-frame",
                 "content_sha1": "7253892e096380bdcc203737e32182bcdd5c07bd",
                 "outputs": {
@@ -3025,7 +2871,7 @@
             },
             {
                 "destination": "a-satellites-tree-never-evicts-its-own-frame-03",
-                "line": 1235,
+                "line": 1196,
                 "anchor": "#a-satellites-tree-never-evicts-its-own-frame",
                 "content_sha1": "f7bf0c95acff1cc0fa402a8c7a7384311f94b5df",
                 "outputs": {
@@ -3036,7 +2882,7 @@
             },
             {
                 "destination": "a-satellites-tree-never-evicts-its-own-frame-04",
-                "line": 1236,
+                "line": 1197,
                 "anchor": "#a-satellites-tree-never-evicts-its-own-frame",
                 "content_sha1": "823353026e837d948eb75ffddf508576c7195b60",
                 "outputs": {
@@ -3047,7 +2893,7 @@
             },
             {
                 "destination": "a-satellites-tree-never-evicts-its-own-frame-05",
-                "line": 1237,
+                "line": 1198,
                 "anchor": "#a-satellites-tree-never-evicts-its-own-frame",
                 "content_sha1": "7c75bb87a3f56a8c94080693945dd28bfeb95873",
                 "outputs": {
@@ -3058,7 +2904,7 @@
             },
             {
                 "destination": "a-satellites-tree-never-evicts-its-own-frame-06",
-                "line": 1238,
+                "line": 1199,
                 "anchor": "#a-satellites-tree-never-evicts-its-own-frame",
                 "content_sha1": "8ff96e65dea573292467e9ed338fadea663297a9",
                 "outputs": {
@@ -3069,7 +2915,7 @@
             },
             {
                 "destination": "a-satellites-tree-never-evicts-its-own-frame-07",
-                "line": 1239,
+                "line": 1200,
                 "anchor": "#a-satellites-tree-never-evicts-its-own-frame",
                 "content_sha1": "872e6c9ded91fe9c52c4a7a6bfd0ff0bc838f88a",
                 "outputs": {
@@ -3080,7 +2926,7 @@
             },
             {
                 "destination": "a-satellites-tree-never-evicts-its-own-frame-08",
-                "line": 1240,
+                "line": 1201,
                 "anchor": "#a-satellites-tree-never-evicts-its-own-frame",
                 "content_sha1": "76c68f0191018a886f2c24a8845ee6ffbbbcd072",
                 "outputs": {
@@ -3091,7 +2937,7 @@
             },
             {
                 "destination": "up-to-three-components-share-one-row",
-                "line": 1261,
+                "line": 1222,
                 "anchor": "#up-to-three-components-share-one-row",
                 "content_sha1": "6bd1777e40b07afa0ab487f82ab0de79de6857b6",
                 "outputs": {
@@ -3102,7 +2948,7 @@
             },
             {
                 "destination": "up-to-three-components-share-one-row-02",
-                "line": 1262,
+                "line": 1223,
                 "anchor": "#up-to-three-components-share-one-row",
                 "content_sha1": "e245db62465c21ffde62b85df61f031715caf637",
                 "outputs": {
@@ -3113,7 +2959,7 @@
             },
             {
                 "destination": "up-to-three-components-share-one-row-03",
-                "line": 1263,
+                "line": 1224,
                 "anchor": "#up-to-three-components-share-one-row",
                 "content_sha1": "0e83345fd6260ca0b6b2ba540a16fd7e097052ea",
                 "outputs": {
@@ -3124,7 +2970,7 @@
             },
             {
                 "destination": "up-to-three-components-share-one-row-04",
-                "line": 1264,
+                "line": 1225,
                 "anchor": "#up-to-three-components-share-one-row",
                 "content_sha1": "80e59d0c40ade9067ba4f129d6325947bbad8bfb",
                 "outputs": {
@@ -3135,7 +2981,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas",
-                "line": 1291,
+                "line": 1252,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "cdf20d9f4909501627c0d08b37915e5b5a40c219",
                 "outputs": {
@@ -3146,7 +2992,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-02",
-                "line": 1292,
+                "line": 1253,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "85ff40fb2940db10bfa37ef797472cc2188b3f8d",
                 "outputs": {
@@ -3157,7 +3003,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-03",
-                "line": 1293,
+                "line": 1254,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "0991e1360fdf66af48d8be5e60ef0360b4445899",
                 "outputs": {
@@ -3168,7 +3014,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-04",
-                "line": 1294,
+                "line": 1255,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "6897619f1a9db488f7b796bf1913bf3e892f1721",
                 "outputs": {
@@ -3179,7 +3025,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-05",
-                "line": 1295,
+                "line": 1256,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "f0888e84d5cb06361b15c1dc1fc7e7afdd31e40e",
                 "outputs": {
@@ -3190,7 +3036,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-06",
-                "line": 1296,
+                "line": 1257,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "83d53c9322d1a9516a697c09faafb1424e32bcd5",
                 "outputs": {
@@ -3201,7 +3047,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-07",
-                "line": 1297,
+                "line": 1258,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "3e7a435eb055316b32f91d7221f6809f6a99cd20",
                 "outputs": {
@@ -3212,7 +3058,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-08",
-                "line": 1298,
+                "line": 1259,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "cae593ff493c2b1dbb627bb04205c851cf7df3e1",
                 "outputs": {

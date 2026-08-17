@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L1133-L1142 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-bent-ties-approach-follows-its-last-leg)
+**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L1094-L1103 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-bent-ties-approach-follows-its-last-leg)
 
 ## ipmt Content
 

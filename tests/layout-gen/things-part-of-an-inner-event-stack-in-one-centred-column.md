@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1797-L1800 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#things-part-of-an-inner-event-stack-in-one-centred-column)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1881-L1884 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#things-part-of-an-inner-event-stack-in-one-centred-column)
 
 ## ipmt Content
 
@@ -25,17 +25,17 @@ w1 ::t, w2 ::t, w3 ::t --> e1a
 
 ## Layout Validation Rules
 
-Test line: 1797
+Test line: 1881
 
 ✅ All 7 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 1817](gl:docs/dev/layout-gen/layout-alg.md#L1817): `#w1,#w2,#w3 have same center-x` ([things-part-of-an-inner-event-stack-in-one-centred-column.dsl](../layout-gen-rules/things-part-of-an-inner-event-stack-in-one-centred-column.dsl))
-- ✓ [Line 1818](gl:docs/dev/layout-gen/layout-alg.md#L1818): `#w1 is right-of #e1a with gap=60` ([things-part-of-an-inner-event-stack-in-one-centred-column-02.dsl](../layout-gen-rules/things-part-of-an-inner-event-stack-in-one-centred-column-02.dsl))
-- ✓ [Line 1819](gl:docs/dev/layout-gen/layout-alg.md#L1819): `#w2 is below #w1 with gap=40` ([things-part-of-an-inner-event-stack-in-one-centred-column-03.dsl](../layout-gen-rules/things-part-of-an-inner-event-stack-in-one-centred-column-03.dsl))
-- ✓ [Line 1820](gl:docs/dev/layout-gen/layout-alg.md#L1820): `#w3 is below #w2 with gap=40` ([things-part-of-an-inner-event-stack-in-one-centred-column-04.dsl](../layout-gen-rules/things-part-of-an-inner-event-stack-in-one-centred-column-04.dsl))
-- ✓ [Line 1821](gl:docs/dev/layout-gen/layout-alg.md#L1821): `#e1a is vertically-centered-between #w1,#w3` ([things-part-of-an-inner-event-stack-in-one-centred-column-05.dsl](../layout-gen-rules/things-part-of-an-inner-event-stack-in-one-centred-column-05.dsl))
-- ✓ [Line 1822](gl:docs/dev/layout-gen/layout-alg.md#L1822): `#e1a,#w2 have same y` ([things-part-of-an-inner-event-stack-in-one-centred-column-06.dsl](../layout-gen-rules/things-part-of-an-inner-event-stack-in-one-centred-column-06.dsl))
+- ✓ [Line 1901](gl:docs/dev/layout-gen/layout-alg.md#L1901): `#w1,#w2,#w3 have same center-x` ([things-part-of-an-inner-event-stack-in-one-centred-column.dsl](../layout-gen-rules/things-part-of-an-inner-event-stack-in-one-centred-column.dsl))
+- ✓ [Line 1902](gl:docs/dev/layout-gen/layout-alg.md#L1902): `#w1 is right-of #e1a with gap=60` ([things-part-of-an-inner-event-stack-in-one-centred-column-02.dsl](../layout-gen-rules/things-part-of-an-inner-event-stack-in-one-centred-column-02.dsl))
+- ✓ [Line 1903](gl:docs/dev/layout-gen/layout-alg.md#L1903): `#w2 is below #w1 with gap=40` ([things-part-of-an-inner-event-stack-in-one-centred-column-03.dsl](../layout-gen-rules/things-part-of-an-inner-event-stack-in-one-centred-column-03.dsl))
+- ✓ [Line 1904](gl:docs/dev/layout-gen/layout-alg.md#L1904): `#w3 is below #w2 with gap=40` ([things-part-of-an-inner-event-stack-in-one-centred-column-04.dsl](../layout-gen-rules/things-part-of-an-inner-event-stack-in-one-centred-column-04.dsl))
+- ✓ [Line 1905](gl:docs/dev/layout-gen/layout-alg.md#L1905): `#e1a is vertically-centered-between #w1,#w3` ([things-part-of-an-inner-event-stack-in-one-centred-column-05.dsl](../layout-gen-rules/things-part-of-an-inner-event-stack-in-one-centred-column-05.dsl))
+- ✓ [Line 1906](gl:docs/dev/layout-gen/layout-alg.md#L1906): `#e1a,#w2 have same y` ([things-part-of-an-inner-event-stack-in-one-centred-column-06.dsl](../layout-gen-rules/things-part-of-an-inner-event-stack-in-one-centred-column-06.dsl))
 
 ## Rendered Diagram
 

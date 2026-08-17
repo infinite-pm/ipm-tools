@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1478-L1479 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#two-things-connected)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1562-L1563 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#two-things-connected)
 
 ## ipmt Content
 
@@ -23,13 +23,13 @@ t1pA --> t1
 
 ## Layout Validation Rules
 
-Test line: 1478
+Test line: 1562
 
 ✅ All 3 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 1494](gl:docs/dev/layout-gen/layout-alg.md#L1494): `#t1pA is above #t1 with gap=40` ([two-things-connected.dsl](../layout-gen-rules/two-things-connected.dsl))
-- ✓ [Line 1495](gl:docs/dev/layout-gen/layout-alg.md#L1495): `#t1pA,#t1 have same center-x` ([two-things-connected-02.dsl](../layout-gen-rules/two-things-connected-02.dsl))
+- ✓ [Line 1578](gl:docs/dev/layout-gen/layout-alg.md#L1578): `#t1pA is above #t1 with gap=40` ([two-things-connected.dsl](../layout-gen-rules/two-things-connected.dsl))
+- ✓ [Line 1579](gl:docs/dev/layout-gen/layout-alg.md#L1579): `#t1pA,#t1 have same center-x` ([two-things-connected-02.dsl](../layout-gen-rules/two-things-connected-02.dsl))
 
 ## Rendered Diagram
 

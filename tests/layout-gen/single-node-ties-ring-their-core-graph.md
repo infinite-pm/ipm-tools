@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2657-L2664 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#single-node-ties-ring-their-core-graph)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2741-L2748 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#single-node-ties-ring-their-core-graph)
 
 ## ipmt Content
 
@@ -29,18 +29,18 @@ a2 --::X--> t3
 
 ## Layout Validation Rules
 
-Test line: 2657
+Test line: 2741
 
 ✅ All 8 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2680](gl:docs/dev/layout-gen/layout-alg.md#L2680): `#a1,#a2,#a3 have same center-x` ([single-node-ties-ring-their-core-graph.dsl](../layout-gen-rules/single-node-ties-ring-their-core-graph.dsl))
-- ✓ [Line 2681](gl:docs/dev/layout-gen/layout-alg.md#L2681): `#a1,#t1 have same y` ([single-node-ties-ring-their-core-graph-02.dsl](../layout-gen-rules/single-node-ties-ring-their-core-graph-02.dsl))
-- ✓ [Line 2682](gl:docs/dev/layout-gen/layout-alg.md#L2682): `#a1 is left-of #t1 with gap=120` ([single-node-ties-ring-their-core-graph-03.dsl](../layout-gen-rules/single-node-ties-ring-their-core-graph-03.dsl))
-- ✓ [Line 2683](gl:docs/dev/layout-gen/layout-alg.md#L2683): `#t2,#a3 have same y` ([single-node-ties-ring-their-core-graph-04.dsl](../layout-gen-rules/single-node-ties-ring-their-core-graph-04.dsl))
-- ✓ [Line 2684](gl:docs/dev/layout-gen/layout-alg.md#L2684): `#t2 is left-of #a3 with gap=120` ([single-node-ties-ring-their-core-graph-05.dsl](../layout-gen-rules/single-node-ties-ring-their-core-graph-05.dsl))
-- ✓ [Line 2685](gl:docs/dev/layout-gen/layout-alg.md#L2685): `#t1,#t3 have same center-x` ([single-node-ties-ring-their-core-graph-06.dsl](../layout-gen-rules/single-node-ties-ring-their-core-graph-06.dsl))
-- ✓ [Line 2686](gl:docs/dev/layout-gen/layout-alg.md#L2686): `#t3 is below #t1 with gap=280` ([single-node-ties-ring-their-core-graph-07.dsl](../layout-gen-rules/single-node-ties-ring-their-core-graph-07.dsl))
+- ✓ [Line 2764](gl:docs/dev/layout-gen/layout-alg.md#L2764): `#a1,#a2,#a3 have same center-x` ([single-node-ties-ring-their-core-graph.dsl](../layout-gen-rules/single-node-ties-ring-their-core-graph.dsl))
+- ✓ [Line 2765](gl:docs/dev/layout-gen/layout-alg.md#L2765): `#a1,#t1 have same y` ([single-node-ties-ring-their-core-graph-02.dsl](../layout-gen-rules/single-node-ties-ring-their-core-graph-02.dsl))
+- ✓ [Line 2766](gl:docs/dev/layout-gen/layout-alg.md#L2766): `#a1 is left-of #t1 with gap=120` ([single-node-ties-ring-their-core-graph-03.dsl](../layout-gen-rules/single-node-ties-ring-their-core-graph-03.dsl))
+- ✓ [Line 2767](gl:docs/dev/layout-gen/layout-alg.md#L2767): `#t2,#a3 have same y` ([single-node-ties-ring-their-core-graph-04.dsl](../layout-gen-rules/single-node-ties-ring-their-core-graph-04.dsl))
+- ✓ [Line 2768](gl:docs/dev/layout-gen/layout-alg.md#L2768): `#t2 is left-of #a3 with gap=120` ([single-node-ties-ring-their-core-graph-05.dsl](../layout-gen-rules/single-node-ties-ring-their-core-graph-05.dsl))
+- ✓ [Line 2769](gl:docs/dev/layout-gen/layout-alg.md#L2769): `#t1,#t3 have same center-x` ([single-node-ties-ring-their-core-graph-06.dsl](../layout-gen-rules/single-node-ties-ring-their-core-graph-06.dsl))
+- ✓ [Line 2770](gl:docs/dev/layout-gen/layout-alg.md#L2770): `#t3 is below #t1 with gap=280` ([single-node-ties-ring-their-core-graph-07.dsl](../layout-gen-rules/single-node-ties-ring-their-core-graph-07.dsl))
 
 ## Rendered Diagram
 

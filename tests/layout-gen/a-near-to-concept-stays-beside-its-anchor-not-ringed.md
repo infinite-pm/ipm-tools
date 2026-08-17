@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2737-L2739 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-near-to-concept-stays-beside-its-anchor-not-ringed)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2821-L2823 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-near-to-concept-stays-beside-its-anchor-not-ringed)
 
 ## ipmt Content
 
@@ -24,14 +24,14 @@ c2-mid ::c --- cX ::c
 
 ## Layout Validation Rules
 
-Test line: 2737
+Test line: 2821
 
 ✅ All 4 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2755](gl:docs/dev/layout-gen/layout-alg.md#L2755): `#c1-leaf,#c2-mid,#c3-root have same center-x` ([a-near-to-concept-stays-beside-its-anchor-not-ringed.dsl](../layout-gen-rules/a-near-to-concept-stays-beside-its-anchor-not-ringed.dsl))
-- ✓ [Line 2756](gl:docs/dev/layout-gen/layout-alg.md#L2756): `#c2-mid,#cX have same y` ([a-near-to-concept-stays-beside-its-anchor-not-ringed-02.dsl](../layout-gen-rules/a-near-to-concept-stays-beside-its-anchor-not-ringed-02.dsl))
-- ✓ [Line 2757](gl:docs/dev/layout-gen/layout-alg.md#L2757): `#cX is right-of #c2-mid with gap=100` ([a-near-to-concept-stays-beside-its-anchor-not-ringed-03.dsl](../layout-gen-rules/a-near-to-concept-stays-beside-its-anchor-not-ringed-03.dsl))
+- ✓ [Line 2839](gl:docs/dev/layout-gen/layout-alg.md#L2839): `#c1-leaf,#c2-mid,#c3-root have same center-x` ([a-near-to-concept-stays-beside-its-anchor-not-ringed.dsl](../layout-gen-rules/a-near-to-concept-stays-beside-its-anchor-not-ringed.dsl))
+- ✓ [Line 2840](gl:docs/dev/layout-gen/layout-alg.md#L2840): `#c2-mid,#cX have same y` ([a-near-to-concept-stays-beside-its-anchor-not-ringed-02.dsl](../layout-gen-rules/a-near-to-concept-stays-beside-its-anchor-not-ringed-02.dsl))
+- ✓ [Line 2841](gl:docs/dev/layout-gen/layout-alg.md#L2841): `#cX is right-of #c2-mid with gap=100` ([a-near-to-concept-stays-beside-its-anchor-not-ringed-03.dsl](../layout-gen-rules/a-near-to-concept-stays-beside-its-anchor-not-ringed-03.dsl))
 
 ## Rendered Diagram
 

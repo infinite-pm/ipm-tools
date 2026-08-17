@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1750-L1751 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#thing-part-of-event)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1834-L1835 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#thing-part-of-event)
 
 ## ipmt Content
 
@@ -23,13 +23,13 @@ tA --> e1 ::e
 
 ## Layout Validation Rules
 
-Test line: 1750
+Test line: 1834
 
 ✅ All 3 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 1768](gl:docs/dev/layout-gen/layout-alg.md#L1768): `#tA is left-of #e1 with gap=60` ([thing-part-of-event.dsl](../layout-gen-rules/thing-part-of-event.dsl))
-- ✓ [Line 1769](gl:docs/dev/layout-gen/layout-alg.md#L1769): `#tA,#e1 have same y` ([thing-part-of-event-02.dsl](../layout-gen-rules/thing-part-of-event-02.dsl))
+- ✓ [Line 1852](gl:docs/dev/layout-gen/layout-alg.md#L1852): `#tA is left-of #e1 with gap=60` ([thing-part-of-event.dsl](../layout-gen-rules/thing-part-of-event.dsl))
+- ✓ [Line 1853](gl:docs/dev/layout-gen/layout-alg.md#L1853): `#tA,#e1 have same y` ([thing-part-of-event-02.dsl](../layout-gen-rules/thing-part-of-event-02.dsl))
 
 ## Rendered Diagram
 

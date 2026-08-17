@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2177-L2180 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#not-connected-events)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2261-L2264 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#not-connected-events)
 
 ## ipmt Content
 
@@ -25,15 +25,15 @@ e3 ::e
 
 ## Layout Validation Rules
 
-Test line: 2177
+Test line: 2261
 
 ✅ All 5 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2192](gl:docs/dev/layout-gen/layout-alg.md#L2192): `type=event has size=120x60` ([not-connected-events.dsl](../layout-gen-rules/not-connected-events.dsl))
-- ✓ [Line 2193](gl:docs/dev/layout-gen/layout-alg.md#L2193): `#e2 is right-of #e1 with gap=120` ([not-connected-events-02.dsl](../layout-gen-rules/not-connected-events-02.dsl))
-- ✓ [Line 2194](gl:docs/dev/layout-gen/layout-alg.md#L2194): `#e3 is right-of #e2 with gap=120` ([not-connected-events-03.dsl](../layout-gen-rules/not-connected-events-03.dsl))
-- ✓ [Line 2195](gl:docs/dev/layout-gen/layout-alg.md#L2195): `#e1,#e2,#e3 have same y` ([not-connected-events-04.dsl](../layout-gen-rules/not-connected-events-04.dsl))
+- ✓ [Line 2276](gl:docs/dev/layout-gen/layout-alg.md#L2276): `type=event has size=120x60` ([not-connected-events.dsl](../layout-gen-rules/not-connected-events.dsl))
+- ✓ [Line 2277](gl:docs/dev/layout-gen/layout-alg.md#L2277): `#e2 is right-of #e1 with gap=120` ([not-connected-events-02.dsl](../layout-gen-rules/not-connected-events-02.dsl))
+- ✓ [Line 2278](gl:docs/dev/layout-gen/layout-alg.md#L2278): `#e3 is right-of #e2 with gap=120` ([not-connected-events-03.dsl](../layout-gen-rules/not-connected-events-03.dsl))
+- ✓ [Line 2279](gl:docs/dev/layout-gen/layout-alg.md#L2279): `#e1,#e2,#e3 have same y` ([not-connected-events-04.dsl](../layout-gen-rules/not-connected-events-04.dsl))
 
 ## Rendered Diagram
 

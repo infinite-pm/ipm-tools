@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1727-L1729 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#concept-fan-in-keeps-the-chain-gap-below-its-parents)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1811-L1813 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#concept-fan-in-keeps-the-chain-gap-below-its-parents)
 
 ## ipmt Content
 
@@ -24,14 +24,14 @@ tB ::t --> cB ::c --> cRoot
 
 ## Layout Validation Rules
 
-Test line: 1727
+Test line: 1811
 
 ✅ All 4 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 1740](gl:docs/dev/layout-gen/layout-alg.md#L1740): `#cRoot is horizontally-centered-between #cA,#cB` ([concept-fan-in-keeps-the-chain-gap-below-its-parents.dsl](../layout-gen-rules/concept-fan-in-keeps-the-chain-gap-below-its-parents.dsl))
-- ✓ [Line 1741](gl:docs/dev/layout-gen/layout-alg.md#L1741): `#cRoot is below #cA with gap=40` ([concept-fan-in-keeps-the-chain-gap-below-its-parents-02.dsl](../layout-gen-rules/concept-fan-in-keeps-the-chain-gap-below-its-parents-02.dsl))
-- ✓ [Line 1742](gl:docs/dev/layout-gen/layout-alg.md#L1742): `#cA,#cB have same y` ([concept-fan-in-keeps-the-chain-gap-below-its-parents-03.dsl](../layout-gen-rules/concept-fan-in-keeps-the-chain-gap-below-its-parents-03.dsl))
+- ✓ [Line 1824](gl:docs/dev/layout-gen/layout-alg.md#L1824): `#cRoot is horizontally-centered-between #cA,#cB` ([concept-fan-in-keeps-the-chain-gap-below-its-parents.dsl](../layout-gen-rules/concept-fan-in-keeps-the-chain-gap-below-its-parents.dsl))
+- ✓ [Line 1825](gl:docs/dev/layout-gen/layout-alg.md#L1825): `#cRoot is below #cA with gap=40` ([concept-fan-in-keeps-the-chain-gap-below-its-parents-02.dsl](../layout-gen-rules/concept-fan-in-keeps-the-chain-gap-below-its-parents-02.dsl))
+- ✓ [Line 1826](gl:docs/dev/layout-gen/layout-alg.md#L1826): `#cA,#cB have same y` ([concept-fan-in-keeps-the-chain-gap-below-its-parents-03.dsl](../layout-gen-rules/concept-fan-in-keeps-the-chain-gap-below-its-parents-03.dsl))
 
 ## Rendered Diagram
 

@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1696-L1702 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-part-of-two-wholes-stays-on-the-root-row)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1780-L1786 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-part-of-two-wholes-stays-on-the-root-row)
 
 ## ipmt Content
 
@@ -28,16 +28,16 @@ tD, tE --> cX
 
 ## Layout Validation Rules
 
-Test line: 1696
+Test line: 1780
 
 ✅ All 6 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 1717](gl:docs/dev/layout-gen/layout-alg.md#L1717): `#tA,#tD,#tE,#tG,#tH,#tI have same y` ([a-part-of-two-wholes-stays-on-the-root-row.dsl](../layout-gen-rules/a-part-of-two-wholes-stays-on-the-root-row.dsl))
-- ✓ [Line 1718](gl:docs/dev/layout-gen/layout-alg.md#L1718): `#tB,#tF,#cX have same y` ([a-part-of-two-wholes-stays-on-the-root-row-02.dsl](../layout-gen-rules/a-part-of-two-wholes-stays-on-the-root-row-02.dsl))
-- ✓ [Line 1719](gl:docs/dev/layout-gen/layout-alg.md#L1719): `#tB,#tC have same center-x` ([a-part-of-two-wholes-stays-on-the-root-row-03.dsl](../layout-gen-rules/a-part-of-two-wholes-stays-on-the-root-row-03.dsl))
-- ✓ [Line 1720](gl:docs/dev/layout-gen/layout-alg.md#L1720): `#tC is below #tB with gap=40` ([a-part-of-two-wholes-stays-on-the-root-row-04.dsl](../layout-gen-rules/a-part-of-two-wholes-stays-on-the-root-row-04.dsl))
-- ✓ [Line 1721](gl:docs/dev/layout-gen/layout-alg.md#L1721): `#tD is right-of #tA with gap=60` ([a-part-of-two-wholes-stays-on-the-root-row-05.dsl](../layout-gen-rules/a-part-of-two-wholes-stays-on-the-root-row-05.dsl))
+- ✓ [Line 1801](gl:docs/dev/layout-gen/layout-alg.md#L1801): `#tA,#tD,#tE,#tG,#tH,#tI have same y` ([a-part-of-two-wholes-stays-on-the-root-row.dsl](../layout-gen-rules/a-part-of-two-wholes-stays-on-the-root-row.dsl))
+- ✓ [Line 1802](gl:docs/dev/layout-gen/layout-alg.md#L1802): `#tB,#tF,#cX have same y` ([a-part-of-two-wholes-stays-on-the-root-row-02.dsl](../layout-gen-rules/a-part-of-two-wholes-stays-on-the-root-row-02.dsl))
+- ✓ [Line 1803](gl:docs/dev/layout-gen/layout-alg.md#L1803): `#tB,#tC have same center-x` ([a-part-of-two-wholes-stays-on-the-root-row-03.dsl](../layout-gen-rules/a-part-of-two-wholes-stays-on-the-root-row-03.dsl))
+- ✓ [Line 1804](gl:docs/dev/layout-gen/layout-alg.md#L1804): `#tC is below #tB with gap=40` ([a-part-of-two-wholes-stays-on-the-root-row-04.dsl](../layout-gen-rules/a-part-of-two-wholes-stays-on-the-root-row-04.dsl))
+- ✓ [Line 1805](gl:docs/dev/layout-gen/layout-alg.md#L1805): `#tD is right-of #tA with gap=60` ([a-part-of-two-wholes-stays-on-the-root-row-05.dsl](../layout-gen-rules/a-part-of-two-wholes-stays-on-the-root-row-05.dsl))
 
 ## Rendered Diagram
 

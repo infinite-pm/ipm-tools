@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L1106-L1109 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-thing-and-its-concept-read-as-one-unit)
+**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L1067-L1070 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-thing-and-its-concept-read-as-one-unit)
 
 ## ipmt Content
 

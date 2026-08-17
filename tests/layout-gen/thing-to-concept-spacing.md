@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2851-L2853 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#thing-to-concept-spacing)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2935-L2937 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#thing-to-concept-spacing)
 
 ## ipmt Content
 
@@ -24,18 +24,18 @@ cX <-- B
 
 ## Layout Validation Rules
 
-Test line: 2851
+Test line: 2935
 
 ✅ All 8 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2863](gl:docs/dev/layout-gen/layout-alg.md#L2863): `#cX is horizontally-centered-between #A,#B` ([thing-to-concept-spacing.dsl](../layout-gen-rules/thing-to-concept-spacing.dsl))
-- ✓ [Line 2864](gl:docs/dev/layout-gen/layout-alg.md#L2864): `edge #A,#cX has target-side=top` ([thing-to-concept-spacing-02.dsl](../layout-gen-rules/thing-to-concept-spacing-02.dsl))
-- ✓ [Line 2865](gl:docs/dev/layout-gen/layout-alg.md#L2865): `edge #A,#cX has target-position=0.25` ([thing-to-concept-spacing-03.dsl](../layout-gen-rules/thing-to-concept-spacing-03.dsl))
-- ✓ [Line 2866](gl:docs/dev/layout-gen/layout-alg.md#L2866): `edge #B,#cX has target-side=top` ([thing-to-concept-spacing-04.dsl](../layout-gen-rules/thing-to-concept-spacing-04.dsl))
-- ✓ [Line 2867](gl:docs/dev/layout-gen/layout-alg.md#L2867): `edge #B,#cX has target-position=0.75` ([thing-to-concept-spacing-05.dsl](../layout-gen-rules/thing-to-concept-spacing-05.dsl))
-- ✓ [Line 2868](gl:docs/dev/layout-gen/layout-alg.md#L2868): `edge #A,#cX has max-bends=0` ([thing-to-concept-spacing-06.dsl](../layout-gen-rules/thing-to-concept-spacing-06.dsl))
-- ✓ [Line 2869](gl:docs/dev/layout-gen/layout-alg.md#L2869): `edge #B,#cX has max-bends=0` ([thing-to-concept-spacing-07.dsl](../layout-gen-rules/thing-to-concept-spacing-07.dsl))
+- ✓ [Line 2947](gl:docs/dev/layout-gen/layout-alg.md#L2947): `#cX is horizontally-centered-between #A,#B` ([thing-to-concept-spacing.dsl](../layout-gen-rules/thing-to-concept-spacing.dsl))
+- ✓ [Line 2948](gl:docs/dev/layout-gen/layout-alg.md#L2948): `edge #A,#cX has target-side=top` ([thing-to-concept-spacing-02.dsl](../layout-gen-rules/thing-to-concept-spacing-02.dsl))
+- ✓ [Line 2949](gl:docs/dev/layout-gen/layout-alg.md#L2949): `edge #A,#cX has target-position=0.25` ([thing-to-concept-spacing-03.dsl](../layout-gen-rules/thing-to-concept-spacing-03.dsl))
+- ✓ [Line 2950](gl:docs/dev/layout-gen/layout-alg.md#L2950): `edge #B,#cX has target-side=top` ([thing-to-concept-spacing-04.dsl](../layout-gen-rules/thing-to-concept-spacing-04.dsl))
+- ✓ [Line 2951](gl:docs/dev/layout-gen/layout-alg.md#L2951): `edge #B,#cX has target-position=0.75` ([thing-to-concept-spacing-05.dsl](../layout-gen-rules/thing-to-concept-spacing-05.dsl))
+- ✓ [Line 2952](gl:docs/dev/layout-gen/layout-alg.md#L2952): `edge #A,#cX has max-bends=0` ([thing-to-concept-spacing-06.dsl](../layout-gen-rules/thing-to-concept-spacing-06.dsl))
+- ✓ [Line 2953](gl:docs/dev/layout-gen/layout-alg.md#L2953): `edge #B,#cX has max-bends=0` ([thing-to-concept-spacing-07.dsl](../layout-gen-rules/thing-to-concept-spacing-07.dsl))
 
 ## Rendered Diagram
 

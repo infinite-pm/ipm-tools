@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2956-L2957 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-two-concept-fan-mirrors-exactly-about-its-parent)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3040-L3041 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-two-concept-fan-mirrors-exactly-about-its-parent)
 
 ## ipmt Content
 
@@ -23,13 +23,13 @@ tA --> cX ::c --> cY ::c, cZ ::c
 
 ## Layout Validation Rules
 
-Test line: 2956
+Test line: 3040
 
 ✅ All 3 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2970](gl:docs/dev/layout-gen/layout-alg.md#L2970): `#cY,#cZ have same y` ([a-two-concept-fan-mirrors-exactly-about-its-parent.dsl](../layout-gen-rules/a-two-concept-fan-mirrors-exactly-about-its-parent.dsl))
-- ✓ [Line 2971](gl:docs/dev/layout-gen/layout-alg.md#L2971): `#cY is left-of #cZ with gap=80` ([a-two-concept-fan-mirrors-exactly-about-its-parent-02.dsl](../layout-gen-rules/a-two-concept-fan-mirrors-exactly-about-its-parent-02.dsl))
+- ✓ [Line 3054](gl:docs/dev/layout-gen/layout-alg.md#L3054): `#cY,#cZ have same y` ([a-two-concept-fan-mirrors-exactly-about-its-parent.dsl](../layout-gen-rules/a-two-concept-fan-mirrors-exactly-about-its-parent.dsl))
+- ✓ [Line 3055](gl:docs/dev/layout-gen/layout-alg.md#L3055): `#cY is left-of #cZ with gap=80` ([a-two-concept-fan-mirrors-exactly-about-its-parent-02.dsl](../layout-gen-rules/a-two-concept-fan-mirrors-exactly-about-its-parent-02.dsl))
 
 ## Rendered Diagram
 

@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L1246-L1249 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#up-to-three-components-share-one-row)
+**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L1207-L1210 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#up-to-three-components-share-one-row)
 
 ## ipmt Content
 

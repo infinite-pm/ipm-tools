@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3122-L3127 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3206-L3211 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below)
 
 ## ipmt Content
 
@@ -27,25 +27,25 @@ tB --- tE
 
 ## Layout Validation Rules
 
-Test line: 3122
+Test line: 3206
 
 ⚠️ 14/15 rules passed
 
 - ✗ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` - **edge tB->tE has 2 bends > max-bends 0 (each-edge default; if the detour is intended, add it to `except` and pin it with `edge #tB,#tE has max-bends=2`)** ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 3145](gl:docs/dev/layout-gen/layout-alg.md#L3145): `#tB,#tC,#tD,#tE have same y` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below.dsl))
-- ✓ [Line 3146](gl:docs/dev/layout-gen/layout-alg.md#L3146): `edge #tB,#tC is horizontal` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-02.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-02.dsl))
-- ✓ [Line 3147](gl:docs/dev/layout-gen/layout-alg.md#L3147): `edge #tB,#tC has visibility=visible` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-03.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-03.dsl))
-- ✓ [Line 3148](gl:docs/dev/layout-gen/layout-alg.md#L3148): `edge #tC,#tD is horizontal` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-04.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-04.dsl))
-- ✓ [Line 3149](gl:docs/dev/layout-gen/layout-alg.md#L3149): `edge #tC,#tD has visibility=visible` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-05.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-05.dsl))
-- ✓ [Line 3150](gl:docs/dev/layout-gen/layout-alg.md#L3150): `edge #tD,#tE is horizontal` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-06.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-06.dsl))
-- ✓ [Line 3151](gl:docs/dev/layout-gen/layout-alg.md#L3151): `edge #tD,#tE has visibility=visible` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-07.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-07.dsl))
-- ✓ [Line 3152](gl:docs/dev/layout-gen/layout-alg.md#L3152): `each edge has max-bends=0 except #tB,#tE` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-08.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-08.dsl))
-- ✓ [Line 3153](gl:docs/dev/layout-gen/layout-alg.md#L3153): `edge #tB,#tE has max-bends=2` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-09.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-09.dsl))
-- ✓ [Line 3154](gl:docs/dev/layout-gen/layout-alg.md#L3154): `edge #tB,#tE has visibility=visible` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-10.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-10.dsl))
-- ✓ [Line 3155](gl:docs/dev/layout-gen/layout-alg.md#L3155): `edge #tB,#tE has source-side=bottom` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-11.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-11.dsl))
-- ✓ [Line 3156](gl:docs/dev/layout-gen/layout-alg.md#L3156): `edge #tB,#tE has source-position=0.75` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-12.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-12.dsl))
-- ✓ [Line 3157](gl:docs/dev/layout-gen/layout-alg.md#L3157): `edge #tB,#tE has target-side=bottom` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-13.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-13.dsl))
-- ✓ [Line 3158](gl:docs/dev/layout-gen/layout-alg.md#L3158): `edge #tB,#tE has target-position=0.25` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-14.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-14.dsl))
+- ✓ [Line 3229](gl:docs/dev/layout-gen/layout-alg.md#L3229): `#tB,#tC,#tD,#tE have same y` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below.dsl))
+- ✓ [Line 3230](gl:docs/dev/layout-gen/layout-alg.md#L3230): `edge #tB,#tC is horizontal` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-02.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-02.dsl))
+- ✓ [Line 3231](gl:docs/dev/layout-gen/layout-alg.md#L3231): `edge #tB,#tC has visibility=visible` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-03.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-03.dsl))
+- ✓ [Line 3232](gl:docs/dev/layout-gen/layout-alg.md#L3232): `edge #tC,#tD is horizontal` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-04.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-04.dsl))
+- ✓ [Line 3233](gl:docs/dev/layout-gen/layout-alg.md#L3233): `edge #tC,#tD has visibility=visible` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-05.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-05.dsl))
+- ✓ [Line 3234](gl:docs/dev/layout-gen/layout-alg.md#L3234): `edge #tD,#tE is horizontal` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-06.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-06.dsl))
+- ✓ [Line 3235](gl:docs/dev/layout-gen/layout-alg.md#L3235): `edge #tD,#tE has visibility=visible` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-07.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-07.dsl))
+- ✓ [Line 3236](gl:docs/dev/layout-gen/layout-alg.md#L3236): `each edge has max-bends=0 except #tB,#tE` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-08.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-08.dsl))
+- ✓ [Line 3237](gl:docs/dev/layout-gen/layout-alg.md#L3237): `edge #tB,#tE has max-bends=2` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-09.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-09.dsl))
+- ✓ [Line 3238](gl:docs/dev/layout-gen/layout-alg.md#L3238): `edge #tB,#tE has visibility=visible` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-10.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-10.dsl))
+- ✓ [Line 3239](gl:docs/dev/layout-gen/layout-alg.md#L3239): `edge #tB,#tE has source-side=bottom` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-11.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-11.dsl))
+- ✓ [Line 3240](gl:docs/dev/layout-gen/layout-alg.md#L3240): `edge #tB,#tE has source-position=0.75` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-12.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-12.dsl))
+- ✓ [Line 3241](gl:docs/dev/layout-gen/layout-alg.md#L3241): `edge #tB,#tE has target-side=bottom` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-13.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-13.dsl))
+- ✓ [Line 3242](gl:docs/dev/layout-gen/layout-alg.md#L3242): `edge #tB,#tE has target-position=0.25` ([near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-14.dsl](../layout-gen-rules/near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-14.dsl))
 
 ## Rendered Diagram
 

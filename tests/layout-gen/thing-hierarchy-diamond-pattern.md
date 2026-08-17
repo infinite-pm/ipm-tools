@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1532-L1536 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#thing-hierarchy-diamond-pattern)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1616-L1620 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#thing-hierarchy-diamond-pattern)
 
 ## ipmt Content
 
@@ -26,15 +26,15 @@ tC --> tD
 
 ## Layout Validation Rules
 
-Test line: 1532
+Test line: 1616
 
 ✅ All 5 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 1548](gl:docs/dev/layout-gen/layout-alg.md#L1548): `#tB,#tC have same y` ([thing-hierarchy-diamond-pattern.dsl](../layout-gen-rules/thing-hierarchy-diamond-pattern.dsl))
-- ✓ [Line 1549](gl:docs/dev/layout-gen/layout-alg.md#L1549): `#tD is below #tB with gap=40` ([thing-hierarchy-diamond-pattern-02.dsl](../layout-gen-rules/thing-hierarchy-diamond-pattern-02.dsl))
-- ✓ [Line 1550](gl:docs/dev/layout-gen/layout-alg.md#L1550): `#tA is above #tB with gap=40` ([thing-hierarchy-diamond-pattern-03.dsl](../layout-gen-rules/thing-hierarchy-diamond-pattern-03.dsl))
-- ✓ [Line 1551](gl:docs/dev/layout-gen/layout-alg.md#L1551): `#tA,#tD have same center-x` ([thing-hierarchy-diamond-pattern-04.dsl](../layout-gen-rules/thing-hierarchy-diamond-pattern-04.dsl))
+- ✓ [Line 1632](gl:docs/dev/layout-gen/layout-alg.md#L1632): `#tB,#tC have same y` ([thing-hierarchy-diamond-pattern.dsl](../layout-gen-rules/thing-hierarchy-diamond-pattern.dsl))
+- ✓ [Line 1633](gl:docs/dev/layout-gen/layout-alg.md#L1633): `#tD is below #tB with gap=40` ([thing-hierarchy-diamond-pattern-02.dsl](../layout-gen-rules/thing-hierarchy-diamond-pattern-02.dsl))
+- ✓ [Line 1634](gl:docs/dev/layout-gen/layout-alg.md#L1634): `#tA is above #tB with gap=40` ([thing-hierarchy-diamond-pattern-03.dsl](../layout-gen-rules/thing-hierarchy-diamond-pattern-03.dsl))
+- ✓ [Line 1635](gl:docs/dev/layout-gen/layout-alg.md#L1635): `#tA,#tD have same center-x` ([thing-hierarchy-diamond-pattern-04.dsl](../layout-gen-rules/thing-hierarchy-diamond-pattern-04.dsl))
 
 ## Rendered Diagram
 

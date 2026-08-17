@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L1063-L1077 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-budgeted-crossing-beats-a-two-bend-detour)
+**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L1024-L1038 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-budgeted-crossing-beats-a-two-bend-detour)
 
 ## ipmt Content
 

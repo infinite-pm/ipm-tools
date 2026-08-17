@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-ext.md",
-        "source_sha1": "debf965319e17db2c7b88097aed1d92267c33307",
+        "source_sha1": "44c219eb0a170d27977afd96cd1775f0cbd7b7e6",
         "name": "ipmt layout algorithm extensions",
         "method": "parser",
         "parser_name": "ipmt-md",
@@ -353,23 +353,8 @@
                 "section": "v7 acceptance targets"
             },
             {
-                "destination": "a-band-members-ties-up-the-chain-fan-from-its-facing-side-too",
-                "line": 1025,
-                "anchor": "#a-band-members-ties-up-the-chain-fan-from-its-facing-side-too",
-                "content_sha1": "e2812ec90dbd3c9c8538f40c97793af76572de0a",
-                "outputs": {
-                    "ipm.svg": "ac706a82f7be481dbd4c3a4200cc2e4d4eadd5ee",
-                    "ipmt": "e2812ec90dbd3c9c8538f40c97793af76572de0a",
-                    "json": "c1413e6fb518382224fbc1ff5e954b1db70d3fb2",
-                    "layout.json": "edec6de909a58b4bbc05b3a03083bbfe878cb4b2",
-                    "md": "c636508eb2939a8886cf152ee2fd15dce210da0f"
-                },
-                "heading": "a band member's ties up the chain fan from its facing side too",
-                "section": "v7 acceptance targets"
-            },
-            {
                 "destination": "a-budgeted-crossing-beats-a-two-bend-detour",
-                "line": 1063,
+                "line": 1024,
                 "anchor": "#a-budgeted-crossing-beats-a-two-bend-detour",
                 "content_sha1": "f2298f5a451abac286eeba704013b69e4b3ddaf5",
                 "outputs": {
@@ -377,14 +362,14 @@
                     "ipmt": "f2298f5a451abac286eeba704013b69e4b3ddaf5",
                     "json": "e47c5c29d119efc83887ddf40903aac70fc9d5de",
                     "layout.json": "2c41979c4f4ba3e1472c7d7c727bfe2e1bf0cac4",
-                    "md": "b29173bf11602ef66ddfdf929fd835f3ba202acd"
+                    "md": "c330a514d23cc5191a6f4d38e4b456c5373cc3fa"
                 },
                 "heading": "a budgeted crossing beats a two-bend detour",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-thing-and-its-concept-read-as-one-unit",
-                "line": 1106,
+                "line": 1067,
                 "anchor": "#a-thing-and-its-concept-read-as-one-unit",
                 "content_sha1": "4352b42e933f4aa60e0c3c18003a8e7a7e704190",
                 "outputs": {
@@ -392,14 +377,14 @@
                     "ipmt": "4352b42e933f4aa60e0c3c18003a8e7a7e704190",
                     "json": "504c3de36b3cf2deddb81f4dad54239e12d2d0c5",
                     "layout.json": "ee9dc9f24cbea673754e78d71b26f6461947b593",
-                    "md": "8dc0cf2fefd4c58e2922d8039598f8cddb3de5e0"
+                    "md": "68dd369ebb15219496e0ba1824e6263a8b7f379b"
                 },
                 "heading": "a thing and its concept read as one unit",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-bent-ties-approach-follows-its-last-leg",
-                "line": 1133,
+                "line": 1094,
                 "anchor": "#a-bent-ties-approach-follows-its-last-leg",
                 "content_sha1": "ce33437abaa2341891128248fd35b46314d59dab",
                 "outputs": {
@@ -407,14 +392,14 @@
                     "ipmt": "ce33437abaa2341891128248fd35b46314d59dab",
                     "json": "b3fed8bad4ca1826ece05ab78c1531cc43a7de21",
                     "layout.json": "7db8dc632585156723bdd677e079f70ef3512261",
-                    "md": "028d24dc18c61c897c6c791da19c2783ba30cfe9"
+                    "md": "542671acd473c4aecbce0274f25cf3d80fd43b27"
                 },
                 "heading": "a bent tie's approach follows its last leg",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-far-join-child-tucks-to-the-parents-column",
-                "line": 1166,
+                "line": 1127,
                 "anchor": "#a-far-join-child-tucks-to-the-parents-column",
                 "content_sha1": "59269d973fd3694215e2b2ef38f5eaf72864de42",
                 "outputs": {
@@ -422,14 +407,14 @@
                     "ipmt": "59269d973fd3694215e2b2ef38f5eaf72864de42",
                     "json": "ae55abe42f724c178db6ff8173f477b311f476fe",
                     "layout.json": "6aa4c72ba0615142e30e655f2b67bbff980f7450",
-                    "md": "29eaf2040a0eee3e67c04ef8c21a14778b8ed39d"
+                    "md": "c8555706985a34518d11831213bceb753561bb6f"
                 },
                 "heading": "a far join child tucks to the parents' column",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-satellites-tree-never-evicts-its-own-frame",
-                "line": 1223,
+                "line": 1184,
                 "anchor": "#a-satellites-tree-never-evicts-its-own-frame",
                 "content_sha1": "75e469d5c89d0ec6399931f6ca6af2338ca8db2c",
                 "outputs": {
@@ -437,14 +422,14 @@
                     "ipmt": "75e469d5c89d0ec6399931f6ca6af2338ca8db2c",
                     "json": "eb064ccba349ad3c4a1abe14b0bbc695603b8c5c",
                     "layout.json": "93d7f35a7dcd4e2f494ec7bfb5c0866072dd1aea",
-                    "md": "8771e26685cb150454a57b670c8b79ab907ee27b"
+                    "md": "58797f1e7e204b3a758380a7d7b50e236edc3345"
                 },
                 "heading": "a satellite's tree never evicts its own frame",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "up-to-three-components-share-one-row",
-                "line": 1246,
+                "line": 1207,
                 "anchor": "#up-to-three-components-share-one-row",
                 "content_sha1": "191ac0f60fc40ebf0519784b9b8560a2d9e6d611",
                 "outputs": {
@@ -452,14 +437,14 @@
                     "ipmt": "191ac0f60fc40ebf0519784b9b8560a2d9e6d611",
                     "json": "b86ea056df1ff624159fc2f55c918b027aaceda5",
                     "layout.json": "c3ac3c3498aa6910c0a073d648449376d778008a",
-                    "md": "fb9b571410697408e325e9833650d933c14877ee"
+                    "md": "680cef97db89a39c487812d5458f4a7ec0c0b663"
                 },
                 "heading": "up to three components share one row",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas",
-                "line": 1277,
+                "line": 1238,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "0c477965a92823cf12ef9e5ac80d3bcfc5214347",
                 "outputs": {
@@ -467,7 +452,7 @@
                     "ipmt": "0c477965a92823cf12ef9e5ac80d3bcfc5214347",
                     "json": "5f3ae19ff573bd57d49568ce522d6f87d4e6b245",
                     "layout.json": "86ddbc6a12fa9ec776f7f20e0f89bffd02e5b625",
-                    "md": "8cf0cec662b73a3149e1256a2c65d1f13eed3577"
+                    "md": "19cc312f9873a5f06770f6d2cf9437af6e55e1ed"
                 },
                 "heading": "untied components wrap toward the canvas",
                 "section": "v7 acceptance targets"

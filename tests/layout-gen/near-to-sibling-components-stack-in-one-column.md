@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2101-L2107 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#near-to-sibling-components-stack-in-one-column)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2185-L2191 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#near-to-sibling-components-stack-in-one-column)
 
 ## ipmt Content
 
@@ -28,19 +28,19 @@ g2a --- t1-anchor
 
 ## Layout Validation Rules
 
-Test line: 2101
+Test line: 2185
 
 ✅ All 9 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2124](gl:docs/dev/layout-gen/layout-alg.md#L2124): `each edge has max-bends=0` ([near-to-sibling-components-stack-in-one-column.dsl](../layout-gen-rules/near-to-sibling-components-stack-in-one-column.dsl))
-- ✓ [Line 2125](gl:docs/dev/layout-gen/layout-alg.md#L2125): `#g1a,#g1b,#g2a,#g2b have same center-x` ([near-to-sibling-components-stack-in-one-column-02.dsl](../layout-gen-rules/near-to-sibling-components-stack-in-one-column-02.dsl))
-- ✓ [Line 2126](gl:docs/dev/layout-gen/layout-alg.md#L2126): `#g1b is below #g1a with gap=40` ([near-to-sibling-components-stack-in-one-column-03.dsl](../layout-gen-rules/near-to-sibling-components-stack-in-one-column-03.dsl))
-- ✓ [Line 2127](gl:docs/dev/layout-gen/layout-alg.md#L2127): `#g2b is below #g2a with gap=40` ([near-to-sibling-components-stack-in-one-column-04.dsl](../layout-gen-rules/near-to-sibling-components-stack-in-one-column-04.dsl))
-- ✓ [Line 2128](gl:docs/dev/layout-gen/layout-alg.md#L2128): `#g2a is below #g1b with gap=120` ([near-to-sibling-components-stack-in-one-column-05.dsl](../layout-gen-rules/near-to-sibling-components-stack-in-one-column-05.dsl))
-- ✓ [Line 2129](gl:docs/dev/layout-gen/layout-alg.md#L2129): `#g1a is left-of #t1-anchor with gap=100` ([near-to-sibling-components-stack-in-one-column-06.dsl](../layout-gen-rules/near-to-sibling-components-stack-in-one-column-06.dsl))
-- ✓ [Line 2130](gl:docs/dev/layout-gen/layout-alg.md#L2130): `edge #g1a,#t1-anchor has visibility=visible` ([near-to-sibling-components-stack-in-one-column-07.dsl](../layout-gen-rules/near-to-sibling-components-stack-in-one-column-07.dsl))
-- ✓ [Line 2131](gl:docs/dev/layout-gen/layout-alg.md#L2131): `edge #g2a,#t1-anchor has visibility=visible` ([near-to-sibling-components-stack-in-one-column-08.dsl](../layout-gen-rules/near-to-sibling-components-stack-in-one-column-08.dsl))
+- ✓ [Line 2208](gl:docs/dev/layout-gen/layout-alg.md#L2208): `each edge has max-bends=0` ([near-to-sibling-components-stack-in-one-column.dsl](../layout-gen-rules/near-to-sibling-components-stack-in-one-column.dsl))
+- ✓ [Line 2209](gl:docs/dev/layout-gen/layout-alg.md#L2209): `#g1a,#g1b,#g2a,#g2b have same center-x` ([near-to-sibling-components-stack-in-one-column-02.dsl](../layout-gen-rules/near-to-sibling-components-stack-in-one-column-02.dsl))
+- ✓ [Line 2210](gl:docs/dev/layout-gen/layout-alg.md#L2210): `#g1b is below #g1a with gap=40` ([near-to-sibling-components-stack-in-one-column-03.dsl](../layout-gen-rules/near-to-sibling-components-stack-in-one-column-03.dsl))
+- ✓ [Line 2211](gl:docs/dev/layout-gen/layout-alg.md#L2211): `#g2b is below #g2a with gap=40` ([near-to-sibling-components-stack-in-one-column-04.dsl](../layout-gen-rules/near-to-sibling-components-stack-in-one-column-04.dsl))
+- ✓ [Line 2212](gl:docs/dev/layout-gen/layout-alg.md#L2212): `#g2a is below #g1b with gap=120` ([near-to-sibling-components-stack-in-one-column-05.dsl](../layout-gen-rules/near-to-sibling-components-stack-in-one-column-05.dsl))
+- ✓ [Line 2213](gl:docs/dev/layout-gen/layout-alg.md#L2213): `#g1a is left-of #t1-anchor with gap=100` ([near-to-sibling-components-stack-in-one-column-06.dsl](../layout-gen-rules/near-to-sibling-components-stack-in-one-column-06.dsl))
+- ✓ [Line 2214](gl:docs/dev/layout-gen/layout-alg.md#L2214): `edge #g1a,#t1-anchor has visibility=visible` ([near-to-sibling-components-stack-in-one-column-07.dsl](../layout-gen-rules/near-to-sibling-components-stack-in-one-column-07.dsl))
+- ✓ [Line 2215](gl:docs/dev/layout-gen/layout-alg.md#L2215): `edge #g2a,#t1-anchor has visibility=visible` ([near-to-sibling-components-stack-in-one-column-08.dsl](../layout-gen-rules/near-to-sibling-components-stack-in-one-column-08.dsl))
 
 ## Rendered Diagram
 

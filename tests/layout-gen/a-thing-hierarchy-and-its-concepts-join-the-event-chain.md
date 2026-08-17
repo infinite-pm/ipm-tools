@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1652-L1659 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-thing-hierarchy-and-its-concepts-join-the-event-chain)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1736-L1743 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-thing-hierarchy-and-its-concepts-join-the-event-chain)
 
 ## ipmt Content
 
@@ -29,25 +29,25 @@ cY ::c --> cX
 
 ## Layout Validation Rules
 
-Test line: 1652
+Test line: 1736
 
 ✅ All 15 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 1677](gl:docs/dev/layout-gen/layout-alg.md#L1677): `each edge has max-bends=0` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain.dsl))
-- ✓ [Line 1678](gl:docs/dev/layout-gen/layout-alg.md#L1678): `#tA,#e1 have same y` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain-02.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain-02.dsl))
-- ✓ [Line 1679](gl:docs/dev/layout-gen/layout-alg.md#L1679): `#tD,#e2 have same y` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain-03.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain-03.dsl))
-- ✓ [Line 1680](gl:docs/dev/layout-gen/layout-alg.md#L1680): `#tA is left-of #e1 with gap=60` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain-04.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain-04.dsl))
-- ✓ [Line 1681](gl:docs/dev/layout-gen/layout-alg.md#L1681): `#tD is left-of #e2 with gap=60` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain-05.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain-05.dsl))
-- ✓ [Line 1682](gl:docs/dev/layout-gen/layout-alg.md#L1682): `#tB,#tC have same y` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain-06.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain-06.dsl))
-- ✓ [Line 1683](gl:docs/dev/layout-gen/layout-alg.md#L1683): `#tB is left-of #tC with gap=60` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain-07.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain-07.dsl))
-- ✓ [Line 1684](gl:docs/dev/layout-gen/layout-alg.md#L1684): `#tC is above #tA with gap=40` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain-08.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain-08.dsl))
-- ✓ [Line 1685](gl:docs/dev/layout-gen/layout-alg.md#L1685): `#cX is left-of #tD with gap=60` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain-09.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain-09.dsl))
-- ✓ [Line 1686](gl:docs/dev/layout-gen/layout-alg.md#L1686): `#cX,#tD have same y` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain-10.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain-10.dsl))
-- ✓ [Line 1687](gl:docs/dev/layout-gen/layout-alg.md#L1687): `#cX,#cY have same center-x` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain-11.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain-11.dsl))
-- ✓ [Line 1688](gl:docs/dev/layout-gen/layout-alg.md#L1688): `#cY is above #cX with gap=40` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain-12.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain-12.dsl))
-- ✓ [Line 1689](gl:docs/dev/layout-gen/layout-alg.md#L1689): `edge #tD,#cX has visibility=visible` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain-13.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain-13.dsl))
-- ✓ [Line 1690](gl:docs/dev/layout-gen/layout-alg.md#L1690): `edge #cY,#cX has visibility=visible` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain-14.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain-14.dsl))
+- ✓ [Line 1761](gl:docs/dev/layout-gen/layout-alg.md#L1761): `each edge has max-bends=0` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain.dsl))
+- ✓ [Line 1762](gl:docs/dev/layout-gen/layout-alg.md#L1762): `#tA,#e1 have same y` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain-02.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain-02.dsl))
+- ✓ [Line 1763](gl:docs/dev/layout-gen/layout-alg.md#L1763): `#tD,#e2 have same y` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain-03.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain-03.dsl))
+- ✓ [Line 1764](gl:docs/dev/layout-gen/layout-alg.md#L1764): `#tA is left-of #e1 with gap=60` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain-04.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain-04.dsl))
+- ✓ [Line 1765](gl:docs/dev/layout-gen/layout-alg.md#L1765): `#tD is left-of #e2 with gap=60` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain-05.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain-05.dsl))
+- ✓ [Line 1766](gl:docs/dev/layout-gen/layout-alg.md#L1766): `#tB,#tC have same y` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain-06.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain-06.dsl))
+- ✓ [Line 1767](gl:docs/dev/layout-gen/layout-alg.md#L1767): `#tB is left-of #tC with gap=60` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain-07.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain-07.dsl))
+- ✓ [Line 1768](gl:docs/dev/layout-gen/layout-alg.md#L1768): `#tC is above #tA with gap=40` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain-08.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain-08.dsl))
+- ✓ [Line 1769](gl:docs/dev/layout-gen/layout-alg.md#L1769): `#cX is left-of #tD with gap=60` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain-09.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain-09.dsl))
+- ✓ [Line 1770](gl:docs/dev/layout-gen/layout-alg.md#L1770): `#cX,#tD have same y` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain-10.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain-10.dsl))
+- ✓ [Line 1771](gl:docs/dev/layout-gen/layout-alg.md#L1771): `#cX,#cY have same center-x` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain-11.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain-11.dsl))
+- ✓ [Line 1772](gl:docs/dev/layout-gen/layout-alg.md#L1772): `#cY is above #cX with gap=40` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain-12.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain-12.dsl))
+- ✓ [Line 1773](gl:docs/dev/layout-gen/layout-alg.md#L1773): `edge #tD,#cX has visibility=visible` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain-13.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain-13.dsl))
+- ✓ [Line 1774](gl:docs/dev/layout-gen/layout-alg.md#L1774): `edge #cY,#cX has visibility=visible` ([a-thing-hierarchy-and-its-concepts-join-the-event-chain-14.dsl](../layout-gen-rules/a-thing-hierarchy-and-its-concepts-join-the-event-chain-14.dsl))
 
 ## Rendered Diagram
 
