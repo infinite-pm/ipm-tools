@@ -43,8 +43,13 @@ type change struct {
 	Report layoutdiff.Report `json:"report"`
 
 	OldSVG []byte `json:"-"`
-	NewSVG []byte `json:"-"`
-	Err    string `json:"error,omitempty"`
+	// NewSVG is the plain rendering; NewMarked is the same picture with the
+	// differences drawn on it. Two files, because CSS cannot reach inside an
+	// <img> to toggle a layer — and <img> is what keeps a page of two hundred
+	// diagrams from being two hundred diagrams' worth of DOM.
+	NewSVG    []byte `json:"-"`
+	NewMarked []byte `json:"-"`
+	Err       string `json:"error,omitempty"`
 
 	// pair is held only until the panes are rendered — which happens AFTER
 	// the column is sorted, so the limit falls on the rows a reader sees
@@ -254,8 +259,11 @@ func run() int {
 			continue
 		}
 		dir := filepath.Join(outAbs, filepath.FromSlash(pageDir(w.Label)))
-		if err := os.MkdirAll(dir, 0o755); err != nil {
+		if err := os.MkdirAll(filepath.Join(dir, "d"), 0o755); err != nil {
 			return fail("create %s: %v", dir, err)
+		}
+		if err := writePanes(dir, w, current); err != nil {
+			return fail("write panes: %v", err)
 		}
 		if err := os.WriteFile(filepath.Join(dir, "index.html"), []byte(renderPage(in, i)), 0o644); err != nil {
 			return fail("write page: %v", err)
@@ -521,6 +529,37 @@ func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagra
 	return out
 }
 
+// writePanes puts each diagram beside the page that shows it, as its own
+// file.
+//
+// Inline SVG was costing 7.4 MB and 776 diagrams of DOM on the busiest page —
+// worse than the single page that splitting was meant to cure, because each
+// row carries three or four pictures. As files behind <img loading="lazy">
+// the page is a few hundred bytes per row and the browser decodes only what
+// is on screen.
+func writePanes(dir string, w week, current map[string][]byte) error {
+	for _, c := range w.Changes {
+		for _, f := range []struct {
+			name string
+			data []byte
+		}{
+			{"before", c.OldSVG},
+			{"after", c.NewSVG},
+			{"marked", c.NewMarked},
+			{"current", current[c.ID]},
+		} {
+			if len(f.data) == 0 {
+				continue
+			}
+			path := filepath.Join(dir, "d", paneFile(c.ID, f.name))
+			if err := os.WriteFile(path, f.data, 0o644); err != nil {
+				return err
+			}
+		}
+	}
+	return nil
+}
+
 // renderCurrent lays out every diagram that appears in the report with the
 // NEWEST engine, so each row can offer "what this looks like today" beside
 // what it looked like then. One sweep, and only the diagrams that actually
@@ -600,7 +639,8 @@ func renderPanes(c *change, p layoutaudit.Pair) {
 	}
 	if p.New.Graph != nil {
 		if svg, err := ipmsvg.Render(p.New.Graph); err == nil {
-			c.NewSVG = layoutdiff.OverlaySVG(svg, c.Report)
+			c.NewSVG = svg
+			c.NewMarked = layoutdiff.OverlaySVG(svg, c.Report)
 		}
 	}
 }

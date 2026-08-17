@@ -70,7 +70,8 @@ type result struct {
 	Report  layoutdiff.Report   `json:"report"`
 
 	OldSVG    []byte `json:"-"`
-	NewSVG    []byte `json:"-"`
+	NewSVG    []byte `json:"-"` // plain
+	NewMarked []byte `json:"-"` // the same picture with the differences drawn
 	OldLayout string `json:"oldLayout,omitempty"`
 	NewLayout string `json:"newLayout,omitempty"`
 }
@@ -185,6 +186,28 @@ func run() int {
 		render(r, pairs[indexOf(pairs, r.ID)], pairDir)
 	}
 
+	// Panes are files, loaded lazily by the page. Inlining them put 7.4 MB
+	// and hundreds of diagrams of DOM into one document, which is what made
+	// a report unopenable in the first place.
+	paneDir := filepath.Join(outAbs, "d")
+	if err := os.MkdirAll(paneDir, 0o755); err != nil {
+		return fail("create %s: %v", paneDir, err)
+	}
+	for i := range results {
+		r := &results[i]
+		for _, f := range []struct {
+			name string
+			data []byte
+		}{{"before", r.OldSVG}, {"after", r.NewSVG}, {"marked", r.NewMarked}} {
+			if len(f.data) == 0 {
+				continue
+			}
+			if err := os.WriteFile(filepath.Join(paneDir, paneFile(r.ID, f.name)), f.data, 0o644); err != nil {
+				return fail("write pane: %v", err)
+			}
+		}
+	}
+
 	reportPath := filepath.Join(outAbs, "index.html")
 	html := renderHTML(reportInput{
 		Old: oldEng, New: newEng, Paths: paths, Results: results,
@@ -291,7 +314,8 @@ func render(r *result, p layoutaudit.Pair, pairDir string) {
 	}
 	if p.New.Graph != nil {
 		if svg, err := ipmsvg.Render(p.New.Graph); err == nil {
-			r.NewSVG = layoutdiff.OverlaySVG(svg, r.Report)
+			r.NewSVG = svg
+			r.NewMarked = layoutdiff.OverlaySVG(svg, r.Report)
 		}
 		if len(p.New.JSON) > 0 {
 			r.NewLayout = base + ".new.layout.json"

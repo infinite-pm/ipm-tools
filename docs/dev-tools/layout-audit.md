@@ -193,6 +193,12 @@ handling, moved **0 of 311** diagrams in this report, and cut crossings by half
 over ipm-drawio's zoom corpus. A green audit means "nothing that layout-gen
 draws moved", not "nothing moved anywhere".
 
+## Weight
+
+Panes are files under `d/`, shown through `<img loading="lazy">` — the same
+change the timeline needed. A sweep with hundreds of changed diagrams would
+otherwise inline every one of them into a single document.
+
 ## Also emitted
 
 - `temp/layout-audit/manifest.json` — every diagram's status, tier, score and

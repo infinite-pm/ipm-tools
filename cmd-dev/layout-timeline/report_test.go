@@ -23,8 +23,9 @@ func sampleWeeks() []week {
 		{Label: "2026-07-13", SHA: "bbbbbbbbbb", Subject: "second", Against: "2026-07-06", Identical: 300,
 			Source: "pre1",
 			Changes: []change{{ID: "docs/x.md#100", Status: "changed", Report: rep,
-				OldSVG: []byte(`<svg viewBox="0 0 10 10"></svg>`),
-				NewSVG: []byte(`<svg viewBox="0 0 10 10"></svg>`)}}},
+				OldSVG:    []byte(`<svg viewBox="0 0 10 10"></svg>`),
+				NewSVG:    []byte(`<svg viewBox="0 0 10 10"></svg>`),
+				NewMarked: []byte(`<svg viewBox="0 0 10 10"></svg>`)}}},
 		{Label: "2026-07-20", Note: "nothing was committed this week — same engine as 2026-07-13"},
 	}
 }
@@ -69,11 +70,11 @@ func TestColumnPageRenders(t *testing.T) {
 		t.Fatalf("template failed:\n%s", html)
 	}
 	for _, want := range []string{
-		"docs/x.md#100",       // the changed diagram
-		"source-side=left",    // its detail
-		"audit-overlay",       // the mode hook
-		`data-mode="auto"`,    // the right pane's controls
-		`data-left="current"`, // the left pane can show today's rendering
+		"docs/x.md#100",              // the changed diagram
+		"source-side=left",           // its detail
+		`class="layer layer-marked"`, // the marked picture is its own image
+		`data-mode="auto"`,           // the right pane's controls
+		`data-left="current"`,        // the left pane can show today's rendering
 		`class="layer layer-current"`,
 		`class="row first`, // …and it opens still
 		"../../index.html", // back to the index
@@ -124,7 +125,7 @@ func TestEachRowCarriesItsOwnHistory(t *testing.T) {
 		w := week{Label: label}
 		for _, id := range ids {
 			w.Changes = append(w.Changes, change{ID: id, Status: "changed", Report: rep,
-				OldSVG: svg, NewSVG: svg})
+				OldSVG: svg, NewSVG: svg, NewMarked: svg})
 		}
 		return w
 	}
@@ -185,6 +186,9 @@ func TestRowWithoutAnOldDiagramIsMarked(t *testing.T) {
 	if strings.Contains(html, `class="layer layer-before"`) {
 		t.Error("an empty before layer was rendered anyway")
 	}
+	if !strings.Contains(html, `loading="lazy"`) {
+		t.Error("panes are not lazy images; a long page would inline every diagram")
+	}
 }
 
 // The grid is the index: one row per diagram that ever moved, one cell per
@@ -220,7 +224,7 @@ func TestTheDrawnRowsAreTheOnesShownFirst(t *testing.T) {
 		t.Fatalf("severity sort broken: %s first", w.Changes[0].ID)
 	}
 	// Only the first row gets panes, as a limit of 1 would give it.
-	w.Changes[0].OldSVG, w.Changes[0].NewSVG = svg, svg
+	w.Changes[0].OldSVG, w.Changes[0].NewSVG, w.Changes[0].NewMarked = svg, svg, svg
 
 	html := renderPage(timelineInput{Weeks: []week{w}}, 0)
 	first := strings.Index(html, `id="d-inv"`)
@@ -260,6 +264,7 @@ func TestPageBudgetPushesRowsToTheList(t *testing.T) {
 	weeks := sampleWeeks()
 	big := weeks[1].Changes[0]
 	big.NewSVG = []byte(strings.Repeat("x", 4096))
+	big.NewMarked = nil
 	weeks[1].Changes = []change{big, big, big}
 	in := timelineInput{Weeks: weeks, MaxBytes: 5000}
 	html := renderPage(in, 1)

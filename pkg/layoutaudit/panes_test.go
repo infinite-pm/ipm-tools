@@ -8,31 +8,27 @@ import (
 // The rule the interaction exists to keep: once a reader has clicked, the
 // picture stops moving — on a timer AND on hover. A diagram that changes
 // while it is being studied is worse than one that never moved.
-func TestPinnedModesAreNeverAnimatedOrHovered(t *testing.T) {
-	// Every rule that applies to a PINNED row must switch the animation off;
-	// one that forgets leaves the picture moving under a reader who asked it
-	// to stop.
-	for _, mode := range []string{ModeBefore, ModeFirst, ModeSecond} {
-		prefix := ".row." + mode + " "
-		found := 0
-		for _, line := range strings.Split(PaneCSS, "\n") {
-			line = strings.TrimSpace(line)
-			if !strings.HasPrefix(line, prefix) || !strings.Contains(line, "{") {
-				continue
-			}
-			found++
-			if !strings.Contains(line, "animation:none") {
-				t.Errorf("a pinned %q rule leaves the animation running: %s", mode, line)
-			}
+func TestOnlyAutoRowsCanAnimate(t *testing.T) {
+	// Animation is opt-IN now: it is applied only under .row.auto.live, so a
+	// pinned row cannot match an animating rule at all. That is a stronger
+	// property than the old one (every pinned rule must say animation:none),
+	// and it is the one worth enforcing — a single forgotten "animation:none"
+	// used to leave a picture moving under a reader who asked it to stop.
+	for _, line := range strings.Split(PaneCSS, "\n") {
+		line = strings.TrimSpace(line)
+		if !strings.Contains(line, "animation:") || strings.Contains(line, "animation:none") {
+			continue
 		}
-		if found == 0 {
-			t.Errorf("no CSS rule for the pinned %q state", mode)
+		// ".auto" as a token: the row may carry other classes first
+		// (".row.no-before.auto.live"), which a prefix check would miss.
+		if !strings.Contains(line, ".auto") {
+			t.Errorf("an animation can reach a row that is not on auto: %s", line)
 		}
 	}
-	// Hover may only reveal while alternating; a pinned pane ignores it.
+	// And hover may only reveal while alternating.
 	for _, line := range strings.Split(PaneCSS, "\n") {
-		if strings.Contains(line, ":hover") && strings.Contains(line, "audit-overlay") {
-			if !strings.HasPrefix(strings.TrimSpace(line), ".row.auto") {
+		if strings.Contains(line, ":hover") && strings.Contains(line, ".layer") {
+			if !strings.Contains(line, ".auto") {
 				t.Errorf("hover changes a pinned pane: %s", line)
 			}
 		}
@@ -89,9 +85,9 @@ func TestImageClickStepsTheCycleAndNeverRestoresAuto(t *testing.T) {
 	}
 }
 
-// A long history's report holds hundreds of diagrams. Animating them all at
-// once is not a performance nicety: 843 continuously animating SVG layers
-// took a VS Code webview down. Only rows on screen may move.
+// A long history's report holds hundreds of diagrams. Inlining them cost
+// 7.4 MB and 776 SVGs of DOM on one page, and animating them all at once took
+// a VS Code webview down. Panes are lazy images and only on-screen rows move.
 func TestOnlyVisibleRowsAnimate(t *testing.T) {
 	for _, line := range strings.Split(PaneCSS, "\n") {
 		line = strings.TrimSpace(line)
@@ -102,11 +98,14 @@ func TestOnlyVisibleRowsAnimate(t *testing.T) {
 			t.Errorf("an animation runs regardless of visibility: %s", line)
 		}
 	}
+	if !strings.Contains(PaneCSS, ".pane img") {
+		t.Error("panes are not images; a long page would inline every diagram again")
+	}
 	if !strings.Contains(PaneJS, "IntersectionObserver") {
 		t.Error("nothing marks rows as visible, so .live would never be set")
 	}
 	// And a row that has never been seen must still show something.
-	if !strings.Contains(PaneCSS, ".row.auto:not(.live) .pane-new .layer-after") {
+	if !strings.Contains(PaneCSS, ".row.auto:not(.live) .pane-new .stack > .layer-after") {
 		t.Error("an unobserved row has no defined appearance")
 	}
 }

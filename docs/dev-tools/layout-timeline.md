@@ -193,6 +193,18 @@ report about another repository's history never lands in that repository.
 
 ## Weight
 
+Panes are **files**, not inline SVG: `w/<column>/d/<diagram>.{before,after,marked,current}.svg`,
+loaded through `<img loading="lazy">`. Inlining them put **7.4 MB and 776
+diagrams of DOM** into the busiest page — worse than the single page that
+splitting was meant to cure, because each row carries three or four pictures.
+As lazy images that page is **1 MB of markup and 0 inline SVG**, and the
+browser decodes only what is on screen.
+
+The consequence worth knowing: "marked" is its own file rather than a layer
+switched on inside the picture, because CSS cannot reach inside an `<img>`.
+
+## Older notes on weight
+
 Two things make a long history's report expensive, and both are capped.
 
 **Processes.** A sweep spawns two per diagram, so 143 columns × 311 diagrams is

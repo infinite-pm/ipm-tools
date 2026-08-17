@@ -38,6 +38,14 @@ const (
 	ModeAuto   = "auto"   // run before → first → second, repeatedly
 )
 
+// Each state is a SEPARATE IMAGE, not a layer inside one SVG.
+//
+// Inlining cost 7.4 MB and 776 diagrams of DOM on one page. Behind
+// <img loading="lazy"> the page is a few hundred bytes per row and the
+// browser decodes only what is on screen — but CSS cannot reach inside an
+// <img> to toggle a group, so "marked" is its own file rather than an
+// overlay switched on within the picture.
+
 // PaneCycle is the pinned order a click steps through.
 var PaneCycle = []string{ModeBefore, ModeFirst, ModeSecond}
 
@@ -57,85 +65,70 @@ const PaneCSS = `
 .pane{background:var(--pane);padding:10px;position:relative}
 .pane h4{margin:0 0 6px;font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:#5c636b;
   display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:22px}
-.pane svg{display:block;height:auto;max-width:100%}
+.pane img{display:block;width:100%;height:auto}
 .pane-new .stack{cursor:pointer}
-.modes{display:inline-flex;gap:3px;text-transform:none;letter-spacing:0}
-.modes button{font:inherit;font-size:11px;line-height:1.6;padding:0 7px;border-radius:5px;
+.modes,.lefts{display:inline-flex;gap:3px;text-transform:none;letter-spacing:0}
+.modes button,.lefts button{font:inherit;font-size:11px;line-height:1.6;padding:0 7px;border-radius:5px;
   border:1px solid #d3d7dd;background:#fff;color:#3b4148;cursor:pointer}
-.modes button:hover{border-color:#9aa3ad}
-.modes button[aria-pressed="true"]{background:#3b4148;border-color:#3b4148;color:#fff;font-weight:600}
-.modes .glyph{margin-right:3px}
+.modes button:hover,.lefts button:hover{border-color:#9aa3ad}
+.modes button[aria-pressed="true"],.lefts button[aria-pressed="true"]{
+  background:#3b4148;border-color:#3b4148;color:#fff;font-weight:600}
+.modes .glyph,.lefts .glyph{margin-right:3px}
 
-/* Both diagrams occupy ONE grid cell, so they share an origin: same top-left,
-   same pixel scale (the widths come from PaneWidths). That registration is
-   what makes the swap readable — anything that holds still did not move. */
+/* The images of one pane occupy ONE grid cell, so they share an origin: same
+   top-left, same scale (the widths come from PaneWidths). That registration
+   is what makes the swap readable — anything that holds still did not move. */
 .stack{display:grid}
 .stack > .layer{grid-area:1/1;position:relative;align-self:start;justify-self:start}
 .layer .chip{position:absolute;top:0;right:0;font-size:10px;line-height:1.5;padding:0 6px;
   border-radius:0 0 0 5px;background:#3b4148;color:#fff;letter-spacing:.4px}
 
-/* EVERY layer rule names the pane it belongs to.
-   Two reasons, both learned the hard way. The panes share layer names —
+/* EVERY layer rule names the pane it belongs to. The panes share layer names —
    "before" means the same picture in each — so an unscoped rule written for
-   one silently governs the other. And specificity decides which of two
-   competing rules wins: a base hide of ".pane .stack > .layer" (three
-   classes) beat a show of ".pane-old .layer-before" (two), and the reference
-   pane rendered blank while holding a perfectly good diagram. */
+   one silently governs the other. And all rules of a pane share a selector
+   shape: a base hide of three classes once beat a show of two, and the pane
+   rendered blank while holding a perfectly good diagram. */
 
 /* LEFT — the reference: the column before this one, or what ships today. */
 .pane-old .stack > .layer{opacity:0}
 .pane-old .stack > .layer-before{opacity:1}
 .row.leftcurrent .pane-old .stack > .layer-before{opacity:0}
 .row.leftcurrent .pane-old .stack > .layer-current{opacity:1}
-.lefts{display:inline-flex;gap:3px;text-transform:none;letter-spacing:0}
-.lefts button{font:inherit;font-size:11px;line-height:1.6;padding:0 7px;border-radius:5px;
-  border:1px solid #d3d7dd;background:#fff;color:#3b4148;cursor:pointer}
-.lefts button:hover{border-color:#9aa3ad}
-.lefts button[aria-pressed="true"]{background:#3b4148;border-color:#3b4148;color:#fff;font-weight:600}
 
-/* RIGHT — the three pinned states. Nothing animates and nothing responds to
-   hover: once a reader has chosen, the picture holds still. */
-.pane-new .stack > .layer-before{opacity:0}
-.row.before .pane-new .layer-before{opacity:1;animation:none}
-.row.before .pane-new .layer-after{opacity:0;animation:none}
-.row.first  .pane-new .layer-before{opacity:0;animation:none}
-.row.first  .pane-new .layer-after{opacity:1;animation:none}
-.row.first  .pane-new .audit-overlay{opacity:0;animation:none}
-.row.second .pane-new .layer-before{opacity:0;animation:none}
-.row.second .pane-new .layer-after{opacity:1;animation:none}
-.row.second .pane-new .audit-overlay{opacity:1;animation:none}
+/* RIGHT — three states, one visible at a time. Nothing animates and nothing
+   responds to hover once a reader has chosen. */
+.pane-new .stack > .layer{opacity:0}
+.row.before .pane-new .stack > .layer-before{opacity:1}
+.row.first  .pane-new .stack > .layer-after{opacity:1}
+.row.second .pane-new .stack > .layer-marked{opacity:1}
 
-/* auto: before → first → second, on one timeline so the three layers can
-   never disagree about which state is showing.
-   ONLY WHILE ON SCREEN (.live, set by an IntersectionObserver). A report of a
-   long history carries hundreds of diagrams; animating every one of them at
-   once is not a nicety to fix later — 843 continuously animating SVG layers
-   took a VS Code webview down. Off-screen rows hold still and cost nothing. */
-.audit-overlay{opacity:0}
-.row.auto.live .pane-new .layer-before{animation:cyc-before 3.6s linear infinite}
-.row.auto.live .pane-new .layer-after{animation:cyc-after 3.6s linear infinite}
-.row.auto.live .pane-new .audit-overlay{animation:cyc-marks 3.6s linear infinite}
-@keyframes cyc-before{0%,30%{opacity:1}34%,100%{opacity:0}}
-@keyframes cyc-after{0%,30%{opacity:0}34%,100%{opacity:1}}
-@keyframes cyc-marks{0%,63%{opacity:0}67%,96%{opacity:1}100%{opacity:0}}
+/* auto: before → first → second, on one timeline so the three images can
+   never disagree about which state is showing, and ONLY WHILE ON SCREEN
+   (.live, set by an IntersectionObserver) — a report of a long history
+   carries hundreds of rows, and animating them all at once took a VS Code
+   webview down. */
+.row.auto.live .pane-new .stack > .layer-before{animation:cyc-a 3.6s linear infinite}
+.row.auto.live .pane-new .stack > .layer-after{animation:cyc-b 3.6s linear infinite}
+.row.auto.live .pane-new .stack > .layer-marked{animation:cyc-c 3.6s linear infinite}
+@keyframes cyc-a{0%,30%{opacity:1}34%,100%{opacity:0}}
+@keyframes cyc-b{0%,30%{opacity:0}34%,63%{opacity:1}67%,100%{opacity:0}}
+@keyframes cyc-c{0%,63%{opacity:0}67%,96%{opacity:1}100%{opacity:0}}
 
-/* A row whose old diagram could not be rendered (the engine failed on it)
-   has no "before" to show, so auto falls back to the two-state alternation. */
-.row.no-before.auto .pane-new .layer-after{animation:none;opacity:1}
-.row.no-before.auto.live .pane-new .audit-overlay{animation:flap 2.4s ease-in-out infinite}
+/* A row with no "before" (the old engine could not lay it out) alternates the
+   remaining two instead, and hides the control that would show nothing. */
+.row.no-before.auto.live .pane-new .stack > .layer-after{animation:cyc-nb-a 2.4s linear infinite}
+.row.no-before.auto.live .pane-new .stack > .layer-marked{animation:cyc-nb-b 2.4s linear infinite}
+@keyframes cyc-nb-a{0%,45%{opacity:1}50%,100%{opacity:0}}
+@keyframes cyc-nb-b{0%,45%{opacity:0}50%,95%{opacity:1}100%{opacity:0}}
 .row.no-before .modes button[data-mode="before"]{display:none}
-@keyframes flap{0%,42%{opacity:0}52%,92%{opacity:1}100%{opacity:0}}
 
-/* Until the observer speaks — no JS, or a row that has never been on screen —
-   a row shows its "after" state and nothing moves. Safe by default. */
-.row.auto:not(.live) .pane-new .layer-before{opacity:0}
-.row.auto:not(.live) .pane-new .layer-after{opacity:1}
+/* Until the observer speaks — no JS, or a row never scrolled to — the new
+   diagram is what shows, and nothing moves. Safe by default. */
+.row.auto:not(.live) .pane-new .stack > .layer-after{opacity:1}
 
 @media (prefers-reduced-motion: reduce){
-  /* No timer at all: the reader picks a state with the controls. */
-  .row.auto .pane-new .layer-before{animation:none;opacity:0}
-  .row.auto .pane-new .layer-after{animation:none;opacity:1}
-  .row.auto .pane-new .audit-overlay{animation:none;opacity:0}
+  .row.auto .pane-new .stack > .layer{animation:none;opacity:0}
+  .row.auto .pane-new .stack > .layer-after{animation:none;opacity:1}
 }
 `
 
@@ -213,9 +206,9 @@ document.querySelectorAll('.row').forEach(r => {
   setLeft(r, r.classList.contains('leftcurrent') ? 'current' : 'before');
 });
 
-// Animate only what is on screen. Without this every row in the report runs
-// three CSS animations for as long as the page is open, which on a long
-// history means hundreds of them at once — enough to take a webview down.
+// Animate only what is on screen, and let the browser fetch only what is on
+// screen: the images are lazy, so a page of two hundred rows costs the
+// viewport, not the history.
 if (window.IntersectionObserver){
   const io = new IntersectionObserver(
     es => es.forEach(e => e.target.classList.toggle('live', e.isIntersecting)),

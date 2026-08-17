@@ -25,10 +25,11 @@ func sampleResults() []result {
 	return []result{
 		// A real run gives every DRAWN row its panes; render() sets them.
 		{ID: "docs/x.md#100", Origin: "docs/x.md", Line: 12, Status: statusChanged, Report: changed,
-			Diagram: layoutaudit.Diagram{ID: "docs/x.md#100", Path: "temp/layout-audit/src/docs_x.md-100.ipmt"},
-			Aliases: []string{"tests/layout-gen/x.ipmt"},
-			OldSVG:  []byte(`<svg viewBox="0 0 10 10"></svg>`),
-			NewSVG:  []byte(`<svg viewBox="0 0 10 10"></svg>`)},
+			Diagram:   layoutaudit.Diagram{ID: "docs/x.md#100", Path: "temp/layout-audit/src/docs_x.md-100.ipmt"},
+			Aliases:   []string{"tests/layout-gen/x.ipmt"},
+			OldSVG:    []byte(`<svg viewBox="0 0 10 10"></svg>`),
+			NewSVG:    []byte(`<svg viewBox="0 0 10 10"></svg>`),
+			NewMarked: []byte(`<svg viewBox="0 0 10 10"></svg>`)},
 		// A broken one has an old rendering and no new one — that is what
 		// "the new engine cannot lay this out" means.
 		{ID: "tests/layout-gen/broken.ipmt", Status: statusBroken,
@@ -55,16 +56,17 @@ func TestReportRendersWithoutTemplateError(t *testing.T) {
 		t.Fatalf("template failed to execute:\n%s", html)
 	}
 	for _, want := range []string{
-		"<section class=\"row",    // a row rendered
-		"docs/x.md#100",           // its identity
-		"structural",              // its tier
-		"broken",                  // the broken row is not silently dropped
-		"1 identical",             // the tally
-		"tests/layout-gen/x.ipmt", // the alias is surfaced, not hidden by dedupe
-		"edges cross",             // the finding text
-		"source-side=left",        // the change detail, in rule-DSL vocabulary
-		"audit-overlay",           // the CSS hook the modes toggle
-		`data-mode="first"`,       // the three controls reach the page…
+		"<section class=\"row",       // a row rendered
+		"docs/x.md#100",              // its identity
+		"structural",                 // its tier
+		"broken",                     // the broken row is not silently dropped
+		"1 identical",                // the tally
+		"tests/layout-gen/x.ipmt",    // the alias is surfaced, not hidden by dedupe
+		"edges cross",                // the finding text
+		"source-side=left",           // the change detail, in rule-DSL vocabulary
+		`class="layer layer-marked"`, // the marked picture, its own lazy image
+		`loading="lazy"`,
+		`data-mode="first"`, // the three controls reach the page…
 		`data-mode="second"`,
 		`data-mode="auto"`,
 	} {
@@ -85,8 +87,8 @@ func TestReportRendersWithoutTemplateError(t *testing.T) {
 func TestRowsWithoutPanesAreListedNotDrawn(t *testing.T) {
 	rs := sampleResults()
 	// Both non-identical rows lose their panes, as everything past --limit does.
-	rs[0].OldSVG, rs[0].NewSVG = nil, nil
-	rs[1].OldSVG, rs[1].NewSVG = nil, nil
+	rs[0].OldSVG, rs[0].NewSVG, rs[0].NewMarked = nil, nil, nil
+	rs[1].OldSVG, rs[1].NewSVG, rs[1].NewMarked = nil, nil, nil
 	html := renderHTML(reportInput{Results: rs, Old: layoutaudit.Engine{}, New: layoutaudit.Engine{}, Limit: 1})
 
 	if strings.Contains(html, `<section class="row`) {

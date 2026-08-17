@@ -36,20 +36,20 @@ type vmChange struct {
 }
 
 type vmRow struct {
-	Rank                         int
-	ID, Origin, Status, Tier     string
-	Line                         int
-	Score                        string
-	Summary                      string
-	Aliases                      []string
-	Bounds                       string
-	OldSVG, NewSVG               template.HTML
-	OldWidth, NewWidth           string // percent of the shared scale
-	Changes                      []vmChange
-	FindingsAdded, FindingsFixed []string
-	NewCmd, OldCmd               string
-	OldLayout, NewLayout         string
-	Err                          string
+	Rank                           int
+	ID, Origin, Status, Tier       string
+	Line                           int
+	Score                          string
+	Summary                        string
+	Aliases                        []string
+	Bounds                         string
+	BeforeSrc, AfterSrc, MarkedSrc string
+	OldWidth, NewWidth             string // percent of the shared scale
+	Changes                        []vmChange
+	FindingsAdded, FindingsFixed   []string
+	NewCmd, OldCmd                 string
+	OldLayout, NewLayout           string
+	Err                            string
 }
 
 type vmModel struct {
@@ -91,7 +91,7 @@ func renderHTML(in reportInput) string {
 		// under a heading asserting "3 nodes moved". A frame that promises a
 		// diagram and shows nothing is indistinguishable from a render that
 		// failed, so a row with neither pane is LISTED instead.
-		if len(r.OldSVG) == 0 && len(r.NewSVG) == 0 {
+		if len(r.OldSVG) == 0 && len(r.NewSVG) == 0 && len(r.NewMarked) == 0 {
 			m.Unrendered = append(m.Unrendered, r.ID)
 			continue
 		}
@@ -118,8 +118,6 @@ func buildRow(rank int, r result, oldEng layoutaudit.Engine) vmRow {
 		Rank: rank, ID: r.ID, Origin: r.Origin, Line: r.Line, Aliases: r.Aliases,
 		Status: r.Status, Tier: r.Report.Tier.String(),
 		Score:         fmt.Sprintf("%.0f", r.Report.Score),
-		OldSVG:        template.HTML(layoutaudit.InlineSVG(r.OldSVG)), //nolint:gosec // our own renderer's output
-		NewSVG:        template.HTML(layoutaudit.InlineSVG(r.NewSVG)), //nolint:gosec
 		FindingsAdded: r.Report.FindingsAdded,
 		FindingsFixed: r.Report.FindingsFixed,
 		OldLayout:     relLink(r.OldLayout),
@@ -139,6 +137,15 @@ func buildRow(rank int, r result, oldEng layoutaudit.Engine) vmRow {
 	if ob == nb {
 		row.Bounds = fmt.Sprintf("%d×%d", nb.Width, nb.Height)
 	}
+	if len(r.OldSVG) > 0 {
+		row.BeforeSrc = "d/" + paneFile(r.ID, "before")
+	}
+	if len(r.NewSVG) > 0 {
+		row.AfterSrc = "d/" + paneFile(r.ID, "after")
+	}
+	if len(r.NewMarked) > 0 {
+		row.MarkedSrc = "d/" + paneFile(r.ID, "marked")
+	}
 	row.OldWidth, row.NewWidth = layoutaudit.PaneWidths(ob.Width, nb.Width)
 	row.Summary = layoutaudit.Summarize(r.Report)
 
@@ -155,6 +162,9 @@ func buildRow(rank int, r result, oldEng layoutaudit.Engine) vmRow {
 	}
 	return row
 }
+
+// paneFile names one diagram's rendering under the report's d/ directory.
+func paneFile(id, which string) string { return layoutaudit.Sanitize(id) + "." + which + ".svg" }
 
 func relLink(abs string) string {
 	if abs == "" {
@@ -266,7 +276,7 @@ pre{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:
 <main>
 {{if .LimitNote}}<p class="note">{{.LimitNote}}</p>{{end}}
 {{range .Rows}}
-<section class="row first{{if not .OldSVG}} no-before{{end}}" data-tier="{{.Tier}}" data-id="{{.ID}}">
+<section class="row first{{if not .BeforeSrc}} no-before{{end}}" data-tier="{{.Tier}}" data-id="{{.ID}}">
   <div class="rowhead">
     <span class="rank">{{.Rank}}</span>
     <span class="id">{{.ID}}</span>
@@ -279,13 +289,16 @@ pre{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:
   <div class="panes">
     <div class="pane pane-old">
       <h4><span>old</span></h4>
-      <div style="width:{{.OldWidth}}">{{.OldSVG}}</div>
+      <div class="stack">
+        {{if .BeforeSrc}}<div class="layer layer-before" style="width:{{.OldWidth}}"><img src="{{.BeforeSrc}}" loading="lazy" alt="{{.ID}} old"><span class="chip">before</span></div>{{end}}
+      </div>
     </div>
     <div class="pane pane-new">
       <h4><span>new</span>{{paneControls}}</h4>
       <div class="stack">
-        {{if .OldSVG}}<div class="layer layer-before" style="width:{{.OldWidth}}">{{.OldSVG}}<span class="chip">before</span></div>{{end}}
-        <div class="layer layer-after" style="width:{{.NewWidth}}">{{.NewSVG}}<span class="chip">after</span></div>
+        {{if .BeforeSrc}}<div class="layer layer-before" style="width:{{.OldWidth}}"><img src="{{.BeforeSrc}}" loading="lazy" alt="{{.ID}} before"><span class="chip">before</span></div>{{end}}
+        {{if .AfterSrc}}<div class="layer layer-after" style="width:{{.NewWidth}}"><img src="{{.AfterSrc}}" loading="lazy" alt="{{.ID}} after"><span class="chip">after</span></div>{{end}}
+        {{if .MarkedSrc}}<div class="layer layer-marked" style="width:{{.NewWidth}}"><img src="{{.MarkedSrc}}" loading="lazy" alt="{{.ID}} differences marked"><span class="chip">marked</span></div>{{end}}
       </div>
     </div>
   </div>

@@ -75,12 +75,13 @@ type vmChange struct {
 type vmRow struct {
 	ID, Tier, Score, Summary, Bounds string
 	Anchor                           string
-	OldSVG, NewSVG, CurSVG           template.HTML
-	OldWidth, NewWidth, CurWidth     string
-	Changes                          []vmChange
-	FindingsAdded                    []string
-	Err                              string
-	Cmd                              string
+	// Panes are FILES now; these are the hrefs, "" when there is none.
+	BeforeSrc, AfterSrc, MarkedSrc, CurrentSrc string
+	OldWidth, NewWidth, CurWidth               string
+	Changes                                    []vmChange
+	FindingsAdded                              []string
+	Err                                        string
+	Cmd                                        string
 	// History is THIS diagram's own timeline: one box per column in which it
 	// moved, the current one marked. With the arrows it walks a single
 	// diagram through the history without going back to the index.
@@ -325,7 +326,7 @@ func buildPage(in timelineInput, i int) vmPage {
 		// current-engine overlay here drew rows whose before/after were both
 		// missing as empty frames with one lonely picture in the reference —
 		// which is what a reader sees as a broken page.
-		own := len(c.OldSVG) + len(c.NewSVG)
+		own := len(c.OldSVG) + len(c.NewSVG) + len(c.NewMarked)
 		size := own + len(cur)
 		// Decide BEFORE drawing, or the row that breaks the budget is the one
 		// that gets drawn. The first row is always drawn: a page with a cap
@@ -353,9 +354,6 @@ func buildRow(w week, c change, cur []byte) vmRow {
 		ID: c.ID, Tier: tier, Anchor: anchor(c.ID),
 		Score:         fmt.Sprintf("%.0f", c.Report.Score),
 		Summary:       layoutaudit.Summarize(c.Report),
-		OldSVG:        template.HTML(layoutaudit.InlineSVG(c.OldSVG)), //nolint:gosec // our own renderer
-		NewSVG:        template.HTML(layoutaudit.InlineSVG(c.NewSVG)), //nolint:gosec
-		CurSVG:        template.HTML(layoutaudit.InlineSVG(cur)),      //nolint:gosec
 		FindingsAdded: c.Report.FindingsAdded,
 		Err:           c.Err,
 	}
@@ -363,6 +361,18 @@ func buildRow(w week, c change, cur []byte) vmRow {
 	row.Bounds = fmt.Sprintf("%d×%d", nb.Width, nb.Height)
 	if ob != nb {
 		row.Bounds = fmt.Sprintf("%d×%d → %d×%d", ob.Width, ob.Height, nb.Width, nb.Height)
+	}
+	if len(c.OldSVG) > 0 {
+		row.BeforeSrc = "d/" + paneFile(c.ID, "before")
+	}
+	if len(c.NewSVG) > 0 {
+		row.AfterSrc = "d/" + paneFile(c.ID, "after")
+	}
+	if len(c.NewMarked) > 0 {
+		row.MarkedSrc = "d/" + paneFile(c.ID, "marked")
+	}
+	if len(cur) > 0 {
+		row.CurrentSrc = "d/" + paneFile(c.ID, "current")
 	}
 	row.OldWidth, row.NewWidth = layoutaudit.PaneWidths(ob.Width, nb.Width)
 	// The current rendering shares the reference pane's frame, so switching
@@ -385,6 +395,9 @@ func prevOf(w week) string {
 	}
 	return w.SHA + "~1"
 }
+
+// paneFile names one diagram's rendering beside its page.
+func paneFile(id, which string) string { return layoutaudit.Sanitize(id) + "." + which + ".svg" }
 
 // anchor identifies a row within its column's page.
 func anchor(id string) string { return "d-" + layoutaudit.Sanitize(id) }
@@ -594,7 +607,7 @@ nav a{color:var(--muted)}
 </header>
 <main>
 {{range .Rows}}
-<section class="row first{{if not .OldSVG}} no-before{{end}}" id="{{.Anchor}}">
+<section class="row first{{if not .BeforeSrc}} no-before{{end}}" id="{{.Anchor}}">
   <div class="rowhead">
     <span class="id">{{.ID}}</span>
     <span class="pill {{tier .Tier}}">{{.Tier}}</span>
@@ -604,17 +617,18 @@ nav a{color:var(--muted)}
   {{if .Err}}<div class="summary">{{.Err}}</div>{{end}}
   <div class="panes">
     <div class="pane pane-old">
-      <h4><span>reference</span>{{if .CurSVG}}{{leftControls}}{{end}}</h4>
+      <h4><span>reference</span>{{if .CurrentSrc}}{{leftControls}}{{end}}</h4>
       <div class="stack">
-        {{if .OldSVG}}<div class="layer layer-before" style="width:{{.OldWidth}}">{{.OldSVG}}<span class="chip">before</span></div>{{end}}
-        {{if .CurSVG}}<div class="layer layer-current" style="width:{{.CurWidth}}">{{.CurSVG}}<span class="chip">current</span></div>{{end}}
+        {{if .BeforeSrc}}<div class="layer layer-before" style="width:{{.OldWidth}}"><img src="{{.BeforeSrc}}" loading="lazy" alt="{{.ID}} before"><span class="chip">before</span></div>{{end}}
+        {{if .CurrentSrc}}<div class="layer layer-current" style="width:{{.CurWidth}}"><img src="{{.CurrentSrc}}" loading="lazy" alt="{{.ID}} current"><span class="chip">current</span></div>{{end}}
       </div>
     </div>
     <div class="pane pane-new">
       <h4><span>this column</span>{{paneControls}}</h4>
       <div class="stack">
-        {{if .OldSVG}}<div class="layer layer-before" style="width:{{.OldWidth}}">{{.OldSVG}}<span class="chip">before</span></div>{{end}}
-        <div class="layer layer-after" style="width:{{.NewWidth}}">{{.NewSVG}}<span class="chip">after</span></div>
+        {{if .BeforeSrc}}<div class="layer layer-before" style="width:{{.OldWidth}}"><img src="{{.BeforeSrc}}" loading="lazy" alt="{{.ID}} before"><span class="chip">before</span></div>{{end}}
+        {{if .AfterSrc}}<div class="layer layer-after" style="width:{{.NewWidth}}"><img src="{{.AfterSrc}}" loading="lazy" alt="{{.ID}} after"><span class="chip">after</span></div>{{end}}
+        {{if .MarkedSrc}}<div class="layer layer-marked" style="width:{{.NewWidth}}"><img src="{{.MarkedSrc}}" loading="lazy" alt="{{.ID}} differences marked"><span class="chip">marked</span></div>{{end}}
       </div>
     </div>
   </div>
