@@ -148,7 +148,18 @@ func BuildEngineWith(repo, ref, name, cache string, prebuilt string, verbose boo
 	}
 	gen, dbg, err = goBuild(srcDir, binDir, verbose, o)
 	if err != nil {
+		// The tree stays on a failure: the error names it, and a build that
+		// did not work is the one time its contents are worth reading.
 		return e, err
+	}
+	// The binaries are the cache; the tree they came out of is scratch. Left
+	// behind it is not free — a checkout of this repository is ~11 MB and
+	// ~2,000 files, and a history sweep does that per engine commit. Two
+	// hundred and eighty of them had accumulated to 3.1 GB and 550,000 files,
+	// inside a directory the editor watches recursively. Nothing reads a
+	// source tree after its build, so nothing keeps one.
+	if err := os.RemoveAll(srcDir); err != nil && verbose {
+		fmt.Fprintf(os.Stderr, "layout-audit: leaving %s behind: %v\n", srcDir, err)
 	}
 	e.LayoutGen, e.LayoutDbg = gen, dbg
 	return e, nil
