@@ -1476,16 +1476,22 @@ edge #tP,#e2 does not cross edge #tP,#e3
 edge #tP,#e1 does not cross edge #tP,#e3
 ```
 
-### a band member's ties up the chain fan from its facing side too
+### declaration order does not decide where a chain-spanning thing sits
 
-The mirror of the previous case's port rule, going UP: `tP` anchors at the
-LAST chain event (its first declared user, all three equally deep) and
-ties the two events above it. All three leave `tP`'s facing side and land
-on the events' facing sides — and the exits stay in APPROACH ORDER around
-the on-row one: the tie to the farthest event highest, the on-row edge on
-the midline, nothing folding back across it (the old spread nudged the
-displaced middle end one step DOWN regardless of which side of the pinned
-end it belonged to, and the straights crossed at the exit).
+The same graph as the previous case with the users declared in the OTHER
+order: `tP --> e3, e2, e1`. It anchors at `e1` all the same. v7P7 breaks
+depth ties by declaration order — but among users that FLOW orders (all
+three on one leads-to chain), the upstream one wins first, and declaration
+order decides only between users flow does not order (parallel branches,
+separate chains). Time reads down (v7P3): a thing that is part of every
+event of a story, anchored at its LAST event, reads as arriving at the end;
+at the first it reads as present throughout, which is what the source says.
+It used to anchor at `e3` because `e3` was declared first, and this section
+existed to test the port fan going UP the chain; that fan is the previous
+case's mirror and needs no separate example, so the case now pins the
+election instead. The ports fan exactly as in the previous case: all three
+leave `tP`'s facing side in approach order down it, the on-row edge on the
+midline, and land on the events' facing sides.
 
 ```ipmt
 e1 ::e
@@ -1500,16 +1506,16 @@ tP --> e3, e2, e1
 ```ipmdev-layout-rule
 @scope local
 each edge has max-bends=0
-#tP is left-of #e3 with gap=60
-all #tP,#e3 have same y
-edge #tP,#e3 has source-side=right
-edge #tP,#e2 has source-side=right
+#tP is left-of #e1 with gap=60
+all #tP,#e1 have same y
 edge #tP,#e1 has source-side=right
-edge #tP,#e3 has target-side=left
-edge #tP,#e2 has target-side=left
+edge #tP,#e2 has source-side=right
+edge #tP,#e3 has source-side=right
 edge #tP,#e1 has target-side=left
-edge #tP,#e3 has source-position=0.5
-edge #tP,#e1 has source-position=0.25
+edge #tP,#e2 has target-side=left
+edge #tP,#e3 has target-side=left
+edge #tP,#e1 has source-position=0.5
+edge #tP,#e3 has source-position=0.75
 edge #tP,#e1 does not cross edge #tP,#e2
 edge #tP,#e2 does not cross edge #tP,#e3
 edge #tP,#e1 does not cross edge #tP,#e3
@@ -2543,7 +2549,10 @@ to move it somewhere far away"; "leaf nodes should never move so far
 away"): the sub-grid's row gaps GROW for the
 rows' band hangs (v7P8 — a packed column gets one more pitch instead of
 cascading its last member to the bottom), so every thing sits at its
-anchor's row — 'tH' right beside 'e1d' — and
+anchor's band — 'tH' and 'tB' stacked right beside 'e1d' ('tB' is part of
+'e1a' and 'e1d', and 'e1d' leads to 'e1a', so v7P7's flow tiebreak anchors
+it at the upstream one; a two-member band centres its stack on the row,
+so neither sits exactly on it) — and
 'cX', tD's sole leaf concept, takes its natural spot directly BELOW its
 owner. The relocation rescue (below-centred, below-outward, beside;
 never a spot that READS AS somebody else's member) remains the backstop
@@ -2563,7 +2572,8 @@ edge #tD,#cX has source-side=bottom
 edge #tD,#cX has target-side=top
 all #tD,#cX have same center-x
 #cX is below #tD with gap=40
-all #tH,#e1d have same y
+#tB is below #tH with gap=40
+edge #tH,#e1d has max-bends=0
 #tH is right-of #e1d with gap=60
 ```
 

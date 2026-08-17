@@ -174,6 +174,51 @@ func (g *graph) resolveMembership() *membership {
 	deeper := func(a, b int) bool {
 		return md[a] > md[b] || (md[a] == md[b] && nest[a] > nest[b])
 	}
+	// upstream reports whether event a reaches event b along leads-to: a is
+	// EARLIER in the flow. Among users of equal depth this breaks the tie
+	// before declaration order does — v7P3, time reads down: a shared node
+	// anchored at the LAST of the events it spans reads as arriving at the
+	// end of the story; anchored at the first it reads as present throughout,
+	// which is what "part of e1, e2 and e3" says. `tP --> e3, e2, e1` used to
+	// anchor at e3 purely because e3 was declared first (layout-alg's "fan
+	// from its facing side too" case, written to test the ports going UP);
+	// it anchors at e1 now, like its mirror `tP --> e1, e2, e3`. Declaration
+	// order still decides between users that flow does NOT order (parallel
+	// branches, separate chains).
+	upstream := func(a, b int) bool {
+		if a == b || g.nodes[a].kind != KindEvent || g.nodes[b].kind != KindEvent {
+			return false
+		}
+		seen := map[int]bool{a: true}
+		queue := []int{a}
+		for len(queue) > 0 {
+			n := queue[0]
+			queue = queue[1:]
+			for _, e := range g.out[n] {
+				if e.rel != RelLeadsTo || seen[e.to] {
+					continue
+				}
+				if e.to == b {
+					return true
+				}
+				seen[e.to] = true
+				queue = append(queue, e.to)
+			}
+		}
+		return false
+	}
+	// better says whether user a should beat the current best user b: deeper
+	// wins; at equal depth the flow-upstream one wins; else the incumbent
+	// (declaration order) stands.
+	better := func(a, b int) bool {
+		if deeper(a, b) {
+			return true
+		}
+		if deeper(b, a) {
+			return false
+		}
+		return upstream(a, b)
+	}
 
 	// ---- 2. per-node primary anchors (v7P7). ----
 	// "The DEEPEST / part-most user wins — one rule for things and concepts
@@ -221,14 +266,14 @@ func (g *graph) resolveMembership() *membership {
 				// replaces the earlier span exception).
 				best := connectors[0]
 				for _, e := range connectors[1:] {
-					if deeper(g.userOf(i, e), g.userOf(i, best)) {
+					if better(g.userOf(i, e), g.userOf(i, best)) {
 						best = e
 					}
 				}
 				m.anchors[i].primary = best
 				best.structural = true
 				if g.tracing() {
-					g.emitElection(i, best, connectors, deeper)
+					g.emitElection(i, best, connectors, better)
 				}
 				for _, e := range connectors {
 					if e != best {
@@ -238,17 +283,18 @@ func (g *graph) resolveMembership() *membership {
 				continue
 			}
 		}
-		// Deepest user wins; declaration (edge order) breaks ties.
+		// Deepest user wins; at equal depth the flow-upstream user; then
+		// declaration (edge order).
 		best := users[0]
 		for _, e := range users[1:] {
-			if deeper(g.userOf(i, e), g.userOf(i, best)) {
+			if better(g.userOf(i, e), g.userOf(i, best)) {
 				best = e
 			}
 		}
 		m.anchors[i].primary = best
 		best.structural = true
 		if g.tracing() {
-			g.emitElection(i, best, users, deeper)
+			g.emitElection(i, best, users, better)
 		}
 		for _, e := range users {
 			if e != best {
