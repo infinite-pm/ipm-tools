@@ -37,6 +37,66 @@ func TestStartOfWeekTreatsSundayAsTheEnd(t *testing.T) {
 	}
 }
 
+// A long history is read closely at the end and coarsely at the beginning:
+// months for the old part, weeks before the recent days, days for the last
+// few. A uniform weekly grid spends its columns on quiet stretches and still
+// cannot separate today's commits from yesterday's.
+func TestCadenceIsMonthsThenWeeksThenDays(t *testing.T) {
+	from := mustTime(t, "2025-01-15 00:00")
+	to := mustTime(t, "2026-08-17 12:00")
+	got := cadence(from, to, 3, 6)
+
+	var months, weeks, days []string
+	for _, b := range got {
+		switch b.Kind {
+		case "month":
+			months = append(months, b.Label)
+		case "week":
+			weeks = append(weeks, b.Label)
+		case "day":
+			days = append(days, b.Label)
+		}
+	}
+	if len(days) != 3 || days[2] != "2026-08-17" {
+		t.Errorf("daily band = %v, want the last 3 days ending today", days)
+	}
+	if len(weeks) != 6 {
+		t.Errorf("weekly band = %v, want 6", weeks)
+	}
+	if len(months) < 15 {
+		t.Errorf("monthly band has %d columns for 19 months of history: %v", len(months), months)
+	}
+	// Strictly ascending, and no instant sampled twice.
+	seen := map[string]bool{}
+	for i, b := range got {
+		if seen[b.Label] {
+			t.Errorf("%s sampled twice", b.Label)
+		}
+		seen[b.Label] = true
+		if i > 0 && !got[i-1].At.Before(b.At) {
+			t.Fatalf("out of order at %s: %v then %v", b.Label, got[i-1].At, b.At)
+		}
+	}
+	// The bands must not overlap: every month is before every week, and every
+	// week before every day.
+	for _, b := range got {
+		switch b.Kind {
+		case "month":
+			if len(weeks) > 0 && b.Label >= weeks[0] {
+				t.Errorf("monthly column %s is not before the weekly band", b.Label)
+			}
+		case "week":
+			if b.Label >= days[0] {
+				t.Errorf("weekly column %s is not before the daily band", b.Label)
+			}
+		}
+	}
+	// A month label is a month, not a day: it says how coarse it is.
+	if len(months) > 0 && len(months[0]) != 7 {
+		t.Errorf("monthly label %q should be YYYY-MM", months[0])
+	}
+}
+
 func TestMondaysBetweenCoversTheRangeInclusively(t *testing.T) {
 	got := mondaysBetween(mustTime(t, "2026-08-05 12:00"), mustTime(t, "2026-08-24 12:00"))
 	var labels []string

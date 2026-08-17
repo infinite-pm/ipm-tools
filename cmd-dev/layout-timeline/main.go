@@ -81,7 +81,7 @@ func run() int {
 		repo, since, until, out, cache, at string
 		by, enginePaths, rev, sources      string
 		configPath                         string
-		weeks, limitPerWeek                int
+		days, weeks, limitPerWeek          int
 		list, noSVG, verbose, head         bool
 		buildOnly, showExample             bool
 		jobs, maxMB                        int
@@ -89,7 +89,8 @@ func run() int {
 	flag.StringVar(&repo, "repo", ".", "engine repository to take the weekly snapshots from")
 	flag.StringVar(&since, "since", "", "first Monday to cover (YYYY-MM-DD); default: the repository's first commit")
 	flag.StringVar(&until, "until", "", "last Monday to cover (YYYY-MM-DD); default: today")
-	flag.IntVar(&weeks, "weeks", 0, "cover only the last N weeks (overrides --since)")
+	flag.IntVar(&days, "days", 3, "how many DAILY columns at the end of the history — where the question is \"was it me, an hour ago\"")
+	flag.IntVar(&weeks, "weeks", 6, "how many WEEKLY columns before the daily ones; everything older gets one column per MONTH")
 	flag.StringVar(&configPath, "config", "", "history config naming the lineages to walk (default: "+DefaultConfigName+" beside --repo, when present)")
 	flag.BoolVar(&showExample, "config-example", false, "print a config to start from, and exit")
 	flag.BoolVar(&buildOnly, "build-only", false, "PHASE 1: resolve the columns and build every engine into the cache, then stop — the report run afterwards is sweeps only")
@@ -148,14 +149,14 @@ func run() int {
 
 	var snaps []snapshot
 	if cfg == nil {
-		if snaps, err = resolveOne(repoAbs, rev, by, at, since, until, weeks, engine, head); err != nil {
+		if snaps, err = resolveOne(repoAbs, rev, by, at, since, until, days, weeks, engine, head); err != nil {
 			return fail("%v", err)
 		}
 	} else {
 		if verbose || list {
 			fmt.Fprintf(os.Stderr, "layout-timeline: %s — %s\n", cfgPath, cfg.describeSources())
 		}
-		if snaps, err = resolveChained(cfg, repoAbs, rev, by, at, since, until, weeks, head, verbose || list); err != nil {
+		if snaps, err = resolveChained(cfg, repoAbs, rev, by, at, since, until, days, weeks, head, verbose || list); err != nil {
 			return fail("%v", err)
 		}
 		if len(paths) == 0 && len(cfg.Diagrams) > 0 {
@@ -310,7 +311,7 @@ func repoDesc(cfg *Config, repoAbs, rev string) string {
 }
 
 // resolveOne is the single-repository path: one lineage, walked directly.
-func resolveOne(repoAbs, rev, by, at, since, until string, weeks int, engine []string, head bool) ([]snapshot, error) {
+func resolveOne(repoAbs, rev, by, at, since, until string, days, weeks int, engine []string, head bool) ([]snapshot, error) {
 	var snaps []snapshot
 	var err error
 	switch by {
@@ -323,11 +324,13 @@ func resolveOne(repoAbs, rev, by, at, since, until string, weeks int, engine []s
 			return nil, err
 		}
 	case "week":
-		mondays, perr := plan(repoAbs, rev, since, until, weeks)
-		if perr != nil {
-			return nil, perr
+		from, to, derr := dateRange(repoAbs, rev, since, until, 0)
+		if derr != nil {
+			return nil, derr
 		}
-		if snaps, err = resolveSnapshots(repoAbs, rev, mondays, atMode(at)); err != nil {
+		if snaps, err = resolveAcrossWindows(
+			[]window{{src: Source{Repo: repoAbs, Rev: rev, EnginePaths: engine}, to: to}},
+			cadence(from, to, days, weeks), atMode(at)); err != nil {
 			return nil, err
 		}
 	default:
@@ -341,7 +344,7 @@ func resolveOne(repoAbs, rev, by, at, since, until string, weeks int, engine []s
 
 // resolveChained walks every lineage the config names, each within the span
 // it owns, and hands back one series in date order.
-func resolveChained(cfg *Config, repoAbs, rev, by, at, since, until string, weeks int, head, announce bool) ([]snapshot, error) {
+func resolveChained(cfg *Config, repoAbs, rev, by, at, since, until string, days, weeks int, head, announce bool) ([]snapshot, error) {
 	if err := cfg.resolveTips(); err != nil {
 		return nil, err
 	}
@@ -350,7 +353,11 @@ func resolveChained(cfg *Config, repoAbs, rev, by, at, since, until string, week
 	// where the story is nearly over, and defaulting to it would silently
 	// truncate everything the config was written to reach.
 	oldest := cfg.Sources[0]
-	from, to, err := dateRange(oldest.Repo, oldest.Rev, since, until, weeks)
+	// The RANGE is the whole history unless --since/--until say otherwise;
+	// --weeks now counts weekly COLUMNS, not the span. Passing it here as a
+	// span limiter silently cut the range to six weeks and the monthly band
+	// vanished with it.
+	from, to, err := dateRange(oldest.Repo, oldest.Rev, since, until, 0)
 	if err != nil {
 		return nil, err
 	}
@@ -367,7 +374,7 @@ func resolveChained(cfg *Config, repoAbs, rev, by, at, since, until string, week
 			return nil, err
 		}
 	case "week":
-		if snaps, err = resolveAcrossWindows(wins, mondaysBetween(from, to), atMode(at)); err != nil {
+		if snaps, err = resolveAcrossWindows(wins, cadence(from, to, days, weeks), atMode(at)); err != nil {
 			return nil, err
 		}
 	default:

@@ -86,6 +86,62 @@ func (s snapshot) Describe() string {
 	return d
 }
 
+// boundary is one sampling instant and what to call it.
+type boundary struct {
+	At    time.Time
+	Label string
+	Kind  string // month | week | day
+}
+
+// cadence samples a long history the way it is actually read: closely at the
+// end, coarsely at the beginning.
+//
+// A uniform weekly grid over eighteen months spends most of its columns on
+// quiet stretches and still cannot show which of today's three commits moved
+// something. So: one column per DAY for the last few days, one per WEEK
+// before that, and one per MONTH for everything older. The old months are
+// where a reader asks "roughly when did this change"; the recent days are
+// where they ask "was it me, an hour ago".
+func cadence(from, to time.Time, days, weeks int) []boundary {
+	var out []boundary
+	day := func(t time.Time) time.Time {
+		return time.Date(t.Year(), t.Month(), t.Day(), 0, 0, 0, 0, t.Location())
+	}
+
+	// The daily band: the last `days` days, ending today.
+	dayFrom := day(to).AddDate(0, 0, -(days - 1))
+	if days <= 0 {
+		dayFrom = day(to).AddDate(0, 0, 1) // empty band
+	}
+	// The weekly band sits before it, `weeks` Mondays long.
+	weekFrom := startOfWeek(dayFrom).AddDate(0, 0, -7*(weeks-1))
+	if weeks <= 0 {
+		weekFrom = dayFrom
+	}
+
+	// Monthly for everything older: the first of each month.
+	m := time.Date(from.Year(), from.Month(), 1, 0, 0, 0, 0, from.Location())
+	if m.Before(from) {
+		m = m.AddDate(0, 1, 0)
+	}
+	for ; m.Before(weekFrom) && !m.After(to); m = m.AddDate(0, 1, 0) {
+		out = append(out, boundary{At: m, Label: m.Format("2006-01"), Kind: "month"})
+	}
+	for w := weekFrom; w.Before(dayFrom) && !w.After(to); w = w.AddDate(0, 0, 7) {
+		if w.Before(from) {
+			continue
+		}
+		out = append(out, boundary{At: w, Label: w.Format("2006-01-02"), Kind: "week"})
+	}
+	for d := dayFrom; !d.After(day(to)); d = d.AddDate(0, 0, 1) {
+		if d.Before(from) {
+			continue
+		}
+		out = append(out, boundary{At: d, Label: d.Format("2006-01-02"), Kind: "day"})
+	}
+	return out
+}
+
 // mondaysBetween lists every Monday 00:00 in [from, to], in local time.
 //
 // Local time on purpose: "Monday" is a fact about the person reading the
@@ -134,10 +190,8 @@ func resolveSnapshots(repo, rev string, mondays []time.Time, mode atMode) ([]sna
 		if err != nil {
 			return nil, err
 		}
-		// A week with no commit of its own is not a gap in the series: the
+		// A column with no commit of its own is not a gap in the series: the
 		// engine simply did not change, so the previous snapshot stands.
-		// (week-start never produces this after the first commit; first-of-week
-		// does, for every quiet week.)
 		if sha == "" && prev != "" {
 			sha = prev
 		}
@@ -254,10 +308,11 @@ func appendHeadOf(repo, rev, source string, snaps []snapshot) ([]snapshot, error
 // resolveAcrossWindows walks a chained history: each Monday is answered by
 // the lineage that OWNS that date (config.chainWindows), so a series can span
 // a rebase without the reader having to know one happened.
-func resolveAcrossWindows(wins []window, mondays []time.Time, mode atMode) ([]snapshot, error) {
+func resolveAcrossWindows(wins []window, bounds []boundary, mode atMode) ([]snapshot, error) {
 	var out []snapshot
 	prev := ""
-	for _, m := range mondays {
+	for _, b := range bounds {
+		m := b.At
 		w, ok := windowFor(wins, m)
 		if !ok {
 			continue
@@ -267,7 +322,7 @@ func resolveAcrossWindows(wins []window, mondays []time.Time, mode atMode) ([]sn
 			return nil, err
 		}
 		s := snapshot{Monday: m, Repo: w.src.Repo, Source: w.src.Name, EnginePaths: w.src.EnginePaths}
-		s.label = m.Format("2006-01-02")
+		s.label = b.Label
 		if sha == "" && prev != "" {
 			sha = prev
 		}

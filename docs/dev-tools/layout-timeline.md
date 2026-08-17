@@ -95,6 +95,29 @@ be understood at all: point `--repo` at the checkout that still holds the
 pre-rebase history, `--rev` at its branch, and `--sources` at today's tree.
 Then eighteen months of engines run over the diagrams that exist now.
 
+## How often a column is taken
+
+A long history is read closely at the end and coarsely at the beginning, so
+that is how it is sampled:
+
+| band | one column per | default |
+|---|---|---|
+| the last few days | **day** | `--days 3` |
+| before that | **week** (Monday) | `--weeks 6` |
+| everything older | **month** (the 1st) | the rest |
+
+Plus the trailing working-tree column. A uniform weekly grid over eighteen
+months spends most of its columns on quiet stretches and still cannot separate
+today's three commits from yesterday's; this puts the resolution where the
+questions are. On this project's history it gives **29 columns instead of 90**,
+of which 9 moved.
+
+Month columns are labelled `2025-03`, week and day columns `2025-03-09` — the
+label says how coarse the sample is.
+
+`--since` / `--until` still bound the RANGE; `--days` and `--weeks` count
+columns within it.
+
 ## Weeks, or engine commits
 
 `--by week` (the default) gives one column per Monday. `--by engine-commit`
@@ -212,7 +235,8 @@ that week as a full audit.
 | `--rev` | `HEAD` | branch, tag or commit to walk — the series worth seeing is often on a branch nobody has checked out |
 | `--sources` | `--repo` | where the DIAGRAMS come from; point it at another checkout to run old engines over today's diagrams |
 | `--since` / `--until` | first commit / today | the Monday range (YYYY-MM-DD) |
-| `--weeks` | | cover only the last N weeks (overrides `--since`) |
+| `--days` | `3` | daily columns at the end of the history |
+| `--weeks` | `6` | weekly columns before the daily ones; older gets one per month |
 | `--by` | `week` | `week` or `engine-commit` |
 | `--engine-paths` | `pkg/layout7 pkg/layout cmd/layout-gen` | what counts as the engine |
 | `--at` | `week-start` | `week-start` or `first-of-week` (week columns only) |
