@@ -527,8 +527,9 @@ func TestDiagramPageIsOneColumn(t *testing.T) {
 			t.Errorf("the single pane lost %q — it is still a blink comparator", want)
 		}
 	}
-	// And the one-column rule must actually be in the stylesheet.
-	if !strings.Contains(html, ".panes.one{grid-template-columns:1fr}") {
+	// And the one-column rule must actually be in the stylesheet, carrying
+	// the cap that stops a small diagram being blown up to fill the width.
+	if !strings.Contains(html, ".panes.one{grid-template-columns:1fr;max-width:") {
 		t.Error("nothing collapses the pane grid to one column")
 	}
 }
@@ -1075,4 +1076,62 @@ func TestAColumnPageStillScalesPerRow(t *testing.T) {
 	if ow != "67.86%" || nw != "100.00%" {
 		t.Errorf("PaneWidths(380,560) = %s/%s, want 67.86%%/100.00%%", ow, nw)
 	}
+}
+
+// Widths are proportions, so the widest canvas fills whatever space it is
+// given — and one column across a wide window is a lot of space. A 380-unit
+// diagram was drawn at three times its own size, which makes a normal node the
+// size of a paragraph. The cap is the diagram's NATURAL size: one layout unit
+// is at most one pixel, never more.
+func TestPicturesAreNeverBlownUpPastTheirOwnSize(t *testing.T) {
+	svg := []byte(`<svg viewBox="0 0 10 10"></svg>`)
+	mk := func(label string, ow, nw int) week {
+		return week{Label: label, Subject: "s", Changes: []change{{
+			ID: "a", Status: "changed", OldSVG: svg, NewSVG: svg, NewMarked: svg,
+			Report: layoutdiff.Report{
+				Tier: layoutdiff.TierGeometry, Counts: map[string]int{},
+				OldBounds: layout.Bounds{Width: ow, Height: 400},
+				NewBounds: layout.Bounds{Width: nw, Height: 400},
+			}}}}
+	}
+	in := timelineInput{
+		Weeks: []week{mk("c1", 380, 560), mk("c2", 560, 320)},
+		Panes: chainPool("a", "c1", "c2"),
+	}
+
+	// A diagram page: ONE cap for the page, from its widest canvas (560),
+	// plus the pane's own padding so the picture lands on exactly 560px.
+	d := buildDiagram(in, "a")
+	if string(d.MaxWidth) != "580px" {
+		t.Errorf("diagram page cap = %q, want 580px (560 + the pane's padding)", d.MaxWidth)
+	}
+	html := renderDiagram(in, "a")
+	if !strings.Contains(html, ".panes.one{grid-template-columns:1fr;max-width:580px}") {
+		t.Error("the cap is not in the stylesheet, so the page still blows the diagram up")
+	}
+
+	// A column page: a cap PER ROW, because each row is a different diagram.
+	// Two panes wide, their padding, and the 1px gap between them.
+	col := renderPage(in, 0)
+	if !strings.Contains(col, `style="max-width:1161px"`) { // 2*560 + 41
+		t.Errorf("column row is not capped at two panes of its own size:\n%s",
+			firstLineWith(col, "class=\"panes\""))
+	}
+	// A diagram with nothing to size by must not be pinned to zero.
+	bare := renderPage(timelineInput{Weeks: []week{{Label: "c", Changes: []change{{
+		ID: "b", Status: "changed", OldSVG: svg, NewSVG: svg,
+		Report: layoutdiff.Report{Tier: layoutdiff.TierGeometry, Counts: map[string]int{}}}}}},
+		Panes: chainPool("b", "c")}, 0)
+	if strings.Contains(bare, "max-width:41px") || strings.Contains(bare, "max-width:0px") {
+		t.Error("a row with no bounds was capped to nothing")
+	}
+}
+
+func firstLineWith(s, needle string) string {
+	for _, line := range strings.Split(s, "\n") {
+		if strings.Contains(line, needle) {
+			return line
+		}
+	}
+	return "(not found)"
 }

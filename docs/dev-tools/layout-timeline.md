@@ -320,6 +320,16 @@ to show one of them; this carries one, at ~40–80 KB against a column page's
 diagram's history costs no load at all, and every version links back to its
 own column for the rest of that engine's damage.
 
+Pictures are **never blown up past their own size**: one layout unit is at most
+one pixel. Widths are proportions, so the widest canvas otherwise fills whatever
+space it is given, and a 380-unit diagram across a full-width single column was
+drawn at three times its size — a normal node the size of a paragraph, every
+routing detail coarse. The cap is per PAGE on a diagram page (one scale, one
+cap) and per ROW on a column page (each row a different diagram). Nothing is
+scaled DOWN by it: a narrow window still shrinks the picture, which is what
+proportions are for. A row with no bounds to size by — `broken`, `repaired` —
+is left uncapped rather than pinned to nothing.
+
 It is **one column, one version per row**, all on ONE SCALE — no reference
 pane. Every row is the same diagram, so a node has to be the same size on all
 of them: widths are a share of the widest canvas on the PAGE, not of the widest

@@ -111,6 +111,10 @@ type vmRow struct {
 	// History is THIS diagram's own timeline: one box per column in which it
 	// moved, the current one marked. With the arrows it walks a single
 	// diagram through the history without going back to the index.
+	// MaxWidth caps how far THIS row's pictures are blown up: two panes at
+	// the diagram's natural size, never more. Per row here, because each row
+	// is a different diagram with a size of its own.
+	MaxWidth           template.CSS
 	History            []vmHistCell
 	Moves              int
 	HistPrev, HistNext string
@@ -166,6 +170,16 @@ type vmDiagram struct {
 	// IPMT is the one input every version on this page was rendered from.
 	IPMT  string
 	Lines int
+	// MaxWidth caps how far the pictures are BLOWN UP.
+	//
+	// Widths are proportions, so the widest canvas fills whatever space it is
+	// given — and one column across a wide window is a lot of space. A
+	// 380-unit diagram was drawn three times its own size, which makes a
+	// normal node the size of a paragraph and every routing detail coarse.
+	// The cap is the diagram's natural size: 1 layout unit is at most 1 pixel,
+	// never more. Nothing is ever scaled DOWN by this — a narrow window still
+	// shrinks it, which is what proportions are for.
+	MaxWidth template.CSS
 }
 
 // vmHistCell is one box in a diagram's own history strip.
@@ -412,6 +426,11 @@ func buildDiagram(in timelineInput, id string) vmDiagram {
 		d.Versions[i].OldWidth = layoutaudit.WidthOf(d.Versions[i].oldW, widest)
 		d.Versions[i].NewWidth = layoutaudit.WidthOf(d.Versions[i].newW, widest)
 	}
+	if widest > 0 {
+		// +20 for the pane's own padding, so the picture inside lands on
+		// exactly `widest` pixels rather than a little under.
+		d.MaxWidth = template.CSS(fmt.Sprintf("%dpx", widest+20))
+	}
 	for i := range d.Versions {
 		d.Versions[i].AgentMD = agentMarkdown(d, d.Versions[i], in.Sources)
 		d.Versions[i].RegressionMD = regressionMarkdown(d, d.Versions[i], in.Sources)
@@ -568,6 +587,10 @@ func buildPage(in timelineInput, i int) vmPage {
 		}
 		spent += size
 		row := buildRow(w, c, cur)
+		if wide := maxInt(c.Report.OldBounds.Width, c.Report.NewBounds.Width); wide > 0 {
+			// Two panes of `wide` px, their padding, and the 1px gap between.
+			row.MaxWidth = template.CSS(fmt.Sprintf("%dpx", 2*wide+41))
+		}
 		row.BeforeSrc = in.pane(w.Label, c.ID, "before")
 		row.AfterSrc = in.pane(w.Label, c.ID, "after")
 		row.MarkedSrc = in.pane(w.Label, c.ID, "marked")
@@ -875,7 +898,7 @@ nav a{color:var(--muted)}
   </div>
   {{if .Summary}}<div class="summary">{{.Summary}}</div>{{end}}
   {{if .Err}}<div class="summary">{{.Err}}</div>{{end}}
-  <div class="panes">
+  <div class="panes"{{if .MaxWidth}} style="max-width:{{.MaxWidth}}"{{end}}>
     <div class="pane pane-old">
       <h4><span>reference</span>{{if .CurrentSrc}}{{leftControls}}{{end}}</h4>
       <div class="stack">
@@ -1141,7 +1164,7 @@ table.ch td,table.ch th{text-align:left;padding:2px 10px 2px 0;vertical-align:to
    the comparison runs DOWN the page, and each row keeps the whole width for
    one picture — larger, and with the three states still swapping in place,
    which is the registration a blink comparison needs. */
-.panes.one{grid-template-columns:1fr}
+.panes.one{grid-template-columns:1fr;max-width:{{.MaxWidth}}}
 
 /* The input, at hand. Every picture on this page is this one text read by a
    different engine, so when two versions disagree the question is always
@@ -1235,6 +1258,13 @@ table.ch td,table.ch th{text-align:left;padding:2px 10px 2px 0;vertical-align:to
 // urlMark is substituted by the browser, which is the only thing that knows
 // where the page was opened from.
 const urlMark = "__URL__"
+
+func maxInt(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
 
 // stampDate renders a commit date for a --since/--until flag, "" when unset.
 func stampDate(t time.Time) string {
