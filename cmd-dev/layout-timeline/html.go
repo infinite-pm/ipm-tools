@@ -146,7 +146,15 @@ type vmDiagram struct {
 // vmHistCell is one box in a diagram's own history strip.
 type vmHistCell struct {
 	Label, Tier, Href string
-	Now               bool
+	// Now is the version being shown — the "after" picture. Seen is the one
+	// supplying its "before". A comparison is of TWO columns, and a strip
+	// that marks only one leaves the reader to work out what the left-hand
+	// picture came from.
+	Now  bool
+	Seen bool
+	// Anchor identifies the cell to the script that moves the marks as a
+	// diagram page is scrolled.
+	Anchor string
 }
 
 type vmIndex struct {
@@ -238,8 +246,12 @@ func historyOf(weeks []week, shown []int, id string, now int) ([]vmHistCell, int
 		// Following a box opens THIS DIAGRAM's page — one diagram, every
 		// version — not another column carrying two hundred others to show
 		// one of them.
-		cell := vmHistCell{Label: weeks[i].Label, Tier: tier, Now: i == now}
-		cell.Href = "../../" + diagramDir(id) + "/index.html#c-" + layoutaudit.Sanitize(weeks[i].Label)
+		anchor := "c-" + layoutaudit.Sanitize(weeks[i].Label)
+		cell := vmHistCell{Label: weeks[i].Label, Tier: tier, Now: i == now, Anchor: anchor}
+		// Following a box opens THIS DIAGRAM's page — one diagram, every
+		// version — not another column carrying two hundred others to show
+		// one of them.
+		cell.Href = "../../" + diagramDir(id) + "/index.html#" + anchor
 		cells = append(cells, cell)
 		switch {
 		case i < now:
@@ -247,11 +259,23 @@ func historyOf(weeks []week, shown []int, id string, now int) ([]vmHistCell, int
 		case i > now && nextHref == "":
 			nextHref, nextLabel = cell.Href, cell.Label
 		}
-		if i == now {
-			cell.Now = true
+	}
+	// The row shows two pictures, so the strip marks two boxes: the column
+	// being shown, and the one whose rendering is its "before". The first
+	// version a diagram ever had marks only one — its "before" came from a
+	// column in which this diagram did not move, so there is no box for it.
+	markSeen(cells)
+	return cells, len(cells), prevHref, nextHref, prevLabel, nextLabel
+}
+
+// markSeen flags the cell before the current one as the source of "before".
+func markSeen(cells []vmHistCell) {
+	for i := range cells {
+		if cells[i].Now && i > 0 {
+			cells[i-1].Seen = true
+			return
 		}
 	}
-	return cells, len(cells), prevHref, nextHref, prevLabel, nextLabel
 }
 
 // diagramDir is a diagram's own page.
@@ -316,7 +340,8 @@ func buildDiagram(in timelineInput, id string) vmDiagram {
 					Label: ch.Label, Detail: ch.Detail, Tier: ch.Tier.String()})
 			}
 			d.Versions = append(d.Versions, v)
-			d.History = append(d.History, vmHistCell{Label: w.Label, Tier: tier, Href: "#" + anchor})
+			d.History = append(d.History, vmHistCell{
+				Label: w.Label, Tier: tier, Href: "#" + anchor, Anchor: anchor})
 			break
 		}
 	}
@@ -698,8 +723,20 @@ td.date{white-space:nowrap;font-weight:600}
 </body></html>
 `))
 
+// reportFuncs are this file's own template helpers. copyJS and stripJS are
+// shared between page kinds so two pages cannot drift into behaving
+// differently while looking identical.
+func reportFuncs() template.FuncMap {
+	return template.FuncMap{
+		"tier":    tierClass,
+		"copyJS":  func() template.JS { return template.JS(copyJS) },
+		"copyCSS": func() template.CSS { return template.CSS(copyCSS) },
+		"stripJS": func() template.JS { return template.JS(stripJS) },
+	}
+}
+
 var pageTmpl = template.Must(template.New("page").
-	Funcs(template.FuncMap{"tier": tierClass}).
+	Funcs(reportFuncs()).
 	Funcs(layoutaudit.PaneFuncs()).Parse(`<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -719,11 +756,17 @@ table.ch td,table.ch th{text-align:left;padding:2px 10px 2px 0;vertical-align:to
 .k.invariant{color:var(--worse)} .k.geometry{color:var(--moved)}
 nav{display:flex;gap:14px;align-items:center;font-size:13px;margin-top:8px}
 nav a{color:var(--muted)}
-/* One diagram's own history: every column it moved in, this one marked. */
+/* One diagram's own history: every column it moved in, and WHICH ONES THIS
+   ROW IS SHOWING. A row shows two pictures — the column it is, and the one
+   its "before" came from — so two boxes are marked, solid for the after and
+   dashed for the before. Marking only one left the reader to work out where
+   the left-hand picture came from; marking none, which is what a stale
+   href condition actually did, left them to work out both. */
 .hist{display:flex;align-items:center;gap:3px;flex-wrap:wrap;padding:8px 16px;
   border-top:1px solid var(--line);background:var(--bg)}
 .hist .cell{width:14px;height:14px}
 .hist .cell.now{outline:2px solid var(--ink);outline-offset:1px}
+.hist .cell.seen{outline:2px dashed #8b939c;outline-offset:1px}
 .histlabel{font-size:12px;color:var(--muted);margin-right:6px}
 .steps{margin-left:auto;display:flex;gap:12px;font-size:12px}
 .steps a{color:var(--muted)}
@@ -750,6 +793,7 @@ nav a{color:var(--muted)}
 {{range .Rows}}
 <section class="row first{{if not .BeforeSrc}} no-before{{end}}" id="{{.Anchor}}">
   <div class="rowhead">
+    <button type="button" class="copy anchor" data-anchor="{{.Anchor}}" title="copy a link straight to this diagram in this column">&#128279;</button>
     <span class="id">{{.ID}}</span>
     <span class="pill {{tier .Tier}}">{{.Tier}}</span>
     <span class="quiet">score {{.Score}} · {{.Bounds}}</span>
@@ -776,7 +820,7 @@ nav a{color:var(--muted)}
   {{if .History}}
   <div class="hist">
     <span class="histlabel">this diagram moved {{.Moves}}×</span>
-    {{range .History}}{{if .Href}}<a class="cell {{tier .Tier}}" href="{{.Href}}" title="{{.Label}} · {{.Tier}}"></a>{{else}}<span class="cell {{tier .Tier}} now" title="{{.Label}} · {{.Tier}} · this column"></span>{{end}}{{end}}
+    {{range .History}}<a class="cell {{tier .Tier}}{{if .Now}} now{{end}}{{if .Seen}} seen{{end}}" href="{{.Href}}" title="{{.Label}} · {{.Tier}}{{if .Now}} · showing this one (after){{end}}{{if .Seen}} · showing this one (before){{end}}"></a>{{end}}
     <span class="steps">
       {{if .HistPrev}}<a href="{{.HistPrev}}" title="this diagram's previous change: {{.HistPrevLabel}}">◀ {{.HistPrevLabel}}</a>{{else}}<span class="off">◀ first</span>{{end}}
       {{if .HistNext}}<a href="{{.HistNext}}" title="this diagram's next change: {{.HistNextLabel}}">{{.HistNextLabel}} ▶</a>{{else}}<span class="off">last ▶</span>{{end}}
@@ -802,12 +846,158 @@ nav a{color:var(--muted)}
 </main>
 <script>
 {{paneJS}}
+{{copyJS}}
 </script>
 </body></html>
 `))
 
+// copyCSS styles every copy control. The source box's button is pinned to the
+// corner of the box; the anchor icon sits inline in a row header — so the
+// positioning belongs to the PLACE, not to the button, or one of the two ends
+// up in the wrong corner of the other.
+const copyCSS = `
+button.copy{font:inherit;font-size:11px;line-height:1.6;padding:1px 9px;border-radius:5px;
+  border:1px solid #d3d7dd;background:#fff;color:#3b4148;cursor:pointer}
+button.copy:hover{border-color:#9aa3ad}
+button.copy[data-state="ok"]{background:#3b4148;border-color:#3b4148;color:#fff}
+button.copy[data-state="fail"]{border-color:var(--worse);color:var(--worse)}
+.srcwrap button.copy{position:absolute;top:7px;right:8px}
+button.copy.anchor{padding:0 6px;font-size:12px;border-color:transparent;background:none;opacity:.45}
+.rowhead:hover button.copy.anchor{opacity:1}
+button.copy.anchor:hover{border-color:#9aa3ad;background:#fff;opacity:1}
+button.copy.anchor[data-state]{opacity:1;font-size:11px;background:#3b4148;border-color:#3b4148;color:#fff}
+/* Which comparison is on screen, in words as well as marks. */
+.histnow{font-size:12px;color:var(--muted);margin-left:8px;font-variant-numeric:tabular-nums}
+`
+
+// copyJS backs every copy control on every page: the ipmt source box, and the
+// anchor icon that hands back a link to one version.
+//
+// A report is opened from file://, where the async clipboard API is not
+// available in every browser — a button that silently does nothing is worse
+// than no button, so this falls back to the old selection trick and SAYS
+// which happened either way.
+const copyJS = `
+(function () {
+  function flash(btn, state, ok) {
+    var was = btn.innerHTML;
+    btn.dataset.state = state;
+    btn.textContent = ok;
+    setTimeout(function () { btn.innerHTML = was; delete btn.dataset.state; }, 1400);
+  }
+  // A link to THIS page at THIS anchor. Built from the address bar so it is
+  // correct under file:// and under a served copy alike, and with any
+  // existing fragment dropped rather than appended to.
+  function anchorURL(anchor) {
+    return location.href.split("#")[0] + "#" + anchor;
+  }
+  function writeText(text, btn, el) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(
+        function () { flash(btn, "ok", "copied"); },
+        function () { selectFallback(text, btn, el); });
+    } else {
+      selectFallback(text, btn, el);
+    }
+  }
+  function selectFallback(text, btn, el) {
+    var node = el, temp = null;
+    if (!node) {
+      temp = document.createElement("span");
+      temp.textContent = text;
+      temp.style.position = "fixed";
+      temp.style.left = "-9999px";
+      temp.style.whiteSpace = "pre";
+      document.body.appendChild(temp);
+      node = temp;
+    }
+    var sel = window.getSelection(), range = document.createRange();
+    range.selectNodeContents(node);
+    sel.removeAllRanges(); sel.addRange(range);
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+    if (temp) { document.body.removeChild(temp); sel.removeAllRanges(); }
+    else if (ok) { sel.removeAllRanges(); }
+    // On failure of the source box the text stays selected, so it can still
+    // be copied by hand.
+    flash(btn, ok ? "ok" : "fail", ok ? "copied" : "press \u2318/Ctrl+C");
+  }
+  document.querySelectorAll("button.copy").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      if (btn.dataset.anchor) {
+        writeText(anchorURL(btn.dataset.anchor), btn, null);
+        return;
+      }
+      var el = document.getElementById(btn.dataset.copy);
+      if (el) { writeText(el.textContent, btn, el); }
+    });
+  });
+})();
+`
+
+// stripJS moves the strip's two marks as a diagram page is scrolled.
+//
+// On a column page the marks are static — that page IS one column. A diagram
+// page carries every version at once, so which comparison is on screen is a
+// fact about the scroll position and only the browser knows it. Same two
+// marks either way: solid on the version being shown, dashed on the one its
+// "before" came from.
+const stripJS = `
+(function () {
+  var strip = document.getElementById("strip");
+  if (!strip) { return; }
+  var cells = Array.prototype.slice.call(strip.querySelectorAll(".cell[data-col]"));
+  var caption = document.getElementById("histnow");
+  var sections = cells
+    .map(function (c) { return document.getElementById(c.dataset.col); })
+    .filter(Boolean);
+  if (!cells.length || !sections.length) { return; }
+
+  var onScreen = [];
+  function paint() {
+    // The topmost version still on screen is the one being read; below the
+    // last one, the last one stays marked rather than nothing.
+    var best = null, bestTop = Infinity;
+    for (var i = 0; i < onScreen.length; i++) {
+      var top = onScreen[i].getBoundingClientRect().top;
+      if (top < bestTop) { bestTop = top; best = onScreen[i]; }
+    }
+    if (!best) { return; }
+    var at = -1;
+    for (var j = 0; j < cells.length; j++) {
+      cells[j].classList.remove("now", "seen");
+      if (cells[j].dataset.col === best.id) { at = j; }
+    }
+    if (at < 0) { return; }
+    cells[at].classList.add("now");
+    if (at > 0) { cells[at - 1].classList.add("seen"); }
+    if (caption) {
+      caption.textContent = at > 0
+        ? "showing " + cells[at - 1].dataset.label + " \u2192 " + cells[at].dataset.label
+        : "showing " + cells[at].dataset.label + " (its first)";
+    }
+  }
+
+  if (!("IntersectionObserver" in window)) {
+    // No observer: mark the first version rather than leaving the strip mute.
+    onScreen = [sections[0]];
+    paint();
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      var at = onScreen.indexOf(e.target);
+      if (e.isIntersecting && at < 0) { onScreen.push(e.target); }
+      else if (!e.isIntersecting && at >= 0) { onScreen.splice(at, 1); }
+    });
+    paint();
+  }, { rootMargin: "0px 0px -55% 0px" });
+  sections.forEach(function (s) { io.observe(s); });
+})();
+`
+
 var diagramTmpl = template.Must(template.New("diagram").
-	Funcs(template.FuncMap{"tier": tierClass}).
+	Funcs(reportFuncs()).
 	Funcs(layoutaudit.PaneFuncs()).Parse(`<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -827,6 +1017,7 @@ table.ch td,table.ch th{text-align:left;padding:2px 10px 2px 0;vertical-align:to
 .hist{display:flex;align-items:center;gap:3px;flex-wrap:wrap;padding:10px 0 0}
 .hist .cell{width:14px;height:14px}
 .hist .cell.now{outline:2px solid var(--ink);outline-offset:1px}
+.hist .cell.seen{outline:2px dashed #8b939c;outline-offset:1px}
 .histlabel{font-size:12px;color:var(--muted);margin-right:6px}
 /* Every version offers the other half of the comparison: this diagram against
    the rest of ITS column. Buried in the changes fold it was a link nobody
@@ -853,11 +1044,7 @@ table.ch td,table.ch th{text-align:left;padding:2px 10px 2px 0;vertical-align:to
 .srcwrap{position:relative;border-top:1px solid var(--line)}
 .srcwrap pre{margin:0;padding:11px 12px;overflow-x:auto;font-size:12.5px;line-height:1.5;
   font-family:ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre;color:var(--ink)}
-button.copy{position:absolute;top:7px;right:8px;font:inherit;font-size:11px;line-height:1.6;
-  padding:1px 9px;border-radius:5px;border:1px solid #d3d7dd;background:#fff;color:#3b4148;cursor:pointer}
-button.copy:hover{border-color:#9aa3ad}
-button.copy[data-state="ok"]{background:#3b4148;border-color:#3b4148;color:#fff}
-button.copy[data-state="fail"]{border-color:var(--worse);color:var(--worse)}
+{{copyCSS}}
 </style></head><body>
 <header>
   <h1><span class="id">{{.ID}}</span></h1>
@@ -868,9 +1055,10 @@ button.copy[data-state="fail"]{border-color:var(--worse);color:var(--worse)}
     <a href="{{.IndexRef}}">← all diagrams &amp; columns</a>
     <span class="here">this diagram, all versions</span>
   </nav>
-  <div class="hist">
-    <span class="histlabel">jump to</span>
-    {{range .History}}<a class="cell {{tier .Tier}}" href="{{.Href}}" title="{{.Label}} · {{.Tier}}"></a>{{end}}
+  <div class="hist" id="strip">
+    <span class="histlabel">this diagram moved {{.Moves}}×</span>
+    {{range .History}}<a class="cell {{tier .Tier}}" href="{{.Href}}" data-col="{{.Anchor}}" data-label="{{.Label}}" title="{{.Label}} · {{.Tier}}"></a>{{end}}
+    <span class="histnow" id="histnow"></span>
   </div>
   {{if .IPMT}}<details class="srcbox">
     <summary>ipmt source — {{.Lines}} line(s), the one input every version below was rendered from</summary>
@@ -888,6 +1076,7 @@ button.copy[data-state="fail"]{border-color:var(--worse);color:var(--worse)}
     {{if .Source}}<span class="pill">{{.Source}}</span>{{end}}
     <span class="pill {{tier .Tier}}">{{.Tier}}</span>
     <span class="quiet">score {{.Score}} · {{.Bounds}} · <span class="sha">{{.SHA}}</span> {{.Subject}}</span>
+    <button type="button" class="copy anchor" data-anchor="{{.Anchor}}" title="copy a link straight to this version">&#128279;</button>
     <a class="allref" href="{{.ColumnHref}}">all diagrams in {{.Label}} →</a>
   </div>
   {{if .Summary}}<div class="summary">{{.Summary}}</div>{{end}}
@@ -917,41 +1106,7 @@ button.copy[data-state="fail"]{border-color:var(--worse);color:var(--worse)}
 <script>
 {{paneJS}}
 
-// Copy the source out. A report is opened from file://, where the async
-// clipboard API is not available in every browser — a button that silently
-// does nothing is worse than no button, so this falls back to the old
-// selection trick and SAYS which happened either way.
-(function () {
-  function flash(btn, state) {
-    var was = btn.textContent;
-    btn.dataset.state = state;
-    btn.textContent = state === "ok" ? "copied" : "press ⌘/Ctrl+C";
-    setTimeout(function () { btn.textContent = was; delete btn.dataset.state; }, 1400);
-  }
-  function selectFallback(el, btn) {
-    var sel = window.getSelection(), range = document.createRange();
-    range.selectNodeContents(el);
-    sel.removeAllRanges(); sel.addRange(range);
-    var ok = false;
-    try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
-    if (ok) { sel.removeAllRanges(); }
-    // On failure the text stays selected, so it can still be copied by hand.
-    flash(btn, ok ? "ok" : "fail");
-  }
-  document.querySelectorAll("button.copy").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var el = document.getElementById(btn.dataset.copy);
-      if (!el) { return; }
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(el.textContent).then(
-          function () { flash(btn, "ok"); },
-          function () { selectFallback(el, btn); });
-      } else {
-        selectFallback(el, btn);
-      }
-    });
-  });
-})();
+{{copyJS}}
 </script>
 </body></html>
 `))

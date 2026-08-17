@@ -561,3 +561,124 @@ func TestNoSourceMeansNoSourceBox(t *testing.T) {
 		t.Error("the page lost its versions along with the source")
 	}
 }
+
+// A row shows TWO pictures, so the strip marks two boxes: the column being
+// shown, and the one its "before" came from.
+//
+// It marked neither. The markup keyed "now" off a MISSING href — and
+// historyOf always sets one — so the else-branch was dead and every box
+// rendered identically, leaving the reader to work out which of eleven
+// columns they were looking at.
+func TestStripMarksWhatTheRowIsShowing(t *testing.T) {
+	rep := layoutdiff.Report{Tier: layoutdiff.TierGeometry, Counts: map[string]int{}}
+	svg := []byte(`<svg viewBox="0 0 10 10"></svg>`)
+	mk := func(label string, ids ...string) week {
+		w := week{Label: label}
+		for _, id := range ids {
+			w.Changes = append(w.Changes, change{ID: id, Status: "changed", Report: rep,
+				OldSVG: svg, NewSVG: svg, NewMarked: svg})
+		}
+		return w
+	}
+	weeks := []week{mk("c1", "a"), mk("c2", "a"), mk("c3", "a")}
+	pool := merge(
+		panePool("c1", "a", "before", "after", "marked"),
+		panePool("c2", "a", "before", "after", "marked"),
+		panePool("c3", "a", "before", "after", "marked"),
+	)
+	// Column c2: showing c2 (after) against c1 (before).
+	html := renderPage(timelineInput{Weeks: weeks, Panes: pool}, 1)
+	if n := strings.Count(html, ` now"`); n != 1 {
+		t.Errorf("%d boxes marked as the column being shown, want exactly 1", n)
+	}
+	if n := strings.Count(html, ` seen"`); n != 1 {
+		t.Errorf("%d boxes marked as the source of \"before\", want exactly 1", n)
+	}
+	if !strings.Contains(html, `title="c2 · geometry · showing this one (after)"`) {
+		t.Error("the shown column is not named as such")
+	}
+	if !strings.Contains(html, `title="c1 · geometry · showing this one (before)"`) {
+		t.Error("the column supplying \"before\" is not named as such")
+	}
+}
+
+// The FIRST version a diagram ever had marks one box, not two: its "before"
+// came from a column in which this diagram did not move, so no box stands for
+// it and inventing one would be a lie.
+func TestTheFirstVersionMarksOnlyOneBox(t *testing.T) {
+	rep := layoutdiff.Report{Tier: layoutdiff.TierGeometry, Counts: map[string]int{}}
+	svg := []byte(`<svg viewBox="0 0 10 10"></svg>`)
+	mk := func(label string) week {
+		return week{Label: label, Changes: []change{{ID: "a", Status: "changed",
+			Report: rep, OldSVG: svg, NewSVG: svg, NewMarked: svg}}}
+	}
+	html := renderPage(timelineInput{
+		Weeks: []week{mk("c1"), mk("c2")},
+		Panes: merge(panePool("c1", "a", "before", "after", "marked"),
+			panePool("c2", "a", "before", "after", "marked")),
+	}, 0)
+	if n := strings.Count(html, ` now"`); n != 1 {
+		t.Errorf("%d boxes marked now, want 1", n)
+	}
+	if strings.Contains(html, ` seen"`) {
+		t.Error("marked a predecessor the first version does not have")
+	}
+}
+
+// A diagram page carries every version at once, so which comparison is on
+// screen is a fact about the scroll position: the marks move with it.
+func TestDiagramStripMovesWithTheScroll(t *testing.T) {
+	rep := layoutdiff.Report{Tier: layoutdiff.TierGeometry, Counts: map[string]int{}}
+	svg := []byte(`<svg viewBox="0 0 10 10"></svg>`)
+	mk := func(label string) week {
+		return week{Label: label, Subject: "s", Changes: []change{{ID: "a", Status: "changed",
+			Report: rep, OldSVG: svg, NewSVG: svg, NewMarked: svg}}}
+	}
+	html := renderDiagram(timelineInput{
+		Weeks: []week{mk("c1"), mk("c2")},
+		Panes: merge(panePool("c1", "a", "before", "after", "marked"),
+			panePool("c2", "a", "before", "after", "marked")),
+	}, "a")
+
+	if !strings.Contains(html, `data-col="c-c1"`) || !strings.Contains(html, `data-col="c-c2"`) {
+		t.Error("strip boxes are not tied to their sections, so nothing can move the marks")
+	}
+	if !strings.Contains(html, `id="strip"`) || !strings.Contains(html, `id="histnow"`) {
+		t.Error("the strip has no handle or caption for the script")
+	}
+	if !strings.Contains(html, "IntersectionObserver") {
+		t.Error("nothing tracks which version is on screen")
+	}
+	// The sections the observer watches must exist under those exact ids.
+	for _, id := range []string{`id="c-c1"`, `id="c-c2"`} {
+		if !strings.Contains(html, id) {
+			t.Errorf("no section %s for the strip to point at", id)
+		}
+	}
+}
+
+// A link straight to one version, without hunting for the anchor by hand.
+func TestEveryVersionOffersItsOwnLink(t *testing.T) {
+	rep := layoutdiff.Report{Tier: layoutdiff.TierGeometry, Counts: map[string]int{}}
+	svg := []byte(`<svg viewBox="0 0 10 10"></svg>`)
+	w := week{Label: "2026-07-20", Subject: "s", Changes: []change{{ID: "a", Status: "changed",
+		Report: rep, OldSVG: svg, NewSVG: svg, NewMarked: svg}}}
+	pool := panePool("2026-07-20", "a", "before", "after", "marked")
+
+	diagram := renderDiagram(timelineInput{Weeks: []week{w}, Panes: pool}, "a")
+	if !strings.Contains(diagram, `class="copy anchor" data-anchor="c-2026-07-20"`) {
+		t.Error("a version offers no link to itself")
+	}
+	// The URL is built from the address bar, with any existing fragment
+	// dropped rather than appended to.
+	if !strings.Contains(diagram, `location.href.split("#")[0]`) {
+		t.Error("the copied link is not built from this page's own address")
+	}
+	column := renderPage(timelineInput{Weeks: []week{w}, Panes: pool}, 0)
+	if !strings.Contains(column, `class="copy anchor" data-anchor="d-a"`) {
+		t.Error("a column page row offers no link to itself")
+	}
+	if !strings.Contains(column, "navigator.clipboard") {
+		t.Error("the column page has anchor buttons but no script to serve them")
+	}
+}
