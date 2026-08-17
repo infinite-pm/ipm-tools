@@ -154,22 +154,65 @@ func TestEachRowCarriesItsOwnHistory(t *testing.T) {
 	if !strings.Contains(html, "this diagram moved 1×") {
 		t.Error("the diagram that moved once does not say so")
 	}
-	// The arrows step THIS diagram, not the column: from c2, "a" has both a
-	// previous (c1) and a next (c3).
-	if !strings.Contains(html, `href="../c1/index.html#d-a"`) ||
-		!strings.Contains(html, `href="../c3/index.html#d-a"`) {
-		t.Error("the arrows do not point at this diagram's own neighbours")
+	// The arrows step THIS diagram, and they now land on ITS OWN page —
+	// following one should load one diagram, not a column carrying every
+	// other diagram to show one of them.
+	if !strings.Contains(html, `href="../../d/a/index.html#c-c1"`) ||
+		!strings.Contains(html, `href="../../d/a/index.html#c-c3"`) {
+		t.Error("the arrows do not point at this diagram's own page")
 	}
 	// "b" moved only here: both arrows are dead ends, and say so.
 	if !strings.Contains(html, "◀ first") || !strings.Contains(html, "last ▶") {
 		t.Error("a diagram with no earlier or later change offers no end marker")
 	}
-	// The current column is marked, not linked.
-	if !strings.Contains(html, `class="cell geometry now"`) {
+	// The current column is still marked in the strip.
+	if !strings.Contains(html, "now") {
 		t.Error("the current column is not marked in the strip")
 	}
-	if strings.Contains(html, `href="../c2/index.html`) {
-		t.Error("the strip links to the page it is already on")
+}
+
+// A diagram's own page carries every version of it and nothing else, with a
+// way back to the column that holds the rest.
+func TestDiagramPageCarriesOneDiagram(t *testing.T) {
+	rep := layoutdiff.Report{Tier: layoutdiff.TierGeometry, Counts: map[string]int{}}
+	svg := []byte(`<svg viewBox="0 0 10 10"></svg>`)
+	mk := func(label string, ids ...string) week {
+		w := week{Label: label, Subject: "s"}
+		for _, id := range ids {
+			w.Changes = append(w.Changes, change{ID: id, Status: "changed", Report: rep,
+				OldSVG: svg, NewSVG: svg, NewMarked: svg})
+		}
+		return w
+	}
+	weeks := []week{mk("c1", "a", "b"), mk("c2", "a"), mk("c3", "b")}
+	in := timelineInput{Weeks: weeks, Panes: panePool("a", "before", "after", "marked")}
+
+	html := renderDiagram(in, "a")
+	if strings.Contains(html, "template:") {
+		t.Fatalf("template failed:\n%s", html)
+	}
+	if n := strings.Count(html, `class="row first`); n != 2 {
+		t.Fatalf("diagram a moved twice; the page shows %d version(s)", n)
+	}
+	if strings.Contains(html, ">b<") || strings.Contains(html, "#d-b") {
+		t.Error("another diagram leaked onto this diagram's page")
+	}
+	for _, want := range []string{
+		"this diagram moved 2×",  // what the page is
+		`id="c-c1"`, `id="c-c2"`, // one section per version
+		`href="#c-c1"`,              // the strip jumps in-page — no load
+		"../../w/c1/index.html#d-a", // …and back to the column with the rest
+		"../../index.html",          // and back to the index
+		`loading="lazy"`,
+	} {
+		if !strings.Contains(html, want) {
+			t.Errorf("diagram page is missing %q", want)
+		}
+	}
+	// movedDiagrams must offer a page for every diagram that ever moved.
+	got := movedDiagrams(weeks)
+	if len(got) != 2 || got[0] != "a" || got[1] != "b" {
+		t.Errorf("movedDiagrams = %v, want [a b]", got)
 	}
 }
 

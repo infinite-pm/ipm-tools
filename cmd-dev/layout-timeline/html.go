@@ -100,6 +100,30 @@ type vmRow struct {
 	HistNextLabel      string
 }
 
+// vmVersion is one column's picture of ONE diagram, on that diagram's page.
+type vmVersion struct {
+	Label, Anchor, Source, SHA, Subject string
+	Tier, Score, Summary, Bounds        string
+	ColumnHref                          string // the column page, with every diagram
+	BeforeSrc, AfterSrc, MarkedSrc      string
+	CurrentSrc                          string
+	OldWidth, NewWidth, CurWidth        string
+	Changes                             []vmChange
+	FindingsAdded                       []string
+	Err                                 string
+}
+
+// vmDiagram is one diagram's whole life: every column it moved in, on one
+// page. Following a history box used to open a column page carrying two
+// hundred diagrams to show one of them; this carries one.
+type vmDiagram struct {
+	ID       string
+	Moves    int
+	History  []vmHistCell
+	Versions []vmVersion
+	IndexRef string
+}
+
 // vmHistCell is one box in a diagram's own history strip.
 type vmHistCell struct {
 	Label, Tier, Href string
@@ -192,10 +216,11 @@ func historyOf(weeks []week, shown []int, id string, now int) ([]vmHistCell, int
 		if tier == "" {
 			continue
 		}
+		// Following a box opens THIS DIAGRAM's page — one diagram, every
+		// version — not another column carrying two hundred others to show
+		// one of them.
 		cell := vmHistCell{Label: weeks[i].Label, Tier: tier, Now: i == now}
-		if i != now {
-			cell.Href = "../" + layoutaudit.Sanitize(weeks[i].Label) + "/index.html#" + anchor(id)
-		}
+		cell.Href = "../../" + diagramDir(id) + "/index.html#c-" + layoutaudit.Sanitize(weeks[i].Label)
 		cells = append(cells, cell)
 		switch {
 		case i < now:
@@ -203,8 +228,88 @@ func historyOf(weeks []week, shown []int, id string, now int) ([]vmHistCell, int
 		case i > now && nextHref == "":
 			nextHref, nextLabel = cell.Href, cell.Label
 		}
+		if i == now {
+			cell.Now = true
+		}
 	}
 	return cells, len(cells), prevHref, nextHref, prevLabel, nextLabel
+}
+
+// diagramDir is a diagram's own page.
+func diagramDir(id string) string { return "d/" + layoutaudit.Sanitize(id) }
+
+// movedDiagrams lists every diagram that moved at least once, in the index's
+// order, so each can be given a page.
+func movedDiagrams(weeks []week) []string {
+	seen := map[string]bool{}
+	var out []string
+	for _, w := range weeks {
+		for _, c := range w.Changes {
+			if !seen[c.ID] {
+				seen[c.ID] = true
+				out = append(out, c.ID)
+			}
+		}
+	}
+	sort.Strings(out)
+	return out
+}
+
+// buildDiagram assembles one diagram's page: its versions, oldest first.
+func buildDiagram(in timelineInput, id string) vmDiagram {
+	d := vmDiagram{ID: id, IndexRef: "../../index.html"}
+	for _, i := range shownColumns(in.Weeks) {
+		w := in.Weeks[i]
+		for _, c := range w.Changes {
+			if c.ID != id {
+				continue
+			}
+			tier := c.Status
+			if c.Status == "changed" {
+				tier = c.Report.Tier.String()
+			}
+			anchor := "c-" + layoutaudit.Sanitize(w.Label)
+			ob, nb := c.Report.OldBounds, c.Report.NewBounds
+			bounds := fmt.Sprintf("%d×%d", nb.Width, nb.Height)
+			if ob != nb {
+				bounds = fmt.Sprintf("%d×%d → %d×%d", ob.Width, ob.Height, nb.Width, nb.Height)
+			}
+			ow, nw := layoutaudit.PaneWidths(ob.Width, nb.Width)
+			v := vmVersion{
+				Label: w.Label, Anchor: anchor, Source: w.Source,
+				SHA: layoutaudit.Short(w.SHA), Subject: w.Subject,
+				Tier: tier, Score: fmt.Sprintf("%.0f", c.Report.Score),
+				Summary: layoutaudit.Summarize(c.Report), Bounds: bounds,
+				ColumnHref:    "../../" + pageDir(w.Label) + "/index.html#" + anchorOf(id),
+				BeforeSrc:     in.pane(id, "before"),
+				AfterSrc:      in.pane(id, "after"),
+				MarkedSrc:     in.pane(id, "marked"),
+				CurrentSrc:    in.pane(id, "current"),
+				OldWidth:      ow,
+				NewWidth:      nw,
+				CurWidth:      ow,
+				FindingsAdded: c.Report.FindingsAdded,
+				Err:           c.Err,
+			}
+			for _, ch := range c.Report.Changes {
+				v.Changes = append(v.Changes, vmChange{Kind: ch.Kind, Ref: ch.Ref,
+					Label: ch.Label, Detail: ch.Detail, Tier: ch.Tier.String()})
+			}
+			d.Versions = append(d.Versions, v)
+			d.History = append(d.History, vmHistCell{Label: w.Label, Tier: tier, Href: "#" + anchor})
+			break
+		}
+	}
+	d.Moves = len(d.Versions)
+	return d
+}
+
+func renderDiagram(in timelineInput, id string) string {
+	var b strings.Builder
+	if err := diagramTmpl.Execute(&b, buildDiagram(in, id)); err != nil {
+		return errPage("diagram", err)
+	}
+	return b.String()
 }
 
 // buildIndex assembles the front page: the grid, then the columns in order.
@@ -235,10 +340,10 @@ func buildIndex(in timelineInput) vmIndex {
 			// (diagram, column), which on a long history is tens of
 			// thousands of them, and a full summary on each turned the index
 			// into 867 KB of tooltip. The page behind the cell has the detail.
-			cell := vmCell{Tier: tier, Title: w.Label + " · " + tier}
-			if href != "" {
-				cell.Href = href + "#" + anchor(c.ID)
-			}
+			// From the grid, a cell opens THAT diagram at THAT column — one
+			// diagram's page, not a column page holding hundreds.
+			cell := vmCell{Tier: tier, Title: w.Label + " · " + tier,
+				Href: diagramDir(c.ID) + "/index.html#c-" + layoutaudit.Sanitize(w.Label)}
 			row[wi] = cell
 			m.TotalMoves++
 		}
@@ -401,6 +506,9 @@ func prevOf(w week) string {
 // anchor identifies a row within its column's page.
 func anchor(id string) string { return "d-" + layoutaudit.Sanitize(id) }
 
+// anchorOf is anchor, named for call sites that read better with it.
+func anchorOf(id string) string { return anchor(id) }
+
 // shortID keeps the tail of a long path, which is the part that identifies a
 // diagram in a grid row.
 func shortID(id string) string {
@@ -469,6 +577,14 @@ a.cell{text-decoration:none}
 .cell.repaired{background:var(--better)}
 .sha{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);font-size:12px}
 .note{padding:8px 0;color:var(--muted);font-size:13px}
+/* One navigation, the same on every page: where am I, and what else can I
+   look at from here. */
+nav.top{display:flex;gap:10px;align-items:center;font-size:12.5px;flex-wrap:wrap;margin-top:8px}
+nav.top a{color:var(--muted);text-decoration:none;border:1px solid var(--line);
+  border-radius:6px;padding:2px 9px}
+nav.top a:hover{border-color:var(--muted);color:var(--ink)}
+nav.top .here{border-color:var(--ink);color:var(--ink);font-weight:600}
+nav.top .sep{color:var(--line)}
 pre{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:7px 10px;overflow-x:auto;font-size:12px}
 `
 
@@ -598,8 +714,10 @@ nav a{color:var(--muted)}
     <b>compared</b><span>{{if .Against}}against {{.Against}} — {{end}}{{.Changed}} changed, {{.Identical}} identical{{if .Skipped}}, {{.Skipped}} skipped{{end}}</span>
     {{if .Span}}<b>spans</b><span>{{.Span}}</span>{{end}}
   </div>
-  <nav>
-    <a href="../../index.html">← all columns</a>
+  <nav class="top">
+    <a href="../../index.html">← all diagrams &amp; columns</a>
+    <span class="here">this column, all diagrams</span>
+    <span class="sep">|</span>
     {{if .PrevHref}}<a href="{{.PrevHref}}">← {{.PrevLabel}}</a>{{end}}
     {{if .NextHref}}<a href="{{.NextHref}}">{{.NextLabel}} →</a>{{end}}
   </nav>
@@ -657,6 +775,90 @@ nav a{color:var(--muted)}
 {{if .Unrendered}}
 <details><summary>{{len .Unrendered}} further changed diagram(s), not drawn</summary>
 <div class="detail"><ul class="quiet">{{range .Unrendered}}<li>{{.}}</li>{{end}}</ul></div></details>
+{{end}}
+</main>
+<script>
+{{paneJS}}
+</script>
+</body></html>
+`))
+
+var diagramTmpl = template.Must(template.New("diagram").
+	Funcs(template.FuncMap{"tier": tierClass}).
+	Funcs(layoutaudit.PaneFuncs()).Parse(`<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{.ID}} — layout timeline</title>
+<style>` + sharedCSS + `
+{{paneCSS}}
+.row{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:18px;overflow:hidden}
+.rowhead{padding:9px 16px;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+.summary{padding:8px 16px;font-size:13px;color:var(--muted);border-bottom:1px solid var(--line)}
+details{border-top:1px solid var(--line)}
+summary{padding:7px 16px;font-size:13px;cursor:pointer;color:var(--muted)}
+.detail{padding:0 16px 12px}
+table.ch{border-collapse:collapse;width:100%;font-size:12.5px}
+table.ch td,table.ch th{text-align:left;padding:2px 10px 2px 0;vertical-align:top}
+.k{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--changed)}
+.k.invariant{color:var(--worse)} .k.geometry{color:var(--moved)}
+.hist{display:flex;align-items:center;gap:3px;flex-wrap:wrap;padding:10px 0 0}
+.hist .cell{width:14px;height:14px}
+.hist .cell.now{outline:2px solid var(--ink);outline-offset:1px}
+.histlabel{font-size:12px;color:var(--muted);margin-right:6px}
+</style></head><body>
+<header>
+  <h1><span class="id">{{.ID}}</span></h1>
+  <div class="prov">
+    <b>versions</b><span>this diagram moved {{.Moves}}×; every one of them is on this page</span>
+  </div>
+  <nav class="top">
+    <a href="{{.IndexRef}}">← all diagrams &amp; columns</a>
+    <span class="here">this diagram, all versions</span>
+  </nav>
+  <div class="hist">
+    <span class="histlabel">jump to</span>
+    {{range .History}}<a class="cell {{tier .Tier}}" href="{{.Href}}" title="{{.Label}} · {{.Tier}}"></a>{{end}}
+  </div>
+</header>
+<main>
+{{range .Versions}}
+<section class="row first{{if not .BeforeSrc}} no-before{{end}}" id="{{.Anchor}}">
+  <div class="rowhead">
+    <span class="id">{{.Label}}</span>
+    {{if .Source}}<span class="pill">{{.Source}}</span>{{end}}
+    <span class="pill {{tier .Tier}}">{{.Tier}}</span>
+    <span class="quiet">score {{.Score}} · {{.Bounds}} · <span class="sha">{{.SHA}}</span> {{.Subject}}</span>
+  </div>
+  {{if .Summary}}<div class="summary">{{.Summary}}</div>{{end}}
+  {{if .Err}}<div class="summary">{{.Err}}</div>{{end}}
+  <div class="panes">
+    <div class="pane pane-old">
+      <h4><span>reference</span>{{if .CurrentSrc}}{{leftControls}}{{end}}</h4>
+      <div class="stack">
+        {{if .BeforeSrc}}<div class="layer layer-before" style="width:{{.OldWidth}}"><img src="{{.BeforeSrc}}" loading="lazy" alt="before"><span class="chip">before</span></div>{{end}}
+        {{if .CurrentSrc}}<div class="layer layer-current" style="width:{{.CurWidth}}"><img src="{{.CurrentSrc}}" loading="lazy" alt="current"><span class="chip">current</span></div>{{end}}
+      </div>
+    </div>
+    <div class="pane pane-new">
+      <h4><span>this version</span>{{paneControls}}</h4>
+      <div class="stack">
+        {{if .BeforeSrc}}<div class="layer layer-before" style="width:{{.OldWidth}}"><img src="{{.BeforeSrc}}" loading="lazy" alt="before"><span class="chip">before</span></div>{{end}}
+        {{if .AfterSrc}}<div class="layer layer-after" style="width:{{.NewWidth}}"><img src="{{.AfterSrc}}" loading="lazy" alt="after"><span class="chip">after</span></div>{{end}}
+        {{if .MarkedSrc}}<div class="layer layer-marked" style="width:{{.NewWidth}}"><img src="{{.MarkedSrc}}" loading="lazy" alt="marked"><span class="chip">marked</span></div>{{end}}
+      </div>
+    </div>
+  </div>
+  <details>
+    <summary>{{len .Changes}} change(s) · this column with every other diagram</summary>
+    <div class="detail">
+      <table class="ch">
+        {{range .Changes}}<tr><td class="k {{tier .Tier}}">{{.Kind}}</td><td>{{.Ref}} <span class="quiet">{{.Label}}</span></td><td>{{.Detail}}</td></tr>{{end}}
+      </table>
+      {{if .FindingsAdded}}<ul class="quiet">{{range .FindingsAdded}}<li>{{.}}</li>{{end}}</ul>{{end}}
+      <p><a href="{{.ColumnHref}}">open {{.Label}} with all its diagrams →</a></p>
+    </div>
+  </details>
+</section>
 {{end}}
 </main>
 <script>

@@ -221,13 +221,25 @@ look empty while carrying a week of work.
 
 ## The report
 
-An **index** and a **page per column**, under `temp/layout-timeline/`:
+Three kinds of page under `temp/layout-timeline/`, because there are three
+questions:
 
 ```
-index.html              the grid and the column list
-w/2026-07-13/index.html one column: its changed diagrams
-w/2026-06-15/index.html …
+index.html                   the grid and the column list — what moved, when
+w/2026-07-13/index.html       ONE COLUMN: every diagram that moved in it
+d/examples_murder-full.ipmt/  ONE DIAGRAM: every version of it
+panes/<sha>.svg               the pictures, shared by all of them
 ```
+
+Following a diagram's history box opens **that diagram's page**, not another
+column: one diagram's versions load in ~39 KB where a column page carrying two
+hundred diagrams is 2.4 MB. Its history strip then jumps *within* the page —
+no load at all — and every version links back to its column, with all the other
+diagrams that moved alongside it. The grid's cells lead to the same place: the
+one diagram, at the column you clicked.
+
+A navigation strip at the top of every page says which of the three you are on
+and offers the other two.
 
 One page for a long history does not work — the whole-history report was
 3.8 MB of inline diagrams and only stayed openable by throwing panes away.

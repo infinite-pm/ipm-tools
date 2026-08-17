@@ -285,6 +285,23 @@ func run() int {
 		}
 		pages++
 	}
+	// One page per diagram that ever moved: following a history box should
+	// load ONE diagram's versions, not a column carrying two hundred others.
+	if err := os.RemoveAll(filepath.Join(outAbs, "d")); err != nil {
+		return fail("clear diagram pages: %v", err)
+	}
+	diagramPages := 0
+	for _, id := range movedDiagrams(weeksOut) {
+		dir := filepath.Join(outAbs, filepath.FromSlash(diagramDir(id)))
+		if err := os.MkdirAll(dir, 0o755); err != nil {
+			return fail("create %s: %v", dir, err)
+		}
+		if err := os.WriteFile(filepath.Join(dir, "index.html"),
+			[]byte(renderDiagram(in, id)), 0o644); err != nil {
+			return fail("write diagram page: %v", err)
+		}
+		diagramPages++
+	}
 	if err := os.WriteFile(reportPath, []byte(renderIndex(in)), 0o644); err != nil {
 		return fail("write index: %v", err)
 	}
@@ -296,8 +313,8 @@ func run() int {
 	for _, w := range weeksOut {
 		moved += len(w.Changes)
 	}
-	fmt.Fprintf(os.Stderr, "layout-timeline: %d column(s), %d diagram-change(s), %d page(s) [%s]\n",
-		len(weeksOut), moved, pages, time.Since(started).Round(time.Millisecond))
+	fmt.Fprintf(os.Stderr, "layout-timeline: %d column(s), %d diagram-change(s), %d column page(s), %d diagram page(s) [%s]\n",
+		len(weeksOut), moved, pages, diagramPages, time.Since(started).Round(time.Millisecond))
 	fmt.Println(reportPath)
 	return 0
 }
