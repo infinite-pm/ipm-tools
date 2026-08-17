@@ -1,6 +1,7 @@
 package main
 
 import (
+	"regexp"
 	"strconv"
 	"strings"
 	"testing"
@@ -1134,4 +1135,65 @@ func firstLineWith(s, needle string) string {
 		}
 	}
 	return "(not found)"
+}
+
+// The grid is the catalogue of every diagram, and a catalogue is looked things
+// UP in. Source order — file, then position within it — keeps a markdown
+// page's blocks together and in the order they are written, and keeps a row in
+// the same place from one report to the next. Ranking by how much each moved
+// scattered a file's blocks and reshuffled the whole grid on every run.
+func TestGridIsInSourceOrder(t *testing.T) {
+	rep := layoutdiff.Report{Tier: layoutdiff.TierGeometry, Counts: map[string]int{}}
+	mk := func(ids ...string) week {
+		w := week{Label: "c1"}
+		for _, id := range ids {
+			w.Changes = append(w.Changes, change{ID: id, Status: "changed", Report: rep})
+		}
+		return w
+	}
+	// b.md#10 moved three times, a.md#20 once — moves order would invert them.
+	weeks := []week{
+		mk("b.md#10", "a.md#20", "a.md#10", "z.ipmt"),
+		mk("b.md#10"), mk("b.md#10"),
+	}
+	order := map[string]int{"a.md#10": 0, "a.md#20": 1, "b.md#10": 2, "z.ipmt": 3}
+
+	html := renderIndex(timelineInput{Weeks: weeks, Diagrams: 4, Order: order})
+	seen := regexpAll(html, `<td class="name" title="([^"]+)"`)
+	if len(seen) < 4 {
+		t.Fatalf("grid has %d rows: %v", len(seen), seen)
+	}
+	// The blocks of a.md come first and in position order, before b.md.
+	pos := func(sub string) int {
+		for i, s := range seen {
+			if strings.Contains(s, sub) {
+				return i
+			}
+		}
+		return -1
+	}
+	if pos("a.md#10") > pos("a.md#20") {
+		t.Errorf("a file's blocks are out of position order: %v", seen)
+	}
+	if pos("a.md#20") > pos("b.md#10") {
+		t.Errorf("files are not in path order: %v", seen)
+	}
+	if pos("b.md#10") > pos("z.ipmt") {
+		t.Errorf("a whole .ipmt file is not sorted by its path: %v", seen)
+	}
+	// Without an order (an older caller, or a fixture), fall back to the old
+	// busiest-first rather than to nothing.
+	fallback := renderIndex(timelineInput{Weeks: weeks, Diagrams: 4})
+	if !strings.Contains(fallback, "b.md#10") {
+		t.Error("the fallback ordering dropped a row")
+	}
+}
+
+func regexpAll(s, pat string) []string {
+	re := regexp.MustCompile(pat)
+	var out []string
+	for _, m := range re.FindAllStringSubmatch(s, -1) {
+		out = append(out, m[1])
+	}
+	return out
 }

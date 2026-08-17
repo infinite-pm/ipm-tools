@@ -253,9 +253,20 @@ read: scan the grid, pick the column that moved, look at that column.
 **The grid**: one row per diagram that ever moved, one column per week, a
 coloured cell where it moved (red = an invariant got worse, violet = drawn
 differently, orange = moved, black = the engine could not lay it out, green =
-became layoutable). Rows are ordered by how often the diagram moved. This
-answers "when did this last change, and has it ever been broken" by looking
-rather than reading.
+became layoutable). This answers "when did this last change, and has it ever
+been broken" by looking rather than reading.
+
+Rows are in **source order**: by file, then by the block's POSITION in that
+file — not by the marker's text, which does not sort the same way (`1fz 1gz
+1f0` is document order; lexically it is `1f0 1fz 1gz`). A markdown page's
+blocks therefore stay together and in the order they are written, which is how
+a reader holds them, and a row keeps its place from one report to the next.
+Ordering by how much each diagram moved scattered a file's blocks across the
+grid and reshuffled the whole thing on every run; the `moves` column still says
+which rows are the eventful ones.
+
+Column pages keep their own order — **worst first**, by tier then score —
+because there the question is "what should I look at", not "where is X".
 
 The grid leads BOTH ways, which is the whole navigation: a **cell** opens that
 diagram's own page (one diagram, every version of it), a **column header**

@@ -24,6 +24,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"sort"
 	"strings"
 	"time"
 
@@ -273,6 +274,7 @@ func run() int {
 	}
 	in.Panes = panes
 	in.IPMT = readSources(diagrams, weeksOut)
+	in.Order = sourceOrder(diagrams)
 	fmt.Fprintf(os.Stderr, "layout-timeline: %d pane file(s) written (the rest were already there)\n", written)
 
 	// One page per column, and an index over them. A single page for a long
@@ -654,6 +656,41 @@ func corpusDrift(outAbs string, diagrams []layoutaudit.Diagram) []string {
 // temp/ is the recorded cause of the editor's renderer dying with SIGILL —
 // the workspace watcher stalls the extension host — and writing 2,600 files
 // on every run was walking straight into it.
+// sourceOrder ranks the diagrams by WHERE THEY LIVE: file, then position
+// within that file.
+//
+// It is the order the corpus is written in, so blocks of one markdown page
+// stay together and in sequence — which is how a reader holds them ("the
+// third diagram in how-to-model") — and it does not move between reports.
+func sourceOrder(diagrams []layoutaudit.Diagram) map[string]int {
+	sorted := make([]layoutaudit.Diagram, len(diagrams))
+	copy(sorted, diagrams)
+	sort.SliceStable(sorted, func(i, j int) bool {
+		fi, fj := fileOf(sorted[i].ID), fileOf(sorted[j].ID)
+		if fi != fj {
+			return fi < fj
+		}
+		// Line is the block's position in the file, 0 for a whole .ipmt —
+		// which is alone in its file anyway, so the tie never matters.
+		if sorted[i].Line != sorted[j].Line {
+			return sorted[i].Line < sorted[j].Line
+		}
+		return sorted[i].ID < sorted[j].ID
+	})
+	rank := make(map[string]int, len(sorted))
+	for i, d := range sorted {
+		rank[d.ID] = i
+		// An alias is the same source under another name; it belongs in the
+		// same place, not at the end.
+		for _, a := range d.Aliases {
+			if _, seen := rank[a]; !seen {
+				rank[a] = i
+			}
+		}
+	}
+	return rank
+}
+
 // readSources loads the ipmt text of every diagram that has a page, so the
 // page can show the one input all its versions were rendered from.
 //

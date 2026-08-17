@@ -54,6 +54,11 @@ type timelineInput struct {
 	// tree was clean. A report is a snapshot of a moving target: without it,
 	// two reports that disagree cannot be placed against each other.
 	Head string
+	// Order ranks each diagram by where it lives: file, then position within
+	// that file. The grid is the catalogue of every diagram in the corpus, and
+	// a catalogue is looked things UP in — so it reads in the order of the
+	// tree it came from, not by how eventful each row happened to be.
+	Order map[string]int
 	// IPMT is each diagram's source text. Every picture on a diagram page is
 	// this one input read by a different engine, so the input is the thing
 	// worth having at hand when the pictures disagree — and worth copying out
@@ -518,10 +523,22 @@ func buildIndex(in timelineInput) vmIndex {
 		}
 		m.Grid = append(m.Grid, vmGridRow{ID: id, Short: shortID(id), Cells: cells, Moves: moves})
 	}
-	// Busiest diagrams first: the ones that moved most are the ones a reader
-	// most wants to understand.
+	// SOURCE ORDER: by file, then by position within the file. Blocks of one
+	// markdown page stay together and in the order they are written, which is
+	// how a reader holds them — "the third diagram in how-to-model" — and it
+	// is stable between reports, so the same row is in the same place next
+	// week. Sorting by how much each moved put a file's blocks in five
+	// different places and shuffled the whole grid on every run; the "moves"
+	// column still says which are eventful.
 	sort.SliceStable(m.Grid, func(i, j int) bool {
-		if m.Grid[i].Moves != m.Grid[j].Moves {
+		ri, oki := in.Order[m.Grid[i].ID]
+		rj, okj := in.Order[m.Grid[j].ID]
+		switch {
+		case oki && okj && ri != rj:
+			return ri < rj
+		case oki != okj:
+			return oki // a diagram whose place is known comes first
+		case m.Grid[i].Moves != m.Grid[j].Moves:
 			return m.Grid[i].Moves > m.Grid[j].Moves
 		}
 		return m.Grid[i].ID < m.Grid[j].ID
