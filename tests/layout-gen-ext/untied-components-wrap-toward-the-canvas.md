@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L1238-L1246 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#untied-components-wrap-toward-the-canvas)
+**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L1273-L1281 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#untied-components-wrap-toward-the-canvas)
 
 ## ipmt Content
 

@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-ext.md",
-        "source_sha1": "44c219eb0a170d27977afd96cd1775f0cbd7b7e6",
+        "source_sha1": "416384bee58d39746b5f34b394e2c6ad427fe076",
         "name": "layout ext test rules",
         "method": "parser",
         "parser_name": "ipmdev-layout-rule-md",
@@ -2980,8 +2980,63 @@
                 "section": "v7 acceptance targets"
             },
             {
+                "destination": "a-chain-of-ties-rings-ring-by-ring",
+                "line": 1256,
+                "anchor": "#a-chain-of-ties-rings-ring-by-ring",
+                "content_sha1": "b2d7c8d2329ddacba8cd2718556ae0aaef237523",
+                "outputs": {
+                    "dsl": "b2d7c8d2329ddacba8cd2718556ae0aaef237523"
+                },
+                "heading": "a chain of ties rings ring by ring",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-chain-of-ties-rings-ring-by-ring-02",
+                "line": 1257,
+                "anchor": "#a-chain-of-ties-rings-ring-by-ring",
+                "content_sha1": "10f54611c20c737a96640b346e27528060320f6e",
+                "outputs": {
+                    "dsl": "10f54611c20c737a96640b346e27528060320f6e"
+                },
+                "heading": "a chain of ties rings ring by ring",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-chain-of-ties-rings-ring-by-ring-03",
+                "line": 1258,
+                "anchor": "#a-chain-of-ties-rings-ring-by-ring",
+                "content_sha1": "319428b1ec3601bba7f8d04049b274fb16f8d7ad",
+                "outputs": {
+                    "dsl": "319428b1ec3601bba7f8d04049b274fb16f8d7ad"
+                },
+                "heading": "a chain of ties rings ring by ring",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-chain-of-ties-rings-ring-by-ring-04",
+                "line": 1259,
+                "anchor": "#a-chain-of-ties-rings-ring-by-ring",
+                "content_sha1": "339dded056a2413c42113ac98ba0e93d21150ab1",
+                "outputs": {
+                    "dsl": "339dded056a2413c42113ac98ba0e93d21150ab1"
+                },
+                "heading": "a chain of ties rings ring by ring",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-chain-of-ties-rings-ring-by-ring-05",
+                "line": 1260,
+                "anchor": "#a-chain-of-ties-rings-ring-by-ring",
+                "content_sha1": "ca8978ade09463c473adaa41aa1dc3633e83ab25",
+                "outputs": {
+                    "dsl": "ca8978ade09463c473adaa41aa1dc3633e83ab25"
+                },
+                "heading": "a chain of ties rings ring by ring",
+                "section": "v7 acceptance targets"
+            },
+            {
                 "destination": "untied-components-wrap-toward-the-canvas",
-                "line": 1252,
+                "line": 1287,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "cdf20d9f4909501627c0d08b37915e5b5a40c219",
                 "outputs": {
@@ -2992,7 +3047,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-02",
-                "line": 1253,
+                "line": 1288,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "85ff40fb2940db10bfa37ef797472cc2188b3f8d",
                 "outputs": {
@@ -3003,7 +3058,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-03",
-                "line": 1254,
+                "line": 1289,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "0991e1360fdf66af48d8be5e60ef0360b4445899",
                 "outputs": {
@@ -3014,7 +3069,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-04",
-                "line": 1255,
+                "line": 1290,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "6897619f1a9db488f7b796bf1913bf3e892f1721",
                 "outputs": {
@@ -3025,7 +3080,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-05",
-                "line": 1256,
+                "line": 1291,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "f0888e84d5cb06361b15c1dc1fc7e7afdd31e40e",
                 "outputs": {
@@ -3036,7 +3091,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-06",
-                "line": 1257,
+                "line": 1292,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "83d53c9322d1a9516a697c09faafb1424e32bcd5",
                 "outputs": {
@@ -3047,7 +3102,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-07",
-                "line": 1258,
+                "line": 1293,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "3e7a435eb055316b32f91d7221f6809f6a99cd20",
                 "outputs": {
@@ -3058,7 +3113,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-08",
-                "line": 1259,
+                "line": 1294,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "cae593ff493c2b1dbb627bb04205c851cf7df3e1",
                 "outputs": {

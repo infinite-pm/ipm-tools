@@ -1225,6 +1225,41 @@ all #tB,#cX have same center-x
 all #tA,#e1,#e2 have same y
 ```
 
+### a chain of ties rings ring by ring
+
+v7P2: a component tied to an already-placed one is placed AROUND it — and a
+snowflake is that rule applied TRANSITIVELY: satellites of satellites ring
+their own hub. Here `r1` ties to the hub story at `h2`, `r2` ties only to
+`r1`, `r3` only to `r2` — a branch of three with no fork. The ring pass runs
+to a fixpoint, so each one rings the one before it, and the branch reads as
+one row off the hub, one component gap per link. A single ordered pass
+could not: `r2` precedes `r1` in centrality order (equal ties, declared
+first), reached `r1` unplaced, and fell to the aspect-ratio wrap — and once
+wrapped it could never be a hub for `r3`, which wrapped after it. The
+branch was torn: `r2`,`r3` on the hub's top row 360px away, `r1` alone
+beside `h2`. (kubernetes: kubectl → interact-via-CLI → Kubernetes stood
+4650px apart with both ties hidden as too long.)
+
+```ipmt
+h1 ::e --> h2 ::e --> h3 ::e
+p ::e --::X--> h1
+q ::e --::X--> h3
+r2 ::e --::X--> r1 ::e
+r3 ::e --::X--> r2
+r1 --::X--> h2
+```
+<!-- ipm-svg id=1hr hash=d5e9745d -->
+![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1hr.ipm.svg)
+
+```ipmdev-layout-rule
+@scope local
+all #h2,#r1,#r2,#r3 have same y
+#h2 is left-of #r1 with gap=120
+#r1 is left-of #r2 with gap=120
+#r2 is left-of #r3 with gap=120
+each edge has max-bends=0
+```
+
 ### untied components wrap toward the canvas
 
 v7P2: eight identical single-event components with no ties pack by the
