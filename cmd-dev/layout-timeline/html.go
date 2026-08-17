@@ -133,6 +133,11 @@ type vmVersion struct {
 	// The version before this one on the page: what the "before" picture is,
 	// and the other half of any regression report.
 	PrevLabel, PrevSHA, PrevSource, PrevRepo string
+	// Commit dates and what counts as the engine in this lineage. A report
+	// that says "it broke between these two" is only actionable with the
+	// means to narrow it: these are what the bisect commands need.
+	Date, PrevDate string
+	EnginePaths    []string
 	// Ready-to-paste markdown. Built here rather than in the browser so it can
 	// be tested, and because everything it needs is already in this struct.
 	AgentMD, RegressionMD string
@@ -349,6 +354,7 @@ func buildDiagram(in timelineInput, id string) vmDiagram {
 			ow, nw := layoutaudit.PaneWidths(ob.Width, nb.Width)
 			v := vmVersion{
 				Label: w.Label, Anchor: anchor, Source: w.Source, Repo: w.Snap.Repo,
+				Date: stampDate(w.Snap.Date), EnginePaths: w.Snap.EnginePaths,
 				SHA: layoutaudit.Short(w.SHA), Subject: w.Subject,
 				Tier: tier, Score: fmt.Sprintf("%.0f", c.Report.Score),
 				Summary: layoutaudit.Summarize(c.Report), Bounds: bounds,
@@ -369,6 +375,7 @@ func buildDiagram(in timelineInput, id string) vmDiagram {
 				p := d.Versions[n-1]
 				v.PrevLabel, v.PrevSHA = p.Label, p.SHA
 				v.PrevSource, v.PrevRepo = p.Source, p.Repo
+				v.PrevDate = p.Date
 			}
 			d.Versions = append(d.Versions, v)
 			d.History = append(d.History, vmHistCell{
@@ -978,21 +985,24 @@ const copyJS = `
   }
   document.querySelectorAll("button.copy").forEach(function (btn) {
     btn.addEventListener("click", function () {
-      if (btn.dataset.anchor) {
-        writeText(anchorURL(btn.dataset.anchor), btn, null);
-        return;
-      }
-      var el = document.getElementById(btn.dataset.copy);
-      if (!el) { return; }
-      var text = el.textContent;
+      // ONE path, no early return. A button can carry both data-copy and
+      // data-anchor — the agent payloads do — and an "if anchor, copy the
+      // URL" shortcut in front silently won that case, so those buttons
+      // copied a bare link and the substitution below was unreachable.
+      // data-copy names WHAT to copy; data-anchor only says where the page's
+      // own URL should be spliced in.
+      var el = btn.dataset.copy ? document.getElementById(btn.dataset.copy) : null;
+      var text = el ? el.textContent
+        : (btn.dataset.anchor ? anchorURL(btn.dataset.anchor) : "");
       // Only the browser knows where this page was opened from, so the
       // payload carries a placeholder and it is filled in here.
       if (btn.dataset.anchor) {
         text = text.split("__URL__").join(anchorURL(btn.dataset.anchor));
-        writeText(text, btn, null);
-        return;
       }
-      writeText(text, btn, el);
+      if (!text) { return; }
+      // A selection fallback can only select a node that is ON the page; a
+      // hidden payload is not, so those copy through the synthetic path.
+      writeText(text, btn, el && !el.hidden ? el : null);
     });
   });
 })();
@@ -1198,6 +1208,14 @@ table.ch td,table.ch th{text-align:left;padding:2px 10px 2px 0;vertical-align:to
 // where the page was opened from.
 const urlMark = "__URL__"
 
+// stampDate renders a commit date for a --since/--until flag, "" when unset.
+func stampDate(t time.Time) string {
+	if t.IsZero() {
+		return ""
+	}
+	return t.Format("2006-01-02")
+}
+
 // fileOf is the path a diagram id points at: "docs/x.md#100" -> "docs/x.md".
 func fileOf(id string) string {
 	if i := strings.IndexByte(id, '#'); i >= 0 {
@@ -1282,91 +1300,163 @@ func changeLines(v vmVersion) []string {
 	return out
 }
 
-// agentMarkdown describes ONE version well enough to act on.
+// agentMarkdown is the OPENING of a prompt about one version: what is being
+// looked at, rendered from what, by which engine — so a question can be asked
+// about it without the reader retyping any of that.
 func agentMarkdown(d vmDiagram, v vmVersion, sources string) string {
 	var b strings.Builder
-	fmt.Fprintf(&b, "## layout-timeline — `%s` at %s\n\n", d.ID, v.Label)
-	b.WriteString("I am looking at this version in the layout timeline report.\n\n")
-	fmt.Fprintf(&b, "- diagram: %s\n", whichDiagram(d.ID))
-	fmt.Fprintf(&b, "- version: %s\n", engineOf(v.Label, v.Source, v.SHA, v.Subject))
+	b.WriteString("I am looking at one version of one diagram in the ipm layout-timeline\n")
+	b.WriteString("report — the same diagram source rendered by the layout engine as it stood\n")
+	b.WriteString("at different points in its history.\n\n")
+
+	fmt.Fprintf(&b, "## The diagram\n\n")
+	fmt.Fprintf(&b, "- id: %s\n", whichDiagram(d.ID))
+	fmt.Fprintf(&b, "- rendered by: %s\n", engineOf(v.Label, v.Source, v.SHA, v.Subject))
 	if v.PrevLabel != "" {
-		fmt.Fprintf(&b, "- the picture before it: %s\n",
+		fmt.Fprintf(&b, "- compared against: %s\n",
 			engineOf(v.PrevLabel, v.PrevSource, v.PrevSHA, ""))
 	} else {
-		b.WriteString("- the picture before it: none on this page — this is the first version of it\n")
+		b.WriteString("- compared against: nothing on this page — this is its first version\n")
 	}
-	fmt.Fprintf(&b, "- reported change: %s", v.Tier)
+	fmt.Fprintf(&b, "- the structural diff called this: %s", v.Tier)
 	if v.Score != "" {
 		fmt.Fprintf(&b, ", score %s", v.Score)
 	}
 	fmt.Fprintf(&b, "\n- canvas: %s\n", v.Bounds)
+	if v.Repo != "" {
+		fmt.Fprintf(&b, "- engine repository: `%s`\n", v.Repo)
+	}
 	if sources != "" {
 		fmt.Fprintf(&b, "- diagrams came from: `%s`\n", sources)
 	}
-	fmt.Fprintf(&b, "- page: %s\n", urlMark)
+	fmt.Fprintf(&b, "- report page (all versions of it): %s\n", urlMark)
 	if v.Err != "" {
-		fmt.Fprintf(&b, "- error: %s\n", v.Err)
+		fmt.Fprintf(&b, "- error at this version: %s\n", v.Err)
 	}
-	if d.IPMT != "" {
-		fmt.Fprintf(&b, "\n### source\n\n%s\n", fence(d.IPMT))
-	}
-	if lines := changeLines(v); len(lines) > 0 {
-		fmt.Fprintf(&b, "\n### what the engine changed here\n\n%s\n", strings.Join(lines, "\n"))
-	}
+	writeSource(&b, d)
+	writeChanges(&b, v, "## What the engine changed at this version")
+	b.WriteString("\n## What I want\n\n")
+	b.WriteString("<!-- replace this line with the question -->\n")
 	return b.String()
 }
 
-// regressionMarkdown is the same handover for something that looks WRONG,
-// and it carries the version before as well — a regression is a statement
-// about two renderings, and the one that still looked right is the half a
-// reader can see and an agent cannot.
+// regressionMarkdown is the opening of a BUG REPORT: what looks wrong, the two
+// renderings it is wrong between, and the commands to reproduce it and find
+// the commit that introduced it.
+//
+// A regression is a statement about two renderings. The one that still looked
+// right is exactly the half a reader can see and an agent cannot, so it is
+// carried here — along with the means to narrow the gap between them to a
+// single commit, which is the question a bug report actually has to answer.
 func regressionMarkdown(d vmDiagram, v vmVersion, sources string) string {
 	var b strings.Builder
-	fmt.Fprintf(&b, "## Possible layout regression — `%s`\n\n", d.ID)
-	b.WriteString("Found by eye in the layout timeline: this diagram looks wrong at " +
-		v.Label + ".\n\n")
-	fmt.Fprintf(&b, "- diagram: %s\n", whichDiagram(d.ID))
-	fmt.Fprintf(&b, "- looks wrong at: %s\n", engineOf(v.Label, v.Source, v.SHA, v.Subject))
-	if v.PrevLabel != "" {
-		fmt.Fprintf(&b, "- looked right at: %s\n",
-			engineOf(v.PrevLabel, v.PrevSource, v.PrevSHA, ""))
-	} else {
-		b.WriteString("- looked right at: UNKNOWN — this is the first version on the page, " +
-			"so the rendering it is compared against is not shown here\n")
+	b.WriteString("Investigate a layout regression in the ipm layout engine.\n\n")
+	fmt.Fprintf(&b, "I found this by eye in the layout-timeline report: the diagram below is\n")
+	fmt.Fprintf(&b, "drawn WORSE at %s than it was at %s. The source did not change between\n",
+		v.Label, orUnknown(v.PrevLabel))
+	b.WriteString("them — only the layout engine did.\n\n")
+
+	fmt.Fprintf(&b, "## The diagram\n\n")
+	fmt.Fprintf(&b, "- id: %s\n", whichDiagram(d.ID))
+	if v.Repo != "" {
+		fmt.Fprintf(&b, "- engine repository: `%s`\n", v.Repo)
 	}
-	fmt.Fprintf(&b, "- the engine called this: %s", v.Tier)
+	if sources != "" {
+		fmt.Fprintf(&b, "- diagrams came from: `%s`\n", sources)
+	}
+	fmt.Fprintf(&b, "- report page (both renderings, flip between them): %s\n", urlMark)
+
+	fmt.Fprintf(&b, "\n## The two renderings\n\n")
+	b.WriteString("| | version | engine |\n|---|---|---|\n")
+	if v.PrevLabel != "" {
+		fmt.Fprintf(&b, "| looked right | %s | %s |\n", v.PrevLabel,
+			lineageCell(v.PrevSource, v.PrevSHA, ""))
+	} else {
+		b.WriteString("| looked right | UNKNOWN — first version on the page | |\n")
+	}
+	fmt.Fprintf(&b, "| looks wrong | %s | %s |\n", v.Label,
+		lineageCell(v.Source, v.SHA, v.Subject))
+	fmt.Fprintf(&b, "\n- the structural diff called this: %s", v.Tier)
 	if v.Score != "" {
 		fmt.Fprintf(&b, ", score %s", v.Score)
 	}
 	fmt.Fprintf(&b, "\n- canvas: %s\n", v.Bounds)
-	fmt.Fprintf(&b, "- page: %s\n", urlMark)
-	if d.IPMT != "" {
-		fmt.Fprintf(&b, "\n### source\n\n%s\n", fence(d.IPMT))
-	}
-	if lines := changeLines(v); len(lines) > 0 {
-		fmt.Fprintf(&b, "\n### what the engine reported at this version\n\n%s\n",
-			strings.Join(lines, "\n"))
+
+	writeSource(&b, d)
+	if len(changeLines(v)) > 0 {
+		writeChanges(&b, v, "## What the structural diff reported here")
 	} else {
-		b.WriteString("\nThe engine reported no structural change here, so whatever is wrong " +
-			"is either below the diff's tiers or in the rendering rather than the layout.\n")
+		b.WriteString("\n## What the structural diff reported here\n\n")
+		b.WriteString("Nothing — so whatever is wrong is either below the diff's tiers or in\n" +
+			"the SVG rendering rather than in the layout.\n")
 	}
-	b.WriteString("\n### reproduce\n\n")
+
+	b.WriteString("\n## Reproduce\n\n")
 	b.WriteString(reproduceCmd(d, v, sources))
+	b.WriteString("\n## Find the commit that introduced it\n\n")
+	b.WriteString(bisectCmd(d, v))
+	b.WriteString("\n## What I want\n\n")
+	b.WriteString("1. Reproduce both renderings and confirm the regression.\n")
+	b.WriteString("2. Narrow it to the single engine commit that introduced it.\n")
+	b.WriteString("3. Say whether it is a genuine regression or a deliberate trade-off,\n")
+	b.WriteString("   and propose a fix if it is a regression.\n")
 	return b.String()
+}
+
+func orUnknown(s string) string {
+	if s == "" {
+		return "an earlier version not shown on the page"
+	}
+	return s
+}
+
+// lineageCell names an engine commit inside a table cell.
+func lineageCell(source, sha, subject string) string {
+	var parts []string
+	if source != "" {
+		parts = append(parts, "`"+source+"`")
+	}
+	if sha != "" {
+		parts = append(parts, "`"+sha+"`")
+	}
+	cell := strings.Join(parts, " ")
+	if subject != "" {
+		cell += " — " + subject
+	}
+	if cell == "" {
+		return "unknown"
+	}
+	return cell
+}
+
+func writeSource(b *strings.Builder, d vmDiagram) {
+	if d.IPMT == "" {
+		return
+	}
+	fmt.Fprintf(b, "\n## The source both renderings came from\n\n%s\n", fence(d.IPMT))
+}
+
+func writeChanges(b *strings.Builder, v vmVersion, heading string) {
+	lines := changeLines(v)
+	if len(lines) == 0 {
+		return
+	}
+	fmt.Fprintf(b, "\n%s\n\n%s\n", heading, strings.Join(lines, "\n"))
 }
 
 // reproduceCmd is the audit that puts these two engines side by side — or an
 // honest account of why one command cannot.
 func reproduceCmd(d vmDiagram, v vmVersion, sources string) string {
 	if v.PrevSHA == "" || v.SHA == "" {
-		return "The two commits are not both known here, so there is no single command " +
-			"to re-run this pair.\n"
+		return "The two commits are not both known here, so there is no single command\n" +
+			"to re-run this pair. The report page above shows both renderings.\n"
 	}
 	if v.PrevRepo != v.Repo {
 		return fmt.Sprintf(
-			"These versions come from DIFFERENT repositories (`%s` and `%s`), and layout-audit\n"+
-				"compares two refs in one repository — so this pair cannot be reproduced with a\n"+
-				"single command. See `layout-history.json` for how the lineages are chained.\n",
+			"These two versions come from DIFFERENT repositories (`%s` and `%s`).\n"+
+				"layout-audit compares two refs in ONE repository, so this pair cannot be\n"+
+				"reproduced with a single command — the engine moved between checkouts here.\n"+
+				"See `layout-history.json` for how the lineages are chained.\n",
 			v.PrevRepo, v.Repo)
 	}
 	cmd := "go run ./cmd-dev/layout-audit"
@@ -1378,5 +1468,34 @@ func reproduceCmd(d vmDiagram, v vmVersion, sources string) string {
 		cmd += " --sources " + sources
 	}
 	cmd += " " + fileOf(d.ID)
-	return "```sh\n" + cmd + "\n```\n"
+	return "```sh\n" + cmd + "\n```\n\n" +
+		"That writes an HTML report comparing exactly these two engines over this file.\n"
+}
+
+// bisectCmd narrows "somewhere between these two" to one commit.
+func bisectCmd(d vmDiagram, v vmVersion) string {
+	if v.PrevSHA == "" || v.SHA == "" || v.PrevRepo != v.Repo {
+		return "Not available for this pair: the two versions do not share a repository,\n" +
+			"so there is no single commit range between them to walk.\n"
+	}
+	paths := strings.Join(v.EnginePaths, " ")
+	if paths == "" {
+		paths = "pkg/layout7 pkg/layout cmd/layout-gen"
+	}
+	var b strings.Builder
+	b.WriteString("The candidates — every engine commit between the good and bad versions:\n\n")
+	fmt.Fprintf(&b, "```sh\ngit -C %s log --oneline %s..%s -- %s\n```\n\n",
+		v.Repo, v.PrevSHA, v.SHA, paths)
+	b.WriteString("Then give each of those commits its own column, for this one diagram,\n")
+	b.WriteString("so the exact commit where the picture changes is visible:\n\n")
+	cmd := fmt.Sprintf("go run ./cmd-dev/layout-timeline --repo %s --by engine-commit", v.Repo)
+	if v.PrevDate != "" {
+		cmd += " --since " + v.PrevDate
+	}
+	if v.Date != "" {
+		cmd += " --until " + v.Date
+	}
+	cmd += " " + fileOf(d.ID)
+	fmt.Fprintf(&b, "```sh\n%s\n```\n", cmd)
+	return b.String()
 }

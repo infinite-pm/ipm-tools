@@ -800,9 +800,11 @@ func TestRegressionPayloadCarriesThePreviousVersion(t *testing.T) {
 	md := regressionMarkdown(d, v, "/repo")
 
 	for _, want := range []string{
-		"Possible layout regression",
-		"looks wrong at: 2026-07-20",
-		"looked right at: 2026-07-13",
+		"Investigate a layout regression",
+		"| looks wrong | 2026-07-20 |",
+		"| looked right | 2026-07-13 |",
+		"Narrow it to the single engine commit",
+		"git -C /repo log --oneline 1a2b3c4..9f3a2b1",
 		"`1a2b3c4`", "`9f3a2b1`",
 		"```ipmt\na --> b\n```",
 		"go run ./cmd-dev/layout-audit --repo /repo --old 1a2b3c4 --new 9f3a2b1 docs/x.md",
@@ -813,7 +815,7 @@ func TestRegressionPayloadCarriesThePreviousVersion(t *testing.T) {
 	}
 	// No structural change reported: say so rather than leave a blank section,
 	// because "the engine saw nothing" is itself the useful fact.
-	if !strings.Contains(md, "reported no structural change") {
+	if !strings.Contains(md, "Nothing — so whatever is wrong") {
 		t.Error("a version with no listed changes does not say the engine saw none")
 	}
 }
@@ -831,6 +833,9 @@ func TestRegressionAcrossReposRefusesToInventACommand(t *testing.T) {
 	}
 	if !strings.Contains(md, "DIFFERENT repositories") {
 		t.Error("did not explain why there is no command")
+	}
+	if !strings.Contains(md, "do not share a repository") {
+		t.Error("the bisect section invented a commit range across two repositories")
 	}
 }
 
@@ -871,7 +876,7 @@ func TestDiagramPageOffersBothPayloads(t *testing.T) {
 		`data-copy="rg-c-2026-07-20" data-anchor="c-2026-07-20"`,
 		`<pre class="payload" id="md-c-2026-07-20" hidden>`,
 		`<pre class="payload" id="rg-c-2026-07-20" hidden>`,
-		"Possible layout regression",
+		"Investigate a layout regression",
 		`text.split("__URL__").join(anchorURL(btn.dataset.anchor))`,
 	} {
 		if !strings.Contains(html, want) {
@@ -928,5 +933,55 @@ func TestALongChangeListIsCappedOutLoud(t *testing.T) {
 	}
 	if !strings.Contains(lines[len(lines)-1], "12 more") {
 		t.Errorf("the cap does not say how many it dropped: %q", lines[len(lines)-1])
+	}
+}
+
+// A bug report that says "it broke somewhere between these two" is only
+// actionable with the means to narrow it. The regression prompt must carry
+// both: how to reproduce the pair, and how to find the commit that did it.
+func TestRegressionPromptCanBeReproducedAndBisected(t *testing.T) {
+	d := vmDiagram{ID: "docs/x.md#100", IPMT: "a --> b"}
+	v := vmVersion{
+		Label: "2026-07-20", Source: "main", SHA: "9f3a2b1", Repo: "/repo", Date: "2026-07-20",
+		PrevLabel: "2026-07-13", PrevSource: "main", PrevSHA: "1a2b3c4", PrevRepo: "/repo",
+		PrevDate: "2026-07-13", EnginePaths: []string{"pkg/layout7", "cmd/layout-gen"},
+		Tier: "geometry", Score: "40", Bounds: "560×600",
+	}
+	md := regressionMarkdown(d, v, "/repo")
+
+	// It reads as a prompt, not a data dump: an instruction, then the task.
+	if !strings.HasPrefix(md, "Investigate a layout regression") {
+		t.Errorf("the payload does not open as a prompt:\n%s", md[:120])
+	}
+	for _, want := range []string{
+		// reproduce this exact pair
+		"go run ./cmd-dev/layout-audit --repo /repo --old 1a2b3c4 --new 9f3a2b1 docs/x.md",
+		// …and find WHEN it was introduced
+		"## Find the commit that introduced it",
+		"git -C /repo log --oneline 1a2b3c4..9f3a2b1 -- pkg/layout7 cmd/layout-gen",
+		"--by engine-commit --since 2026-07-13 --until 2026-07-20 docs/x.md",
+		// the source, so it can be rendered without the report
+		"```ipmt\na --> b\n```",
+		// and an explicit ask
+		"Narrow it to the single engine commit that introduced it.",
+	} {
+		if !strings.Contains(md, want) {
+			t.Errorf("the regression prompt is missing %q\n---\n%s", want, md)
+		}
+	}
+}
+
+// Engine paths differ per lineage (pkg/layoutpasses became pkg/layout7), so
+// the bisect must use the lineage's own, not a guess.
+func TestBisectUsesThisLineagesEnginePaths(t *testing.T) {
+	v := vmVersion{SHA: "bbb", PrevSHA: "aaa", Repo: "/r", PrevRepo: "/r",
+		EnginePaths: []string{"pkg/layoutpasses"}}
+	if got := bisectCmd(vmDiagram{ID: "x.ipmt"}, v); !strings.Contains(got, "-- pkg/layoutpasses") {
+		t.Errorf("bisect ignored the lineage's engine paths:\n%s", got)
+	}
+	// With none recorded, fall back to today's rather than to nothing.
+	v.EnginePaths = nil
+	if got := bisectCmd(vmDiagram{ID: "x.ipmt"}, v); !strings.Contains(got, "pkg/layout7") {
+		t.Errorf("no engine paths at all:\n%s", got)
 	}
 }
