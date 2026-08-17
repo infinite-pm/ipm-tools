@@ -35,10 +35,13 @@ type snapshot struct {
 	// Build/Pipeline carry the era's interface, when it is not today's.
 	Build    []string
 	Pipeline []string
-	Monday   time.Time // the week boundary this snapshot stands for (week columns)
-	SHA      string    // resolved commit, "" when the repo had no commits yet
-	Subject  string
-	Date     time.Time // the commit's own date
+	// Tools is THIS repository — the module the era recipe's {merge} helper
+	// is built from. The repair of an era is today's code, not the era's.
+	Tools   string
+	Monday  time.Time // the week boundary this snapshot stands for (week columns)
+	SHA     string    // resolved commit, "" when the repo had no commits yet
+	Subject string
+	Date    time.Time // the commit's own date
 	// SameAsPrev marks a week in which nothing was committed: the engine is
 	// byte-identical to the previous snapshot's.
 	SameAsPrev bool

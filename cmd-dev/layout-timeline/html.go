@@ -50,6 +50,11 @@ type timelineInput struct {
 	// to be: a diagram page of fourteen versions displayed the same picture
 	// fourteen times, and the report looked convincing while saying nothing.
 	Panes map[string]string
+	// IPMT is each diagram's source text. Every picture on a diagram page is
+	// this one input read by a different engine, so the input is the thing
+	// worth having at hand when the pictures disagree — and worth copying out
+	// to reproduce one of them.
+	IPMT map[string]string
 }
 
 // pane is where one of a row's pictures lives, "" when there is none.
@@ -133,6 +138,9 @@ type vmDiagram struct {
 	History  []vmHistCell
 	Versions []vmVersion
 	IndexRef string
+	// IPMT is the one input every version on this page was rendered from.
+	IPMT  string
+	Lines int
 }
 
 // vmHistCell is one box in a diagram's own history strip.
@@ -268,7 +276,10 @@ func movedDiagrams(weeks []week) []string {
 
 // buildDiagram assembles one diagram's page: its versions, oldest first.
 func buildDiagram(in timelineInput, id string) vmDiagram {
-	d := vmDiagram{ID: id, IndexRef: "../../index.html"}
+	d := vmDiagram{ID: id, IndexRef: "../../index.html", IPMT: in.IPMT[id]}
+	if d.IPMT != "" {
+		d.Lines = strings.Count(strings.TrimRight(d.IPMT, "\n"), "\n") + 1
+	}
 	for _, i := range shownColumns(in.Weeks) {
 		w := in.Weeks[i]
 		for _, c := range w.Changes {
@@ -832,6 +843,21 @@ table.ch td,table.ch th{text-align:left;padding:2px 10px 2px 0;vertical-align:to
    one picture — larger, and with the three states still swapping in place,
    which is the registration a blink comparison needs. */
 .panes.one{grid-template-columns:1fr}
+
+/* The input, at hand. Every picture on this page is this one text read by a
+   different engine, so when two versions disagree the question is always
+   "what does the source actually say" — and the answer should not require
+   finding the file. Folded shut: it is reference, not the subject. */
+.srcbox{margin-top:12px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.srcbox summary{padding:7px 12px;font-size:12px;color:var(--muted);cursor:pointer}
+.srcwrap{position:relative;border-top:1px solid var(--line)}
+.srcwrap pre{margin:0;padding:11px 12px;overflow-x:auto;font-size:12.5px;line-height:1.5;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre;color:var(--ink)}
+button.copy{position:absolute;top:7px;right:8px;font:inherit;font-size:11px;line-height:1.6;
+  padding:1px 9px;border-radius:5px;border:1px solid #d3d7dd;background:#fff;color:#3b4148;cursor:pointer}
+button.copy:hover{border-color:#9aa3ad}
+button.copy[data-state="ok"]{background:#3b4148;border-color:#3b4148;color:#fff}
+button.copy[data-state="fail"]{border-color:var(--worse);color:var(--worse)}
 </style></head><body>
 <header>
   <h1><span class="id">{{.ID}}</span></h1>
@@ -846,6 +872,13 @@ table.ch td,table.ch th{text-align:left;padding:2px 10px 2px 0;vertical-align:to
     <span class="histlabel">jump to</span>
     {{range .History}}<a class="cell {{tier .Tier}}" href="{{.Href}}" title="{{.Label}} · {{.Tier}}"></a>{{end}}
   </div>
+  {{if .IPMT}}<details class="srcbox">
+    <summary>ipmt source — {{.Lines}} line(s), the one input every version below was rendered from</summary>
+    <div class="srcwrap">
+      <button type="button" class="copy" data-copy="ipmt-src">copy</button>
+      <pre id="ipmt-src">{{.IPMT}}</pre>
+    </div>
+  </details>{{end}}
 </header>
 <main>
 {{range .Versions}}
@@ -883,6 +916,42 @@ table.ch td,table.ch th{text-align:left;padding:2px 10px 2px 0;vertical-align:to
 </main>
 <script>
 {{paneJS}}
+
+// Copy the source out. A report is opened from file://, where the async
+// clipboard API is not available in every browser — a button that silently
+// does nothing is worse than no button, so this falls back to the old
+// selection trick and SAYS which happened either way.
+(function () {
+  function flash(btn, state) {
+    var was = btn.textContent;
+    btn.dataset.state = state;
+    btn.textContent = state === "ok" ? "copied" : "press ⌘/Ctrl+C";
+    setTimeout(function () { btn.textContent = was; delete btn.dataset.state; }, 1400);
+  }
+  function selectFallback(el, btn) {
+    var sel = window.getSelection(), range = document.createRange();
+    range.selectNodeContents(el);
+    sel.removeAllRanges(); sel.addRange(range);
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+    if (ok) { sel.removeAllRanges(); }
+    // On failure the text stays selected, so it can still be copied by hand.
+    flash(btn, ok ? "ok" : "fail");
+  }
+  document.querySelectorAll("button.copy").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var el = document.getElementById(btn.dataset.copy);
+      if (!el) { return; }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(el.textContent).then(
+          function () { flash(btn, "ok"); },
+          function () { selectFallback(el, btn); });
+      } else {
+        selectFallback(el, btn);
+      }
+    });
+  });
+})();
 </script>
 </body></html>
 `))

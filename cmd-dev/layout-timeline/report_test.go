@@ -514,3 +514,50 @@ func TestDiagramPageIsOneColumn(t *testing.T) {
 		t.Error("nothing collapses the pane grid to one column")
 	}
 }
+
+// Every picture on a diagram page is ONE input read by different engines, so
+// when two versions disagree the next question is always what the source
+// actually says — and answering it should not mean going to find the file.
+func TestDiagramPageCarriesItsSource(t *testing.T) {
+	rep := layoutdiff.Report{Tier: layoutdiff.TierGeometry, Counts: map[string]int{}}
+	svg := []byte(`<svg viewBox="0 0 10 10"></svg>`)
+	w := week{Label: "c1", Subject: "s", Changes: []change{{ID: "a", Status: "changed",
+		Report: rep, OldSVG: svg, NewSVG: svg, NewMarked: svg}}}
+	src := "Commit ::e --> Build ::e\nBuild ::e --> Deploy ::e"
+	html := renderDiagram(timelineInput{
+		Weeks: []week{w}, IPMT: map[string]string{"a": src},
+		Panes: panePool("c1", "a", "before", "after", "marked")}, "a")
+
+	if !strings.Contains(html, `<pre id="ipmt-src">Commit ::e --&gt; Build ::e`) {
+		t.Error("the source is not on the page (or was not escaped)")
+	}
+	if !strings.Contains(html, "2 line(s)") {
+		t.Error("the source is not counted, so the fold says nothing about what it hides")
+	}
+	if !strings.Contains(html, `<button type="button" class="copy" data-copy="ipmt-src">`) {
+		t.Error("there is no copy button")
+	}
+	// A report is opened from file://, where the async clipboard API is
+	// missing in some browsers: a button that silently does nothing is worse
+	// than no button.
+	if !strings.Contains(html, "execCommand") || !strings.Contains(html, "navigator.clipboard") {
+		t.Error("copy has no fallback for a page served from file://")
+	}
+}
+
+// A diagram whose source could not be read still gets its page — without an
+// empty box promising a source it does not have.
+func TestNoSourceMeansNoSourceBox(t *testing.T) {
+	rep := layoutdiff.Report{Tier: layoutdiff.TierGeometry, Counts: map[string]int{}}
+	svg := []byte(`<svg viewBox="0 0 10 10"></svg>`)
+	w := week{Label: "c1", Changes: []change{{ID: "a", Status: "changed",
+		Report: rep, OldSVG: svg, NewSVG: svg, NewMarked: svg}}}
+	html := renderDiagram(timelineInput{Weeks: []week{w},
+		Panes: panePool("c1", "a", "before", "after", "marked")}, "a")
+	if strings.Contains(html, `id="ipmt-src"`) || strings.Contains(html, "button.copy\">") {
+		t.Error("drew an empty source box")
+	}
+	if !strings.Contains(html, `class="row first`) {
+		t.Error("the page lost its versions along with the source")
+	}
+}

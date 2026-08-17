@@ -15,7 +15,7 @@ func TestAdapterRunsTheEraRecipe(t *testing.T) {
 	path, err := writeAdapter(bin, []string{
 		`printf '{"version":"old","in":"%s"}' "$(basename {in})" > {tmp}`,
 		`cat {tmp}`,
-	})
+	}, "")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -94,7 +94,7 @@ func TestAnAdapterStillWorksAfterTheCacheMoves(t *testing.T) {
 	if _, err := writeAdapter(first, []string{
 		`{bin}/ipmt-parse --in {in} > {tmp}`,
 		`cat {tmp}`,
-	}); err != nil {
+	}, ""); err != nil {
 		t.Fatal(err)
 	}
 

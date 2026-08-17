@@ -191,6 +191,14 @@ func run() int {
 		return fail("create %s: %v", cacheAbs, err)
 	}
 
+	// Every snapshot can reach TODAY's helper commands. An era recipe that
+	// says {merge} is asking this repository to repair that era's output —
+	// putting the node names back into a layout JSON that dropped them — so
+	// the helper is built from here, never from the era being reported on.
+	for i := range snaps {
+		snaps[i].Tools = repoAbs
+	}
+
 	// The diagram set is collected ONCE, from one working tree: the sources
 	// are the constant, the engine is the variable. That tree need not be the
 	// engine's — running yesterday's engines over TODAY's diagrams is the
@@ -261,6 +269,7 @@ func run() int {
 		return fail("write panes: %v", err)
 	}
 	in.Panes = panes
+	in.IPMT = readSources(diagrams, weeksOut)
 	fmt.Fprintf(os.Stderr, "layout-timeline: %d pane file(s) written (the rest were already there)\n", written)
 
 	// One page per column, and an index over them. A single page for a long
@@ -524,7 +533,7 @@ func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagra
 			from = s.Repo
 		}
 		eng, err := layoutaudit.BuildEngineWith(from, s.SHA, s.Label(), cache, "", verbose,
-			layoutaudit.BuildOptions{Packages: s.Build, Pipeline: s.Pipeline})
+			layoutaudit.BuildOptions{Packages: s.Build, Pipeline: s.Pipeline, Tools: s.Tools})
 		if err != nil {
 			// An early commit may predate cmd/layout-gen entirely; that is a
 			// fact about the history, not a failure of the run.
@@ -613,6 +622,32 @@ func corpusDrift(outAbs string, diagrams []layoutaudit.Diagram) []string {
 // temp/ is the recorded cause of the editor's renderer dying with SIGILL —
 // the workspace watcher stalls the extension host — and writing 2,600 files
 // on every run was walking straight into it.
+// readSources loads the ipmt text of every diagram that has a page, so the
+// page can show the one input all its versions were rendered from.
+//
+// Only the ones with a page: reading 312 sources to embed 300 of them is
+// waste, and a diagram that never moved has no page to put it on.
+func readSources(diagrams []layoutaudit.Diagram, weeks []week) map[string]string {
+	want := map[string]bool{}
+	for _, w := range weeks {
+		for _, c := range w.Changes {
+			want[c.ID] = true
+		}
+	}
+	out := map[string]string{}
+	for _, d := range diagrams {
+		if !want[d.ID] {
+			continue
+		}
+		// A source that cannot be read costs the page its ipmt box and
+		// nothing else, so it is not worth failing the run over.
+		if b, err := os.ReadFile(d.Path); err == nil {
+			out[d.ID] = strings.TrimRight(string(b), "\n")
+		}
+	}
+	return out
+}
+
 func poolPanes(outAbs string, weeks []week, current map[string][]byte) (map[string]string, int, error) {
 	dir := filepath.Join(outAbs, "panes")
 	if err := os.MkdirAll(dir, 0o755); err != nil {

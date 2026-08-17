@@ -37,7 +37,7 @@ func buildAll(snaps []snapshot, cache string, jobs int, verbose bool) (built, fa
 		}
 		seen[s.Repo+s.SHA] = true
 		jobsList = append(jobsList, job{repo: s.Repo, sha: s.SHA, label: s.Label(),
-			opts: layoutaudit.BuildOptions{Packages: s.Build, Pipeline: s.Pipeline}})
+			opts: layoutaudit.BuildOptions{Packages: s.Build, Pipeline: s.Pipeline, Tools: s.Tools}})
 	}
 
 	var mu sync.Mutex
