@@ -147,7 +147,7 @@ go run ./cmd-dev/layout-audit ../vscode-infinite-pm-dev/demo/states/ipmt-preview
 | `--old-bin` / `--new-bin` | | use a `layout-gen`-compatible binary instead of building a ref |
 | `--repo` | `.` | the engine repository both sides are built from |
 | `--out` | `temp/layout-audit` | report, extracted block sources, build cache |
-| `--limit` | `0` | render at most N changed diagrams (the rest are still counted and listed) |
+| `--limit` | `0` | draw at most N diagrams; the rest are LISTED by name, never drawn as empty frames |
 | `--carried` | off | also report nodes that moved by exactly the canvas shift |
 | `--fail-on` | `none` | `change` or `regression` — for a gate; the default only reports |
 | `--clean` | off | drop the output directory, build cache included |

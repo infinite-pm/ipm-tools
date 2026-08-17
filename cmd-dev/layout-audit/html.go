@@ -60,6 +60,7 @@ type vmModel struct {
 	Warnings         []string
 	Rows             []vmRow
 	Identical        []string
+	Unrendered       []string
 	Skipped          []vmRow
 	Counts           counts
 	Total            int
@@ -84,12 +85,25 @@ func renderHTML(in reportInput) string {
 			m.Skipped = append(m.Skipped, vmRow{ID: r.ID, Status: r.Status, Err: r.NewErr})
 			continue
 		}
+		// --limit stops main.go from RENDERING past its budget, but a result
+		// still arrives here. Without this guard each one became a full row:
+		// two framed, captioned, control-bearing panes holding no picture,
+		// under a heading asserting "3 nodes moved". A frame that promises a
+		// diagram and shows nothing is indistinguishable from a render that
+		// failed, so a row with neither pane is LISTED instead.
+		if len(r.OldSVG) == 0 && len(r.NewSVG) == 0 {
+			m.Unrendered = append(m.Unrendered, r.ID)
+			continue
+		}
 		rank++
 		m.Rows = append(m.Rows, buildRow(rank, r, in.Old))
 	}
-	if in.Limit > 0 && m.Counts.Changed > in.Limit {
-		m.LimitNote = fmt.Sprintf("--limit %d: %d further changed diagrams are counted and listed but not rendered.",
-			in.Limit, m.Counts.Changed-in.Limit)
+	if n := len(m.Unrendered); n > 0 {
+		// Counted from what actually happened. The old note subtracted the
+		// limit from the CHANGED count, but broken and repaired rows spend
+		// the same budget — so it under-reported, and when they spent it all
+		// it printed nothing at all while the page was full of blank frames.
+		m.LimitNote = fmt.Sprintf("%d further diagram(s) are listed but not drawn (--limit %d).", n, in.Limit)
 	}
 	var b strings.Builder
 	if err := reportTmpl.Execute(&b, m); err != nil {
@@ -300,6 +314,10 @@ pre{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:
 </section>
 {{end}}
 
+{{if .Unrendered}}
+<details open><summary>{{len .Unrendered}} changed diagram(s) not drawn — raise --limit to see them</summary>
+<div class="detail"><ul class="quiet">{{range .Unrendered}}<li>{{.}}</li>{{end}}</ul></div></details>
+{{end}}
 {{if .Identical}}
 <details><summary>{{len .Identical}} identical diagram(s)</summary>
 <div class="detail"><ul class="quiet">{{range .Identical}}<li>{{.}}</li>{{end}}</ul></div></details>

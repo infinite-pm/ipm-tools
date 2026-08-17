@@ -23,12 +23,18 @@ func sampleResults() []result {
 		FindingsAdded: []string{`edges cross: a→b × c→d`},
 	}
 	return []result{
+		// A real run gives every DRAWN row its panes; render() sets them.
 		{ID: "docs/x.md#100", Origin: "docs/x.md", Line: 12, Status: statusChanged, Report: changed,
 			Diagram: layoutaudit.Diagram{ID: "docs/x.md#100", Path: "temp/layout-audit/src/docs_x.md-100.ipmt"},
-			Aliases: []string{"tests/layout-gen/x.ipmt"}},
+			Aliases: []string{"tests/layout-gen/x.ipmt"},
+			OldSVG:  []byte(`<svg viewBox="0 0 10 10"></svg>`),
+			NewSVG:  []byte(`<svg viewBox="0 0 10 10"></svg>`)},
+		// A broken one has an old rendering and no new one — that is what
+		// "the new engine cannot lay this out" means.
 		{ID: "tests/layout-gen/broken.ipmt", Status: statusBroken,
 			NewErr:  "parse IPMT: unterminated quote",
-			Diagram: layoutaudit.Diagram{ID: "tests/layout-gen/broken.ipmt", Path: "tests/layout-gen/broken.ipmt"}},
+			Diagram: layoutaudit.Diagram{ID: "tests/layout-gen/broken.ipmt", Path: "tests/layout-gen/broken.ipmt"},
+			OldSVG:  []byte(`<svg viewBox="0 0 10 10"></svg>`)},
 		{ID: "tests/layout-gen/same.ipmt", Status: statusIdentical},
 	}
 }
@@ -69,6 +75,46 @@ func TestReportRendersWithoutTemplateError(t *testing.T) {
 	if n := strings.Count(html, "<section class=\"row"); n != 2 {
 		t.Errorf("rendered %d rows, want 2 (identical rows are listed, not rendered)", n)
 	}
+}
+
+// --limit caps RENDERING, not the result list: without a guard every result
+// past the budget became a row with two empty panes under a heading claiming
+// a change — while the note told the reader those diagrams were "not
+// rendered". The note miscounted too, because broken and repaired rows spend
+// the same budget.
+func TestRowsWithoutPanesAreListedNotDrawn(t *testing.T) {
+	rs := sampleResults()
+	// Both non-identical rows lose their panes, as everything past --limit does.
+	rs[0].OldSVG, rs[0].NewSVG = nil, nil
+	rs[1].OldSVG, rs[1].NewSVG = nil, nil
+	html := renderHTML(reportInput{Results: rs, Old: layoutaudit.Engine{}, New: layoutaudit.Engine{}, Limit: 1})
+
+	if strings.Contains(html, `<section class="row`) {
+		t.Error("drew a row with no panes at all")
+	}
+	if !strings.Contains(html, "not drawn") || !strings.Contains(html, "docs/x.md#100") {
+		t.Error("the undrawn diagram is neither drawn nor listed")
+	}
+	// The count must come from what happened, not from arithmetic on a
+	// different number. One changed + one broken row, both undrawn: 2.
+	if !strings.Contains(html, "2 further diagram(s)") {
+		t.Errorf("the note miscounts what was dropped:\n%s", firstNote(html))
+	}
+}
+
+func firstNote(html string) string {
+	i := strings.Index(html, "further diagram")
+	if i < 0 {
+		return "(no note at all)"
+	}
+	return html[maxInt(0, i-60) : i+40]
+}
+
+func maxInt(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 
 func TestReportEscapesDiagramIdentities(t *testing.T) {
