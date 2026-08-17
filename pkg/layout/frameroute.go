@@ -145,15 +145,24 @@ func RouteFrameEdges(g *Graph) FrameRouteStats {
 			cands := frameCandidates(ends[i], obstacles, e.From, e.To)
 			var best [][2]int
 			bestCost := 1e18
+			// Least-bad is only ever USED for an edge the guards force to
+			// draw. Scoring the full badness of every blocked candidate — 900
+			// grid points, each swept against every box three times — is what
+			// took NDA (248 nodes) from 40s to 60s and over corpus-gallery's
+			// per-bundle timeout. So it is computed only when it can matter.
+			mustDraw := e.Base == string(EdgeLeadsTo) || visible[e.From] <= 1 || visible[e.To] <= 1
 			for _, c := range cands {
-				cc := pathCost(c, obstacles, paths, i, e.Base, g)
 				if pathBlocked(c, obstacles, e.From, e.To) {
-					cc += badness(c, obstacles, e.From, e.To)
+					if !mustDraw {
+						continue
+					}
+					cc := pathCost(c, obstacles, paths, i, e.Base, g) + badness(c, obstacles, e.From, e.To)
 					if cc < leastBadCost || (cc == leastBadCost && pathLength(c) < pathLength(leastBad)) {
 						leastBad, leastBadCost = c, cc
 					}
 					continue
 				}
+				cc := pathCost(c, obstacles, paths, i, e.Base, g)
 				if cc < bestCost || (cc == bestCost && pathLength(c) < pathLength(best)) {
 					best, bestCost = c, cc
 				}
@@ -222,9 +231,13 @@ func RouteFrameEdges(g *Graph) FrameRouteStats {
 // leaves its own box's border, and in a stack the neighbour is legitimately
 // that close to the port.
 func pathBlocked(pts [][2]int, obstacles []Node, fromID, toID string) bool {
-	if pathCuts(pts, obstacles, fromID, toID) {
-		return true
-	}
+	// One sweep over the boxes, not two. The fat (clearance) box contains the
+	// real one, so a segment that cuts a box also cuts its fat box — EXCEPT in
+	// the first frameClear px out of a port, which the clearance test trims off
+	// (a segment starts on its own border). A box that close to a port would
+	// be cut inside the trimmed stretch and missed, so the real box is tested
+	// untrimmed and the fat box trimmed, in the same loop; pathCuts' slice
+	// allocation per candidate was the profile's hottest line and is gone.
 	for _, o := range obstacles {
 		if o.ID == fromID || o.ID == toID {
 			continue
@@ -234,6 +247,9 @@ func pathBlocked(pts [][2]int, obstacles []Node, fromID, toID string) bool {
 		fat.Width, fat.Height = o.Width+2*frameClear, o.Height+2*frameClear
 		for i := 0; i+1 < len(pts); i++ {
 			a, b := pts[i], pts[i+1]
+			if segmentCutsBox(a[0], a[1], b[0], b[1], o) {
+				return true // cuts the box itself, wherever along the segment
+			}
 			// Trim the exempt stretch off the segments that leave the ports.
 			if i == 0 {
 				a = advance(a, b, frameClear)
