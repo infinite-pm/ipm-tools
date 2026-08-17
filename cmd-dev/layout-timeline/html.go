@@ -127,6 +127,15 @@ type vmVersion struct {
 	Changes                        []vmChange
 	FindingsAdded                  []string
 	Err                            string
+	// Repo is the checkout this engine commit lives in — not always the one
+	// the diagrams come from, and not always the same as the version before.
+	Repo string
+	// The version before this one on the page: what the "before" picture is,
+	// and the other half of any regression report.
+	PrevLabel, PrevSHA, PrevSource, PrevRepo string
+	// Ready-to-paste markdown. Built here rather than in the browser so it can
+	// be tested, and because everything it needs is already in this struct.
+	AgentMD, RegressionMD string
 }
 
 // vmDiagram is one diagram's whole life: every column it moved in, on one
@@ -339,7 +348,7 @@ func buildDiagram(in timelineInput, id string) vmDiagram {
 			}
 			ow, nw := layoutaudit.PaneWidths(ob.Width, nb.Width)
 			v := vmVersion{
-				Label: w.Label, Anchor: anchor, Source: w.Source,
+				Label: w.Label, Anchor: anchor, Source: w.Source, Repo: w.Snap.Repo,
 				SHA: layoutaudit.Short(w.SHA), Subject: w.Subject,
 				Tier: tier, Score: fmt.Sprintf("%.0f", c.Report.Score),
 				Summary: layoutaudit.Summarize(c.Report), Bounds: bounds,
@@ -356,6 +365,11 @@ func buildDiagram(in timelineInput, id string) vmDiagram {
 				v.Changes = append(v.Changes, vmChange{Kind: ch.Kind, Ref: ch.Ref,
 					Label: ch.Label, Detail: ch.Detail, Tier: ch.Tier.String()})
 			}
+			if n := len(d.Versions); n > 0 {
+				p := d.Versions[n-1]
+				v.PrevLabel, v.PrevSHA = p.Label, p.SHA
+				v.PrevSource, v.PrevRepo = p.Source, p.Repo
+			}
 			d.Versions = append(d.Versions, v)
 			d.History = append(d.History, vmHistCell{
 				Label: w.Label, Tier: tier, Href: "#" + anchor, Anchor: anchor,
@@ -364,6 +378,10 @@ func buildDiagram(in timelineInput, id string) vmDiagram {
 		}
 	}
 	d.Moves = len(d.Versions)
+	for i := range d.Versions {
+		d.Versions[i].AgentMD = agentMarkdown(d, d.Versions[i], in.Sources)
+		d.Versions[i].RegressionMD = regressionMarkdown(d, d.Versions[i], in.Sources)
+	}
 	return d
 }
 
@@ -888,6 +906,12 @@ button.copy.anchor{padding:0 6px;font-size:12px;border-color:transparent;backgro
 .rowhead:hover button.copy.anchor{opacity:1}
 button.copy.anchor:hover{border-color:#9aa3ad;background:#fff;opacity:1}
 button.copy.anchor[data-state]{opacity:1;font-size:11px;background:#3b4148;border-color:#3b4148;color:#fff}
+button.copy.hand{padding:0 8px;font-size:11px;opacity:.55}
+.rowhead:hover button.copy.hand{opacity:1}
+button.copy.hand:hover{border-color:#9aa3ad;opacity:1}
+button.copy.hand.warn{color:var(--worse);border-color:#e3c9c9}
+button.copy.hand.warn:hover{border-color:var(--worse)}
+pre.payload{display:none}
 /* Which comparison is on screen, in words as well as marks. */
 .histnow{font-size:12px;color:var(--muted);margin-left:8px;font-variant-numeric:tabular-nums}
 `
@@ -959,7 +983,16 @@ const copyJS = `
         return;
       }
       var el = document.getElementById(btn.dataset.copy);
-      if (el) { writeText(el.textContent, btn, el); }
+      if (!el) { return; }
+      var text = el.textContent;
+      // Only the browser knows where this page was opened from, so the
+      // payload carries a placeholder and it is filled in here.
+      if (btn.dataset.anchor) {
+        text = text.split("__URL__").join(anchorURL(btn.dataset.anchor));
+        writeText(text, btn, null);
+        return;
+      }
+      writeText(text, btn, el);
     });
   });
 })();
@@ -1114,8 +1147,12 @@ table.ch td,table.ch th{text-align:left;padding:2px 10px 2px 0;vertical-align:to
     <span class="pill {{tier .Tier}}">{{.Tier}}</span>
     <span class="quiet">score {{.Score}} · {{.Bounds}} · <span class="sha">{{.SHA}}</span> {{.Subject}}</span>
     <button type="button" class="copy anchor" data-anchor="{{.Anchor}}" title="copy a link straight to this version">&#128279;</button>
+    <button type="button" class="copy hand" data-copy="md-{{.Anchor}}" data-anchor="{{.Anchor}}" title="copy a description of THIS version for an agent: the diagram, the engine commit, the source and what changed">for agent</button>
+    <button type="button" class="copy hand warn" data-copy="rg-{{.Anchor}}" data-anchor="{{.Anchor}}" title="copy a regression report: the same, plus the version before it — the rendering that still looked right">regression</button>
     <a class="allref" href="{{.ColumnHref}}">all diagrams in {{.Label}} →</a>
   </div>
+  <pre class="payload" id="md-{{.Anchor}}" hidden>{{.AgentMD}}</pre>
+  <pre class="payload" id="rg-{{.Anchor}}" hidden>{{.RegressionMD}}</pre>
   {{if .Summary}}<div class="summary">{{.Summary}}</div>{{end}}
   {{if .Err}}<div class="summary">{{.Err}}</div>{{end}}
   <div class="panes one">
@@ -1149,3 +1186,197 @@ table.ch td,table.ch th{text-align:left;padding:2px 10px 2px 0;vertical-align:to
 </script>
 </body></html>
 `))
+
+// ---- payloads for an agent --------------------------------------------------
+
+// The report is read by eye; what is found in it has to be handed to someone
+// who cannot see it. Both payloads below are that handover: enough for an
+// agent to identify the exact diagram, the exact engine commit, and the exact
+// source, without the reader retyping any of it.
+//
+// urlMark is substituted by the browser, which is the only thing that knows
+// where the page was opened from.
+const urlMark = "__URL__"
+
+// fileOf is the path a diagram id points at: "docs/x.md#100" -> "docs/x.md".
+func fileOf(id string) string {
+	if i := strings.IndexByte(id, '#'); i >= 0 {
+		return id[:i]
+	}
+	return id
+}
+
+// whichDiagram names the diagram the way it actually exists: a block inside a
+// markdown file, or a whole .ipmt file. Saying "block X of X" for the second
+// kind is noise a reader has to decode before trusting the rest.
+func whichDiagram(id string) string {
+	if i := strings.IndexByte(id, '#'); i >= 0 {
+		return fmt.Sprintf("`%s` (block `%s` of `%s`)", id, id[i+1:], id[:i])
+	}
+	return fmt.Sprintf("`%s` (a whole .ipmt file)", id)
+}
+
+// fence wraps the source so it survives being pasted into a chat, using a
+// longer fence when the source itself contains one.
+func fence(body string) string {
+	f := "```"
+	for strings.Contains(body, f) {
+		f += "`"
+	}
+	return f + "ipmt\n" + body + "\n" + f
+}
+
+// engineOf names an engine commit the way a human would have to: which
+// lineage, which commit, what it said.
+func engineOf(label, source, sha, subject string) string {
+	s := label
+	if source != "" {
+		s += " (lineage `" + source + "`"
+		if sha != "" {
+			s += ", engine `" + sha + "`"
+		}
+		s += ")"
+	} else if sha != "" {
+		s += " (engine `" + sha + "`)"
+	}
+	if subject != "" {
+		s += " — " + subject
+	}
+	return s
+}
+
+// maxChangeLines caps the list a payload carries. A busy column reports sixty
+// changes for one diagram, and a paste that long buries the three lines that
+// matter. What is dropped is COUNTED, never silently cut: the changes are
+// already ordered worst-first, so the tail is the least of them.
+const maxChangeLines = 30
+
+// changeLines lists what the structural diff actually reported.
+//
+// FindingsAdded repeats what the "finding-added" changes already say, so it
+// contributes only what is not already there — the same fact twice reads as
+// two facts.
+func changeLines(v vmVersion) []string {
+	var out []string
+	seen := map[string]bool{}
+	for _, c := range v.Changes {
+		line := "- `" + c.Kind + "` " + c.Ref
+		if c.Label != "" {
+			line += " " + c.Label
+		}
+		if c.Detail != "" {
+			line += " — " + c.Detail
+			seen[c.Detail] = true
+		}
+		out = append(out, line)
+	}
+	for _, f := range v.FindingsAdded {
+		if !seen[f] {
+			out = append(out, "- NEW FINDING: "+f)
+		}
+	}
+	if n := len(out); n > maxChangeLines {
+		out = append(out[:maxChangeLines:maxChangeLines],
+			fmt.Sprintf("- …and %d more, least severe last — the page lists them all", n-maxChangeLines))
+	}
+	return out
+}
+
+// agentMarkdown describes ONE version well enough to act on.
+func agentMarkdown(d vmDiagram, v vmVersion, sources string) string {
+	var b strings.Builder
+	fmt.Fprintf(&b, "## layout-timeline — `%s` at %s\n\n", d.ID, v.Label)
+	b.WriteString("I am looking at this version in the layout timeline report.\n\n")
+	fmt.Fprintf(&b, "- diagram: %s\n", whichDiagram(d.ID))
+	fmt.Fprintf(&b, "- version: %s\n", engineOf(v.Label, v.Source, v.SHA, v.Subject))
+	if v.PrevLabel != "" {
+		fmt.Fprintf(&b, "- the picture before it: %s\n",
+			engineOf(v.PrevLabel, v.PrevSource, v.PrevSHA, ""))
+	} else {
+		b.WriteString("- the picture before it: none on this page — this is the first version of it\n")
+	}
+	fmt.Fprintf(&b, "- reported change: %s", v.Tier)
+	if v.Score != "" {
+		fmt.Fprintf(&b, ", score %s", v.Score)
+	}
+	fmt.Fprintf(&b, "\n- canvas: %s\n", v.Bounds)
+	if sources != "" {
+		fmt.Fprintf(&b, "- diagrams came from: `%s`\n", sources)
+	}
+	fmt.Fprintf(&b, "- page: %s\n", urlMark)
+	if v.Err != "" {
+		fmt.Fprintf(&b, "- error: %s\n", v.Err)
+	}
+	if d.IPMT != "" {
+		fmt.Fprintf(&b, "\n### source\n\n%s\n", fence(d.IPMT))
+	}
+	if lines := changeLines(v); len(lines) > 0 {
+		fmt.Fprintf(&b, "\n### what the engine changed here\n\n%s\n", strings.Join(lines, "\n"))
+	}
+	return b.String()
+}
+
+// regressionMarkdown is the same handover for something that looks WRONG,
+// and it carries the version before as well — a regression is a statement
+// about two renderings, and the one that still looked right is the half a
+// reader can see and an agent cannot.
+func regressionMarkdown(d vmDiagram, v vmVersion, sources string) string {
+	var b strings.Builder
+	fmt.Fprintf(&b, "## Possible layout regression — `%s`\n\n", d.ID)
+	b.WriteString("Found by eye in the layout timeline: this diagram looks wrong at " +
+		v.Label + ".\n\n")
+	fmt.Fprintf(&b, "- diagram: %s\n", whichDiagram(d.ID))
+	fmt.Fprintf(&b, "- looks wrong at: %s\n", engineOf(v.Label, v.Source, v.SHA, v.Subject))
+	if v.PrevLabel != "" {
+		fmt.Fprintf(&b, "- looked right at: %s\n",
+			engineOf(v.PrevLabel, v.PrevSource, v.PrevSHA, ""))
+	} else {
+		b.WriteString("- looked right at: UNKNOWN — this is the first version on the page, " +
+			"so the rendering it is compared against is not shown here\n")
+	}
+	fmt.Fprintf(&b, "- the engine called this: %s", v.Tier)
+	if v.Score != "" {
+		fmt.Fprintf(&b, ", score %s", v.Score)
+	}
+	fmt.Fprintf(&b, "\n- canvas: %s\n", v.Bounds)
+	fmt.Fprintf(&b, "- page: %s\n", urlMark)
+	if d.IPMT != "" {
+		fmt.Fprintf(&b, "\n### source\n\n%s\n", fence(d.IPMT))
+	}
+	if lines := changeLines(v); len(lines) > 0 {
+		fmt.Fprintf(&b, "\n### what the engine reported at this version\n\n%s\n",
+			strings.Join(lines, "\n"))
+	} else {
+		b.WriteString("\nThe engine reported no structural change here, so whatever is wrong " +
+			"is either below the diff's tiers or in the rendering rather than the layout.\n")
+	}
+	b.WriteString("\n### reproduce\n\n")
+	b.WriteString(reproduceCmd(d, v, sources))
+	return b.String()
+}
+
+// reproduceCmd is the audit that puts these two engines side by side — or an
+// honest account of why one command cannot.
+func reproduceCmd(d vmDiagram, v vmVersion, sources string) string {
+	if v.PrevSHA == "" || v.SHA == "" {
+		return "The two commits are not both known here, so there is no single command " +
+			"to re-run this pair.\n"
+	}
+	if v.PrevRepo != v.Repo {
+		return fmt.Sprintf(
+			"These versions come from DIFFERENT repositories (`%s` and `%s`), and layout-audit\n"+
+				"compares two refs in one repository — so this pair cannot be reproduced with a\n"+
+				"single command. See `layout-history.json` for how the lineages are chained.\n",
+			v.PrevRepo, v.Repo)
+	}
+	cmd := "go run ./cmd-dev/layout-audit"
+	if v.Repo != "" {
+		cmd += " --repo " + v.Repo
+	}
+	cmd += fmt.Sprintf(" --old %s --new %s", v.PrevSHA, v.SHA)
+	if sources != "" && sources != v.Repo {
+		cmd += " --sources " + sources
+	}
+	cmd += " " + fileOf(d.ID)
+	return "```sh\n" + cmd + "\n```\n"
+}

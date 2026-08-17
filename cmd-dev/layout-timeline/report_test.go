@@ -753,3 +753,180 @@ func TestNoSeenMarkWhenThePredecessorIsNotWhatIsShown(t *testing.T) {
 		t.Error("a repaired row has no before picture, but a box was marked as its source")
 	}
 }
+
+// The report is read by eye; what is found in it has to be handed to someone
+// who cannot see it. The payload must identify the diagram, the engine commit
+// and the source without the reader retyping any of it.
+func TestAgentPayloadIdentifiesTheVersion(t *testing.T) {
+	d := vmDiagram{ID: "docs/x.md#100", IPMT: "Commit ::e --> Build ::e"}
+	v := vmVersion{
+		Label: "2026-07-20", Source: "main", SHA: "9f3a2b1", Subject: "route ties first",
+		Tier: "geometry", Score: "120", Bounds: "560×540 → 560×600",
+		PrevLabel: "2026-07-13", PrevSource: "main", PrevSHA: "1a2b3c4",
+		Changes: []vmChange{{Kind: "port-side", Ref: "edge #4,#2", Label: "tA→e2",
+			Detail: "source-side=left (was bottom)"}},
+	}
+	md := agentMarkdown(d, v, "/repo")
+
+	for _, want := range []string{
+		"`docs/x.md#100`",             // which diagram
+		"`docs/x.md`",                 // …and which file it lives in
+		"2026-07-20",                  // which version
+		"lineage `main`", "`9f3a2b1`", // which engine commit
+		"route ties first",      // what that commit said
+		"2026-07-13",            // what it is being compared against
+		"geometry", "score 120", // what the engine called the change
+		"560×540 → 560×600",                      // and the canvas
+		"```ipmt\nCommit ::e --> Build ::e\n```", // the source, as a block
+		"port-side", "source-side=left (was bottom)",
+		urlMark, // the browser fills this in
+	} {
+		if !strings.Contains(md, want) {
+			t.Errorf("the agent payload is missing %q\n---\n%s", want, md)
+		}
+	}
+}
+
+// A regression is a statement about TWO renderings: the one that looks wrong
+// and the one that still looked right. The second is the half a reader can
+// see and an agent cannot, so it must be in the report.
+func TestRegressionPayloadCarriesThePreviousVersion(t *testing.T) {
+	d := vmDiagram{ID: "docs/x.md#100", IPMT: "a --> b"}
+	v := vmVersion{
+		Label: "2026-07-20", Source: "main", SHA: "9f3a2b1", Repo: "/repo",
+		PrevLabel: "2026-07-13", PrevSource: "main", PrevSHA: "1a2b3c4", PrevRepo: "/repo",
+		Tier: "geometry", Score: "40", Bounds: "560×600",
+	}
+	md := regressionMarkdown(d, v, "/repo")
+
+	for _, want := range []string{
+		"Possible layout regression",
+		"looks wrong at: 2026-07-20",
+		"looked right at: 2026-07-13",
+		"`1a2b3c4`", "`9f3a2b1`",
+		"```ipmt\na --> b\n```",
+		"go run ./cmd-dev/layout-audit --repo /repo --old 1a2b3c4 --new 9f3a2b1 docs/x.md",
+	} {
+		if !strings.Contains(md, want) {
+			t.Errorf("the regression report is missing %q\n---\n%s", want, md)
+		}
+	}
+	// No structural change reported: say so rather than leave a blank section,
+	// because "the engine saw nothing" is itself the useful fact.
+	if !strings.Contains(md, "reported no structural change") {
+		t.Error("a version with no listed changes does not say the engine saw none")
+	}
+}
+
+// layout-audit compares two refs in ONE repository. Across an era boundary the
+// two versions come from different checkouts, and inventing a command that
+// cannot work is worse than saying so.
+func TestRegressionAcrossReposRefusesToInventACommand(t *testing.T) {
+	d := vmDiagram{ID: "docs/x.md#100"}
+	v := vmVersion{Label: "2026-06", SHA: "aaa1111", Repo: "/a",
+		PrevLabel: "2026-05", PrevSHA: "bbb2222", PrevRepo: "/b"}
+	md := regressionMarkdown(d, v, "/a")
+	if strings.Contains(md, "go run ./cmd-dev/layout-audit") {
+		t.Error("offered a single-repo command for a pair spanning two repositories")
+	}
+	if !strings.Contains(md, "DIFFERENT repositories") {
+		t.Error("did not explain why there is no command")
+	}
+}
+
+// A first version has nothing before it. Saying "unknown" is honest; naming a
+// predecessor that is not on the page would send an agent after the wrong one.
+func TestFirstVersionSaysThereIsNoBefore(t *testing.T) {
+	d := vmDiagram{ID: "docs/x.md#100"}
+	md := regressionMarkdown(d, vmVersion{Label: "2025-10", SHA: "aaa1111"}, "")
+	if !strings.Contains(md, "UNKNOWN") {
+		t.Error("a first version claims a predecessor it does not have")
+	}
+	if strings.Contains(md, "go run ./cmd-dev/layout-audit") {
+		t.Error("offered a command with nothing to compare against")
+	}
+}
+
+// A source containing a fence must not break out of the block it is pasted in.
+func TestASourceWithAFenceIsStillOneBlock(t *testing.T) {
+	got := fence("a\n```\nb")
+	if !strings.HasPrefix(got, "````ipmt\n") || !strings.HasSuffix(got, "\n````") {
+		t.Errorf("a source containing a fence was not wrapped in a longer one:\n%s", got)
+	}
+}
+
+// Both payloads must reach the page, wired to buttons, with the placeholder
+// the browser substitutes.
+func TestDiagramPageOffersBothPayloads(t *testing.T) {
+	rep := layoutdiff.Report{Tier: layoutdiff.TierGeometry, Counts: map[string]int{}}
+	svg := []byte(`<svg viewBox="0 0 10 10"></svg>`)
+	w := week{Label: "2026-07-20", Subject: "s", Changes: []change{{ID: "a", Status: "changed",
+		Report: rep, OldSVG: svg, NewSVG: svg, NewMarked: svg}}}
+	html := renderDiagram(timelineInput{Weeks: []week{w}, Sources: "/repo",
+		IPMT:  map[string]string{"a": "x --> y"},
+		Panes: chainPool("a", "2026-07-20")}, "a")
+
+	for _, want := range []string{
+		`data-copy="md-c-2026-07-20" data-anchor="c-2026-07-20"`,
+		`data-copy="rg-c-2026-07-20" data-anchor="c-2026-07-20"`,
+		`<pre class="payload" id="md-c-2026-07-20" hidden>`,
+		`<pre class="payload" id="rg-c-2026-07-20" hidden>`,
+		"Possible layout regression",
+		`text.split("__URL__").join(anchorURL(btn.dataset.anchor))`,
+	} {
+		if !strings.Contains(html, want) {
+			t.Errorf("the diagram page is missing %q", want)
+		}
+	}
+	// The payloads are for copying, never for reading on the page.
+	if !strings.Contains(html, "pre.payload{display:none}") {
+		t.Error("the payload blocks are not hidden by CSS as well as the attribute")
+	}
+}
+
+// A whole .ipmt file is not a block of itself, and a finding must not be
+// listed twice because two fields carry it.
+func TestPayloadNamesThingsOnceAndCorrectly(t *testing.T) {
+	whole := agentMarkdown(vmDiagram{ID: "examples/two.ipmt"}, vmVersion{Label: "c1"}, "")
+	if strings.Contains(whole, "block `examples/two.ipmt` of") {
+		t.Error("called a whole .ipmt file a block of itself")
+	}
+	if !strings.Contains(whole, "a whole .ipmt file") {
+		t.Error("did not say what kind of diagram this is")
+	}
+	block := agentMarkdown(vmDiagram{ID: "docs/x.md#100"}, vmVersion{Label: "c1"}, "")
+	if !strings.Contains(block, "block `100` of `docs/x.md`") {
+		t.Errorf("a markdown block is not located in its file:\n%s", block)
+	}
+
+	// FindingsAdded repeats the finding-added changes; saying it twice reads
+	// as two separate problems.
+	v := vmVersion{
+		Changes:       []vmChange{{Kind: "finding-added", Ref: "check", Detail: "edge cuts node X"}},
+		FindingsAdded: []string{"edge cuts node X", "something else entirely"},
+	}
+	lines := changeLines(v)
+	if n := strings.Count(strings.Join(lines, "\n"), "edge cuts node X"); n != 1 {
+		t.Errorf("the same finding is listed %d times", n)
+	}
+	if !strings.Contains(strings.Join(lines, "\n"), "something else entirely") {
+		t.Error("a finding with no matching change was dropped")
+	}
+}
+
+// A busy column reports sixty changes for one diagram. The list is capped so
+// the paste stays readable — and says what it left out, because a silent
+// truncation reads as "that was all of it".
+func TestALongChangeListIsCappedOutLoud(t *testing.T) {
+	var v vmVersion
+	for i := 0; i < maxChangeLines+12; i++ {
+		v.Changes = append(v.Changes, vmChange{Kind: "node-moved", Ref: "#" + strconv.Itoa(i)})
+	}
+	lines := changeLines(v)
+	if len(lines) != maxChangeLines+1 {
+		t.Fatalf("got %d lines, want %d plus one note", len(lines), maxChangeLines)
+	}
+	if !strings.Contains(lines[len(lines)-1], "12 more") {
+		t.Errorf("the cap does not say how many it dropped: %q", lines[len(lines)-1])
+	}
+}
