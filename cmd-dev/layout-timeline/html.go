@@ -60,6 +60,12 @@ type vmColumn struct {
 	Href                                             string // "" when the column has no page
 	Changed, Identical, Skipped                      int
 	Worst                                            string // most severe tier in the column
+	// QuietAfter counts the columns following this one in which nothing
+	// moved. They are not shown: a grid of 89 columns where 72 are blank is
+	// mostly blank, and the eye has to find the 17 that matter. The count
+	// keeps the time they represent visible.
+	QuietAfter int
+	QuietWhich string // their labels, for the tooltip
 }
 
 type vmChange struct {
@@ -75,6 +81,20 @@ type vmRow struct {
 	FindingsAdded                    []string
 	Err                              string
 	Cmd                              string
+	// History is THIS diagram's own timeline: one box per column in which it
+	// moved, the current one marked. With the arrows it walks a single
+	// diagram through the history without going back to the index.
+	History            []vmHistCell
+	Moves              int
+	HistPrev, HistNext string
+	HistPrevLabel      string
+	HistNextLabel      string
+}
+
+// vmHistCell is one box in a diagram's own history strip.
+type vmHistCell struct {
+	Label, Tier, Href string
+	Now               bool
 }
 
 type vmIndex struct {
@@ -83,6 +103,8 @@ type vmIndex struct {
 	WeekLabels                        []string
 	Grid                              []vmGridRow
 	Columns                           []vmColumn
+	QuietTotal                        int
+	QuietList                         []string
 }
 
 type vmPage struct {
@@ -103,6 +125,78 @@ func pageDir(label string) string { return "w/" + layoutaudit.Sanitize(label) }
 // show would be a link to an empty room.
 func hasPage(w week) bool { return len(w.Changes) > 0 }
 
+// shownColumns are the columns worth a place: the ones in which something
+// moved. Everything else is counted, named and folded into the column before
+// it — dropping them silently would hide the passage of time, and showing
+// them all made a grid that was seven-eighths empty.
+func shownColumns(weeks []week) []int {
+	var out []int
+	for i := range weeks {
+		if hasPage(weeks[i]) {
+			out = append(out, i)
+		}
+	}
+	return out
+}
+
+// quietAfter counts (and names) the columns between a shown column and the
+// next one.
+func quietAfter(weeks []week, shown []int, at int) (int, string) {
+	next := len(weeks)
+	for _, j := range shown {
+		if j > at {
+			next = j
+			break
+		}
+	}
+	var names []string
+	for j := at + 1; j < next; j++ {
+		names = append(names, weeks[j].Label)
+	}
+	if len(names) == 0 {
+		return 0, ""
+	}
+	which := strings.Join(names, ", ")
+	if len(names) > 6 {
+		which = strings.Join(names[:6], ", ") + fmt.Sprintf(" … (%d)", len(names))
+	}
+	return len(names), which
+}
+
+// historyOf is one diagram's own timeline across the shown columns.
+func historyOf(weeks []week, shown []int, id string, now int) ([]vmHistCell, int, string, string, string, string) {
+	var cells []vmHistCell
+	var prevHref, nextHref, prevLabel, nextLabel string
+	for _, i := range shown {
+		var tier string
+		for _, c := range weeks[i].Changes {
+			if c.ID != id {
+				continue
+			}
+			tier = c.Status
+			if c.Status == "changed" {
+				tier = c.Report.Tier.String()
+			}
+			break
+		}
+		if tier == "" {
+			continue
+		}
+		cell := vmHistCell{Label: weeks[i].Label, Tier: tier, Now: i == now}
+		if i != now {
+			cell.Href = "../" + layoutaudit.Sanitize(weeks[i].Label) + "/index.html#" + anchor(id)
+		}
+		cells = append(cells, cell)
+		switch {
+		case i < now:
+			prevHref, prevLabel = cell.Href, cell.Label
+		case i > now && nextHref == "":
+			nextHref, nextLabel = cell.Href, cell.Label
+		}
+	}
+	return cells, len(cells), prevHref, nextHref, prevLabel, nextLabel
+}
+
 // buildIndex assembles the front page: the grid, then the columns in order.
 func buildIndex(in timelineInput) vmIndex {
 	m := vmIndex{
@@ -110,17 +204,16 @@ func buildIndex(in timelineInput) vmIndex {
 		Diagrams: in.Diagrams, Elapsed: in.Elapsed.Round(time.Millisecond).String(), At: in.At,
 	}
 
+	shown := shownColumns(in.Weeks)
 	cellsByID := map[string][]vmCell{}
-	for wi, w := range in.Weeks {
+	for wi, i := range shown {
+		w := in.Weeks[i]
 		m.WeekLabels = append(m.WeekLabels, w.Label)
-		href := ""
-		if hasPage(w) {
-			href = pageDir(w.Label) + "/index.html"
-		}
+		href := pageDir(w.Label) + "/index.html"
 		for _, c := range w.Changes {
 			row, ok := cellsByID[c.ID]
 			if !ok {
-				row = make([]vmCell, len(in.Weeks))
+				row = make([]vmCell, len(shown))
 				cellsByID[c.ID] = row
 			}
 			tier := c.Status
@@ -139,12 +232,25 @@ func buildIndex(in timelineInput) vmIndex {
 			m.TotalMoves++
 		}
 
+		n, which := quietAfter(in.Weeks, shown, i)
+		m.QuietTotal += n
 		m.Columns = append(m.Columns, vmColumn{
 			Label: w.Label, Source: w.Source, SHA: layoutaudit.Short(w.SHA), Subject: w.Subject,
 			Note: w.Note, Against: w.Against, Span: w.Span, Href: href,
 			Changed: len(w.Changes), Identical: w.Identical, Skipped: w.Skipped,
-			Worst: worstTier(w),
+			Worst: worstTier(w), QuietAfter: n, QuietWhich: which,
 		})
+	}
+	// The columns nobody sees are still named, once, so a reader can check
+	// that a silence really was a silence.
+	for i := range in.Weeks {
+		if !hasPage(in.Weeks[i]) {
+			note := in.Weeks[i].Note
+			if note == "" {
+				note = "nothing moved"
+			}
+			m.QuietList = append(m.QuietList, in.Weeks[i].Label+" — "+note)
+		}
 	}
 
 	ids := make([]string, 0, len(cellsByID))
@@ -230,7 +336,10 @@ func buildPage(in timelineInput, i int) vmPage {
 			continue
 		}
 		spent += size
-		p.Rows = append(p.Rows, buildRow(w, c, cur))
+		row := buildRow(w, c, cur)
+		row.History, row.Moves, row.HistPrev, row.HistNext, row.HistPrevLabel, row.HistNextLabel =
+			historyOf(in.Weeks, shownColumns(in.Weeks), c.ID, i)
+		p.Rows = append(p.Rows, row)
 	}
 	return p
 }
@@ -341,6 +450,11 @@ main{padding:18px 26px 60px;max-width:1600px;margin:0 auto}
 .pill.broken{background:var(--worse);color:#fff;border-color:var(--worse);font-weight:700}
 .pill.repaired{border-color:var(--better);color:var(--better)}
 .quiet{color:var(--muted);font-size:12px}
+.cell{display:block;width:16px;height:16px;border-radius:3px;background:var(--line)}
+a.cell{text-decoration:none}
+.cell.invariant{background:var(--worse)} .cell.structural{background:var(--changed)}
+.cell.geometry{background:var(--moved)} .cell.broken{background:#000;border:2px solid var(--worse)}
+.cell.repaired{background:var(--better)}
 .sha{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);font-size:12px}
 .note{padding:8px 0;color:var(--muted);font-size:13px}
 pre{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:7px 10px;overflow-x:auto;font-size:12px}
@@ -364,11 +478,6 @@ table.grid td.name{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;white
    put together. */
 table.grid td:empty::before{content:"";display:block;width:16px;height:16px;
   border-radius:3px;background:var(--line);opacity:.35}
-.cell{display:block;width:16px;height:16px;border-radius:3px;background:var(--line)}
-a.cell{text-decoration:none}
-.cell.invariant{background:var(--worse)} .cell.structural{background:var(--changed)}
-.cell.geometry{background:var(--moved)} .cell.broken{background:#000;border:2px solid var(--worse)}
-.cell.repaired{background:var(--better)}
 .moves{color:var(--muted);font-variant-numeric:tabular-nums;padding-left:8px}
 table.cols{border-collapse:collapse;width:100%;background:var(--card);border:1px solid var(--line);border-radius:10px}
 table.cols th{text-align:left;font-size:12px;color:var(--muted);padding:8px 10px;border-bottom:1px solid var(--line)}
@@ -385,7 +494,7 @@ td.date{white-space:nowrap;font-weight:600}
   <div class="prov">
     <b>history</b><span>{{.Repo}}</span>
     <b>sources</b><span>{{.Diagrams}} diagrams from {{.Sources}} ({{.Paths}}) — fixed; only the engine moves</span>
-    <b>columns</b><span>{{len .WeekLabels}} ({{.At}}), {{.TotalMoves}} diagram-change(s), {{.Elapsed}}</span>
+    <b>columns</b><span>{{len .WeekLabels}} that moved{{if .QuietTotal}} (+{{.QuietTotal}} with no change, folded in){{end}} · {{.At}} · {{.TotalMoves}} diagram-change(s) · {{.Elapsed}}</span>
   </div>
   <div class="legend">
     <span><i class="cell invariant" style="opacity:1"></i>invariant got worse</span>
@@ -400,7 +509,7 @@ td.date{white-space:nowrap;font-weight:600}
 <h2>When each diagram moved</h2>
 <div class="gridwrap">
 <table class="grid">
-  <tr><th>diagram</th>{{range .WeekLabels}}<th class="wk">{{.}}</th>{{end}}<th class="moves">moves</th></tr>
+  <tr><th>diagram</th>{{range .Columns}}<th class="wk">{{.Label}}{{if .QuietAfter}} +{{.QuietAfter}}{{end}}</th>{{end}}<th class="moves">moves</th></tr>
   {{range .Grid}}
   <tr>
     <td class="name" title="{{.ID}}">{{.Short}}</td>
@@ -424,10 +533,15 @@ td.date{white-space:nowrap;font-weight:600}
     <td><span class="sha">{{.SHA}}</span> {{.Subject}}</td>
     <td class="n">{{if .Changed}}<span class="pill {{tier .Worst}}">{{.Changed}}</span>{{end}}</td>
     <td class="n">{{if .Identical}}{{.Identical}}{{end}}</td>
-    <td class="quiet">{{if .Note}}{{.Note}}{{else}}{{if .Against}}vs {{.Against}}{{end}} {{if .Span}}· {{.Span}}{{end}}{{end}}</td>
+    <td class="quiet">{{if .Against}}vs {{.Against}}{{end}} {{if .Span}}· {{.Span}}{{end}}
+      {{if .QuietAfter}}<br><span title="{{.QuietWhich}}">then {{.QuietAfter}} column(s) with no change</span>{{end}}</td>
   </tr>
   {{end}}
 </table>
+{{if .QuietList}}
+<details><summary>{{len .QuietList}} column(s) in which nothing moved — not shown above</summary>
+<div class="detail"><ul class="quiet">{{range .QuietList}}<li>{{.}}</li>{{end}}</ul></div></details>
+{{end}}
 </main>
 </body></html>
 `))
@@ -453,6 +567,15 @@ table.ch td,table.ch th{text-align:left;padding:2px 10px 2px 0;vertical-align:to
 .k.invariant{color:var(--worse)} .k.geometry{color:var(--moved)}
 nav{display:flex;gap:14px;align-items:center;font-size:13px;margin-top:8px}
 nav a{color:var(--muted)}
+/* One diagram's own history: every column it moved in, this one marked. */
+.hist{display:flex;align-items:center;gap:3px;flex-wrap:wrap;padding:8px 16px;
+  border-top:1px solid var(--line);background:var(--bg)}
+.hist .cell{width:14px;height:14px}
+.hist .cell.now{outline:2px solid var(--ink);outline-offset:1px}
+.histlabel{font-size:12px;color:var(--muted);margin-right:6px}
+.steps{margin-left:auto;display:flex;gap:12px;font-size:12px}
+.steps a{color:var(--muted)}
+.steps .off{color:var(--line)}
 </style></head><body>
 <header>
   <h1>{{.Label}} {{if .Source}}<span class="pill">{{.Source}}</span>{{end}}
@@ -495,6 +618,16 @@ nav a{color:var(--muted)}
       </div>
     </div>
   </div>
+  {{if .History}}
+  <div class="hist">
+    <span class="histlabel">this diagram moved {{.Moves}}×</span>
+    {{range .History}}{{if .Href}}<a class="cell {{tier .Tier}}" href="{{.Href}}" title="{{.Label}} · {{.Tier}}"></a>{{else}}<span class="cell {{tier .Tier}} now" title="{{.Label}} · {{.Tier}} · this column"></span>{{end}}{{end}}
+    <span class="steps">
+      {{if .HistPrev}}<a href="{{.HistPrev}}" title="this diagram's previous change: {{.HistPrevLabel}}">◀ {{.HistPrevLabel}}</a>{{else}}<span class="off">◀ first</span>{{end}}
+      {{if .HistNext}}<a href="{{.HistNext}}" title="this diagram's next change: {{.HistNextLabel}}">{{.HistNextLabel}} ▶</a>{{else}}<span class="off">last ▶</span>{{end}}
+    </span>
+  </div>
+  {{end}}
   <details>
     <summary>{{len .Changes}} change(s)</summary>
     <div class="detail">

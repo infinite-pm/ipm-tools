@@ -93,6 +93,70 @@ func TestLeftSwitchOnlyWhenThereIsACurrent(t *testing.T) {
 	}
 }
 
+// A grid of 89 columns where 72 are blank is mostly blank, and the eye has
+// to find the 17 that matter. Quiet columns are dropped — but their time is
+// not: the column before each run says how many followed it, and they are
+// still named once, so a silence can be checked.
+func TestQuietColumnsAreFoldedIntoThePreviousOne(t *testing.T) {
+	weeks := sampleWeeks() // changed column is index 1; 0 and 2 are quiet
+	html := renderIndex(timelineInput{Weeks: weeks, Diagrams: 1})
+
+	if n := strings.Count(html, `<th class="wk">`); n != 1 {
+		t.Fatalf("grid has %d columns, want only the one that moved", n)
+	}
+	if !strings.Contains(html, "then 1 column(s) with no change") {
+		t.Error("the surviving column does not say how many quiet ones followed it")
+	}
+	if !strings.Contains(html, "in which nothing moved") || !strings.Contains(html, "2026-07-20") {
+		t.Error("the quiet columns were dropped without being named anywhere")
+	}
+	if !strings.Contains(html, "+1 with no change, folded in") {
+		t.Error("the header does not account for the columns that are not shown")
+	}
+}
+
+// Each chart carries its OWN history: the columns that diagram moved in, this
+// one marked, with arrows that step that diagram alone.
+func TestEachRowCarriesItsOwnHistory(t *testing.T) {
+	rep := layoutdiff.Report{Tier: layoutdiff.TierGeometry, Counts: map[string]int{}}
+	svg := []byte(`<svg viewBox="0 0 10 10"></svg>`)
+	mk := func(label string, ids ...string) week {
+		w := week{Label: label}
+		for _, id := range ids {
+			w.Changes = append(w.Changes, change{ID: id, Status: "changed", Report: rep,
+				OldSVG: svg, NewSVG: svg})
+		}
+		return w
+	}
+	// "a" moves in all three columns, "b" only in the middle one.
+	weeks := []week{mk("c1", "a"), mk("c2", "a", "b"), mk("c3", "a")}
+	html := renderPage(timelineInput{Weeks: weeks}, 1)
+
+	if !strings.Contains(html, "this diagram moved 3×") {
+		t.Error("the diagram that moved three times does not say so")
+	}
+	if !strings.Contains(html, "this diagram moved 1×") {
+		t.Error("the diagram that moved once does not say so")
+	}
+	// The arrows step THIS diagram, not the column: from c2, "a" has both a
+	// previous (c1) and a next (c3).
+	if !strings.Contains(html, `href="../c1/index.html#d-a"`) ||
+		!strings.Contains(html, `href="../c3/index.html#d-a"`) {
+		t.Error("the arrows do not point at this diagram's own neighbours")
+	}
+	// "b" moved only here: both arrows are dead ends, and say so.
+	if !strings.Contains(html, "◀ first") || !strings.Contains(html, "last ▶") {
+		t.Error("a diagram with no earlier or later change offers no end marker")
+	}
+	// The current column is marked, not linked.
+	if !strings.Contains(html, `class="cell geometry now"`) {
+		t.Error("the current column is not marked in the strip")
+	}
+	if strings.Contains(html, `href="../c2/index.html`) {
+		t.Error("the strip links to the page it is already on")
+	}
+}
+
 // Pages exist only for columns with something to show; a link to an empty
 // room is worse than no link.
 func TestQuietColumnsGetNoPage(t *testing.T) {
