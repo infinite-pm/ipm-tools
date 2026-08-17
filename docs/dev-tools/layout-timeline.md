@@ -100,10 +100,22 @@ Weeks the tool handles without pretending:
 | the engine cannot be built at that commit | *engine could not be built at this commit: …* — an early commit may predate `cmd/layout-gen` entirely; the next buildable week then compares against the last one that built, and the heading says **vs \<week\>** so the span is never implied to be seven days |
 | the first buildable week | *first engine in range — nothing to compare against* |
 
-`--head` (on by default) appends the **current HEAD** as a final column,
-labelled `<date> now`. Without it the series stops at the start of the current
-week, and everything committed since Monday — often the very work being asked
-about — would be invisible.
+`--head` (on by default) appends a final column for **what you have right
+now**. Without it the series stops at the start of the current week, and
+everything since Monday — often the very work being asked about — is
+invisible.
+
+That column is the **working tree** whenever the tree is dirty, labelled
+`<date> workdir` and saying how many files are uncommitted. It is built from
+disk on **every run, never from cache**: the current week is a partial one and
+today's engine work is usually not committed yet, so a cached binary would
+report yesterday's engine as today's. A clean tree gets `<date> now` and its
+commit instead, and is skipped entirely when that commit is already the last
+column — there is nothing new to say.
+
+It still spans what came before it: `6 commit(s), 3 touching the engine`
+counts everything committed since the previous column, so the column cannot
+look empty while carrying a week of work.
 
 ## The report
 

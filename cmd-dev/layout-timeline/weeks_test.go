@@ -279,6 +279,51 @@ func TestEngineCommitsSelectOnlyCommitsTouchingThePaths(t *testing.T) {
 	}
 }
 
+// The trailing column must show what you have NOW. A dirty tree always earns
+// one — today's uncommitted engine work is exactly what a reader is asking
+// about — and it is built from the tree, never from cache.
+func TestADirtyTreeAlwaysGetsItsOwnColumn(t *testing.T) {
+	repo := gitRepo(t, []struct{ when, msg string }{{"2026-08-12 10:00", "only"}})
+	snaps, err := resolveSnapshots(repo, "HEAD", mondaysBetween(
+		mustTime(t, "2026-08-17 00:00"), mustTime(t, "2026-08-17 00:00")), atWeekStart)
+	if err != nil {
+		t.Fatal(err)
+	}
+	// Clean tree, and the last column is already HEAD: nothing to add.
+	clean, err := appendHead(repo, "HEAD", snaps)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(clean) != len(snaps) {
+		t.Fatalf("a clean tree at the last column added %d column(s), want 0", len(clean)-len(snaps))
+	}
+
+	// Now dirty it.
+	if err := os.WriteFile(filepath.Join(repo, "f.txt"), []byte("edited, not committed"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	dirty, err := appendHead(repo, "HEAD", snaps)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(dirty) != len(snaps)+1 {
+		t.Fatalf("a dirty tree added %d column(s), want 1", len(dirty)-len(snaps))
+	}
+	tail := dirty[len(dirty)-1]
+	if !tail.Workdir {
+		t.Error("the trailing column is not marked as the working tree, so it would be built from a commit")
+	}
+	if !strings.Contains(tail.Label(), "workdir") {
+		t.Errorf("label %q does not say it is the working tree", tail.Label())
+	}
+	if !strings.Contains(tail.Subject, "uncommitted") {
+		t.Errorf("subject %q hides that the tree is dirty", tail.Subject)
+	}
+	if tail.SHA != "" {
+		t.Error("a working-tree column must not claim a commit")
+	}
+}
+
 // Without a HEAD column the series stops at the start of the current week, so
 // everything committed since Monday — often the very work being asked about —
 // would be invisible.

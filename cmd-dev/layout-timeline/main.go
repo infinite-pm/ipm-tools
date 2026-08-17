@@ -439,6 +439,32 @@ func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagra
 	for _, s := range snaps {
 		w := week{Snap: s, Label: s.Label(), SHA: s.SHA, Subject: s.Subject, Span: s.Span(), Source: s.Source}
 		switch {
+		case s.Workdir:
+			// Never cached: the tree changes under us, and a stale binary
+			// would report yesterday's engine as today's.
+			eng, err := layoutaudit.BuildEngine(s.Repo, layoutaudit.WorkdirRef, s.Label(), cache, "", verbose)
+			if err != nil {
+				w.Note = "the working tree will not build: " + firstLine(err.Error())
+				out = append(out, w)
+				continue
+			}
+			if prevBin == "" {
+				w.Note = "first engine in range — nothing to compare against"
+				prevBin, prevLabel = eng.LayoutGen, s.Label()
+				out = append(out, w)
+				continue
+			}
+			w.Against = prevLabel
+			collect(&w, layoutaudit.SweepN(diagrams, prevBin, eng.LayoutGen, jobs),
+				limitPerWeek, noSVG)
+			noteQuietEngine(&w, s)
+			if verbose {
+				fmt.Fprintf(os.Stderr, "layout-timeline: %s — %d changed, %d identical\n",
+					s.Label(), len(w.Changes), w.Identical)
+			}
+			prevBin, prevLabel = eng.LayoutGen, s.Label()
+			out = append(out, w)
+			continue
 		case s.SHA == "":
 			w.Note = "no commits yet"
 			out = append(out, w)
@@ -478,47 +504,8 @@ func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagra
 		// unbuildable stretch is older than one week. The report says so
 		// rather than letting the column imply a seven-day span.
 		w.Against = prevLabel
-		pairs := layoutaudit.SweepN(diagrams, prevBin, eng.LayoutGen, jobs)
-		for i := range pairs {
-			c := diffPair(pairs[i])
-			switch c.Status {
-			case "identical":
-				w.Identical++
-			case "skipped":
-				w.Skipped++
-			default:
-				c.pair = &pairs[i]
-				w.Changes = append(w.Changes, c)
-			}
-		}
-		sortChanges(w.Changes)
-
-		// Panes AFTER the sort. Rendering them during the sweep meant the cap
-		// fell on the first N diagrams the sweep reached, and the page then
-		// sorted by severity — so the row at the top, the one a reader looks
-		// at first, was routinely one that had no picture at all.
-		for i := range w.Changes {
-			if noSVG || (limitPerWeek > 0 && w.Rendered >= limitPerWeek) {
-				break
-			}
-			renderPanes(&w.Changes[i], *w.Changes[i].pair)
-			w.Rendered++
-		}
-		for i := range w.Changes {
-			w.Changes[i].pair = nil
-		}
-		if len(w.Changes) == 0 && s.EngineCommits > 0 {
-			// Worth saying out loud, because "engine changed, nothing moved"
-			// reads as reassurance and is sometimes a blind spot instead:
-			// pkg/layout's post-placement passes are not reachable from
-			// layout-gen (gl:docs/dev/layout-gen/layout7-engine.md), so a
-			// change confined to them CANNOT show here whatever it did.
-			w.Note = fmt.Sprintf("%d engine commit(s) here and no diagram moved — "+
-				"if the change was in pkg/layout's post-placement passes "+
-				"(OrderSharedPorts / DetourBlockedEdges) it cannot show in this report: "+
-				"layout-gen never calls them. Measure those against a consumer's corpus.",
-				s.EngineCommits)
-		}
+		collect(&w, layoutaudit.SweepN(diagrams, prevBin, eng.LayoutGen, jobs), limitPerWeek, noSVG)
+		noteQuietEngine(&w, s)
 		if verbose {
 			fmt.Fprintf(os.Stderr, "layout-timeline: %s — %d changed, %d identical\n",
 				s.Label(), len(w.Changes), w.Identical)
@@ -568,19 +555,25 @@ func renderCurrent(repo, cache string, snaps []snapshot, diagrams []layoutaudit.
 	weeks []week, jobs int, verbose bool) map[string][]byte {
 	var tip snapshot
 	for i := len(snaps) - 1; i >= 0; i-- {
-		if snaps[i].SHA != "" {
+		if snaps[i].SHA != "" || snaps[i].Workdir {
 			tip = snaps[i]
 			break
 		}
 	}
-	if tip.SHA == "" {
+	if tip.SHA == "" && !tip.Workdir {
 		return nil
 	}
 	from := repo
 	if tip.Repo != "" {
 		from = tip.Repo
 	}
-	eng, err := layoutaudit.BuildEngine(from, tip.SHA, tip.Label(), cache, "", false)
+	// "current" means what you have now — the working tree when there is
+	// uncommitted work, otherwise the newest commit.
+	ref := tip.SHA
+	if tip.Workdir {
+		ref = layoutaudit.WorkdirRef
+	}
+	eng, err := layoutaudit.BuildEngine(from, ref, tip.Label(), cache, "", false)
 	if err != nil {
 		if verbose {
 			fmt.Fprintf(os.Stderr, "layout-timeline: no current engine (%v)\n", err)
@@ -609,6 +602,58 @@ func renderCurrent(repo, cache string, snaps []snapshot, diagrams []layoutaudit.
 		}
 	}
 	return out
+}
+
+// noteQuietEngine says so when engine commits landed in a column and no
+// diagram moved.
+//
+// Worth saying out loud, because "the engine changed and nothing moved" reads
+// as reassurance and is sometimes a blind spot instead: pkg/layout's
+// post-placement passes are not reachable from layout-gen
+// (gl:docs/dev/layout-gen/layout7-engine.md), so a change confined to them
+// cannot show here whatever it did elsewhere.
+func noteQuietEngine(w *week, s snapshot) {
+	if len(w.Changes) > 0 || s.EngineCommits == 0 {
+		return
+	}
+	w.Note = fmt.Sprintf("%d engine commit(s) here and no diagram moved — "+
+		"if the change was in pkg/layout's post-placement passes (OrderSharedPorts / "+
+		"DetourBlockedEdges / frame routing) it cannot show in this report: layout-gen "+
+		"never calls them. Measure those against a consumer's corpus.",
+		s.EngineCommits)
+}
+
+// collect turns one sweep into a column: classify, sort by severity, then
+// render the panes of the rows a reader will actually see.
+func collect(w *week, pairs []layoutaudit.Pair, limitPerWeek int, noSVG bool) {
+	for i := range pairs {
+		c := diffPair(pairs[i])
+		switch c.Status {
+		case "identical":
+			w.Identical++
+		case "skipped":
+			w.Skipped++
+		default:
+			c.pair = &pairs[i]
+			w.Changes = append(w.Changes, c)
+		}
+	}
+	sortChanges(w.Changes)
+
+	// Panes AFTER the sort. Rendering them during the sweep meant the cap
+	// fell on the first N diagrams the sweep reached, and the page then
+	// sorted by severity — so the row at the top, the one a reader looks at
+	// first, was routinely one that had no picture at all.
+	for i := range w.Changes {
+		if noSVG || (limitPerWeek > 0 && w.Rendered >= limitPerWeek) {
+			break
+		}
+		renderPanes(&w.Changes[i], *w.Changes[i].pair)
+		w.Rendered++
+	}
+	for i := range w.Changes {
+		w.Changes[i].pair = nil
+	}
 }
 
 func diffPair(p layoutaudit.Pair) change {

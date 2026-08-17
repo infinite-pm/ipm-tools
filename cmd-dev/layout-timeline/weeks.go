@@ -39,9 +39,13 @@ type snapshot struct {
 	// SameAsPrev marks a week in which nothing was committed: the engine is
 	// byte-identical to the previous snapshot's.
 	SameAsPrev bool
-	// Now marks the extra trailing snapshot for the current HEAD, which is
+	// Now marks the extra trailing snapshot for the current state, which is
 	// not a Monday and says so.
 	Now bool
+	// Workdir marks that trailing snapshot as the WORKING TREE rather than a
+	// commit: built from what is on disk right now, every run, so today's
+	// uncommitted engine work is in the report instead of missing from it.
+	Workdir bool
 	// Commits / EngineCommits count what this column spans (see Span).
 	Commits       int
 	EngineCommits int
@@ -65,6 +69,9 @@ func (s snapshot) Span() string {
 }
 
 func (s snapshot) Describe() string {
+	if s.Workdir {
+		return s.Label() + " — " + s.Subject
+	}
 	if s.SHA == "" {
 		return s.Label() + " — no commits yet"
 	}
@@ -211,6 +218,9 @@ func appendHeadOf(repo, rev, source string, snaps []snapshot) ([]snapshot, error
 	if err != nil {
 		return snaps, err
 	}
+	dirty, _ := Git(repo, "status", "--porcelain")
+	dirty = strings.TrimSpace(dirty)
+
 	last := ""
 	for i := len(snaps) - 1; i >= 0; i-- {
 		if snaps[i].SHA != "" {
@@ -218,16 +228,25 @@ func appendHeadOf(repo, rev, source string, snaps []snapshot) ([]snapshot, error
 			break
 		}
 	}
-	if head == last {
+	// Nothing new to say only when the tree is clean AND its commit is
+	// already the last column. A dirty tree always earns a column: the whole
+	// point of the trailing one is to show what you have RIGHT NOW.
+	if head == last && dirty == "" {
 		return snaps, nil
 	}
-	s := snapshot{Monday: time.Now(), SHA: head, Now: true, Repo: repo, Source: source}
-	s.label = "tip"
-	if d, err := Git(repo, "log", "-1", "--format=%cs", head); err == nil {
-		s.label = d + " tip"
-	}
-	if subject, err := Git(repo, "log", "-1", "--format=%s", head); err == nil {
-		s.Subject = subject
+
+	s := snapshot{Monday: time.Now(), Repo: repo, Source: source, Now: true, Workdir: true}
+	s.label = time.Now().Format("2006-01-02") + " workdir"
+	switch {
+	case dirty == "":
+		s.label = time.Now().Format("2006-01-02") + " now"
+		s.Subject, _ = Git(repo, "log", "-1", "--format=%s", head)
+		s.SHA = head
+		s.Workdir = false
+	default:
+		n := len(strings.Split(dirty, "\n"))
+		subject, _ := Git(repo, "log", "-1", "--format=%h %s", head)
+		s.Subject = fmt.Sprintf("%d uncommitted file(s) on top of %s", n, subject)
 	}
 	return append(snaps, s), nil
 }
@@ -347,6 +366,15 @@ func countSpan(repo string, snaps []snapshot, enginePaths []string) {
 	prevRepo := ""
 	for i := range snaps {
 		cur := snaps[i].SHA
+		// A working-tree column has no commit of its own, but it still SPANS
+		// one: everything committed since the column before it. Skipping it
+		// left a column reporting "0 changed" with nothing to say about the
+		// engine commits that landed inside it.
+		if snaps[i].Workdir {
+			if head, err := Git(snaps[i].Repo, "rev-parse", "HEAD"); err == nil {
+				cur = head
+			}
+		}
 		if cur == "" || cur == prev {
 			continue
 		}

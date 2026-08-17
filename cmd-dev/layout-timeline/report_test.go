@@ -158,6 +158,31 @@ func TestEachRowCarriesItsOwnHistory(t *testing.T) {
 	}
 }
 
+// "The engine changed and nothing moved" reads as reassurance and is
+// sometimes a blind spot: pkg/layout's post-placement passes are not
+// reachable from layout-gen, so a change confined to them cannot show here.
+// The column must say so rather than leave a bare zero.
+func TestAQuietColumnWithEngineCommitsExplainsItself(t *testing.T) {
+	w := week{Label: "c", Identical: 311}
+	noteQuietEngine(&w, snapshot{EngineCommits: 3})
+	if !strings.Contains(w.Note, "3 engine commit(s)") ||
+		!strings.Contains(w.Note, "post-placement") {
+		t.Errorf("a quiet column with engine commits says only: %q", w.Note)
+	}
+	// A column that DID move explains itself by moving.
+	moved := week{Label: "c", Changes: []change{{ID: "x"}}}
+	noteQuietEngine(&moved, snapshot{EngineCommits: 3})
+	if moved.Note != "" {
+		t.Errorf("a column that moved was given the quiet note: %q", moved.Note)
+	}
+	// And a column with no engine commits has nothing to explain.
+	none := week{Label: "c"}
+	noteQuietEngine(&none, snapshot{})
+	if none.Note != "" {
+		t.Errorf("a column with no engine commits was annotated: %q", none.Note)
+	}
+}
+
 // Pages exist only for columns with something to show; a link to an empty
 // room is worse than no link.
 func TestQuietColumnsGetNoPage(t *testing.T) {
