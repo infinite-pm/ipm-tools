@@ -33,7 +33,7 @@
       "type": "thing",
       "label": "tP",
       "x": 40,
-      "y": 360,
+      "y": 120,
       "width": 120,
       "height": 60
     },
@@ -100,7 +100,7 @@
       "route": {
         "source": {
           "side": "right",
-          "position": 0.5
+          "position": 0.75
         },
         "target": {
           "side": "left",
@@ -117,7 +117,7 @@
       "route": {
         "source": {
           "side": "right",
-          "position": 0.36666666666666664
+          "position": 0.6166666666666667
         },
         "target": {
           "side": "left",
@@ -134,7 +134,7 @@
       "route": {
         "source": {
           "side": "right",
-          "position": 0.25
+          "position": 0.5
         },
         "target": {
           "side": "left",

@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2849-L2851 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#unresolved-node-lays-out-as-its-primary-candidate)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2859-L2861 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#unresolved-node-lays-out-as-its-primary-candidate)
 
 ## ipmt Content
 
@@ -24,14 +24,14 @@ u1 ::?te --> e1
 
 ## Layout Validation Rules
 
-Test line: 2849
+Test line: 2859
 
 ✅ All 4 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2863](gl:docs/dev/layout-gen/layout-alg.md#L2863): `type=unresolved has size=120x60` ([unresolved-node-lays-out-as-its-primary-candidate.dsl](../layout-gen-rules/unresolved-node-lays-out-as-its-primary-candidate.dsl))
-- ✓ [Line 2864](gl:docs/dev/layout-gen/layout-alg.md#L2864): `#u1 is left-of #e1 with gap=60` ([unresolved-node-lays-out-as-its-primary-candidate-02.dsl](../layout-gen-rules/unresolved-node-lays-out-as-its-primary-candidate-02.dsl))
-- ✓ [Line 2865](gl:docs/dev/layout-gen/layout-alg.md#L2865): `#e1,#u1 have same y` ([unresolved-node-lays-out-as-its-primary-candidate-03.dsl](../layout-gen-rules/unresolved-node-lays-out-as-its-primary-candidate-03.dsl))
+- ✓ [Line 2873](gl:docs/dev/layout-gen/layout-alg.md#L2873): `type=unresolved has size=120x60` ([unresolved-node-lays-out-as-its-primary-candidate.dsl](../layout-gen-rules/unresolved-node-lays-out-as-its-primary-candidate.dsl))
+- ✓ [Line 2874](gl:docs/dev/layout-gen/layout-alg.md#L2874): `#u1 is left-of #e1 with gap=60` ([unresolved-node-lays-out-as-its-primary-candidate-02.dsl](../layout-gen-rules/unresolved-node-lays-out-as-its-primary-candidate-02.dsl))
+- ✓ [Line 2875](gl:docs/dev/layout-gen/layout-alg.md#L2875): `#e1,#u1 have same y` ([unresolved-node-lays-out-as-its-primary-candidate-03.dsl](../layout-gen-rules/unresolved-node-lays-out-as-its-primary-candidate-03.dsl))
 
 ## Rendered Diagram
 

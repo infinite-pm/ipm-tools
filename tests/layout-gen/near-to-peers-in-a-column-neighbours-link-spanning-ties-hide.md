@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3137-L3147 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3147-L3157 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide)
 
 ## ipmt Content
 
@@ -32,28 +32,28 @@ e1a --- e1c
 
 ## Layout Validation Rules
 
-Test line: 3137
+Test line: 3147
 
 ⚠️ 17/18 rules passed
 
 - ✗ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` - **edge e1a->e1c has 2 bends > max-bends 0 (each-edge default; if the detour is intended, add it to `except` and pin it with `edge #e1a,#e1c has max-bends=2`)** ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 3184](gl:docs/dev/layout-gen/layout-alg.md#L3184): `#e1a,#e1b,#e1c have same center-x` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide.dsl))
-- ✓ [Line 3185](gl:docs/dev/layout-gen/layout-alg.md#L3185): `#e1 is left-of #e1a with gap=60` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-02.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-02.dsl))
-- ✓ [Line 3186](gl:docs/dev/layout-gen/layout-alg.md#L3186): `edge #e1a,#e1b is vertical` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-03.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-03.dsl))
-- ✓ [Line 3187](gl:docs/dev/layout-gen/layout-alg.md#L3187): `edge #e1a,#e1b has visibility=visible` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-04.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-04.dsl))
-- ✓ [Line 3188](gl:docs/dev/layout-gen/layout-alg.md#L3188): `edge #e1a,#e1b has source-position=0.5` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-05.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-05.dsl))
-- ✓ [Line 3189](gl:docs/dev/layout-gen/layout-alg.md#L3189): `edge #e1a,#e1b has target-position=0.5` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-06.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-06.dsl))
-- ✓ [Line 3190](gl:docs/dev/layout-gen/layout-alg.md#L3190): `edge #e1b,#e1c is vertical` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-07.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-07.dsl))
-- ✓ [Line 3191](gl:docs/dev/layout-gen/layout-alg.md#L3191): `edge #e1b,#e1c has visibility=visible` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-08.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-08.dsl))
-- ✓ [Line 3192](gl:docs/dev/layout-gen/layout-alg.md#L3192): `edge #e1b,#e1c has source-position=0.5` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-09.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-09.dsl))
-- ✓ [Line 3193](gl:docs/dev/layout-gen/layout-alg.md#L3193): `edge #e1b,#e1c has target-position=0.5` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-10.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-10.dsl))
-- ✓ [Line 3194](gl:docs/dev/layout-gen/layout-alg.md#L3194): `each edge has max-bends=0 except #e1a,#e1c` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-11.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-11.dsl))
-- ✓ [Line 3195](gl:docs/dev/layout-gen/layout-alg.md#L3195): `edge #e1a,#e1c has visibility=visible` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-12.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-12.dsl))
-- ✓ [Line 3196](gl:docs/dev/layout-gen/layout-alg.md#L3196): `edge #e1a,#e1c has source-side=right` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-13.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-13.dsl))
-- ✓ [Line 3197](gl:docs/dev/layout-gen/layout-alg.md#L3197): `edge #e1a,#e1c has source-position=0.75` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-14.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-14.dsl))
-- ✓ [Line 3198](gl:docs/dev/layout-gen/layout-alg.md#L3198): `edge #e1a,#e1c has target-side=right` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-15.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-15.dsl))
-- ✓ [Line 3199](gl:docs/dev/layout-gen/layout-alg.md#L3199): `edge #e1a,#e1c has target-position=0.25` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-16.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-16.dsl))
-- ✓ [Line 3200](gl:docs/dev/layout-gen/layout-alg.md#L3200): `edge #e1a,#e1c has max-bends=2` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-17.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-17.dsl))
+- ✓ [Line 3194](gl:docs/dev/layout-gen/layout-alg.md#L3194): `#e1a,#e1b,#e1c have same center-x` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide.dsl))
+- ✓ [Line 3195](gl:docs/dev/layout-gen/layout-alg.md#L3195): `#e1 is left-of #e1a with gap=60` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-02.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-02.dsl))
+- ✓ [Line 3196](gl:docs/dev/layout-gen/layout-alg.md#L3196): `edge #e1a,#e1b is vertical` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-03.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-03.dsl))
+- ✓ [Line 3197](gl:docs/dev/layout-gen/layout-alg.md#L3197): `edge #e1a,#e1b has visibility=visible` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-04.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-04.dsl))
+- ✓ [Line 3198](gl:docs/dev/layout-gen/layout-alg.md#L3198): `edge #e1a,#e1b has source-position=0.5` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-05.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-05.dsl))
+- ✓ [Line 3199](gl:docs/dev/layout-gen/layout-alg.md#L3199): `edge #e1a,#e1b has target-position=0.5` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-06.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-06.dsl))
+- ✓ [Line 3200](gl:docs/dev/layout-gen/layout-alg.md#L3200): `edge #e1b,#e1c is vertical` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-07.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-07.dsl))
+- ✓ [Line 3201](gl:docs/dev/layout-gen/layout-alg.md#L3201): `edge #e1b,#e1c has visibility=visible` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-08.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-08.dsl))
+- ✓ [Line 3202](gl:docs/dev/layout-gen/layout-alg.md#L3202): `edge #e1b,#e1c has source-position=0.5` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-09.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-09.dsl))
+- ✓ [Line 3203](gl:docs/dev/layout-gen/layout-alg.md#L3203): `edge #e1b,#e1c has target-position=0.5` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-10.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-10.dsl))
+- ✓ [Line 3204](gl:docs/dev/layout-gen/layout-alg.md#L3204): `each edge has max-bends=0 except #e1a,#e1c` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-11.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-11.dsl))
+- ✓ [Line 3205](gl:docs/dev/layout-gen/layout-alg.md#L3205): `edge #e1a,#e1c has visibility=visible` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-12.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-12.dsl))
+- ✓ [Line 3206](gl:docs/dev/layout-gen/layout-alg.md#L3206): `edge #e1a,#e1c has source-side=right` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-13.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-13.dsl))
+- ✓ [Line 3207](gl:docs/dev/layout-gen/layout-alg.md#L3207): `edge #e1a,#e1c has source-position=0.75` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-14.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-14.dsl))
+- ✓ [Line 3208](gl:docs/dev/layout-gen/layout-alg.md#L3208): `edge #e1a,#e1c has target-side=right` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-15.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-15.dsl))
+- ✓ [Line 3209](gl:docs/dev/layout-gen/layout-alg.md#L3209): `edge #e1a,#e1c has target-position=0.25` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-16.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-16.dsl))
+- ✓ [Line 3210](gl:docs/dev/layout-gen/layout-alg.md#L3210): `edge #e1a,#e1c has max-bends=2` ([near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-17.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-17.dsl))
 
 ## Rendered Diagram
 

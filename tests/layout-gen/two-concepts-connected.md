@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2007-L2008 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#two-concepts-connected)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2013-L2014 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#two-concepts-connected)
 
 ## ipmt Content
 
@@ -23,13 +23,13 @@ c-X ::c --> c-Y ::c
 
 ## Layout Validation Rules
 
-Test line: 2007
+Test line: 2013
 
 ✅ All 3 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2024](gl:docs/dev/layout-gen/layout-alg.md#L2024): `#c-Y is below #c-X with gap=40` ([two-concepts-connected.dsl](../layout-gen-rules/two-concepts-connected.dsl))
-- ✓ [Line 2025](gl:docs/dev/layout-gen/layout-alg.md#L2025): `#c-X,#c-Y have same center-x` ([two-concepts-connected-02.dsl](../layout-gen-rules/two-concepts-connected-02.dsl))
+- ✓ [Line 2030](gl:docs/dev/layout-gen/layout-alg.md#L2030): `#c-Y is below #c-X with gap=40` ([two-concepts-connected.dsl](../layout-gen-rules/two-concepts-connected.dsl))
+- ✓ [Line 2031](gl:docs/dev/layout-gen/layout-alg.md#L2031): `#c-X,#c-Y have same center-x` ([two-concepts-connected-02.dsl](../layout-gen-rules/two-concepts-connected-02.dsl))
 
 ## Rendered Diagram
 

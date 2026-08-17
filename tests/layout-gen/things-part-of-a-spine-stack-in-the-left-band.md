@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1967-L1972 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#things-part-of-a-spine-stack-in-the-left-band)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1973-L1978 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#things-part-of-a-spine-stack-in-the-left-band)
 
 ## ipmt Content
 
@@ -27,7 +27,7 @@ L --::P--> I
 
 ## Layout Validation Rules
 
-Test line: 1967
+Test line: 1973
 
 ✅ All 1 rules passed
 

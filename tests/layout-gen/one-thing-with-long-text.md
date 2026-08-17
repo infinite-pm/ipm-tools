@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1545-L1546 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#one-thing-with-long-text)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1551-L1552 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#one-thing-with-long-text)
 
 ## ipmt Content
 
@@ -23,12 +23,12 @@ This thing is very important and has a long description text. It can be so so ve
 
 ## Layout Validation Rules
 
-Test line: 1545
+Test line: 1551
 
 ✅ All 2 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 1556](gl:docs/dev/layout-gen/layout-alg.md#L1556): `type=thing text-len>72 has height>=140` ([one-thing-with-long-text.dsl](../layout-gen-rules/one-thing-with-long-text.dsl))
+- ✓ [Line 1562](gl:docs/dev/layout-gen/layout-alg.md#L1562): `type=thing text-len>72 has height>=140` ([one-thing-with-long-text.dsl](../layout-gen-rules/one-thing-with-long-text.dsl))
 
 ## Rendered Diagram
 

@@ -6,7 +6,7 @@
       "type": "event",
       "label": "e1",
       "x": 220,
-      "y": 530,
+      "y": 520,
       "width": 120,
       "height": 60
     },
@@ -15,7 +15,7 @@
       "type": "thing",
       "label": "tA",
       "x": 40,
-      "y": 530,
+      "y": 520,
       "width": 120,
       "height": 60
     },
@@ -51,7 +51,7 @@
       "type": "event",
       "label": "e1a",
       "x": 400,
-      "y": 320,
+      "y": 370,
       "width": 120,
       "height": 60
     },
@@ -60,7 +60,7 @@
       "type": "event",
       "label": "e1b",
       "x": 400,
-      "y": 780,
+      "y": 750,
       "width": 120,
       "height": 60
     },
@@ -69,7 +69,7 @@
       "type": "thing",
       "label": "tE",
       "x": 580,
-      "y": 730,
+      "y": 750,
       "width": 120,
       "height": 60
     },
@@ -78,7 +78,7 @@
       "type": "thing",
       "label": "tF",
       "x": 580,
-      "y": 830,
+      "y": 630,
       "width": 120,
       "height": 60
     },
@@ -96,7 +96,7 @@
       "type": "event",
       "label": "e1c",
       "x": 400,
-      "y": 940,
+      "y": 870,
       "width": 120,
       "height": 60
     },
@@ -105,7 +105,7 @@
       "type": "thing",
       "label": "tG",
       "x": 580,
-      "y": 940,
+      "y": 870,
       "width": 120,
       "height": 60
     },
@@ -123,7 +123,7 @@
       "type": "event",
       "label": "e1d",
       "x": 400,
-      "y": 120,
+      "y": 170,
       "width": 120,
       "height": 60
     },
@@ -132,7 +132,7 @@
       "type": "event",
       "label": "e1e",
       "x": 400,
-      "y": 620,
+      "y": 630,
       "width": 120,
       "height": 60
     },
@@ -150,7 +150,7 @@
       "type": "boundary",
       "label": "E",
       "x": 260,
-      "y": 1040,
+      "y": 970,
       "width": 40,
       "height": 40
     }
@@ -186,7 +186,7 @@
         },
         "target": {
           "side": "right",
-          "position": 0.3333333333333333
+          "position": 0.25
         }
       }
     },
@@ -203,7 +203,7 @@
         },
         "target": {
           "side": "right",
-          "position": 0.5
+          "position": 0.60669739994408
         }
       }
     },
@@ -220,7 +220,7 @@
         },
         "target": {
           "side": "right",
-          "position": 0.6666666666666666
+          "position": 0.75
         }
       }
     },
@@ -259,11 +259,11 @@
         "sourceStub": [
           {
             "X": 124,
-            "Y": 530
+            "Y": 520
           },
           {
             "X": 124,
-            "Y": 500
+            "Y": 490
           }
         ],
         "targetStub": [
@@ -292,7 +292,7 @@
         },
         "target": {
           "side": "right",
-          "position": 0.6436512990320845
+          "position": 0.6666666666666666
         }
       }
     },
@@ -309,7 +309,7 @@
         },
         "target": {
           "side": "right",
-          "position": 0.5173118375873477
+          "position": 0.5
         }
       }
     },
@@ -322,11 +322,11 @@
       "route": {
         "source": {
           "side": "left",
-          "position": 0.5
+          "position": 0.6
         },
         "target": {
           "side": "right",
-          "position": 0.6839785042540143
+          "position": 0.25
         }
       }
     },
@@ -338,24 +338,35 @@
       "style": "partof",
       "route": {
         "source": {
-          "side": "left",
-          "position": 0.75
+          "side": "bottom",
+          "position": 0.25
         },
         "target": {
-          "side": "right",
-          "position": 0.18268816241265237
+          "side": "top",
+          "position": 0.75
         },
-        "bends": [
+        "sourceStub": [
           {
-            "X": 550,
-            "Y": 505
+            "X": 610,
+            "Y": 480
           },
           {
-            "X": 550,
-            "Y": 747
+            "X": 610,
+            "Y": 500
+          }
+        ],
+        "targetStub": [
+          {
+            "X": 490,
+            "Y": 750
+          },
+          {
+            "X": 490,
+            "Y": 720
           }
         ]
-      }
+      },
+      "visibility": "stubbed"
     },
     {
       "from": "5",
@@ -417,7 +428,7 @@
       "route": {
         "source": {
           "side": "left",
-          "position": 0.75
+          "position": 0.8
         },
         "target": {
           "side": "right",
@@ -437,27 +448,27 @@
           "position": 0.7
         },
         "target": {
-          "side": "top",
-          "position": 0.3
+          "side": "left",
+          "position": 0.2
         },
         "sourceStub": [
           {
             "X": 124,
-            "Y": 590
+            "Y": 580
           },
           {
             "X": 124,
-            "Y": 620
+            "Y": 610
           }
         ],
         "targetStub": [
           {
-            "X": 616,
-            "Y": 830
+            "X": 580,
+            "Y": 642
           },
           {
-            "X": 616,
-            "Y": 810
+            "X": 550,
+            "Y": 642
           }
         ]
       },
@@ -476,7 +487,7 @@
         },
         "target": {
           "side": "right",
-          "position": 0.5
+          "position": 0.25
         }
       }
     },
@@ -539,24 +550,35 @@
       "style": "partof",
       "route": {
         "source": {
-          "side": "right",
-          "position": 0.75
+          "side": "bottom",
+          "position": 0.3
         },
         "target": {
-          "side": "right",
-          "position": 0.33
+          "side": "top",
+          "position": 0.7
         },
-        "bends": [
+        "sourceStub": [
           {
-            "X": 740,
-            "Y": 205
+            "X": 616,
+            "Y": 180
           },
           {
-            "X": 740,
-            "Y": 599
+            "X": 616,
+            "Y": 200
+          }
+        ],
+        "targetStub": [
+          {
+            "X": 484,
+            "Y": 630
+          },
+          {
+            "X": 484,
+            "Y": 600
           }
         ]
-      }
+      },
+      "visibility": "stubbed"
     },
     {
       "from": "9",
@@ -567,22 +589,12 @@
       "route": {
         "source": {
           "side": "left",
-          "position": 0.25
+          "position": 0.5
         },
         "target": {
           "side": "right",
-          "position": 0.67
-        },
-        "bends": [
-          {
-            "X": 560,
-            "Y": 805
-          },
-          {
-            "X": 560,
-            "Y": 701
-          }
-        ]
+          "position": 0.5
+        }
       }
     },
     {
@@ -673,8 +685,8 @@
   ],
   "meta": {
     "bounds": {
-      "width": 780,
-      "height": 1120,
+      "width": 740,
+      "height": 1050,
       "marginX": 40,
       "marginY": 40
     },

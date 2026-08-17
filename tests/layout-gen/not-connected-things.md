@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2285-L2288 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#not-connected-things)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2291-L2294 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#not-connected-things)
 
 ## ipmt Content
 
@@ -25,20 +25,20 @@ E --> F
 
 ## Layout Validation Rules
 
-Test line: 2285
+Test line: 2291
 
 ✅ All 10 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2302](gl:docs/dev/layout-gen/layout-alg.md#L2302): `edge #A,#B has type=partof` ([not-connected-things.dsl](../layout-gen-rules/not-connected-things.dsl))
-- ✓ [Line 2303](gl:docs/dev/layout-gen/layout-alg.md#L2303): `edge #D,#C has type=partof` ([not-connected-things-02.dsl](../layout-gen-rules/not-connected-things-02.dsl))
-- ✓ [Line 2304](gl:docs/dev/layout-gen/layout-alg.md#L2304): `edge #E,#F has type=partof` ([not-connected-things-03.dsl](../layout-gen-rules/not-connected-things-03.dsl))
-- ✓ [Line 2305](gl:docs/dev/layout-gen/layout-alg.md#L2305): `#B is below #A with gap=40` ([not-connected-things-04.dsl](../layout-gen-rules/not-connected-things-04.dsl))
-- ✓ [Line 2306](gl:docs/dev/layout-gen/layout-alg.md#L2306): `#A,#B have same center-x` ([not-connected-things-05.dsl](../layout-gen-rules/not-connected-things-05.dsl))
-- ✓ [Line 2307](gl:docs/dev/layout-gen/layout-alg.md#L2307): `#D is above #C with gap=40` ([not-connected-things-06.dsl](../layout-gen-rules/not-connected-things-06.dsl))
-- ✓ [Line 2308](gl:docs/dev/layout-gen/layout-alg.md#L2308): `#D,#C have same center-x` ([not-connected-things-07.dsl](../layout-gen-rules/not-connected-things-07.dsl))
-- ✓ [Line 2309](gl:docs/dev/layout-gen/layout-alg.md#L2309): `#E is above #F with gap=40` ([not-connected-things-08.dsl](../layout-gen-rules/not-connected-things-08.dsl))
-- ✓ [Line 2310](gl:docs/dev/layout-gen/layout-alg.md#L2310): `#E,#F have same center-x` ([not-connected-things-09.dsl](../layout-gen-rules/not-connected-things-09.dsl))
+- ✓ [Line 2308](gl:docs/dev/layout-gen/layout-alg.md#L2308): `edge #A,#B has type=partof` ([not-connected-things.dsl](../layout-gen-rules/not-connected-things.dsl))
+- ✓ [Line 2309](gl:docs/dev/layout-gen/layout-alg.md#L2309): `edge #D,#C has type=partof` ([not-connected-things-02.dsl](../layout-gen-rules/not-connected-things-02.dsl))
+- ✓ [Line 2310](gl:docs/dev/layout-gen/layout-alg.md#L2310): `edge #E,#F has type=partof` ([not-connected-things-03.dsl](../layout-gen-rules/not-connected-things-03.dsl))
+- ✓ [Line 2311](gl:docs/dev/layout-gen/layout-alg.md#L2311): `#B is below #A with gap=40` ([not-connected-things-04.dsl](../layout-gen-rules/not-connected-things-04.dsl))
+- ✓ [Line 2312](gl:docs/dev/layout-gen/layout-alg.md#L2312): `#A,#B have same center-x` ([not-connected-things-05.dsl](../layout-gen-rules/not-connected-things-05.dsl))
+- ✓ [Line 2313](gl:docs/dev/layout-gen/layout-alg.md#L2313): `#D is above #C with gap=40` ([not-connected-things-06.dsl](../layout-gen-rules/not-connected-things-06.dsl))
+- ✓ [Line 2314](gl:docs/dev/layout-gen/layout-alg.md#L2314): `#D,#C have same center-x` ([not-connected-things-07.dsl](../layout-gen-rules/not-connected-things-07.dsl))
+- ✓ [Line 2315](gl:docs/dev/layout-gen/layout-alg.md#L2315): `#E is above #F with gap=40` ([not-connected-things-08.dsl](../layout-gen-rules/not-connected-things-08.dsl))
+- ✓ [Line 2316](gl:docs/dev/layout-gen/layout-alg.md#L2316): `#E,#F have same center-x` ([not-connected-things-09.dsl](../layout-gen-rules/not-connected-things-09.dsl))
 
 ## Rendered Diagram
 
