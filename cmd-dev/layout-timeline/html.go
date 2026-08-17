@@ -38,6 +38,8 @@ type timelineInput struct {
 	// not per report: splitting the report is what made the cap almost never
 	// bind, and a cap that never binds is the right kind.
 	MaxBytes int
+	// Corpus describes how the diagram set moved since the last report.
+	Corpus []string
 }
 
 // ---- view models -----------------------------------------------------------
@@ -106,6 +108,7 @@ type vmIndex struct {
 	Columns                           []vmColumn
 	QuietTotal                        int
 	QuietList                         []string
+	Corpus                            []string
 }
 
 type vmPage struct {
@@ -203,6 +206,7 @@ func buildIndex(in timelineInput) vmIndex {
 	m := vmIndex{
 		Repo: in.Repo, Sources: in.Sources, Paths: strings.Join(in.Paths, " "),
 		Diagrams: in.Diagrams, Elapsed: in.Elapsed.Round(time.Millisecond).String(), At: in.At,
+		Corpus: in.Corpus,
 	}
 
 	shown := shownColumns(in.Weeks)
@@ -509,6 +513,7 @@ td.date{white-space:nowrap;font-weight:600}
     <b>sources</b><span>{{.Diagrams}} diagrams from {{.Sources}} ({{.Paths}}) — fixed; only the engine moves</span>
     <b>columns</b><span>{{len .WeekLabels}} that moved{{if .QuietTotal}} (+{{.QuietTotal}} with no change, folded in){{end}} · {{.At}} · {{.TotalMoves}} diagram-change(s) · {{.Elapsed}}</span>
   </div>
+  {{range .Corpus}}<div class="note">⚠ {{.}}</div>{{end}}
   <div class="legend">
     <span><i class="cell invariant" style="opacity:1"></i>invariant got worse</span>
     <span><i class="cell structural" style="opacity:1"></i>drawn differently</span>

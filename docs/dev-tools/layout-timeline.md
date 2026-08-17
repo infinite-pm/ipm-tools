@@ -50,6 +50,38 @@ lineage's commits happen" would double-count the rewritten past; slicing by
 lineages of this project the weekly series runs from **2024-12 to today, 89
 columns**, and each says which lineage it came from.
 
+## When the test suite changes
+
+The sources are fixed WITHIN a run and edited between them, so a report is a
+snapshot of a moving target. What that costs, and what it does not:
+
+- **Engine builds survive it.** They are keyed by commit, so a corpus change
+  invalidates none of them. Only the sweep runs again — and it runs on every
+  invocation anyway. There is nothing to invalidate by hand: **re-running is
+  the regeneration**, ~20 s with the builds cached.
+- **The pages are rewritten wholesale**, `w/` and its diagrams included, so a
+  diagram dropped from the suite leaves nothing behind.
+- **What re-running cannot tell you is that it mattered** — so the tool says
+  so. Each run records the diagram set (`corpus.json`: id → content hash) and
+  compares it with the last, reporting on stderr and at the top of the index:
+
+  ```
+  corpus: 1 diagram(s) EDITED since the last report (e.g. examples/deploy-incident.ipmt)
+  — every column's picture of those is now a picture of the new source, so the older
+  columns cannot be compared with an older report
+  ```
+
+  Added and removed are reported too, but **edited** is the one that matters:
+  an added diagram simply has no history, whereas an edited one silently
+  changes what every earlier column's picture is a picture of. Two reports of
+  the same range are only comparable when their corpus fingerprints match.
+
+A note on identity: diagrams with byte-identical sources are collapsed
+(a fixture and the doc block that quotes it), so editing ONE of a pair reads
+as an addition — the surviving id keeps the twin's content, and the edited one
+becomes a diagram in its own right. That is the truth about the set, not a
+miscount.
+
 ## The sources are fixed; only the engine moves
 
 This is the point of the tool. Every column runs the SAME diagrams — so a cell

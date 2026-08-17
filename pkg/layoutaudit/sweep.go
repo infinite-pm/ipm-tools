@@ -41,6 +41,10 @@ type Diagram struct {
 	Line   int // block position within a .md, 0 for a whole file
 	// Aliases are the other places this exact source appears (see dedupe).
 	Aliases []string
+	// Hash is the source's content hash. A report is a snapshot of a MOVING
+	// target — the corpus it swept changes underneath it — and this is what
+	// lets a later run say which diagrams were added, dropped or edited since.
+	Hash string
 }
 
 // skipDirs are never walked: generated output, dependencies, and the audit's
@@ -118,6 +122,41 @@ func Collect(root string, paths []string, srcDir string) ([]Diagram, []string, e
 // are one diagram. Identical source cannot lay out differently: the engine
 // is deterministic. The dropped names are kept on the survivor so the row
 // still says where else it appears.
+// Fingerprint identifies a whole diagram set: which diagrams, at which
+// contents. Two runs with the same fingerprint swept the same corpus.
+func Fingerprint(ds []Diagram) map[string]string {
+	out := make(map[string]string, len(ds))
+	for _, d := range ds {
+		out[d.ID] = d.Hash
+	}
+	return out
+}
+
+// DiffSets says how a corpus moved between two runs: what was added, what
+// went away, and what was edited in place. The last is the one that matters —
+// an edited diagram makes every earlier column's picture of it a picture of
+// something else.
+func DiffSets(was, now map[string]string) (added, removed, edited []string) {
+	for id, h := range now {
+		old, ok := was[id]
+		switch {
+		case !ok:
+			added = append(added, id)
+		case old != h:
+			edited = append(edited, id)
+		}
+	}
+	for id := range was {
+		if _, ok := now[id]; !ok {
+			removed = append(removed, id)
+		}
+	}
+	sort.Strings(added)
+	sort.Strings(removed)
+	sort.Strings(edited)
+	return added, removed, edited
+}
+
 func dedupe(in []Diagram) []Diagram {
 	seen := map[string]int{} // content hash → index in out
 	var out []Diagram
@@ -133,6 +172,7 @@ func dedupe(in []Diagram) []Diagram {
 			continue
 		}
 		seen[sum] = len(out)
+		d.Hash = sum[:12]
 		out = append(out, d)
 	}
 	return out

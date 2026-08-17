@@ -71,6 +71,47 @@ func TestSelectorsAreDeterministicAndBounded(t *testing.T) {
 
 // The fitness corpora hold every case twice (the .ipmt and the generated .md
 // that quotes it). Reporting both doubles every row for no information.
+// A report is a snapshot of a corpus that keeps moving. The set-diff is how a
+// later run can say the old one describes something else — and the case that
+// matters is EDITED, because an edited diagram silently changes what every
+// earlier column's picture is a picture of.
+func TestDiffSetsSeparatesAddedGoneAndEdited(t *testing.T) {
+	was := map[string]string{"keep": "h1", "edit": "h2", "gone": "h3"}
+	now := map[string]string{"keep": "h1", "edit": "CHANGED", "new": "h4"}
+	added, removed, edited := DiffSets(was, now)
+
+	if len(added) != 1 || added[0] != "new" {
+		t.Errorf("added = %v, want [new]", added)
+	}
+	if len(removed) != 1 || removed[0] != "gone" {
+		t.Errorf("removed = %v, want [gone]", removed)
+	}
+	if len(edited) != 1 || edited[0] != "edit" {
+		t.Errorf("edited = %v, want [edit] — an edit is not an add plus a removal", edited)
+	}
+	// A first run has nothing to compare against and must not cry wolf.
+	a, r, e := DiffSets(nil, now)
+	if len(a) != 3 || len(r) != 0 || len(e) != 0 {
+		t.Errorf("against an empty previous set: added=%v removed=%v edited=%v", a, r, e)
+	}
+}
+
+// Dedup must not lose the hash: it is what the drift check compares.
+func TestDedupeKeepsAContentHash(t *testing.T) {
+	dir := t.TempDir()
+	p := filepath.Join(dir, "a.ipmt")
+	if err := os.WriteFile(p, []byte("e1 ::e\n"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	out := dedupe([]Diagram{{ID: "a.ipmt", Path: p}})
+	if len(out) != 1 || out[0].Hash == "" {
+		t.Fatalf("dedupe dropped the content hash: %+v", out)
+	}
+	if got := Fingerprint(out)["a.ipmt"]; got != out[0].Hash {
+		t.Errorf("fingerprint %q does not match the diagram's hash %q", got, out[0].Hash)
+	}
+}
+
 func TestDedupeCollapsesIdenticalSourcesAndKeepsTheName(t *testing.T) {
 	dir := t.TempDir()
 	write := func(name, body string) string {

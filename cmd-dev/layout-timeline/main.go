@@ -212,6 +212,14 @@ func run() int {
 	fmt.Fprintf(os.Stderr, "layout-timeline: %d diagrams from %s, %d snapshots of %s@%s\n",
 		len(diagrams), srcRoot, len(snaps), filepath.Base(repoAbs), rev)
 
+	// A report is a snapshot of a moving target: the corpus it sweeps is
+	// edited between runs, and an EDITED diagram silently changes what every
+	// earlier column's picture is a picture of. Say what moved.
+	corpus := corpusDrift(outAbs, diagrams)
+	for _, line := range corpus {
+		fmt.Fprintln(os.Stderr, "layout-timeline:", line)
+	}
+
 	// PHASE 1 — the slow half: every column's engine, built once and cached by
 	// commit. Splitting it out is what makes the report cheap to regenerate:
 	// a long history is mostly `go build`, and nothing about it changes when
@@ -243,6 +251,7 @@ func run() int {
 		Repo: repoDesc(cfg, repoAbs, rev), Sources: srcRoot, Paths: paths, Diagrams: len(diagrams),
 		Weeks: weeksOut, Elapsed: time.Since(started), At: at + " / " + by, NoSVG: noSVG,
 		Current: current, MaxBytes: maxMB * 1024 * 1024,
+		Corpus: corpus,
 	}
 
 	// One page per column, and an index over them. A single page for a long
@@ -512,6 +521,50 @@ func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagra
 		}
 		prevBin, prevLabel = eng.LayoutGen, s.Label()
 		out = append(out, w)
+	}
+	return out
+}
+
+// corpusDrift compares this run's diagram set with the last one's and
+// describes the difference, then records the new set.
+//
+// It answers the question a changed test suite raises: does the old report
+// still describe anything? Engine builds are keyed by commit and survive a
+// corpus change untouched — only the sweep has to run again, which it does
+// on every invocation anyway. What cannot be recovered by re-running is
+// knowing that it MATTERED, so that is what gets written down.
+func corpusDrift(outAbs string, diagrams []layoutaudit.Diagram) []string {
+	path := filepath.Join(outAbs, "corpus.json")
+	now := layoutaudit.Fingerprint(diagrams)
+
+	var was map[string]string
+	if data, err := os.ReadFile(path); err == nil {
+		_ = json.Unmarshal(data, &was)
+	}
+	defer func() {
+		if data, err := json.MarshalIndent(now, "", " "); err == nil {
+			_ = os.MkdirAll(outAbs, 0o755)
+			_ = os.WriteFile(path, append(data, '\n'), 0o644)
+		}
+	}()
+	if len(was) == 0 {
+		return nil
+	}
+	added, removed, edited := layoutaudit.DiffSets(was, now)
+	if len(added)+len(removed)+len(edited) == 0 {
+		return nil
+	}
+	var out []string
+	if n := len(added); n > 0 {
+		out = append(out, fmt.Sprintf("corpus: %d diagram(s) added since the last report, e.g. %s", n, added[0]))
+	}
+	if n := len(removed); n > 0 {
+		out = append(out, fmt.Sprintf("corpus: %d diagram(s) gone since the last report, e.g. %s", n, removed[0]))
+	}
+	if n := len(edited); n > 0 {
+		out = append(out, fmt.Sprintf("corpus: %d diagram(s) EDITED since the last report (e.g. %s) — "+
+			"every column's picture of those is now a picture of the new source, so the older "+
+			"columns cannot be compared with an older report", n, edited[0]))
 	}
 	return out
 }
