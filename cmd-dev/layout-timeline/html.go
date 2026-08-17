@@ -40,7 +40,13 @@ type timelineInput struct {
 	MaxBytes int
 	// Corpus describes how the diagram set moved since the last report.
 	Corpus []string
+	// Panes maps (diagram, which) to the shared, content-addressed file that
+	// holds that picture.
+	Panes map[string]string
 }
+
+// pane is where one of a row's pictures lives, "" when there is none.
+func (in timelineInput) pane(id, which string) string { return in.Panes[id+"\x00"+which] }
 
 // ---- view models -----------------------------------------------------------
 
@@ -342,6 +348,10 @@ func buildPage(in timelineInput, i int) vmPage {
 		}
 		spent += size
 		row := buildRow(w, c, cur)
+		row.BeforeSrc = in.pane(c.ID, "before")
+		row.AfterSrc = in.pane(c.ID, "after")
+		row.MarkedSrc = in.pane(c.ID, "marked")
+		row.CurrentSrc = in.pane(c.ID, "current")
 		row.History, row.Moves, row.HistPrev, row.HistNext, row.HistPrevLabel, row.HistNextLabel =
 			historyOf(in.Weeks, shownColumns(in.Weeks), c.ID, i)
 		p.Rows = append(p.Rows, row)
@@ -366,18 +376,6 @@ func buildRow(w week, c change, cur []byte) vmRow {
 	if ob != nb {
 		row.Bounds = fmt.Sprintf("%d×%d → %d×%d", ob.Width, ob.Height, nb.Width, nb.Height)
 	}
-	if len(c.OldSVG) > 0 {
-		row.BeforeSrc = "d/" + paneFile(c.ID, "before")
-	}
-	if len(c.NewSVG) > 0 {
-		row.AfterSrc = "d/" + paneFile(c.ID, "after")
-	}
-	if len(c.NewMarked) > 0 {
-		row.MarkedSrc = "d/" + paneFile(c.ID, "marked")
-	}
-	if len(cur) > 0 {
-		row.CurrentSrc = "d/" + paneFile(c.ID, "current")
-	}
 	row.OldWidth, row.NewWidth = layoutaudit.PaneWidths(ob.Width, nb.Width)
 	// The current rendering shares the reference pane's frame, so switching
 	// between "previous" and "current" does not resize the picture.
@@ -399,9 +397,6 @@ func prevOf(w week) string {
 	}
 	return w.SHA + "~1"
 }
-
-// paneFile names one diagram's rendering beside its page.
-func paneFile(id, which string) string { return layoutaudit.Sanitize(id) + "." + which + ".svg" }
 
 // anchor identifies a row within its column's page.
 func anchor(id string) string { return "d-" + layoutaudit.Sanitize(id) }

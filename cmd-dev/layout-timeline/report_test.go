@@ -9,6 +9,15 @@ import (
 	"github.com/infinite-pm/ipm-tools/pkg/layoutdiff"
 )
 
+// panePool stands in for the content-addressed pool a real run writes.
+func panePool(id string, which ...string) map[string]string {
+	out := map[string]string{}
+	for _, w := range which {
+		out[id+"\x00"+w] = "../../panes/" + w + ".svg"
+	}
+	return out
+}
+
 func sampleWeeks() []week {
 	rep := layoutdiff.Report{
 		Tier: layoutdiff.TierStructural, Score: 800,
@@ -64,6 +73,7 @@ func TestColumnPageRenders(t *testing.T) {
 	in := timelineInput{
 		Repo: "/repo", Weeks: sampleWeeks(), At: "week-start",
 		Current: map[string][]byte{"docs/x.md#100": []byte(`<svg viewBox="0 0 10 10"></svg>`)},
+		Panes:   panePool("docs/x.md#100", "before", "after", "marked", "current"),
 	}
 	html := renderPage(in, 1)
 	if strings.Contains(html, "template:") {
@@ -88,7 +98,8 @@ func TestColumnPageRenders(t *testing.T) {
 // A control that does nothing is worse than no control: without a current
 // rendering the left pane offers no switch.
 func TestLeftSwitchOnlyWhenThereIsACurrent(t *testing.T) {
-	html := renderPage(timelineInput{Repo: "/repo", Weeks: sampleWeeks(), At: "week-start"}, 1)
+	html := renderPage(timelineInput{Repo: "/repo", Weeks: sampleWeeks(), At: "week-start",
+		Panes: panePool("docs/x.md#100", "before", "after", "marked")}, 1)
 	if strings.Contains(html, `data-left="current"`) {
 		t.Error("offered a current view with nothing to show")
 	}
@@ -131,7 +142,11 @@ func TestEachRowCarriesItsOwnHistory(t *testing.T) {
 	}
 	// "a" moves in all three columns, "b" only in the middle one.
 	weeks := []week{mk("c1", "a"), mk("c2", "a", "b"), mk("c3", "a")}
-	html := renderPage(timelineInput{Weeks: weeks}, 1)
+	pool := panePool("a", "before", "after", "marked")
+	for k, v := range panePool("b", "before", "after", "marked") {
+		pool[k] = v
+	}
+	html := renderPage(timelineInput{Weeks: weeks, Panes: pool}, 1)
 
 	if !strings.Contains(html, "this diagram moved 3×") {
 		t.Error("the diagram that moved three times does not say so")
@@ -204,7 +219,8 @@ func TestQuietColumnsGetNoPage(t *testing.T) {
 func TestRowWithoutAnOldDiagramIsMarked(t *testing.T) {
 	weeks := sampleWeeks()
 	weeks[1].Changes[0].OldSVG = nil
-	html := renderPage(timelineInput{Weeks: weeks, Diagrams: 1}, 1)
+	html := renderPage(timelineInput{Weeks: weeks, Diagrams: 1,
+		Panes: panePool("docs/x.md#100", "after", "marked")}, 1)
 	if !strings.Contains(html, "no-before") {
 		t.Error("a row with no old SVG is not marked no-before")
 	}
@@ -251,7 +267,8 @@ func TestTheDrawnRowsAreTheOnesShownFirst(t *testing.T) {
 	// Only the first row gets panes, as a limit of 1 would give it.
 	w.Changes[0].OldSVG, w.Changes[0].NewSVG, w.Changes[0].NewMarked = svg, svg, svg
 
-	html := renderPage(timelineInput{Weeks: []week{w}}, 0)
+	html := renderPage(timelineInput{Weeks: []week{w},
+		Panes: panePool("inv", "before", "after", "marked")}, 0)
 	first := strings.Index(html, `id="d-inv"`)
 	if first < 0 {
 		t.Fatal("the most severe row is not on the page")
@@ -274,6 +291,7 @@ func TestCurrentOverlayDoesNotResurrectAnEmptyRow(t *testing.T) {
 	html := renderPage(timelineInput{
 		Weeks:   []week{w},
 		Current: map[string][]byte{"docs/x.md#100": []byte(`<svg viewBox="0 0 10 10"></svg>`)},
+		Panes:   panePool("docs/x.md#100", "current"),
 	}, 0)
 	if strings.Contains(html, `id="d-docs_dev`) || strings.Contains(html, `class="row first`) {
 		t.Error("drew a row whose before and after are both missing")
@@ -291,7 +309,8 @@ func TestPageBudgetPushesRowsToTheList(t *testing.T) {
 	big.NewSVG = []byte(strings.Repeat("x", 4096))
 	big.NewMarked = nil
 	weeks[1].Changes = []change{big, big, big}
-	in := timelineInput{Weeks: weeks, MaxBytes: 5000}
+	in := timelineInput{Weeks: weeks, MaxBytes: 5000,
+		Panes: panePool("docs/x.md#100", "before", "after")}
 	html := renderPage(in, 1)
 	if n := strings.Count(html, `class="row first`); n != 1 {
 		t.Fatalf("drew %d rows, want 1 before the budget bound", n)

@@ -18,6 +18,7 @@
 package main
 
 import (
+	"crypto/sha1"
 	"encoding/json"
 	"flag"
 	"fmt"
@@ -254,6 +255,13 @@ func run() int {
 		Corpus: corpus,
 	}
 
+	panes, written, err := poolPanes(outAbs, weeksOut, current)
+	if err != nil {
+		return fail("write panes: %v", err)
+	}
+	in.Panes = panes
+	fmt.Fprintf(os.Stderr, "layout-timeline: %d pane file(s) written (the rest were already there)\n", written)
+
 	// One page per column, and an index over them. A single page for a long
 	// history is unopenable however carefully it is rationed; this way the
 	// index stays a few kilobytes and each page carries only its own
@@ -268,11 +276,8 @@ func run() int {
 			continue
 		}
 		dir := filepath.Join(outAbs, filepath.FromSlash(pageDir(w.Label)))
-		if err := os.MkdirAll(filepath.Join(dir, "d"), 0o755); err != nil {
+		if err := os.MkdirAll(dir, 0o755); err != nil {
 			return fail("create %s: %v", dir, err)
-		}
-		if err := writePanes(dir, w, current); err != nil {
-			return fail("write panes: %v", err)
 		}
 		if err := os.WriteFile(filepath.Join(dir, "index.html"), []byte(renderPage(in, i)), 0o644); err != nil {
 			return fail("write page: %v", err)
@@ -569,35 +574,58 @@ func corpusDrift(outAbs string, diagrams []layoutaudit.Diagram) []string {
 	return out
 }
 
-// writePanes puts each diagram beside the page that shows it, as its own
-// file.
+// poolPanes writes every distinct picture ONCE, named by its content, and
+// returns where each row's panes live.
 //
-// Inline SVG was costing 7.4 MB and 776 diagrams of DOM on the busiest page —
-// worse than the single page that splitting was meant to cure, because each
-// row carries three or four pictures. As files behind <img loading="lazy">
-// the page is a few hundred bytes per row and the browser decodes only what
-// is on screen.
-func writePanes(dir string, w week, current map[string][]byte) error {
-	for _, c := range w.Changes {
-		for _, f := range []struct {
-			name string
-			data []byte
-		}{
-			{"before", c.OldSVG},
-			{"after", c.NewSVG},
-			{"marked", c.NewMarked},
-			{"current", current[c.ID]},
-		} {
-			if len(f.data) == 0 {
-				continue
+// Two reasons, and the second is the one that matters. Nearly half the
+// pictures are duplicates — a column's "before" IS the previous column's
+// "after" — so content-addressing them roughly halves the file count. And
+// because the name is the content, a re-run writes NOTHING for a picture that
+// has not changed: the report can be regenerated all day without touching the
+// filesystem.
+//
+// That is not a tidiness point. Bulk file generation into this repository's
+// temp/ is the recorded cause of the editor's renderer dying with SIGILL —
+// the workspace watcher stalls the extension host — and writing 2,600 files
+// on every run was walking straight into it.
+func poolPanes(outAbs string, weeks []week, current map[string][]byte) (map[string]string, int, error) {
+	dir := filepath.Join(outAbs, "panes")
+	if err := os.MkdirAll(dir, 0o755); err != nil {
+		return nil, 0, err
+	}
+	refs := map[string]string{}
+	written := 0
+	put := func(id, which string, data []byte) error {
+		if len(data) == 0 {
+			return nil
+		}
+		sum := fmt.Sprintf("%x", sha1.Sum(data))[:12]
+		name := sum + ".svg"
+		refs[id+"\x00"+which] = "../../panes/" + name
+		path := filepath.Join(dir, name)
+		if _, err := os.Stat(path); err == nil {
+			return nil // same bytes, same name: already there
+		}
+		written++
+		return os.WriteFile(path, data, 0o644)
+	}
+	for _, w := range weeks {
+		for _, c := range w.Changes {
+			if err := put(c.ID, "before", c.OldSVG); err != nil {
+				return nil, written, err
 			}
-			path := filepath.Join(dir, "d", paneFile(c.ID, f.name))
-			if err := os.WriteFile(path, f.data, 0o644); err != nil {
-				return err
+			if err := put(c.ID, "after", c.NewSVG); err != nil {
+				return nil, written, err
+			}
+			if err := put(c.ID, "marked", c.NewMarked); err != nil {
+				return nil, written, err
+			}
+			if err := put(c.ID, "current", current[c.ID]); err != nil {
+				return nil, written, err
 			}
 		}
 	}
-	return nil
+	return refs, written, nil
 }
 
 // renderCurrent lays out every diagram that appears in the report with the
