@@ -92,16 +92,25 @@ func PaneWidths(oldW, newW int) (string, string) {
 	if newW > max {
 		max = newW
 	}
-	if max <= 0 {
-		return "100%", "100%"
+	return WidthOf(oldW, max), WidthOf(newW, max)
+}
+
+// WidthOf is one canvas's share of a REFERENCE width.
+//
+// Which reference is the whole question. Within a row it is the wider of the
+// two canvases, so a node that did not move does not appear to. Down a page of
+// versions of ONE diagram it must be the widest canvas on the PAGE: scaled
+// per-row, a 320-wide rendering and a 560-wide one each fill their pane, and
+// the same node comes out nearly twice the size two rows apart — which reads
+// as the engine having resized everything when it did nothing of the sort.
+func WidthOf(w, reference int) string {
+	if reference <= 0 {
+		return "100%"
 	}
-	pct := func(w int) string {
-		if w <= 0 {
-			return "0%"
-		}
-		return fmt.Sprintf("%.2f%%", float64(w)/float64(max)*100)
+	if w <= 0 {
+		return "0%"
 	}
-	return pct(oldW), pct(newW)
+	return fmt.Sprintf("%.2f%%", float64(w)/float64(reference)*100)
 }
 
 // InlineSVG strips the XML declaration so the markup can be embedded in HTML,

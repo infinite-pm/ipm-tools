@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/infinite-pm/ipm-tools/pkg/layout"
+	"github.com/infinite-pm/ipm-tools/pkg/layoutaudit"
 	"github.com/infinite-pm/ipm-tools/pkg/layoutdiff"
 )
 
@@ -1019,5 +1020,59 @@ func TestIndexNamesTheCommitItWasGeneratedAt(t *testing.T) {
 	bare := renderIndex(timelineInput{Weeks: sampleWeeks(), Diagrams: 1})
 	if strings.Contains(bare, "generated at") {
 		t.Error("drew an empty provenance row")
+	}
+}
+
+// Every row on a diagram page is the SAME diagram, so a node must be the same
+// size on all of them.
+//
+// Scaling per row, each row's widest canvas filled the pane: a 320-wide
+// rendering and a 560-wide one both rendered at 100%, so the same node came
+// out nearly twice as large two rows apart. The page read as the engine
+// resizing everything between versions when nothing of the sort happened.
+func TestOneScaleDownADiagramPage(t *testing.T) {
+	svg := []byte(`<svg viewBox="0 0 10 10"></svg>`)
+	mk := func(label string, ow, nw int) week {
+		return week{Label: label, Subject: "s", Changes: []change{{
+			ID: "a", Status: "changed", OldSVG: svg, NewSVG: svg, NewMarked: svg,
+			Report: layoutdiff.Report{
+				Tier: layoutdiff.TierGeometry, Counts: map[string]int{},
+				OldBounds: layout.Bounds{Width: ow, Height: 400},
+				NewBounds: layout.Bounds{Width: nw, Height: 400},
+			}}}}
+	}
+	// The page's widest canvas is 560; every width must be a share of THAT.
+	in := timelineInput{
+		Weeks: []week{mk("c1", 380, 560), mk("c2", 560, 320), mk("c3", 320, 320)},
+		Panes: chainPool("a", "c1", "c2", "c3"),
+	}
+	d := buildDiagram(in, "a")
+	if len(d.Versions) != 3 {
+		t.Fatalf("got %d versions", len(d.Versions))
+	}
+	want := []struct{ old, new string }{
+		{"67.86%", "100.00%"}, // 380/560, 560/560
+		{"100.00%", "57.14%"}, // 560/560, 320/560
+		{"57.14%", "57.14%"},  // 320/560 — NOT 100%, which is the bug
+	}
+	for i, w := range want {
+		if d.Versions[i].OldWidth != w.old || d.Versions[i].NewWidth != w.new {
+			t.Errorf("version %d scaled %s/%s, want %s/%s",
+				i, d.Versions[i].OldWidth, d.Versions[i].NewWidth, w.old, w.new)
+		}
+	}
+	// The narrowest version must NOT fill the pane: that is what made a small
+	// diagram look enormous.
+	if d.Versions[2].NewWidth == "100.00%" {
+		t.Error("the narrowest canvas still fills the pane, so its nodes are oversized")
+	}
+}
+
+// A column page compares two ENGINES over one diagram per row, and rows are
+// different diagrams — so per-row scaling is right there and must not change.
+func TestAColumnPageStillScalesPerRow(t *testing.T) {
+	ow, nw := layoutaudit.PaneWidths(380, 560)
+	if ow != "67.86%" || nw != "100.00%" {
+		t.Errorf("PaneWidths(380,560) = %s/%s, want 67.86%%/100.00%%", ow, nw)
 	}
 }

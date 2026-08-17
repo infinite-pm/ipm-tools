@@ -320,7 +320,14 @@ to show one of them; this carries one, at ~40–80 KB against a column page's
 diagram's history costs no load at all, and every version links back to its
 own column for the rest of that engine's damage.
 
-It is **one column, one version per row** — no reference pane. A column page
+It is **one column, one version per row**, all on ONE SCALE — no reference
+pane. Every row is the same diagram, so a node has to be the same size on all
+of them: widths are a share of the widest canvas on the PAGE, not of the widest
+in each row. Scaled per row, a 320-wide rendering and a 560-wide one each
+filled their pane and the same node came out nearly twice the size two rows
+apart, which reads as the engine having resized everything when it did nothing
+of the sort. (A column page keeps per-row scaling: there each row is a
+different diagram, and the two panes in it are the pair that must register.) A column page
 compares two engines, so it needs two panes side by side; a diagram page
 compares a diagram against ITSELF over time, where the second pane showed a
 picture the page already had one row up. A version's "before" IS the previous

@@ -149,6 +149,9 @@ type vmVersion struct {
 	// Ready-to-paste markdown. Built here rather than in the browser so it can
 	// be tested, and because everything it needs is already in this struct.
 	AgentMD, RegressionMD string
+	// Canvas widths in layout units, kept so the page can scale every version
+	// against its widest. Unexported: the template wants OldWidth/NewWidth.
+	oldW, newW int
 }
 
 // vmDiagram is one diagram's whole life: every column it moved in, on one
@@ -361,7 +364,6 @@ func buildDiagram(in timelineInput, id string) vmDiagram {
 			if ob != nb {
 				bounds = fmt.Sprintf("%d×%d → %d×%d", ob.Width, ob.Height, nb.Width, nb.Height)
 			}
-			ow, nw := layoutaudit.PaneWidths(ob.Width, nb.Width)
 			v := vmVersion{
 				Label: w.Label, Anchor: anchor, Source: w.Source, Repo: w.Snap.Repo,
 				Date: stampDate(w.Snap.Date), EnginePaths: w.Snap.EnginePaths,
@@ -372,8 +374,6 @@ func buildDiagram(in timelineInput, id string) vmDiagram {
 				BeforeSrc:     in.pane(w.Label, id, "before"),
 				AfterSrc:      in.pane(w.Label, id, "after"),
 				MarkedSrc:     in.pane(w.Label, id, "marked"),
-				OldWidth:      ow,
-				NewWidth:      nw,
 				FindingsAdded: c.Report.FindingsAdded,
 				Err:           c.Err,
 			}
@@ -387,6 +387,7 @@ func buildDiagram(in timelineInput, id string) vmDiagram {
 				v.PrevSource, v.PrevRepo = p.Source, p.Repo
 				v.PrevDate = p.Date
 			}
+			v.oldW, v.newW = ob.Width, nb.Width
 			d.Versions = append(d.Versions, v)
 			d.History = append(d.History, vmHistCell{
 				Label: w.Label, Tier: tier, Href: "#" + anchor, Anchor: anchor,
@@ -395,6 +396,22 @@ func buildDiagram(in timelineInput, id string) vmDiagram {
 		}
 	}
 	d.Moves = len(d.Versions)
+	// ONE scale for the whole page. Every row here is the same diagram, so a
+	// node has to be the same size on all of them — otherwise the page reads
+	// as the engine resizing everything between versions when the only thing
+	// that changed was which canvas happened to be widest in that row.
+	widest := 0
+	for _, v := range d.Versions {
+		for _, w := range []int{v.oldW, v.newW} {
+			if w > widest {
+				widest = w
+			}
+		}
+	}
+	for i := range d.Versions {
+		d.Versions[i].OldWidth = layoutaudit.WidthOf(d.Versions[i].oldW, widest)
+		d.Versions[i].NewWidth = layoutaudit.WidthOf(d.Versions[i].newW, widest)
+	}
 	for i := range d.Versions {
 		d.Versions[i].AgentMD = agentMarkdown(d, d.Versions[i], in.Sources)
 		d.Versions[i].RegressionMD = regressionMarkdown(d, d.Versions[i], in.Sources)
