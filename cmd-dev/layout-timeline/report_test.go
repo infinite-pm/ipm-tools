@@ -1,6 +1,7 @@
 package main
 
 import (
+	"strconv"
 	"strings"
 	"testing"
 	"time"
@@ -15,6 +16,22 @@ func panePool(col, id string, which ...string) map[string]string {
 	out := map[string]string{}
 	for _, w := range which {
 		out[col+"\x00"+id+"\x00"+w] = "../../panes/" + col + "-" + w + ".svg"
+	}
+	return out
+}
+
+// chainPool models the real pool's central fact: a column's "after" FILE is
+// the next column's "before" file. Panes are content-addressed, so a diagram
+// that did not move in between renders the same bytes and lands on the same
+// name. Marking the strip relies on exactly this identity, so a fixture that
+// gives every column unrelated filenames tests nothing about it.
+func chainPool(id string, cols ...string) map[string]string {
+	out := map[string]string{}
+	for i, c := range cols {
+		v := func(n int) string { return "../../panes/" + id + "-v" + strconv.Itoa(n) + ".svg" }
+		out[c+"\x00"+id+"\x00before"] = v(i)
+		out[c+"\x00"+id+"\x00after"] = v(i + 1)
+		out[c+"\x00"+id+"\x00marked"] = "../../panes/" + id + "-m" + strconv.Itoa(i) + ".svg"
 	}
 	return out
 }
@@ -581,11 +598,7 @@ func TestStripMarksWhatTheRowIsShowing(t *testing.T) {
 		return w
 	}
 	weeks := []week{mk("c1", "a"), mk("c2", "a"), mk("c3", "a")}
-	pool := merge(
-		panePool("c1", "a", "before", "after", "marked"),
-		panePool("c2", "a", "before", "after", "marked"),
-		panePool("c3", "a", "before", "after", "marked"),
-	)
+	pool := chainPool("a", "c1", "c2", "c3")
 	// Column c2: showing c2 (after) against c1 (before).
 	html := renderPage(timelineInput{Weeks: weeks, Panes: pool}, 1)
 	if n := strings.Count(html, ` now"`); n != 1 {
@@ -614,8 +627,7 @@ func TestTheFirstVersionMarksOnlyOneBox(t *testing.T) {
 	}
 	html := renderPage(timelineInput{
 		Weeks: []week{mk("c1"), mk("c2")},
-		Panes: merge(panePool("c1", "a", "before", "after", "marked"),
-			panePool("c2", "a", "before", "after", "marked")),
+		Panes: chainPool("a", "c1", "c2"),
 	}, 0)
 	if n := strings.Count(html, ` now"`); n != 1 {
 		t.Errorf("%d boxes marked now, want 1", n)
@@ -646,8 +658,24 @@ func TestDiagramStripMovesWithTheScroll(t *testing.T) {
 	if !strings.Contains(html, `id="strip"`) || !strings.Contains(html, `id="histnow"`) {
 		t.Error("the strip has no handle or caption for the script")
 	}
-	if !strings.Contains(html, "IntersectionObserver") {
-		t.Error("nothing tracks which version is on screen")
+	// paneJS ALREADY contains "IntersectionObserver" for its own animation
+	// gating, so asserting on that string passes even when stripJS is not
+	// emitted at all — which is exactly how this shipped mute the first time.
+	// Assert on markers only stripJS can supply.
+	for _, want := range []string{
+		`getElementById("strip")`,
+		`querySelectorAll(".cell[data-col]")`,
+		`classList.add("now")`,
+		`classList.add("seen")`,
+	} {
+		if !strings.Contains(html, want) {
+			t.Errorf("stripJS is not on the page: missing %s", want)
+		}
+	}
+	// A predecessor is marked only when its rendering IS the picture shown,
+	// so both sides of that comparison must reach the page.
+	if !strings.Contains(html, "data-after=") || !strings.Contains(html, "data-before=") {
+		t.Error("the script cannot check whether the predecessor is the before picture")
 	}
 	// The sections the observer watches must exist under those exact ids.
 	for _, id := range []string{`id="c-c1"`, `id="c-c2"`} {
@@ -680,5 +708,48 @@ func TestEveryVersionOffersItsOwnLink(t *testing.T) {
 	}
 	if !strings.Contains(column, "navigator.clipboard") {
 		t.Error("the column page has anchor buttons but no script to serve them")
+	}
+	// …and the styles for them. Hoisting copyCSS to a shared const is only
+	// worth anything if both templates actually emit it.
+	for _, page := range []struct{ name, html string }{{"column", column}, {"diagram", diagram}} {
+		if !strings.Contains(page.html, "button.copy.anchor{") {
+			t.Errorf("%s page renders anchor buttons with no styles for them", page.name)
+		}
+	}
+}
+
+// The box before the current one is the OBVIOUS source of "before" — and not
+// always the true one. A row compared against a column this diagram was
+// skipped in shows a picture no box stands for; a "repaired" row has no
+// before picture at all. Marking a predecessor regardless names the wrong
+// column with total confidence, which is worse than marking nothing.
+func TestNoSeenMarkWhenThePredecessorIsNotWhatIsShown(t *testing.T) {
+	rep := layoutdiff.Report{Tier: layoutdiff.TierGeometry, Counts: map[string]int{}}
+	svg := []byte(`<svg viewBox="0 0 10 10"></svg>`)
+	mk := func(label string) week {
+		return week{Label: label, Changes: []change{{ID: "a", Status: "changed",
+			Report: rep, OldSVG: svg, NewSVG: svg, NewMarked: svg}}}
+	}
+	weeks := []week{mk("c1"), mk("c2")}
+
+	// c2's "before" is a rendering c1 never produced — the chain is broken.
+	pool := chainPool("a", "c1", "c2")
+	pool["c2\x00a\x00before"] = "../../panes/a-from-somewhere-else.svg"
+	html := renderPage(timelineInput{Weeks: weeks, Panes: pool}, 1)
+	if strings.Contains(html, ` seen"`) {
+		t.Error("marked a predecessor whose rendering is not the picture on screen")
+	}
+	if n := strings.Count(html, ` now"`); n != 1 {
+		t.Errorf("%d boxes marked now, want 1 — the shown column is still known", n)
+	}
+
+	// A repaired row has no before picture, so nothing can be its source.
+	repaired := []week{mk("c1"), {Label: "c2", Changes: []change{{ID: "a", Status: "repaired",
+		Report: rep, NewSVG: svg, NewMarked: svg}}}}
+	bare := chainPool("a", "c1", "c2")
+	delete(bare, "c2\x00a\x00before")
+	html = renderPage(timelineInput{Weeks: repaired, Panes: bare}, 1)
+	if strings.Contains(html, ` seen"`) {
+		t.Error("a repaired row has no before picture, but a box was marked as its source")
 	}
 }

@@ -155,6 +155,10 @@ type vmHistCell struct {
 	// Anchor identifies the cell to the script that moves the marks as a
 	// diagram page is scrolled.
 	Anchor string
+	// AfterPane is the file this column rendered. The script marks a
+	// predecessor only when its AfterPane IS the shown version's before —
+	// the same identity check markSeen does for a column page.
+	AfterPane string
 }
 
 type vmIndex struct {
@@ -260,21 +264,34 @@ func historyOf(weeks []week, shown []int, id string, now int) ([]vmHistCell, int
 			nextHref, nextLabel = cell.Href, cell.Label
 		}
 	}
-	// The row shows two pictures, so the strip marks two boxes: the column
-	// being shown, and the one whose rendering is its "before". The first
-	// version a diagram ever had marks only one — its "before" came from a
-	// column in which this diagram did not move, so there is no box for it.
-	markSeen(cells)
 	return cells, len(cells), prevHref, nextHref, prevLabel, nextLabel
 }
 
-// markSeen flags the cell before the current one as the source of "before".
-func markSeen(cells []vmHistCell) {
+// markSeen flags the cell whose rendering IS this row's "before" picture.
+//
+// The cell before the current one is the obvious candidate — a column the
+// diagram did not move in rendered the same picture, so the previous box it
+// DID move in should be where the left-hand image came from. Obvious is not
+// the same as true. A "repaired" row has no before picture at all, and a row
+// can be compared against a column this diagram was skipped in, so the
+// predecessor's rendering is not always the one on screen.
+//
+// Panes are content-addressed, so this is checkable rather than assumable:
+// mark the predecessor only when its "after" file IS this row's "before"
+// file. When it is not, no box stands for what is being shown, and marking
+// one anyway would name the wrong column with total confidence.
+func markSeen(cells []vmHistCell, before string, afterOf func(label string) string) {
+	if before == "" {
+		return
+	}
 	for i := range cells {
-		if cells[i].Now && i > 0 {
-			cells[i-1].Seen = true
-			return
+		if !cells[i].Now {
+			continue
 		}
+		if i > 0 && afterOf(cells[i-1].Label) == before {
+			cells[i-1].Seen = true
+		}
+		return
 	}
 }
 
@@ -341,7 +358,8 @@ func buildDiagram(in timelineInput, id string) vmDiagram {
 			}
 			d.Versions = append(d.Versions, v)
 			d.History = append(d.History, vmHistCell{
-				Label: w.Label, Tier: tier, Href: "#" + anchor, Anchor: anchor})
+				Label: w.Label, Tier: tier, Href: "#" + anchor, Anchor: anchor,
+				AfterPane: in.pane(w.Label, id, "after")})
 			break
 		}
 	}
@@ -504,6 +522,9 @@ func buildPage(in timelineInput, i int) vmPage {
 		row.CurrentSrc = in.pane(w.Label, c.ID, "current")
 		row.History, row.Moves, row.HistPrev, row.HistNext, row.HistPrevLabel, row.HistNextLabel =
 			historyOf(in.Weeks, shownColumns(in.Weeks), c.ID, i)
+		markSeen(row.History, row.BeforeSrc, func(label string) string {
+			return in.pane(label, c.ID, "after")
+		})
 		p.Rows = append(p.Rows, row)
 	}
 	return p
@@ -771,6 +792,7 @@ nav a{color:var(--muted)}
 .steps{margin-left:auto;display:flex;gap:12px;font-size:12px}
 .steps a{color:var(--muted)}
 .steps .off{color:var(--line)}
+{{copyCSS}}
 </style></head><body>
 <header>
   <h1>{{.Label}} {{if .Source}}<span class="pill">{{.Source}}</span>{{end}}
@@ -880,10 +902,18 @@ button.copy.anchor[data-state]{opacity:1;font-size:11px;background:#3b4148;borde
 const copyJS = `
 (function () {
   function flash(btn, state, ok) {
-    var was = btn.innerHTML;
+    // Capture the label ONCE. A second click inside the 1400ms window would
+    // otherwise capture the already-swapped text and restore "copied"
+    // permanently, leaving the button wearing its own feedback.
+    if (btn._label === undefined) { btn._label = btn.innerHTML; }
+    if (btn._t) { clearTimeout(btn._t); }
     btn.dataset.state = state;
     btn.textContent = ok;
-    setTimeout(function () { btn.innerHTML = was; delete btn.dataset.state; }, 1400);
+    btn._t = setTimeout(function () {
+      btn.innerHTML = btn._label;
+      delete btn.dataset.state;
+      btn._t = null;
+    }, 1400);
   }
   // A link to THIS page at THIS anchor. Built from the address bar so it is
   // correct under file:// and under a served copy alike, and with any
@@ -970,11 +1000,18 @@ const stripJS = `
     }
     if (at < 0) { return; }
     cells[at].classList.add("now");
-    if (at > 0) { cells[at - 1].classList.add("seen"); }
+    // Mark a predecessor only if its rendering IS the picture on screen.
+    // Panes are content-addressed, so equal filename means equal bytes; an
+    // unequal one means no box stands for this "before", and marking one
+    // would name the wrong column with total confidence.
+    var before = best.dataset.before || "";
+    var prev = at > 0 ? cells[at - 1] : null;
+    var paired = prev && before && prev.dataset.after === before;
+    if (paired) { prev.classList.add("seen"); }
     if (caption) {
-      caption.textContent = at > 0
-        ? "showing " + cells[at - 1].dataset.label + " \u2192 " + cells[at].dataset.label
-        : "showing " + cells[at].dataset.label + " (its first)";
+      caption.textContent = paired
+        ? "showing " + prev.dataset.label + " \u2192 " + cells[at].dataset.label
+        : "showing " + cells[at].dataset.label + (before ? "" : " (nothing before it)");
     }
   }
 
@@ -1057,7 +1094,7 @@ table.ch td,table.ch th{text-align:left;padding:2px 10px 2px 0;vertical-align:to
   </nav>
   <div class="hist" id="strip">
     <span class="histlabel">this diagram moved {{.Moves}}×</span>
-    {{range .History}}<a class="cell {{tier .Tier}}" href="{{.Href}}" data-col="{{.Anchor}}" data-label="{{.Label}}" title="{{.Label}} · {{.Tier}}"></a>{{end}}
+    {{range .History}}<a class="cell {{tier .Tier}}" href="{{.Href}}" data-col="{{.Anchor}}" data-label="{{.Label}}" data-after="{{.AfterPane}}" title="{{.Label}} · {{.Tier}}"></a>{{end}}
     <span class="histnow" id="histnow"></span>
   </div>
   {{if .IPMT}}<details class="srcbox">
@@ -1070,7 +1107,7 @@ table.ch td,table.ch th{text-align:left;padding:2px 10px 2px 0;vertical-align:to
 </header>
 <main>
 {{range .Versions}}
-<section class="row first{{if not .BeforeSrc}} no-before{{end}}" id="{{.Anchor}}">
+<section class="row first{{if not .BeforeSrc}} no-before{{end}}" id="{{.Anchor}}" data-before="{{.BeforeSrc}}">
   <div class="rowhead">
     <span class="id">{{.Label}}</span>
     {{if .Source}}<span class="pill">{{.Source}}</span>{{end}}
@@ -1107,6 +1144,8 @@ table.ch td,table.ch th{text-align:left;padding:2px 10px 2px 0;vertical-align:to
 {{paneJS}}
 
 {{copyJS}}
+
+{{stripJS}}
 </script>
 </body></html>
 `))
