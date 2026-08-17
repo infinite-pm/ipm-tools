@@ -10,6 +10,7 @@ package layoutaudit
 // itself. It costs nothing measurable: a full corpus sweep is ~1s per engine.
 
 import (
+	"bytes"
 	"crypto/sha1"
 	"encoding/json"
 	"fmt"
@@ -281,6 +282,50 @@ func Sweep(diagrams []Diagram, oldBin, newBin string) []Pair {
 // running an editor and a language server has other work to do.
 func SweepN(diagrams []Diagram, oldBin, newBin string, workers int) []Pair {
 	pairs := make([]Pair, len(diagrams))
+	forEachDiagram(len(diagrams), workers, func(i int) {
+		d := diagrams[i]
+		pairs[i] = Pair{Diagram: d, Old: RunEngine(oldBin, d), New: RunEngine(newBin, d)}
+	})
+	return pairs
+}
+
+// SweepOne runs ONE engine over every diagram.
+//
+// A timeline compares CONSECUTIVE engines, so engine k is the "new" side of its
+// own column and the "old" side of the next. Sweeping a pair at a time ran
+// every engine over the whole corpus twice — about half of all the work in a
+// run, spent re-deriving an answer computed one column earlier. Keeping the
+// result instead needs no cache and no key: it is the same binary over the same
+// bytes, inside one process, and RunEngine holds no state between calls.
+func SweepOne(diagrams []Diagram, bin string, workers int) []Generated {
+	out := make([]Generated, len(diagrams))
+	forEachDiagram(len(diagrams), workers, func(i int) {
+		out[i] = RunEngine(bin, diagrams[i])
+	})
+	return out
+}
+
+// PairUp joins two sweeps of the SAME diagram list into the pairs a report
+// reads. Index i is diagrams[i] in both, because both came from that slice.
+func PairUp(diagrams []Diagram, old, next []Generated) []Pair {
+	pairs := make([]Pair, len(diagrams))
+	for i := range diagrams {
+		p := Pair{Diagram: diagrams[i]}
+		if i < len(old) {
+			p.Old = old[i]
+		}
+		if i < len(next) {
+			p.New = next[i]
+		}
+		pairs[i] = p
+	}
+	return pairs
+}
+
+// forEachDiagram runs fn over every index, on a bounded pool. One process per
+// diagram is deliberate — see the note at the top of this file on crash
+// isolation — so the pool bounds how many exist at once.
+func forEachDiagram(n, workers int, fn func(int)) {
 	if workers <= 0 {
 		workers = runtime.NumCPU()
 		if workers > 8 {
@@ -297,15 +342,34 @@ func SweepN(diagrams []Diagram, oldBin, newBin string, workers int) []Pair {
 		go func() {
 			defer wg.Done()
 			for i := range jobs {
-				d := diagrams[i]
-				pairs[i] = Pair{Diagram: d, Old: RunEngine(oldBin, d), New: RunEngine(newBin, d)}
+				fn(i)
 			}
 		}()
 	}
-	for i := range diagrams {
+	for i := 0; i < n; i++ {
 		jobs <- i
 	}
 	close(jobs)
 	wg.Wait()
-	return pairs
+}
+
+// Deterministic reports whether an engine gives the same answer twice for one
+// diagram.
+//
+// The whole premise of a timeline is that a cell means THE ENGINE changed the
+// picture. An engine that does not agree with itself breaks that silently: its
+// columns report a different set of moved diagrams on every run, and nothing
+// in the report says so. Some genuinely do not — the 2025 `25.09-layout-v2`
+// layout-gen returns four distinct outputs in five runs on one input, from map
+// iteration order — and that is a fact about the history, unfixable now, which
+// makes saying it the only honest option.
+//
+// Two executions of one diagram, so the probe costs nothing worth measuring.
+func Deterministic(bin string, d Diagram) bool {
+	a := RunEngine(bin, d)
+	if a.Err != "" || len(a.JSON) == 0 {
+		return true // nothing to disagree about; a failure is reported elsewhere
+	}
+	b := RunEngine(bin, d)
+	return bytes.Equal(a.JSON, b.JSON)
 }

@@ -83,7 +83,7 @@ func run() int {
 		by, enginePaths, rev, sources      string
 		configPath                         string
 		days, weeks, limitPerWeek          int
-		headCommits                        int
+		headCommits, sweepJobs             int
 		list, noSVG, verbose, head         bool
 		buildOnly, showExample             bool
 		jobs, maxMB                        int
@@ -96,7 +96,8 @@ func run() int {
 	flag.StringVar(&configPath, "config", "", "history config naming the lineages to walk (default: "+DefaultConfigName+" beside --repo, when present)")
 	flag.BoolVar(&showExample, "config-example", false, "print a config to start from, and exit")
 	flag.BoolVar(&buildOnly, "build-only", false, "PHASE 1: resolve the columns and build every engine into the cache, then stop — the report run afterwards is sweeps only")
-	flag.IntVar(&jobs, "jobs", 2, "parallel engine builds AND sweep workers. A long history spawns tens of thousands of processes; this is the knob for a machine that is also running an editor")
+	flag.IntVar(&jobs, "jobs", 2, "parallel engine BUILDS. Each one fans out to a full `go build`, so this is the memory-hungry half and the knob for a machine that is also running an editor")
+	flag.IntVar(&sweepJobs, "sweep-jobs", 0, "parallel SWEEP workers (0 = up to 8, by CPU count). Sweeping is thousands of short-lived processes rather than a few large compiles, so it scales differently from --jobs and is no longer governed by it")
 	flag.IntVar(&maxMB, "max-mb", 8, "cap ONE COLUMN PAGE's inlined diagrams, in MB (0 = no cap)")
 	flag.StringVar(&rev, "rev", "HEAD", "branch, tag or commit whose history is walked — the series worth seeing is often on a branch nobody has checked out")
 	flag.StringVar(&sources, "sources", "", "directory to take the DIAGRAMS from (default: --repo). Point it at another checkout to run an old engine over today's diagrams")
@@ -246,7 +247,7 @@ func run() int {
 	}
 
 	// PHASE 2 — sweeps and the report, off the cached binaries.
-	weeksOut := compare(repoAbs, cacheAbs, snaps, diagrams, limitPerWeek, noSVG, verbose, jobs)
+	weeksOut := compare(repoAbs, cacheAbs, snaps, diagrams, limitPerWeek, noSVG, verbose, jobs, sweepJobs)
 
 	// Every column can also be compared against TODAY, not only against the
 	// column before it: "what did this week look like next to what we ship
@@ -254,7 +255,7 @@ func run() int {
 	// sweep with the newest engine answers it for every row.
 	current := map[string][]byte{}
 	if !noSVG {
-		current = renderCurrent(repoAbs, cacheAbs, snaps, diagrams, weeksOut, jobs, verbose)
+		current = renderCurrent(repoAbs, cacheAbs, snaps, diagrams, weeksOut, sweepJobs, verbose)
 	}
 
 	if err := os.MkdirAll(outAbs, 0o755); err != nil {
@@ -511,9 +512,14 @@ func plan(repo, rev, since, until string, weeks int) ([]time.Time, error) {
 // Streaming on purpose: only two sweeps are ever held at once, so the memory
 // cost does not grow with the number of weeks.
 func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagram,
-	limitPerWeek int, noSVG, verbose bool, jobs int) []week {
+	limitPerWeek int, noSVG, verbose bool, jobs, sweepJobs int) []week {
 	var out []week
-	var prevBin string   // the newest engine successfully built so far
+	// The newest engine that built, as its RESULTS rather than its path. Each
+	// engine is the "new" side of its own column and the "old" side of the
+	// next, so sweeping pairs ran every one over the whole corpus twice —
+	// about half the work in a run. Keeping the output costs nothing to be
+	// sure of: same binary, same bytes, same process.
+	var prevGen []layoutaudit.Generated
 	var prevLabel string // the week that engine came from
 	var lastSeen string  // the previous snapshot that resolved to a commit
 
@@ -529,21 +535,22 @@ func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagra
 				out = append(out, w)
 				continue
 			}
-			if prevBin == "" {
+			gen := layoutaudit.SweepOne(diagrams, eng.LayoutGen, sweepJobs)
+			noteNondeterministic(&w, eng.LayoutGen, diagrams)
+			if prevGen == nil {
 				w.Note = "first engine in range — nothing to compare against"
-				prevBin, prevLabel = eng.LayoutGen, s.Label()
+				prevGen, prevLabel = gen, s.Label()
 				out = append(out, w)
 				continue
 			}
 			w.Against = prevLabel
-			collect(&w, layoutaudit.SweepN(diagrams, prevBin, eng.LayoutGen, jobs),
-				limitPerWeek, noSVG)
+			collect(&w, layoutaudit.PairUp(diagrams, prevGen, gen), limitPerWeek, noSVG)
 			noteQuietEngine(&w, s)
 			if verbose {
 				fmt.Fprintf(os.Stderr, "layout-timeline: %s — %d changed, %d identical\n",
 					s.Label(), len(w.Changes), w.Identical)
 			}
-			prevBin, prevLabel = eng.LayoutGen, s.Label()
+			prevGen, prevLabel = gen, s.Label()
 			out = append(out, w)
 			continue
 		case s.SHA == "":
@@ -575,9 +582,11 @@ func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagra
 			out = append(out, w)
 			continue
 		}
-		if prevBin == "" {
+		gen := layoutaudit.SweepOne(diagrams, eng.LayoutGen, sweepJobs)
+		noteNondeterministic(&w, eng.LayoutGen, diagrams)
+		if prevGen == nil {
 			w.Note = "first engine in range — nothing to compare against"
-			prevBin, prevLabel = eng.LayoutGen, s.Label()
+			prevGen, prevLabel = gen, s.Label()
 			out = append(out, w)
 			continue
 		}
@@ -586,13 +595,13 @@ func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagra
 		// unbuildable stretch is older than one week. The report says so
 		// rather than letting the column imply a seven-day span.
 		w.Against = prevLabel
-		collect(&w, layoutaudit.SweepN(diagrams, prevBin, eng.LayoutGen, jobs), limitPerWeek, noSVG)
+		collect(&w, layoutaudit.PairUp(diagrams, prevGen, gen), limitPerWeek, noSVG)
 		noteQuietEngine(&w, s)
 		if verbose {
 			fmt.Fprintf(os.Stderr, "layout-timeline: %s — %d changed, %d identical\n",
 				s.Label(), len(w.Changes), w.Identical)
 		}
-		prevBin, prevLabel = eng.LayoutGen, s.Label()
+		prevGen, prevLabel = gen, s.Label()
 		out = append(out, w)
 	}
 	return out
@@ -765,7 +774,7 @@ func poolPanes(outAbs string, weeks []week, current map[string][]byte) (map[stri
 // what it looked like then. One sweep, and only the diagrams that actually
 // changed somewhere are rendered.
 func renderCurrent(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagram,
-	weeks []week, jobs int, verbose bool) map[string][]byte {
+	weeks []week, sweepJobs int, verbose bool) map[string][]byte {
 	var tip snapshot
 	for i := len(snaps) - 1; i >= 0; i-- {
 		if snaps[i].SHA != "" || snaps[i].Workdir {
@@ -806,15 +815,54 @@ func renderCurrent(repo, cache string, snaps []snapshot, diagrams []layoutaudit.
 		}
 	}
 	out := map[string][]byte{}
-	for _, p := range layoutaudit.SweepN(subset, eng.LayoutGen, eng.LayoutGen, jobs) {
-		if p.New.Graph == nil {
+	// One engine, one execution per diagram. This passed eng.LayoutGen as BOTH
+	// sides of a pair sweep, so every diagram was laid out twice and half the
+	// results thrown away unread.
+	for i, g := range layoutaudit.SweepOne(subset, eng.LayoutGen, sweepJobs) {
+		if g.Graph == nil {
 			continue
 		}
-		if svg, err := ipmsvg.Render(p.New.Graph); err == nil {
-			out[p.Diagram.ID] = svg
+		if svg, err := ipmsvg.Render(g.Graph); err == nil {
+			out[subset[i].ID] = svg
 		}
 	}
 	return out
+}
+
+// noteNondeterministic marks a column whose engine does not agree with itself.
+//
+// A cell in this report is supposed to mean the ENGINE changed the picture.
+// An engine that returns a different layout for the same bytes breaks that
+// without saying anything: its column reports a different set of moved
+// diagrams on every run, and a reader comparing two reports sees churn that
+// never happened. Some old engines genuinely are this way and cannot be fixed
+// now, so the column says it instead of implying otherwise.
+func noteNondeterministic(w *week, bin string, diagrams []layoutaudit.Diagram) {
+	// SAMPLE, don't test one. Nondeterminism is input-dependent — an engine
+	// that shuffles a map only shows it on a diagram big enough to have
+	// something to shuffle. Probing diagrams[0] alone found one of the two
+	// engines that are actually unstable here. A spread of a few costs six
+	// executions against the thousands a column already runs.
+	if len(diagrams) == 0 {
+		return
+	}
+	steady := true
+	for _, i := range []int{0, len(diagrams) / 3, len(diagrams) / 2, 2 * len(diagrams) / 3, len(diagrams) - 1} {
+		if i < len(diagrams) && !layoutaudit.Deterministic(bin, diagrams[i]) {
+			steady = false
+			break
+		}
+	}
+	if steady {
+		return
+	}
+	const msg = "⚠ this engine is NOT deterministic — it returns a different layout for the " +
+		"same source, so which diagrams this column reports as moved varies between runs"
+	if w.Note == "" {
+		w.Note = msg
+	} else {
+		w.Note += " · " + msg
+	}
 }
 
 // noteQuietEngine says so when engine commits landed in a column and no

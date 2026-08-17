@@ -365,7 +365,8 @@ ship") belongs to a column page.
 | `--config` | `layout-history.json` beside `--repo` | the lineages to chain; absent = a single repository |
 | `--config-example` | | print a config to start from |
 | `--build-only` | off | phase 1: build every engine into the cache, then stop |
-| `--jobs` | `2` | parallel builds AND sweep workers |
+| `--jobs` | `2` | parallel engine BUILDS (the memory-hungry half: each is a full `go build`) |
+| `--sweep-jobs` | `0` | parallel SWEEP workers (0 = up to 8, by CPU) — thousands of tiny processes, so it scales differently from builds |
 | `--max-mb` | `8` | stop inlining panes past this size (0 = no limit) |
 | `--repo` | `.` | repository whose history is walked and whose engines are built |
 | `--rev` | `HEAD` | branch, tag or commit to walk — the series worth seeing is often on a branch nobody has checked out |
@@ -384,11 +385,50 @@ ship") belongs to a column page.
 | `--out` | `temp/layout-timeline` | report + extracted block sources |
 | `--cache` | `~/.cache/ipm-layout-engines` | built engines, shared with layout-audit |
 
+## When an engine does not agree with itself
+
+A cell here means **the engine changed the picture**. An engine that returns a
+different layout for the same bytes breaks that silently: its column reports a
+different set of moved diagrams on every run, and two reports of the same range
+show churn that never happened.
+
+Some old engines genuinely are this way. The 2025 `25.09-layout-v2` layout-gen
+returns **four distinct outputs in five runs** on one input — map iteration
+order, unfixable now. So each column probes its engine on a spread of diagrams
+and says so when it is unstable:
+
+```
+⚠ this engine is NOT deterministic — it returns a different layout for the same
+source, so which diagrams this column reports as moved varies between runs
+```
+
+Sampling rather than testing one diagram matters: nondeterminism is
+input-dependent, and probing only the first diagram found one of the two
+unstable engines in this history.
+
 ## Cost
 
-311 diagrams × 13 weekly engines: **~9 s** cold (six distinct engines to build),
-**~1.5 s** with the cache warm. Only two sweeps are held in memory at a time,
-so the cost does not grow with the number of columns.
+Measured on 313 diagrams × 32 columns, 16 CPUs, from an EMPTY cache:
+
+| | wall | |
+|---|---|---|
+| phase 1 — build 24 engines | **17.3 s** | ~1 s once cached |
+| phase 2 — sweep, render, write | **13.9 s** | never cached |
+| **total from absolute scratch** | **~31 s** | |
+
+Phase 2 is ~98% sweeping: rendering every pane costs about a second, and the
+rest is short-lived engine processes. It used to be 48 s, and the fix was not
+a cache — it was to stop doing the work twice. Each engine is the "new" side of
+its own column and the "old" side of the next, so sweeping PAIRS ran every
+engine over the whole corpus twice; `SweepOne` keeps the result instead
+(1.8× at the same worker count, and ~half the CPU). `renderCurrent` separately
+passed one binary as both sides of a pair and discarded half the output.
+
+**There is no sweep cache, deliberately.** The expensive half — the builds —
+is already cached by commit SHA, which is the half that is genuinely
+repeatable. What remains is seconds, and a `(engine, diagram)` result cache
+would be worth exactly nothing on the two columns that change while you
+iterate: the working tree and HEAD.
 
 A long history costs its builds: 311 diagrams × **86** engine commits from
 `pre-ipm-tools@main-pre1` took **3 minutes** cold, most of it `go build`. The

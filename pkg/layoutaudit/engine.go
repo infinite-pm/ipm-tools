@@ -15,6 +15,7 @@ import (
 	"os/exec"
 	"path/filepath"
 	"strings"
+	"sync"
 )
 
 // WorkdirRef names the working tree as a pseudo-ref, so a caller can accept
@@ -272,11 +273,19 @@ func ensureMergeTool(cache string, o BuildOptions) (string, error) {
 	if !mentionsMerge(o.Pipeline) {
 		return "", nil
 	}
-	path := filepath.Join(cache, "tools", "ipmt-name-merge")
-	if _, err := os.Stat(path); err == nil {
-		return path, nil
+	mergeMu.Lock()
+	defer mergeMu.Unlock()
+	if p, done := mergeBuilt[cache]; done {
+		return p, nil
 	}
+
+	path := filepath.Join(cache, "tools", "ipmt-name-merge")
 	if o.Tools == "" {
+		// Nothing to build from. An existing one still beats failing the run.
+		if _, err := os.Stat(path); err == nil {
+			mergeBuilt[cache] = path
+			return path, nil
+		}
 		return "", fmt.Errorf("this era's recipe uses {merge} but no Tools module was given to build it from")
 	}
 	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
@@ -285,8 +294,23 @@ func ensureMergeTool(cache string, o BuildOptions) (string, error) {
 	if msg, err := goBuildOne(o.Tools, path, "./cmd-dev/ipmt-name-merge"); err != nil {
 		return "", fmt.Errorf("build ipmt-name-merge in %s: %v\n%s", o.Tools, err, msg)
 	}
+	mergeBuilt[cache] = path
 	return path, nil
 }
+
+// mergeBuilt records which caches have had the helper rebuilt in THIS process.
+//
+// It used to be an exists-check with no invalidation, which is a different
+// thing entirely: the helper is built from today's ipm-tools, so editing it
+// left every era column running a binary from whenever the cache was first
+// populated — the engines beside it are keyed by commit and cannot go stale,
+// but this one silently could. Rebuilding once per run costs one small
+// compile and removes the whole class; the map is what keeps it ONE, across
+// the parallel builds of a long history.
+var (
+	mergeMu    sync.Mutex
+	mergeBuilt = map[string]string{}
+)
 
 // shellQuote makes a path safe to drop into the generated /bin/sh recipe.
 func shellQuote(s string) string {
