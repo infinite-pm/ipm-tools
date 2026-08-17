@@ -88,14 +88,6 @@ func (g *graph) place(m *membership, gp *groupsPlan, sp *skeletonPlan) {
 				return
 			}
 			pn := g.nodes[parent]
-			axis := pn.x + pn.w + gp.rightExt[parent] + ColGap
-			colPad := 0
-			for _, s := range sp.subStacks[parent] {
-				if gp.leftExt[s] > colPad {
-					colPad = gp.leftExt[s] // the GRID reserves the widest flank once
-				}
-			}
-			axis += colPad
 			rowH, rowGapAt := g.subGridRowMetrics(parent, sp, gp)
 			total := 0
 			for ri := range rows {
@@ -104,45 +96,21 @@ func (g *graph) place(m *membership, gp *groupsPlan, sp *skeletonPlan) {
 				}
 				total += rowH[ri]
 			}
-			// rows CENTRE on the grid's midline (v7P3: forks spread
-			// symmetrically — the fork parent sits over its branches'
-			// midpoint, the join lands back under it; a plain column's
-			// equal rows keep one line). The midline is measured over the
-			// BOXES only — a hanging nested grid or a side band trails
-			// off the right without pushing its owner off the corridor.
-			// Grid-snapped per v7P8.
-			rowW := make([]int, len(rows))
-			gridW := 0
-			for ri, row := range rows {
-				w := 0
-				for i, s := range row {
-					if i > 0 {
-						w += ColGap + gp.leftExt[s]
-					}
-					w += g.nodes[s].w
-				}
-				rowW[ri] = w
-				if w > gridW {
-					gridW = w
-				}
-			}
+			// X per sub-event is one function of the parent's LEFT edge —
+			// g.subSlotX — shared with the skeleton, which lanes a
+			// successor reached THROUGH a sub-event under that sub-event.
+			slot := g.subSlotX(parent, sp, gp)
 			sy := pn.y + pn.h/2 - total/2
 			for ri, row := range rows {
 				if ri > 0 {
 					sy += rowGapAt[ri] - RowGap // the hang-grown share
 				}
-				off := ((gridW-rowW[ri])/2 + GridStep/2) / GridStep * GridStep
-				x := axis + off
-				for i, s := range row {
+				for _, s := range row {
 					sn := g.nodes[s]
-					if i > 0 {
-						x += gp.leftExt[s]
-					}
-					sn.x = x
+					sn.x = pn.x + slot[s]
 					sn.y = sy
 					sn.placed = true
 					placeSubs(s)
-					x += sn.w + gp.rightExt[s] + g.subColumnWidth(s, sp, gp) + ColGap
 				}
 				sy += rowH[ri] + RowGap
 			}
@@ -1429,4 +1397,61 @@ func (g *graph) addBoundaryEdge(from, to int) {
 	g.edges = append(g.edges, e)
 	g.out[from] = append(g.out[from], e)
 	g.in[to] = append(g.in[to], e)
+}
+
+// subSlotX returns, for every sub-event of a composite, the x of its LEFT
+// edge relative to the composite's left edge — the one arithmetic of the
+// sub-grid's columns, used by placeSubs (place time) and by the skeleton
+// (lane time: a successor reached through a sub-event is laned under it,
+// v7P3 "the edge wants to be one vertical line").
+//
+// The grid's axis is one column gap right of the composite's box and its
+// right aux band, plus the widest sub left flank once; rows CENTRE on the
+// grid's midline (v7P3: forks spread symmetrically — the fork parent sits
+// over its branches' midpoint, the join lands back under it; a plain
+// column's equal rows keep one line). The midline is measured over the
+// BOXES only — a hanging nested grid or a side band trails off the right
+// without pushing its owner off the corridor. Grid-snapped per v7P8.
+func (g *graph) subSlotX(parent int, sp *skeletonPlan, gp *groupsPlan) map[int]int {
+	rows := sp.subRows[parent]
+	out := map[int]int{}
+	if len(rows) == 0 {
+		return out
+	}
+	pn := g.nodes[parent]
+	axis := pn.w + gp.rightExt[parent] + ColGap
+	colPad := 0
+	for _, s := range sp.subStacks[parent] {
+		if gp.leftExt[s] > colPad {
+			colPad = gp.leftExt[s] // the GRID reserves the widest flank once
+		}
+	}
+	axis += colPad
+	rowW := make([]int, len(rows))
+	gridW := 0
+	for ri, row := range rows {
+		w := 0
+		for i, s := range row {
+			if i > 0 {
+				w += ColGap + gp.leftExt[s]
+			}
+			w += g.nodes[s].w
+		}
+		rowW[ri] = w
+		if w > gridW {
+			gridW = w
+		}
+	}
+	for ri, row := range rows {
+		off := ((gridW-rowW[ri])/2 + GridStep/2) / GridStep * GridStep
+		x := axis + off
+		for i, s := range row {
+			if i > 0 {
+				x += gp.leftExt[s]
+			}
+			out[s] = x
+			x += g.nodes[s].w + gp.rightExt[s] + g.subColumnWidth(s, sp, gp) + ColGap
+		}
+	}
+	return out
 }

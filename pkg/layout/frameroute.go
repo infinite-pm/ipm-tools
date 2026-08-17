@@ -61,10 +61,11 @@ const (
 	grazeBoundaryMult  = 3.0 // P8 (ee960980): hugging S or E is prohibitive — boundaries weigh triple
 	overlapCost        = 1.0 // dcc3ebf4: a covered line is a crossing you cannot even see — priced as one
 	detourTaxOver      = 1.5
-	frameLaneSep       = 10 // px, route.go's LaneSep: half of layout7's 20px grid step
-	frameLaneMinShare  = 16 // two runs closer than LaneSep for longer than this share a lane
-	frameHugRun        = 20 // a segment beside its OWN box for longer than this is a rail, not an arrival
-	frameBoundaryClear = 20 // S/E keep a full grid step of air (P8: hugging a boundary is prohibitive)
+	hairpinCost        = 0.5 // a turn sharper than a right angle: the line overshoots and comes back — half a crossing, like a graze
+	frameLaneSep       = 10  // px, route.go's LaneSep: half of layout7's 20px grid step
+	frameLaneMinShare  = 16  // two runs closer than LaneSep for longer than this share a lane
+	frameHugRun        = 20  // a segment beside its OWN box for longer than this is a rail, not an arrival
+	frameBoundaryClear = 20  // S/E keep a full grid step of air (P8: hugging a boundary is prohibitive)
 	// A tie longer than this hides regardless of how cleanly it could be
 	// drawn. At 100% zoom a screen is ~1600 css px, and a 120x60 label stays
 	// legible to about 50%, so ~3200px is the longest span whose two ends can
@@ -89,7 +90,7 @@ type FrameRouteStats struct {
 	Routed      int // edges given bends
 	Straight    int // edges left straight (clear, or unroutable and drawn least-bad)
 	Hidden      int // edges set to Visibility "stubbed" here
-	Refaced     int // U-turn edges drawn on re-faced ports (both sides re-chosen on the final boxes)
+	Refaced     int // edges drawn on re-faced ports (a stale side re-chosen on the final boxes)
 	Separated   int // lane shifts applied
 	Unseparated int // overlaps that could not be shifted without a new fault
 	// The bounding box every drawn route needs, ports and bends included.
@@ -324,17 +325,18 @@ func RouteFrameEdges(g *Graph) FrameRouteStats {
 
 		chosen, cost, leastBad, leastBadCost := evalEnds(ends[i])
 
-		// A U-TURN edge — both ports face AWAY from the partner, because the
-		// frame moved the boxes after the engine chose the sides (A pod was
-		// stacked over a process, then set beside it: the near-to left the
-		// pod's bottom, ran under both, and climbed into the process's top) —
-		// is also tried on re-faced ports, the sides pickPortSide names on
-		// the FINAL boxes. The re-faced pair wins only when it routes at
-		// least as well: a re-facing pass that ran blind before the router
-		// hid 36 more edges in the reasoning corpus, where the re-faced
-		// straight ran into a third box the U had cleared. The router knows;
-		// the pass did not.
-		if alt, okAlt := uturnEnds(g, byID, routes, i, e); okAlt {
+		// An edge with a STALE end — a port facing away from its partner,
+		// because the frame moved the boxes after the engine chose the sides
+		// (A pod stacked over a process, then set beside it: the near-to left
+		// the pod's bottom, ran under both, and climbed into the process's
+		// top; controller's top port with control plane below-right) — is
+		// also tried on re-faced ports, the sides pickPortSide names on the
+		// FINAL boxes. The re-faced ends win only when they route at least
+		// as well: a re-facing pass that ran blind before the router hid 36
+		// more edges in the reasoning corpus, where the re-faced straight ran
+		// into a third box the U had cleared. The router knows; the pass did
+		// not.
+		if alt, okAlt := staleEnds(g, byID, routes, i, e); okAlt {
 			c2, k2, lb2, lbk2 := evalEnds(alt.seg)
 			if c2 != nil && (chosen == nil || k2 <= cost) {
 				chosen, cost, leastBad, leastBadCost = c2, k2, lb2, lbk2
@@ -591,6 +593,19 @@ func pathCost(pts [][2]int, obstacles []Node, paths [][][2]int, self int, base s
 			} else {
 				c += grazeCost
 			}
+		}
+	}
+	// A HAIRPIN — adjacent segments turning back on themselves, sharper than
+	// a right angle — is a zig-zag by construction: the line overshoots and
+	// returns. An L (exactly a right angle) and a Z are free; the fallback
+	// sweep's single-waypoint V that went 1000px up past controller and came
+	// back down into its top port (kubernetes s:, pe=117) is what this
+	// prices, so a same-cost L, or re-faced ports, win over it.
+	for k := 1; k+1 < len(pts); k++ {
+		ax, ay := pts[k][0]-pts[k-1][0], pts[k][1]-pts[k-1][1]
+		bx, by := pts[k+1][0]-pts[k][0], pts[k+1][1]-pts[k][1]
+		if ax*bx+ay*by < 0 {
+			c += hairpinCost
 		}
 	}
 	if len(pts) > 2 {
@@ -1027,19 +1042,25 @@ type uturnAlt struct {
 	seg            detourSeg
 }
 
-// uturnEnds returns re-faced ports for edge i when BOTH its ports face away
-// from the partner — the partner's near edge lies BEHIND the port's side, so
-// no line out of that side reaches it without turning back. Sides are
-// pickPortSide's choice on the final boxes; the slot on the new side is the
-// midline unless another edge of the node already holds it, then the first
-// free of 0.35/0.65/0.25/0.75, so the re-faced end does not land on a port
-// the engine spread there.
+// staleEnds returns re-faced ports for edge i when at least one of its ports
+// faces AWAY from the partner — the partner's near edge lies BEHIND the
+// port's side, so no line out of that side reaches it without turning back.
+// A stale end is re-faced to pickPortSide's choice on the final boxes; an end
+// that still faces its partner keeps the engine's side. The slot on a new
+// side is the midline unless another edge of the node already holds it, then
+// the first free of 0.35/0.65/0.25/0.75.
 //
-// One stale end is NOT a U-turn and is left alone: an L, or a run along the
-// box's own border, still reaches the partner, and whether the other side
-// would route better depends on obstacles — re-facing single ends put K8s'
-// port under a box its own-border rail had cleared (kubernetes s:87+116).
-func uturnEnds(g *Graph, byID map[string]Node, routes []EdgeRoute, i int, e *Edge) (uturnAlt, bool) {
+// Both-stale is the U-turn (A pod stacked over a process, then set beside
+// it). Single-stale is a port the frame turned away from its partner while
+// the other end still faces it: controller's TOP port with control plane
+// below-right — the only clean route the sweep found went 1000px up past the
+// target and hairpinned back down into the top (kubernetes s:, pe=117).
+// Re-facing single ends BLINDLY, in a pass before the router, was measured
+// and rejected (+200 hidden in kubernetes: K8s's stale right port re-faced to
+// top landed under a box its own-border rail had cleared). As a router
+// ALTERNATIVE — taken only when it routes at least as well — that case keeps
+// its rail and this one gets its L.
+func staleEnds(g *Graph, byID map[string]Node, routes []EdgeRoute, i int, e *Edge) (uturnAlt, bool) {
 	from, okF := byID[e.From]
 	to, okT := byID[e.To]
 	if !okF || !okT || from.Container != nil || to.Container != nil || e.From == e.To {
@@ -1047,11 +1068,17 @@ func uturnEnds(g *Graph, byID map[string]Node, routes []EdgeRoute, i int, e *Edg
 	}
 	sF := refacedSide(from, to, routes[i].Source.Side)
 	sT := refacedSide(to, from, routes[i].Target.Side)
-	if sF == "" || sT == "" {
+	if sF == "" && sT == "" {
 		return uturnAlt{}, false
 	}
-	src := PortJSON{Side: sF, Position: freeSlot(g, routes, i, e.From, sF)}
-	tgt := PortJSON{Side: sT, Position: freeSlot(g, routes, i, e.To, sT)}
+	src := PortJSON{Side: routes[i].Source.Side, Position: routes[i].Source.Position}
+	tgt := PortJSON{Side: routes[i].Target.Side, Position: routes[i].Target.Position}
+	if sF != "" {
+		src = PortJSON{Side: sF, Position: freeSlot(g, routes, i, e.From, sF)}
+	}
+	if sT != "" {
+		tgt = PortJSON{Side: sT, Position: freeSlot(g, routes, i, e.To, sT)}
+	}
 	x1, y1 := EdgePortPoint(from, to, EdgePort{Side: src.Side, Position: src.Position})
 	x2, y2 := EdgePortPoint(to, from, EdgePort{Side: tgt.Side, Position: tgt.Position})
 	return uturnAlt{source: src, target: tgt, seg: detourSeg{x1, y1, x2, y2}}, true

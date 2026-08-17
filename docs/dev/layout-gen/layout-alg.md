@@ -1067,6 +1067,73 @@ edge #e1b,#e1c has visibility=visible
 edge #e1b,#e1d has visibility=visible
 ```
 
+### a leads-to out of a sub-event runs down under it
+
+```ipmt
+e1 ::e
+e1a ::e --::P--> e1
+e1a --> e2 ::e
+e2 --> e3 ::e
+```
+<!-- ipm-svg id=1e8 hash=ea6f7b7b -->
+![](../../../_ipm/docs/dev/layout-gen/layout-alg/1e8.ipm.svg)
+
+'e1a' is part-of 'e1' and leads to 'e2', which is not a member of anything.
+The leads-to points DOWN (v7P3): 'e2' ranks below the composite and takes
+the sub-event's COLUMN, so 'e1a' → 'e2' is one vertical line, and 'e3'
+follows in the same lane. Before this, only leads-to between top-level
+events ranked: 'e2' had no predecessor, was drawn as a start (S onto it) on
+the composite's row, and its leads-to was a slant — in the zoom canvas the
+lifted edge was a U under both boxes (kubernetes: sidecar container →
+separation of concerns). S stays on 'e1' — the one start; E caps the
+timeline on the S axis (asymmetric terminals centre the boundaries), so
+'e3' → E may slant.
+
+```ipmdev-layout-rule
+@scope local
+#e1a is right-of #e1 with gap=60
+all #e1a,#e2,#e3 have same center-x
+#e2 is below #e1a with gap=60
+#e3 is below #e2 with gap=60
+edge #e1a,#e2 is vertical
+edge #e2,#e3 is vertical
+edge #e1a,#e2 has visibility=visible
+all #S,#e1 have same center-x
+#S is above #e1 with gap=40
+#E is below #e3 with gap=60
+```
+
+### a leads-to into a sub-event lanes the composite under the predecessor
+
+```ipmt
+prep ::e --> chop ::e
+chop --::P--> cook ::e
+cook --> serve ::e
+```
+<!-- ipm-svg id=1f8 hash=d4299763 -->
+![](../../../_ipm/docs/dev/layout-gen/layout-alg/1f8.ipm.svg)
+
+'prep' leads to 'chop', a part of 'cook'; 'cook' leads to 'serve'. One story,
+one column of time: 'cook' ranks below 'prep' (the leads-to into its member
+counts for the composite), and it is laned so that 'chop' — the member the
+edge enters — sits under 'prep': 'prep' → 'chop' is vertical, 'cook' one
+column to the LEFT of that lane, 'serve' under 'cook'. Before this, 'prep'
+had no top-level successor and got its own S and E beside 'cook'.
+
+```ipmdev-layout-rule
+@scope local
+all #prep,#chop have same center-x
+#chop is below #prep with gap=20
+edge #prep,#chop is vertical
+#chop is right-of #cook with gap=60
+all #cook,#serve have same center-x
+#serve is below #cook with gap=60
+edge #cook,#serve is vertical
+all #S,#prep have same center-x
+#S is above #prep with gap=40
+#E is below #serve with gap=60
+```
+
 ### a shared part keeps its band and ties its second anchor
 
 ```ipmt

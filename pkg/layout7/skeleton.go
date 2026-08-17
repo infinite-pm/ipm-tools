@@ -27,11 +27,24 @@ type skeletonPlan struct {
 	ends      map[int][]int // comp -> end events (no outgoing eLe)
 }
 
-// eLe successors/predecessors among TOP-LEVEL events only.
-func (g *graph) topLevelFlow() (succ, pred map[int][]int, topLevel map[int]bool, subParent map[int]int) {
+// eLe successors/predecessors among TOP-LEVEL events. A leads-to that
+// leaves or enters a sub-grid counts for the sub-event's top-level
+// COMPOSITE: `sidecar container --leadsto--> separation of concerns` with the
+// sidecar part-of the pod's network context ranks "separation of concerns"
+// below the composite (v7P3: the predecessor sits above the successor). It
+// used to be dropped — only top-level pairs ranked — so the successor had no
+// predecessor, became a start (S drawn onto it) and sat on the composite's
+// row, its leads-to a diagonal (kubernetes: the lifted edge in the zoom
+// canvas was a U under both boxes; the flat SVG a slant). viaSub records the
+// sub-event the successor is reached through, so the skeleton can lane it
+// under THAT column and the edge is the vertical line the principle wants.
+// A leads-to between two sub-events of ONE composite is that grid's own
+// chain (subRows) and stays out of the top-level flow.
+func (g *graph) topLevelFlow() (succ, pred map[int][]int, topLevel map[int]bool, subParent map[int]int, viaSub, intoSub map[int]int) {
 	succ, pred = map[int][]int{}, map[int][]int{}
 	topLevel = map[int]bool{}
 	subParent = map[int]int{}
+	viaSub, intoSub = map[int]int{}, map[int]int{}
 	for i, n := range g.nodes {
 		if n.kind == KindEvent && !n.boundary {
 			topLevel[i] = true
@@ -44,13 +57,41 @@ func (g *graph) topLevelFlow() (succ, pred map[int][]int, topLevel map[int]bool,
 			subParent[e.from] = e.to
 		}
 	}
+	// the top-level composite a node belongs to (itself when top-level)
+	anc := func(n int) int {
+		for hops := 0; hops < len(g.nodes); hops++ {
+			p, ok := subParent[n]
+			if !ok {
+				return n
+			}
+			n = p
+		}
+		return n
+	}
+	seen := map[[2]int]bool{}
 	for _, e := range g.edges {
 		if e.rel != RelLeadsTo {
 			continue
 		}
-		if topLevel[e.from] && topLevel[e.to] {
-			succ[e.from] = append(succ[e.from], e.to)
-			pred[e.to] = append(pred[e.to], e.from)
+		f, t := anc(e.from), anc(e.to)
+		if !topLevel[f] || !topLevel[t] || f == t {
+			continue
+		}
+		if seen[[2]int{f, t}] {
+			continue
+		}
+		seen[[2]int{f, t}] = true
+		succ[f] = append(succ[f], t)
+		pred[t] = append(pred[t], f)
+		if e.from != f {
+			// reached THROUGH a sub-event of f: lane the successor under it
+			viaSub[t] = e.from
+		}
+		if e.to != t {
+			// entering a sub-event of t: lane t so that sub-event is under
+			// the predecessor (prep -> chop with chop part-of cook: cook
+			// shifts left until chop sits under prep)
+			intoSub[t] = e.to
 		}
 	}
 	return
@@ -72,7 +113,7 @@ func (g *graph) buildSkeleton(gp *groupsPlan) *skeletonPlan {
 		starts:    map[int][]int{},
 		ends:      map[int][]int{},
 	}
-	succ, pred, topLevel, subParent := g.topLevelFlow()
+	succ, pred, topLevel, subParent, viaSub, intoSub := g.topLevelFlow()
 	sp.subParent = subParent
 
 	// ---- sub-event stacks (v7P3: "a declared leads-to between sub-event
@@ -362,15 +403,53 @@ func (g *graph) buildSkeleton(gp *groupsPlan) *skeletonPlan {
 					}
 				}
 				if len(mine) > 0 {
-					offs := g.forkOffsets(ev, mine, span)
+					// kids reached THROUGH a sub-event of ev are laned under
+					// that sub-event's column (v7P3: the leads-to wants to be
+					// one vertical line); the rest fork under ev's centre.
+					// The sub-event's column is one arithmetic with place
+					// time — g.subSlotX — so lane and box agree.
+					var direct []int
+					bySub := map[int][]int{}
+					var subOrder []int
+					for _, c := range mine {
+						if s, ok := viaSub[c]; ok {
+							if _, had := bySub[s]; !had {
+								subOrder = append(subOrder, s)
+							}
+							bySub[s] = append(bySub[s], c)
+							continue
+						}
+						direct = append(direct, c)
+					}
+					// a kid whose leads-to ENTERS one of its sub-events is
+					// shifted so that sub-event — not the kid's centre — sits
+					// on the lane (prep -> chop, chop part-of cook)
+					intoShift := func(c int) int {
+						if s, ok := intoSub[c]; ok {
+							return -g.subCentreOffset(c, s, sp, gp)
+						}
+						return 0
+					}
 					half := 0
-					for i, c := range mine {
-						sp.desiredX[c] = sp.desiredX[ev] + offs[i]
-						claimed[c] = true
-						if o := offs[i]; o > half {
-							half = o
-						} else if -o > half {
-							half = -o
+					if len(direct) > 0 {
+						offs := g.forkOffsets(ev, direct, span)
+						for i, c := range direct {
+							sp.desiredX[c] = sp.desiredX[ev] + offs[i] + intoShift(c)
+							claimed[c] = true
+							if o := offs[i]; o > half {
+								half = o
+							} else if -o > half {
+								half = -o
+							}
+						}
+					}
+					for _, sub := range subOrder {
+						base := sp.desiredX[ev] + g.subCentreOffset(ev, sub, sp, gp)
+						kids := bySub[sub]
+						offs := g.forkOffsets(sub, kids, span)
+						for i, c := range kids {
+							sp.desiredX[c] = base + offs[i] + intoShift(c)
+							claimed[c] = true
 						}
 					}
 					// fan-angle cap (v7P3/P8): a wide fan drops its row —
@@ -560,7 +639,7 @@ func gridUp(v int) int {
 // before any coordinate exists.
 func (g *graph) sideHints() map[int]int {
 	hints := map[int]int{}
-	succ, pred, _, subParent := g.topLevelFlow()
+	succ, pred, _, subParent, _, _ := g.topLevelFlow()
 	// sub-events nest RIGHT of their composite (v7P3), so their aux takes
 	// the right flank — the outer side of the sub-event column.
 	for sub := range subParent {
@@ -640,4 +719,29 @@ func (g *graph) sideHints() map[int]int {
 		}
 	}
 	return hints
+}
+
+// subCentreOffset is the x of a (possibly nested) sub-event's CENTRE
+// relative to its top-level composite's centre, from the same slot
+// arithmetic place time uses (g.subSlotX), so a lane put under a sub-event
+// meets the box the place stage draws there.
+func (g *graph) subCentreOffset(top, sub int, sp *skeletonPlan, gp *groupsPlan) int {
+	// chain from sub up to top
+	var chain []int
+	for n := sub; n != top; {
+		chain = append(chain, n)
+		p, ok := sp.subParent[n]
+		if !ok {
+			return 0
+		}
+		n = p
+	}
+	off := -g.nodes[top].w / 2 // from the composite's centre to its left edge
+	parent := top
+	for i := len(chain) - 1; i >= 0; i-- {
+		s := chain[i]
+		off += g.subSlotX(parent, sp, gp)[s]
+		parent = s
+	}
+	return off + g.nodes[sub].w/2
 }

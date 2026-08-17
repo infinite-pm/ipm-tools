@@ -254,7 +254,15 @@ chain is the degenerate one-column case, a FORK spreads its branches
 side by side on one row, and a join rejoins below. Rows left-align on
 the grid's axis and grow rightward, keeping the composite's part-of
 corridor clean. Flow units without leads-to between them stack
-vertically in chain+node-ID order. Time reads top-to-bottom,
+vertically in chain+node-ID order. A `leads-to` that crosses a sub-grid's
+boundary — out of a sub-event to an outside event, or from an outside
+event into a sub-event — counts for the COMPOSITE in the top-level flow
+(the outside event ranks below/above the composite), and the lane is the
+sub-event's column: the successor sits under the member it leaves, a
+composite entered through a member shifts so that member sits under the
+predecessor. Either way the edge is the vertical line this principle
+wants; only a leads-to between two members of ONE composite is that
+grid's own chain. Time reads top-to-bottom,
 containment reads left-to-right.
 These two relations fully determine the relative event layout; an
 `expresses` or `near-to` between events places nothing here (membership:
