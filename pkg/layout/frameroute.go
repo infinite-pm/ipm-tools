@@ -50,22 +50,23 @@ const frameRailPad = frameClear + frameLaneSep
 // excess). Copied, not tuned: an edge that the flat render of a document hides
 // should be hidden on the canvas for the same reason.
 const (
-	frameBudget       = 1.0
-	crossSameKind     = 1.0
-	crossOtherKind    = 0.5
-	crossFlowByTie    = 2.0  // P6/P9: a hierarchy tie never cuts the flow corridor — over budget alone
-	crossBrushNear    = 0.25 // P9: two edges MEETING at a shared node brush near it; a quarter, not a tangle
-	brushNearWithin   = 40   // px from the shared node within which a crossing is a brush (layout7 Clearance)
-	grazeCost         = 0.5
-	grazeBoundaryMult = 3.0 // P8 (ee960980): hugging S or E is prohibitive — boundaries weigh triple
-	overlapCost       = 1.0 // dcc3ebf4: a covered line is a crossing you cannot even see — priced as one
-	detourTaxOver     = 1.5
-	frameLaneSep      = 10  // px, route.go's LaneSep: half of layout7's 20px grid step
-	frameLaneMinShare = 16  // two runs closer than LaneSep for longer than this share a lane
-	frameHugRun       = 20  // a segment beside its OWN box for longer than this is a rail, not an arrival
-	frameGridStep     = 120 // fallback sweep, as detour.go
-	frameGridPad      = 240
-	frameGridCap      = 900
+	frameBudget        = 1.0
+	crossSameKind      = 1.0
+	crossOtherKind     = 0.5
+	crossFlowByTie     = 2.0  // P6/P9: a hierarchy tie never cuts the flow corridor — over budget alone
+	crossBrushNear     = 0.25 // P9: two edges MEETING at a shared node brush near it; a quarter, not a tangle
+	brushNearWithin    = 40   // px from the shared node within which a crossing is a brush (layout7 Clearance)
+	grazeCost          = 0.5
+	grazeBoundaryMult  = 3.0 // P8 (ee960980): hugging S or E is prohibitive — boundaries weigh triple
+	overlapCost        = 1.0 // dcc3ebf4: a covered line is a crossing you cannot even see — priced as one
+	detourTaxOver      = 1.5
+	frameLaneSep       = 10  // px, route.go's LaneSep: half of layout7's 20px grid step
+	frameLaneMinShare  = 16  // two runs closer than LaneSep for longer than this share a lane
+	frameHugRun        = 20  // a segment beside its OWN box for longer than this is a rail, not an arrival
+	frameBoundaryClear = 20  // S/E keep a full grid step of air (P8: hugging a boundary is prohibitive)
+	frameGridStep      = 120 // fallback sweep, as detour.go
+	frameGridPad       = 240
+	frameGridCap       = 900
 )
 
 // FrameRouteStats says what the pass did, for logs and tests.
@@ -75,6 +76,12 @@ type FrameRouteStats struct {
 	Hidden      int // edges set to Visibility "stubbed" here
 	Separated   int // lane shifts applied
 	Unseparated int // overlaps that could not be shifted without a new fault
+	// The bounding box every drawn route needs, ports and bends included.
+	// Meta.Bounds is computed from the NODES before this pass runs; a route
+	// that a forced edge takes around the top row can sit above y=0, and the
+	// renderer's viewBox then clips it — 232 routes across 7 corpus bundles
+	// were partly off-canvas. The caller grows the bounds to hold this.
+	MinX, MinY, MaxX, MaxY int
 }
 
 // RouteFrameEdges routes every visible edge of a positioned graph, hides the
@@ -147,6 +154,28 @@ func RouteFrameEdges(g *Graph) FrameRouteStats {
 		return kindRank(g.Edges[order[a]].Base) < kindRank(g.Edges[order[b]].Base)
 	})
 
+	// The canvas a route may use: the declared bounds when the caller set
+	// them, else the nodes' extent plus the layout margins. A candidate with a
+	// point outside it is not a candidate — the viewBox would clip it, and a
+	// bend the reader cannot see is worse than the crossing it avoided. Ports
+	// are on boxes and always inside; only bends can leave.
+	canvasX0, canvasY0, canvasX1, canvasY1 := frameCanvas(g)
+	inCanvas := func(pts [][2]int) bool {
+		for _, p := range pts[1 : len(pts)-1] {
+			if p[0] < canvasX0 || p[1] < canvasY0 || p[0] > canvasX1 || p[1] > canvasY1 {
+				return false
+			}
+		}
+		return true
+	}
+	st.MinX, st.MinY, st.MaxX, st.MaxY = canvasX1, canvasY1, canvasX0, canvasY0
+	extend := func(pts [][2]int) {
+		for _, p := range pts {
+			st.MinX, st.MinY = minInt(st.MinX, p[0]), minInt(st.MinY, p[1])
+			st.MaxX, st.MaxY = maxInt(st.MaxX, p[0]), maxInt(st.MaxY, p[1])
+		}
+	}
+
 	for _, i := range order {
 		e := &g.Edges[i]
 		if !ok[i] || e.Visibility == visibilityStubbed {
@@ -184,6 +213,9 @@ func RouteFrameEdges(g *Graph) FrameRouteStats {
 			// per-bundle timeout. So it is computed only when it can matter.
 			mustDraw := e.Base == string(EdgeLeadsTo) || visible[e.From] <= 1 || visible[e.To] <= 1
 			for _, c := range cands {
+				if !inCanvas(c) {
+					continue
+				}
 				if pathBlocked(c, obstacles, e.From, e.To, nb) {
 					if !mustDraw {
 						continue
@@ -234,6 +266,7 @@ func RouteFrameEdges(g *Graph) FrameRouteStats {
 			continue
 		}
 
+		extend(chosen)
 		if len(chosen) > 2 {
 			if e.Route == nil {
 				e.Route = &EdgeRouteJSON{
@@ -302,12 +335,22 @@ func pathBlocked(pts [][2]int, obstacles []Node, fromID, toID string, neighbour 
 			continue
 		}
 		clear := frameClear
-		if neighbour[o.ID] && o.Type != "boundary" {
-			clear = frameFlush // a sibling may be skimmed, not touched; S/E never exempt
+		switch {
+		case o.Type == "boundary":
+			// S/E are never exempt and hugging them is prohibitive (P8,
+			// ee960980): a full grid step of air, not just the visible gap.
+			clear = frameBoundaryClear
+		case neighbour[o.ID]:
+			clear = frameFlush // a sibling may be skimmed, not touched
 		}
+		// segmentCutsBox shrinks its box by routeShrink (2px) so a line
+		// exactly ON a border does not count as cutting it; for the clearance
+		// test that shrink is wrong — a segment exactly `clear` away sat 10px
+		// from an S box and passed. Pad by the shrink so the fat box's edge is
+		// where clearance actually ends.
 		fat := o
-		fat.X, fat.Y = o.X-clear, o.Y-clear
-		fat.Width, fat.Height = o.Width+2*clear, o.Height+2*clear
+		fat.X, fat.Y = o.X-clear-routeShrink, o.Y-clear-routeShrink
+		fat.Width, fat.Height = o.Width+2*(clear+routeShrink), o.Height+2*(clear+routeShrink)
 		for i := 0; i+1 < len(pts); i++ {
 			a, b := pts[i], pts[i+1]
 			if segmentCutsBox(a[0], a[1], b[0], b[1], o) {
@@ -465,6 +508,35 @@ func kindRank(base string) int {
 		return 3
 	}
 	return 4
+}
+
+// frameCanvas is the rectangle a route may occupy: the graph's declared bounds
+// when set (the zoom pipeline sets them from the nodes plus margins before
+// this pass), else the nodes' extent plus the layout margins.
+func frameCanvas(g *Graph) (x0, y0, x1, y1 int) {
+	if g.Meta.Bounds.Width > 0 && g.Meta.Bounds.Height > 0 {
+		return 0, 0, g.Meta.Bounds.Width, g.Meta.Bounds.Height
+	}
+	first := true
+	for _, n := range g.Nodes {
+		if first {
+			x0, y0, x1, y1 = n.X, n.Y, n.X+n.Width, n.Y+n.Height
+			first = false
+			continue
+		}
+		x0, y0 = minInt(x0, n.X), minInt(y0, n.Y)
+		x1, y1 = maxInt(x1, n.X+n.Width), maxInt(y1, n.Y+n.Height)
+	}
+	return x0 - MarginX, y0 - MarginY, x1 + MarginX, y1 + MarginY
+}
+
+func inCanvasPts(pts [][2]int, x0, y0, x1, y1 int) bool {
+	for _, p := range pts[1 : len(pts)-1] {
+		if p[0] < x0 || p[1] < y0 || p[0] > x1 || p[1] > y1 {
+			return false
+		}
+	}
+	return true
 }
 
 // adjacency is node id -> the ids it shares an edge with, built once per graph.
@@ -646,6 +718,7 @@ func frameCandidates(s detourSeg, obstacles []Node, fromID, toID string) [][][2]
 // edge or land it in another lane is rejected, and nested lanes shift outward
 // so a stack of parallels fans rather than swaps.
 func separateFrameLanes(g *Graph, paths [][][2]int, ends []detourSeg, ok []bool, obstacles []Node, adj map[string][]string) (shifted, failed int) {
+	canvasX0, canvasY0, canvasX1, canvasY1 := frameCanvas(g)
 	type run struct {
 		edge, seg int // paths[edge][seg]..[seg+1]
 		vertical  bool
@@ -740,7 +813,8 @@ func separateFrameLanes(g *Graph, paths [][][2]int, ends []detourSeg, ok []bool,
 				np[m.seg][1] += d
 				np[m.seg+1][1] += d
 			}
-			if pathBlocked(np, obstacles, e.From, e.To, neighbourSet(adj, e.From, e.To)) {
+			if !inCanvasPts(np, canvasX0, canvasY0, canvasX1, canvasY1) ||
+				pathBlocked(np, obstacles, e.From, e.To, neighbourSet(adj, e.From, e.To)) {
 				continue
 			}
 			nm := m
@@ -789,12 +863,15 @@ func hugCount(pts [][2]int, obstacles []Node, fromID, toID string, neighbour map
 			continue
 		}
 		clear := frameClear
-		if neighbour[o.ID] && o.Type != "boundary" {
+		switch {
+		case o.Type == "boundary":
+			clear = frameBoundaryClear
+		case neighbour[o.ID]:
 			clear = frameFlush
 		}
 		fat := o
-		fat.X, fat.Y = o.X-clear, o.Y-clear
-		fat.Width, fat.Height = o.Width+2*clear, o.Height+2*clear
+		fat.X, fat.Y = o.X-clear-routeShrink, o.Y-clear-routeShrink
+		fat.Width, fat.Height = o.Width+2*(clear+routeShrink), o.Height+2*(clear+routeShrink)
 		hug := false
 		for i := 0; i+1 < len(pts) && !hug; i++ {
 			a, b := pts[i], pts[i+1]
