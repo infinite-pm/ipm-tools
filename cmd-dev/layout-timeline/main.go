@@ -506,7 +506,8 @@ func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagra
 		if s.Repo != "" {
 			from = s.Repo
 		}
-		eng, err := layoutaudit.BuildEngine(from, s.SHA, s.Label(), cache, "", verbose)
+		eng, err := layoutaudit.BuildEngineWith(from, s.SHA, s.Label(), cache, "", verbose,
+			layoutaudit.BuildOptions{Packages: s.Build, Pipeline: s.Pipeline})
 		if err != nil {
 			// An early commit may predate cmd/layout-gen entirely; that is a
 			// fact about the history, not a failure of the run.
@@ -701,7 +702,18 @@ func renderCurrent(repo, cache string, snaps []snapshot, diagrams []layoutaudit.
 // (gl:docs/dev/layout-gen/layout7-engine.md), so a change confined to them
 // cannot show here whatever it did elsewhere.
 func noteQuietEngine(w *week, s snapshot) {
-	if len(w.Changes) > 0 || s.EngineCommits == 0 {
+	if len(w.Changes) > 0 {
+		return
+	}
+	// "Nothing moved" and "nothing ran" are opposite findings and looked
+	// identical: a column whose engine could not lay out a single diagram
+	// reported the reassuring one.
+	if w.Identical == 0 && w.Skipped > 0 {
+		w.Note = fmt.Sprintf("neither engine laid out ANY of the %d diagrams — this column "+
+			"compares nothing, whatever its commits did", w.Skipped)
+		return
+	}
+	if s.EngineCommits == 0 {
 		return
 	}
 	w.Note = fmt.Sprintf("%d engine commit(s) here and no diagram moved — "+

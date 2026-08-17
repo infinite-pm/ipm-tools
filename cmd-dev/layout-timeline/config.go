@@ -33,11 +33,25 @@ type Source struct {
 	Repo        string   `json:"repo"`
 	Rev         string   `json:"rev"`
 	EnginePaths []string `json:"enginePaths,omitempty"`
+	// Build and Pipeline describe an era whose interface is not today's:
+	// which packages to build, and the commands that turn an .ipmt into
+	// layout JSON ({bin}, {in}, {tmp}; the last writes to stdout).
+	Build    []string `json:"build,omitempty"`
+	Pipeline []string `json:"pipeline,omitempty"`
+	// From and Until (YYYY-MM-DD) pin the span this lineage OWNS. Without
+	// them a lineage owns everything after the previous one's tip, which
+	// cannot express two repositories whose histories overlap — and they do:
+	// the engine lived in one repo, moved to another, and both kept
+	// committing.
+	From  string `json:"from,omitempty"`
+	Until string `json:"until,omitempty"`
 
 	// tip is the ref's newest commit; resolved at load time. Sources are
 	// chained by it — see chainWindows.
 	tip     string
 	tipDate time.Time
+	from    time.Time // parsed From
+	until   time.Time // parsed Until
 }
 
 // Config is the whole history, oldest lineage first.
@@ -113,6 +127,20 @@ func loadConfig(path string) (*Config, error) {
 		if len(s.EnginePaths) == 0 {
 			s.EnginePaths = c.EnginePaths
 		}
+		for _, f := range []struct {
+			text string
+			into *time.Time
+			what string
+		}{{s.From, &s.from, "from"}, {s.Until, &s.until, "until"}} {
+			if f.text == "" {
+				continue
+			}
+			t, err := time.ParseInLocation("2006-01-02", f.text, time.Local)
+			if err != nil {
+				return nil, fmt.Errorf("%s: source %q: %s: %w", path, s.Name, f.what, err)
+			}
+			*f.into = t
+		}
 	}
 	return &c, nil
 }
@@ -135,6 +163,13 @@ func (c *Config) resolveTips() error {
 			return fmt.Errorf("source %q: parse date %q: %w", s.Name, ts, err)
 		}
 	}
+	// Declared order wins as soon as any source pins its own window: the
+	// author is then describing a history that tip dates cannot reconstruct.
+	for _, s := range c.Sources {
+		if !s.from.IsZero() || !s.until.IsZero() {
+			return nil
+		}
+	}
 	sort.SliceStable(c.Sources, func(i, j int) bool {
 		return c.Sources[i].tipDate.Before(c.Sources[j].tipDate)
 	})
@@ -154,12 +189,19 @@ func (c *Config) chainWindows(until time.Time) []window {
 	var prev time.Time
 	for _, s := range c.Sources {
 		end := s.tipDate
+		if !s.until.IsZero() {
+			end = s.until
+		}
 		if end.After(until) {
 			end = until
 		}
-		out = append(out, window{src: s, from: prev, to: end})
-		if s.tipDate.After(prev) {
-			prev = s.tipDate
+		start := prev
+		if !s.from.IsZero() {
+			start = s.from
+		}
+		out = append(out, window{src: s, from: start, to: end})
+		if end.After(prev) {
+			prev = end
 		}
 	}
 	return out

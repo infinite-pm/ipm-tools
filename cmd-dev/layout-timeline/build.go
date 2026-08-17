@@ -27,6 +27,7 @@ func buildAll(snaps []snapshot, cache string, jobs int, verbose bool) (built, fa
 	}
 	type job struct {
 		repo, sha, label string
+		opts             layoutaudit.BuildOptions
 	}
 	seen := map[string]bool{}
 	var jobsList []job
@@ -35,7 +36,8 @@ func buildAll(snaps []snapshot, cache string, jobs int, verbose bool) (built, fa
 			continue
 		}
 		seen[s.Repo+s.SHA] = true
-		jobsList = append(jobsList, job{repo: s.Repo, sha: s.SHA, label: s.Label()})
+		jobsList = append(jobsList, job{repo: s.Repo, sha: s.SHA, label: s.Label(),
+			opts: layoutaudit.BuildOptions{Packages: s.Build, Pipeline: s.Pipeline}})
 	}
 
 	var mu sync.Mutex
@@ -46,7 +48,7 @@ func buildAll(snaps []snapshot, cache string, jobs int, verbose bool) (built, fa
 		go func() {
 			defer wg.Done()
 			for j := range ch {
-				_, err := layoutaudit.BuildEngine(j.repo, j.sha, j.label, cache, "", false)
+				_, err := layoutaudit.BuildEngineWith(j.repo, j.sha, j.label, cache, "", false, j.opts)
 				mu.Lock()
 				if err != nil {
 					failed++

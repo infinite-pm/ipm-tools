@@ -184,6 +184,14 @@ func TestAQuietColumnWithEngineCommitsExplainsItself(t *testing.T) {
 		!strings.Contains(w.Note, "post-placement") {
 		t.Errorf("a quiet column with engine commits says only: %q", w.Note)
 	}
+	// "Nothing moved" and "nothing ran" are opposite findings: a column that
+	// laid out nothing must not report the reassuring one.
+	dead := week{Label: "c", Skipped: 311}
+	noteQuietEngine(&dead, snapshot{EngineCommits: 3})
+	if !strings.Contains(dead.Note, "neither engine laid out") {
+		t.Errorf("a column that compared nothing says: %q", dead.Note)
+	}
+
 	// A column that DID move explains itself by moving.
 	moved := week{Label: "c", Changes: []change{{ID: "x"}}}
 	noteQuietEngine(&moved, snapshot{EngineCommits: 3})

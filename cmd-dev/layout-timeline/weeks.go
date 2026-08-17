@@ -32,10 +32,13 @@ type snapshot struct {
 	// EnginePaths is what counts as the engine in THIS lineage; package
 	// layouts change across a rewrite (pkg/layoutpasses became pkg/layout7).
 	EnginePaths []string
-	Monday      time.Time // the week boundary this snapshot stands for (week columns)
-	SHA         string    // resolved commit, "" when the repo had no commits yet
-	Subject     string
-	Date        time.Time // the commit's own date
+	// Build/Pipeline carry the era's interface, when it is not today's.
+	Build    []string
+	Pipeline []string
+	Monday   time.Time // the week boundary this snapshot stands for (week columns)
+	SHA      string    // resolved commit, "" when the repo had no commits yet
+	Subject  string
+	Date     time.Time // the commit's own date
 	// SameAsPrev marks a week in which nothing was committed: the engine is
 	// byte-identical to the previous snapshot's.
 	SameAsPrev bool
@@ -321,7 +324,8 @@ func resolveAcrossWindows(wins []window, bounds []boundary, mode atMode) ([]snap
 		if err != nil {
 			return nil, err
 		}
-		s := snapshot{Monday: m, Repo: w.src.Repo, Source: w.src.Name, EnginePaths: w.src.EnginePaths}
+		s := snapshot{Monday: m, Repo: w.src.Repo, Source: w.src.Name, EnginePaths: w.src.EnginePaths,
+			Build: w.src.Build, Pipeline: w.src.Pipeline}
 		s.label = b.Label
 		if sha == "" && prev != "" {
 			sha = prev
@@ -374,6 +378,8 @@ func engineCommitsAcross(wins []window) ([]snapshot, error) {
 			snaps[i].Repo = w.src.Repo
 			snaps[i].Source = w.src.Name
 			snaps[i].EnginePaths = w.src.EnginePaths
+			snaps[i].Build = w.src.Build
+			snaps[i].Pipeline = w.src.Pipeline
 		}
 		out = append(out, snaps...)
 	}

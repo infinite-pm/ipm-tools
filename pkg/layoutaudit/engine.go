@@ -54,13 +54,37 @@ func Short(sha string) string {
 	return sha
 }
 
+// BuildOptions describes how an ERA of the project turns an .ipmt into
+// layout JSON.
+//
+// The interface is not stable across a long history: today it is
+// `layout-gen --in x.ipmt --out -`, but in 2025 the same repository parsed
+// and laid out in two steps with different flags, and before that something
+// else again. Rather than assume, a caller can name the packages to build and
+// the commands to run — an adapter for that era — and everything downstream
+// keeps talking to one binary that takes `--in file.ipmt` and writes JSON.
+type BuildOptions struct {
+	// Packages to `go build`; default ./cmd/layout-gen (plus
+	// ./cmd-dev/layout-debug, best effort).
+	Packages []string
+	// Pipeline is the era's recipe, as shell commands with {bin}, {in} and
+	// {tmp} placeholders. The LAST command must write the layout JSON to
+	// stdout. Empty means today's single-step interface.
+	Pipeline []string
+}
+
 // BuildEngine produces a layout-gen (and, when the ref has one, a
 // layout-debug) for ref. "workdir" builds the working tree as it stands.
+func BuildEngine(repo, ref, name, cache string, prebuilt string, verbose bool) (Engine, error) {
+	return BuildEngineWith(repo, ref, name, cache, prebuilt, verbose, BuildOptions{})
+}
+
+// BuildEngineWith is BuildEngine for an era whose interface is not today's.
 //
 // Builds are cached under <cache>/<sha>/; a second run against the same
 // commit costs nothing. The working tree is never cached — that is the side
 // being iterated on.
-func BuildEngine(repo, ref, name, cache string, prebuilt string, verbose bool) (Engine, error) {
+func BuildEngineWith(repo, ref, name, cache string, prebuilt string, verbose bool, o BuildOptions) (Engine, error) {
 	e := Engine{Name: name, Ref: ref}
 
 	if prebuilt != "" {
@@ -79,7 +103,7 @@ func BuildEngine(repo, ref, name, cache string, prebuilt string, verbose bool) (
 		e.Subject = workdirSubject(repo)
 		e.Dirty = strings.Contains(e.Subject, "uncommitted")
 		binDir := filepath.Join(cache, "workdir")
-		gen, dbg, err := goBuild(repo, binDir, verbose)
+		gen, dbg, err := goBuild(repo, binDir, verbose, o)
 		if err != nil {
 			return e, err
 		}
@@ -99,6 +123,14 @@ func BuildEngine(repo, ref, name, cache string, prebuilt string, verbose bool) (
 	binDir := filepath.Join(cache, Short(sha))
 	gen := filepath.Join(binDir, "layout-gen")
 	dbg := filepath.Join(binDir, "layout-debug")
+	// An era with its own recipe is entered through its ADAPTER, not through
+	// whatever binary happens to be called layout-gen. Returning the latter on
+	// a cache hit handed the sweep a tool that takes JSON where it was
+	// promised one that takes ipmt: every diagram failed, and the column
+	// reported "nothing moved" when the truth was "nothing ran".
+	if len(o.Pipeline) > 0 {
+		gen = filepath.Join(binDir, "adapter")
+	}
 	if _, err := os.Stat(gen); err == nil {
 		e.LayoutGen = gen
 		if _, err := os.Stat(dbg); err == nil {
@@ -114,7 +146,7 @@ func BuildEngine(repo, ref, name, cache string, prebuilt string, verbose bool) (
 	if err := exportTree(repo, sha, srcDir); err != nil {
 		return e, err
 	}
-	gen, dbg, err = goBuild(srcDir, binDir, verbose)
+	gen, dbg, err = goBuild(srcDir, binDir, verbose, o)
 	if err != nil {
 		return e, err
 	}
@@ -161,22 +193,60 @@ func errIsClosed(err error) bool {
 // goBuild builds layout-gen (required) and layout-debug (best effort — an
 // older ref may predate it, and its absence costs only the old-side
 // copy-paste commands in the report).
-func goBuild(srcDir, binDir string, verbose bool) (gen, dbg string, err error) {
+func goBuild(srcDir, binDir string, verbose bool, o BuildOptions) (gen, dbg string, err error) {
 	if err := os.MkdirAll(binDir, 0o755); err != nil {
 		return "", "", err
 	}
+	pkgs := o.Packages
+	if len(pkgs) == 0 {
+		pkgs = []string{"./cmd/layout-gen"}
+	}
+	for _, pkg := range pkgs {
+		out := filepath.Join(binDir, filepath.Base(pkg))
+		if msg, err := goBuildOne(srcDir, out, pkg); err != nil {
+			return "", "", fmt.Errorf("build %s in %s: %v\n%s", pkg, srcDir, err, msg)
+		}
+	}
 	gen = filepath.Join(binDir, "layout-gen")
-	if out, err := goBuildOne(srcDir, gen, "./cmd/layout-gen"); err != nil {
-		return "", "", fmt.Errorf("build layout-gen in %s: %v\n%s", srcDir, err, out)
+	if len(o.Pipeline) > 0 {
+		// An era whose interface is not today's gets an adapter: one
+		// executable that takes --in file.ipmt and writes layout JSON, so
+		// nothing downstream has to know which era it is talking to.
+		if gen, err = writeAdapter(binDir, o.Pipeline); err != nil {
+			return "", "", err
+		}
+	} else if _, serr := os.Stat(gen); serr != nil {
+		return "", "", fmt.Errorf("no layout-gen built in %s", binDir)
 	}
 	dbg = filepath.Join(binDir, "layout-debug")
-	if out, err := goBuildOne(srcDir, dbg, "./cmd-dev/layout-debug"); err != nil {
+	if out, err := goBuildOne(srcDir, dbg, "./cmd-dev/layout-debug"); err != nil || len(o.Pipeline) > 0 {
 		if verbose {
 			fmt.Fprintf(os.Stderr, "layout-audit: no layout-debug at this ref (%v)\n%s", err, out)
 		}
 		dbg = ""
 	}
 	return gen, dbg, nil
+}
+
+// writeAdapter emits the era's recipe as one executable.
+func writeAdapter(binDir string, pipeline []string) (string, error) {
+	var b strings.Builder
+	b.WriteString("#!/bin/sh\n# generated by layoutaudit: this era's ipmt → layout JSON recipe\nset -eu\n")
+	b.WriteString("in=''\nwhile [ $# -gt 0 ]; do\n  case \"$1\" in\n")
+	b.WriteString("    --in) in=\"$2\"; shift 2 ;;\n    --in=*) in=\"${1#--in=}\"; shift ;;\n")
+	b.WriteString("    *) shift ;;\n  esac\ndone\n")
+	b.WriteString("tmp=\"$(mktemp)\"\ntrap 'rm -f \"$tmp\"' EXIT\n")
+	for _, step := range pipeline {
+		cmd := strings.ReplaceAll(step, "{bin}", binDir)
+		cmd = strings.ReplaceAll(cmd, "{in}", "\"$in\"")
+		cmd = strings.ReplaceAll(cmd, "{tmp}", "\"$tmp\"")
+		b.WriteString(cmd + "\n")
+	}
+	path := filepath.Join(binDir, "adapter")
+	if err := os.WriteFile(path, []byte(b.String()), 0o755); err != nil {
+		return "", err
+	}
+	return path, nil
 }
 
 func goBuildOne(dir, out, pkg string) (string, error) {

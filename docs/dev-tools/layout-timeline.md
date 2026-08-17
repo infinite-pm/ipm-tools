@@ -50,6 +50,53 @@ lineage's commits happen" would double-count the rewritten past; slicing by
 lineages of this project the weekly series runs from **2024-12 to today, 89
 columns**, and each says which lineage it came from.
 
+## An era whose interface is not today's
+
+A long history changes more than its layout code: today an engine is
+`layout-gen --in x.ipmt --out -`, but in 2025 the same project parsed and laid
+out in **two steps with different flags**, and the layout engine lived in a
+different repository entirely. A source can therefore carry its own recipe:
+
+```json
+{
+  "name": "drawio",
+  "repo": "../ipm-drawio",
+  "rev": "3d833400",
+  "from": "2025-06-01", "until": "2026-06-01",
+  "enginePaths": ["pkg/layout", "pkg/layoutpasses", "cmd/layout-gen"],
+  "build":    ["./cmd/ipmt-parse", "./cmd/layout-gen"],
+  "pipeline": ["{bin}/ipmt-parse --in {in} > {tmp}",
+               "{bin}/layout-gen --in {tmp} --out -"]
+}
+```
+
+`build` names the packages to compile; `pipeline` is that era's recipe, whose
+last command writes layout JSON to stdout (`{bin}`, `{in}`, `{tmp}`). The tool
+generates one **adapter** executable per era, so everything downstream keeps
+talking to a single binary that takes `--in file.ipmt` — the sweep never learns
+which era it is addressing.
+
+`from` / `until` pin the span a lineage OWNS. Without them a lineage owns
+everything after the previous one's tip, which cannot express two repositories
+whose histories overlap — and they do: the engine lived in one repo, moved to
+another, and both kept committing. Declaring a window on any source switches
+the whole config to **declared order**.
+
+What an old era can and cannot give you:
+
+- **Old output is diffable.** The 2025 format (`25.09-layout-v2`) carries
+  `id/type/x/y/width/height` on nodes and no `route` on edges. Node geometry
+  compares fully; edges compare as a set, because the diff skips port and bend
+  comparison when either side has no route. It degrades rather than inventing
+  differences.
+- **Old parsers reject some of today's ipmt.** 127 of 130 corpus diagrams still
+  parse under the 2025-12 engine; 3 fail on syntax that era forbade. Those
+  become `skipped`, and a column where NOTHING parsed says so — "neither engine
+  laid out ANY of the N diagrams" — rather than the reassuring "nothing moved".
+- **Some commits will not build at all** (a package did not exist yet, or the
+  extraction had already removed it). That column says so and the next one
+  compares against the last engine that built.
+
 ## When the test suite changes
 
 The sources are fixed WITHIN a run and edited between them, so a report is a
