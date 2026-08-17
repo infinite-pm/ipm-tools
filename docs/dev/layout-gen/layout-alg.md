@@ -1431,6 +1431,90 @@ edge #tW,#m2 has visibility=visible
 #E is below #tW with gap=40
 ```
 
+### a band member's ties fan from its facing side
+
+```ipmt
+e1 ::e
+  --> e2 ::e
+  --> e3 ::e
+
+tP --> e1, e2, e3
+```
+<!-- ipm-svg id=1fz hash=377a4a24 -->
+![](../../../_ipm/docs/dev/layout-gen/layout-alg/1fz.ipm.svg)
+
+`tP` is part-of every event of one chain: it anchors at `e1` (its first
+declared user, all three equally deep — v7P7) and sits ON e1's row in the
+left band, meeting e1 on the horizontal through its facing side. Its two
+ties down the chain leave that SAME side and land on e2's and e3's facing
+sides — v7P9 "use one side for the same edge type and direction", the
+band reading. They used to unify on the VERTICAL side instead (the rule
+'thing connected to two layers' still shows for a node with no on-row
+edge): the second and third ties dropped off tP's bottom onto the events'
+top corners while the first left its side (Patrick, part-of every step:
+"if he is connected via his left side at the top-most connection, the
+other two should prefer the left side too"). Each join holds inside the
+150° cap — border gaps, and under 5:1 by centres, tall boxes lie the other
+way — on a clean trial straight, with at most two such arrivals per side;
+a steeper or third tie keeps its vertical exit. The exits spread in
+approach order down the side, the on-row edge on the midline.
+
+```ipmdev-layout-rule
+@scope local
+each edge has max-bends=0
+all #tP,#e1 have same y
+#tP is left-of #e1 with gap=60
+edge #tP,#e1 has source-side=right
+edge #tP,#e2 has source-side=right
+edge #tP,#e3 has source-side=right
+edge #tP,#e1 has target-side=left
+edge #tP,#e2 has target-side=left
+edge #tP,#e3 has target-side=left
+edge #tP,#e1 has source-position=0.5
+edge #tP,#e1 does not cross edge #tP,#e2
+edge #tP,#e2 does not cross edge #tP,#e3
+edge #tP,#e1 does not cross edge #tP,#e3
+```
+
+### a band member's ties up the chain fan from its facing side too
+
+The mirror of the previous case's port rule, going UP: `tP` anchors at the
+LAST chain event (its first declared user, all three equally deep) and
+ties the two events above it. All three leave `tP`'s facing side and land
+on the events' facing sides — and the exits stay in APPROACH ORDER around
+the on-row one: the tie to the farthest event highest, the on-row edge on
+the midline, nothing folding back across it (the old spread nudged the
+displaced middle end one step DOWN regardless of which side of the pinned
+end it belonged to, and the straights crossed at the exit).
+
+```ipmt
+e1 ::e
+  --> e2 ::e
+  --> e3 ::e
+
+tP --> e3, e2, e1
+```
+<!-- ipm-svg id=1gz hash=1277ceb4 -->
+![](../../../_ipm/docs/dev/layout-gen/layout-alg/1gz.ipm.svg)
+
+```ipmdev-layout-rule
+@scope local
+each edge has max-bends=0
+#tP is left-of #e3 with gap=60
+all #tP,#e3 have same y
+edge #tP,#e3 has source-side=right
+edge #tP,#e2 has source-side=right
+edge #tP,#e1 has source-side=right
+edge #tP,#e3 has target-side=left
+edge #tP,#e2 has target-side=left
+edge #tP,#e1 has target-side=left
+edge #tP,#e3 has source-position=0.5
+edge #tP,#e1 has source-position=0.25
+edge #tP,#e1 does not cross edge #tP,#e2
+edge #tP,#e2 does not cross edge #tP,#e3
+edge #tP,#e1 does not cross edge #tP,#e3
+```
+
 ## Things
 
 ### one thing

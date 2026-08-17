@@ -1010,45 +1010,6 @@ edge #e1b,#cX has visibility=visible
 edge #e1b,#cX does not cross edge #e1c,#e1
 ```
 
-### a band member's ties up the chain fan from its facing side too
-
-The mirror of the previous case's port rule, going UP: `tP` anchors at the
-LAST chain event (its first declared user, all three equally deep) and
-ties the two events above it. All three leave `tP`'s facing side and land
-on the events' facing sides — and the exits stay in APPROACH ORDER around
-the on-row one: the tie to the farthest event highest, the on-row edge on
-the midline, nothing folding back across it (the old spread nudged the
-displaced middle end one step DOWN regardless of which side of the pinned
-end it belonged to, and the straights crossed at the exit).
-
-```ipmt
-e1 ::e
-  --> e2 ::e
-  --> e3 ::e
-
-tP --> e3, e2, e1
-```
-<!-- ipm-svg id=1if hash=1277ceb4 -->
-![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1if.ipm.svg)
-
-```ipmdev-layout-rule
-@scope local
-each edge has max-bends=0
-#tP is left-of #e3 with gap=60
-all #tP,#e3 have same y
-edge #tP,#e3 has source-side=right
-edge #tP,#e2 has source-side=right
-edge #tP,#e1 has source-side=right
-edge #tP,#e3 has target-side=left
-edge #tP,#e2 has target-side=left
-edge #tP,#e1 has target-side=left
-edge #tP,#e3 has source-position=0.5
-edge #tP,#e1 has source-position=0.25
-edge #tP,#e1 does not cross edge #tP,#e2
-edge #tP,#e2 does not cross edge #tP,#e3
-edge #tP,#e1 does not cross edge #tP,#e3
-```
-
 ### a budgeted crossing beats a two-bend detour
 
 v7P9: `cY` is shared by `e1a` (anchor, straight) and `e1c` —
