@@ -58,9 +58,11 @@ const (
 	brushNearWithin   = 40   // px from the shared node within which a crossing is a brush (layout7 Clearance)
 	grazeCost         = 0.5
 	grazeBoundaryMult = 3.0 // P8 (ee960980): hugging S or E is prohibitive — boundaries weigh triple
+	overlapCost       = 1.0 // dcc3ebf4: a covered line is a crossing you cannot even see — priced as one
 	detourTaxOver     = 1.5
 	frameLaneSep      = 10  // px, route.go's LaneSep: half of layout7's 20px grid step
 	frameLaneMinShare = 16  // two runs closer than LaneSep for longer than this share a lane
+	frameHugRun       = 20  // a segment beside its OWN box for longer than this is a rail, not an arrival
 	frameGridStep     = 120 // fallback sweep, as detour.go
 	frameGridPad      = 240
 	frameGridCap      = 900
@@ -119,6 +121,8 @@ func RouteFrameEdges(g *Graph) FrameRouteStats {
 		visible[g.Edges[i].To]++
 	}
 
+	adj := adjacency(g)
+
 	// Live geometry for the crossing and lane scores: the straight set, updated
 	// as edges are routed or hidden — a hidden edge's line must not be dodged.
 	paths := make([][][2]int, len(g.Edges))
@@ -149,7 +153,8 @@ func RouteFrameEdges(g *Graph) FrameRouteStats {
 			continue
 		}
 		straight := [][2]int{{ends[i].x1, ends[i].y1}, {ends[i].x2, ends[i].y2}}
-		blocked := pathBlocked(straight, obstacles, e.From, e.To)
+		nb := neighbourSet(adj, e.From, e.To)
+		blocked := pathBlocked(straight, obstacles, e.From, e.To, nb)
 
 		var chosen [][2]int
 		var cost float64
@@ -179,11 +184,11 @@ func RouteFrameEdges(g *Graph) FrameRouteStats {
 			// per-bundle timeout. So it is computed only when it can matter.
 			mustDraw := e.Base == string(EdgeLeadsTo) || visible[e.From] <= 1 || visible[e.To] <= 1
 			for _, c := range cands {
-				if pathBlocked(c, obstacles, e.From, e.To) {
+				if pathBlocked(c, obstacles, e.From, e.To, nb) {
 					if !mustDraw {
 						continue
 					}
-					cc := pathCost(c, obstacles, paths, i, e.Base, g) + badness(c, obstacles, e.From, e.To)
+					cc := pathCost(c, obstacles, paths, i, e.Base, g) + badness(c, obstacles, e.From, e.To, nb)
 					if cc < leastBadCost || (cc == leastBadCost && pathLength(c) < pathLength(leastBad)) {
 						leastBad, leastBadCost = c, cc
 					}
@@ -211,7 +216,7 @@ func RouteFrameEdges(g *Graph) FrameRouteStats {
 			// one of the candidates for that; it wins only when nothing bent
 			// does less damage.
 			sc := pathCost(straight, obstacles, paths, i, e.Base, g) +
-				badness(straight, obstacles, e.From, e.To)
+				badness(straight, obstacles, e.From, e.To, nb)
 			if leastBad == nil || sc <= leastBadCost {
 				chosen = straight
 			} else {
@@ -247,7 +252,7 @@ func RouteFrameEdges(g *Graph) FrameRouteStats {
 		paths[i] = chosen
 	}
 
-	sep, unsep := separateFrameLanes(g, paths, ends, ok, obstacles)
+	sep, unsep := separateFrameLanes(g, paths, ends, ok, obstacles, adj)
 	st.Separated, st.Unseparated = sep, unsep
 	return st
 }
@@ -257,7 +262,23 @@ func RouteFrameEdges(g *Graph) FrameRouteStats {
 // out of a port are exempt from the clearance (not the cut) test: a segment
 // leaves its own box's border, and in a stack the neighbour is legitimately
 // that close to the port.
-func pathBlocked(pts [][2]int, obstacles []Node, fromID, toID string) bool {
+// frameFlush is the margin at which even a NEIGHBOUR's box counts as touched:
+// layout7's GridStep/4 = 5. "The sibling exemption never covers a FLUSH
+// contact: a line through a box's corner reads as touching no matter the
+// kinship."
+const frameFlush = 5
+
+// pathBlocked is the clearance rule with layout7's neighbour exemption. A
+// segment that cuts a foreign box, or passes within frameClear of one, blocks
+// the path — UNLESS that box is a NEIGHBOUR of the edge (connected to either
+// endpoint), in which case only a flush contact (within frameFlush) blocks.
+// route.go's grazeCount: "a wide fan's outer edges naturally skim their
+// siblings' corners on the shared row — detouring them into lanes reads far
+// worse than the skim". On NDA a column of fifteen things converges on one hub
+// across a 20px gutter; without the exemption every one of them was forced
+// into an L in a gutter that holds one lane, and they stacked. With it they
+// fan as diagonals, skimming their siblings, as the flat render draws them.
+func pathBlocked(pts [][2]int, obstacles []Node, fromID, toID string, neighbour map[string]bool) bool {
 	// One sweep over the boxes, not two. The fat (clearance) box contains the
 	// real one, so a segment that cuts a box also cuts its fat box — EXCEPT in
 	// the first frameClear px out of a port, which the clearance test trims off
@@ -265,13 +286,28 @@ func pathBlocked(pts [][2]int, obstacles []Node, fromID, toID string) bool {
 	// be cut inside the trimmed stretch and missed, so the real box is tested
 	// untrimmed and the fat box trimmed, in the same loop; pathCuts' slice
 	// allocation per candidate was the profile's hottest line and is gone.
+	//
+	// The edge's OWN endpoints are exempt from the cut test (a segment must
+	// enter its box) but NOT from running along that box's other sides: on
+	// NDA, fifteen part-of edges from a stacked column each took the L via
+	// the hub's x and ran up the hub's own left border for hundreds of px to
+	// their port — thirteen of them on one line — because "own endpoint" waived
+	// the whole box. hugsOwnBox catches a segment that lies beside its own
+	// endpoint for more than the arrival's worth of run.
+	if hugsOwnBox(pts, obstacles, fromID, toID) {
+		return true
+	}
 	for _, o := range obstacles {
 		if o.ID == fromID || o.ID == toID {
 			continue
 		}
+		clear := frameClear
+		if neighbour[o.ID] && o.Type != "boundary" {
+			clear = frameFlush // a sibling may be skimmed, not touched; S/E never exempt
+		}
 		fat := o
-		fat.X, fat.Y = o.X-frameClear, o.Y-frameClear
-		fat.Width, fat.Height = o.Width+2*frameClear, o.Height+2*frameClear
+		fat.X, fat.Y = o.X-clear, o.Y-clear
+		fat.Width, fat.Height = o.Width+2*clear, o.Height+2*clear
 		for i := 0; i+1 < len(pts); i++ {
 			a, b := pts[i], pts[i+1]
 			if segmentCutsBox(a[0], a[1], b[0], b[1], o) {
@@ -289,6 +325,57 @@ func pathBlocked(pts [][2]int, obstacles []Node, fromID, toID string) bool {
 			}
 			if segmentCutsBox(a[0], a[1], b[0], b[1], fat) {
 				return true
+			}
+		}
+	}
+	return false
+}
+
+// hugsOwnBox says whether some segment of pts runs ALONG a side of one of the
+// edge's own endpoint boxes — axis-parallel, within frameClear of the side, and
+// sharing more than an arrival's worth of run with it (frameHugRun) — rather
+// than merely entering it. The segment that carries the port itself is judged
+// only on the part beyond frameHugRun from the port, so a normal approach is
+// never a hug and a rail along the box always is.
+func hugsOwnBox(pts [][2]int, obstacles []Node, fromID, toID string) bool {
+	if len(pts) < 2 {
+		return false
+	}
+	for _, o := range obstacles {
+		if o.ID != fromID && o.ID != toID {
+			continue
+		}
+		l, r, tp, bt := o.X, o.X+o.Width, o.Y, o.Y+o.Height
+		for i := 0; i+1 < len(pts); i++ {
+			a, b := pts[i], pts[i+1]
+			// Trim the arrival/departure off the segment that touches the port
+			// of THIS box, so entering it is never a hug.
+			if i == 0 && o.ID == fromID {
+				a = advance(a, b, frameHugRun)
+			}
+			if i+2 == len(pts) && o.ID == toID {
+				b = advance(b, a, frameHugRun)
+			}
+			if a == b {
+				continue
+			}
+			switch {
+			case a[0] == b[0]: // vertical: beside the left or right side?
+				x := a[0]
+				if absInt(x-l) <= frameClear || absInt(x-r) <= frameClear {
+					lo, hi := minInt(a[1], b[1]), maxInt(a[1], b[1])
+					if minInt(hi, bt)-maxInt(lo, tp) > frameHugRun {
+						return true
+					}
+				}
+			case a[1] == b[1]: // horizontal: beside the top or bottom?
+				y := a[1]
+				if absInt(y-tp) <= frameClear || absInt(y-bt) <= frameClear {
+					lo, hi := minInt(a[0], b[0]), maxInt(a[0], b[0])
+					if minInt(hi, r)-maxInt(lo, l) > frameHugRun {
+						return true
+					}
+				}
 			}
 		}
 	}
@@ -332,6 +419,12 @@ func pathCost(pts [][2]int, obstacles []Node, paths [][][2]int, self int, base s
 			c += crossOtherKind
 		}
 	}
+	// A shared lane. dcc3ebf4 made the engine's lane pass register separated
+	// lanes "as crossings where covered lines hid them — honest accounting";
+	// pricing the overlap here means the candidate that takes an EMPTY lane
+	// wins before the lane pass ever has to move anything, and a fan into a
+	// hub spreads by construction rather than stacking on the first rail.
+	c += overlapCost * float64(pathOverlaps(pts, paths, self))
 	// P8: a graze is half a crossing; a graze of a BOUNDARY (S/E) is triple
 	// that — never exempt, prohibitive on its own.
 	for _, o := range obstacles {
@@ -372,6 +465,29 @@ func kindRank(base string) int {
 		return 3
 	}
 	return 4
+}
+
+// adjacency is node id -> the ids it shares an edge with, built once per graph.
+func adjacency(g *Graph) map[string][]string {
+	adj := map[string][]string{}
+	for _, e := range g.Edges {
+		adj[e.From] = append(adj[e.From], e.To)
+		adj[e.To] = append(adj[e.To], e.From)
+	}
+	return adj
+}
+
+// neighbourSet is the set of node ids connected to either endpoint of an edge
+// — layout7's sibling exemption for the graze/clearance rule.
+func neighbourSet(adj map[string][]string, fromID, toID string) map[string]bool {
+	nb := map[string]bool{fromID: true, toID: true}
+	for _, n := range adj[fromID] {
+		nb[n] = true
+	}
+	for _, n := range adj[toID] {
+		nb[n] = true
+	}
+	return nb
 }
 
 func isHierarchyTie(base string) bool {
@@ -529,7 +645,7 @@ func frameCandidates(s detourSeg, obstacles []Node, fromID, toID string) [][][2]
 // Only bend coordinates move (a port cannot), a shift that would block the
 // edge or land it in another lane is rejected, and nested lanes shift outward
 // so a stack of parallels fans rather than swaps.
-func separateFrameLanes(g *Graph, paths [][][2]int, ends []detourSeg, ok []bool, obstacles []Node) (shifted, failed int) {
+func separateFrameLanes(g *Graph, paths [][][2]int, ends []detourSeg, ok []bool, obstacles []Node, adj map[string][]string) (shifted, failed int) {
 	type run struct {
 		edge, seg int // paths[edge][seg]..[seg+1]
 		vertical  bool
@@ -624,7 +740,7 @@ func separateFrameLanes(g *Graph, paths [][][2]int, ends []detourSeg, ok []bool,
 				np[m.seg][1] += d
 				np[m.seg+1][1] += d
 			}
-			if pathBlocked(np, obstacles, e.From, e.To) {
+			if pathBlocked(np, obstacles, e.From, e.To, neighbourSet(adj, e.From, e.To)) {
 				continue
 			}
 			nm := m
@@ -660,21 +776,25 @@ func separateFrameLanes(g *Graph, paths [][][2]int, ends []detourSeg, ok []bool,
 // Without the second term the etcd edge, forced to draw, chose a run along
 // three borders over a straight that crossed a few lines — a strictly worse
 // picture by the rules this file exists to enforce.
-func badness(pts [][2]int, obstacles []Node, fromID, toID string) float64 {
-	return float64(100*cutCount(pts, obstacles, fromID, toID) + 10*hugCount(pts, obstacles, fromID, toID))
+func badness(pts [][2]int, obstacles []Node, fromID, toID string, neighbour map[string]bool) float64 {
+	return float64(100*cutCount(pts, obstacles, fromID, toID) + 10*hugCount(pts, obstacles, fromID, toID, neighbour))
 }
 
 // hugCount is how many foreign boxes a path passes within frameClear of
 // without cutting them — the clearance breaches pathBlocked refuses.
-func hugCount(pts [][2]int, obstacles []Node, fromID, toID string) int {
+func hugCount(pts [][2]int, obstacles []Node, fromID, toID string, neighbour map[string]bool) int {
 	n := 0
 	for _, o := range obstacles {
 		if o.ID == fromID || o.ID == toID {
 			continue
 		}
+		clear := frameClear
+		if neighbour[o.ID] && o.Type != "boundary" {
+			clear = frameFlush
+		}
 		fat := o
-		fat.X, fat.Y = o.X-frameClear, o.Y-frameClear
-		fat.Width, fat.Height = o.Width+2*frameClear, o.Height+2*frameClear
+		fat.X, fat.Y = o.X-clear, o.Y-clear
+		fat.Width, fat.Height = o.Width+2*clear, o.Height+2*clear
 		hug := false
 		for i := 0; i+1 < len(pts) && !hug; i++ {
 			a, b := pts[i], pts[i+1]
