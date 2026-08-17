@@ -120,23 +120,14 @@ func (g *graph) assemble() {
 	type ringRec struct{ ci, hub, anchor, side int }
 	var ringPlaced []ringRec
 	var wrapList []int
-	for i, ci := range order {
-		if i == 0 {
-			offsets[ci] = [2]int{0, 0}
-			placedComp[ci] = true
-			continue
-		}
-		var tie *tieRef
-		for _, tr := range ties[ci] {
-			if placedComp[tr.other] {
-				tie = &tr
-				break
-			}
-		}
-		if tie == nil {
-			wrapList = append(wrapList, ci)
-			continue
-		}
+	if len(order) > 0 {
+		offsets[order[0]] = [2]int{0, 0}
+		placedComp[order[0]] = true
+	}
+	// ringOne places ONE tied component around its already-placed hub —
+	// the body of v7P2's ring pass, unchanged; only how often it runs is
+	// new (the fixpoint loop below it).
+	ringOne := func(ci int, tie *tieRef) {
 		hub := tie.other
 		hx0, hy0, hx1, hy1 := absBox(hub)
 		hubOff := offsets[hub]
@@ -299,6 +290,38 @@ func (g *graph) assemble() {
 						n2++
 					}
 				}
+				if boundaries {
+					return n2
+				}
+				// ...and the hub's DRAWN TIES, as straights between placed
+				// centres. The scorer only ever tested the hub's boxes; with
+				// rings around rings (the fixpoint above) a second-hop
+				// satellite could sit across a first-hop tie without paying,
+				// and on kubernetes the root state went from 5 crossings to
+				// 16, five of them across one tie of the central story. A
+				// tie that must cross another tie to reach its anchor is
+				// what the "fewer tie crossings" priority is FOR.
+				for _, e := range g.edges {
+					if e.structural || e.rel == RelLeadsTo {
+						continue
+					}
+					a, b := g.nodes[e.from], g.nodes[e.to]
+					if !a.placed || !b.placed || a.comp < 0 || b.comp < 0 {
+						continue
+					}
+					if !placedComp[a.comp] || !placedComp[b.comp] {
+						continue
+					}
+					if e.from == tie.anchor || e.to == tie.anchor || e.from == tie.self || e.to == tie.self {
+						continue // meets ours at a shared node: a brush, not a tangle
+					}
+					ao, bo := offsets[a.comp], offsets[b.comp]
+					q0 := [2]int{a.x + a.w/2 + ao[0], a.y + a.h/2 + ao[1]}
+					q1 := [2]int{b.x + b.w/2 + bo[0], b.y + b.h/2 + bo[1]}
+					if segsCross(p0, p1, q0, q1) {
+						n2++
+					}
+				}
 				return n2
 			}
 			// content boxes veto at the centre line; a small S/E BOUNDARY
@@ -351,6 +374,43 @@ func (g *graph) assemble() {
 		sideCount[[2]int{hub, bestSide}]++
 		ringPlaced = append(ringPlaced, ringRec{ci: ci, hub: hub, anchor: tie.anchor, side: bestSide})
 	}
+
+	// The ring pass runs to a FIXPOINT. v7P2 says every component tied to an
+	// already-placed one is placed AROUND it — and a snowflake is that rule
+	// applied transitively: satellites of satellites ring THEIR hub. One
+	// ordered walk could not do it: a component rang only if a tie partner
+	// was placed at its turn, and anything it skipped went to the aspect-
+	// ratio wrap and could never be a hub itself. On kubernetes (52
+	// components, 35 tied) that rang 3 and wrapped 49; kubectl -> "interact
+	// with Kubernetes via CLI" -> Kubernetes, a two-hop chain of expresses
+	// ties, ended 4650px apart with both ties hidden as too long. So: walk
+	// the unplaced components in centrality order, ring every one whose
+	// partner is placed, and repeat while a pass placed anything. Centrality
+	// order within a pass keeps the result deterministic; the wrap gets only
+	// what no pass could reach. The onion fixture (one hop, every satellite
+	// on the hub) is the first pass of this, unchanged.
+	pending := append([]int{}, order[1:]...)
+	for progress := true; progress && len(pending) > 0; {
+		progress = false
+		var still []int
+		for _, ci := range pending {
+			var tie *tieRef
+			for _, tr := range ties[ci] {
+				if placedComp[tr.other] {
+					tie = &tr
+					break
+				}
+			}
+			if tie == nil {
+				still = append(still, ci)
+				continue
+			}
+			progress = true
+			ringOne(ci, tie)
+		}
+		pending = still
+	}
+	wrapList = append(wrapList, pending...)
 
 	// Same-anchor PURE tiles centre on their anchor (v7P2:
 	// two near-to thing structures tied to one anchor read
