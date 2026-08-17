@@ -174,13 +174,16 @@ func (g *graph) place(m *membership, gp *groupsPlan, sp *skeletonPlan) {
 		}
 		for r := 0; r < len(rows); r++ {
 			for _, ev := range rows[r] {
+				// predecessors as the skeleton RANKED them (sp.flowPred): a
+				// leads-to across a sub-grid boundary counts for the
+				// composite. Read raw from g.in, a composite entered through
+				// its member had none. Only placed, non-boundary events (a
+				// stale S from the demand re-solve is not a predecessor,
+				// v7P8 §4).
 				var preds []int
-				for _, e := range g.in[ev] {
-					if e.rel == RelLeadsTo && g.nodes[e.from].kind == KindEvent &&
-						!g.nodes[e.from].boundary && // a stale S from the
-						// demand re-solve is not a predecessor (v7P8 §4)
-						g.nodes[e.from].placed {
-						preds = append(preds, e.from)
+				for _, p := range sp.flowPred[ev] {
+					if g.nodes[p].kind == KindEvent && !g.nodes[p].boundary && g.nodes[p].placed {
+						preds = append(preds, p)
 					}
 				}
 				y := BoundarySize + BoundaryGap // below the S row
@@ -257,10 +260,8 @@ func (g *graph) place(m *membership, gp *groupsPlan, sp *skeletonPlan) {
 			for pass := 0; pass < 2; pass++ {
 				byParent := map[int][]int{}
 				for _, ev := range rows[r] {
-					for _, e := range g.in[ev] {
-						if e.rel == RelLeadsTo && g.nodes[e.from].kind == KindEvent {
-							byParent[e.from] = append(byParent[e.from], ev)
-						}
+					for _, p := range sp.flowPred[ev] {
+						byParent[p] = append(byParent[p], ev)
 					}
 				}
 				for _, kids := range byParent {

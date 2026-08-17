@@ -3,6 +3,7 @@ package layout7
 import (
 	"github.com/infinite-pm/ipm-tools/pkg/ipm/model"
 	"github.com/infinite-pm/ipm-tools/pkg/layout"
+	"strings"
 )
 
 // Trace receives structured events during GenerateTraced. It is the
@@ -52,6 +53,7 @@ func GenerateTraced(doc *model.IpmGraph, t Trace) (*layout.Graph, error) {
 	}
 	sp := g.buildSkeleton(gp)
 	if g.tracing() {
+		g.emitRankRows(sp)
 		g.emitSubRows(sp)
 	}
 	g.place(m, gp, sp)
@@ -203,6 +205,50 @@ func (g *graph) emitGroups(gp *groupsPlan) {
 		g.trace.Emit(TraceEvent{Stage: "groups", Kind: "band", Data: map[string]any{
 			"node": g.traceName(i), "nodeKind": g.traceKind(i),
 			"anchor": g.traceName(r.event), "side": side, "dx": r.dx, "dy": r.dy,
+		}})
+	}
+}
+
+// emitRankRows reports the TOP-LEVEL rank rows of every component (v7P3:
+// leads-to runs down) with each event's flow predecessors and the sub-event a
+// successor is laned under — the question "why is this event on that row"
+// had no answer in --why before; only sub-rows were shown.
+func (g *graph) emitRankRows(sp *skeletonPlan) {
+	succ, pred, _, _, viaSub, _ := g.topLevelFlow()
+	_ = succ
+	for ci, rows := range sp.rows {
+		if len(rows) == 0 {
+			continue
+		}
+		rr := make([][]string, 0, len(rows))
+		for _, row := range rows {
+			if len(row) == 0 {
+				continue // a component without top-level events; and an
+				// empty row would not survive the recording round trip
+				// (the shape-typed decoder cannot type an empty slice)
+			}
+			names := make([]string, 0, len(row))
+			for _, ev := range row {
+				name := g.traceName(ev)
+				if ps := pred[ev]; len(ps) > 0 {
+					pn := make([]string, 0, len(ps))
+					for _, p := range ps {
+						pn = append(pn, g.traceName(p))
+					}
+					name += " <- " + strings.Join(pn, ",")
+				}
+				if s, ok := viaSub[ev]; ok {
+					name += " (under " + g.traceName(s) + ")"
+				}
+				names = append(names, name)
+			}
+			rr = append(rr, names)
+		}
+		if len(rr) == 0 {
+			continue
+		}
+		g.trace.Emit(TraceEvent{Stage: "skeleton", Kind: "rows", Data: map[string]any{
+			"comp": ci, "rows": rr,
 		}})
 	}
 }

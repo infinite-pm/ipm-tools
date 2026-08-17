@@ -1123,7 +1123,7 @@ had no top-level successor and got its own S and E beside 'cook'.
 ```ipmdev-layout-rule
 @scope local
 all #prep,#chop have same center-x
-#chop is below #prep with gap=20
+#chop is below #prep with gap=60
 edge #prep,#chop is vertical
 #chop is right-of #cook with gap=60
 all #cook,#serve have same center-x

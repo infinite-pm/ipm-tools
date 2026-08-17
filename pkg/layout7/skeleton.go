@@ -24,7 +24,15 @@ type skeletonPlan struct {
 	desiredX  map[int]int   // event -> desired lane CENTER (component-local)
 	extraDrop map[int]int   // fork parent -> extra row drop below it (fan-angle cap)
 	starts    map[int][]int // comp -> start events (rank 0, declaration order)
-	ends      map[int][]int // comp -> end events (no outgoing eLe)
+	// top-level flow as ranked: a leads-to across a sub-grid boundary counts
+	// for the composite (topLevelFlow). The place stage's Y pass reads THESE,
+	// not the raw leads-to edges into a node — the lifted flow into a
+	// composite arrives at its sub-event, so the composite itself has no
+	// incoming leads-to and, read raw, no predecessor: NDA's five parts,
+	// a chain through their members, all landed on one line.
+	flowPred map[int][]int
+	flowSucc map[int][]int
+	ends     map[int][]int // comp -> end events (no outgoing eLe)
 }
 
 // eLe successors/predecessors among TOP-LEVEL events. A leads-to that
@@ -115,6 +123,7 @@ func (g *graph) buildSkeleton(gp *groupsPlan) *skeletonPlan {
 	}
 	succ, pred, topLevel, subParent, viaSub, intoSub := g.topLevelFlow()
 	sp.subParent = subParent
+	sp.flowPred, sp.flowSucc = pred, succ
 
 	// ---- sub-event stacks (v7P3: "a declared leads-to between sub-event
 	// siblings ORDERS that column and keeps the pair adjacent in flow

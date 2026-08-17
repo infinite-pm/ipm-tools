@@ -161,6 +161,19 @@ func (r *Report) Text(opts TextOpts) string {
 			str(e.Data, "anchor"), int(num(e.Data, "dx")), int(num(e.Data, "dy")))
 	}
 
+	fmt.Fprintf(&b, "== rank rows (v7P3 top-level flow: event <- predecessors, (under sub-event))\n")
+	for _, e := range r.byKind("skeleton", "rows") {
+		if !mentions(e, sel) {
+			continue
+		}
+		fmt.Fprintf(&b, "  comp %d:\n", int(num(e.Data, "comp")))
+		if rows, ok := e.Data["rows"].([][]string); ok {
+			for ri, row := range rows {
+				fmt.Fprintf(&b, "    rank %d: %s\n", ri, strings.Join(row, " | "))
+			}
+		}
+	}
+
 	fmt.Fprintf(&b, "== sub-structures (v7P3 rank rows)\n")
 	for _, e := range r.byKind("skeleton", "subrows") {
 		if !mentions(e, sel) {

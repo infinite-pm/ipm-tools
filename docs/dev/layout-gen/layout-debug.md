@@ -79,7 +79,11 @@ The engine's ONLY debug surface is `pkg/layout7/trace.go`:
   (consumers grep and diff these; keys are API). Stages: membership,
   groups, skeleton, floors, pull, place, assemble, route. Kinds:
   component, election, anchor, satellite, unanchored, demote, band,
-  subrows, positions, candidate, chosen, stubbed, tile, tile-candidate.
+  rows, subrows, positions, candidate, chosen, stubbed, tile,
+  tile-candidate. (`rows` = the top-level rank rows per component with
+  each event's flow predecessors and the sub-event it is laned under —
+  `--why` prints them as `== rank rows`; before it, "why is this event
+  on that row" had no answer short of reading `place.go`.)
 - `GenerateTraced(doc, t)` — `Generate(doc)` ≡ `GenerateTraced(doc, nil)`.
 - Position snapshots after the floor pass, the pull pass, place and
   assemble give the movement trajectory; the groups stage emits each
