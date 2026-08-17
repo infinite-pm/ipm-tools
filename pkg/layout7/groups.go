@@ -1610,8 +1610,54 @@ func (g *graph) exclusiveSubtree(root int, placed map[int]bool) []int {
 			}
 		}
 	}
-	// flat fans qualify too (tB and tC are BOTH direct
-	// parts of tA — one generation, one row; a tower reads as a chain)
+	// A LINEAR PART-OF CHAIN does not qualify. Layered generations exist so
+	// a branching hierarchy reads as one foldable tree — siblings on a row,
+	// parents centred over children. A chain has no siblings and no width:
+	// every generation is one node, and "layered" degenerates into a column
+	// beside the event that costs a row per link and pushes the whole story
+	// down (two-containers: t1→t1a→t1b→t1c stood 400px tall next to e2a1 and
+	// moved e2a2 from y=300 to y=730; the old row read it as what it is, a
+	// chain running outward). v7P4's band grammar already says which way each
+	// kind of chain reads: "the whole of an outgoing tPt goes OUTWARD on the
+	// row", while "concepts step DOWN-AND-OUTWARD, so a concept chain reads
+	// as one diagonal line" — and the aux-chain-gets-its-own-corridor fixture
+	// pins the concept case (c6 below c5, same centre-x). So a subtree that
+	// is a straight run of part-of, with no member placing two children,
+	// keeps the band grammar and lays out sideways; a concept chain, or any
+	// tree that branches (a flat fan of two parts is one generation, one
+	// row), still renders as generations. Either way it is still one unit
+	// for the zoom canvas: the band grammar places the chain as a group.
+	// "Linear" is a single path: within the closure every member has at
+	// most one placing edge in and one out. Out-degree alone is not enough —
+	// a part-of tree CONVERGES (tB --P--> tA, tC --P--> tA: two parts of one
+	// whole, the fixture a-thing-hierarchy-and-its-concepts-join-the-event-
+	// chain), and that is a tree with two nodes on one generation, which
+	// counting children of the whole would miss.
+	linearPartOf := true
+	for _, n := range append([]int{root}, members...) {
+		in, out := 0, 0
+		for _, e := range g.out[n] {
+			if !e.structural || !g.isPlacing(e) || !inClo[e.to] || e.to == n {
+				continue
+			}
+			out++
+			if e.rel != RelPartOf {
+				linearPartOf = false // a concept link: generations, as pinned
+			}
+		}
+		for _, e := range g.in[n] {
+			if !e.structural || !g.isPlacing(e) || !inClo[e.from] || e.from == n {
+				continue
+			}
+			in++
+		}
+		if in >= 2 || out >= 2 {
+			linearPartOf = false // it branches or converges: a real tree
+		}
+	}
+	if linearPartOf {
+		return nil
+	}
 	return members
 }
 
