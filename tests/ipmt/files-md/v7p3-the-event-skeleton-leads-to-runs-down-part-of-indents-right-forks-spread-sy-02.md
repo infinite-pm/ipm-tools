@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-principles.md#L327-L333 | [docs/dev/layout-gen/layout-principles.md](../../../docs/dev/layout-gen/layout-principles.md#v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-symmetrically)
+**Source:** gl:docs/dev/layout-gen/layout-principles.md#L335-L341 | [docs/dev/layout-gen/layout-principles.md](../../../docs/dev/layout-gen/layout-principles.md#v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-symmetrically)
 
 ## ipmt Content
 

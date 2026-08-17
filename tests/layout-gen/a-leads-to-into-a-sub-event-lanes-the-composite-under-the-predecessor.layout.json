@@ -15,7 +15,7 @@
       "type": "event",
       "label": "chop",
       "x": 220,
-      "y": 200,
+      "y": 240,
       "width": 120,
       "height": 60
     },
@@ -24,7 +24,7 @@
       "type": "event",
       "label": "cook",
       "x": 40,
-      "y": 200,
+      "y": 240,
       "width": 120,
       "height": 60
     },
@@ -33,7 +33,7 @@
       "type": "event",
       "label": "serve",
       "x": 40,
-      "y": 320,
+      "y": 360,
       "width": 120,
       "height": 60
     },
@@ -51,7 +51,7 @@
       "type": "boundary",
       "label": "E",
       "x": 260,
-      "y": 440,
+      "y": 480,
       "width": 40,
       "height": 40
     }
@@ -146,7 +146,7 @@
   "meta": {
     "bounds": {
       "width": 380,
-      "height": 520,
+      "height": 560,
       "marginX": 40,
       "marginY": 40
     },

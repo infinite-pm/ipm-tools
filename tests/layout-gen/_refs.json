@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg.md",
-        "source_sha1": "3414b47e3ec22f99b6b075c7a325594622907d99",
+        "source_sha1": "9817ba5824df4d60aaec188a5ba6ecba868a94ae",
         "name": "ipmt layout algorithm",
         "method": "parser",
         "parser_name": "ipmt-md",
@@ -450,8 +450,8 @@
                 "content_sha1": "4a5d0183a9c8cb5490150d02ac99216f8cecab89",
                 "outputs": {
                     "ipmt": "4a5d0183a9c8cb5490150d02ac99216f8cecab89",
-                    "layout.json": "096bb407265ddf96a2bd043eeec85b7fb4fa42f7",
-                    "md": "a16e70bc9e7b79811cfad67585663d3f4adb6ad9"
+                    "layout.json": "99c95bb9630927a9a874804559826c07f9c44888",
+                    "md": "200aa32a529190aa02d5557b1a123f666d2bf4c1"
                 },
                 "heading": "a leads-to into a sub-event lanes the composite under the predecessor",
                 "section": "Events"
