@@ -60,13 +60,27 @@ const (
 	grazeBoundaryMult  = 3.0 // P8 (ee960980): hugging S or E is prohibitive — boundaries weigh triple
 	overlapCost        = 1.0 // dcc3ebf4: a covered line is a crossing you cannot even see — priced as one
 	detourTaxOver      = 1.5
-	frameLaneSep       = 10  // px, route.go's LaneSep: half of layout7's 20px grid step
-	frameLaneMinShare  = 16  // two runs closer than LaneSep for longer than this share a lane
-	frameHugRun        = 20  // a segment beside its OWN box for longer than this is a rail, not an arrival
-	frameBoundaryClear = 20  // S/E keep a full grid step of air (P8: hugging a boundary is prohibitive)
-	frameGridStep      = 120 // fallback sweep, as detour.go
-	frameGridPad       = 240
-	frameGridCap       = 900
+	frameLaneSep       = 10 // px, route.go's LaneSep: half of layout7's 20px grid step
+	frameLaneMinShare  = 16 // two runs closer than LaneSep for longer than this share a lane
+	frameHugRun        = 20 // a segment beside its OWN box for longer than this is a rail, not an arrival
+	frameBoundaryClear = 20 // S/E keep a full grid step of air (P8: hugging a boundary is prohibitive)
+	// A tie longer than this hides regardless of how cleanly it could be
+	// drawn. At 100% zoom a screen is ~1600 css px, and a 120x60 label stays
+	// legible to about 50%, so ~3200px is the longest span whose two ends can
+	// ever be on one readable screen. Past it the line carries no information
+	// AS A LINE — the reader can see one end or the other, never both — while
+	// the stub chips at each end say the same thing in the same place. Owner's
+	// rule, 2026-08-17: "you never will be able to see both nodes connected on
+	// one page; if you zoom out enough to, you cannot read it." Leads-to is
+	// exempt: it is the story's spine and its length IS the information.
+	frameMaxTieLen = 3200
+	// A pre-move stub is reconsidered only if the frame put its endpoints this
+	// close: a quarter of a readable screen. Farther than that the engine's
+	// verdict stands — it was made with better information than geometry alone.
+	frameRehideLen = 800
+	frameGridStep  = 120 // fallback sweep, as detour.go
+	frameGridPad   = 240
+	frameGridCap   = 900
 )
 
 // FrameRouteStats says what the pass did, for logs and tests.
@@ -117,8 +131,49 @@ func RouteFrameEdges(g *Graph) FrameRouteStats {
 		ends[i], ok[i] = detourSeg{x1, y1, x2, y2}, true
 	}
 
-	// The last-connection guard needs a node's VISIBLE degree, over the edges
-	// as they stand before this pass; it is decremented as edges hide.
+	// Every edge is a candidate for drawing, on THIS frame's geometry. The
+	// engine's Visibility verdicts came from the whole-document layout, at
+	// positions the frame then discarded — and inheriting them as fixed facts
+	// went wrong in the one way that matters: etcd had two edges, the engine
+	// had hidden the one whose partner the frame later put 189px away, and
+	// the last-connection guard then FORCED the other one — 3189px across the
+	// canvas — to draw, because it was "etcd's last visible connection". So a
+	// pre-move stub is un-hidden here and re-decided like the rest; the
+	// budget, the kind order and the guards do the deciding, on real geometry.
+	// The visible-degree count for the guard is therefore over ALL edges.
+	//
+	// But not un-hidden BLINDLY. Un-hiding every pre-move stub and letting the
+	// budget re-decide made three corpus models worse (CFEngine's grazes
+	// 64 -> 176): the engine's stub verdicts were mostly right, and a re-drawn
+	// long tie displaces the edges around it. So a pre-move stub comes back
+	// only when THIS frame makes it plainly worth drawing — its endpoints now
+	// sit within frameRehideLen of each other. That is exactly the etcd case:
+	// the engine hid it at 5000px apart, the frame put the endpoints 189px
+	// apart. Everything else stays hidden. The un-hidden ones then go through
+	// the same budget as the rest, and can hide again there.
+	// ...AND its straight is clean. Un-hiding on distance alone still made
+	// CFEngine's grazes 64 -> 176: a short stub whose straight skims a box
+	// came back as a graze. Short and clear is the bar; short and dirty stays
+	// the engine's call.
+	adj := adjacency(g)
+	for i := range g.Edges {
+		if !ok[i] || g.Edges[i].Visibility != visibilityStubbed {
+			continue
+		}
+		if absInt(ends[i].x2-ends[i].x1)+absInt(ends[i].y2-ends[i].y1) > frameRehideLen {
+			continue
+		}
+		e := g.Edges[i]
+		straight := [][2]int{{ends[i].x1, ends[i].y1}, {ends[i].x2, ends[i].y2}}
+		if pathBlocked(straight, obstacles, e.From, e.To, neighbourSet(adj, e.From, e.To)) ||
+			pathGrazes(straight, obstacles, e.From, e.To) > 0 {
+			continue
+		}
+		g.Edges[i].Visibility = ""
+		if g.Edges[i].Route != nil {
+			g.Edges[i].Route.SourceStub, g.Edges[i].Route.TargetStub = nil, nil
+		}
+	}
 	visible := map[string]int{}
 	for i := range g.Edges {
 		if !ok[i] || g.Edges[i].Visibility == visibilityStubbed {
@@ -127,8 +182,6 @@ func RouteFrameEdges(g *Graph) FrameRouteStats {
 		visible[g.Edges[i].From]++
 		visible[g.Edges[i].To]++
 	}
-
-	adj := adjacency(g)
 
 	// Live geometry for the crossing and lane scores: the straight set, updated
 	// as edges are routed or hidden — a hidden edge's line must not be dodged.
@@ -150,6 +203,14 @@ func RouteFrameEdges(g *Graph) FrameRouteStats {
 	for i := range g.Edges {
 		order = append(order, i)
 	}
+	// Within a kind, SLICE order — deliberately not shorter-first. Shorter-
+	// first sounded like P9's "the longer, more-bent edge hides", and it was
+	// tried: it made FriendsAndFiends' grazes 37 -> 114 and NDA's crossings
+	// 2267 -> 2751, because a short edge routed first claims a lane a long
+	// structural one then has to bend around. The engine's tie-break applies
+	// among candidates for ONE edge, not as a global routing order. Slice
+	// order is the engine's own emit order, which already places skeleton
+	// before aux; keep it.
 	sort.SliceStable(order, func(a, b int) bool {
 		return kindRank(g.Edges[order[a]].Base) < kindRank(g.Edges[order[b]].Base)
 	})
@@ -182,6 +243,21 @@ func RouteFrameEdges(g *Graph) FrameRouteStats {
 			continue
 		}
 		straight := [][2]int{{ends[i].x1, ends[i].y1}, {ends[i].x2, ends[i].y2}}
+		if e.Base != string(EdgeLeadsTo) && absInt(ends[i].x2-ends[i].x1)+absInt(ends[i].y2-ends[i].y1) > frameMaxTieLen {
+			// Too long to ever be seen whole. Hidden even when it is a node's
+			// last connection: the guard exists so a node is not left with no
+			// mark of its relation, and the stub chips ARE that mark — a chip
+			// at each end beats a line the reader can only ever see one end of.
+			e.Visibility = visibilityStubbed
+			if e.Route != nil {
+				e.Route.Bends = nil
+			}
+			visible[e.From]--
+			visible[e.To]--
+			paths[i] = nil
+			st.Hidden++
+			continue
+		}
 		nb := neighbourSet(adj, e.From, e.To)
 		blocked := pathBlocked(straight, obstacles, e.From, e.To, nb)
 
