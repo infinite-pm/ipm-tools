@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1647-L1650 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#thing-hierarchy-multiple-roots)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1714-L1717 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#thing-hierarchy-multiple-roots)
 
 ## ipmt Content
 
@@ -25,14 +25,14 @@ tX --> tY
 
 ## Layout Validation Rules
 
-Test line: 1647
+Test line: 1714
 
 ✅ All 4 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 1662](gl:docs/dev/layout-gen/layout-alg.md#L1662): `#tV,#tW have same y` ([thing-hierarchy-multiple-roots.dsl](../layout-gen-rules/thing-hierarchy-multiple-roots.dsl))
-- ✓ [Line 1663](gl:docs/dev/layout-gen/layout-alg.md#L1663): `#tX is below #tV with gap=40` ([thing-hierarchy-multiple-roots-02.dsl](../layout-gen-rules/thing-hierarchy-multiple-roots-02.dsl))
-- ✓ [Line 1664](gl:docs/dev/layout-gen/layout-alg.md#L1664): `#tY is below #tX with gap=40` ([thing-hierarchy-multiple-roots-03.dsl](../layout-gen-rules/thing-hierarchy-multiple-roots-03.dsl))
+- ✓ [Line 1729](gl:docs/dev/layout-gen/layout-alg.md#L1729): `#tV,#tW have same y` ([thing-hierarchy-multiple-roots.dsl](../layout-gen-rules/thing-hierarchy-multiple-roots.dsl))
+- ✓ [Line 1730](gl:docs/dev/layout-gen/layout-alg.md#L1730): `#tX is below #tV with gap=40` ([thing-hierarchy-multiple-roots-02.dsl](../layout-gen-rules/thing-hierarchy-multiple-roots-02.dsl))
+- ✓ [Line 1731](gl:docs/dev/layout-gen/layout-alg.md#L1731): `#tY is below #tX with gap=40` ([thing-hierarchy-multiple-roots-03.dsl](../layout-gen-rules/thing-hierarchy-multiple-roots-03.dsl))
 
 ## Rendered Diagram
 

@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1240-L1249 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-concept-at-every-layer)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1307-L1316 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-concept-at-every-layer)
 
 ## ipmt Content
 
@@ -31,27 +31,27 @@ l5 --> c5 ::c
 
 ## Layout Validation Rules
 
-Test line: 1240
+Test line: 1307
 
 ✅ All 17 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 1265](gl:docs/dev/layout-gen/layout-alg.md#L1265): `#l1,#l2,#l3,#l4,#l5 have same y` ([a-concept-at-every-layer.dsl](../layout-gen-rules/a-concept-at-every-layer.dsl))
-- ✓ [Line 1266](gl:docs/dev/layout-gen/layout-alg.md#L1266): `#c1 is left-of #l1 with gap=60` ([a-concept-at-every-layer-02.dsl](../layout-gen-rules/a-concept-at-every-layer-02.dsl))
-- ✓ [Line 1267](gl:docs/dev/layout-gen/layout-alg.md#L1267): `#c2,#l2 have same center-x` ([a-concept-at-every-layer-03.dsl](../layout-gen-rules/a-concept-at-every-layer-03.dsl))
-- ✓ [Line 1268](gl:docs/dev/layout-gen/layout-alg.md#L1268): `#c2 is below #l2 with gap=40` ([a-concept-at-every-layer-04.dsl](../layout-gen-rules/a-concept-at-every-layer-04.dsl))
-- ✓ [Line 1269](gl:docs/dev/layout-gen/layout-alg.md#L1269): `#c3,#l3 have same center-x` ([a-concept-at-every-layer-05.dsl](../layout-gen-rules/a-concept-at-every-layer-05.dsl))
-- ✓ [Line 1270](gl:docs/dev/layout-gen/layout-alg.md#L1270): `#c3 is below #l3 with gap=40` ([a-concept-at-every-layer-06.dsl](../layout-gen-rules/a-concept-at-every-layer-06.dsl))
-- ✓ [Line 1271](gl:docs/dev/layout-gen/layout-alg.md#L1271): `#c4,#l4 have same center-x` ([a-concept-at-every-layer-07.dsl](../layout-gen-rules/a-concept-at-every-layer-07.dsl))
-- ✓ [Line 1272](gl:docs/dev/layout-gen/layout-alg.md#L1272): `#c4 is below #l4 with gap=40` ([a-concept-at-every-layer-08.dsl](../layout-gen-rules/a-concept-at-every-layer-08.dsl))
-- ✓ [Line 1273](gl:docs/dev/layout-gen/layout-alg.md#L1273): `#c5 is right-of #l5 with gap=60` ([a-concept-at-every-layer-09.dsl](../layout-gen-rules/a-concept-at-every-layer-09.dsl))
-- ✓ [Line 1274](gl:docs/dev/layout-gen/layout-alg.md#L1274): `#l5,#c5 have same y` ([a-concept-at-every-layer-10.dsl](../layout-gen-rules/a-concept-at-every-layer-10.dsl))
-- ✓ [Line 1275](gl:docs/dev/layout-gen/layout-alg.md#L1275): `node #c2 does not straddle edge #l3,#l2` ([a-concept-at-every-layer-11.dsl](../layout-gen-rules/a-concept-at-every-layer-11.dsl))
-- ✓ [Line 1276](gl:docs/dev/layout-gen/layout-alg.md#L1276): `node #c3 does not straddle edge #l4,#l3` ([a-concept-at-every-layer-12.dsl](../layout-gen-rules/a-concept-at-every-layer-12.dsl))
-- ✓ [Line 1277](gl:docs/dev/layout-gen/layout-alg.md#L1277): `node #c4 does not straddle edge #l5,#l4` ([a-concept-at-every-layer-13.dsl](../layout-gen-rules/a-concept-at-every-layer-13.dsl))
-- ✓ [Line 1278](gl:docs/dev/layout-gen/layout-alg.md#L1278): `node #c2 does not straddle edge #l2,#l1` ([a-concept-at-every-layer-14.dsl](../layout-gen-rules/a-concept-at-every-layer-14.dsl))
-- ✓ [Line 1279](gl:docs/dev/layout-gen/layout-alg.md#L1279): `node #c3 does not straddle edge #l3,#l2` ([a-concept-at-every-layer-15.dsl](../layout-gen-rules/a-concept-at-every-layer-15.dsl))
-- ✓ [Line 1280](gl:docs/dev/layout-gen/layout-alg.md#L1280): `node #c4 does not straddle edge #l4,#l3` ([a-concept-at-every-layer-16.dsl](../layout-gen-rules/a-concept-at-every-layer-16.dsl))
+- ✓ [Line 1332](gl:docs/dev/layout-gen/layout-alg.md#L1332): `#l1,#l2,#l3,#l4,#l5 have same y` ([a-concept-at-every-layer.dsl](../layout-gen-rules/a-concept-at-every-layer.dsl))
+- ✓ [Line 1333](gl:docs/dev/layout-gen/layout-alg.md#L1333): `#c1 is left-of #l1 with gap=60` ([a-concept-at-every-layer-02.dsl](../layout-gen-rules/a-concept-at-every-layer-02.dsl))
+- ✓ [Line 1334](gl:docs/dev/layout-gen/layout-alg.md#L1334): `#c2,#l2 have same center-x` ([a-concept-at-every-layer-03.dsl](../layout-gen-rules/a-concept-at-every-layer-03.dsl))
+- ✓ [Line 1335](gl:docs/dev/layout-gen/layout-alg.md#L1335): `#c2 is below #l2 with gap=40` ([a-concept-at-every-layer-04.dsl](../layout-gen-rules/a-concept-at-every-layer-04.dsl))
+- ✓ [Line 1336](gl:docs/dev/layout-gen/layout-alg.md#L1336): `#c3,#l3 have same center-x` ([a-concept-at-every-layer-05.dsl](../layout-gen-rules/a-concept-at-every-layer-05.dsl))
+- ✓ [Line 1337](gl:docs/dev/layout-gen/layout-alg.md#L1337): `#c3 is below #l3 with gap=40` ([a-concept-at-every-layer-06.dsl](../layout-gen-rules/a-concept-at-every-layer-06.dsl))
+- ✓ [Line 1338](gl:docs/dev/layout-gen/layout-alg.md#L1338): `#c4,#l4 have same center-x` ([a-concept-at-every-layer-07.dsl](../layout-gen-rules/a-concept-at-every-layer-07.dsl))
+- ✓ [Line 1339](gl:docs/dev/layout-gen/layout-alg.md#L1339): `#c4 is below #l4 with gap=40` ([a-concept-at-every-layer-08.dsl](../layout-gen-rules/a-concept-at-every-layer-08.dsl))
+- ✓ [Line 1340](gl:docs/dev/layout-gen/layout-alg.md#L1340): `#c5 is right-of #l5 with gap=60` ([a-concept-at-every-layer-09.dsl](../layout-gen-rules/a-concept-at-every-layer-09.dsl))
+- ✓ [Line 1341](gl:docs/dev/layout-gen/layout-alg.md#L1341): `#l5,#c5 have same y` ([a-concept-at-every-layer-10.dsl](../layout-gen-rules/a-concept-at-every-layer-10.dsl))
+- ✓ [Line 1342](gl:docs/dev/layout-gen/layout-alg.md#L1342): `node #c2 does not straddle edge #l3,#l2` ([a-concept-at-every-layer-11.dsl](../layout-gen-rules/a-concept-at-every-layer-11.dsl))
+- ✓ [Line 1343](gl:docs/dev/layout-gen/layout-alg.md#L1343): `node #c3 does not straddle edge #l4,#l3` ([a-concept-at-every-layer-12.dsl](../layout-gen-rules/a-concept-at-every-layer-12.dsl))
+- ✓ [Line 1344](gl:docs/dev/layout-gen/layout-alg.md#L1344): `node #c4 does not straddle edge #l5,#l4` ([a-concept-at-every-layer-13.dsl](../layout-gen-rules/a-concept-at-every-layer-13.dsl))
+- ✓ [Line 1345](gl:docs/dev/layout-gen/layout-alg.md#L1345): `node #c2 does not straddle edge #l2,#l1` ([a-concept-at-every-layer-14.dsl](../layout-gen-rules/a-concept-at-every-layer-14.dsl))
+- ✓ [Line 1346](gl:docs/dev/layout-gen/layout-alg.md#L1346): `node #c3 does not straddle edge #l3,#l2` ([a-concept-at-every-layer-15.dsl](../layout-gen-rules/a-concept-at-every-layer-15.dsl))
+- ✓ [Line 1347](gl:docs/dev/layout-gen/layout-alg.md#L1347): `node #c4 does not straddle edge #l4,#l3` ([a-concept-at-every-layer-16.dsl](../layout-gen-rules/a-concept-at-every-layer-16.dsl))
 
 ## Rendered Diagram
 

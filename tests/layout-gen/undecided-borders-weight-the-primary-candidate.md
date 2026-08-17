@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2881-L2887 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#undecided-borders-weight-the-primary-candidate)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2948-L2954 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#undecided-borders-weight-the-primary-candidate)
 
 ## ipmt Content
 
@@ -28,7 +28,7 @@ ce ::?ce
 
 ## Layout Validation Rules
 
-Test line: 2881
+Test line: 2948
 
 ✅ All 1 rules passed
 

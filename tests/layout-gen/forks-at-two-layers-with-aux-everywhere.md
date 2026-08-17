@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1293-L1307 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#forks-at-two-layers-with-aux-everywhere)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1360-L1374 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#forks-at-two-layers-with-aux-everywhere)
 
 ## ipmt Content
 
@@ -36,33 +36,33 @@ tB --> e2c
 
 ## Layout Validation Rules
 
-Test line: 1293
+Test line: 1360
 
 ⚠️ 22/23 rules passed
 
 - ✗ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` - **edge tA->e1 has 2 bends > max-bends 0 (each-edge default; if the detour is intended, add it to `except` and pin it with `edge #tA,#e1 has max-bends=2`)** ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 1332](gl:docs/dev/layout-gen/layout-alg.md#L1332): `each edge has max-bends=0 except #tA,#e1 #tB,#e3` ([forks-at-two-layers-with-aux-everywhere.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere.dsl))
-- ✓ [Line 1333](gl:docs/dev/layout-gen/layout-alg.md#L1333): `edge #tA,#e1 has max-bends=2` ([forks-at-two-layers-with-aux-everywhere-02.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-02.dsl))
-- ✓ [Line 1334](gl:docs/dev/layout-gen/layout-alg.md#L1334): `edge #tB,#e3 has max-bends=2` ([forks-at-two-layers-with-aux-everywhere-03.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-03.dsl))
-- ✓ [Line 1335](gl:docs/dev/layout-gen/layout-alg.md#L1335): `edge #tA,#e1 has visibility=visible` ([forks-at-two-layers-with-aux-everywhere-04.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-04.dsl))
-- ✓ [Line 1336](gl:docs/dev/layout-gen/layout-alg.md#L1336): `edge #tB,#e3 has visibility=visible` ([forks-at-two-layers-with-aux-everywhere-05.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-05.dsl))
-- ✓ [Line 1337](gl:docs/dev/layout-gen/layout-alg.md#L1337): `#e1,#e2,#e3 have same center-x` ([forks-at-two-layers-with-aux-everywhere-06.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-06.dsl))
-- ✓ [Line 1338](gl:docs/dev/layout-gen/layout-alg.md#L1338): `#e2a,#e2b,#e2c have same center-x` ([forks-at-two-layers-with-aux-everywhere-07.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-07.dsl))
-- ✓ [Line 1339](gl:docs/dev/layout-gen/layout-alg.md#L1339): `#e2 is below #e1 with gap=60` ([forks-at-two-layers-with-aux-everywhere-08.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-08.dsl))
-- ✓ [Line 1340](gl:docs/dev/layout-gen/layout-alg.md#L1340): `#e2,#e2b have same y` ([forks-at-two-layers-with-aux-everywhere-09.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-09.dsl))
-- ✓ [Line 1341](gl:docs/dev/layout-gen/layout-alg.md#L1341): `#e0 is vertically-centered-between #e1,#e3` ([forks-at-two-layers-with-aux-everywhere-10.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-10.dsl))
-- ✓ [Line 1342](gl:docs/dev/layout-gen/layout-alg.md#L1342): `#e2 is vertically-centered-between #e2a,#e2c` ([forks-at-two-layers-with-aux-everywhere-11.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-11.dsl))
-- ✓ [Line 1343](gl:docs/dev/layout-gen/layout-alg.md#L1343): `#tA,#e2a,#e1 have same y` ([forks-at-two-layers-with-aux-everywhere-12.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-12.dsl))
-- ✓ [Line 1344](gl:docs/dev/layout-gen/layout-alg.md#L1344): `#tB,#e2c have same y` ([forks-at-two-layers-with-aux-everywhere-13.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-13.dsl))
-- ✓ [Line 1345](gl:docs/dev/layout-gen/layout-alg.md#L1345): `#tA is right-of #e2a with gap=60` ([forks-at-two-layers-with-aux-everywhere-14.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-14.dsl))
-- ✓ [Line 1346](gl:docs/dev/layout-gen/layout-alg.md#L1346): `#tB is right-of #e2c with gap=60` ([forks-at-two-layers-with-aux-everywhere-15.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-15.dsl))
-- ✓ [Line 1347](gl:docs/dev/layout-gen/layout-alg.md#L1347): `#cS is below #e2 with gap=40` ([forks-at-two-layers-with-aux-everywhere-16.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-16.dsl))
-- ✓ [Line 1348](gl:docs/dev/layout-gen/layout-alg.md#L1348): `edge #e2,#cS does not cross edge #e3,#e0` ([forks-at-two-layers-with-aux-everywhere-17.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-17.dsl))
-- ✓ [Line 1349](gl:docs/dev/layout-gen/layout-alg.md#L1349): `edge #e3,#e0 does not cross edge #tP,#e0` ([forks-at-two-layers-with-aux-everywhere-18.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-18.dsl))
-- ✓ [Line 1350](gl:docs/dev/layout-gen/layout-alg.md#L1350): `#tP is left-of #e0 with gap=60` ([forks-at-two-layers-with-aux-everywhere-19.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-19.dsl))
-- ✓ [Line 1351](gl:docs/dev/layout-gen/layout-alg.md#L1351): `#cH,#tP have same center-x` ([forks-at-two-layers-with-aux-everywhere-20.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-20.dsl))
-- ✓ [Line 1352](gl:docs/dev/layout-gen/layout-alg.md#L1352): `#cH is below #tP with gap=40` ([forks-at-two-layers-with-aux-everywhere-21.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-21.dsl))
-- ✓ [Line 1353](gl:docs/dev/layout-gen/layout-alg.md#L1353): `node #cS does not straddle edge #e2a,#e2` ([forks-at-two-layers-with-aux-everywhere-22.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-22.dsl))
+- ✓ [Line 1399](gl:docs/dev/layout-gen/layout-alg.md#L1399): `each edge has max-bends=0 except #tA,#e1 #tB,#e3` ([forks-at-two-layers-with-aux-everywhere.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere.dsl))
+- ✓ [Line 1400](gl:docs/dev/layout-gen/layout-alg.md#L1400): `edge #tA,#e1 has max-bends=2` ([forks-at-two-layers-with-aux-everywhere-02.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-02.dsl))
+- ✓ [Line 1401](gl:docs/dev/layout-gen/layout-alg.md#L1401): `edge #tB,#e3 has max-bends=2` ([forks-at-two-layers-with-aux-everywhere-03.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-03.dsl))
+- ✓ [Line 1402](gl:docs/dev/layout-gen/layout-alg.md#L1402): `edge #tA,#e1 has visibility=visible` ([forks-at-two-layers-with-aux-everywhere-04.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-04.dsl))
+- ✓ [Line 1403](gl:docs/dev/layout-gen/layout-alg.md#L1403): `edge #tB,#e3 has visibility=visible` ([forks-at-two-layers-with-aux-everywhere-05.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-05.dsl))
+- ✓ [Line 1404](gl:docs/dev/layout-gen/layout-alg.md#L1404): `#e1,#e2,#e3 have same center-x` ([forks-at-two-layers-with-aux-everywhere-06.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-06.dsl))
+- ✓ [Line 1405](gl:docs/dev/layout-gen/layout-alg.md#L1405): `#e2a,#e2b,#e2c have same center-x` ([forks-at-two-layers-with-aux-everywhere-07.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-07.dsl))
+- ✓ [Line 1406](gl:docs/dev/layout-gen/layout-alg.md#L1406): `#e2 is below #e1 with gap=60` ([forks-at-two-layers-with-aux-everywhere-08.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-08.dsl))
+- ✓ [Line 1407](gl:docs/dev/layout-gen/layout-alg.md#L1407): `#e2,#e2b have same y` ([forks-at-two-layers-with-aux-everywhere-09.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-09.dsl))
+- ✓ [Line 1408](gl:docs/dev/layout-gen/layout-alg.md#L1408): `#e0 is vertically-centered-between #e1,#e3` ([forks-at-two-layers-with-aux-everywhere-10.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-10.dsl))
+- ✓ [Line 1409](gl:docs/dev/layout-gen/layout-alg.md#L1409): `#e2 is vertically-centered-between #e2a,#e2c` ([forks-at-two-layers-with-aux-everywhere-11.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-11.dsl))
+- ✓ [Line 1410](gl:docs/dev/layout-gen/layout-alg.md#L1410): `#tA,#e2a,#e1 have same y` ([forks-at-two-layers-with-aux-everywhere-12.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-12.dsl))
+- ✓ [Line 1411](gl:docs/dev/layout-gen/layout-alg.md#L1411): `#tB,#e2c have same y` ([forks-at-two-layers-with-aux-everywhere-13.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-13.dsl))
+- ✓ [Line 1412](gl:docs/dev/layout-gen/layout-alg.md#L1412): `#tA is right-of #e2a with gap=60` ([forks-at-two-layers-with-aux-everywhere-14.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-14.dsl))
+- ✓ [Line 1413](gl:docs/dev/layout-gen/layout-alg.md#L1413): `#tB is right-of #e2c with gap=60` ([forks-at-two-layers-with-aux-everywhere-15.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-15.dsl))
+- ✓ [Line 1414](gl:docs/dev/layout-gen/layout-alg.md#L1414): `#cS is below #e2 with gap=40` ([forks-at-two-layers-with-aux-everywhere-16.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-16.dsl))
+- ✓ [Line 1415](gl:docs/dev/layout-gen/layout-alg.md#L1415): `edge #e2,#cS does not cross edge #e3,#e0` ([forks-at-two-layers-with-aux-everywhere-17.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-17.dsl))
+- ✓ [Line 1416](gl:docs/dev/layout-gen/layout-alg.md#L1416): `edge #e3,#e0 does not cross edge #tP,#e0` ([forks-at-two-layers-with-aux-everywhere-18.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-18.dsl))
+- ✓ [Line 1417](gl:docs/dev/layout-gen/layout-alg.md#L1417): `#tP is left-of #e0 with gap=60` ([forks-at-two-layers-with-aux-everywhere-19.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-19.dsl))
+- ✓ [Line 1418](gl:docs/dev/layout-gen/layout-alg.md#L1418): `#cH,#tP have same center-x` ([forks-at-two-layers-with-aux-everywhere-20.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-20.dsl))
+- ✓ [Line 1419](gl:docs/dev/layout-gen/layout-alg.md#L1419): `#cH is below #tP with gap=40` ([forks-at-two-layers-with-aux-everywhere-21.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-21.dsl))
+- ✓ [Line 1420](gl:docs/dev/layout-gen/layout-alg.md#L1420): `node #cS does not straddle edge #e2a,#e2` ([forks-at-two-layers-with-aux-everywhere-22.dsl](../layout-gen-rules/forks-at-two-layers-with-aux-everywhere-22.dsl))
 
 ## Rendered Diagram
 

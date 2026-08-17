@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2159-L2160 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#event-near-to-event)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2226-L2227 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#event-near-to-event)
 
 ## ipmt Content
 
@@ -23,15 +23,15 @@ e1 ::e --- e2 ::e
 
 ## Layout Validation Rules
 
-Test line: 2159
+Test line: 2226
 
 ✅ All 5 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2179](gl:docs/dev/layout-gen/layout-alg.md#L2179): `#e1,#e2 have same y` ([event-near-to-event.dsl](../layout-gen-rules/event-near-to-event.dsl))
-- ✓ [Line 2180](gl:docs/dev/layout-gen/layout-alg.md#L2180): `edge #e1,#e2 has type=nearto` ([event-near-to-event-02.dsl](../layout-gen-rules/event-near-to-event-02.dsl))
-- ✓ [Line 2181](gl:docs/dev/layout-gen/layout-alg.md#L2181): `#e2 is right-of #e1 with gap=120` ([event-near-to-event-03.dsl](../layout-gen-rules/event-near-to-event-03.dsl))
-- ✓ [Line 2182](gl:docs/dev/layout-gen/layout-alg.md#L2182): `edge #e1,#e2 is horizontal` ([event-near-to-event-04.dsl](../layout-gen-rules/event-near-to-event-04.dsl))
+- ✓ [Line 2246](gl:docs/dev/layout-gen/layout-alg.md#L2246): `#e1,#e2 have same y` ([event-near-to-event.dsl](../layout-gen-rules/event-near-to-event.dsl))
+- ✓ [Line 2247](gl:docs/dev/layout-gen/layout-alg.md#L2247): `edge #e1,#e2 has type=nearto` ([event-near-to-event-02.dsl](../layout-gen-rules/event-near-to-event-02.dsl))
+- ✓ [Line 2248](gl:docs/dev/layout-gen/layout-alg.md#L2248): `#e2 is right-of #e1 with gap=120` ([event-near-to-event-03.dsl](../layout-gen-rules/event-near-to-event-03.dsl))
+- ✓ [Line 2249](gl:docs/dev/layout-gen/layout-alg.md#L2249): `edge #e1,#e2 is horizontal` ([event-near-to-event-04.dsl](../layout-gen-rules/event-near-to-event-04.dsl))
 
 ## Rendered Diagram
 

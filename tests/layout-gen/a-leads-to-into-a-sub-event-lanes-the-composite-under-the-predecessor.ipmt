@@ -1,0 +1,3 @@
+prep ::e --> chop ::e
+chop --::P--> cook ::e
+cook --> serve ::e

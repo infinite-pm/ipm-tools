@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2624-L2629 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-far-shared-concept-anchors-to-its-first-usage)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2691-L2696 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-far-shared-concept-anchors-to-its-first-usage)
 
 ## ipmt Content
 
@@ -27,19 +27,19 @@ tB --::X--> c1-shared
 
 ## Layout Validation Rules
 
-Test line: 2624
+Test line: 2691
 
 ✅ All 9 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2648](gl:docs/dev/layout-gen/layout-alg.md#L2648): `each edge has max-bends=0` ([a-far-shared-concept-anchors-to-its-first-usage.dsl](../layout-gen-rules/a-far-shared-concept-anchors-to-its-first-usage.dsl))
-- ✓ [Line 2649](gl:docs/dev/layout-gen/layout-alg.md#L2649): `edge #tA,#c1-shared has source-side=bottom` ([a-far-shared-concept-anchors-to-its-first-usage-02.dsl](../layout-gen-rules/a-far-shared-concept-anchors-to-its-first-usage-02.dsl))
-- ✓ [Line 2650](gl:docs/dev/layout-gen/layout-alg.md#L2650): `edge #tA,#c1-shared has target-side=top` ([a-far-shared-concept-anchors-to-its-first-usage-03.dsl](../layout-gen-rules/a-far-shared-concept-anchors-to-its-first-usage-03.dsl))
-- ✓ [Line 2651](gl:docs/dev/layout-gen/layout-alg.md#L2651): `edge #tB,#c1-shared has source-side=top` ([a-far-shared-concept-anchors-to-its-first-usage-04.dsl](../layout-gen-rules/a-far-shared-concept-anchors-to-its-first-usage-04.dsl))
-- ✓ [Line 2652](gl:docs/dev/layout-gen/layout-alg.md#L2652): `edge #tB,#c1-shared has target-side=bottom` ([a-far-shared-concept-anchors-to-its-first-usage-05.dsl](../layout-gen-rules/a-far-shared-concept-anchors-to-its-first-usage-05.dsl))
-- ✓ [Line 2653](gl:docs/dev/layout-gen/layout-alg.md#L2653): `edge #tA,#c1-shared has visibility=visible` ([a-far-shared-concept-anchors-to-its-first-usage-06.dsl](../layout-gen-rules/a-far-shared-concept-anchors-to-its-first-usage-06.dsl))
-- ✓ [Line 2654](gl:docs/dev/layout-gen/layout-alg.md#L2654): `edge #tB,#c1-shared has visibility=visible` ([a-far-shared-concept-anchors-to-its-first-usage-07.dsl](../layout-gen-rules/a-far-shared-concept-anchors-to-its-first-usage-07.dsl))
-- ✓ [Line 2655](gl:docs/dev/layout-gen/layout-alg.md#L2655): `edge #tA,#c1-shared is vertical` ([a-far-shared-concept-anchors-to-its-first-usage-08.dsl](../layout-gen-rules/a-far-shared-concept-anchors-to-its-first-usage-08.dsl))
+- ✓ [Line 2715](gl:docs/dev/layout-gen/layout-alg.md#L2715): `each edge has max-bends=0` ([a-far-shared-concept-anchors-to-its-first-usage.dsl](../layout-gen-rules/a-far-shared-concept-anchors-to-its-first-usage.dsl))
+- ✓ [Line 2716](gl:docs/dev/layout-gen/layout-alg.md#L2716): `edge #tA,#c1-shared has source-side=bottom` ([a-far-shared-concept-anchors-to-its-first-usage-02.dsl](../layout-gen-rules/a-far-shared-concept-anchors-to-its-first-usage-02.dsl))
+- ✓ [Line 2717](gl:docs/dev/layout-gen/layout-alg.md#L2717): `edge #tA,#c1-shared has target-side=top` ([a-far-shared-concept-anchors-to-its-first-usage-03.dsl](../layout-gen-rules/a-far-shared-concept-anchors-to-its-first-usage-03.dsl))
+- ✓ [Line 2718](gl:docs/dev/layout-gen/layout-alg.md#L2718): `edge #tB,#c1-shared has source-side=top` ([a-far-shared-concept-anchors-to-its-first-usage-04.dsl](../layout-gen-rules/a-far-shared-concept-anchors-to-its-first-usage-04.dsl))
+- ✓ [Line 2719](gl:docs/dev/layout-gen/layout-alg.md#L2719): `edge #tB,#c1-shared has target-side=bottom` ([a-far-shared-concept-anchors-to-its-first-usage-05.dsl](../layout-gen-rules/a-far-shared-concept-anchors-to-its-first-usage-05.dsl))
+- ✓ [Line 2720](gl:docs/dev/layout-gen/layout-alg.md#L2720): `edge #tA,#c1-shared has visibility=visible` ([a-far-shared-concept-anchors-to-its-first-usage-06.dsl](../layout-gen-rules/a-far-shared-concept-anchors-to-its-first-usage-06.dsl))
+- ✓ [Line 2721](gl:docs/dev/layout-gen/layout-alg.md#L2721): `edge #tB,#c1-shared has visibility=visible` ([a-far-shared-concept-anchors-to-its-first-usage-07.dsl](../layout-gen-rules/a-far-shared-concept-anchors-to-its-first-usage-07.dsl))
+- ✓ [Line 2722](gl:docs/dev/layout-gen/layout-alg.md#L2722): `edge #tA,#c1-shared is vertical` ([a-far-shared-concept-anchors-to-its-first-usage-08.dsl](../layout-gen-rules/a-far-shared-concept-anchors-to-its-first-usage-08.dsl))
 
 ## Rendered Diagram
 

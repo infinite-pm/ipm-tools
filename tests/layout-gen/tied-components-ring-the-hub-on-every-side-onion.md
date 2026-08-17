@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2692-L2704 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#tied-components-ring-the-hub-on-every-side-onion)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2759-L2771 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#tied-components-ring-the-hub-on-every-side-onion)
 
 ## ipmt Content
 
@@ -34,30 +34,30 @@ a2 --::X--> f1
 
 ## Layout Validation Rules
 
-Test line: 2692
+Test line: 2759
 
 ✅ All 20 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2727](gl:docs/dev/layout-gen/layout-alg.md#L2727): `#c1,#a1,#b1 have same y` ([tied-components-ring-the-hub-on-every-side-onion.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion.dsl))
-- ✓ [Line 2728](gl:docs/dev/layout-gen/layout-alg.md#L2728): `#c1 is left-of #a1 with gap=120` ([tied-components-ring-the-hub-on-every-side-onion-02.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-02.dsl))
-- ✓ [Line 2729](gl:docs/dev/layout-gen/layout-alg.md#L2729): `#a1 is left-of #b1 with gap=120` ([tied-components-ring-the-hub-on-every-side-onion-03.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-03.dsl))
-- ✓ [Line 2730](gl:docs/dev/layout-gen/layout-alg.md#L2730): `#e1,#f1,#d1 have same y` ([tied-components-ring-the-hub-on-every-side-onion-04.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-04.dsl))
-- ✓ [Line 2731](gl:docs/dev/layout-gen/layout-alg.md#L2731): `#e1 is left-of #f1 with gap=120` ([tied-components-ring-the-hub-on-every-side-onion-05.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-05.dsl))
-- ✓ [Line 2732](gl:docs/dev/layout-gen/layout-alg.md#L2732): `#f1 is left-of #d1 with gap=120` ([tied-components-ring-the-hub-on-every-side-onion-06.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-06.dsl))
-- ✓ [Line 2733](gl:docs/dev/layout-gen/layout-alg.md#L2733): `#a1,#a2,#f1,#f2 have same center-x` ([tied-components-ring-the-hub-on-every-side-onion-07.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-07.dsl))
-- ✓ [Line 2734](gl:docs/dev/layout-gen/layout-alg.md#L2734): `#f1 is below #a2 with gap=280` ([tied-components-ring-the-hub-on-every-side-onion-08.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-08.dsl))
-- ✓ [Line 2735](gl:docs/dev/layout-gen/layout-alg.md#L2735): `edge #a1,#b1 has max-bends=0` ([tied-components-ring-the-hub-on-every-side-onion-09.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-09.dsl))
-- ✓ [Line 2736](gl:docs/dev/layout-gen/layout-alg.md#L2736): `edge #a1,#c1 has max-bends=0` ([tied-components-ring-the-hub-on-every-side-onion-10.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-10.dsl))
-- ✓ [Line 2737](gl:docs/dev/layout-gen/layout-alg.md#L2737): `edge #a2,#d1 has max-bends=0` ([tied-components-ring-the-hub-on-every-side-onion-11.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-11.dsl))
-- ✓ [Line 2738](gl:docs/dev/layout-gen/layout-alg.md#L2738): `edge #a2,#f1 has max-bends=0` ([tied-components-ring-the-hub-on-every-side-onion-12.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-12.dsl))
-- ✓ [Line 2739](gl:docs/dev/layout-gen/layout-alg.md#L2739): `each edge has max-bends=0 except #a1,#e1` ([tied-components-ring-the-hub-on-every-side-onion-13.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-13.dsl))
-- ✓ [Line 2740](gl:docs/dev/layout-gen/layout-alg.md#L2740): `edge #a1,#e1 has visibility=visible` ([tied-components-ring-the-hub-on-every-side-onion-14.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-14.dsl))
-- ✓ [Line 2741](gl:docs/dev/layout-gen/layout-alg.md#L2741): `edge #a1,#e1 has max-bends=1` ([tied-components-ring-the-hub-on-every-side-onion-15.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-15.dsl))
-- ✓ [Line 2742](gl:docs/dev/layout-gen/layout-alg.md#L2742): `edge #a1,#e1 has source-side=left` ([tied-components-ring-the-hub-on-every-side-onion-16.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-16.dsl))
-- ✓ [Line 2743](gl:docs/dev/layout-gen/layout-alg.md#L2743): `edge #a1,#e1 has target-side=top` ([tied-components-ring-the-hub-on-every-side-onion-17.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-17.dsl))
-- ✓ [Line 2744](gl:docs/dev/layout-gen/layout-alg.md#L2744): `edge #e1,#e2 is vertical` ([tied-components-ring-the-hub-on-every-side-onion-18.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-18.dsl))
-- ✓ [Line 2745](gl:docs/dev/layout-gen/layout-alg.md#L2745): `edge #a1,#a2 is vertical` ([tied-components-ring-the-hub-on-every-side-onion-19.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-19.dsl))
+- ✓ [Line 2794](gl:docs/dev/layout-gen/layout-alg.md#L2794): `#c1,#a1,#b1 have same y` ([tied-components-ring-the-hub-on-every-side-onion.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion.dsl))
+- ✓ [Line 2795](gl:docs/dev/layout-gen/layout-alg.md#L2795): `#c1 is left-of #a1 with gap=120` ([tied-components-ring-the-hub-on-every-side-onion-02.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-02.dsl))
+- ✓ [Line 2796](gl:docs/dev/layout-gen/layout-alg.md#L2796): `#a1 is left-of #b1 with gap=120` ([tied-components-ring-the-hub-on-every-side-onion-03.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-03.dsl))
+- ✓ [Line 2797](gl:docs/dev/layout-gen/layout-alg.md#L2797): `#e1,#f1,#d1 have same y` ([tied-components-ring-the-hub-on-every-side-onion-04.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-04.dsl))
+- ✓ [Line 2798](gl:docs/dev/layout-gen/layout-alg.md#L2798): `#e1 is left-of #f1 with gap=120` ([tied-components-ring-the-hub-on-every-side-onion-05.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-05.dsl))
+- ✓ [Line 2799](gl:docs/dev/layout-gen/layout-alg.md#L2799): `#f1 is left-of #d1 with gap=120` ([tied-components-ring-the-hub-on-every-side-onion-06.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-06.dsl))
+- ✓ [Line 2800](gl:docs/dev/layout-gen/layout-alg.md#L2800): `#a1,#a2,#f1,#f2 have same center-x` ([tied-components-ring-the-hub-on-every-side-onion-07.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-07.dsl))
+- ✓ [Line 2801](gl:docs/dev/layout-gen/layout-alg.md#L2801): `#f1 is below #a2 with gap=280` ([tied-components-ring-the-hub-on-every-side-onion-08.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-08.dsl))
+- ✓ [Line 2802](gl:docs/dev/layout-gen/layout-alg.md#L2802): `edge #a1,#b1 has max-bends=0` ([tied-components-ring-the-hub-on-every-side-onion-09.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-09.dsl))
+- ✓ [Line 2803](gl:docs/dev/layout-gen/layout-alg.md#L2803): `edge #a1,#c1 has max-bends=0` ([tied-components-ring-the-hub-on-every-side-onion-10.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-10.dsl))
+- ✓ [Line 2804](gl:docs/dev/layout-gen/layout-alg.md#L2804): `edge #a2,#d1 has max-bends=0` ([tied-components-ring-the-hub-on-every-side-onion-11.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-11.dsl))
+- ✓ [Line 2805](gl:docs/dev/layout-gen/layout-alg.md#L2805): `edge #a2,#f1 has max-bends=0` ([tied-components-ring-the-hub-on-every-side-onion-12.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-12.dsl))
+- ✓ [Line 2806](gl:docs/dev/layout-gen/layout-alg.md#L2806): `each edge has max-bends=0 except #a1,#e1` ([tied-components-ring-the-hub-on-every-side-onion-13.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-13.dsl))
+- ✓ [Line 2807](gl:docs/dev/layout-gen/layout-alg.md#L2807): `edge #a1,#e1 has visibility=visible` ([tied-components-ring-the-hub-on-every-side-onion-14.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-14.dsl))
+- ✓ [Line 2808](gl:docs/dev/layout-gen/layout-alg.md#L2808): `edge #a1,#e1 has max-bends=1` ([tied-components-ring-the-hub-on-every-side-onion-15.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-15.dsl))
+- ✓ [Line 2809](gl:docs/dev/layout-gen/layout-alg.md#L2809): `edge #a1,#e1 has source-side=left` ([tied-components-ring-the-hub-on-every-side-onion-16.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-16.dsl))
+- ✓ [Line 2810](gl:docs/dev/layout-gen/layout-alg.md#L2810): `edge #a1,#e1 has target-side=top` ([tied-components-ring-the-hub-on-every-side-onion-17.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-17.dsl))
+- ✓ [Line 2811](gl:docs/dev/layout-gen/layout-alg.md#L2811): `edge #e1,#e2 is vertical` ([tied-components-ring-the-hub-on-every-side-onion-18.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-18.dsl))
+- ✓ [Line 2812](gl:docs/dev/layout-gen/layout-alg.md#L2812): `edge #a1,#a2 is vertical` ([tied-components-ring-the-hub-on-every-side-onion-19.dsl](../layout-gen-rules/tied-components-ring-the-hub-on-every-side-onion-19.dsl))
 
 ## Rendered Diagram
 

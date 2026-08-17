@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2418-L2423 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-wide-start-fan-grows-its-vertical-gap)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2485-L2490 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-wide-start-fan-grows-its-vertical-gap)
 
 ## ipmt Content
 
@@ -27,18 +27,18 @@ e5 ::e --> j
 
 ## Layout Validation Rules
 
-Test line: 2418
+Test line: 2485
 
 ✅ All 8 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2442](gl:docs/dev/layout-gen/layout-alg.md#L2442): `#e1,#e2,#e3,#e4,#e5 have same y` ([a-wide-start-fan-grows-its-vertical-gap.dsl](../layout-gen-rules/a-wide-start-fan-grows-its-vertical-gap.dsl))
-- ✓ [Line 2443](gl:docs/dev/layout-gen/layout-alg.md#L2443): `#S is horizontally-centered-between #e1,#e5` ([a-wide-start-fan-grows-its-vertical-gap-02.dsl](../layout-gen-rules/a-wide-start-fan-grows-its-vertical-gap-02.dsl))
-- ✓ [Line 2444](gl:docs/dev/layout-gen/layout-alg.md#L2444): `edge #S,#e1 has min-slope=0.25` ([a-wide-start-fan-grows-its-vertical-gap-03.dsl](../layout-gen-rules/a-wide-start-fan-grows-its-vertical-gap-03.dsl))
-- ✓ [Line 2445](gl:docs/dev/layout-gen/layout-alg.md#L2445): `edge #S,#e5 has min-slope=0.25` ([a-wide-start-fan-grows-its-vertical-gap-04.dsl](../layout-gen-rules/a-wide-start-fan-grows-its-vertical-gap-04.dsl))
-- ✓ [Line 2446](gl:docs/dev/layout-gen/layout-alg.md#L2446): `edge #e1,#j has min-slope=0.25` ([a-wide-start-fan-grows-its-vertical-gap-05.dsl](../layout-gen-rules/a-wide-start-fan-grows-its-vertical-gap-05.dsl))
-- ✓ [Line 2447](gl:docs/dev/layout-gen/layout-alg.md#L2447): `edge #e5,#j has min-slope=0.25` ([a-wide-start-fan-grows-its-vertical-gap-06.dsl](../layout-gen-rules/a-wide-start-fan-grows-its-vertical-gap-06.dsl))
-- ✓ [Line 2448](gl:docs/dev/layout-gen/layout-alg.md#L2448): `#j,#S,#E have same center-x` ([a-wide-start-fan-grows-its-vertical-gap-07.dsl](../layout-gen-rules/a-wide-start-fan-grows-its-vertical-gap-07.dsl))
+- ✓ [Line 2509](gl:docs/dev/layout-gen/layout-alg.md#L2509): `#e1,#e2,#e3,#e4,#e5 have same y` ([a-wide-start-fan-grows-its-vertical-gap.dsl](../layout-gen-rules/a-wide-start-fan-grows-its-vertical-gap.dsl))
+- ✓ [Line 2510](gl:docs/dev/layout-gen/layout-alg.md#L2510): `#S is horizontally-centered-between #e1,#e5` ([a-wide-start-fan-grows-its-vertical-gap-02.dsl](../layout-gen-rules/a-wide-start-fan-grows-its-vertical-gap-02.dsl))
+- ✓ [Line 2511](gl:docs/dev/layout-gen/layout-alg.md#L2511): `edge #S,#e1 has min-slope=0.25` ([a-wide-start-fan-grows-its-vertical-gap-03.dsl](../layout-gen-rules/a-wide-start-fan-grows-its-vertical-gap-03.dsl))
+- ✓ [Line 2512](gl:docs/dev/layout-gen/layout-alg.md#L2512): `edge #S,#e5 has min-slope=0.25` ([a-wide-start-fan-grows-its-vertical-gap-04.dsl](../layout-gen-rules/a-wide-start-fan-grows-its-vertical-gap-04.dsl))
+- ✓ [Line 2513](gl:docs/dev/layout-gen/layout-alg.md#L2513): `edge #e1,#j has min-slope=0.25` ([a-wide-start-fan-grows-its-vertical-gap-05.dsl](../layout-gen-rules/a-wide-start-fan-grows-its-vertical-gap-05.dsl))
+- ✓ [Line 2514](gl:docs/dev/layout-gen/layout-alg.md#L2514): `edge #e5,#j has min-slope=0.25` ([a-wide-start-fan-grows-its-vertical-gap-06.dsl](../layout-gen-rules/a-wide-start-fan-grows-its-vertical-gap-06.dsl))
+- ✓ [Line 2515](gl:docs/dev/layout-gen/layout-alg.md#L2515): `#j,#S,#E have same center-x` ([a-wide-start-fan-grows-its-vertical-gap-07.dsl](../layout-gen-rules/a-wide-start-fan-grows-its-vertical-gap-07.dsl))
 
 ## Rendered Diagram
 

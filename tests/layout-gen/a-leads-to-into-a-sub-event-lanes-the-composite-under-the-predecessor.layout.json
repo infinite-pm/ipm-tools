@@ -1,0 +1,157 @@
+{
+  "version": "26.07-v7",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "event",
+      "label": "prep",
+      "x": 220,
+      "y": 120,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "2",
+      "type": "event",
+      "label": "chop",
+      "x": 220,
+      "y": 200,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "3",
+      "type": "event",
+      "label": "cook",
+      "x": 40,
+      "y": 200,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "4",
+      "type": "event",
+      "label": "serve",
+      "x": 40,
+      "y": 320,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "5",
+      "type": "boundary",
+      "label": "S",
+      "x": 260,
+      "y": 40,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "6",
+      "type": "boundary",
+      "label": "E",
+      "x": 260,
+      "y": 440,
+      "width": 40,
+      "height": 40
+    }
+  ],
+  "edges": [
+    {
+      "from": "1",
+      "to": "2",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "2",
+      "to": "3",
+      "dir": "fwd",
+      "base": "partof",
+      "style": "partof",
+      "route": {
+        "source": {
+          "side": "left",
+          "position": 0.5
+        },
+        "target": {
+          "side": "right",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "3",
+      "to": "4",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "5",
+      "to": "1",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "4",
+      "to": "6",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    }
+  ],
+  "meta": {
+    "bounds": {
+      "width": 380,
+      "height": 520,
+      "marginX": 40,
+      "marginY": 40
+    },
+    "constants": {
+      "gridStep": 20
+    }
+  }
+}

@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1437-L1442 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-band-members-ties-fan-from-its-facing-side)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1504-L1509 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-band-members-ties-fan-from-its-facing-side)
 
 ## ipmt Content
 
@@ -27,24 +27,24 @@ tP --> e1, e2, e3
 
 ## Layout Validation Rules
 
-Test line: 1437
+Test line: 1504
 
 ✅ All 14 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 1464](gl:docs/dev/layout-gen/layout-alg.md#L1464): `each edge has max-bends=0` ([a-band-members-ties-fan-from-its-facing-side.dsl](../layout-gen-rules/a-band-members-ties-fan-from-its-facing-side.dsl))
-- ✓ [Line 1465](gl:docs/dev/layout-gen/layout-alg.md#L1465): `#tP,#e1 have same y` ([a-band-members-ties-fan-from-its-facing-side-02.dsl](../layout-gen-rules/a-band-members-ties-fan-from-its-facing-side-02.dsl))
-- ✓ [Line 1466](gl:docs/dev/layout-gen/layout-alg.md#L1466): `#tP is left-of #e1 with gap=60` ([a-band-members-ties-fan-from-its-facing-side-03.dsl](../layout-gen-rules/a-band-members-ties-fan-from-its-facing-side-03.dsl))
-- ✓ [Line 1467](gl:docs/dev/layout-gen/layout-alg.md#L1467): `edge #tP,#e1 has source-side=right` ([a-band-members-ties-fan-from-its-facing-side-04.dsl](../layout-gen-rules/a-band-members-ties-fan-from-its-facing-side-04.dsl))
-- ✓ [Line 1468](gl:docs/dev/layout-gen/layout-alg.md#L1468): `edge #tP,#e2 has source-side=right` ([a-band-members-ties-fan-from-its-facing-side-05.dsl](../layout-gen-rules/a-band-members-ties-fan-from-its-facing-side-05.dsl))
-- ✓ [Line 1469](gl:docs/dev/layout-gen/layout-alg.md#L1469): `edge #tP,#e3 has source-side=right` ([a-band-members-ties-fan-from-its-facing-side-06.dsl](../layout-gen-rules/a-band-members-ties-fan-from-its-facing-side-06.dsl))
-- ✓ [Line 1470](gl:docs/dev/layout-gen/layout-alg.md#L1470): `edge #tP,#e1 has target-side=left` ([a-band-members-ties-fan-from-its-facing-side-07.dsl](../layout-gen-rules/a-band-members-ties-fan-from-its-facing-side-07.dsl))
-- ✓ [Line 1471](gl:docs/dev/layout-gen/layout-alg.md#L1471): `edge #tP,#e2 has target-side=left` ([a-band-members-ties-fan-from-its-facing-side-08.dsl](../layout-gen-rules/a-band-members-ties-fan-from-its-facing-side-08.dsl))
-- ✓ [Line 1472](gl:docs/dev/layout-gen/layout-alg.md#L1472): `edge #tP,#e3 has target-side=left` ([a-band-members-ties-fan-from-its-facing-side-09.dsl](../layout-gen-rules/a-band-members-ties-fan-from-its-facing-side-09.dsl))
-- ✓ [Line 1473](gl:docs/dev/layout-gen/layout-alg.md#L1473): `edge #tP,#e1 has source-position=0.5` ([a-band-members-ties-fan-from-its-facing-side-10.dsl](../layout-gen-rules/a-band-members-ties-fan-from-its-facing-side-10.dsl))
-- ✓ [Line 1474](gl:docs/dev/layout-gen/layout-alg.md#L1474): `edge #tP,#e1 does not cross edge #tP,#e2` ([a-band-members-ties-fan-from-its-facing-side-11.dsl](../layout-gen-rules/a-band-members-ties-fan-from-its-facing-side-11.dsl))
-- ✓ [Line 1475](gl:docs/dev/layout-gen/layout-alg.md#L1475): `edge #tP,#e2 does not cross edge #tP,#e3` ([a-band-members-ties-fan-from-its-facing-side-12.dsl](../layout-gen-rules/a-band-members-ties-fan-from-its-facing-side-12.dsl))
-- ✓ [Line 1476](gl:docs/dev/layout-gen/layout-alg.md#L1476): `edge #tP,#e1 does not cross edge #tP,#e3` ([a-band-members-ties-fan-from-its-facing-side-13.dsl](../layout-gen-rules/a-band-members-ties-fan-from-its-facing-side-13.dsl))
+- ✓ [Line 1531](gl:docs/dev/layout-gen/layout-alg.md#L1531): `each edge has max-bends=0` ([a-band-members-ties-fan-from-its-facing-side.dsl](../layout-gen-rules/a-band-members-ties-fan-from-its-facing-side.dsl))
+- ✓ [Line 1532](gl:docs/dev/layout-gen/layout-alg.md#L1532): `#tP,#e1 have same y` ([a-band-members-ties-fan-from-its-facing-side-02.dsl](../layout-gen-rules/a-band-members-ties-fan-from-its-facing-side-02.dsl))
+- ✓ [Line 1533](gl:docs/dev/layout-gen/layout-alg.md#L1533): `#tP is left-of #e1 with gap=60` ([a-band-members-ties-fan-from-its-facing-side-03.dsl](../layout-gen-rules/a-band-members-ties-fan-from-its-facing-side-03.dsl))
+- ✓ [Line 1534](gl:docs/dev/layout-gen/layout-alg.md#L1534): `edge #tP,#e1 has source-side=right` ([a-band-members-ties-fan-from-its-facing-side-04.dsl](../layout-gen-rules/a-band-members-ties-fan-from-its-facing-side-04.dsl))
+- ✓ [Line 1535](gl:docs/dev/layout-gen/layout-alg.md#L1535): `edge #tP,#e2 has source-side=right` ([a-band-members-ties-fan-from-its-facing-side-05.dsl](../layout-gen-rules/a-band-members-ties-fan-from-its-facing-side-05.dsl))
+- ✓ [Line 1536](gl:docs/dev/layout-gen/layout-alg.md#L1536): `edge #tP,#e3 has source-side=right` ([a-band-members-ties-fan-from-its-facing-side-06.dsl](../layout-gen-rules/a-band-members-ties-fan-from-its-facing-side-06.dsl))
+- ✓ [Line 1537](gl:docs/dev/layout-gen/layout-alg.md#L1537): `edge #tP,#e1 has target-side=left` ([a-band-members-ties-fan-from-its-facing-side-07.dsl](../layout-gen-rules/a-band-members-ties-fan-from-its-facing-side-07.dsl))
+- ✓ [Line 1538](gl:docs/dev/layout-gen/layout-alg.md#L1538): `edge #tP,#e2 has target-side=left` ([a-band-members-ties-fan-from-its-facing-side-08.dsl](../layout-gen-rules/a-band-members-ties-fan-from-its-facing-side-08.dsl))
+- ✓ [Line 1539](gl:docs/dev/layout-gen/layout-alg.md#L1539): `edge #tP,#e3 has target-side=left` ([a-band-members-ties-fan-from-its-facing-side-09.dsl](../layout-gen-rules/a-band-members-ties-fan-from-its-facing-side-09.dsl))
+- ✓ [Line 1540](gl:docs/dev/layout-gen/layout-alg.md#L1540): `edge #tP,#e1 has source-position=0.5` ([a-band-members-ties-fan-from-its-facing-side-10.dsl](../layout-gen-rules/a-band-members-ties-fan-from-its-facing-side-10.dsl))
+- ✓ [Line 1541](gl:docs/dev/layout-gen/layout-alg.md#L1541): `edge #tP,#e1 does not cross edge #tP,#e2` ([a-band-members-ties-fan-from-its-facing-side-11.dsl](../layout-gen-rules/a-band-members-ties-fan-from-its-facing-side-11.dsl))
+- ✓ [Line 1542](gl:docs/dev/layout-gen/layout-alg.md#L1542): `edge #tP,#e2 does not cross edge #tP,#e3` ([a-band-members-ties-fan-from-its-facing-side-12.dsl](../layout-gen-rules/a-band-members-ties-fan-from-its-facing-side-12.dsl))
+- ✓ [Line 1543](gl:docs/dev/layout-gen/layout-alg.md#L1543): `edge #tP,#e1 does not cross edge #tP,#e3` ([a-band-members-ties-fan-from-its-facing-side-13.dsl](../layout-gen-rules/a-band-members-ties-fan-from-its-facing-side-13.dsl))
 
 ## Rendered Diagram
 
