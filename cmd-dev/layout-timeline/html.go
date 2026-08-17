@@ -122,7 +122,11 @@ type vmRow struct {
 type vmVersion struct {
 	Label, Anchor, Source, SHA, Subject string
 	Tier, Score, Summary, Bounds        string
-	ColumnHref                          string // the column page, with every diagram
+	// Canvas is THIS version's size on its own. Bounds is the pair
+	// "old → new", which is a fact about the comparison, not about the
+	// version — and the two are wanted in different places.
+	Canvas     string
+	ColumnHref string // the column page, with every diagram
 	// One pane, three states. There is no "current" here: the reference a
 	// version is read against is the row above it, and the column page is
 	// where a diagram is read against today.
@@ -352,7 +356,8 @@ func buildDiagram(in timelineInput, id string) vmDiagram {
 			}
 			anchor := "c-" + layoutaudit.Sanitize(w.Label)
 			ob, nb := c.Report.OldBounds, c.Report.NewBounds
-			bounds := fmt.Sprintf("%d×%d", nb.Width, nb.Height)
+			canvas := fmt.Sprintf("%d×%d", nb.Width, nb.Height)
+			bounds := canvas
 			if ob != nb {
 				bounds = fmt.Sprintf("%d×%d → %d×%d", ob.Width, ob.Height, nb.Width, nb.Height)
 			}
@@ -362,7 +367,7 @@ func buildDiagram(in timelineInput, id string) vmDiagram {
 				Date: stampDate(w.Snap.Date), EnginePaths: w.Snap.EnginePaths,
 				SHA: layoutaudit.Short(w.SHA), Subject: w.Subject,
 				Tier: tier, Score: fmt.Sprintf("%.0f", c.Report.Score),
-				Summary: layoutaudit.Summarize(c.Report), Bounds: bounds,
+				Summary: layoutaudit.Summarize(c.Report), Bounds: bounds, Canvas: canvas,
 				ColumnHref:    "../../" + pageDir(w.Label) + "/index.html#" + anchorOf(id),
 				BeforeSrc:     in.pane(w.Label, id, "before"),
 				AfterSrc:      in.pane(w.Label, id, "after"),
@@ -1311,36 +1316,30 @@ func changeLines(v vmVersion) []string {
 // about it without the reader retyping any of that.
 func agentMarkdown(d vmDiagram, v vmVersion, sources string) string {
 	var b strings.Builder
-	b.WriteString("I am looking at one version of one diagram in the ipm layout-timeline\n")
-	b.WriteString("report — the same diagram source rendered by the layout engine as it stood\n")
-	b.WriteString("at different points in its history.\n\n")
+	b.WriteString("I am referring to one diagram as the ipm layout engine drew it at one\n")
+	b.WriteString("point in its history.\n\n")
 
 	fmt.Fprintf(&b, "## The diagram\n\n")
 	fmt.Fprintf(&b, "- id: %s\n", whichDiagram(d.ID))
-	fmt.Fprintf(&b, "- rendered by: %s\n", engineOf(v.Label, v.Source, v.SHA, v.Subject))
-	if v.PrevLabel != "" {
-		fmt.Fprintf(&b, "- compared against: %s\n",
-			engineOf(v.PrevLabel, v.PrevSource, v.PrevSHA, ""))
-	} else {
-		b.WriteString("- compared against: nothing on this page — this is its first version\n")
+	fmt.Fprintf(&b, "- drawn by: %s\n", engineOf(v.Label, v.Source, v.SHA, v.Subject))
+	if v.Canvas != "" {
+		fmt.Fprintf(&b, "- canvas: %s\n", v.Canvas)
 	}
-	fmt.Fprintf(&b, "- the structural diff called this: %s", v.Tier)
-	if v.Score != "" {
-		fmt.Fprintf(&b, ", score %s", v.Score)
-	}
-	fmt.Fprintf(&b, "\n- canvas: %s\n", v.Bounds)
 	if v.Repo != "" {
 		fmt.Fprintf(&b, "- engine repository: `%s`\n", v.Repo)
 	}
 	if sources != "" {
-		fmt.Fprintf(&b, "- diagrams came from: `%s`\n", sources)
+		fmt.Fprintf(&b, "- diagram came from: `%s`\n", sources)
 	}
-	fmt.Fprintf(&b, "- report page (all versions of it): %s\n", urlMark)
+	fmt.Fprintf(&b, "- report page: %s\n", urlMark)
 	if v.Err != "" {
-		fmt.Fprintf(&b, "- error at this version: %s\n", v.Err)
+		fmt.Fprintf(&b, "- the engine reported an error here: %s\n", v.Err)
 	}
-	writeSource(&b, d)
-	writeChanges(&b, v, "## What the engine changed at this version")
+	writeSource(&b, d, "The source it was drawn from")
+	// Deliberately NOTHING about the version before, and no diff: this button
+	// says "here is what I am pointing at". What CHANGED, and against what, is
+	// the regression button's job — mixing the two makes every reference to a
+	// diagram read as a complaint about it.
 	b.WriteString("\n## What I want\n\n")
 	b.WriteString("<!-- replace this line with the question -->\n")
 	return b.String()
@@ -1388,7 +1387,7 @@ func regressionMarkdown(d vmDiagram, v vmVersion, sources string) string {
 	}
 	fmt.Fprintf(&b, "\n- canvas: %s\n", v.Bounds)
 
-	writeSource(&b, d)
+	writeSource(&b, d, "The source both renderings came from")
 	if len(changeLines(v)) > 0 {
 		writeChanges(&b, v, "## What the structural diff reported here")
 	} else {
@@ -1435,11 +1434,11 @@ func lineageCell(source, sha, subject string) string {
 	return cell
 }
 
-func writeSource(b *strings.Builder, d vmDiagram) {
+func writeSource(b *strings.Builder, d vmDiagram, heading string) {
 	if d.IPMT == "" {
 		return
 	}
-	fmt.Fprintf(b, "\n## The source both renderings came from\n\n%s\n", fence(d.IPMT))
+	fmt.Fprintf(b, "\n## %s\n\n%s\n", heading, fence(d.IPMT))
 }
 
 func writeChanges(b *strings.Builder, v vmVersion, heading string) {

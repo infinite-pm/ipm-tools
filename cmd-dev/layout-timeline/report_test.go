@@ -761,7 +761,7 @@ func TestAgentPayloadIdentifiesTheVersion(t *testing.T) {
 	d := vmDiagram{ID: "docs/x.md#100", IPMT: "Commit ::e --> Build ::e"}
 	v := vmVersion{
 		Label: "2026-07-20", Source: "main", SHA: "9f3a2b1", Subject: "route ties first",
-		Tier: "geometry", Score: "120", Bounds: "560×540 → 560×600",
+		Tier: "geometry", Score: "120", Bounds: "560×540 → 560×600", Canvas: "560×600",
 		PrevLabel: "2026-07-13", PrevSource: "main", PrevSHA: "1a2b3c4",
 		Changes: []vmChange{{Kind: "port-side", Ref: "edge #4,#2", Label: "tA→e2",
 			Detail: "source-side=left (was bottom)"}},
@@ -773,16 +773,30 @@ func TestAgentPayloadIdentifiesTheVersion(t *testing.T) {
 		"`docs/x.md`",                 // …and which file it lives in
 		"2026-07-20",                  // which version
 		"lineage `main`", "`9f3a2b1`", // which engine commit
-		"route ties first",      // what that commit said
-		"2026-07-13",            // what it is being compared against
-		"geometry", "score 120", // what the engine called the change
-		"560×540 → 560×600",                      // and the canvas
+		"route ties first",                       // what that commit said
+		"560×600",                                // THIS version's canvas
 		"```ipmt\nCommit ::e --> Build ::e\n```", // the source, as a block
-		"port-side", "source-side=left (was bottom)",
-		urlMark, // the browser fills this in
+		urlMark,                                  // the browser fills this in
 	} {
 		if !strings.Contains(md, want) {
 			t.Errorf("the agent payload is missing %q\n---\n%s", want, md)
+		}
+	}
+	// This button says "here is the thing I am pointing at". What CHANGED,
+	// and against what, is the regression button's job — carrying it here
+	// makes every reference to a diagram read as a complaint about it.
+	for _, unwanted := range []string{
+		"2026-07-13",        // the version before
+		"1a2b3c4",           // …and its commit
+		"compared against",  //
+		"source-side=left",  // the diff's findings
+		"port-side",         //
+		"560×540 → 560×600", // a before→after canvas
+		"score 120",         // a score measures the change, not the version
+		"regression",        //
+	} {
+		if strings.Contains(md, unwanted) {
+			t.Errorf("the agent payload mentions %q; it describes ONE version\n---\n%s", unwanted, md)
 		}
 	}
 }
