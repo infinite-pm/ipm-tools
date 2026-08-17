@@ -146,18 +146,30 @@ go run ./cmd-dev/layout-audit ../vscode-infinite-pm-dev/demo/states/ipmt-preview
 | `--new` | `workdir` | git ref, or the working tree (dirty allowed — and recorded) |
 | `--old-bin` / `--new-bin` | | use a `layout-gen`-compatible binary instead of building a ref |
 | `--repo` | `.` | the engine repository both sides are built from |
-| `--out` | `temp/layout-audit` | report, extracted block sources, build cache |
+| `--out` | `temp/layout-audit` | report and extracted block sources |
+| `--cache` | `~/.cache/ipm-layout-engines` | built engines, shared with layout-timeline |
 | `--limit` | `0` | draw at most N diagrams; the rest are LISTED by name, never drawn as empty frames |
 | `--carried` | off | also report nodes that moved by exactly the canvas shift |
 | `--fail-on` | `none` | `change` or `regression` — for a gate; the default only reports |
-| `--clean` | off | drop the output directory, build cache included |
+| `--clean` | off | drop the output directory; the cache lives elsewhere and is kept |
 
 ## How the old engine is built
 
-`git archive <sha>` into `temp/layout-audit/src/<sha>/`, then `go build` into
-`temp/layout-audit/bin/<sha>/` — `layout-gen` plus `layout-debug` when the ref
-has one. Cached by commit, so a second run against the same ref is free
-(~1.2 s cold, on a warm module cache).
+`git archive <sha>` into `<cache>/src/<sha>/`, then `go build` into
+`<cache>/<sha>/` — `layout-gen` plus `layout-debug` when the ref has one.
+Cached by commit, so a second run against the same ref is free (~1.2 s cold, on
+a warm module cache).
+
+**The exported tree is deleted once its build succeeds.** It is scratch: a
+checkout of this repository is ~11 MB and ~2,000 files, a history sweep exports
+one per engine commit, and keeping them cost 3.1 GB and 550,000 files before
+this was fixed. A tree whose build FAILED stays, because the error names it and
+that is the one time its contents are worth reading.
+
+**The cache lives outside the repository** (`os.UserCacheDir()`), for two
+reasons: a 2 GB content-addressed cache inside the tree is 2 GB the editor
+watches recursively, and `--clean`, whose job is to discard a report, should
+not discard hours of builds along with it.
 
 `git archive` rather than `git worktree`: nothing to prune if the run dies, and
 it works on a dirty repository — which is the normal case, since the point is

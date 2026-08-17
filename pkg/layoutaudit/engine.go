@@ -73,6 +73,21 @@ type BuildOptions struct {
 	Pipeline []string
 }
 
+// DefaultCache is where built engines live: outside the repository.
+//
+// They used to live under temp/, which put a 2 GB content-addressed cache
+// inside a directory the editor watches recursively — and made --clean, whose
+// job is to discard a report, throw away hours of builds along with it. A
+// cache keyed by commit SHA is neither output nor scratch: it belongs where
+// the platform puts caches, where it survives cleaning the report and costs
+// the workspace nothing.
+func DefaultCache() string {
+	if dir, err := os.UserCacheDir(); err == nil {
+		return filepath.Join(dir, "ipm-layout-engines")
+	}
+	return filepath.Join(os.TempDir(), "ipm-layout-engines")
+}
+
 // BuildEngine produces a layout-gen (and, when the ref has one, a
 // layout-debug) for ref. "workdir" builds the working tree as it stands.
 func BuildEngine(repo, ref, name, cache string, prebuilt string, verbose bool) (Engine, error) {

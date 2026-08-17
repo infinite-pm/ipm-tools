@@ -102,7 +102,7 @@ func run() int {
 	flag.StringVar(&enginePaths, "engine-paths", "pkg/layout7 pkg/layout cmd/layout-gen", "space-separated paths that count as the engine, for --by engine-commit and for the per-column commit counts")
 	flag.StringVar(&at, "at", string(atWeekStart), "which commit stands for a week: week-start (last commit before Monday 00:00) | first-of-week")
 	flag.StringVar(&out, "out", "temp/layout-timeline", "output directory for the report")
-	flag.StringVar(&cache, "cache", "temp/layout-audit/bin", "engine build cache, shared with layout-audit so a commit is built once")
+	flag.StringVar(&cache, "cache", layoutaudit.DefaultCache(), "engine build cache, shared with layout-audit so a commit is built once (outside the repo: it is a cache, not output)")
 	flag.IntVar(&limitPerWeek, "limit-per-column", 0, "render at most N changed diagrams per column page (0 = all, bounded by --max-mb); the rest are listed by name")
 	flag.BoolVar(&head, "head", true, "add the current HEAD as a final column, so work committed since Monday is not invisible")
 	flag.BoolVar(&list, "list", false, "print the weekly commits and exit — no builds, no sweep")

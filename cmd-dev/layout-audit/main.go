@@ -82,29 +82,31 @@ func main() {
 
 func run() int {
 	var (
-		repo    string
-		oldRef  string
-		newRef  string
-		oldBin  string
-		newBin  string
-		outDir  string
-		failOn  string
-		limit   int
-		carried bool
-		clean   bool
-		verbose bool
-		open    bool
+		repo     string
+		oldRef   string
+		newRef   string
+		oldBin   string
+		newBin   string
+		outDir   string
+		cacheDir string
+		failOn   string
+		limit    int
+		carried  bool
+		clean    bool
+		verbose  bool
+		open     bool
 	)
 	flag.StringVar(&repo, "repo", ".", "engine repository to build both sides from")
 	flag.StringVar(&oldRef, "old", "HEAD", "git ref for the OLD engine (or "+workdirRef+")")
 	flag.StringVar(&newRef, "new", workdirRef, "git ref for the NEW engine ("+workdirRef+" = the working tree, dirty allowed)")
 	flag.StringVar(&oldBin, "old-bin", "", "use this layout-gen binary as the OLD engine instead of building a ref")
 	flag.StringVar(&newBin, "new-bin", "", "use this layout-gen binary as the NEW engine instead of building a ref")
-	flag.StringVar(&outDir, "out", "temp/layout-audit", "output directory (report, extracted sources, build cache)")
+	flag.StringVar(&outDir, "out", "temp/layout-audit", "output directory (report and extracted sources)")
+	flag.StringVar(&cacheDir, "cache", layoutaudit.DefaultCache(), "engine build cache, shared with layout-timeline so a commit is built once (outside the repo: it is a cache, not output)")
 	flag.StringVar(&failOn, "fail-on", "none", "exit non-zero on: none | change | regression (an invariant that got worse, or a diagram the new engine cannot lay out)")
 	flag.IntVar(&limit, "limit", 0, "render at most N changed diagrams into the report (0 = all); the rest are still counted and listed")
 	flag.BoolVar(&carried, "carried", false, "also report nodes that moved by exactly the whole-canvas shift (off: they did not move relative to the diagram)")
-	flag.BoolVar(&clean, "clean", false, "delete the output directory (including the build cache) before running")
+	flag.BoolVar(&clean, "clean", false, "delete the output directory before running (the build cache lives elsewhere and is kept)")
 	flag.BoolVar(&verbose, "verbose", false, "log each build and every swept diagram")
 	flag.BoolVar(&open, "print-path", true, "print the report path on stdout when finished")
 	version := cli.VersionFlag(flag.CommandLine, "layout-audit")
@@ -134,7 +136,12 @@ func run() int {
 			return fail("clean %s: %v", outAbs, err)
 		}
 	}
-	cache := filepath.Join(outAbs, "bin")
+	// Deliberately NOT under outAbs: --clean discards a report, and it should
+	// not discard hours of cached builds along with it.
+	cache := cacheDir
+	if !filepath.IsAbs(cache) {
+		cache = filepath.Join(repoAbs, cache)
+	}
 	if err := os.MkdirAll(cache, 0o755); err != nil {
 		return fail("create %s: %v", cache, err)
 	}

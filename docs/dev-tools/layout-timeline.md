@@ -304,7 +304,7 @@ that week as a full audit.
 | `--limit-per-week` | `6` | rendered diagrams per week (0 = all) |
 | `--no-svg` | off | grid and tables only |
 | `--out` | `temp/layout-timeline` | report + extracted block sources |
-| `--cache` | `temp/layout-audit/bin` | engine build cache, shared with layout-audit |
+| `--cache` | `~/.cache/ipm-layout-engines` | built engines, shared with layout-audit |
 
 ## Cost
 
@@ -315,8 +315,15 @@ so the cost does not grow with the number of columns.
 A long history costs its builds: 311 diagrams × **86** engine commits from
 `pre-ipm-tools@main-pre1` took **3 minutes** cold, most of it `go build`. The
 cache is keyed by commit, so the second run over the same range is sweeps only.
-`--out` and `--cache` resolve against the CURRENT directory, not `--repo`, so a
-report about another repository's history never lands in that repository.
+`--out` resolves against the CURRENT directory, not `--repo`, so a report about
+another repository's history never lands in that repository.
+
+The cache defaults **outside** any repository, under `os.UserCacheDir()`. It
+used to sit in `temp/`, which put ~2 GB and (with the source trees it also kept)
+550,000 files inside a directory the editor watches recursively. Engines are
+keyed by commit SHA and shared with layout-audit, so this is a cache in the
+ordinary sense and belongs where caches go: it survives `--clean`, and it costs
+the workspace nothing.
 
 ## Weight
 
