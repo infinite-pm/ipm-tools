@@ -251,9 +251,13 @@ read: scan the grid, pick the column that moved, look at that column.
 **The grid**: one row per diagram that ever moved, one column per week, a
 coloured cell where it moved (red = an invariant got worse, violet = drawn
 differently, orange = moved, black = the engine could not lay it out, green =
-became layoutable). Rows are ordered by how often the diagram moved; a cell
-links to that week's row. This answers "when did this last change, and has it
-ever been broken" by looking rather than reading.
+became layoutable). Rows are ordered by how often the diagram moved. This
+answers "when did this last change, and has it ever been broken" by looking
+rather than reading.
+
+The grid leads BOTH ways, which is the whole navigation: a **cell** opens that
+diagram's own page (one diagram, every version of it), a **column header**
+opens that column's page (one column, every diagram that moved in it).
 
 **The column list** on the index: every column with its lineage, commit,
 change count and what happened — including the quiet ones, which have no page
@@ -280,6 +284,24 @@ are rendered; the rest are listed by name. `--no-svg` drops the panes entirely.
 
 Each row carries the `layout-audit --old … --new …` command that reproduces
 that week as a full audit.
+
+**A diagram page** (`d/<diagram>/index.html`): one diagram, every version of
+it, oldest first — followed from a grid cell or from a row's history strip.
+Following a version used to open a column page carrying two hundred diagrams
+to show one of them; this carries one, at ~40–80 KB against a column page's
+2.4 MB. The strip at the top jumps within the page, so stepping through a
+diagram's history costs no load at all, and every version links back to its
+own column for the rest of that engine's damage.
+
+It is **one column, one version per row** — no reference pane. A column page
+compares two engines, so it needs two panes side by side; a diagram page
+compares a diagram against ITSELF over time, where the second pane showed a
+picture the page already had one row up. A version's "before" IS the previous
+version's "after", so the reference is the row above and the comparison runs
+down the page, leaving each row the full width for one picture. The three
+states still swap in place, which is the registration a blink comparison
+needs. There is no ★ current here — that question ("how far from what we
+ship") belongs to a column page.
 
 ## Flags
 

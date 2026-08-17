@@ -458,3 +458,59 @@ func TestDiagramVersionLinksToItsWholeColumn(t *testing.T) {
 		t.Error("the link is hidden behind the changes fold, where it was never found")
 	}
 }
+
+// A diagram page is ONE column, one version per row.
+//
+// A column page compares two engines, so it needs two panes side by side. A
+// diagram page compares a diagram against itself over time, and there the
+// second pane showed a picture the page already had one row up: this
+// version's "before" is the previous version's "after". The reference is the
+// row above, so the comparison runs down the page and each row keeps the full
+// width for one picture.
+func TestDiagramPageIsOneColumn(t *testing.T) {
+	rep := layoutdiff.Report{Tier: layoutdiff.TierGeometry, Counts: map[string]int{}}
+	svg := []byte(`<svg viewBox="0 0 10 10"></svg>`)
+	mk := func(label string) week {
+		return week{Label: label, Subject: "s", Changes: []change{{
+			ID: "a", Status: "changed", Report: rep,
+			OldSVG: svg, NewSVG: svg, NewMarked: svg}}}
+	}
+	in := timelineInput{
+		Weeks:   []week{mk("c1"), mk("c2")},
+		Current: map[string][]byte{"a": svg},
+		Panes: merge(
+			panePool("c1", "a", "before", "after", "marked", "current"),
+			panePool("c2", "a", "before", "after", "marked", "current"),
+		),
+	}
+	html := renderDiagram(in, "a")
+	// Assert on the MARKUP: the shared stylesheet still carries .pane-old
+	// rules for the column pages, and matching those would pass either way.
+	_, body, ok := strings.Cut(html, "</style>")
+	if !ok {
+		t.Fatal("no stylesheet boundary; cannot tell markup from CSS")
+	}
+
+	if strings.Contains(body, `class="pane pane-old"`) {
+		t.Error("the diagram page still draws the reference pane")
+	}
+	if strings.Contains(body, `class="layer layer-current"`) || strings.Contains(body, `data-left=`) {
+		t.Error("the left pane's controls survived the pane they belonged to")
+	}
+	if n := strings.Count(html, `class="panes one"`); n != 2 {
+		t.Errorf("%d of 2 versions are single-column", n)
+	}
+	// One picture per row, still with all three states swapping in place.
+	if n := strings.Count(html, `class="pane pane-new"`); n != 2 {
+		t.Errorf("expected one pane per version, got %d", n)
+	}
+	for _, want := range []string{"layer-before", "layer-after", "layer-marked", `data-mode="auto"`} {
+		if !strings.Contains(html, want) {
+			t.Errorf("the single pane lost %q — it is still a blink comparator", want)
+		}
+	}
+	// And the one-column rule must actually be in the stylesheet.
+	if !strings.Contains(html, ".panes.one{grid-template-columns:1fr}") {
+		t.Error("nothing collapses the pane grid to one column")
+	}
+}

@@ -114,12 +114,14 @@ type vmVersion struct {
 	Label, Anchor, Source, SHA, Subject string
 	Tier, Score, Summary, Bounds        string
 	ColumnHref                          string // the column page, with every diagram
-	BeforeSrc, AfterSrc, MarkedSrc      string
-	CurrentSrc                          string
-	OldWidth, NewWidth, CurWidth        string
-	Changes                             []vmChange
-	FindingsAdded                       []string
-	Err                                 string
+	// One pane, three states. There is no "current" here: the reference a
+	// version is read against is the row above it, and the column page is
+	// where a diagram is read against today.
+	BeforeSrc, AfterSrc, MarkedSrc string
+	OldWidth, NewWidth             string
+	Changes                        []vmChange
+	FindingsAdded                  []string
+	Err                            string
 }
 
 // vmDiagram is one diagram's whole life: every column it moved in, on one
@@ -293,10 +295,8 @@ func buildDiagram(in timelineInput, id string) vmDiagram {
 				BeforeSrc:     in.pane(w.Label, id, "before"),
 				AfterSrc:      in.pane(w.Label, id, "after"),
 				MarkedSrc:     in.pane(w.Label, id, "marked"),
-				CurrentSrc:    in.pane(w.Label, id, "current"),
 				OldWidth:      ow,
 				NewWidth:      nw,
-				CurWidth:      ow,
 				FindingsAdded: c.Report.FindingsAdded,
 				Err:           c.Err,
 			}
@@ -822,6 +822,16 @@ table.ch td,table.ch th{text-align:left;padding:2px 10px 2px 0;vertical-align:to
    found, so it sits in the header the version is read from. */
 .allref{margin-left:auto;font-size:12px;white-space:nowrap;color:var(--changed);text-decoration:none}
 .allref:hover{text-decoration:underline}
+
+/* ONE COLUMN, one version per row.
+   A column page compares two engines, so it needs two panes side by side. A
+   diagram page compares a diagram against ITSELF over time, and there the
+   second pane was showing a picture the page already had: this version's
+   "before" is the row above's "after". The reference is the previous ROW, so
+   the comparison runs DOWN the page, and each row keeps the whole width for
+   one picture — larger, and with the three states still swapping in place,
+   which is the registration a blink comparison needs. */
+.panes.one{grid-template-columns:1fr}
 </style></head><body>
 <header>
   <h1><span class="id">{{.ID}}</span></h1>
@@ -849,14 +859,7 @@ table.ch td,table.ch th{text-align:left;padding:2px 10px 2px 0;vertical-align:to
   </div>
   {{if .Summary}}<div class="summary">{{.Summary}}</div>{{end}}
   {{if .Err}}<div class="summary">{{.Err}}</div>{{end}}
-  <div class="panes">
-    <div class="pane pane-old">
-      <h4><span>reference</span>{{if .CurrentSrc}}{{leftControls}}{{end}}</h4>
-      <div class="stack">
-        {{if .BeforeSrc}}<div class="layer layer-before" style="width:{{.OldWidth}}"><img src="{{.BeforeSrc}}" loading="lazy" alt="before"><span class="chip">before</span></div>{{end}}
-        {{if .CurrentSrc}}<div class="layer layer-current" style="width:{{.CurWidth}}"><img src="{{.CurrentSrc}}" loading="lazy" alt="current"><span class="chip">current</span></div>{{end}}
-      </div>
-    </div>
+  <div class="panes one">
     <div class="pane pane-new">
       <h4><span>this version</span>{{paneControls}}</h4>
       <div class="stack">
