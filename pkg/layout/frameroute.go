@@ -30,12 +30,20 @@ package layout
 
 import "sort"
 
-// frameClear is the gap every segment keeps from a box it does not touch. It
-// is GridStep*2 = 20 — the same distance detour.go's detourClear routes AROUND
-// a blocker at, now enforced as a minimum everywhere rather than as the offset
-// of one candidate shape. A run 20px from a border reads as "beside it";
-// anything closer reads as "along it".
-const frameClear = 2 * GridStep
+// frameClear is the gap every segment keeps from a box it does not touch:
+// v7P8's VISIBLE GAP, 10px, "any drawn line and any box it does not connect
+// to". Half of layout7's grid step; pkg/layout's GridStep happens to be that
+// same 10. A first draft used 20 (detour.go's detourClear, the distance it
+// routed AROUND a blocker at) and so judged a frame stricter than the flat
+// render judges the same document — an edge 15px from a box was fine in
+// layout-gen and blocked here. Rails around blockers still stand off further
+// (frameRailPad); only the RULE is P8's number.
+const frameClear = 10
+
+// frameRailPad is how far a detour rail stands off the box it routes around:
+// the visible gap plus one lane, so a rail sits at clearance and one lane out
+// from where a neighbour's rail would be.
+const frameRailPad = frameClear + frameLaneSep
 
 // frameBudget and the prices are route.go's (budget 1.0; same-kind crossing
 // 1.0, different kinds 0.5, graze 0.5, detour past 1.5x direct costs the
@@ -45,11 +53,15 @@ const (
 	frameBudget       = 1.0
 	crossSameKind     = 1.0
 	crossOtherKind    = 0.5
+	crossFlowByTie    = 2.0  // P6/P9: a hierarchy tie never cuts the flow corridor — over budget alone
+	crossBrushNear    = 0.25 // P9: two edges MEETING at a shared node brush near it; a quarter, not a tangle
+	brushNearWithin   = 40   // px from the shared node within which a crossing is a brush (layout7 Clearance)
 	grazeCost         = 0.5
+	grazeBoundaryMult = 3.0 // P8 (ee960980): hugging S or E is prohibitive — boundaries weigh triple
 	detourTaxOver     = 1.5
-	frameLaneSep      = GridStep // route.go: LaneSep = GridStep/2 = 10 (its GridStep is 20); here GridStep is 10
-	frameLaneMinShare = 16       // two runs closer than LaneSep for longer than this share a lane
-	frameGridStep     = 120      // fallback sweep, as detour.go
+	frameLaneSep      = 10  // px, route.go's LaneSep: half of layout7's 20px grid step
+	frameLaneMinShare = 16  // two runs closer than LaneSep for longer than this share a lane
+	frameGridStep     = 120 // fallback sweep, as detour.go
 	frameGridPad      = 240
 	frameGridCap      = 900
 )
@@ -116,7 +128,22 @@ func RouteFrameEdges(g *Graph) FrameRouteStats {
 		}
 	}
 
+	// P9's hide priority: "the less structural kind hides first — near-to
+	// before expresses before part-of, and leads-to never". The engine gets
+	// that order for free from the order it routes kinds; a positioned-graph
+	// pass has to make it: route leads-to first, then part-of, expresses,
+	// near-to, so the more structural kind claims the space and the less
+	// structural one is the one that pays for crossing it — and, over
+	// budget, the one that hides. Within a kind, slice order (deterministic).
+	order := make([]int, 0, len(g.Edges))
 	for i := range g.Edges {
+		order = append(order, i)
+	}
+	sort.SliceStable(order, func(a, b int) bool {
+		return kindRank(g.Edges[order[a]].Base) < kindRank(g.Edges[order[b]].Base)
+	})
+
+	for _, i := range order {
 		e := &g.Edges[i]
 		if !ok[i] || e.Visibility == visibilityStubbed {
 			continue
@@ -283,19 +310,42 @@ func advance(p, q [2]int, d int) [2]int {
 // already excluded): crossings priced by kind, grazes, and detour tax.
 func pathCost(pts [][2]int, obstacles []Node, paths [][][2]int, self int, base string, g *Graph) float64 {
 	c := 0.0
+	me := g.Edges[self]
 	for j, other := range paths {
 		if j == self || len(other) < 2 {
 			continue
 		}
-		if pathsCross(pts, other) {
-			if g.Edges[j].Base == base {
-				c += crossSameKind
+		if !pathsCross(pts, other) {
+			continue
+		}
+		o := g.Edges[j]
+		switch {
+		case isHierarchyTie(base) && isFlowEdge(g, o):
+			// P6/P9: slicing the timeline reads as breaking the story.
+			c += crossFlowByTie
+		case sharesNode(me, o) && crossNear(pts, other, sharedNodeBoxes(g, me, o), brushNearWithin):
+			// P9: fork lines necessarily brush at their box — a quarter.
+			c += crossBrushNear
+		case o.Base == base:
+			c += crossSameKind
+		default:
+			c += crossOtherKind
+		}
+	}
+	// P8: a graze is half a crossing; a graze of a BOUNDARY (S/E) is triple
+	// that — never exempt, prohibitive on its own.
+	for _, o := range obstacles {
+		if o.ID == me.From || o.ID == me.To {
+			continue
+		}
+		if pathGrazes(pts, []Node{o}, me.From, me.To) > 0 {
+			if o.Type == "boundary" {
+				c += grazeCost * grazeBoundaryMult
 			} else {
-				c += crossOtherKind
+				c += grazeCost
 			}
 		}
 	}
-	c += grazeCost * float64(pathGrazes(pts, obstacles, g.Edges[self].From, g.Edges[self].To))
 	if len(pts) > 2 {
 		direct := absInt(pts[len(pts)-1][0]-pts[0][0]) + absInt(pts[len(pts)-1][1]-pts[0][1])
 		if direct > 0 {
@@ -306,6 +356,91 @@ func pathCost(pts [][2]int, obstacles []Node, paths [][][2]int, self int, base s
 		}
 	}
 	return c
+}
+
+// kindRank orders relation kinds from most to least structural, for the
+// routing (and therefore hiding) order. Unknown kinds go last.
+func kindRank(base string) int {
+	switch base {
+	case string(EdgeLeadsTo):
+		return 0
+	case string(EdgePartOf):
+		return 1
+	case string(EdgeExpresses):
+		return 2
+	case string(EdgeNearTo):
+		return 3
+	}
+	return 4
+}
+
+func isHierarchyTie(base string) bool {
+	return base == string(EdgePartOf) || base == string(EdgeExpresses)
+}
+
+// isFlowEdge is route.go's isFlow: a leads-to between two events.
+func isFlowEdge(g *Graph, e Edge) bool {
+	if e.Base != string(EdgeLeadsTo) {
+		return false
+	}
+	var ft, tt string
+	for _, n := range g.Nodes {
+		if n.ID == e.From {
+			ft = n.Type
+		}
+		if n.ID == e.To {
+			tt = n.Type
+		}
+	}
+	return ft == "event" && tt == "event"
+}
+
+func sharesNode(a, b Edge) bool {
+	return a.From == b.From || a.From == b.To || a.To == b.From || a.To == b.To
+}
+
+func sharedNodeBoxes(g *Graph, a, b Edge) []Node {
+	var out []Node
+	for _, n := range g.Nodes {
+		if (n.ID == a.From || n.ID == a.To) && (n.ID == b.From || n.ID == b.To) {
+			out = append(out, n)
+		}
+	}
+	return out
+}
+
+// crossNear says whether every crossing between the two polylines lies within
+// `within` px of one of the given boxes — a brush at the shared node rather
+// than a tangle farther out.
+func crossNear(a, b [][2]int, boxes []Node, within int) bool {
+	if len(boxes) == 0 {
+		return false
+	}
+	near := false
+	for i := 0; i+1 < len(a); i++ {
+		for j := 0; j+1 < len(b); j++ {
+			if !segmentsCross(a[i][0], a[i][1], a[i+1][0], a[i+1][1], b[j][0], b[j][1], b[j+1][0], b[j+1][1]) {
+				continue
+			}
+			// The crossing point is somewhere on both segments; the segment
+			// midpoint-to-box distance is a fine proxy at this granularity.
+			mx, my := (a[i][0]+a[i+1][0])/2, (a[i][1]+a[i+1][1])/2
+			ok := false
+			for _, n := range boxes {
+				dx := maxInt(0, maxInt(n.X-mx, mx-(n.X+n.Width)))
+				dy := maxInt(0, maxInt(n.Y-my, my-(n.Y+n.Height)))
+				if dx <= within && dy <= within {
+					ok = true
+					break
+				}
+			}
+			if !ok {
+				return false
+			}
+			near = true
+		}
+	}
+	return near
 }
 
 // frameCandidates is detour.go's curated set (L-shapes, blocker-box corners
@@ -359,9 +494,8 @@ func frameCandidates(s detourSeg, obstacles []Node, fromID, toID string) [][][2]
 		for _, bl := range blockers {
 			boxes = append(boxes, [4]int{bl.X, bl.Y, bl.X + bl.Width, bl.Y + bl.Height})
 		}
-		pad0 := frameClear + frameLaneSep
 		for _, bx := range boxes {
-			for _, pad := range [2]int{pad0, pad0 * 2} {
+			for _, pad := range [2]int{frameRailPad, frameRailPad * 2} {
 				l, r := bx[0]-pad, bx[2]+pad
 				t, b := bx[1]-pad, bx[3]+pad
 				add([2]int{l, t})
