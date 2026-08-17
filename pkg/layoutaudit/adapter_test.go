@@ -77,3 +77,43 @@ func TestACachedEraIsStillEnteredThroughItsAdapter(t *testing.T) {
 		t.Fatalf("an ordinary era resolved to %q", plain.LayoutGen)
 	}
 }
+
+// An adapter is a CACHED artifact, so it must survive the cache being moved.
+//
+// It used to bake in the absolute path it was generated at. Relocating the
+// cache left every era adapter pointing at a directory that no longer existed
+// — and since a missing engine reads as "this diagram could not be laid out",
+// seven columns of the report claimed 312 skipped diagrams rather than an
+// error anyone could see.
+func TestAnAdapterStillWorksAfterTheCacheMoves(t *testing.T) {
+	first := t.TempDir()
+	if err := os.WriteFile(filepath.Join(first, "ipmt-parse"),
+		[]byte("#!/bin/sh\nprintf 'parsed:%s' \"$2\"\n"), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := writeAdapter(first, []string{
+		`{bin}/ipmt-parse --in {in} > {tmp}`,
+		`cat {tmp}`,
+	}); err != nil {
+		t.Fatal(err)
+	}
+
+	// Move the whole cache entry, exactly as relocating the cache does.
+	second := filepath.Join(t.TempDir(), "moved")
+	if err := os.Rename(first, second); err != nil {
+		t.Fatal(err)
+	}
+
+	out, err := exec.Command(filepath.Join(second, "adapter"), "--in", "/w/case.ipmt").Output()
+	if err != nil {
+		t.Fatalf("adapter broke when its directory moved: %v", err)
+	}
+	if got := string(out); got != "parsed:/w/case.ipmt" {
+		t.Fatalf("adapter produced %q", got)
+	}
+	if body, err := os.ReadFile(filepath.Join(second, "adapter")); err == nil {
+		if strings.Contains(string(body), first) {
+			t.Error("the adapter still carries the absolute path it was generated at")
+		}
+	}
+}

@@ -262,8 +262,15 @@ func writeAdapter(binDir string, pipeline []string) (string, error) {
 	b.WriteString("    --in) in=\"$2\"; shift 2 ;;\n    --in=*) in=\"${1#--in=}\"; shift ;;\n")
 	b.WriteString("    *) shift ;;\n  esac\ndone\n")
 	b.WriteString("tmp=\"$(mktemp)\"\ntrap 'rm -f \"$tmp\"' EXIT\n")
+	// {bin} resolves at RUN time, from the script's own directory — never the
+	// absolute path it was generated at. An adapter is a cached artifact, and
+	// a cache that cannot be moved is not one: baking the path in meant that
+	// relocating the cache left every era adapter pointing into thin air, and
+	// because a missing engine reads as "this diagram could not be laid out",
+	// seven columns reported 312 skipped diagrams instead of an error.
+	b.WriteString("bin=\"$(cd \"$(dirname \"$0\")\" && pwd)\"\n")
 	for _, step := range pipeline {
-		cmd := strings.ReplaceAll(step, "{bin}", binDir)
+		cmd := strings.ReplaceAll(step, "{bin}", "\"$bin\"")
 		cmd = strings.ReplaceAll(cmd, "{in}", "\"$in\"")
 		cmd = strings.ReplaceAll(cmd, "{tmp}", "\"$tmp\"")
 		b.WriteString(cmd + "\n")

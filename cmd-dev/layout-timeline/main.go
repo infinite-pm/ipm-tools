@@ -620,13 +620,16 @@ func poolPanes(outAbs string, weeks []week, current map[string][]byte) (map[stri
 	}
 	refs := map[string]string{}
 	written := 0
-	put := func(id, which string, data []byte) error {
+	// col is part of the key: a diagram has a "before" PER COLUMN, not one in
+	// total. Keyed without it, the columns overwrote each other and every page
+	// showed whichever was written last.
+	put := func(col, id, which string, data []byte) error {
 		if len(data) == 0 {
 			return nil
 		}
 		sum := fmt.Sprintf("%x", sha1.Sum(data))[:12]
 		name := sum + ".svg"
-		refs[id+"\x00"+which] = "../../panes/" + name
+		refs[col+"\x00"+id+"\x00"+which] = "../../panes/" + name
 		path := filepath.Join(dir, name)
 		if _, err := os.Stat(path); err == nil {
 			return nil // same bytes, same name: already there
@@ -636,16 +639,16 @@ func poolPanes(outAbs string, weeks []week, current map[string][]byte) (map[stri
 	}
 	for _, w := range weeks {
 		for _, c := range w.Changes {
-			if err := put(c.ID, "before", c.OldSVG); err != nil {
+			if err := put(w.Label, c.ID, "before", c.OldSVG); err != nil {
 				return nil, written, err
 			}
-			if err := put(c.ID, "after", c.NewSVG); err != nil {
+			if err := put(w.Label, c.ID, "after", c.NewSVG); err != nil {
 				return nil, written, err
 			}
-			if err := put(c.ID, "marked", c.NewMarked); err != nil {
+			if err := put(w.Label, c.ID, "marked", c.NewMarked); err != nil {
 				return nil, written, err
 			}
-			if err := put(c.ID, "current", current[c.ID]); err != nil {
+			if err := put(w.Label, c.ID, "current", current[c.ID]); err != nil {
 				return nil, written, err
 			}
 		}

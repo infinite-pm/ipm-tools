@@ -9,11 +9,23 @@ import (
 	"github.com/infinite-pm/ipm-tools/pkg/layoutdiff"
 )
 
-// panePool stands in for the content-addressed pool a real run writes.
-func panePool(id string, which ...string) map[string]string {
+// panePool stands in for the content-addressed pool a real run writes. Keyed
+// by COLUMN as well as diagram: one diagram has a picture per column.
+func panePool(col, id string, which ...string) map[string]string {
 	out := map[string]string{}
 	for _, w := range which {
-		out[id+"\x00"+w] = "../../panes/" + w + ".svg"
+		out[col+"\x00"+id+"\x00"+w] = "../../panes/" + col + "-" + w + ".svg"
+	}
+	return out
+}
+
+// merge folds pane pools together, for a fixture spanning several columns.
+func merge(pools ...map[string]string) map[string]string {
+	out := map[string]string{}
+	for _, p := range pools {
+		for k, v := range p {
+			out[k] = v
+		}
 	}
 	return out
 }
@@ -73,7 +85,7 @@ func TestColumnPageRenders(t *testing.T) {
 	in := timelineInput{
 		Repo: "/repo", Weeks: sampleWeeks(), At: "week-start",
 		Current: map[string][]byte{"docs/x.md#100": []byte(`<svg viewBox="0 0 10 10"></svg>`)},
-		Panes:   panePool("docs/x.md#100", "before", "after", "marked", "current"),
+		Panes:   panePool("2026-07-13", "docs/x.md#100", "before", "after", "marked", "current"),
 	}
 	html := renderPage(in, 1)
 	if strings.Contains(html, "template:") {
@@ -99,7 +111,7 @@ func TestColumnPageRenders(t *testing.T) {
 // rendering the left pane offers no switch.
 func TestLeftSwitchOnlyWhenThereIsACurrent(t *testing.T) {
 	html := renderPage(timelineInput{Repo: "/repo", Weeks: sampleWeeks(), At: "week-start",
-		Panes: panePool("docs/x.md#100", "before", "after", "marked")}, 1)
+		Panes: panePool("2026-07-13", "docs/x.md#100", "before", "after", "marked")}, 1)
 	if strings.Contains(html, `data-left="current"`) {
 		t.Error("offered a current view with nothing to show")
 	}
@@ -142,10 +154,12 @@ func TestEachRowCarriesItsOwnHistory(t *testing.T) {
 	}
 	// "a" moves in all three columns, "b" only in the middle one.
 	weeks := []week{mk("c1", "a"), mk("c2", "a", "b"), mk("c3", "a")}
-	pool := panePool("a", "before", "after", "marked")
-	for k, v := range panePool("b", "before", "after", "marked") {
-		pool[k] = v
-	}
+	pool := merge(
+		panePool("c1", "a", "before", "after", "marked"),
+		panePool("c2", "a", "before", "after", "marked"),
+		panePool("c2", "b", "before", "after", "marked"),
+		panePool("c3", "a", "before", "after", "marked"),
+	)
 	html := renderPage(timelineInput{Weeks: weeks, Panes: pool}, 1)
 
 	if !strings.Contains(html, "this diagram moved 3×") {
@@ -185,7 +199,10 @@ func TestDiagramPageCarriesOneDiagram(t *testing.T) {
 		return w
 	}
 	weeks := []week{mk("c1", "a", "b"), mk("c2", "a"), mk("c3", "b")}
-	in := timelineInput{Weeks: weeks, Panes: panePool("a", "before", "after", "marked")}
+	in := timelineInput{Weeks: weeks, Panes: merge(
+		panePool("c1", "a", "before", "after", "marked"),
+		panePool("c2", "a", "before", "after", "marked"),
+	)}
 
 	html := renderDiagram(in, "a")
 	if strings.Contains(html, "template:") {
@@ -271,7 +288,7 @@ func TestRowWithoutAnOldDiagramIsMarked(t *testing.T) {
 	weeks := sampleWeeks()
 	weeks[1].Changes[0].OldSVG = nil
 	html := renderPage(timelineInput{Weeks: weeks, Diagrams: 1,
-		Panes: panePool("docs/x.md#100", "after", "marked")}, 1)
+		Panes: panePool("2026-07-13", "docs/x.md#100", "after", "marked")}, 1)
 	if !strings.Contains(html, "no-before") {
 		t.Error("a row with no old SVG is not marked no-before")
 	}
@@ -319,7 +336,7 @@ func TestTheDrawnRowsAreTheOnesShownFirst(t *testing.T) {
 	w.Changes[0].OldSVG, w.Changes[0].NewSVG, w.Changes[0].NewMarked = svg, svg, svg
 
 	html := renderPage(timelineInput{Weeks: []week{w},
-		Panes: panePool("inv", "before", "after", "marked")}, 0)
+		Panes: panePool("c", "inv", "before", "after", "marked")}, 0)
 	first := strings.Index(html, `id="d-inv"`)
 	if first < 0 {
 		t.Fatal("the most severe row is not on the page")
@@ -342,7 +359,7 @@ func TestCurrentOverlayDoesNotResurrectAnEmptyRow(t *testing.T) {
 	html := renderPage(timelineInput{
 		Weeks:   []week{w},
 		Current: map[string][]byte{"docs/x.md#100": []byte(`<svg viewBox="0 0 10 10"></svg>`)},
-		Panes:   panePool("docs/x.md#100", "current"),
+		Panes:   panePool("c", "docs/x.md#100", "current"),
 	}, 0)
 	if strings.Contains(html, `id="d-docs_dev`) || strings.Contains(html, `class="row first`) {
 		t.Error("drew a row whose before and after are both missing")
@@ -361,12 +378,83 @@ func TestPageBudgetPushesRowsToTheList(t *testing.T) {
 	big.NewMarked = nil
 	weeks[1].Changes = []change{big, big, big}
 	in := timelineInput{Weeks: weeks, MaxBytes: 5000,
-		Panes: panePool("docs/x.md#100", "before", "after")}
+		Panes: panePool("2026-07-13", "docs/x.md#100", "before", "after")}
 	html := renderPage(in, 1)
 	if n := strings.Count(html, `class="row first`); n != 1 {
 		t.Fatalf("drew %d rows, want 1 before the budget bound", n)
 	}
 	if !strings.Contains(html, "not drawn") {
 		t.Error("the rows past the budget are not listed")
+	}
+}
+
+// A diagram has a picture PER COLUMN, and each version must show its own.
+//
+// The pane pool was keyed by (diagram, which) with no column, so the columns
+// overwrote each other and the last one written won. Every page then showed
+// the newest rendering whatever column it claimed to be: a diagram page of
+// fourteen versions displayed one picture fourteen times. Nothing looked
+// broken — that is what made it worth a test.
+func TestEachVersionShowsItsOwnPicture(t *testing.T) {
+	rep := layoutdiff.Report{Tier: layoutdiff.TierGeometry, Counts: map[string]int{}}
+	svg := []byte(`<svg viewBox="0 0 10 10"></svg>`)
+	mk := func(label string) week {
+		return week{Label: label, Subject: "s", Changes: []change{{
+			ID: "a", Status: "changed", Report: rep,
+			OldSVG: svg, NewSVG: svg, NewMarked: svg}}}
+	}
+	in := timelineInput{
+		Weeks: []week{mk("c1"), mk("c2")},
+		Panes: merge(
+			panePool("c1", "a", "before", "after", "marked"),
+			panePool("c2", "a", "before", "after", "marked"),
+		),
+	}
+
+	html := renderDiagram(in, "a")
+	for _, want := range []string{"c1-before.svg", "c1-after.svg", "c2-before.svg", "c2-after.svg"} {
+		if !strings.Contains(html, want) {
+			t.Errorf("the diagram page never shows %s — a version is wearing another's picture", want)
+		}
+	}
+	// And a column page shows ITS column's picture, not the last one written.
+	if col := renderPage(in, 0); !strings.Contains(col, "c1-after.svg") ||
+		strings.Contains(col, "c2-after.svg") {
+		t.Error("column c1 is not showing c1's rendering")
+	}
+}
+
+// The index offers BOTH routes out of the grid: a cell leads to one diagram
+// across its whole life, a column header to one column across every diagram.
+// Only the cells were linked, so the whole-column comparison was reachable
+// only from the table further down the page.
+func TestIndexGridLinksToBothViews(t *testing.T) {
+	html := renderIndex(timelineInput{Weeks: sampleWeeks(), Diagrams: 1})
+	if !strings.Contains(html, `<th class="wk"><a href="w/2026-07-13/index.html"`) {
+		t.Error("the column header does not open that column with every diagram")
+	}
+	if !strings.Contains(html, `href="d/docs_x.md-100/index.html#c-2026-07-13"`) {
+		t.Error("the grid cell does not open that diagram's own page")
+	}
+}
+
+// From a version of one diagram, the other half of the comparison is the rest
+// of ITS column — and it must be visible, not folded into the changes list.
+func TestDiagramVersionLinksToItsWholeColumn(t *testing.T) {
+	rep := layoutdiff.Report{Tier: layoutdiff.TierGeometry, Counts: map[string]int{}}
+	svg := []byte(`<svg viewBox="0 0 10 10"></svg>`)
+	w := week{Label: "c1", Subject: "s", Changes: []change{{ID: "a", Status: "changed",
+		Report: rep, OldSVG: svg, NewSVG: svg, NewMarked: svg}}}
+	html := renderDiagram(timelineInput{Weeks: []week{w},
+		Panes: panePool("c1", "a", "before", "after", "marked")}, "a")
+
+	link := `<a class="allref" href="../../w/c1/index.html#d-a">all diagrams in c1 →</a>`
+	if !strings.Contains(html, link) {
+		t.Errorf("the version does not offer its whole column; want\n%s", link)
+	}
+	// In the header, ahead of the fold — not inside <details>.
+	head, _, ok := strings.Cut(html, "<details>")
+	if !ok || !strings.Contains(head, "allref") {
+		t.Error("the link is hidden behind the changes fold, where it was never found")
 	}
 }

@@ -40,13 +40,22 @@ type timelineInput struct {
 	MaxBytes int
 	// Corpus describes how the diagram set moved since the last report.
 	Corpus []string
-	// Panes maps (diagram, which) to the shared, content-addressed file that
-	// holds that picture.
+	// Panes maps (column, diagram, which) to the shared, content-addressed
+	// file that holds that picture.
+	//
+	// The COLUMN is part of the key and cannot be dropped. Keyed by (diagram,
+	// which) alone the entries collide — one diagram has a "before" per
+	// column, not one in total — and the last column written silently won.
+	// Every page then showed the newest rendering whatever column it claimed
+	// to be: a diagram page of fourteen versions displayed the same picture
+	// fourteen times, and the report looked convincing while saying nothing.
 	Panes map[string]string
 }
 
 // pane is where one of a row's pictures lives, "" when there is none.
-func (in timelineInput) pane(id, which string) string { return in.Panes[id+"\x00"+which] }
+func (in timelineInput) pane(col, id, which string) string {
+	return in.Panes[col+"\x00"+id+"\x00"+which]
+}
 
 // ---- view models -----------------------------------------------------------
 
@@ -281,10 +290,10 @@ func buildDiagram(in timelineInput, id string) vmDiagram {
 				Tier: tier, Score: fmt.Sprintf("%.0f", c.Report.Score),
 				Summary: layoutaudit.Summarize(c.Report), Bounds: bounds,
 				ColumnHref:    "../../" + pageDir(w.Label) + "/index.html#" + anchorOf(id),
-				BeforeSrc:     in.pane(id, "before"),
-				AfterSrc:      in.pane(id, "after"),
-				MarkedSrc:     in.pane(id, "marked"),
-				CurrentSrc:    in.pane(id, "current"),
+				BeforeSrc:     in.pane(w.Label, id, "before"),
+				AfterSrc:      in.pane(w.Label, id, "after"),
+				MarkedSrc:     in.pane(w.Label, id, "marked"),
+				CurrentSrc:    in.pane(w.Label, id, "current"),
 				OldWidth:      ow,
 				NewWidth:      nw,
 				CurWidth:      ow,
@@ -453,10 +462,10 @@ func buildPage(in timelineInput, i int) vmPage {
 		}
 		spent += size
 		row := buildRow(w, c, cur)
-		row.BeforeSrc = in.pane(c.ID, "before")
-		row.AfterSrc = in.pane(c.ID, "after")
-		row.MarkedSrc = in.pane(c.ID, "marked")
-		row.CurrentSrc = in.pane(c.ID, "current")
+		row.BeforeSrc = in.pane(w.Label, c.ID, "before")
+		row.AfterSrc = in.pane(w.Label, c.ID, "after")
+		row.MarkedSrc = in.pane(w.Label, c.ID, "marked")
+		row.CurrentSrc = in.pane(w.Label, c.ID, "current")
 		row.History, row.Moves, row.HistPrev, row.HistNext, row.HistPrevLabel, row.HistNextLabel =
 			historyOf(in.Weeks, shownColumns(in.Weeks), c.ID, i)
 		p.Rows = append(p.Rows, row)
@@ -598,6 +607,9 @@ var indexTmpl = template.Must(template.New("index").
 table.grid{border-collapse:collapse;font-size:12px}
 table.grid th{font-weight:600;color:var(--muted);padding:2px 4px;text-align:left;white-space:nowrap}
 table.grid th.wk{writing-mode:vertical-rl;transform:rotate(180deg);height:74px;font-variant-numeric:tabular-nums}
+/* The header is the way to a whole column; the cells lead to one diagram. */
+table.grid th.wk a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+table.grid th.wk a:hover{color:var(--changed);border-bottom-color:var(--changed)}
 table.grid td{padding:1px 2px}
 table.grid td.name{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap;padding-right:10px}
 /* An unchanged cell is an EMPTY <td>, drawn by CSS. On a long history the
@@ -638,7 +650,7 @@ td.date{white-space:nowrap;font-weight:600}
 <h2>When each diagram moved</h2>
 <div class="gridwrap">
 <table class="grid">
-  <tr><th>diagram</th>{{range .Columns}}<th class="wk">{{.Label}}{{if .QuietAfter}} +{{.QuietAfter}}{{end}}</th>{{end}}<th class="moves">moves</th></tr>
+  <tr><th>diagram</th>{{range .Columns}}<th class="wk">{{if .Href}}<a href="{{.Href}}" title="every diagram that moved in {{.Label}}, on one page">{{.Label}}</a>{{else}}{{.Label}}{{end}}{{if .QuietAfter}} +{{.QuietAfter}}{{end}}</th>{{end}}<th class="moves">moves</th></tr>
   {{range .Grid}}
   <tr>
     <td class="name" title="{{.ID}}">{{.Short}}</td>
@@ -805,6 +817,11 @@ table.ch td,table.ch th{text-align:left;padding:2px 10px 2px 0;vertical-align:to
 .hist .cell{width:14px;height:14px}
 .hist .cell.now{outline:2px solid var(--ink);outline-offset:1px}
 .histlabel{font-size:12px;color:var(--muted);margin-right:6px}
+/* Every version offers the other half of the comparison: this diagram against
+   the rest of ITS column. Buried in the changes fold it was a link nobody
+   found, so it sits in the header the version is read from. */
+.allref{margin-left:auto;font-size:12px;white-space:nowrap;color:var(--changed);text-decoration:none}
+.allref:hover{text-decoration:underline}
 </style></head><body>
 <header>
   <h1><span class="id">{{.ID}}</span></h1>
@@ -828,6 +845,7 @@ table.ch td,table.ch th{text-align:left;padding:2px 10px 2px 0;vertical-align:to
     {{if .Source}}<span class="pill">{{.Source}}</span>{{end}}
     <span class="pill {{tier .Tier}}">{{.Tier}}</span>
     <span class="quiet">score {{.Score}} · {{.Bounds}} · <span class="sha">{{.SHA}}</span> {{.Subject}}</span>
+    <a class="allref" href="{{.ColumnHref}}">all diagrams in {{.Label}} →</a>
   </div>
   {{if .Summary}}<div class="summary">{{.Summary}}</div>{{end}}
   {{if .Err}}<div class="summary">{{.Err}}</div>{{end}}
@@ -855,7 +873,6 @@ table.ch td,table.ch th{text-align:left;padding:2px 10px 2px 0;vertical-align:to
         {{range .Changes}}<tr><td class="k {{tier .Tier}}">{{.Kind}}</td><td>{{.Ref}} <span class="quiet">{{.Label}}</span></td><td>{{.Detail}}</td></tr>{{end}}
       </table>
       {{if .FindingsAdded}}<ul class="quiet">{{range .FindingsAdded}}<li>{{.}}</li>{{end}}</ul>{{end}}
-      <p><a href="{{.ColumnHref}}">open {{.Label}} with all its diagrams →</a></p>
     </div>
   </details>
 </section>
