@@ -26,7 +26,7 @@
 // and dropped, never propagated. Breaking a recording session to save a
 // corpus entry would be a bad trade.
 //
-// gl:docs/dev-tools/ipm-rpc-tee.md
+// gl:docs/dev-tools/states-corpus.md
 package main
 
 import (

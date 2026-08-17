@@ -43,7 +43,8 @@
   the layout algorithm, its DSL rules, and design notes.
 - [`dev-tools/`](dev-tools/) — notes on the `cmd-dev/` utilities, including
   [`layout-audit`](dev-tools/layout-audit.md) (what an engine change moved, ranked),
-  [`layout-timeline`](dev-tools/layout-timeline.md) (when each diagram moved, week by week)
+  [`layout-timeline`](dev-tools/layout-timeline.md) (when each diagram moved, week by week),
+  [`ipmt-name-merge`](dev-tools/ipmt-name-merge.md) (puts a 2025-era engine's node names back)
   and [`states-corpus`](dev-tools/states-corpus.md) (the demo recorder's typed
   diagram states, captured as a layout corpus).
 

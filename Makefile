@@ -1,6 +1,6 @@
 .PHONY: help build test vet sync-test-cases gen-test-md gen-invalid-sidecars update-test-docs \
         refs-rehash layout-test layout-fitness layout-check layout-check-baseline \
-        layout-audit layout-timeline \
+        layout-audit layout-timeline layout-timeline-build \
         build-rpc build-all build-dev build-notrace
 
 BIN_DIR ?= bin
@@ -20,7 +20,8 @@ help:
 	@echo "  layout-fitness   - Show the fitness score only"
 	@echo "  layout-check     - Ratchet the universal-invariant findings vs the baseline"
 	@echo "  layout-audit     - HTML report: which diagrams a change moved, ranked (OLD=<ref>)"
-	@echo "  layout-timeline  - HTML report: today's diagrams through each Monday's engine"
+	@echo "  layout-timeline  - HTML report: today's diagrams through each engine in history"
+	@echo "  layout-timeline-build - Phase 1 only: build every engine into the cache, then stop"
 	@echo ""
 	@echo "Fixture maintenance (dev):"
 	@echo "  sync-test-cases  - Verify and update generated fixture coverage"
@@ -112,15 +113,30 @@ AUDIT_PATHS ?= $(CHECK_PATHS) examples docs
 layout-audit:
 	@go run ./cmd-dev/layout-audit --old "$(OLD)" --new "$(NEW)" $(AUDIT_PATHS)
 
-# When each diagram last moved: the commit at the start of every Monday, the
-# engine built at each, and TODAY's diagrams run through all of them — so a
-# cell in the grid means the ENGINE changed the picture, never that someone
-# edited the diagram. docs/dev-tools/layout-timeline.md.
-#   make layout-timeline              # the whole history
+# When each diagram last moved: a column per engine in history, and TODAY's
+# diagrams run through all of them — so a cell in the grid means the ENGINE
+# changed the picture, never that someone edited the diagram.
+# docs/dev-tools/layout-timeline.md.
+#   make layout-timeline                  # the whole history
 #   make layout-timeline WEEKS=6
+#   make layout-timeline HEAD_COMMITS=6   # more of the newest work, one column each
+#
+# The engine cache lives OUTSIDE this repository (~/.cache/ipm-layout-engines):
+# it is keyed by commit, shared with layout-audit, and putting 2 GB of built
+# engines inside a directory the editor watches is what it is not for.
 WEEKS ?=
+HEAD_COMMITS ?=
+TIMELINE_FLAGS = $(if $(WEEKS),--weeks $(WEEKS),) $(if $(HEAD_COMMITS),--head-commits $(HEAD_COMMITS),)
+
 layout-timeline:
-	@go run ./cmd-dev/layout-timeline $(if $(WEEKS),--weeks $(WEEKS),) $(AUDIT_PATHS)
+	@go run ./cmd-dev/layout-timeline $(TIMELINE_FLAGS) $(AUDIT_PATHS)
+
+# Phase 1 alone. A long history is mostly `go build`, and that half never
+# changes — a commit's engine is the same today as last week — so it is worth
+# doing once, and separately, before a report anyone is waiting on. Idempotent:
+# a commit already in the cache is skipped.
+layout-timeline-build:
+	@go run ./cmd-dev/layout-timeline --build-only $(TIMELINE_FLAGS) $(AUDIT_PATHS)
 
 # Fixture maintenance. These REWRITE tracked files, so CI never runs them; CI
 # runs the read-only counterparts instead (`sync-test-cases --check`,

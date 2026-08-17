@@ -18,7 +18,7 @@
 //	ipmt-parse --in x.ipmt > parse.json
 //	layout-gen --in parse.json --out - | ipmt-name-merge parse.json
 //
-// gl:docs/dev-tools/layout-timeline.md
+// gl:docs/dev-tools/ipmt-name-merge.md
 package main
 
 import (
