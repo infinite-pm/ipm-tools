@@ -134,6 +134,51 @@ as an addition — the surviving id keeps the twin's content, and the edited one
 becomes a diagram in its own right. That is the truth about the set, not a
 miscount.
 
+## Two corpora: the base, and one that names other repositories
+
+An engine change is only interesting for what it does to real documents, and
+most of those live in sibling checkouts the published repository cannot name.
+So which diagrams to sweep is a FILE, not a flag — and there are two:
+
+| | corpus | report | committed? |
+|---|---|---|---|
+| **base** | this repo's defaults (`tests/layout-gen`, `tests/layout-gen-ext`, `examples`, `docs`) | `temp/layout-timeline/` | yes, it ships |
+| **extended** | the above plus `../ipm-overview`, `../ipm-graphs-mj41`, `../ipm-intro`, `../ipm-k8s-case`, `../ipm-projs`, `../ipm-drawio/docs` | wherever the corpus file says | no — the file lives outside this repo |
+
+```bash
+make layout-timeline                     # base:     316 diagrams
+make layout-timeline-ext                 # extended: 477
+go run ./cmd-dev/layout-timeline --corpus ../ipm-drawio/layout-corpus.json
+go run ./cmd-dev/layout-timeline --corpus-example > ../ipm-drawio/layout-corpus.json
+```
+
+The corpus file:
+
+```json
+{
+  "name": "extended",
+  "out": "temp/layout-timeline",
+  "paths": ["tests/layout-gen", "examples", "docs",
+            "../ipm-overview", "../ipm-graphs-mj41", "../ipm-drawio/docs"]
+}
+```
+
+- **`paths`** resolve against the DIAGRAM ROOT (`--sources`, default `--repo`),
+  so a sibling checkout is `../name` and a diagram from it is called
+  `../ipm-overview/docs/x.md#100` — relative, not the absolute path that would
+  otherwise put the whole machine into every page name.
+- **`out`** resolves against THE CORPUS FILE'S OWN directory, so a corpus kept
+  in `ipm-drawio` writes its report into `ipm-drawio` from wherever the tool is
+  invoked. The two runs therefore cannot overwrite each other. An explicit
+  `--out` still wins.
+- Positional arguments override the file entirely: a one-off sweep needs no
+  config.
+
+A file in a sibling repository is read against **its own** repository root, not
+this one — `md-embed` refuses a file outside its root, and that root is what
+decides where `_ipm/` artifacts and relative references resolve. A foreign
+repo's answers are its own.
+
 ## The sources are fixed; only the engine moves
 
 This is the point of the tool. Every column runs the SAME diagrams — so a cell
@@ -368,6 +413,8 @@ ship") belongs to a column page.
 | flag | default | |
 |---|---|---|
 | `--config` | `layout-history.json` beside `--repo` | the lineages to chain; absent = a single repository |
+| `--corpus` | `layout-corpus.json` beside `--repo` | which diagrams to sweep, sibling checkouts included; absent = this repo's defaults |
+| `--corpus-example` | | print a corpus config to start from |
 | `--config-example` | | print a config to start from |
 | `--build-only` | off | phase 1: build every engine into the cache, then stop |
 | `--jobs` | `2` | parallel engine BUILDS (the memory-hungry half: each is a full `go build`) |

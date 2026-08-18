@@ -185,7 +185,8 @@ func blocksOf(root, mdPath, rel, srcDir string) ([]Diagram, []string) {
 	if err != nil {
 		return nil, []string{fmt.Sprintf("skip %s: %v", rel, err)}
 	}
-	analysis, err := mdembed.AnalyzeMarkdown(mdPath, string(text), mdembed.AnalyzeOptions{Root: root})
+	analysis, err := mdembed.AnalyzeMarkdown(mdPath, string(text),
+		mdembed.AnalyzeOptions{Root: analysisRoot(root, mdPath)})
 	if err != nil {
 		return nil, []string{fmt.Sprintf("skip %s: analyze: %v", rel, err)}
 	}
@@ -222,8 +223,45 @@ func Sanitize(s string) string {
 	return r.Replace(s)
 }
 
+// analysisRoot is the root md-embed should read a file against.
+//
+// Usually the corpus root — but a corpus may name SIBLING CHECKOUTS, and
+// md-embed refuses a file outside its root ("is outside root"). Every diagram
+// in every sibling repository was silently skipped that way, the report simply
+// reporting a smaller corpus than asked for.
+//
+// An external file is read against ITS OWN repository, which is also how
+// md-embed would run there: the root decides where _ipm/ artifacts and
+// relative references resolve, and a foreign repo's answers are its own.
+func analysisRoot(root, mdPath string) string {
+	if rel, err := filepath.Rel(root, mdPath); err == nil && !strings.HasPrefix(rel, "..") {
+		return root
+	}
+	dir := filepath.Dir(mdPath)
+	for at := dir; ; {
+		if _, err := os.Stat(filepath.Join(at, ".git")); err == nil {
+			return at
+		}
+		up := filepath.Dir(at)
+		if up == at {
+			return dir // no repository above it; the file's own directory will do
+		}
+		at = up
+	}
+}
+
+// relTo names a diagram relative to the corpus root.
+//
+// A path that escapes the root keeps its "../" form rather than falling back
+// to an absolute one. Sibling repositories are a first-class corpus — the
+// engine is this repo's, the diagrams can come from anywhere — and
+// "../ipm-overview/docs/x.md#100" says where a diagram lives at a glance,
+// where "/home/mj/work-stai/ipm-overview/docs/x.md#100" only says it once and
+// then makes every page name and every report row carry the whole machine.
+//
+// It stays unique: one root, one relative path per file.
 func relTo(root, p string) string {
-	if rel, err := filepath.Rel(root, p); err == nil && !strings.HasPrefix(rel, "..") {
+	if rel, err := filepath.Rel(root, p); err == nil {
 		return filepath.ToSlash(rel)
 	}
 	return filepath.ToSlash(p)

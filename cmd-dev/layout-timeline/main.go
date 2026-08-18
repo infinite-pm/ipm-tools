@@ -81,11 +81,12 @@ func run() int {
 	var (
 		repo, since, until, out, cache, at string
 		by, enginePaths, rev, sources      string
-		configPath                         string
+		configPath, corpusPath             string
 		days, weeks, limitPerWeek          int
 		headCommits, sweepJobs             int
 		list, noSVG, verbose, head         bool
 		buildOnly, showExample             bool
+		showCorpusExample                  bool
 		jobs, maxMB                        int
 	)
 	flag.StringVar(&repo, "repo", ".", "engine repository to take the weekly snapshots from")
@@ -95,6 +96,8 @@ func run() int {
 	flag.IntVar(&weeks, "weeks", 6, "how many WEEKLY columns before the daily ones; everything older gets one column per MONTH")
 	flag.StringVar(&configPath, "config", "", "history config naming the lineages to walk (default: "+DefaultConfigName+" beside --repo, when present)")
 	flag.BoolVar(&showExample, "config-example", false, "print a config to start from, and exit")
+	flag.StringVar(&corpusPath, "corpus", "", "corpus config naming the diagram paths to sweep — sibling checkouts included (default: "+DefaultCorpusName+" beside --repo, when present). Keep it OUTSIDE a published repo if it names private ones")
+	flag.BoolVar(&showCorpusExample, "corpus-example", false, "print a corpus config to start from, and exit")
 	flag.BoolVar(&buildOnly, "build-only", false, "PHASE 1: resolve the columns and build every engine into the cache, then stop — the report run afterwards is sweeps only")
 	flag.IntVar(&jobs, "jobs", 2, "parallel engine BUILDS. Each one fans out to a full `go build`, so this is the memory-hungry half and the knob for a machine that is also running an editor")
 	flag.IntVar(&sweepJobs, "sweep-jobs", 0, "parallel SWEEP workers (0 = up to 8, by CPU count). Sweeping is thousands of short-lived processes rather than a few large compiles, so it scales differently from --jobs and is no longer governed by it")
@@ -129,6 +132,10 @@ func run() int {
 		fmt.Print(configExample)
 		return 0
 	}
+	if showCorpusExample {
+		fmt.Print(corpusExample)
+		return 0
+	}
 
 	started := time.Now()
 	repoAbs, err := filepath.Abs(repo)
@@ -138,6 +145,24 @@ func run() int {
 
 	engine := strings.Fields(enginePaths)
 	paths := flag.Args()
+
+	// The corpus says WHICH DIAGRAMS, the same way the history config says
+	// which engines. Positional arguments still win — a one-off sweep should
+	// not need a file — and without either, this repository's own defaults.
+	corpusFile := corpusPath
+	if corpusFile == "" {
+		corpusFile = filepath.Join(repoAbs, DefaultCorpusName)
+	}
+	corpusCfg, err := loadCorpus(corpusFile)
+	if err != nil {
+		return fail("%v", err)
+	}
+	if len(paths) == 0 && corpusCfg != nil {
+		paths = corpusCfg.Paths
+		if verbose || list {
+			fmt.Fprintf(os.Stderr, "layout-timeline: corpus %s\n", corpusCfg.Describe())
+		}
+	}
 
 	// A config turns the flags into a WHOLE history: several lineages, each
 	// owning the span after the one it replaced. Without one the tool works
@@ -191,6 +216,12 @@ func run() int {
 		return fail("cwd: %v", err)
 	}
 	outAbs, cacheAbs := abs(cwd, out), abs(cwd, cache)
+	// A corpus kept outside this repository writes its report beside ITSELF,
+	// so the extended run cannot overwrite the base one — and an explicit
+	// --out still wins over both.
+	if corpusCfg != nil && !isFlagSet("out") {
+		outAbs = corpusCfg.OutDir(outAbs)
+	}
 	if err := os.MkdirAll(cacheAbs, 0o755); err != nil {
 		return fail("create %s: %v", cacheAbs, err)
 	}
@@ -1015,6 +1046,19 @@ func firstLine(s string) string {
 		return s[:i]
 	}
 	return s
+}
+
+// isFlagSet reports whether a flag was given on the command line, as opposed
+// to holding its default — the difference between "the user asked for this
+// output directory" and "nobody said".
+func isFlagSet(name string) bool {
+	found := false
+	flag.Visit(func(f *flag.Flag) {
+		if f.Name == name {
+			found = true
+		}
+	})
+	return found
 }
 
 func fail(format string, args ...any) int {

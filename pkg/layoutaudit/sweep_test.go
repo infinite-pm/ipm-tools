@@ -106,3 +106,49 @@ func TestDeterministicCatchesAnEngineThatDisagreesWithItself(t *testing.T) {
 		t.Error("a broken engine was reported as nondeterministic rather than broken")
 	}
 }
+
+// A corpus may name SIBLING CHECKOUTS — the engine is this repo's, the
+// diagrams can come from anywhere. md-embed refuses a file outside its root,
+// so every diagram in every sibling repository was skipped with "is outside
+// root" and the report simply came out smaller than asked for.
+func TestAnExternalFileIsReadAgainstItsOwnRepository(t *testing.T) {
+	base := t.TempDir()
+	root := filepath.Join(base, "ours")
+	sib := filepath.Join(base, "theirs")
+	for _, d := range []string{filepath.Join(root, "docs"), filepath.Join(sib, "docs")} {
+		if err := os.MkdirAll(d, 0o755); err != nil {
+			t.Fatal(err)
+		}
+	}
+	// The sibling is a repository of its own.
+	if err := os.MkdirAll(filepath.Join(sib, ".git"), 0o755); err != nil {
+		t.Fatal(err)
+	}
+
+	if got := analysisRoot(root, filepath.Join(root, "docs/x.md")); got != root {
+		t.Errorf("a file inside the corpus root was rerooted to %s", got)
+	}
+	if got := analysisRoot(root, filepath.Join(sib, "docs/x.md")); got != sib {
+		t.Errorf("an external file was read against %s, want its own repo %s", got, sib)
+	}
+	// No repository above it: its own directory still has to work rather than
+	// walking to /.
+	loose := filepath.Join(base, "loose")
+	if err := os.MkdirAll(loose, 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if got := analysisRoot(root, filepath.Join(loose, "x.md")); got != loose {
+		t.Errorf("a file with no repository above it got root %s, want %s", got, loose)
+	}
+}
+
+// An external diagram keeps a readable name. Falling back to an absolute path
+// put the whole machine into every id, every page name and every report row.
+func TestExternalDiagramsKeepARelativeName(t *testing.T) {
+	if got := relTo("/a/ours", "/a/theirs/docs/x.md"); got != "../theirs/docs/x.md" {
+		t.Errorf("external id = %q, want ../theirs/docs/x.md", got)
+	}
+	if got := relTo("/a/ours", "/a/ours/docs/x.md"); got != "docs/x.md" {
+		t.Errorf("local id = %q, want docs/x.md", got)
+	}
+}
