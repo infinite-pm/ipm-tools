@@ -77,7 +77,7 @@ can affect the fitness corpora.
 | pass | what it does |
 |---|---|
 | `OrderSharedPorts(g)` | assigns the fractional slots WITHIN each (node, side) group so their order matches the partners' order along that side; a flow end holds its slot, and no two ends share one |
-| `RouteFrameEdges(g)` | routes every edge on the final boxes with the v7P8/P9 rules — clearance, lanes, a crossing budget with hide-as-stub, the leads-to and last-connection guards — and re-faces the ports of a U-turn edge when that routes at least as well |
+| `RouteFrameEdges(g)` | routes every edge on the final boxes with the v7P8/P9 rules — clearance, lanes, a crossing budget with hide-as-stub, the leads-to and last-connection guards — and re-faces a STALE port (one facing away from its partner) when that routes at least as well; hairpins priced |
 | `DetourBlockedEdges(g)` | the older, smaller repair: a bend path for every edge whose straight port-to-port line cuts a box, nothing else; superseded by `RouteFrameEdges` in the zoom pipeline, kept for callers that want only that |
 
 `OrderSharedPorts` fixes the crossing you get when several edges leave one side
@@ -112,16 +112,20 @@ a tie crossing the flow over budget alone; grazes priced in the checker's 8px
 band; hide-as-stub over budget, never a leads-to or a node's last connection,
 which draw the least-bad candidate instead; a tie longer than 3200px hidden
 outright, an engine stub un-hidden only when short and clean). It also owns
-the one port change the order pass may not make: a **U-turn** edge — both ports
-facing away from the partner because the frame moved the boxes after the
+the one port change the order pass may not make: a **stale end** — a port
+facing away from its partner because the frame moved the boxes after the
 engine chose the sides (A pod stacked over a process, then set beside it: the
-near-to left the pod's bottom, ran under both and rose into the process's top)
-— is also evaluated on the sides `pickPortSide` names for the final boxes, and
-takes them only when they route at least as well. Re-facing blind, before the
-router, hid edges whose re-faced straight met a third box the U had cleared;
-re-facing a single stale end put a port under a box its own-border rail had
+near-to left the pod's bottom, ran under both and rose into the process's
+top; controller's top port with control plane below-right) — is also
+evaluated on the side `pickPortSide` names for the final boxes, and takes it
+only when that routes at least as well. Re-facing blind, before the router,
+hid edges whose re-faced straight met a third box the U had cleared;
+re-facing single ends blind put a port under a box its own-border rail had
 cleared. Both were measured on the corpus and rejected — the router knows, a
-pass does not.
+pass does not. A **hairpin** — adjacent segments turning back on themselves —
+costs half a crossing, so the fallback sweep's single-waypoint V (1000px up
+past the target and back down into its top port) loses to an L or to the
+re-faced side.
 
 Run them in that order: ports first, so the routes are chosen against the
 corrected endpoints rather than bent around a tangle that is about to be
