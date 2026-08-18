@@ -21,13 +21,7 @@ tA --> e2
 
 - [a-creates-link-validity.ipmt](a-creates-link-validity.ipmt) - ipmt input
 - [a-creates-link-validity.json](a-creates-link-validity.json) - Parsed structure
-- [a-creates-link-validity.layout.json](a-creates-link-validity.layout.json) - Layout coordinates
-- [a-creates-link-validity.ipm.svg](a-creates-link-validity.ipm.svg) - Rendered diagram
-
-## Rendered Diagram
-
-![a-creates-link-validity](a-creates-link-validity.ipm.svg)
 
 This test case was automatically generated from the specification document.
 
-The ipmt code block was extracted using [sync-test-cases](../../../docs/dev/testing.md) and saved to [a-creates-link-validity.ipmt](a-creates-link-validity.ipmt), then parsed into the [JSON structure](a-creates-link-validity.json) and laid out into [layout coordinates](a-creates-link-validity.layout.json). The [SVG diagram](a-creates-link-validity.ipm.svg) was rendered using [ipmsvg-gen](../../../docs/ipmsvg-gen.md).
+The ipmt code block was extracted using [sync-test-cases](../../../docs/dev/testing.md) and saved to [a-creates-link-validity.ipmt](a-creates-link-validity.ipmt), then parsed into the [JSON structure](a-creates-link-validity.json).

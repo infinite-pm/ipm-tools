@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2412-L2420 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#start-events-with-side-aux-stay-one-gap-apart)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2410-L2418 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#start-events-with-side-aux-stay-one-gap-apart)
 
 ## ipmt Content
 
@@ -30,15 +30,15 @@ e3 <--::P-- tA ::t
 
 ## Layout Validation Rules
 
-Test line: 2412
+Test line: 2410
 
 ✅ All 5 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2434](gl:docs/dev/layout-gen/layout-alg.md#L2434): `#e1,#e2 have same y` ([start-events-with-side-aux-stay-one-gap-apart.dsl](../layout-gen-rules/start-events-with-side-aux-stay-one-gap-apart.dsl))
-- ✓ [Line 2435](gl:docs/dev/layout-gen/layout-alg.md#L2435): `#e2 is right-of #e1 with gap=60` ([start-events-with-side-aux-stay-one-gap-apart-02.dsl](../layout-gen-rules/start-events-with-side-aux-stay-one-gap-apart-02.dsl))
-- ✓ [Line 2436](gl:docs/dev/layout-gen/layout-alg.md#L2436): `#e3 is horizontally-centered-between #e1,#e2` ([start-events-with-side-aux-stay-one-gap-apart-03.dsl](../layout-gen-rules/start-events-with-side-aux-stay-one-gap-apart-03.dsl))
-- ✓ [Line 2437](gl:docs/dev/layout-gen/layout-alg.md#L2437): `#cX is left-of #e1 with gap=60` ([start-events-with-side-aux-stay-one-gap-apart-04.dsl](../layout-gen-rules/start-events-with-side-aux-stay-one-gap-apart-04.dsl))
+- ✓ [Line 2432](gl:docs/dev/layout-gen/layout-alg.md#L2432): `#e1,#e2 have same y` ([start-events-with-side-aux-stay-one-gap-apart.dsl](../layout-gen-rules/start-events-with-side-aux-stay-one-gap-apart.dsl))
+- ✓ [Line 2433](gl:docs/dev/layout-gen/layout-alg.md#L2433): `#e2 is right-of #e1 with gap=60` ([start-events-with-side-aux-stay-one-gap-apart-02.dsl](../layout-gen-rules/start-events-with-side-aux-stay-one-gap-apart-02.dsl))
+- ✓ [Line 2434](gl:docs/dev/layout-gen/layout-alg.md#L2434): `#e3 is horizontally-centered-between #e1,#e2` ([start-events-with-side-aux-stay-one-gap-apart-03.dsl](../layout-gen-rules/start-events-with-side-aux-stay-one-gap-apart-03.dsl))
+- ✓ [Line 2435](gl:docs/dev/layout-gen/layout-alg.md#L2435): `#cX is left-of #e1 with gap=60` ([start-events-with-side-aux-stay-one-gap-apart-04.dsl](../layout-gen-rules/start-events-with-side-aux-stay-one-gap-apart-04.dsl))
 
 ## Rendered Diagram
 

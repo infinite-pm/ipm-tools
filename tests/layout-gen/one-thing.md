@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1596-L1597 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#one-thing)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1594-L1595 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#one-thing)
 
 ## ipmt Content
 
@@ -23,12 +23,12 @@ t1
 
 ## Layout Validation Rules
 
-Test line: 1596
+Test line: 1594
 
 ✅ All 2 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 1612](gl:docs/dev/layout-gen/layout-alg.md#L1612): `type=thing has size=120x60` ([one-thing.dsl](../layout-gen-rules/one-thing.dsl))
+- ✓ [Line 1610](gl:docs/dev/layout-gen/layout-alg.md#L1610): `type=thing has size=120x60` ([one-thing.dsl](../layout-gen-rules/one-thing.dsl))
 
 ## Rendered Diagram
 

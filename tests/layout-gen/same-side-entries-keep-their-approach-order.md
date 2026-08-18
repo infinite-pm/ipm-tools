@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2545-L2554 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#same-side-entries-keep-their-approach-order)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2543-L2552 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#same-side-entries-keep-their-approach-order)
 
 ## ipmt Content
 
@@ -31,20 +31,20 @@ tD --> tG::a the second whole
 
 ## Layout Validation Rules
 
-Test line: 2545
+Test line: 2543
 
 ⚠️ 9/10 rules passed
 
 - ✗ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` - **edge tD->tC has 2 bends > max-bends 0 (each-edge default; if the detour is intended, add it to `except` and pin it with `edge #tD,#tC has max-bends=2`)** ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2579](gl:docs/dev/layout-gen/layout-alg.md#L2579): `each edge has max-bends=0 except #tC,#e1 #tD,#tC` ([same-side-entries-keep-their-approach-order.dsl](../layout-gen-rules/same-side-entries-keep-their-approach-order.dsl))
-- ✓ [Line 2580](gl:docs/dev/layout-gen/layout-alg.md#L2580): `edge #tD,#tC has max-bends=2` ([same-side-entries-keep-their-approach-order-02.dsl](../layout-gen-rules/same-side-entries-keep-their-approach-order-02.dsl))
-- ✓ [Line 2581](gl:docs/dev/layout-gen/layout-alg.md#L2581): `edge #tB,#e3 has target-side=left` ([same-side-entries-keep-their-approach-order-03.dsl](../layout-gen-rules/same-side-entries-keep-their-approach-order-03.dsl))
-- ✓ [Line 2582](gl:docs/dev/layout-gen/layout-alg.md#L2582): `edge #tB,#e3 has target-position=0.15` ([same-side-entries-keep-their-approach-order-04.dsl](../layout-gen-rules/same-side-entries-keep-their-approach-order-04.dsl))
-- ✓ [Line 2583](gl:docs/dev/layout-gen/layout-alg.md#L2583): `edge #tD,#e3 has target-side=left` ([same-side-entries-keep-their-approach-order-05.dsl](../layout-gen-rules/same-side-entries-keep-their-approach-order-05.dsl))
-- ✓ [Line 2584](gl:docs/dev/layout-gen/layout-alg.md#L2584): `edge #tD,#e3 has target-position=0.4306861128788711` ([same-side-entries-keep-their-approach-order-06.dsl](../layout-gen-rules/same-side-entries-keep-their-approach-order-06.dsl))
-- ✓ [Line 2585](gl:docs/dev/layout-gen/layout-alg.md#L2585): `edge #tE,#e3 has target-side=left` ([same-side-entries-keep-their-approach-order-07.dsl](../layout-gen-rules/same-side-entries-keep-their-approach-order-07.dsl))
-- ✓ [Line 2586](gl:docs/dev/layout-gen/layout-alg.md#L2586): `edge #tE,#e3 has target-position=0.5` ([same-side-entries-keep-their-approach-order-08.dsl](../layout-gen-rules/same-side-entries-keep-their-approach-order-08.dsl))
-- ✓ [Line 2587](gl:docs/dev/layout-gen/layout-alg.md#L2587): `edge #tB,#e3 does not cross edge #tD,#e3` ([same-side-entries-keep-their-approach-order-09.dsl](../layout-gen-rules/same-side-entries-keep-their-approach-order-09.dsl))
+- ✓ [Line 2577](gl:docs/dev/layout-gen/layout-alg.md#L2577): `each edge has max-bends=0 except #tC,#e1 #tD,#tC` ([same-side-entries-keep-their-approach-order.dsl](../layout-gen-rules/same-side-entries-keep-their-approach-order.dsl))
+- ✓ [Line 2578](gl:docs/dev/layout-gen/layout-alg.md#L2578): `edge #tD,#tC has max-bends=2` ([same-side-entries-keep-their-approach-order-02.dsl](../layout-gen-rules/same-side-entries-keep-their-approach-order-02.dsl))
+- ✓ [Line 2579](gl:docs/dev/layout-gen/layout-alg.md#L2579): `edge #tB,#e3 has target-side=left` ([same-side-entries-keep-their-approach-order-03.dsl](../layout-gen-rules/same-side-entries-keep-their-approach-order-03.dsl))
+- ✓ [Line 2580](gl:docs/dev/layout-gen/layout-alg.md#L2580): `edge #tB,#e3 has target-position=0.15` ([same-side-entries-keep-their-approach-order-04.dsl](../layout-gen-rules/same-side-entries-keep-their-approach-order-04.dsl))
+- ✓ [Line 2581](gl:docs/dev/layout-gen/layout-alg.md#L2581): `edge #tD,#e3 has target-side=left` ([same-side-entries-keep-their-approach-order-05.dsl](../layout-gen-rules/same-side-entries-keep-their-approach-order-05.dsl))
+- ✓ [Line 2582](gl:docs/dev/layout-gen/layout-alg.md#L2582): `edge #tD,#e3 has target-position=0.4306861128788711` ([same-side-entries-keep-their-approach-order-06.dsl](../layout-gen-rules/same-side-entries-keep-their-approach-order-06.dsl))
+- ✓ [Line 2583](gl:docs/dev/layout-gen/layout-alg.md#L2583): `edge #tE,#e3 has target-side=left` ([same-side-entries-keep-their-approach-order-07.dsl](../layout-gen-rules/same-side-entries-keep-their-approach-order-07.dsl))
+- ✓ [Line 2584](gl:docs/dev/layout-gen/layout-alg.md#L2584): `edge #tE,#e3 has target-position=0.5` ([same-side-entries-keep-their-approach-order-08.dsl](../layout-gen-rules/same-side-entries-keep-their-approach-order-08.dsl))
+- ✓ [Line 2585](gl:docs/dev/layout-gen/layout-alg.md#L2585): `edge #tB,#e3 does not cross edge #tD,#e3` ([same-side-entries-keep-their-approach-order-09.dsl](../layout-gen-rules/same-side-entries-keep-their-approach-order-09.dsl))
 
 ## Rendered Diagram
 

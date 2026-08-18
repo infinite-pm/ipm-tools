@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1737-L1741 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#thing-hierarchy-sibling-near-to-clustering)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1735-L1739 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#thing-hierarchy-sibling-near-to-clustering)
 
 ## ipmt Content
 
@@ -26,20 +26,20 @@ tB --- tD
 
 ## Layout Validation Rules
 
-Test line: 1737
+Test line: 1735
 
 ✅ All 10 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 1759](gl:docs/dev/layout-gen/layout-alg.md#L1759): `#tB,#tC,#tD have same y` ([thing-hierarchy-sibling-near-to-clustering.dsl](../layout-gen-rules/thing-hierarchy-sibling-near-to-clustering.dsl))
-- ✓ [Line 1760](gl:docs/dev/layout-gen/layout-alg.md#L1760): `edge #tRoot,#tB has target-side=top` ([thing-hierarchy-sibling-near-to-clustering-02.dsl](../layout-gen-rules/thing-hierarchy-sibling-near-to-clustering-02.dsl))
-- ✓ [Line 1761](gl:docs/dev/layout-gen/layout-alg.md#L1761): `edge #tRoot,#tC has target-side=top` ([thing-hierarchy-sibling-near-to-clustering-03.dsl](../layout-gen-rules/thing-hierarchy-sibling-near-to-clustering-03.dsl))
-- ✓ [Line 1762](gl:docs/dev/layout-gen/layout-alg.md#L1762): `edge #tRoot,#tD has target-side=top` ([thing-hierarchy-sibling-near-to-clustering-04.dsl](../layout-gen-rules/thing-hierarchy-sibling-near-to-clustering-04.dsl))
-- ✓ [Line 1763](gl:docs/dev/layout-gen/layout-alg.md#L1763): `edge #tB,#tD is horizontal` ([thing-hierarchy-sibling-near-to-clustering-05.dsl](../layout-gen-rules/thing-hierarchy-sibling-near-to-clustering-05.dsl))
-- ✓ [Line 1764](gl:docs/dev/layout-gen/layout-alg.md#L1764): `edge #tRoot,#tB does not cross edge #tB,#tD` ([thing-hierarchy-sibling-near-to-clustering-06.dsl](../layout-gen-rules/thing-hierarchy-sibling-near-to-clustering-06.dsl))
-- ✓ [Line 1765](gl:docs/dev/layout-gen/layout-alg.md#L1765): `edge #tRoot,#tC does not cross edge #tB,#tD` ([thing-hierarchy-sibling-near-to-clustering-07.dsl](../layout-gen-rules/thing-hierarchy-sibling-near-to-clustering-07.dsl))
-- ✓ [Line 1766](gl:docs/dev/layout-gen/layout-alg.md#L1766): `#tD is right-of #tB with gap=60` ([thing-hierarchy-sibling-near-to-clustering-08.dsl](../layout-gen-rules/thing-hierarchy-sibling-near-to-clustering-08.dsl))
-- ✓ [Line 1767](gl:docs/dev/layout-gen/layout-alg.md#L1767): `#tC is right-of #tD with gap=60` ([thing-hierarchy-sibling-near-to-clustering-09.dsl](../layout-gen-rules/thing-hierarchy-sibling-near-to-clustering-09.dsl))
+- ✓ [Line 1757](gl:docs/dev/layout-gen/layout-alg.md#L1757): `#tB,#tC,#tD have same y` ([thing-hierarchy-sibling-near-to-clustering.dsl](../layout-gen-rules/thing-hierarchy-sibling-near-to-clustering.dsl))
+- ✓ [Line 1758](gl:docs/dev/layout-gen/layout-alg.md#L1758): `edge #tRoot,#tB has target-side=top` ([thing-hierarchy-sibling-near-to-clustering-02.dsl](../layout-gen-rules/thing-hierarchy-sibling-near-to-clustering-02.dsl))
+- ✓ [Line 1759](gl:docs/dev/layout-gen/layout-alg.md#L1759): `edge #tRoot,#tC has target-side=top` ([thing-hierarchy-sibling-near-to-clustering-03.dsl](../layout-gen-rules/thing-hierarchy-sibling-near-to-clustering-03.dsl))
+- ✓ [Line 1760](gl:docs/dev/layout-gen/layout-alg.md#L1760): `edge #tRoot,#tD has target-side=top` ([thing-hierarchy-sibling-near-to-clustering-04.dsl](../layout-gen-rules/thing-hierarchy-sibling-near-to-clustering-04.dsl))
+- ✓ [Line 1761](gl:docs/dev/layout-gen/layout-alg.md#L1761): `edge #tB,#tD is horizontal` ([thing-hierarchy-sibling-near-to-clustering-05.dsl](../layout-gen-rules/thing-hierarchy-sibling-near-to-clustering-05.dsl))
+- ✓ [Line 1762](gl:docs/dev/layout-gen/layout-alg.md#L1762): `edge #tRoot,#tB does not cross edge #tB,#tD` ([thing-hierarchy-sibling-near-to-clustering-06.dsl](../layout-gen-rules/thing-hierarchy-sibling-near-to-clustering-06.dsl))
+- ✓ [Line 1763](gl:docs/dev/layout-gen/layout-alg.md#L1763): `edge #tRoot,#tC does not cross edge #tB,#tD` ([thing-hierarchy-sibling-near-to-clustering-07.dsl](../layout-gen-rules/thing-hierarchy-sibling-near-to-clustering-07.dsl))
+- ✓ [Line 1764](gl:docs/dev/layout-gen/layout-alg.md#L1764): `#tD is right-of #tB with gap=60` ([thing-hierarchy-sibling-near-to-clustering-08.dsl](../layout-gen-rules/thing-hierarchy-sibling-near-to-clustering-08.dsl))
+- ✓ [Line 1765](gl:docs/dev/layout-gen/layout-alg.md#L1765): `#tC is right-of #tD with gap=60` ([thing-hierarchy-sibling-near-to-clustering-09.dsl](../layout-gen-rules/thing-hierarchy-sibling-near-to-clustering-09.dsl))
 
 ## Rendered Diagram
 

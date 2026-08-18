@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2389-L2392 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#not-connected-many-events)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2387-L2390 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#not-connected-many-events)
 
 ## ipmt Content
 
@@ -25,14 +25,14 @@ e3a ::e --> e3b ::e --> e3c ::e --> e3d ::e --> e3e ::e
 
 ## Layout Validation Rules
 
-Test line: 2389
+Test line: 2387
 
 ✅ All 4 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2404](gl:docs/dev/layout-gen/layout-alg.md#L2404): `#e1a,#e1b,#e1c have same center-x` ([not-connected-many-events.dsl](../layout-gen-rules/not-connected-many-events.dsl))
-- ✓ [Line 2405](gl:docs/dev/layout-gen/layout-alg.md#L2405): `#e2a,#e2b,#e2c,#e2d have same center-x` ([not-connected-many-events-02.dsl](../layout-gen-rules/not-connected-many-events-02.dsl))
-- ✓ [Line 2406](gl:docs/dev/layout-gen/layout-alg.md#L2406): `#e3a,#e3b,#e3c,#e3d,#e3e have same center-x` ([not-connected-many-events-03.dsl](../layout-gen-rules/not-connected-many-events-03.dsl))
+- ✓ [Line 2402](gl:docs/dev/layout-gen/layout-alg.md#L2402): `#e1a,#e1b,#e1c have same center-x` ([not-connected-many-events.dsl](../layout-gen-rules/not-connected-many-events.dsl))
+- ✓ [Line 2403](gl:docs/dev/layout-gen/layout-alg.md#L2403): `#e2a,#e2b,#e2c,#e2d have same center-x` ([not-connected-many-events-02.dsl](../layout-gen-rules/not-connected-many-events-02.dsl))
+- ✓ [Line 2404](gl:docs/dev/layout-gen/layout-alg.md#L2404): `#e3a,#e3b,#e3c,#e3d,#e3e have same center-x` ([not-connected-many-events-03.dsl](../layout-gen-rules/not-connected-many-events-03.dsl))
 
 ## Rendered Diagram
 

@@ -13,8 +13,8 @@
 ```ipmt
 # then
 prep ::e --::L--> chop ::e
-chop ::e --::P--> cook ::e
 cook ::e --::L--> serve ::e
+prep, chop --::P--> cook
 ```
 
 ## Generated Files

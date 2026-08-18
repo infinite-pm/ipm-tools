@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2853-L2862 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-satellite-wraps-its-own-rows-not-the-whole-flank)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2851-L2860 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-satellite-wraps-its-own-rows-not-the-whole-flank)
 
 ## ipmt Content
 
@@ -31,23 +31,23 @@ tG --> cY ::c
 
 ## Layout Validation Rules
 
-Test line: 2853
+Test line: 2851
 
 ⚠️ 12/13 rules passed
 
 - ✗ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` - **edge tF->tA has 2 bends > max-bends 0 (each-edge default; if the detour is intended, add it to `except` and pin it with `edge #tF,#tA has max-bends=2`)** ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2881](gl:docs/dev/layout-gen/layout-alg.md#L2881): `each edge has max-bends=0 except #tF,#tA #tG,#tA #tH,#tA #tC,#e1` ([a-satellite-wraps-its-own-rows-not-the-whole-flank.dsl](../layout-gen-rules/a-satellite-wraps-its-own-rows-not-the-whole-flank.dsl))
-- ✓ [Line 2882](gl:docs/dev/layout-gen/layout-alg.md#L2882): `edge #tF,#tA has max-bends=2` ([a-satellite-wraps-its-own-rows-not-the-whole-flank-02.dsl](../layout-gen-rules/a-satellite-wraps-its-own-rows-not-the-whole-flank-02.dsl))
-- ✓ [Line 2883](gl:docs/dev/layout-gen/layout-alg.md#L2883): `edge #tC,#e1 has max-bends=1` ([a-satellite-wraps-its-own-rows-not-the-whole-flank-03.dsl](../layout-gen-rules/a-satellite-wraps-its-own-rows-not-the-whole-flank-03.dsl))
-- ✓ [Line 2884](gl:docs/dev/layout-gen/layout-alg.md#L2884): `edge #tG,#tA has max-bends=2` ([a-satellite-wraps-its-own-rows-not-the-whole-flank-04.dsl](../layout-gen-rules/a-satellite-wraps-its-own-rows-not-the-whole-flank-04.dsl))
-- ✓ [Line 2885](gl:docs/dev/layout-gen/layout-alg.md#L2885): `edge #tH,#tA has max-bends=2` ([a-satellite-wraps-its-own-rows-not-the-whole-flank-05.dsl](../layout-gen-rules/a-satellite-wraps-its-own-rows-not-the-whole-flank-05.dsl))
-- ✓ [Line 2886](gl:docs/dev/layout-gen/layout-alg.md#L2886): `edge #tF,#tA has visibility=visible` ([a-satellite-wraps-its-own-rows-not-the-whole-flank-06.dsl](../layout-gen-rules/a-satellite-wraps-its-own-rows-not-the-whole-flank-06.dsl))
-- ✓ [Line 2887](gl:docs/dev/layout-gen/layout-alg.md#L2887): `#tA,#tF,#cY have same y` ([a-satellite-wraps-its-own-rows-not-the-whole-flank-07.dsl](../layout-gen-rules/a-satellite-wraps-its-own-rows-not-the-whole-flank-07.dsl))
-- ✓ [Line 2888](gl:docs/dev/layout-gen/layout-alg.md#L2888): `#tB is below #tA with gap=40` ([a-satellite-wraps-its-own-rows-not-the-whole-flank-08.dsl](../layout-gen-rules/a-satellite-wraps-its-own-rows-not-the-whole-flank-08.dsl))
-- ✓ [Line 2889](gl:docs/dev/layout-gen/layout-alg.md#L2889): `#tF is left-of #cY with gap=100` ([a-satellite-wraps-its-own-rows-not-the-whole-flank-09.dsl](../layout-gen-rules/a-satellite-wraps-its-own-rows-not-the-whole-flank-09.dsl))
-- ✓ [Line 2890](gl:docs/dev/layout-gen/layout-alg.md#L2890): `#tD,#tE have same y` ([a-satellite-wraps-its-own-rows-not-the-whole-flank-10.dsl](../layout-gen-rules/a-satellite-wraps-its-own-rows-not-the-whole-flank-10.dsl))
-- ✓ [Line 2891](gl:docs/dev/layout-gen/layout-alg.md#L2891): `#tE is left-of #tD with gap=100` ([a-satellite-wraps-its-own-rows-not-the-whole-flank-11.dsl](../layout-gen-rules/a-satellite-wraps-its-own-rows-not-the-whole-flank-11.dsl))
-- ✓ [Line 2892](gl:docs/dev/layout-gen/layout-alg.md#L2892): `edge #tD,#tE has visibility=visible` ([a-satellite-wraps-its-own-rows-not-the-whole-flank-12.dsl](../layout-gen-rules/a-satellite-wraps-its-own-rows-not-the-whole-flank-12.dsl))
+- ✓ [Line 2879](gl:docs/dev/layout-gen/layout-alg.md#L2879): `each edge has max-bends=0 except #tF,#tA #tG,#tA #tH,#tA #tC,#e1` ([a-satellite-wraps-its-own-rows-not-the-whole-flank.dsl](../layout-gen-rules/a-satellite-wraps-its-own-rows-not-the-whole-flank.dsl))
+- ✓ [Line 2880](gl:docs/dev/layout-gen/layout-alg.md#L2880): `edge #tF,#tA has max-bends=2` ([a-satellite-wraps-its-own-rows-not-the-whole-flank-02.dsl](../layout-gen-rules/a-satellite-wraps-its-own-rows-not-the-whole-flank-02.dsl))
+- ✓ [Line 2881](gl:docs/dev/layout-gen/layout-alg.md#L2881): `edge #tC,#e1 has max-bends=1` ([a-satellite-wraps-its-own-rows-not-the-whole-flank-03.dsl](../layout-gen-rules/a-satellite-wraps-its-own-rows-not-the-whole-flank-03.dsl))
+- ✓ [Line 2882](gl:docs/dev/layout-gen/layout-alg.md#L2882): `edge #tG,#tA has max-bends=2` ([a-satellite-wraps-its-own-rows-not-the-whole-flank-04.dsl](../layout-gen-rules/a-satellite-wraps-its-own-rows-not-the-whole-flank-04.dsl))
+- ✓ [Line 2883](gl:docs/dev/layout-gen/layout-alg.md#L2883): `edge #tH,#tA has max-bends=2` ([a-satellite-wraps-its-own-rows-not-the-whole-flank-05.dsl](../layout-gen-rules/a-satellite-wraps-its-own-rows-not-the-whole-flank-05.dsl))
+- ✓ [Line 2884](gl:docs/dev/layout-gen/layout-alg.md#L2884): `edge #tF,#tA has visibility=visible` ([a-satellite-wraps-its-own-rows-not-the-whole-flank-06.dsl](../layout-gen-rules/a-satellite-wraps-its-own-rows-not-the-whole-flank-06.dsl))
+- ✓ [Line 2885](gl:docs/dev/layout-gen/layout-alg.md#L2885): `#tA,#tF,#cY have same y` ([a-satellite-wraps-its-own-rows-not-the-whole-flank-07.dsl](../layout-gen-rules/a-satellite-wraps-its-own-rows-not-the-whole-flank-07.dsl))
+- ✓ [Line 2886](gl:docs/dev/layout-gen/layout-alg.md#L2886): `#tB is below #tA with gap=40` ([a-satellite-wraps-its-own-rows-not-the-whole-flank-08.dsl](../layout-gen-rules/a-satellite-wraps-its-own-rows-not-the-whole-flank-08.dsl))
+- ✓ [Line 2887](gl:docs/dev/layout-gen/layout-alg.md#L2887): `#tF is left-of #cY with gap=100` ([a-satellite-wraps-its-own-rows-not-the-whole-flank-09.dsl](../layout-gen-rules/a-satellite-wraps-its-own-rows-not-the-whole-flank-09.dsl))
+- ✓ [Line 2888](gl:docs/dev/layout-gen/layout-alg.md#L2888): `#tD,#tE have same y` ([a-satellite-wraps-its-own-rows-not-the-whole-flank-10.dsl](../layout-gen-rules/a-satellite-wraps-its-own-rows-not-the-whole-flank-10.dsl))
+- ✓ [Line 2889](gl:docs/dev/layout-gen/layout-alg.md#L2889): `#tE is left-of #tD with gap=100` ([a-satellite-wraps-its-own-rows-not-the-whole-flank-11.dsl](../layout-gen-rules/a-satellite-wraps-its-own-rows-not-the-whole-flank-11.dsl))
+- ✓ [Line 2890](gl:docs/dev/layout-gen/layout-alg.md#L2890): `edge #tD,#tE has visibility=visible` ([a-satellite-wraps-its-own-rows-not-the-whole-flank-12.dsl](../layout-gen-rules/a-satellite-wraps-its-own-rows-not-the-whole-flank-12.dsl))
 
 ## Rendered Diagram
 

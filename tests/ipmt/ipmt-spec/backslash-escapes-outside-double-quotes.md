@@ -18,13 +18,7 @@ Thing A part 1. ::t line 1\nline 2 ::tip
 
 - [backslash-escapes-outside-double-quotes.ipmt](backslash-escapes-outside-double-quotes.ipmt) - ipmt input
 - [backslash-escapes-outside-double-quotes.json](backslash-escapes-outside-double-quotes.json) - Parsed structure
-- [backslash-escapes-outside-double-quotes.layout.json](backslash-escapes-outside-double-quotes.layout.json) - Layout coordinates
-- [backslash-escapes-outside-double-quotes.ipm.svg](backslash-escapes-outside-double-quotes.ipm.svg) - Rendered diagram
-
-## Rendered Diagram
-
-![backslash-escapes-outside-double-quotes](backslash-escapes-outside-double-quotes.ipm.svg)
 
 This test case was automatically generated from the specification document.
 
-The ipmt code block was extracted using [sync-test-cases](../../../docs/dev/testing.md) and saved to [backslash-escapes-outside-double-quotes.ipmt](backslash-escapes-outside-double-quotes.ipmt), then parsed into the [JSON structure](backslash-escapes-outside-double-quotes.json) and laid out into [layout coordinates](backslash-escapes-outside-double-quotes.layout.json). The [SVG diagram](backslash-escapes-outside-double-quotes.ipm.svg) was rendered using [ipmsvg-gen](../../../docs/ipmsvg-gen.md).
+The ipmt code block was extracted using [sync-test-cases](../../../docs/dev/testing.md) and saved to [backslash-escapes-outside-double-quotes.ipmt](backslash-escapes-outside-double-quotes.ipmt), then parsed into the [JSON structure](backslash-escapes-outside-double-quotes.json).

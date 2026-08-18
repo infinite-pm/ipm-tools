@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2176-L2177 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#concept-near-to-concept)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2174-L2175 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#concept-near-to-concept)
 
 ## ipmt Content
 
@@ -23,13 +23,13 @@ c-X ::c --- c-Y ::c
 
 ## Layout Validation Rules
 
-Test line: 2176
+Test line: 2174
 
 ✅ All 3 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2195](gl:docs/dev/layout-gen/layout-alg.md#L2195): `#c-X,#c-Y have same y` ([concept-near-to-concept.dsl](../layout-gen-rules/concept-near-to-concept.dsl))
-- ✓ [Line 2196](gl:docs/dev/layout-gen/layout-alg.md#L2196): `#c-Y is right-of #c-X with gap=100` ([concept-near-to-concept-02.dsl](../layout-gen-rules/concept-near-to-concept-02.dsl))
+- ✓ [Line 2193](gl:docs/dev/layout-gen/layout-alg.md#L2193): `#c-X,#c-Y have same y` ([concept-near-to-concept.dsl](../layout-gen-rules/concept-near-to-concept.dsl))
+- ✓ [Line 2194](gl:docs/dev/layout-gen/layout-alg.md#L2194): `#c-Y is right-of #c-X with gap=100` ([concept-near-to-concept-02.dsl](../layout-gen-rules/concept-near-to-concept-02.dsl))
 
 ## Rendered Diagram
 

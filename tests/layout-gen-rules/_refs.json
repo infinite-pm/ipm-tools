@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg.md",
-        "source_sha1": "9817ba5824df4d60aaec188a5ba6ecba868a94ae",
+        "source_sha1": "171a0753914cb5c0110c2d086db691c0c9f12f02",
         "name": "layout test rules",
         "method": "parser",
         "parser_name": "ipmdev-layout-rule-md",
@@ -1903,118 +1903,107 @@
                 "section": "Events"
             },
             {
-                "destination": "a-leads-to-out-of-a-sub-event-runs-down-under-it",
-                "line": 1094,
-                "anchor": "#a-leads-to-out-of-a-sub-event-runs-down-under-it",
+                "destination": "a-composites-successor-sits-under-the-composite-its-part-beside-it",
+                "line": 1093,
+                "anchor": "#a-composites-successor-sits-under-the-composite-its-part-beside-it",
                 "content_sha1": "7599b04f94b104d21c51c49d5d5800ac8547fadc",
                 "outputs": {
                     "dsl": "7599b04f94b104d21c51c49d5d5800ac8547fadc"
                 },
-                "heading": "a leads-to out of a sub-event runs down under it",
+                "heading": "a composite's successor sits under the composite, its part beside it",
                 "section": "Events"
             },
             {
-                "destination": "a-leads-to-out-of-a-sub-event-runs-down-under-it-02",
+                "destination": "a-composites-successor-sits-under-the-composite-its-part-beside-it-02",
+                "line": 1094,
+                "anchor": "#a-composites-successor-sits-under-the-composite-its-part-beside-it",
+                "content_sha1": "7a56264135a77c34113e085ec96bcd74b458f48e",
+                "outputs": {
+                    "dsl": "7a56264135a77c34113e085ec96bcd74b458f48e"
+                },
+                "heading": "a composite's successor sits under the composite, its part beside it",
+                "section": "Events"
+            },
+            {
+                "destination": "a-composites-successor-sits-under-the-composite-its-part-beside-it-03",
                 "line": 1095,
-                "anchor": "#a-leads-to-out-of-a-sub-event-runs-down-under-it",
-                "content_sha1": "85ef68bdc43f406b808b15f8027f0f259953c537",
+                "anchor": "#a-composites-successor-sits-under-the-composite-its-part-beside-it",
+                "content_sha1": "4f9afd0c0d8835b03676d834cf782c590fb220f6",
                 "outputs": {
-                    "dsl": "85ef68bdc43f406b808b15f8027f0f259953c537"
+                    "dsl": "4f9afd0c0d8835b03676d834cf782c590fb220f6"
                 },
-                "heading": "a leads-to out of a sub-event runs down under it",
+                "heading": "a composite's successor sits under the composite, its part beside it",
                 "section": "Events"
             },
             {
-                "destination": "a-leads-to-out-of-a-sub-event-runs-down-under-it-03",
+                "destination": "a-composites-successor-sits-under-the-composite-its-part-beside-it-04",
                 "line": 1096,
-                "anchor": "#a-leads-to-out-of-a-sub-event-runs-down-under-it",
-                "content_sha1": "95efce49d41de4ef7e220268562968e8e3b0e9ba",
+                "anchor": "#a-composites-successor-sits-under-the-composite-its-part-beside-it",
+                "content_sha1": "edc7287d569eaeed879bc5ca44de9a1331915d20",
                 "outputs": {
-                    "dsl": "95efce49d41de4ef7e220268562968e8e3b0e9ba"
+                    "dsl": "edc7287d569eaeed879bc5ca44de9a1331915d20"
                 },
-                "heading": "a leads-to out of a sub-event runs down under it",
+                "heading": "a composite's successor sits under the composite, its part beside it",
                 "section": "Events"
             },
             {
-                "destination": "a-leads-to-out-of-a-sub-event-runs-down-under-it-04",
+                "destination": "a-composites-successor-sits-under-the-composite-its-part-beside-it-05",
                 "line": 1097,
-                "anchor": "#a-leads-to-out-of-a-sub-event-runs-down-under-it",
+                "anchor": "#a-composites-successor-sits-under-the-composite-its-part-beside-it",
                 "content_sha1": "8216a7f8ecb3fcaeecd074173c61e1287d90b702",
                 "outputs": {
                     "dsl": "8216a7f8ecb3fcaeecd074173c61e1287d90b702"
                 },
-                "heading": "a leads-to out of a sub-event runs down under it",
+                "heading": "a composite's successor sits under the composite, its part beside it",
                 "section": "Events"
             },
             {
-                "destination": "a-leads-to-out-of-a-sub-event-runs-down-under-it-05",
+                "destination": "a-composites-successor-sits-under-the-composite-its-part-beside-it-06",
                 "line": 1098,
-                "anchor": "#a-leads-to-out-of-a-sub-event-runs-down-under-it",
-                "content_sha1": "1790193d4fcd896e58a6463f6b617d6bca92eba5",
+                "anchor": "#a-composites-successor-sits-under-the-composite-its-part-beside-it",
+                "content_sha1": "fd1392d6281b193249f7e6033db9d1aa6787aad7",
                 "outputs": {
-                    "dsl": "1790193d4fcd896e58a6463f6b617d6bca92eba5"
+                    "dsl": "fd1392d6281b193249f7e6033db9d1aa6787aad7"
                 },
-                "heading": "a leads-to out of a sub-event runs down under it",
+                "heading": "a composite's successor sits under the composite, its part beside it",
                 "section": "Events"
             },
             {
-                "destination": "a-leads-to-out-of-a-sub-event-runs-down-under-it-06",
+                "destination": "a-composites-successor-sits-under-the-composite-its-part-beside-it-07",
                 "line": 1099,
-                "anchor": "#a-leads-to-out-of-a-sub-event-runs-down-under-it",
+                "anchor": "#a-composites-successor-sits-under-the-composite-its-part-beside-it",
                 "content_sha1": "c7f2a622d6f4bb43f63c6c1a771703e06ae8ed51",
                 "outputs": {
                     "dsl": "c7f2a622d6f4bb43f63c6c1a771703e06ae8ed51"
                 },
-                "heading": "a leads-to out of a sub-event runs down under it",
+                "heading": "a composite's successor sits under the composite, its part beside it",
                 "section": "Events"
             },
             {
-                "destination": "a-leads-to-out-of-a-sub-event-runs-down-under-it-07",
+                "destination": "a-composites-successor-sits-under-the-composite-its-part-beside-it-08",
                 "line": 1100,
-                "anchor": "#a-leads-to-out-of-a-sub-event-runs-down-under-it",
-                "content_sha1": "45b15b8a58592355a5b5df6716585469bb6c25fb",
-                "outputs": {
-                    "dsl": "45b15b8a58592355a5b5df6716585469bb6c25fb"
-                },
-                "heading": "a leads-to out of a sub-event runs down under it",
-                "section": "Events"
-            },
-            {
-                "destination": "a-leads-to-out-of-a-sub-event-runs-down-under-it-08",
-                "line": 1101,
-                "anchor": "#a-leads-to-out-of-a-sub-event-runs-down-under-it",
-                "content_sha1": "40c2243a760246c5c83c4cc09fffe804bb6f1c13",
-                "outputs": {
-                    "dsl": "40c2243a760246c5c83c4cc09fffe804bb6f1c13"
-                },
-                "heading": "a leads-to out of a sub-event runs down under it",
-                "section": "Events"
-            },
-            {
-                "destination": "a-leads-to-out-of-a-sub-event-runs-down-under-it-09",
-                "line": 1102,
-                "anchor": "#a-leads-to-out-of-a-sub-event-runs-down-under-it",
+                "anchor": "#a-composites-successor-sits-under-the-composite-its-part-beside-it",
                 "content_sha1": "99714811c6104f4f4cbf750598cfc8c8997a49ce",
                 "outputs": {
                     "dsl": "99714811c6104f4f4cbf750598cfc8c8997a49ce"
                 },
-                "heading": "a leads-to out of a sub-event runs down under it",
+                "heading": "a composite's successor sits under the composite, its part beside it",
                 "section": "Events"
             },
             {
-                "destination": "a-leads-to-out-of-a-sub-event-runs-down-under-it-10",
-                "line": 1103,
-                "anchor": "#a-leads-to-out-of-a-sub-event-runs-down-under-it",
-                "content_sha1": "b21947fa5165404078af887ccad5426af1d03c66",
+                "destination": "a-composites-successor-sits-under-the-composite-its-part-beside-it-09",
+                "line": 1101,
+                "anchor": "#a-composites-successor-sits-under-the-composite-its-part-beside-it",
+                "content_sha1": "bdd3eac46f7fe54c7dc267a88e18afa993657442",
                 "outputs": {
-                    "dsl": "b21947fa5165404078af887ccad5426af1d03c66"
+                    "dsl": "bdd3eac46f7fe54c7dc267a88e18afa993657442"
                 },
-                "heading": "a leads-to out of a sub-event runs down under it",
+                "heading": "a composite's successor sits under the composite, its part beside it",
                 "section": "Events"
             },
             {
                 "destination": "a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor",
-                "line": 1125,
+                "line": 1123,
                 "anchor": "#a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor",
                 "content_sha1": "291da20f1acc0a7fae3b4436ce45704189ff9f4f",
                 "outputs": {
@@ -2025,7 +2014,7 @@
             },
             {
                 "destination": "a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-02",
-                "line": 1126,
+                "line": 1124,
                 "anchor": "#a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor",
                 "content_sha1": "88acee282644981fa32a07ccb305bdd07801a960",
                 "outputs": {
@@ -2036,7 +2025,7 @@
             },
             {
                 "destination": "a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-03",
-                "line": 1127,
+                "line": 1125,
                 "anchor": "#a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor",
                 "content_sha1": "0fdf97e061ab147bb24b6696cf250c0013f48407",
                 "outputs": {
@@ -2047,7 +2036,7 @@
             },
             {
                 "destination": "a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-04",
-                "line": 1128,
+                "line": 1126,
                 "anchor": "#a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor",
                 "content_sha1": "080193a877a76d72b5cc9a7026f859a8a3848cb0",
                 "outputs": {
@@ -2058,7 +2047,7 @@
             },
             {
                 "destination": "a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-05",
-                "line": 1129,
+                "line": 1127,
                 "anchor": "#a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor",
                 "content_sha1": "e2b59d2830c626163ee18612491eb2b3cf02d606",
                 "outputs": {
@@ -2069,7 +2058,7 @@
             },
             {
                 "destination": "a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-06",
-                "line": 1130,
+                "line": 1128,
                 "anchor": "#a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor",
                 "content_sha1": "5bf215ed80c3cbe2bc33b996eb6d16819f7095d1",
                 "outputs": {
@@ -2080,7 +2069,7 @@
             },
             {
                 "destination": "a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-07",
-                "line": 1131,
+                "line": 1129,
                 "anchor": "#a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor",
                 "content_sha1": "ddfcb7757323a10534aa132042288e292195e719",
                 "outputs": {
@@ -2091,7 +2080,7 @@
             },
             {
                 "destination": "a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-08",
-                "line": 1132,
+                "line": 1130,
                 "anchor": "#a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor",
                 "content_sha1": "bfb0cabb321a7b09ca2ffd5b17ba0dbe2a552a7d",
                 "outputs": {
@@ -2102,7 +2091,7 @@
             },
             {
                 "destination": "a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-09",
-                "line": 1133,
+                "line": 1131,
                 "anchor": "#a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor",
                 "content_sha1": "71bd83db832adb79f7878af9a8fcb27dd3d64b16",
                 "outputs": {
@@ -2113,7 +2102,7 @@
             },
             {
                 "destination": "a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-10",
-                "line": 1134,
+                "line": 1132,
                 "anchor": "#a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor",
                 "content_sha1": "420dc04800a33f1629bf6b229a0ab210c46d4cd1",
                 "outputs": {
@@ -2124,7 +2113,7 @@
             },
             {
                 "destination": "a-shared-part-keeps-its-band-and-ties-its-second-anchor",
-                "line": 1162,
+                "line": 1160,
                 "anchor": "#a-shared-part-keeps-its-band-and-ties-its-second-anchor",
                 "content_sha1": "dcad9a7365896067d4b792b26d037a1abe991182",
                 "outputs": {
@@ -2135,7 +2124,7 @@
             },
             {
                 "destination": "a-shared-part-keeps-its-band-and-ties-its-second-anchor-02",
-                "line": 1163,
+                "line": 1161,
                 "anchor": "#a-shared-part-keeps-its-band-and-ties-its-second-anchor",
                 "content_sha1": "cee24f8a9499fbdcf4840865718ade0b37423d6b",
                 "outputs": {
@@ -2146,7 +2135,7 @@
             },
             {
                 "destination": "a-shared-part-keeps-its-band-and-ties-its-second-anchor-03",
-                "line": 1164,
+                "line": 1162,
                 "anchor": "#a-shared-part-keeps-its-band-and-ties-its-second-anchor",
                 "content_sha1": "38fe0143331f7ef42f29b0af335aaf72b768c42f",
                 "outputs": {
@@ -2157,7 +2146,7 @@
             },
             {
                 "destination": "a-shared-part-keeps-its-band-and-ties-its-second-anchor-04",
-                "line": 1165,
+                "line": 1163,
                 "anchor": "#a-shared-part-keeps-its-band-and-ties-its-second-anchor",
                 "content_sha1": "e234cfd1c022d3a810b3b4ca26878f660a691aa9",
                 "outputs": {
@@ -2168,7 +2157,7 @@
             },
             {
                 "destination": "a-shared-part-keeps-its-band-and-ties-its-second-anchor-05",
-                "line": 1166,
+                "line": 1164,
                 "anchor": "#a-shared-part-keeps-its-band-and-ties-its-second-anchor",
                 "content_sha1": "f9ff2b3fd99b50d3daec39631bc96d032888ec0d",
                 "outputs": {
@@ -2179,7 +2168,7 @@
             },
             {
                 "destination": "a-shared-part-keeps-its-band-and-ties-its-second-anchor-06",
-                "line": 1167,
+                "line": 1165,
                 "anchor": "#a-shared-part-keeps-its-band-and-ties-its-second-anchor",
                 "content_sha1": "bb8521598813a872f62506b5aad1245e0c234ecf",
                 "outputs": {
@@ -2190,7 +2179,7 @@
             },
             {
                 "destination": "one-concept-on-the-inner-layer",
-                "line": 1200,
+                "line": 1198,
                 "anchor": "#one-concept-on-the-inner-layer",
                 "content_sha1": "dc836b4c460c51967df8713b771d1ff708e163c9",
                 "outputs": {
@@ -2201,7 +2190,7 @@
             },
             {
                 "destination": "one-concept-on-the-inner-layer-02",
-                "line": 1201,
+                "line": 1199,
                 "anchor": "#one-concept-on-the-inner-layer",
                 "content_sha1": "64366b44c631820c0a6766b033e63233f0ac071c",
                 "outputs": {
@@ -2212,7 +2201,7 @@
             },
             {
                 "destination": "one-concept-on-the-inner-layer-03",
-                "line": 1202,
+                "line": 1200,
                 "anchor": "#one-concept-on-the-inner-layer",
                 "content_sha1": "02d22086ae8b8290e5a64296813e4d5728fe7bde",
                 "outputs": {
@@ -2223,7 +2212,7 @@
             },
             {
                 "destination": "one-concept-on-the-inner-layer-04",
-                "line": 1203,
+                "line": 1201,
                 "anchor": "#one-concept-on-the-inner-layer",
                 "content_sha1": "c7bd1fe2b420d78693f91673edec94a982e03e6d",
                 "outputs": {
@@ -2234,7 +2223,7 @@
             },
             {
                 "destination": "one-concept-on-the-inner-layer-05",
-                "line": 1204,
+                "line": 1202,
                 "anchor": "#one-concept-on-the-inner-layer",
                 "content_sha1": "cc45c2dce3166be1ceb7988913e2d12254fee650",
                 "outputs": {
@@ -2245,7 +2234,7 @@
             },
             {
                 "destination": "one-concept-on-the-inner-layer-06",
-                "line": 1205,
+                "line": 1203,
                 "anchor": "#one-concept-on-the-inner-layer",
                 "content_sha1": "bd9f4684a9b7f1d5af4f5388c5bbf13e8245c800",
                 "outputs": {
@@ -2256,7 +2245,7 @@
             },
             {
                 "destination": "one-concept-on-the-inner-layer-07",
-                "line": 1206,
+                "line": 1204,
                 "anchor": "#one-concept-on-the-inner-layer",
                 "content_sha1": "c91b804c31c78a73e0b4fbf778a16ad15925f4f0",
                 "outputs": {
@@ -2267,7 +2256,7 @@
             },
             {
                 "destination": "two-concepts-on-the-inner-layer",
-                "line": 1229,
+                "line": 1227,
                 "anchor": "#two-concepts-on-the-inner-layer",
                 "content_sha1": "ca8978ade09463c473adaa41aa1dc3633e83ab25",
                 "outputs": {
@@ -2278,7 +2267,7 @@
             },
             {
                 "destination": "two-concepts-on-the-inner-layer-02",
-                "line": 1230,
+                "line": 1228,
                 "anchor": "#two-concepts-on-the-inner-layer",
                 "content_sha1": "dc836b4c460c51967df8713b771d1ff708e163c9",
                 "outputs": {
@@ -2289,7 +2278,7 @@
             },
             {
                 "destination": "two-concepts-on-the-inner-layer-03",
-                "line": 1231,
+                "line": 1229,
                 "anchor": "#two-concepts-on-the-inner-layer",
                 "content_sha1": "14811272c01c746539d5c0675668f5e8bdcee82d",
                 "outputs": {
@@ -2300,7 +2289,7 @@
             },
             {
                 "destination": "two-concepts-on-the-inner-layer-04",
-                "line": 1232,
+                "line": 1230,
                 "anchor": "#two-concepts-on-the-inner-layer",
                 "content_sha1": "3e4e7ec55aab1e30fdc9e69037eced2557c5c3fe",
                 "outputs": {
@@ -2311,7 +2300,7 @@
             },
             {
                 "destination": "two-concepts-on-the-inner-layer-05",
-                "line": 1233,
+                "line": 1231,
                 "anchor": "#two-concepts-on-the-inner-layer",
                 "content_sha1": "661e952ef0b7c37cf99afadaad9ec160d24a766f",
                 "outputs": {
@@ -2322,7 +2311,7 @@
             },
             {
                 "destination": "two-concepts-on-the-inner-layer-06",
-                "line": 1234,
+                "line": 1232,
                 "anchor": "#two-concepts-on-the-inner-layer",
                 "content_sha1": "5bb0a5e66ebfd1cbd28e0c16d0770d74cc5e20cc",
                 "outputs": {
@@ -2333,7 +2322,7 @@
             },
             {
                 "destination": "two-concepts-on-the-inner-layer-07",
-                "line": 1235,
+                "line": 1233,
                 "anchor": "#two-concepts-on-the-inner-layer",
                 "content_sha1": "2590e2b79c6c680b2bbdc8131180f4843820b059",
                 "outputs": {
@@ -2344,7 +2333,7 @@
             },
             {
                 "destination": "an-inner-events-thing-fan-keeps-its-sole-concept-below",
-                "line": 1258,
+                "line": 1256,
                 "anchor": "#an-inner-events-thing-fan-keeps-its-sole-concept-below",
                 "content_sha1": "7b512be98cf5bed88f3ff04f726fc0fb271d2b79",
                 "outputs": {
@@ -2355,7 +2344,7 @@
             },
             {
                 "destination": "an-inner-events-thing-fan-keeps-its-sole-concept-below-02",
-                "line": 1259,
+                "line": 1257,
                 "anchor": "#an-inner-events-thing-fan-keeps-its-sole-concept-below",
                 "content_sha1": "213cea0909e005f3c7b699852d8536776565ef74",
                 "outputs": {
@@ -2366,7 +2355,7 @@
             },
             {
                 "destination": "an-inner-events-thing-fan-keeps-its-sole-concept-below-03",
-                "line": 1260,
+                "line": 1258,
                 "anchor": "#an-inner-events-thing-fan-keeps-its-sole-concept-below",
                 "content_sha1": "00b9c83078dcc9077bff2abefb5c4c793d8ba04f",
                 "outputs": {
@@ -2377,7 +2366,7 @@
             },
             {
                 "destination": "an-inner-events-thing-fan-keeps-its-sole-concept-below-04",
-                "line": 1261,
+                "line": 1259,
                 "anchor": "#an-inner-events-thing-fan-keeps-its-sole-concept-below",
                 "content_sha1": "8c3d0879cd389f0552e665340401b96436c2a6c5",
                 "outputs": {
@@ -2388,7 +2377,7 @@
             },
             {
                 "destination": "an-inner-events-thing-fan-keeps-its-sole-concept-below-05",
-                "line": 1262,
+                "line": 1260,
                 "anchor": "#an-inner-events-thing-fan-keeps-its-sole-concept-below",
                 "content_sha1": "9fca4a466db2b57fe2e0def5afc880a2edc0b55a",
                 "outputs": {
@@ -2399,7 +2388,7 @@
             },
             {
                 "destination": "an-inner-events-thing-fan-keeps-its-sole-concept-below-06",
-                "line": 1263,
+                "line": 1261,
                 "anchor": "#an-inner-events-thing-fan-keeps-its-sole-concept-below",
                 "content_sha1": "307b682ced5d354a745b17c7590b05d5494eeca8",
                 "outputs": {
@@ -2410,7 +2399,7 @@
             },
             {
                 "destination": "a-stack-members-own-concept-steps-outward-under-the-shared-one",
-                "line": 1297,
+                "line": 1295,
                 "anchor": "#a-stack-members-own-concept-steps-outward-under-the-shared-one",
                 "content_sha1": "4f7bcac47dce300618b7deab0920a62e1ade41ac",
                 "outputs": {
@@ -2421,7 +2410,7 @@
             },
             {
                 "destination": "a-stack-members-own-concept-steps-outward-under-the-shared-one-02",
-                "line": 1298,
+                "line": 1296,
                 "anchor": "#a-stack-members-own-concept-steps-outward-under-the-shared-one",
                 "content_sha1": "850f0362e6f4b692c3958dceff7808605ad995e2",
                 "outputs": {
@@ -2432,7 +2421,7 @@
             },
             {
                 "destination": "a-stack-members-own-concept-steps-outward-under-the-shared-one-03",
-                "line": 1299,
+                "line": 1297,
                 "anchor": "#a-stack-members-own-concept-steps-outward-under-the-shared-one",
                 "content_sha1": "ed69acf81f6652d4f58afdcf297393d31387d019",
                 "outputs": {
@@ -2443,7 +2432,7 @@
             },
             {
                 "destination": "a-stack-members-own-concept-steps-outward-under-the-shared-one-04",
-                "line": 1300,
+                "line": 1298,
                 "anchor": "#a-stack-members-own-concept-steps-outward-under-the-shared-one",
                 "content_sha1": "73cc234008183ccbed3cdb6531b53ddf45622190",
                 "outputs": {
@@ -2454,7 +2443,7 @@
             },
             {
                 "destination": "a-stack-members-own-concept-steps-outward-under-the-shared-one-05",
-                "line": 1301,
+                "line": 1299,
                 "anchor": "#a-stack-members-own-concept-steps-outward-under-the-shared-one",
                 "content_sha1": "698fea0d0a801e6867d8fbf46b356233e4b53017",
                 "outputs": {
@@ -2465,7 +2454,7 @@
             },
             {
                 "destination": "a-concept-at-every-layer",
-                "line": 1332,
+                "line": 1330,
                 "anchor": "#a-concept-at-every-layer",
                 "content_sha1": "2457939aa39ec6faf5c06e82f20eeb30e4729356",
                 "outputs": {
@@ -2476,7 +2465,7 @@
             },
             {
                 "destination": "a-concept-at-every-layer-02",
-                "line": 1333,
+                "line": 1331,
                 "anchor": "#a-concept-at-every-layer",
                 "content_sha1": "97f6ee4b78e5828c99a69cf45f5e0c050eb91fa5",
                 "outputs": {
@@ -2487,7 +2476,7 @@
             },
             {
                 "destination": "a-concept-at-every-layer-03",
-                "line": 1334,
+                "line": 1332,
                 "anchor": "#a-concept-at-every-layer",
                 "content_sha1": "e199b8bb00cfff52818afaf8697cd1d044e40dc3",
                 "outputs": {
@@ -2498,7 +2487,7 @@
             },
             {
                 "destination": "a-concept-at-every-layer-04",
-                "line": 1335,
+                "line": 1333,
                 "anchor": "#a-concept-at-every-layer",
                 "content_sha1": "0b6e28c4626d8c3af2535f622aa75acf2f2b9590",
                 "outputs": {
@@ -2509,7 +2498,7 @@
             },
             {
                 "destination": "a-concept-at-every-layer-05",
-                "line": 1336,
+                "line": 1334,
                 "anchor": "#a-concept-at-every-layer",
                 "content_sha1": "46d5cd59ca47f42916ccc2bde1dd85f3a103dd69",
                 "outputs": {
@@ -2520,7 +2509,7 @@
             },
             {
                 "destination": "a-concept-at-every-layer-06",
-                "line": 1337,
+                "line": 1335,
                 "anchor": "#a-concept-at-every-layer",
                 "content_sha1": "dbf109fe49923489e08ac314846719ad1f2932e4",
                 "outputs": {
@@ -2531,7 +2520,7 @@
             },
             {
                 "destination": "a-concept-at-every-layer-07",
-                "line": 1338,
+                "line": 1336,
                 "anchor": "#a-concept-at-every-layer",
                 "content_sha1": "15b91d7069a6e7c9a8a7816501f64690878bd1dd",
                 "outputs": {
@@ -2542,7 +2531,7 @@
             },
             {
                 "destination": "a-concept-at-every-layer-08",
-                "line": 1339,
+                "line": 1337,
                 "anchor": "#a-concept-at-every-layer",
                 "content_sha1": "75f7c5da16d5b7b0fcf1009ec6589124d8d9ee8d",
                 "outputs": {
@@ -2553,7 +2542,7 @@
             },
             {
                 "destination": "a-concept-at-every-layer-09",
-                "line": 1340,
+                "line": 1338,
                 "anchor": "#a-concept-at-every-layer",
                 "content_sha1": "604171000a83f03b11d97a2b7cd50aef32e14fa8",
                 "outputs": {
@@ -2564,7 +2553,7 @@
             },
             {
                 "destination": "a-concept-at-every-layer-10",
-                "line": 1341,
+                "line": 1339,
                 "anchor": "#a-concept-at-every-layer",
                 "content_sha1": "c697537cab48bedf42853e4b675fc045a875daca",
                 "outputs": {
@@ -2575,7 +2564,7 @@
             },
             {
                 "destination": "a-concept-at-every-layer-11",
-                "line": 1342,
+                "line": 1340,
                 "anchor": "#a-concept-at-every-layer",
                 "content_sha1": "8776a2239a03f56c60a1533e1cc10998aa516507",
                 "outputs": {
@@ -2586,7 +2575,7 @@
             },
             {
                 "destination": "a-concept-at-every-layer-12",
-                "line": 1343,
+                "line": 1341,
                 "anchor": "#a-concept-at-every-layer",
                 "content_sha1": "6b9495b0aa8de0dcab506f1fa41ab09e8a51ab02",
                 "outputs": {
@@ -2597,7 +2586,7 @@
             },
             {
                 "destination": "a-concept-at-every-layer-13",
-                "line": 1344,
+                "line": 1342,
                 "anchor": "#a-concept-at-every-layer",
                 "content_sha1": "fb7c0a41e0e76253a4fab8e769e2339e03e319c3",
                 "outputs": {
@@ -2608,7 +2597,7 @@
             },
             {
                 "destination": "a-concept-at-every-layer-14",
-                "line": 1345,
+                "line": 1343,
                 "anchor": "#a-concept-at-every-layer",
                 "content_sha1": "cd926162e541ecfd7a9796045c884a82cb052ac5",
                 "outputs": {
@@ -2619,7 +2608,7 @@
             },
             {
                 "destination": "a-concept-at-every-layer-15",
-                "line": 1346,
+                "line": 1344,
                 "anchor": "#a-concept-at-every-layer",
                 "content_sha1": "395173e8f3e2bade810cc14deaa1503977fe45de",
                 "outputs": {
@@ -2630,7 +2619,7 @@
             },
             {
                 "destination": "a-concept-at-every-layer-16",
-                "line": 1347,
+                "line": 1345,
                 "anchor": "#a-concept-at-every-layer",
                 "content_sha1": "be23592eb7e8c4edaf78f6be5a27a7e20ccc52a8",
                 "outputs": {
@@ -2641,7 +2630,7 @@
             },
             {
                 "destination": "forks-at-two-layers-with-aux-everywhere",
-                "line": 1399,
+                "line": 1397,
                 "anchor": "#forks-at-two-layers-with-aux-everywhere",
                 "content_sha1": "116dbf44cc5dbcfafc3f582c31b939543a0fdc3b",
                 "outputs": {
@@ -2652,7 +2641,7 @@
             },
             {
                 "destination": "forks-at-two-layers-with-aux-everywhere-02",
-                "line": 1400,
+                "line": 1398,
                 "anchor": "#forks-at-two-layers-with-aux-everywhere",
                 "content_sha1": "719075212038c69c1eba765d266bed314b45b598",
                 "outputs": {
@@ -2663,7 +2652,7 @@
             },
             {
                 "destination": "forks-at-two-layers-with-aux-everywhere-03",
-                "line": 1401,
+                "line": 1399,
                 "anchor": "#forks-at-two-layers-with-aux-everywhere",
                 "content_sha1": "ae228dd17775e2ddcd8438af4c00ae3b71685dd0",
                 "outputs": {
@@ -2674,7 +2663,7 @@
             },
             {
                 "destination": "forks-at-two-layers-with-aux-everywhere-04",
-                "line": 1402,
+                "line": 1400,
                 "anchor": "#forks-at-two-layers-with-aux-everywhere",
                 "content_sha1": "a1d85d4595e5f76f89b24edce14c806d85ed3e2c",
                 "outputs": {
@@ -2685,7 +2674,7 @@
             },
             {
                 "destination": "forks-at-two-layers-with-aux-everywhere-05",
-                "line": 1403,
+                "line": 1401,
                 "anchor": "#forks-at-two-layers-with-aux-everywhere",
                 "content_sha1": "d7728d48dc6b1802af37d16d77667ffc4573b83a",
                 "outputs": {
@@ -2696,7 +2685,7 @@
             },
             {
                 "destination": "forks-at-two-layers-with-aux-everywhere-06",
-                "line": 1404,
+                "line": 1402,
                 "anchor": "#forks-at-two-layers-with-aux-everywhere",
                 "content_sha1": "7d8357e9fffcb6e21e17e7f2690f1d461197d5c9",
                 "outputs": {
@@ -2707,7 +2696,7 @@
             },
             {
                 "destination": "forks-at-two-layers-with-aux-everywhere-07",
-                "line": 1405,
+                "line": 1403,
                 "anchor": "#forks-at-two-layers-with-aux-everywhere",
                 "content_sha1": "c7850568efdecc80219c89fc1b3f19d41fa99f66",
                 "outputs": {
@@ -2718,7 +2707,7 @@
             },
             {
                 "destination": "forks-at-two-layers-with-aux-everywhere-08",
-                "line": 1406,
+                "line": 1404,
                 "anchor": "#forks-at-two-layers-with-aux-everywhere",
                 "content_sha1": "edc7287d569eaeed879bc5ca44de9a1331915d20",
                 "outputs": {
@@ -2729,7 +2718,7 @@
             },
             {
                 "destination": "forks-at-two-layers-with-aux-everywhere-09",
-                "line": 1407,
+                "line": 1405,
                 "anchor": "#forks-at-two-layers-with-aux-everywhere",
                 "content_sha1": "8f94c20a2083c6c131d1dbd38568e37b05919340",
                 "outputs": {
@@ -2740,7 +2729,7 @@
             },
             {
                 "destination": "forks-at-two-layers-with-aux-everywhere-10",
-                "line": 1408,
+                "line": 1406,
                 "anchor": "#forks-at-two-layers-with-aux-everywhere",
                 "content_sha1": "d1b78be158f74ef4ec4e345de0e743ac86a25282",
                 "outputs": {
@@ -2751,7 +2740,7 @@
             },
             {
                 "destination": "forks-at-two-layers-with-aux-everywhere-11",
-                "line": 1409,
+                "line": 1407,
                 "anchor": "#forks-at-two-layers-with-aux-everywhere",
                 "content_sha1": "6e6563c80ce478530fc2168881e84bb120bbfaf0",
                 "outputs": {
@@ -2762,7 +2751,7 @@
             },
             {
                 "destination": "forks-at-two-layers-with-aux-everywhere-12",
-                "line": 1410,
+                "line": 1408,
                 "anchor": "#forks-at-two-layers-with-aux-everywhere",
                 "content_sha1": "04d7bac06ff10172356f5a5736a80c241fd94a63",
                 "outputs": {
@@ -2773,7 +2762,7 @@
             },
             {
                 "destination": "forks-at-two-layers-with-aux-everywhere-13",
-                "line": 1411,
+                "line": 1409,
                 "anchor": "#forks-at-two-layers-with-aux-everywhere",
                 "content_sha1": "59aa3cfb5aada479c771f405e15048812637f4b2",
                 "outputs": {
@@ -2784,7 +2773,7 @@
             },
             {
                 "destination": "forks-at-two-layers-with-aux-everywhere-14",
-                "line": 1412,
+                "line": 1410,
                 "anchor": "#forks-at-two-layers-with-aux-everywhere",
                 "content_sha1": "8b90e967383a523727849abd459de37b18036f67",
                 "outputs": {
@@ -2795,7 +2784,7 @@
             },
             {
                 "destination": "forks-at-two-layers-with-aux-everywhere-15",
-                "line": 1413,
+                "line": 1411,
                 "anchor": "#forks-at-two-layers-with-aux-everywhere",
                 "content_sha1": "32ff874f60a69663ff0ad010667783d9a6c3ed27",
                 "outputs": {
@@ -2806,7 +2795,7 @@
             },
             {
                 "destination": "forks-at-two-layers-with-aux-everywhere-16",
-                "line": 1414,
+                "line": 1412,
                 "anchor": "#forks-at-two-layers-with-aux-everywhere",
                 "content_sha1": "1ccb6a94900d6039fc0f7ffe09371066c811c2f0",
                 "outputs": {
@@ -2817,7 +2806,7 @@
             },
             {
                 "destination": "forks-at-two-layers-with-aux-everywhere-17",
-                "line": 1415,
+                "line": 1413,
                 "anchor": "#forks-at-two-layers-with-aux-everywhere",
                 "content_sha1": "13857c90a33408aac5377661bfaef8d78e406404",
                 "outputs": {
@@ -2828,7 +2817,7 @@
             },
             {
                 "destination": "forks-at-two-layers-with-aux-everywhere-18",
-                "line": 1416,
+                "line": 1414,
                 "anchor": "#forks-at-two-layers-with-aux-everywhere",
                 "content_sha1": "81396f1f764e13bb7b449d65fcce646f0979ca45",
                 "outputs": {
@@ -2839,7 +2828,7 @@
             },
             {
                 "destination": "forks-at-two-layers-with-aux-everywhere-19",
-                "line": 1417,
+                "line": 1415,
                 "anchor": "#forks-at-two-layers-with-aux-everywhere",
                 "content_sha1": "f9c70e16ff3ba162d2b72ee861507a438aa60126",
                 "outputs": {
@@ -2850,7 +2839,7 @@
             },
             {
                 "destination": "forks-at-two-layers-with-aux-everywhere-20",
-                "line": 1418,
+                "line": 1416,
                 "anchor": "#forks-at-two-layers-with-aux-everywhere",
                 "content_sha1": "169bf59e230d7158918544d8536c2d9624369f05",
                 "outputs": {
@@ -2861,7 +2850,7 @@
             },
             {
                 "destination": "forks-at-two-layers-with-aux-everywhere-21",
-                "line": 1419,
+                "line": 1417,
                 "anchor": "#forks-at-two-layers-with-aux-everywhere",
                 "content_sha1": "70e7ef782a18fc785c8e783350b6a78fad6f7156",
                 "outputs": {
@@ -2872,7 +2861,7 @@
             },
             {
                 "destination": "forks-at-two-layers-with-aux-everywhere-22",
-                "line": 1420,
+                "line": 1418,
                 "anchor": "#forks-at-two-layers-with-aux-everywhere",
                 "content_sha1": "cc62b6d76186cb33b859d8493cffacde2742a6b0",
                 "outputs": {
@@ -2883,7 +2872,7 @@
             },
             {
                 "destination": "thing-connected-to-two-layers",
-                "line": 1449,
+                "line": 1447,
                 "anchor": "#thing-connected-to-two-layers",
                 "content_sha1": "ca8978ade09463c473adaa41aa1dc3633e83ab25",
                 "outputs": {
@@ -2894,7 +2883,7 @@
             },
             {
                 "destination": "thing-connected-to-two-layers-02",
-                "line": 1450,
+                "line": 1448,
                 "anchor": "#thing-connected-to-two-layers",
                 "content_sha1": "dc836b4c460c51967df8713b771d1ff708e163c9",
                 "outputs": {
@@ -2905,7 +2894,7 @@
             },
             {
                 "destination": "thing-connected-to-two-layers-03",
-                "line": 1451,
+                "line": 1449,
                 "anchor": "#thing-connected-to-two-layers",
                 "content_sha1": "a70f382d08bc66f61cae71c32cfd2149f1955e03",
                 "outputs": {
@@ -2916,7 +2905,7 @@
             },
             {
                 "destination": "thing-connected-to-two-layers-04",
-                "line": 1452,
+                "line": 1450,
                 "anchor": "#thing-connected-to-two-layers",
                 "content_sha1": "35aafb7c449477baa56da80f6c230c4a61e7e89a",
                 "outputs": {
@@ -2927,7 +2916,7 @@
             },
             {
                 "destination": "thing-connected-to-two-layers-05",
-                "line": 1453,
+                "line": 1451,
                 "anchor": "#thing-connected-to-two-layers",
                 "content_sha1": "bc1ae67e983de9dae3dbe3d12c44a972ee9abebe",
                 "outputs": {
@@ -2938,7 +2927,7 @@
             },
             {
                 "destination": "thing-connected-to-two-layers-06",
-                "line": 1454,
+                "line": 1452,
                 "anchor": "#thing-connected-to-two-layers",
                 "content_sha1": "156dce779cc44d529c895459a6e59b39da635d77",
                 "outputs": {
@@ -2949,7 +2938,7 @@
             },
             {
                 "destination": "thing-connected-to-two-layers-07",
-                "line": 1455,
+                "line": 1453,
                 "anchor": "#thing-connected-to-two-layers",
                 "content_sha1": "13e26a776e36d300cd6d363569c1cea162b6b3f0",
                 "outputs": {
@@ -2960,7 +2949,7 @@
             },
             {
                 "destination": "thing-connected-to-two-layers-08",
-                "line": 1456,
+                "line": 1454,
                 "anchor": "#thing-connected-to-two-layers",
                 "content_sha1": "0f454979e6b993c6c366c60383ee1a98953b0966",
                 "outputs": {
@@ -2971,7 +2960,7 @@
             },
             {
                 "destination": "thing-connected-to-two-layers-09",
-                "line": 1457,
+                "line": 1455,
                 "anchor": "#thing-connected-to-two-layers",
                 "content_sha1": "1a216760ac31e4bfd0a51ae5330426aa1eb8c614",
                 "outputs": {
@@ -2982,7 +2971,7 @@
             },
             {
                 "destination": "thing-connected-to-two-layers-10",
-                "line": 1458,
+                "line": 1456,
                 "anchor": "#thing-connected-to-two-layers",
                 "content_sha1": "a17668be81e2f5380928633d78525889b54e4e1a",
                 "outputs": {
@@ -2993,7 +2982,7 @@
             },
             {
                 "destination": "thing-connected-to-two-layers-11",
-                "line": 1459,
+                "line": 1457,
                 "anchor": "#thing-connected-to-two-layers",
                 "content_sha1": "9df548e83414df3261fc1c656d5406b8970d7650",
                 "outputs": {
@@ -3004,7 +2993,7 @@
             },
             {
                 "destination": "thing-connected-to-two-layers-12",
-                "line": 1460,
+                "line": 1458,
                 "anchor": "#thing-connected-to-two-layers",
                 "content_sha1": "dd3be1466621c2444dbdcd3ee2c2b3a69a86e5be",
                 "outputs": {
@@ -3015,7 +3004,7 @@
             },
             {
                 "destination": "thing-connected-to-two-layers-13",
-                "line": 1461,
+                "line": 1459,
                 "anchor": "#thing-connected-to-two-layers",
                 "content_sha1": "853ae00ffd63939e09570ad11edeff5c8545a9b1",
                 "outputs": {
@@ -3026,7 +3015,7 @@
             },
             {
                 "destination": "thing-connected-to-two-layers-14",
-                "line": 1462,
+                "line": 1460,
                 "anchor": "#thing-connected-to-two-layers",
                 "content_sha1": "c84e4959a21f074bc1ab11f220f4eea1db4d0e58",
                 "outputs": {
@@ -3037,7 +3026,7 @@
             },
             {
                 "destination": "thing-connected-to-three-layers",
-                "line": 1488,
+                "line": 1486,
                 "anchor": "#thing-connected-to-three-layers",
                 "content_sha1": "7e6f49d33aabe51888022eaeab83784e9fd44dde",
                 "outputs": {
@@ -3048,7 +3037,7 @@
             },
             {
                 "destination": "thing-connected-to-three-layers-02",
-                "line": 1489,
+                "line": 1487,
                 "anchor": "#thing-connected-to-three-layers",
                 "content_sha1": "0eddf6465092ea402a396967126547dbff8763ce",
                 "outputs": {
@@ -3059,7 +3048,7 @@
             },
             {
                 "destination": "thing-connected-to-three-layers-03",
-                "line": 1490,
+                "line": 1488,
                 "anchor": "#thing-connected-to-three-layers",
                 "content_sha1": "77f27c427ebef688d3c71603b5dae1ad8813af9f",
                 "outputs": {
@@ -3070,7 +3059,7 @@
             },
             {
                 "destination": "thing-connected-to-three-layers-04",
-                "line": 1491,
+                "line": 1489,
                 "anchor": "#thing-connected-to-three-layers",
                 "content_sha1": "0a4740e311d565a56554df36afdf8c3f67d34fbd",
                 "outputs": {
@@ -3081,7 +3070,7 @@
             },
             {
                 "destination": "thing-connected-to-three-layers-05",
-                "line": 1492,
+                "line": 1490,
                 "anchor": "#thing-connected-to-three-layers",
                 "content_sha1": "4f5641823bb99a23c8b3d84f02e82eca93590ef4",
                 "outputs": {
@@ -3092,7 +3081,7 @@
             },
             {
                 "destination": "thing-connected-to-three-layers-06",
-                "line": 1493,
+                "line": 1491,
                 "anchor": "#thing-connected-to-three-layers",
                 "content_sha1": "4ec2b423bec50518fb33a07a0291b423f9708e3d",
                 "outputs": {
@@ -3103,7 +3092,7 @@
             },
             {
                 "destination": "thing-connected-to-three-layers-07",
-                "line": 1494,
+                "line": 1492,
                 "anchor": "#thing-connected-to-three-layers",
                 "content_sha1": "823fe03dab8aaa88c6b901496b003fcfc4e24f69",
                 "outputs": {
@@ -3114,7 +3103,7 @@
             },
             {
                 "destination": "thing-connected-to-three-layers-08",
-                "line": 1495,
+                "line": 1493,
                 "anchor": "#thing-connected-to-three-layers",
                 "content_sha1": "090d0d34c3418db84224286fc18dd9b327e2e3d5",
                 "outputs": {
@@ -3125,7 +3114,7 @@
             },
             {
                 "destination": "thing-connected-to-three-layers-09",
-                "line": 1496,
+                "line": 1494,
                 "anchor": "#thing-connected-to-three-layers",
                 "content_sha1": "a93be22df6dab07ad89e7c8e1a8bfa9d8b72ca79",
                 "outputs": {
@@ -3136,7 +3125,7 @@
             },
             {
                 "destination": "thing-connected-to-three-layers-10",
-                "line": 1497,
+                "line": 1495,
                 "anchor": "#thing-connected-to-three-layers",
                 "content_sha1": "443acd4d7cb1d9a40868cf6c30812ee380b1c130",
                 "outputs": {
@@ -3147,7 +3136,7 @@
             },
             {
                 "destination": "thing-connected-to-three-layers-11",
-                "line": 1498,
+                "line": 1496,
                 "anchor": "#thing-connected-to-three-layers",
                 "content_sha1": "90b6daa2756c26b8e950075b17a27bf7ec92867d",
                 "outputs": {
@@ -3158,7 +3147,7 @@
             },
             {
                 "destination": "a-band-members-ties-fan-from-its-facing-side",
-                "line": 1531,
+                "line": 1529,
                 "anchor": "#a-band-members-ties-fan-from-its-facing-side",
                 "content_sha1": "ca8978ade09463c473adaa41aa1dc3633e83ab25",
                 "outputs": {
@@ -3169,7 +3158,7 @@
             },
             {
                 "destination": "a-band-members-ties-fan-from-its-facing-side-02",
-                "line": 1532,
+                "line": 1530,
                 "anchor": "#a-band-members-ties-fan-from-its-facing-side",
                 "content_sha1": "9745c97b6a8e0d093c2e0aa6d13deba44b88fae6",
                 "outputs": {
@@ -3180,7 +3169,7 @@
             },
             {
                 "destination": "a-band-members-ties-fan-from-its-facing-side-03",
-                "line": 1533,
+                "line": 1531,
                 "anchor": "#a-band-members-ties-fan-from-its-facing-side",
                 "content_sha1": "2e350cf342ff649b1c32b879ee3dfbac845a228e",
                 "outputs": {
@@ -3191,7 +3180,7 @@
             },
             {
                 "destination": "a-band-members-ties-fan-from-its-facing-side-04",
-                "line": 1534,
+                "line": 1532,
                 "anchor": "#a-band-members-ties-fan-from-its-facing-side",
                 "content_sha1": "82d119ec2fc283dbab4bc901a352767595c99a7d",
                 "outputs": {
@@ -3202,7 +3191,7 @@
             },
             {
                 "destination": "a-band-members-ties-fan-from-its-facing-side-05",
-                "line": 1535,
+                "line": 1533,
                 "anchor": "#a-band-members-ties-fan-from-its-facing-side",
                 "content_sha1": "39a18b01b4a7adcfd2f4c99e9f0416549cf40cd8",
                 "outputs": {
@@ -3213,7 +3202,7 @@
             },
             {
                 "destination": "a-band-members-ties-fan-from-its-facing-side-06",
-                "line": 1536,
+                "line": 1534,
                 "anchor": "#a-band-members-ties-fan-from-its-facing-side",
                 "content_sha1": "df6da3c94be5dbd8d71ac8d470e374a5eceb2c94",
                 "outputs": {
@@ -3224,7 +3213,7 @@
             },
             {
                 "destination": "a-band-members-ties-fan-from-its-facing-side-07",
-                "line": 1537,
+                "line": 1535,
                 "anchor": "#a-band-members-ties-fan-from-its-facing-side",
                 "content_sha1": "20e3abbb836a48178643b9c94a391e46ebe348e2",
                 "outputs": {
@@ -3235,7 +3224,7 @@
             },
             {
                 "destination": "a-band-members-ties-fan-from-its-facing-side-08",
-                "line": 1538,
+                "line": 1536,
                 "anchor": "#a-band-members-ties-fan-from-its-facing-side",
                 "content_sha1": "650a1ce3526e09b83b77c7a29e9195000e37ce0f",
                 "outputs": {
@@ -3246,7 +3235,7 @@
             },
             {
                 "destination": "a-band-members-ties-fan-from-its-facing-side-09",
-                "line": 1539,
+                "line": 1537,
                 "anchor": "#a-band-members-ties-fan-from-its-facing-side",
                 "content_sha1": "be614a43105cb11f2eac656908df9c8d863aecfb",
                 "outputs": {
@@ -3257,7 +3246,7 @@
             },
             {
                 "destination": "a-band-members-ties-fan-from-its-facing-side-10",
-                "line": 1540,
+                "line": 1538,
                 "anchor": "#a-band-members-ties-fan-from-its-facing-side",
                 "content_sha1": "78af4acb40b85e3af4f444126ba0e314c13a5db4",
                 "outputs": {
@@ -3268,7 +3257,7 @@
             },
             {
                 "destination": "a-band-members-ties-fan-from-its-facing-side-11",
-                "line": 1541,
+                "line": 1539,
                 "anchor": "#a-band-members-ties-fan-from-its-facing-side",
                 "content_sha1": "d7b70d892dc4063ed57df876a7b6cc3edb9f7b23",
                 "outputs": {
@@ -3279,7 +3268,7 @@
             },
             {
                 "destination": "a-band-members-ties-fan-from-its-facing-side-12",
-                "line": 1542,
+                "line": 1540,
                 "anchor": "#a-band-members-ties-fan-from-its-facing-side",
                 "content_sha1": "15bc2c29a25887315ef71217c13091fde6fbd65b",
                 "outputs": {
@@ -3290,7 +3279,7 @@
             },
             {
                 "destination": "a-band-members-ties-fan-from-its-facing-side-13",
-                "line": 1543,
+                "line": 1541,
                 "anchor": "#a-band-members-ties-fan-from-its-facing-side",
                 "content_sha1": "cc698a8f6fd3f34358d9924608c13beff5e21878",
                 "outputs": {
@@ -3301,7 +3290,7 @@
             },
             {
                 "destination": "declaration-order-does-not-decide-where-a-chain-spanning-thing-sits",
-                "line": 1575,
+                "line": 1573,
                 "anchor": "#declaration-order-does-not-decide-where-a-chain-spanning-thing-sits",
                 "content_sha1": "ca8978ade09463c473adaa41aa1dc3633e83ab25",
                 "outputs": {
@@ -3312,7 +3301,7 @@
             },
             {
                 "destination": "declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-02",
-                "line": 1576,
+                "line": 1574,
                 "anchor": "#declaration-order-does-not-decide-where-a-chain-spanning-thing-sits",
                 "content_sha1": "2e350cf342ff649b1c32b879ee3dfbac845a228e",
                 "outputs": {
@@ -3323,7 +3312,7 @@
             },
             {
                 "destination": "declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-03",
-                "line": 1577,
+                "line": 1575,
                 "anchor": "#declaration-order-does-not-decide-where-a-chain-spanning-thing-sits",
                 "content_sha1": "9745c97b6a8e0d093c2e0aa6d13deba44b88fae6",
                 "outputs": {
@@ -3334,7 +3323,7 @@
             },
             {
                 "destination": "declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-04",
-                "line": 1578,
+                "line": 1576,
                 "anchor": "#declaration-order-does-not-decide-where-a-chain-spanning-thing-sits",
                 "content_sha1": "82d119ec2fc283dbab4bc901a352767595c99a7d",
                 "outputs": {
@@ -3345,7 +3334,7 @@
             },
             {
                 "destination": "declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-05",
-                "line": 1579,
+                "line": 1577,
                 "anchor": "#declaration-order-does-not-decide-where-a-chain-spanning-thing-sits",
                 "content_sha1": "39a18b01b4a7adcfd2f4c99e9f0416549cf40cd8",
                 "outputs": {
@@ -3356,7 +3345,7 @@
             },
             {
                 "destination": "declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-06",
-                "line": 1580,
+                "line": 1578,
                 "anchor": "#declaration-order-does-not-decide-where-a-chain-spanning-thing-sits",
                 "content_sha1": "df6da3c94be5dbd8d71ac8d470e374a5eceb2c94",
                 "outputs": {
@@ -3367,7 +3356,7 @@
             },
             {
                 "destination": "declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-07",
-                "line": 1581,
+                "line": 1579,
                 "anchor": "#declaration-order-does-not-decide-where-a-chain-spanning-thing-sits",
                 "content_sha1": "20e3abbb836a48178643b9c94a391e46ebe348e2",
                 "outputs": {
@@ -3378,7 +3367,7 @@
             },
             {
                 "destination": "declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-08",
-                "line": 1582,
+                "line": 1580,
                 "anchor": "#declaration-order-does-not-decide-where-a-chain-spanning-thing-sits",
                 "content_sha1": "650a1ce3526e09b83b77c7a29e9195000e37ce0f",
                 "outputs": {
@@ -3389,7 +3378,7 @@
             },
             {
                 "destination": "declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-09",
-                "line": 1583,
+                "line": 1581,
                 "anchor": "#declaration-order-does-not-decide-where-a-chain-spanning-thing-sits",
                 "content_sha1": "be614a43105cb11f2eac656908df9c8d863aecfb",
                 "outputs": {
@@ -3400,7 +3389,7 @@
             },
             {
                 "destination": "declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-10",
-                "line": 1584,
+                "line": 1582,
                 "anchor": "#declaration-order-does-not-decide-where-a-chain-spanning-thing-sits",
                 "content_sha1": "78af4acb40b85e3af4f444126ba0e314c13a5db4",
                 "outputs": {
@@ -3411,7 +3400,7 @@
             },
             {
                 "destination": "declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-11",
-                "line": 1585,
+                "line": 1583,
                 "anchor": "#declaration-order-does-not-decide-where-a-chain-spanning-thing-sits",
                 "content_sha1": "0db0c5c056f578ee27b1f255d421bd811f7b0fbf",
                 "outputs": {
@@ -3422,7 +3411,7 @@
             },
             {
                 "destination": "declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-12",
-                "line": 1586,
+                "line": 1584,
                 "anchor": "#declaration-order-does-not-decide-where-a-chain-spanning-thing-sits",
                 "content_sha1": "d7b70d892dc4063ed57df876a7b6cc3edb9f7b23",
                 "outputs": {
@@ -3433,7 +3422,7 @@
             },
             {
                 "destination": "declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-13",
-                "line": 1587,
+                "line": 1585,
                 "anchor": "#declaration-order-does-not-decide-where-a-chain-spanning-thing-sits",
                 "content_sha1": "15bc2c29a25887315ef71217c13091fde6fbd65b",
                 "outputs": {
@@ -3444,7 +3433,7 @@
             },
             {
                 "destination": "declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-14",
-                "line": 1588,
+                "line": 1586,
                 "anchor": "#declaration-order-does-not-decide-where-a-chain-spanning-thing-sits",
                 "content_sha1": "cc698a8f6fd3f34358d9924608c13beff5e21878",
                 "outputs": {
@@ -3455,7 +3444,7 @@
             },
             {
                 "destination": "one-thing",
-                "line": 1612,
+                "line": 1610,
                 "anchor": "#one-thing",
                 "content_sha1": "910f18ad4e5afaa93fc47fdd705c4dc016073df5",
                 "outputs": {
@@ -3466,7 +3455,7 @@
             },
             {
                 "destination": "one-thing-with-long-text",
-                "line": 1629,
+                "line": 1627,
                 "anchor": "#one-thing-with-long-text",
                 "content_sha1": "b7da3e963b7e3d2f7b8ebd88616220d388d00922",
                 "outputs": {
@@ -3477,7 +3466,7 @@
             },
             {
                 "destination": "two-things-connected",
-                "line": 1651,
+                "line": 1649,
                 "anchor": "#two-things-connected",
                 "content_sha1": "43bec6db52d1f6d52762ffeb8bfa656fd41f656e",
                 "outputs": {
@@ -3488,7 +3477,7 @@
             },
             {
                 "destination": "two-things-connected-02",
-                "line": 1652,
+                "line": 1650,
                 "anchor": "#two-things-connected",
                 "content_sha1": "aaef38d3f2883da2fc0d3fd970222280568e0449",
                 "outputs": {
@@ -3499,7 +3488,7 @@
             },
             {
                 "destination": "five-things-connected",
-                "line": 1672,
+                "line": 1670,
                 "anchor": "#five-things-connected",
                 "content_sha1": "16ca503a3532f5e6484f209f3b24af70f278e226",
                 "outputs": {
@@ -3510,7 +3499,7 @@
             },
             {
                 "destination": "five-things-connected-02",
-                "line": 1673,
+                "line": 1671,
                 "anchor": "#five-things-connected",
                 "content_sha1": "e5836b67db9b44c6dda309d049b09291cfbded5f",
                 "outputs": {
@@ -3521,7 +3510,7 @@
             },
             {
                 "destination": "five-things-connected-03",
-                "line": 1674,
+                "line": 1672,
                 "anchor": "#five-things-connected",
                 "content_sha1": "edb99e094c8aa9b31ac4008ea31d2adccaf811d4",
                 "outputs": {
@@ -3532,7 +3521,7 @@
             },
             {
                 "destination": "five-things-connected-04",
-                "line": 1675,
+                "line": 1673,
                 "anchor": "#five-things-connected",
                 "content_sha1": "1b702896cf46723f123e60f59a21d11fb241dc97",
                 "outputs": {
@@ -3543,7 +3532,7 @@
             },
             {
                 "destination": "five-things-connected-05",
-                "line": 1676,
+                "line": 1674,
                 "anchor": "#five-things-connected",
                 "content_sha1": "2651a49298bd00611f9728759630b37e2eb88810",
                 "outputs": {
@@ -3554,7 +3543,7 @@
             },
             {
                 "destination": "five-things-connected-06",
-                "line": 1677,
+                "line": 1675,
                 "anchor": "#five-things-connected",
                 "content_sha1": "1d467826901b85c4146321e2be885a1abc8f10bf",
                 "outputs": {
@@ -3565,7 +3554,7 @@
             },
             {
                 "destination": "five-things-connected-07",
-                "line": 1678,
+                "line": 1676,
                 "anchor": "#five-things-connected",
                 "content_sha1": "7ebfc9cb93567b4adfeb9d478799480f1d620b38",
                 "outputs": {
@@ -3576,7 +3565,7 @@
             },
             {
                 "destination": "five-things-connected-08",
-                "line": 1679,
+                "line": 1677,
                 "anchor": "#five-things-connected",
                 "content_sha1": "3669f1eceb7af97d7f47140c186c6fcfd3865b78",
                 "outputs": {
@@ -3587,7 +3576,7 @@
             },
             {
                 "destination": "five-things-connected-09",
-                "line": 1680,
+                "line": 1678,
                 "anchor": "#five-things-connected",
                 "content_sha1": "d5df9d571f984d029d67b1c65743a59c3ff7bf5a",
                 "outputs": {
@@ -3598,7 +3587,7 @@
             },
             {
                 "destination": "five-things-connected-10",
-                "line": 1681,
+                "line": 1679,
                 "anchor": "#five-things-connected",
                 "content_sha1": "9f603e2355ed9fcc85837a4bc0a259299fee3cac",
                 "outputs": {
@@ -3609,7 +3598,7 @@
             },
             {
                 "destination": "five-things-connected-11",
-                "line": 1682,
+                "line": 1680,
                 "anchor": "#five-things-connected",
                 "content_sha1": "bf61975811c6f4a987e9799d0853395574f23c36",
                 "outputs": {
@@ -3620,7 +3609,7 @@
             },
             {
                 "destination": "five-things-connected-12",
-                "line": 1683,
+                "line": 1681,
                 "anchor": "#five-things-connected",
                 "content_sha1": "36b33d7120fec53b93785a50a12d5d3a509d10c2",
                 "outputs": {
@@ -3631,7 +3620,7 @@
             },
             {
                 "destination": "thing-hierarchy-diamond-pattern",
-                "line": 1705,
+                "line": 1703,
                 "anchor": "#thing-hierarchy-diamond-pattern",
                 "content_sha1": "af58ca7d304f1a4c125a9f02537529fc79286ff2",
                 "outputs": {
@@ -3642,7 +3631,7 @@
             },
             {
                 "destination": "thing-hierarchy-diamond-pattern-02",
-                "line": 1706,
+                "line": 1704,
                 "anchor": "#thing-hierarchy-diamond-pattern",
                 "content_sha1": "47d3ec7eaa7341ff628a633af0d0ecae56a6e8cb",
                 "outputs": {
@@ -3653,7 +3642,7 @@
             },
             {
                 "destination": "thing-hierarchy-diamond-pattern-03",
-                "line": 1707,
+                "line": 1705,
                 "anchor": "#thing-hierarchy-diamond-pattern",
                 "content_sha1": "1e583a08e3d014330dce2e7e28ea55406fce10c5",
                 "outputs": {
@@ -3664,7 +3653,7 @@
             },
             {
                 "destination": "thing-hierarchy-diamond-pattern-04",
-                "line": 1708,
+                "line": 1706,
                 "anchor": "#thing-hierarchy-diamond-pattern",
                 "content_sha1": "81afbe3b4889fa597fb84bca1c50b26ed63339ba",
                 "outputs": {
@@ -3675,7 +3664,7 @@
             },
             {
                 "destination": "thing-hierarchy-multiple-roots",
-                "line": 1729,
+                "line": 1727,
                 "anchor": "#thing-hierarchy-multiple-roots",
                 "content_sha1": "8777a45e10b2e97a17856d78dcc6a21a0baffb93",
                 "outputs": {
@@ -3686,7 +3675,7 @@
             },
             {
                 "destination": "thing-hierarchy-multiple-roots-02",
-                "line": 1730,
+                "line": 1728,
                 "anchor": "#thing-hierarchy-multiple-roots",
                 "content_sha1": "42c22ad466d03ecba38bcc4180e2ade5b9bc9474",
                 "outputs": {
@@ -3697,7 +3686,7 @@
             },
             {
                 "destination": "thing-hierarchy-multiple-roots-03",
-                "line": 1731,
+                "line": 1729,
                 "anchor": "#thing-hierarchy-multiple-roots",
                 "content_sha1": "8f141116cab3efd33eb2697c66c24a027baf5d29",
                 "outputs": {
@@ -3708,7 +3697,7 @@
             },
             {
                 "destination": "thing-hierarchy-sibling-near-to-clustering",
-                "line": 1759,
+                "line": 1757,
                 "anchor": "#thing-hierarchy-sibling-near-to-clustering",
                 "content_sha1": "dd414a66278f51a03fb28dc466c63392e97a9c97",
                 "outputs": {
@@ -3719,7 +3708,7 @@
             },
             {
                 "destination": "thing-hierarchy-sibling-near-to-clustering-02",
-                "line": 1760,
+                "line": 1758,
                 "anchor": "#thing-hierarchy-sibling-near-to-clustering",
                 "content_sha1": "d7902152b82158b4748907659736cc115ddb8499",
                 "outputs": {
@@ -3730,7 +3719,7 @@
             },
             {
                 "destination": "thing-hierarchy-sibling-near-to-clustering-03",
-                "line": 1761,
+                "line": 1759,
                 "anchor": "#thing-hierarchy-sibling-near-to-clustering",
                 "content_sha1": "e0d62a41007b203211d6cdbba24b6539095cdca4",
                 "outputs": {
@@ -3741,7 +3730,7 @@
             },
             {
                 "destination": "thing-hierarchy-sibling-near-to-clustering-04",
-                "line": 1762,
+                "line": 1760,
                 "anchor": "#thing-hierarchy-sibling-near-to-clustering",
                 "content_sha1": "31866b1946335a26283b4703283e0ef5e71da6ad",
                 "outputs": {
@@ -3752,7 +3741,7 @@
             },
             {
                 "destination": "thing-hierarchy-sibling-near-to-clustering-05",
-                "line": 1763,
+                "line": 1761,
                 "anchor": "#thing-hierarchy-sibling-near-to-clustering",
                 "content_sha1": "9f6087605cc2157d9478c19ad9a2e7c60d90738b",
                 "outputs": {
@@ -3763,7 +3752,7 @@
             },
             {
                 "destination": "thing-hierarchy-sibling-near-to-clustering-06",
-                "line": 1764,
+                "line": 1762,
                 "anchor": "#thing-hierarchy-sibling-near-to-clustering",
                 "content_sha1": "5338a86f9640c0962e77e78ed08b76cced266287",
                 "outputs": {
@@ -3774,7 +3763,7 @@
             },
             {
                 "destination": "thing-hierarchy-sibling-near-to-clustering-07",
-                "line": 1765,
+                "line": 1763,
                 "anchor": "#thing-hierarchy-sibling-near-to-clustering",
                 "content_sha1": "1a23a76502dc1ccc0b8d44f878cb071b5889956a",
                 "outputs": {
@@ -3785,7 +3774,7 @@
             },
             {
                 "destination": "thing-hierarchy-sibling-near-to-clustering-08",
-                "line": 1766,
+                "line": 1764,
                 "anchor": "#thing-hierarchy-sibling-near-to-clustering",
                 "content_sha1": "029d7513933061e89e9c296b024ff763e7a7c7f9",
                 "outputs": {
@@ -3796,7 +3785,7 @@
             },
             {
                 "destination": "thing-hierarchy-sibling-near-to-clustering-09",
-                "line": 1767,
+                "line": 1765,
                 "anchor": "#thing-hierarchy-sibling-near-to-clustering",
                 "content_sha1": "988ceab83554b7b522dd7797ecdcfaba09663cbf",
                 "outputs": {
@@ -3807,7 +3796,7 @@
             },
             {
                 "destination": "thing-parts-keep-their-own-concepts-above-the-join",
-                "line": 1795,
+                "line": 1793,
                 "anchor": "#thing-parts-keep-their-own-concepts-above-the-join",
                 "content_sha1": "bde0d71ef7714bb05890979cb946f054da87242c",
                 "outputs": {
@@ -3818,7 +3807,7 @@
             },
             {
                 "destination": "thing-parts-keep-their-own-concepts-above-the-join-02",
-                "line": 1796,
+                "line": 1794,
                 "anchor": "#thing-parts-keep-their-own-concepts-above-the-join",
                 "content_sha1": "a5a1eaa00d6d222e892a359db57b22aa31bcce17",
                 "outputs": {
@@ -3829,7 +3818,7 @@
             },
             {
                 "destination": "thing-parts-keep-their-own-concepts-above-the-join-03",
-                "line": 1797,
+                "line": 1795,
                 "anchor": "#thing-parts-keep-their-own-concepts-above-the-join",
                 "content_sha1": "f13d336c6bde0c14db529a2322c66830c2a667fc",
                 "outputs": {
@@ -3840,7 +3829,7 @@
             },
             {
                 "destination": "thing-parts-keep-their-own-concepts-above-the-join-04",
-                "line": 1798,
+                "line": 1796,
                 "anchor": "#thing-parts-keep-their-own-concepts-above-the-join",
                 "content_sha1": "4a7704ce90dc800d8ca6c43a6de72507fd18eb67",
                 "outputs": {
@@ -3851,7 +3840,7 @@
             },
             {
                 "destination": "thing-parts-keep-their-own-concepts-above-the-join-05",
-                "line": 1799,
+                "line": 1797,
                 "anchor": "#thing-parts-keep-their-own-concepts-above-the-join",
                 "content_sha1": "53a5395c95fef21384a56496f16e8fe36598f149",
                 "outputs": {
@@ -3862,7 +3851,7 @@
             },
             {
                 "destination": "thing-parts-keep-their-own-concepts-above-the-join-06",
-                "line": 1800,
+                "line": 1798,
                 "anchor": "#thing-parts-keep-their-own-concepts-above-the-join",
                 "content_sha1": "895e435bd44cf47f8678284d8ff94549a7f5e6f0",
                 "outputs": {
@@ -3873,7 +3862,7 @@
             },
             {
                 "destination": "thing-parts-keep-their-own-concepts-above-the-join-07",
-                "line": 1801,
+                "line": 1799,
                 "anchor": "#thing-parts-keep-their-own-concepts-above-the-join",
                 "content_sha1": "47d3ec7eaa7341ff628a633af0d0ecae56a6e8cb",
                 "outputs": {
@@ -3884,7 +3873,7 @@
             },
             {
                 "destination": "thing-parts-keep-their-own-concepts-above-the-join-08",
-                "line": 1802,
+                "line": 1800,
                 "anchor": "#thing-parts-keep-their-own-concepts-above-the-join",
                 "content_sha1": "6cfe4d682177bc5bac3a14a17559c70f009b1853",
                 "outputs": {
@@ -3895,7 +3884,7 @@
             },
             {
                 "destination": "thing-parts-keep-their-own-concepts-above-the-join-09",
-                "line": 1803,
+                "line": 1801,
                 "anchor": "#thing-parts-keep-their-own-concepts-above-the-join",
                 "content_sha1": "d37445443813067a4312496ba738158e3dded5a0",
                 "outputs": {
@@ -3906,7 +3895,7 @@
             },
             {
                 "destination": "a-thing-hierarchy-and-its-concepts-join-the-event-chain",
-                "line": 1834,
+                "line": 1832,
                 "anchor": "#a-thing-hierarchy-and-its-concepts-join-the-event-chain",
                 "content_sha1": "ca8978ade09463c473adaa41aa1dc3633e83ab25",
                 "outputs": {
@@ -3917,7 +3906,7 @@
             },
             {
                 "destination": "a-thing-hierarchy-and-its-concepts-join-the-event-chain-02",
-                "line": 1835,
+                "line": 1833,
                 "anchor": "#a-thing-hierarchy-and-its-concepts-join-the-event-chain",
                 "content_sha1": "e4e2c84a20cb56aacbf881ce0762d30242bae1b8",
                 "outputs": {
@@ -3928,7 +3917,7 @@
             },
             {
                 "destination": "a-thing-hierarchy-and-its-concepts-join-the-event-chain-03",
-                "line": 1836,
+                "line": 1834,
                 "anchor": "#a-thing-hierarchy-and-its-concepts-join-the-event-chain",
                 "content_sha1": "27c023cfe3ab631a5146c165784da991acf173c0",
                 "outputs": {
@@ -3939,7 +3928,7 @@
             },
             {
                 "destination": "a-thing-hierarchy-and-its-concepts-join-the-event-chain-04",
-                "line": 1837,
+                "line": 1835,
                 "anchor": "#a-thing-hierarchy-and-its-concepts-join-the-event-chain",
                 "content_sha1": "7d803619ff871b85ceb2f1d0e2e93c8d459dcbaf",
                 "outputs": {
@@ -3950,7 +3939,7 @@
             },
             {
                 "destination": "a-thing-hierarchy-and-its-concepts-join-the-event-chain-05",
-                "line": 1838,
+                "line": 1836,
                 "anchor": "#a-thing-hierarchy-and-its-concepts-join-the-event-chain",
                 "content_sha1": "65eea82291231c716172ae6e4f6fdd31fc6155b2",
                 "outputs": {
@@ -3961,7 +3950,7 @@
             },
             {
                 "destination": "a-thing-hierarchy-and-its-concepts-join-the-event-chain-06",
-                "line": 1839,
+                "line": 1837,
                 "anchor": "#a-thing-hierarchy-and-its-concepts-join-the-event-chain",
                 "content_sha1": "af58ca7d304f1a4c125a9f02537529fc79286ff2",
                 "outputs": {
@@ -3972,7 +3961,7 @@
             },
             {
                 "destination": "a-thing-hierarchy-and-its-concepts-join-the-event-chain-07",
-                "line": 1840,
+                "line": 1838,
                 "anchor": "#a-thing-hierarchy-and-its-concepts-join-the-event-chain",
                 "content_sha1": "3c7aa47d01eb7d567d9130e5b40204fea517835d",
                 "outputs": {
@@ -3983,7 +3972,7 @@
             },
             {
                 "destination": "a-thing-hierarchy-and-its-concepts-join-the-event-chain-08",
-                "line": 1841,
+                "line": 1839,
                 "anchor": "#a-thing-hierarchy-and-its-concepts-join-the-event-chain",
                 "content_sha1": "0c697c12968abbd0fa134b3d4ccf31ba9aeecac5",
                 "outputs": {
@@ -3994,7 +3983,7 @@
             },
             {
                 "destination": "a-thing-hierarchy-and-its-concepts-join-the-event-chain-09",
-                "line": 1842,
+                "line": 1840,
                 "anchor": "#a-thing-hierarchy-and-its-concepts-join-the-event-chain",
                 "content_sha1": "3777af820f446d7fcd50377f2f4037f76aad55a0",
                 "outputs": {
@@ -4005,7 +3994,7 @@
             },
             {
                 "destination": "a-thing-hierarchy-and-its-concepts-join-the-event-chain-10",
-                "line": 1843,
+                "line": 1841,
                 "anchor": "#a-thing-hierarchy-and-its-concepts-join-the-event-chain",
                 "content_sha1": "0ae82ee15b8ba59f548119bf9d293f667f5c0ea7",
                 "outputs": {
@@ -4016,7 +4005,7 @@
             },
             {
                 "destination": "a-thing-hierarchy-and-its-concepts-join-the-event-chain-11",
-                "line": 1844,
+                "line": 1842,
                 "anchor": "#a-thing-hierarchy-and-its-concepts-join-the-event-chain",
                 "content_sha1": "850f0362e6f4b692c3958dceff7808605ad995e2",
                 "outputs": {
@@ -4027,7 +4016,7 @@
             },
             {
                 "destination": "a-thing-hierarchy-and-its-concepts-join-the-event-chain-12",
-                "line": 1845,
+                "line": 1843,
                 "anchor": "#a-thing-hierarchy-and-its-concepts-join-the-event-chain",
                 "content_sha1": "21b27dd77dc3468f6f957a18a451ba2e234664fe",
                 "outputs": {
@@ -4038,7 +4027,7 @@
             },
             {
                 "destination": "a-thing-hierarchy-and-its-concepts-join-the-event-chain-13",
-                "line": 1846,
+                "line": 1844,
                 "anchor": "#a-thing-hierarchy-and-its-concepts-join-the-event-chain",
                 "content_sha1": "1fe9bd1097075d80aed45dc405f71a3913863727",
                 "outputs": {
@@ -4049,7 +4038,7 @@
             },
             {
                 "destination": "a-thing-hierarchy-and-its-concepts-join-the-event-chain-14",
-                "line": 1847,
+                "line": 1845,
                 "anchor": "#a-thing-hierarchy-and-its-concepts-join-the-event-chain",
                 "content_sha1": "31827d89a2ec9e21e3f72b9a4d03a764bd4c9e1a",
                 "outputs": {
@@ -4060,7 +4049,7 @@
             },
             {
                 "destination": "a-part-of-two-wholes-stays-on-the-root-row",
-                "line": 1874,
+                "line": 1872,
                 "anchor": "#a-part-of-two-wholes-stays-on-the-root-row",
                 "content_sha1": "dae9d023dcd4a244f4519306e31fd01237358c56",
                 "outputs": {
@@ -4071,7 +4060,7 @@
             },
             {
                 "destination": "a-part-of-two-wholes-stays-on-the-root-row-02",
-                "line": 1875,
+                "line": 1873,
                 "anchor": "#a-part-of-two-wholes-stays-on-the-root-row",
                 "content_sha1": "d46e4f73688ae581575157dc5e3919e3c494ac05",
                 "outputs": {
@@ -4082,7 +4071,7 @@
             },
             {
                 "destination": "a-part-of-two-wholes-stays-on-the-root-row-03",
-                "line": 1876,
+                "line": 1874,
                 "anchor": "#a-part-of-two-wholes-stays-on-the-root-row",
                 "content_sha1": "ce625a47e25d56801889796f1322ea9970b77690",
                 "outputs": {
@@ -4093,7 +4082,7 @@
             },
             {
                 "destination": "a-part-of-two-wholes-stays-on-the-root-row-04",
-                "line": 1877,
+                "line": 1875,
                 "anchor": "#a-part-of-two-wholes-stays-on-the-root-row",
                 "content_sha1": "26cabc933ffa4b84282b75f81aa79328681c4f9e",
                 "outputs": {
@@ -4104,7 +4093,7 @@
             },
             {
                 "destination": "a-part-of-two-wholes-stays-on-the-root-row-05",
-                "line": 1878,
+                "line": 1876,
                 "anchor": "#a-part-of-two-wholes-stays-on-the-root-row",
                 "content_sha1": "c0ac1bb85ce4f24ce0dc6bf623cd7cf7c5b4caca",
                 "outputs": {
@@ -4115,7 +4104,7 @@
             },
             {
                 "destination": "concept-fan-in-keeps-the-chain-gap-below-its-parents",
-                "line": 1897,
+                "line": 1895,
                 "anchor": "#concept-fan-in-keeps-the-chain-gap-below-its-parents",
                 "content_sha1": "dcd3ef67f02f0e4e3bff45114efee4aee7b8b21d",
                 "outputs": {
@@ -4126,7 +4115,7 @@
             },
             {
                 "destination": "concept-fan-in-keeps-the-chain-gap-below-its-parents-02",
-                "line": 1898,
+                "line": 1896,
                 "anchor": "#concept-fan-in-keeps-the-chain-gap-below-its-parents",
                 "content_sha1": "7fb87aa5da67d9bae8870a63ece9d1889cbadccc",
                 "outputs": {
@@ -4137,7 +4126,7 @@
             },
             {
                 "destination": "concept-fan-in-keeps-the-chain-gap-below-its-parents-03",
-                "line": 1899,
+                "line": 1897,
                 "anchor": "#concept-fan-in-keeps-the-chain-gap-below-its-parents",
                 "content_sha1": "8b154664a08f4fca5af9cce8856eedd5b663caf1",
                 "outputs": {
@@ -4148,7 +4137,7 @@
             },
             {
                 "destination": "thing-part-of-event",
-                "line": 1925,
+                "line": 1923,
                 "anchor": "#thing-part-of-event",
                 "content_sha1": "7d803619ff871b85ceb2f1d0e2e93c8d459dcbaf",
                 "outputs": {
@@ -4159,7 +4148,7 @@
             },
             {
                 "destination": "thing-part-of-event-02",
-                "line": 1926,
+                "line": 1924,
                 "anchor": "#thing-part-of-event",
                 "content_sha1": "e4e2c84a20cb56aacbf881ce0762d30242bae1b8",
                 "outputs": {
@@ -4170,7 +4159,7 @@
             },
             {
                 "destination": "multiple-things-part-of-event",
-                "line": 1944,
+                "line": 1942,
                 "anchor": "#multiple-things-part-of-event",
                 "content_sha1": "7d803619ff871b85ceb2f1d0e2e93c8d459dcbaf",
                 "outputs": {
@@ -4181,7 +4170,7 @@
             },
             {
                 "destination": "multiple-things-part-of-event-02",
-                "line": 1945,
+                "line": 1943,
                 "anchor": "#multiple-things-part-of-event",
                 "content_sha1": "c4fed14ea7cf51efea4d119ab145535e6df60191",
                 "outputs": {
@@ -4192,7 +4181,7 @@
             },
             {
                 "destination": "multiple-things-part-of-event-03",
-                "line": 1946,
+                "line": 1944,
                 "anchor": "#multiple-things-part-of-event",
                 "content_sha1": "081bc66c910a83febe787cc1d466f62227e393f5",
                 "outputs": {
@@ -4203,7 +4192,7 @@
             },
             {
                 "destination": "multiple-things-part-of-event-04",
-                "line": 1947,
+                "line": 1945,
                 "anchor": "#multiple-things-part-of-event",
                 "content_sha1": "42f38144e396250946b58c0db131f1b104cddeae",
                 "outputs": {
@@ -4214,7 +4203,7 @@
             },
             {
                 "destination": "multiple-things-part-of-event-05",
-                "line": 1948,
+                "line": 1946,
                 "anchor": "#multiple-things-part-of-event",
                 "content_sha1": "dc3e94cbe7d728fdcb60f4da782c717874e3dd7a",
                 "outputs": {
@@ -4225,7 +4214,7 @@
             },
             {
                 "destination": "things-part-of-an-inner-event-stack-in-one-centred-column",
-                "line": 1974,
+                "line": 1972,
                 "anchor": "#things-part-of-an-inner-event-stack-in-one-centred-column",
                 "content_sha1": "cdde2510ea1f2d12d4cb470322c8a522a7dc8442",
                 "outputs": {
@@ -4236,7 +4225,7 @@
             },
             {
                 "destination": "things-part-of-an-inner-event-stack-in-one-centred-column-02",
-                "line": 1975,
+                "line": 1973,
                 "anchor": "#things-part-of-an-inner-event-stack-in-one-centred-column",
                 "content_sha1": "213cea0909e005f3c7b699852d8536776565ef74",
                 "outputs": {
@@ -4247,7 +4236,7 @@
             },
             {
                 "destination": "things-part-of-an-inner-event-stack-in-one-centred-column-03",
-                "line": 1976,
+                "line": 1974,
                 "anchor": "#things-part-of-an-inner-event-stack-in-one-centred-column",
                 "content_sha1": "00b9c83078dcc9077bff2abefb5c4c793d8ba04f",
                 "outputs": {
@@ -4258,7 +4247,7 @@
             },
             {
                 "destination": "things-part-of-an-inner-event-stack-in-one-centred-column-04",
-                "line": 1977,
+                "line": 1975,
                 "anchor": "#things-part-of-an-inner-event-stack-in-one-centred-column",
                 "content_sha1": "bcabb462d0885c59dd80a1c83edc92b1521335d2",
                 "outputs": {
@@ -4269,7 +4258,7 @@
             },
             {
                 "destination": "things-part-of-an-inner-event-stack-in-one-centred-column-05",
-                "line": 1978,
+                "line": 1976,
                 "anchor": "#things-part-of-an-inner-event-stack-in-one-centred-column",
                 "content_sha1": "f8138c04580bab05cf926dd5547459583f1b52a1",
                 "outputs": {
@@ -4280,7 +4269,7 @@
             },
             {
                 "destination": "things-part-of-an-inner-event-stack-in-one-centred-column-06",
-                "line": 1979,
+                "line": 1977,
                 "anchor": "#things-part-of-an-inner-event-stack-in-one-centred-column",
                 "content_sha1": "e6bee4e94ce74d86752ae128a4fb10e64377e49a",
                 "outputs": {
@@ -4291,7 +4280,7 @@
             },
             {
                 "destination": "thing-created-by-event",
-                "line": 2005,
+                "line": 2003,
                 "anchor": "#thing-created-by-event",
                 "content_sha1": "e4e2c84a20cb56aacbf881ce0762d30242bae1b8",
                 "outputs": {
@@ -4302,7 +4291,7 @@
             },
             {
                 "destination": "thing-created-by-event-02",
-                "line": 2006,
+                "line": 2004,
                 "anchor": "#thing-created-by-event",
                 "content_sha1": "7d803619ff871b85ceb2f1d0e2e93c8d459dcbaf",
                 "outputs": {
@@ -4313,7 +4302,7 @@
             },
             {
                 "destination": "multiple-things-created-by-event",
-                "line": 2024,
+                "line": 2022,
                 "anchor": "#multiple-things-created-by-event",
                 "content_sha1": "7d803619ff871b85ceb2f1d0e2e93c8d459dcbaf",
                 "outputs": {
@@ -4324,7 +4313,7 @@
             },
             {
                 "destination": "multiple-things-created-by-event-02",
-                "line": 2025,
+                "line": 2023,
                 "anchor": "#multiple-things-created-by-event",
                 "content_sha1": "c4fed14ea7cf51efea4d119ab145535e6df60191",
                 "outputs": {
@@ -4335,7 +4324,7 @@
             },
             {
                 "destination": "multiple-things-created-by-event-03",
-                "line": 2026,
+                "line": 2024,
                 "anchor": "#multiple-things-created-by-event",
                 "content_sha1": "081bc66c910a83febe787cc1d466f62227e393f5",
                 "outputs": {
@@ -4346,7 +4335,7 @@
             },
             {
                 "destination": "multiple-things-created-by-event-04",
-                "line": 2027,
+                "line": 2025,
                 "anchor": "#multiple-things-created-by-event",
                 "content_sha1": "42f38144e396250946b58c0db131f1b104cddeae",
                 "outputs": {
@@ -4357,7 +4346,7 @@
             },
             {
                 "destination": "multiple-things-created-by-event-05",
-                "line": 2028,
+                "line": 2026,
                 "anchor": "#multiple-things-created-by-event",
                 "content_sha1": "dc3e94cbe7d728fdcb60f4da782c717874e3dd7a",
                 "outputs": {
@@ -4368,7 +4357,7 @@
             },
             {
                 "destination": "one-concept",
-                "line": 2074,
+                "line": 2072,
                 "anchor": "#one-concept",
                 "content_sha1": "01f07d118260bb0c919002b8766d498f1065b606",
                 "outputs": {
@@ -4379,7 +4368,7 @@
             },
             {
                 "destination": "two-concepts-connected",
-                "line": 2097,
+                "line": 2095,
                 "anchor": "#two-concepts-connected",
                 "content_sha1": "8879e86b0fe7bee25614a8cda1482ceaca5a13f7",
                 "outputs": {
@@ -4390,7 +4379,7 @@
             },
             {
                 "destination": "two-concepts-connected-02",
-                "line": 2098,
+                "line": 2096,
                 "anchor": "#two-concepts-connected",
                 "content_sha1": "803837e572e041c6cdf47b307c910e7e57c99328",
                 "outputs": {
@@ -4401,7 +4390,7 @@
             },
             {
                 "destination": "concept-hierarchy-diamond-pattern",
-                "line": 2120,
+                "line": 2118,
                 "anchor": "#concept-hierarchy-diamond-pattern",
                 "content_sha1": "38e8bf9ba5a55f0c0b49ea5268b262778b9b2c6c",
                 "outputs": {
@@ -4412,7 +4401,7 @@
             },
             {
                 "destination": "concept-hierarchy-diamond-pattern-02",
-                "line": 2121,
+                "line": 2119,
                 "anchor": "#concept-hierarchy-diamond-pattern",
                 "content_sha1": "ca1d09ccd46307ca809502195d5a25f0dbfe8e2c",
                 "outputs": {
@@ -4423,7 +4412,7 @@
             },
             {
                 "destination": "concept-hierarchy-diamond-pattern-03",
-                "line": 2122,
+                "line": 2120,
                 "anchor": "#concept-hierarchy-diamond-pattern",
                 "content_sha1": "a43a45502a3dde32c045e646a7cb6803c0e20579",
                 "outputs": {
@@ -4434,7 +4423,7 @@
             },
             {
                 "destination": "concept-hierarchy-diamond-pattern-04",
-                "line": 2123,
+                "line": 2121,
                 "anchor": "#concept-hierarchy-diamond-pattern",
                 "content_sha1": "72111c6a029b2b9b472122a2d4c5ce90096d311c",
                 "outputs": {
@@ -4445,7 +4434,7 @@
             },
             {
                 "destination": "concept-hierarchy-multiple-roots",
-                "line": 2144,
+                "line": 2142,
                 "anchor": "#concept-hierarchy-multiple-roots",
                 "content_sha1": "70ec74b4e88cbd6e61283f5af8640b3317189b57",
                 "outputs": {
@@ -4456,7 +4445,7 @@
             },
             {
                 "destination": "concept-hierarchy-multiple-roots-02",
-                "line": 2145,
+                "line": 2143,
                 "anchor": "#concept-hierarchy-multiple-roots",
                 "content_sha1": "987266b09ad1b67a96bc7b25c85e549b0146a9d9",
                 "outputs": {
@@ -4467,7 +4456,7 @@
             },
             {
                 "destination": "concept-hierarchy-multiple-roots-03",
-                "line": 2146,
+                "line": 2144,
                 "anchor": "#concept-hierarchy-multiple-roots",
                 "content_sha1": "8879e86b0fe7bee25614a8cda1482ceaca5a13f7",
                 "outputs": {
@@ -4478,7 +4467,7 @@
             },
             {
                 "destination": "tall-concept-in-one-column-does-not-inflate-another",
-                "line": 2167,
+                "line": 2165,
                 "anchor": "#tall-concept-in-one-column-does-not-inflate-another",
                 "content_sha1": "15f7742e9e26a68a8b55f9e0ad25b16861ff80c1",
                 "outputs": {
@@ -4489,7 +4478,7 @@
             },
             {
                 "destination": "tall-concept-in-one-column-does-not-inflate-another-02",
-                "line": 2168,
+                "line": 2166,
                 "anchor": "#tall-concept-in-one-column-does-not-inflate-another",
                 "content_sha1": "30dcc3e51a2c58eacfad1a67ab90eb1e93a3c0b4",
                 "outputs": {
@@ -4500,7 +4489,7 @@
             },
             {
                 "destination": "tall-concept-in-one-column-does-not-inflate-another-03",
-                "line": 2169,
+                "line": 2167,
                 "anchor": "#tall-concept-in-one-column-does-not-inflate-another",
                 "content_sha1": "bbe6cc48ea55b3b8dce3b50909c81090328eaceb",
                 "outputs": {
@@ -4511,7 +4500,7 @@
             },
             {
                 "destination": "tall-concept-in-one-column-does-not-inflate-another-04",
-                "line": 2170,
+                "line": 2168,
                 "anchor": "#tall-concept-in-one-column-does-not-inflate-another",
                 "content_sha1": "85216c7051dd7a0f1572c001bcb5109355b7ed89",
                 "outputs": {
@@ -4522,7 +4511,7 @@
             },
             {
                 "destination": "concept-near-to-concept",
-                "line": 2195,
+                "line": 2193,
                 "anchor": "#concept-near-to-concept",
                 "content_sha1": "45da243fb86f693bfdc1187bcf13d0a9d9ba850c",
                 "outputs": {
@@ -4533,7 +4522,7 @@
             },
             {
                 "destination": "concept-near-to-concept-02",
-                "line": 2196,
+                "line": 2194,
                 "anchor": "#concept-near-to-concept",
                 "content_sha1": "5ad1da54c5df83b531ab2a5512d50cd7ecbcb3e5",
                 "outputs": {
@@ -4544,7 +4533,7 @@
             },
             {
                 "destination": "thing-near-to-thing",
-                "line": 2219,
+                "line": 2217,
                 "anchor": "#thing-near-to-thing",
                 "content_sha1": "6ec0c2c4286507232abde5d887e5301c8833b477",
                 "outputs": {
@@ -4555,7 +4544,7 @@
             },
             {
                 "destination": "thing-near-to-thing-02",
-                "line": 2220,
+                "line": 2218,
                 "anchor": "#thing-near-to-thing",
                 "content_sha1": "2746911aadaf06c1cbf5d1d69b80a97d0fa08f2b",
                 "outputs": {
@@ -4566,7 +4555,7 @@
             },
             {
                 "destination": "event-near-to-event",
-                "line": 2246,
+                "line": 2244,
                 "anchor": "#event-near-to-event",
                 "content_sha1": "ee3687427a90280055207630c8309a2865579f2e",
                 "outputs": {
@@ -4577,7 +4566,7 @@
             },
             {
                 "destination": "event-near-to-event-02",
-                "line": 2247,
+                "line": 2245,
                 "anchor": "#event-near-to-event",
                 "content_sha1": "2dac4993302f74d49780f931ad9beec28d2ea3e4",
                 "outputs": {
@@ -4588,7 +4577,7 @@
             },
             {
                 "destination": "event-near-to-event-03",
-                "line": 2248,
+                "line": 2246,
                 "anchor": "#event-near-to-event",
                 "content_sha1": "aa0eeec04be1af9493940002feb4446cca576d07",
                 "outputs": {
@@ -4599,7 +4588,7 @@
             },
             {
                 "destination": "event-near-to-event-04",
-                "line": 2249,
+                "line": 2247,
                 "anchor": "#event-near-to-event",
                 "content_sha1": "888487c147438bbe65cc3e6252d1bff3c4a1cae3",
                 "outputs": {
@@ -4610,7 +4599,7 @@
             },
             {
                 "destination": "near-to-sibling-components-stack-in-one-column",
-                "line": 2281,
+                "line": 2279,
                 "anchor": "#near-to-sibling-components-stack-in-one-column",
                 "content_sha1": "ca8978ade09463c473adaa41aa1dc3633e83ab25",
                 "outputs": {
@@ -4621,7 +4610,7 @@
             },
             {
                 "destination": "near-to-sibling-components-stack-in-one-column-02",
-                "line": 2282,
+                "line": 2280,
                 "anchor": "#near-to-sibling-components-stack-in-one-column",
                 "content_sha1": "5f9de6833116ce4e8ef89238af49cd1000fc4c47",
                 "outputs": {
@@ -4632,7 +4621,7 @@
             },
             {
                 "destination": "near-to-sibling-components-stack-in-one-column-03",
-                "line": 2283,
+                "line": 2281,
                 "anchor": "#near-to-sibling-components-stack-in-one-column",
                 "content_sha1": "5de2c02b7d2632355742a5c5277934694f42ce2b",
                 "outputs": {
@@ -4643,7 +4632,7 @@
             },
             {
                 "destination": "near-to-sibling-components-stack-in-one-column-04",
-                "line": 2284,
+                "line": 2282,
                 "anchor": "#near-to-sibling-components-stack-in-one-column",
                 "content_sha1": "39770fc649eae0a1c7d9a9b1464267d64e0ef341",
                 "outputs": {
@@ -4654,7 +4643,7 @@
             },
             {
                 "destination": "near-to-sibling-components-stack-in-one-column-05",
-                "line": 2285,
+                "line": 2283,
                 "anchor": "#near-to-sibling-components-stack-in-one-column",
                 "content_sha1": "9084141f7ba163c2de6a72d3981ccda57a190048",
                 "outputs": {
@@ -4665,7 +4654,7 @@
             },
             {
                 "destination": "near-to-sibling-components-stack-in-one-column-06",
-                "line": 2286,
+                "line": 2284,
                 "anchor": "#near-to-sibling-components-stack-in-one-column",
                 "content_sha1": "15e5cce6574698a6b3a5321add34278c682ca0f8",
                 "outputs": {
@@ -4676,7 +4665,7 @@
             },
             {
                 "destination": "near-to-sibling-components-stack-in-one-column-07",
-                "line": 2287,
+                "line": 2285,
                 "anchor": "#near-to-sibling-components-stack-in-one-column",
                 "content_sha1": "928cecfece576f592cb39d95da00aaa195797c72",
                 "outputs": {
@@ -4687,7 +4676,7 @@
             },
             {
                 "destination": "near-to-sibling-components-stack-in-one-column-08",
-                "line": 2288,
+                "line": 2286,
                 "anchor": "#near-to-sibling-components-stack-in-one-column",
                 "content_sha1": "a8541eb6a4171e47338d71284ce80fb55cf0e805",
                 "outputs": {
@@ -4698,7 +4687,7 @@
             },
             {
                 "destination": "near-to-satellite-hoists-to-the-left-of-its-anchor",
-                "line": 2316,
+                "line": 2314,
                 "anchor": "#near-to-satellite-hoists-to-the-left-of-its-anchor",
                 "content_sha1": "ca8978ade09463c473adaa41aa1dc3633e83ab25",
                 "outputs": {
@@ -4709,7 +4698,7 @@
             },
             {
                 "destination": "near-to-satellite-hoists-to-the-left-of-its-anchor-02",
-                "line": 2317,
+                "line": 2315,
                 "anchor": "#near-to-satellite-hoists-to-the-left-of-its-anchor",
                 "content_sha1": "666b8bb8e386e2328ae2cb931d70623e2b26d72d",
                 "outputs": {
@@ -4720,7 +4709,7 @@
             },
             {
                 "destination": "near-to-satellite-hoists-to-the-left-of-its-anchor-03",
-                "line": 2318,
+                "line": 2316,
                 "anchor": "#near-to-satellite-hoists-to-the-left-of-its-anchor",
                 "content_sha1": "b768bb64a6c4eb537a48b21200fa337a5e90eec7",
                 "outputs": {
@@ -4731,7 +4720,7 @@
             },
             {
                 "destination": "near-to-satellite-hoists-to-the-left-of-its-anchor-04",
-                "line": 2319,
+                "line": 2317,
                 "anchor": "#near-to-satellite-hoists-to-the-left-of-its-anchor",
                 "content_sha1": "8b9dddca2c623106676548c2ff5c739983fe25d9",
                 "outputs": {
@@ -4742,7 +4731,7 @@
             },
             {
                 "destination": "near-to-satellite-hoists-to-the-left-of-its-anchor-05",
-                "line": 2320,
+                "line": 2318,
                 "anchor": "#near-to-satellite-hoists-to-the-left-of-its-anchor",
                 "content_sha1": "d0ea9a314829dc92e6ae34481d4dbb83deb00b69",
                 "outputs": {
@@ -4753,7 +4742,7 @@
             },
             {
                 "destination": "near-to-satellite-hoists-to-the-left-of-its-anchor-06",
-                "line": 2321,
+                "line": 2319,
                 "anchor": "#near-to-satellite-hoists-to-the-left-of-its-anchor",
                 "content_sha1": "1dfc0b3a314798f4e259f1b90d31a67dbc0bec90",
                 "outputs": {
@@ -4764,7 +4753,7 @@
             },
             {
                 "destination": "near-to-satellite-hoists-to-the-left-of-its-anchor-07",
-                "line": 2322,
+                "line": 2320,
                 "anchor": "#near-to-satellite-hoists-to-the-left-of-its-anchor",
                 "content_sha1": "6f1c70cfd503423793901f38c4d6a0b1b8acef4f",
                 "outputs": {
@@ -4775,7 +4764,7 @@
             },
             {
                 "destination": "near-to-satellite-hoists-to-the-left-of-its-anchor-08",
-                "line": 2323,
+                "line": 2321,
                 "anchor": "#near-to-satellite-hoists-to-the-left-of-its-anchor",
                 "content_sha1": "8815d941ab6670e83a3caee5152e10515bed0a3d",
                 "outputs": {
@@ -4786,7 +4775,7 @@
             },
             {
                 "destination": "near-to-satellite-hoists-to-the-left-of-its-anchor-09",
-                "line": 2324,
+                "line": 2322,
                 "anchor": "#near-to-satellite-hoists-to-the-left-of-its-anchor",
                 "content_sha1": "04e3568baeaa285c2e4cb11bd24d1a12bd94d4b1",
                 "outputs": {
@@ -4797,7 +4786,7 @@
             },
             {
                 "destination": "near-to-satellite-hoists-to-the-left-of-its-anchor-10",
-                "line": 2325,
+                "line": 2323,
                 "anchor": "#near-to-satellite-hoists-to-the-left-of-its-anchor",
                 "content_sha1": "9689fbfb37035121dcefcff44f74deae48c5a4bd",
                 "outputs": {
@@ -4808,7 +4797,7 @@
             },
             {
                 "destination": "near-to-satellite-hoists-to-the-left-of-its-anchor-11",
-                "line": 2326,
+                "line": 2324,
                 "anchor": "#near-to-satellite-hoists-to-the-left-of-its-anchor",
                 "content_sha1": "f1ee37ecffd2c887be4be303d4c53244904bc1ea",
                 "outputs": {
@@ -4819,7 +4808,7 @@
             },
             {
                 "destination": "not-connected-events",
-                "line": 2349,
+                "line": 2347,
                 "anchor": "#not-connected-events",
                 "content_sha1": "00f68124f6f117035ee9fd967ce4aa1b33bc53bb",
                 "outputs": {
@@ -4830,7 +4819,7 @@
             },
             {
                 "destination": "not-connected-events-02",
-                "line": 2350,
+                "line": 2348,
                 "anchor": "#not-connected-events",
                 "content_sha1": "aa0eeec04be1af9493940002feb4446cca576d07",
                 "outputs": {
@@ -4841,7 +4830,7 @@
             },
             {
                 "destination": "not-connected-events-03",
-                "line": 2351,
+                "line": 2349,
                 "anchor": "#not-connected-events",
                 "content_sha1": "1b35daacdc2d29e48017e2ad2ab4991a37df17c2",
                 "outputs": {
@@ -4852,7 +4841,7 @@
             },
             {
                 "destination": "not-connected-events-04",
-                "line": 2352,
+                "line": 2350,
                 "anchor": "#not-connected-events",
                 "content_sha1": "5e89186d35c272443d1b81dac786a262eb1aad36",
                 "outputs": {
@@ -4863,7 +4852,7 @@
             },
             {
                 "destination": "not-connected-things",
-                "line": 2375,
+                "line": 2373,
                 "anchor": "#not-connected-things",
                 "content_sha1": "c8b472476b8eba1d2daa6bb70c814a8cee2fc908",
                 "outputs": {
@@ -4874,7 +4863,7 @@
             },
             {
                 "destination": "not-connected-things-02",
-                "line": 2376,
+                "line": 2374,
                 "anchor": "#not-connected-things",
                 "content_sha1": "10fb1717910442fa5d8501f6d008ac3fb0745819",
                 "outputs": {
@@ -4885,7 +4874,7 @@
             },
             {
                 "destination": "not-connected-things-03",
-                "line": 2377,
+                "line": 2375,
                 "anchor": "#not-connected-things",
                 "content_sha1": "e0d8392ed4fa9ba4b831f0be247283872a51751b",
                 "outputs": {
@@ -4896,7 +4885,7 @@
             },
             {
                 "destination": "not-connected-things-04",
-                "line": 2378,
+                "line": 2376,
                 "anchor": "#not-connected-things",
                 "content_sha1": "20898f78d4c8540280f53f00fc904ba161d0a36e",
                 "outputs": {
@@ -4907,7 +4896,7 @@
             },
             {
                 "destination": "not-connected-things-05",
-                "line": 2379,
+                "line": 2377,
                 "anchor": "#not-connected-things",
                 "content_sha1": "b85774431026d81918db3256345063a88e3c5db5",
                 "outputs": {
@@ -4918,7 +4907,7 @@
             },
             {
                 "destination": "not-connected-things-06",
-                "line": 2380,
+                "line": 2378,
                 "anchor": "#not-connected-things",
                 "content_sha1": "39b546fe6aa1ea366c9ed5f0abcca534245c6543",
                 "outputs": {
@@ -4929,7 +4918,7 @@
             },
             {
                 "destination": "not-connected-things-07",
-                "line": 2381,
+                "line": 2379,
                 "anchor": "#not-connected-things",
                 "content_sha1": "b5ccf45131c773c30e3057575d565d78615c8166",
                 "outputs": {
@@ -4940,7 +4929,7 @@
             },
             {
                 "destination": "not-connected-things-08",
-                "line": 2382,
+                "line": 2380,
                 "anchor": "#not-connected-things",
                 "content_sha1": "b4ae540d70d033b4bc9d5c9d7e7e979c321dac00",
                 "outputs": {
@@ -4951,7 +4940,7 @@
             },
             {
                 "destination": "not-connected-things-09",
-                "line": 2383,
+                "line": 2381,
                 "anchor": "#not-connected-things",
                 "content_sha1": "8b27f6e2dc979908d0af0696a7f9c0fed5fafb9d",
                 "outputs": {
@@ -4962,7 +4951,7 @@
             },
             {
                 "destination": "not-connected-many-events",
-                "line": 2404,
+                "line": 2402,
                 "anchor": "#not-connected-many-events",
                 "content_sha1": "2e3538ee21711f2759f38286c140abbcdb9b62d0",
                 "outputs": {
@@ -4973,7 +4962,7 @@
             },
             {
                 "destination": "not-connected-many-events-02",
-                "line": 2405,
+                "line": 2403,
                 "anchor": "#not-connected-many-events",
                 "content_sha1": "f240d30320908a118cb965f283f99298eb5ae599",
                 "outputs": {
@@ -4984,7 +4973,7 @@
             },
             {
                 "destination": "not-connected-many-events-03",
-                "line": 2406,
+                "line": 2404,
                 "anchor": "#not-connected-many-events",
                 "content_sha1": "396ec4ccb8f24c17f91eefa760fb2ebc9c57adc7",
                 "outputs": {
@@ -4995,7 +4984,7 @@
             },
             {
                 "destination": "start-events-with-side-aux-stay-one-gap-apart",
-                "line": 2434,
+                "line": 2432,
                 "anchor": "#start-events-with-side-aux-stay-one-gap-apart",
                 "content_sha1": "ee3687427a90280055207630c8309a2865579f2e",
                 "outputs": {
@@ -5006,7 +4995,7 @@
             },
             {
                 "destination": "start-events-with-side-aux-stay-one-gap-apart-02",
-                "line": 2435,
+                "line": 2433,
                 "anchor": "#start-events-with-side-aux-stay-one-gap-apart",
                 "content_sha1": "8f4ff2fc2c2f0b4f07b218c37340b360362a8831",
                 "outputs": {
@@ -5017,7 +5006,7 @@
             },
             {
                 "destination": "start-events-with-side-aux-stay-one-gap-apart-03",
-                "line": 2436,
+                "line": 2434,
                 "anchor": "#start-events-with-side-aux-stay-one-gap-apart",
                 "content_sha1": "af5683f2c1a86b8f6859354b6173d814585c88e9",
                 "outputs": {
@@ -5028,7 +5017,7 @@
             },
             {
                 "destination": "start-events-with-side-aux-stay-one-gap-apart-04",
-                "line": 2437,
+                "line": 2435,
                 "anchor": "#start-events-with-side-aux-stay-one-gap-apart",
                 "content_sha1": "63bbfa7e7406c5410eac74be0384a2a006f3c6de",
                 "outputs": {
@@ -5039,7 +5028,7 @@
             },
             {
                 "destination": "an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap",
-                "line": 2470,
+                "line": 2468,
                 "anchor": "#an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap",
                 "content_sha1": "1b009a0da8a205053648c14bc1d135dc12eacb04",
                 "outputs": {
@@ -5050,7 +5039,7 @@
             },
             {
                 "destination": "an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-02",
-                "line": 2471,
+                "line": 2469,
                 "anchor": "#an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap",
                 "content_sha1": "ccbfaa229882844000448ec39977e09f47a68dd7",
                 "outputs": {
@@ -5061,7 +5050,7 @@
             },
             {
                 "destination": "an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-03",
-                "line": 2472,
+                "line": 2470,
                 "anchor": "#an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap",
                 "content_sha1": "72a336ef85f66e4ce7d544d9e15399a9c910a9b2",
                 "outputs": {
@@ -5072,7 +5061,7 @@
             },
             {
                 "destination": "an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-04",
-                "line": 2473,
+                "line": 2471,
                 "anchor": "#an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap",
                 "content_sha1": "206c7da92ffdd35313d006623f4dc003ca9db021",
                 "outputs": {
@@ -5083,7 +5072,7 @@
             },
             {
                 "destination": "an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-05",
-                "line": 2474,
+                "line": 2472,
                 "anchor": "#an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap",
                 "content_sha1": "1e9326efd3b07a55c27a4742173b0840f824eb4c",
                 "outputs": {
@@ -5094,7 +5083,7 @@
             },
             {
                 "destination": "an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-06",
-                "line": 2475,
+                "line": 2473,
                 "anchor": "#an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap",
                 "content_sha1": "b8c881d79e683bb82486352470f1f2de5d10181e",
                 "outputs": {
@@ -5105,7 +5094,7 @@
             },
             {
                 "destination": "an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-07",
-                "line": 2476,
+                "line": 2474,
                 "anchor": "#an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap",
                 "content_sha1": "e487fe494e4ebc66121562d828330efebfefabd5",
                 "outputs": {
@@ -5116,7 +5105,7 @@
             },
             {
                 "destination": "an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-08",
-                "line": 2477,
+                "line": 2475,
                 "anchor": "#an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap",
                 "content_sha1": "17bc94afd9f2c396d2d57e5aacec7fd86da43f97",
                 "outputs": {
@@ -5127,7 +5116,7 @@
             },
             {
                 "destination": "an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-09",
-                "line": 2478,
+                "line": 2476,
                 "anchor": "#an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap",
                 "content_sha1": "929064ed9bf98e49091dfc512495db610090bf37",
                 "outputs": {
@@ -5138,7 +5127,7 @@
             },
             {
                 "destination": "an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-10",
-                "line": 2479,
+                "line": 2477,
                 "anchor": "#an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap",
                 "content_sha1": "68b7230e67d6c016b7c4001a377a4d8d8be01d56",
                 "outputs": {
@@ -5149,7 +5138,7 @@
             },
             {
                 "destination": "a-wide-start-fan-grows-its-vertical-gap",
-                "line": 2509,
+                "line": 2507,
                 "anchor": "#a-wide-start-fan-grows-its-vertical-gap",
                 "content_sha1": "ba0486471c442bd0e14d1a0aa6a636ac5dc6a7bb",
                 "outputs": {
@@ -5160,7 +5149,7 @@
             },
             {
                 "destination": "a-wide-start-fan-grows-its-vertical-gap-02",
-                "line": 2510,
+                "line": 2508,
                 "anchor": "#a-wide-start-fan-grows-its-vertical-gap",
                 "content_sha1": "ef24ec8362adb5b9bd45725a9e45982f7b3d18a8",
                 "outputs": {
@@ -5171,7 +5160,7 @@
             },
             {
                 "destination": "a-wide-start-fan-grows-its-vertical-gap-03",
-                "line": 2511,
+                "line": 2509,
                 "anchor": "#a-wide-start-fan-grows-its-vertical-gap",
                 "content_sha1": "bc24a974b89f76ec888696d6be6abf99fad911f6",
                 "outputs": {
@@ -5182,7 +5171,7 @@
             },
             {
                 "destination": "a-wide-start-fan-grows-its-vertical-gap-04",
-                "line": 2512,
+                "line": 2510,
                 "anchor": "#a-wide-start-fan-grows-its-vertical-gap",
                 "content_sha1": "f7132b9b26434f11fb29d8a766058c0c79625b82",
                 "outputs": {
@@ -5193,7 +5182,7 @@
             },
             {
                 "destination": "a-wide-start-fan-grows-its-vertical-gap-05",
-                "line": 2513,
+                "line": 2511,
                 "anchor": "#a-wide-start-fan-grows-its-vertical-gap",
                 "content_sha1": "11078e2f4653ee720029b1cbfba7bdf32611af2e",
                 "outputs": {
@@ -5204,7 +5193,7 @@
             },
             {
                 "destination": "a-wide-start-fan-grows-its-vertical-gap-06",
-                "line": 2514,
+                "line": 2512,
                 "anchor": "#a-wide-start-fan-grows-its-vertical-gap",
                 "content_sha1": "f65958a64ca6304e13ca4534bb11ddfb1216b7e4",
                 "outputs": {
@@ -5215,7 +5204,7 @@
             },
             {
                 "destination": "a-wide-start-fan-grows-its-vertical-gap-07",
-                "line": 2515,
+                "line": 2513,
                 "anchor": "#a-wide-start-fan-grows-its-vertical-gap",
                 "content_sha1": "9795bc140b8bc0c22802b37b15fad6410205ebfe",
                 "outputs": {
@@ -5226,7 +5215,7 @@
             },
             {
                 "destination": "wide-forks-breathe-sibling-gaps-grow-with-the-fan",
-                "line": 2535,
+                "line": 2533,
                 "anchor": "#wide-forks-breathe-sibling-gaps-grow-with-the-fan",
                 "content_sha1": "af5d83e9219782fe12345daa447d406583c8e141",
                 "outputs": {
@@ -5237,7 +5226,7 @@
             },
             {
                 "destination": "wide-forks-breathe-sibling-gaps-grow-with-the-fan-02",
-                "line": 2536,
+                "line": 2534,
                 "anchor": "#wide-forks-breathe-sibling-gaps-grow-with-the-fan",
                 "content_sha1": "e2ec3a00aec1908152b5dd5b261766951eab13c1",
                 "outputs": {
@@ -5248,7 +5237,7 @@
             },
             {
                 "destination": "wide-forks-breathe-sibling-gaps-grow-with-the-fan-03",
-                "line": 2537,
+                "line": 2535,
                 "anchor": "#wide-forks-breathe-sibling-gaps-grow-with-the-fan",
                 "content_sha1": "ba224c3e8eb2fd9dd219d3f0d939cad73db013ca",
                 "outputs": {
@@ -5259,7 +5248,7 @@
             },
             {
                 "destination": "wide-forks-breathe-sibling-gaps-grow-with-the-fan-04",
-                "line": 2538,
+                "line": 2536,
                 "anchor": "#wide-forks-breathe-sibling-gaps-grow-with-the-fan",
                 "content_sha1": "e1781316f0c3143e77ec1851f3fe1173007e315d",
                 "outputs": {
@@ -5270,7 +5259,7 @@
             },
             {
                 "destination": "wide-forks-breathe-sibling-gaps-grow-with-the-fan-05",
-                "line": 2539,
+                "line": 2537,
                 "anchor": "#wide-forks-breathe-sibling-gaps-grow-with-the-fan",
                 "content_sha1": "4e4910aec4e03f5cf9ede61541b9fea3848690f8",
                 "outputs": {
@@ -5281,7 +5270,7 @@
             },
             {
                 "destination": "same-side-entries-keep-their-approach-order",
-                "line": 2579,
+                "line": 2577,
                 "anchor": "#same-side-entries-keep-their-approach-order",
                 "content_sha1": "8f89a12390a6a7bef42666983ef5beea7b4be0ec",
                 "outputs": {
@@ -5292,7 +5281,7 @@
             },
             {
                 "destination": "same-side-entries-keep-their-approach-order-02",
-                "line": 2580,
+                "line": 2578,
                 "anchor": "#same-side-entries-keep-their-approach-order",
                 "content_sha1": "f921efd0257bfc4c4320fa3b3c94818fe6a136b3",
                 "outputs": {
@@ -5303,7 +5292,7 @@
             },
             {
                 "destination": "same-side-entries-keep-their-approach-order-03",
-                "line": 2581,
+                "line": 2579,
                 "anchor": "#same-side-entries-keep-their-approach-order",
                 "content_sha1": "eacdee4441d2a24cf10197f381b0c6cd7bb301e4",
                 "outputs": {
@@ -5314,7 +5303,7 @@
             },
             {
                 "destination": "same-side-entries-keep-their-approach-order-04",
-                "line": 2582,
+                "line": 2580,
                 "anchor": "#same-side-entries-keep-their-approach-order",
                 "content_sha1": "9de895de44c460add12d46769a8f498a3747ae3f",
                 "outputs": {
@@ -5325,7 +5314,7 @@
             },
             {
                 "destination": "same-side-entries-keep-their-approach-order-05",
-                "line": 2583,
+                "line": 2581,
                 "anchor": "#same-side-entries-keep-their-approach-order",
                 "content_sha1": "f7c41d21987705e3134de7c665d45b292b841e56",
                 "outputs": {
@@ -5336,7 +5325,7 @@
             },
             {
                 "destination": "same-side-entries-keep-their-approach-order-06",
-                "line": 2584,
+                "line": 2582,
                 "anchor": "#same-side-entries-keep-their-approach-order",
                 "content_sha1": "93255b47f7a4067b47e3703547477b16a09b5fcf",
                 "outputs": {
@@ -5347,7 +5336,7 @@
             },
             {
                 "destination": "same-side-entries-keep-their-approach-order-07",
-                "line": 2585,
+                "line": 2583,
                 "anchor": "#same-side-entries-keep-their-approach-order",
                 "content_sha1": "bc2820d70a7d60f7076e54b2c04844e45ec27989",
                 "outputs": {
@@ -5358,7 +5347,7 @@
             },
             {
                 "destination": "same-side-entries-keep-their-approach-order-08",
-                "line": 2586,
+                "line": 2584,
                 "anchor": "#same-side-entries-keep-their-approach-order",
                 "content_sha1": "72495f4e9e8b31f55a76792c8621f3d2994f4211",
                 "outputs": {
@@ -5369,7 +5358,7 @@
             },
             {
                 "destination": "same-side-entries-keep-their-approach-order-09",
-                "line": 2587,
+                "line": 2585,
                 "anchor": "#same-side-entries-keep-their-approach-order",
                 "content_sha1": "b9b38cf15104de0e2f41e850836ecff20fe12543",
                 "outputs": {
@@ -5380,7 +5369,7 @@
             },
             {
                 "destination": "a-stranded-leaf-concept-comes-back-to-its-owner",
-                "line": 2631,
+                "line": 2629,
                 "anchor": "#a-stranded-leaf-concept-comes-back-to-its-owner",
                 "content_sha1": "2f464006dfa82bd88a960d29abb573495ada154f",
                 "outputs": {
@@ -5391,7 +5380,7 @@
             },
             {
                 "destination": "a-stranded-leaf-concept-comes-back-to-its-owner-02",
-                "line": 2632,
+                "line": 2630,
                 "anchor": "#a-stranded-leaf-concept-comes-back-to-its-owner",
                 "content_sha1": "58209437d52d8747613df4f75a09a37060c70921",
                 "outputs": {
@@ -5402,7 +5391,7 @@
             },
             {
                 "destination": "a-stranded-leaf-concept-comes-back-to-its-owner-03",
-                "line": 2633,
+                "line": 2631,
                 "anchor": "#a-stranded-leaf-concept-comes-back-to-its-owner",
                 "content_sha1": "21cb861a0294676e01c8cddb04bdded1e4bb3328",
                 "outputs": {
@@ -5413,7 +5402,7 @@
             },
             {
                 "destination": "a-stranded-leaf-concept-comes-back-to-its-owner-04",
-                "line": 2634,
+                "line": 2632,
                 "anchor": "#a-stranded-leaf-concept-comes-back-to-its-owner",
                 "content_sha1": "26ed0b7c770ffd869a85bce7f1e33419f59ec003",
                 "outputs": {
@@ -5424,7 +5413,7 @@
             },
             {
                 "destination": "a-stranded-leaf-concept-comes-back-to-its-owner-05",
-                "line": 2635,
+                "line": 2633,
                 "anchor": "#a-stranded-leaf-concept-comes-back-to-its-owner",
                 "content_sha1": "ae45dfe02dab42d756684c1d7fe5b31bfdaeb384",
                 "outputs": {
@@ -5435,7 +5424,7 @@
             },
             {
                 "destination": "a-stranded-leaf-concept-comes-back-to-its-owner-06",
-                "line": 2636,
+                "line": 2634,
                 "anchor": "#a-stranded-leaf-concept-comes-back-to-its-owner",
                 "content_sha1": "7d34d89969ff6580016263780ec18886a3377351",
                 "outputs": {
@@ -5446,7 +5435,7 @@
             },
             {
                 "destination": "a-stranded-leaf-concept-comes-back-to-its-owner-07",
-                "line": 2637,
+                "line": 2635,
                 "anchor": "#a-stranded-leaf-concept-comes-back-to-its-owner",
                 "content_sha1": "1fe9bd1097075d80aed45dc405f71a3913863727",
                 "outputs": {
@@ -5457,7 +5446,7 @@
             },
             {
                 "destination": "a-stranded-leaf-concept-comes-back-to-its-owner-08",
-                "line": 2638,
+                "line": 2636,
                 "anchor": "#a-stranded-leaf-concept-comes-back-to-its-owner",
                 "content_sha1": "66eb663a3112bc8605293c7dc7eb5f6793edc4da",
                 "outputs": {
@@ -5468,7 +5457,7 @@
             },
             {
                 "destination": "a-stranded-leaf-concept-comes-back-to-its-owner-09",
-                "line": 2639,
+                "line": 2637,
                 "anchor": "#a-stranded-leaf-concept-comes-back-to-its-owner",
                 "content_sha1": "cbd5379f347df1c7e0840ce4cc3b3cf33dc6e0c1",
                 "outputs": {
@@ -5479,7 +5468,7 @@
             },
             {
                 "destination": "a-stranded-leaf-concept-comes-back-to-its-owner-10",
-                "line": 2640,
+                "line": 2638,
                 "anchor": "#a-stranded-leaf-concept-comes-back-to-its-owner",
                 "content_sha1": "ac85471cbf9bfdb1079b680632c47444f61b9d31",
                 "outputs": {
@@ -5490,7 +5479,7 @@
             },
             {
                 "destination": "a-stranded-leaf-concept-comes-back-to-its-owner-11",
-                "line": 2641,
+                "line": 2639,
                 "anchor": "#a-stranded-leaf-concept-comes-back-to-its-owner",
                 "content_sha1": "95544f6ab93269b1d4e7f86834176a547dcf63f1",
                 "outputs": {
@@ -5501,7 +5490,7 @@
             },
             {
                 "destination": "a-stranded-leaf-concept-comes-back-to-its-owner-12",
-                "line": 2642,
+                "line": 2640,
                 "anchor": "#a-stranded-leaf-concept-comes-back-to-its-owner",
                 "content_sha1": "d9a780e5f4cee6593df85403cbd245ac86150091",
                 "outputs": {
@@ -5512,7 +5501,7 @@
             },
             {
                 "destination": "a-stranded-leaf-concept-comes-back-to-its-owner-13",
-                "line": 2643,
+                "line": 2641,
                 "anchor": "#a-stranded-leaf-concept-comes-back-to-its-owner",
                 "content_sha1": "ad32b3bb86ddb429765a45618c6986f559f77873",
                 "outputs": {
@@ -5523,7 +5512,7 @@
             },
             {
                 "destination": "a-stranded-leaf-concept-comes-back-to-its-owner-14",
-                "line": 2644,
+                "line": 2642,
                 "anchor": "#a-stranded-leaf-concept-comes-back-to-its-owner",
                 "content_sha1": "ca6c0d3f0a530fedf82aceb8c0c5b3c0a042d3a8",
                 "outputs": {
@@ -5534,7 +5523,7 @@
             },
             {
                 "destination": "a-far-tie-draws-long-the-concept-stays-beside-its-anchor",
-                "line": 2675,
+                "line": 2673,
                 "anchor": "#a-far-tie-draws-long-the-concept-stays-beside-its-anchor",
                 "content_sha1": "c945ceb67dfb24ce7b3416f8e556cf67e16423ee",
                 "outputs": {
@@ -5545,7 +5534,7 @@
             },
             {
                 "destination": "a-far-tie-draws-long-the-concept-stays-beside-its-anchor-02",
-                "line": 2676,
+                "line": 2674,
                 "anchor": "#a-far-tie-draws-long-the-concept-stays-beside-its-anchor",
                 "content_sha1": "a7b9f986ffbf2434b82a72d86c93a858f462661f",
                 "outputs": {
@@ -5556,7 +5545,7 @@
             },
             {
                 "destination": "a-far-tie-draws-long-the-concept-stays-beside-its-anchor-03",
-                "line": 2677,
+                "line": 2675,
                 "anchor": "#a-far-tie-draws-long-the-concept-stays-beside-its-anchor",
                 "content_sha1": "72a11cf01475bfd4301ebf5c3b73103361c14b3e",
                 "outputs": {
@@ -5567,7 +5556,7 @@
             },
             {
                 "destination": "a-far-tie-draws-long-the-concept-stays-beside-its-anchor-04",
-                "line": 2678,
+                "line": 2676,
                 "anchor": "#a-far-tie-draws-long-the-concept-stays-beside-its-anchor",
                 "content_sha1": "a55dc2543595870c813cb246e1ad77efcd1a6059",
                 "outputs": {
@@ -5578,7 +5567,7 @@
             },
             {
                 "destination": "a-far-tie-draws-long-the-concept-stays-beside-its-anchor-05",
-                "line": 2679,
+                "line": 2677,
                 "anchor": "#a-far-tie-draws-long-the-concept-stays-beside-its-anchor",
                 "content_sha1": "2441a6358f4b9db586a1c99c4ac63bfc93c6dfa6",
                 "outputs": {
@@ -5589,7 +5578,7 @@
             },
             {
                 "destination": "a-far-tie-draws-long-the-concept-stays-beside-its-anchor-06",
-                "line": 2680,
+                "line": 2678,
                 "anchor": "#a-far-tie-draws-long-the-concept-stays-beside-its-anchor",
                 "content_sha1": "4d55c6fd806df37cbeb7f8372eccb407f04c1b08",
                 "outputs": {
@@ -5600,7 +5589,7 @@
             },
             {
                 "destination": "a-far-tie-draws-long-the-concept-stays-beside-its-anchor-07",
-                "line": 2681,
+                "line": 2679,
                 "anchor": "#a-far-tie-draws-long-the-concept-stays-beside-its-anchor",
                 "content_sha1": "abfc098132cc57bc798f2cd979b9967e81e71d3c",
                 "outputs": {
@@ -5611,7 +5600,7 @@
             },
             {
                 "destination": "a-far-tie-draws-long-the-concept-stays-beside-its-anchor-08",
-                "line": 2682,
+                "line": 2680,
                 "anchor": "#a-far-tie-draws-long-the-concept-stays-beside-its-anchor",
                 "content_sha1": "9276269b17eba0bea8a6450f39b8a5da219885ed",
                 "outputs": {
@@ -5622,7 +5611,7 @@
             },
             {
                 "destination": "a-far-tie-draws-long-the-concept-stays-beside-its-anchor-09",
-                "line": 2683,
+                "line": 2681,
                 "anchor": "#a-far-tie-draws-long-the-concept-stays-beside-its-anchor",
                 "content_sha1": "1a0b60434e0833f5eba3c9e0a62db1b5cbcea627",
                 "outputs": {
@@ -5633,7 +5622,7 @@
             },
             {
                 "destination": "a-far-tie-draws-long-the-concept-stays-beside-its-anchor-10",
-                "line": 2684,
+                "line": 2682,
                 "anchor": "#a-far-tie-draws-long-the-concept-stays-beside-its-anchor",
                 "content_sha1": "80317696537d533b8fd035900ac119204a4dca26",
                 "outputs": {
@@ -5644,7 +5633,7 @@
             },
             {
                 "destination": "a-far-tie-draws-long-the-concept-stays-beside-its-anchor-11",
-                "line": 2685,
+                "line": 2683,
                 "anchor": "#a-far-tie-draws-long-the-concept-stays-beside-its-anchor",
                 "content_sha1": "407fdce18ad525424402c2d023fa054ddd6bc8f4",
                 "outputs": {
@@ -5655,7 +5644,7 @@
             },
             {
                 "destination": "a-far-shared-concept-anchors-to-its-first-usage",
-                "line": 2715,
+                "line": 2713,
                 "anchor": "#a-far-shared-concept-anchors-to-its-first-usage",
                 "content_sha1": "ca8978ade09463c473adaa41aa1dc3633e83ab25",
                 "outputs": {
@@ -5666,7 +5655,7 @@
             },
             {
                 "destination": "a-far-shared-concept-anchors-to-its-first-usage-02",
-                "line": 2716,
+                "line": 2714,
                 "anchor": "#a-far-shared-concept-anchors-to-its-first-usage",
                 "content_sha1": "9bbb37f4808cf061823cc40f24b35c05094e1fff",
                 "outputs": {
@@ -5677,7 +5666,7 @@
             },
             {
                 "destination": "a-far-shared-concept-anchors-to-its-first-usage-03",
-                "line": 2717,
+                "line": 2715,
                 "anchor": "#a-far-shared-concept-anchors-to-its-first-usage",
                 "content_sha1": "c2e1220183760930ba591e0c41778673ecf889b5",
                 "outputs": {
@@ -5688,7 +5677,7 @@
             },
             {
                 "destination": "a-far-shared-concept-anchors-to-its-first-usage-04",
-                "line": 2718,
+                "line": 2716,
                 "anchor": "#a-far-shared-concept-anchors-to-its-first-usage",
                 "content_sha1": "a192962ce25c2fabe0de5c245cf531ade93b590e",
                 "outputs": {
@@ -5699,7 +5688,7 @@
             },
             {
                 "destination": "a-far-shared-concept-anchors-to-its-first-usage-05",
-                "line": 2719,
+                "line": 2717,
                 "anchor": "#a-far-shared-concept-anchors-to-its-first-usage",
                 "content_sha1": "5aa75cdae2de67e901e238e9fb7365383825a8e5",
                 "outputs": {
@@ -5710,7 +5699,7 @@
             },
             {
                 "destination": "a-far-shared-concept-anchors-to-its-first-usage-06",
-                "line": 2720,
+                "line": 2718,
                 "anchor": "#a-far-shared-concept-anchors-to-its-first-usage",
                 "content_sha1": "2d74e71e7e38aa950822ac10c2a0945ef6258ce1",
                 "outputs": {
@@ -5721,7 +5710,7 @@
             },
             {
                 "destination": "a-far-shared-concept-anchors-to-its-first-usage-07",
-                "line": 2721,
+                "line": 2719,
                 "anchor": "#a-far-shared-concept-anchors-to-its-first-usage",
                 "content_sha1": "2abde15dcd13822a2ff2791295387a020bfa10f8",
                 "outputs": {
@@ -5732,7 +5721,7 @@
             },
             {
                 "destination": "a-far-shared-concept-anchors-to-its-first-usage-08",
-                "line": 2722,
+                "line": 2720,
                 "anchor": "#a-far-shared-concept-anchors-to-its-first-usage",
                 "content_sha1": "f14744790088687c81c7733249a8381733fadd4b",
                 "outputs": {
@@ -5743,7 +5732,7 @@
             },
             {
                 "destination": "component-constellation-places-tied-components-around-the-hub",
-                "line": 2746,
+                "line": 2744,
                 "anchor": "#component-constellation-places-tied-components-around-the-hub",
                 "content_sha1": "1c693daf56545c5ece6a1477dbe28008379ce251",
                 "outputs": {
@@ -5754,7 +5743,7 @@
             },
             {
                 "destination": "component-constellation-places-tied-components-around-the-hub-02",
-                "line": 2747,
+                "line": 2745,
                 "anchor": "#component-constellation-places-tied-components-around-the-hub",
                 "content_sha1": "0721af3f91891f5da64591231e9339686423a9a5",
                 "outputs": {
@@ -5765,7 +5754,7 @@
             },
             {
                 "destination": "component-constellation-places-tied-components-around-the-hub-03",
-                "line": 2748,
+                "line": 2746,
                 "anchor": "#component-constellation-places-tied-components-around-the-hub",
                 "content_sha1": "5d9c81675de75d72c091f8d20a7855fdc25191ac",
                 "outputs": {
@@ -5776,7 +5765,7 @@
             },
             {
                 "destination": "component-constellation-places-tied-components-around-the-hub-04",
-                "line": 2749,
+                "line": 2747,
                 "anchor": "#component-constellation-places-tied-components-around-the-hub",
                 "content_sha1": "c35c81ec6c1c3e9b75ee2745b5f31fd281c17a25",
                 "outputs": {
@@ -5787,7 +5776,7 @@
             },
             {
                 "destination": "component-constellation-places-tied-components-around-the-hub-05",
-                "line": 2750,
+                "line": 2748,
                 "anchor": "#component-constellation-places-tied-components-around-the-hub",
                 "content_sha1": "3be6e5e1c91e5363e9d099e06d343a9d05dcd903",
                 "outputs": {
@@ -5798,7 +5787,7 @@
             },
             {
                 "destination": "component-constellation-places-tied-components-around-the-hub-06",
-                "line": 2751,
+                "line": 2749,
                 "anchor": "#component-constellation-places-tied-components-around-the-hub",
                 "content_sha1": "d29a08de9666b23729694e8fb3e389a4a63b45f0",
                 "outputs": {
@@ -5809,7 +5798,7 @@
             },
             {
                 "destination": "component-constellation-places-tied-components-around-the-hub-07",
-                "line": 2752,
+                "line": 2750,
                 "anchor": "#component-constellation-places-tied-components-around-the-hub",
                 "content_sha1": "2be196c8a4f7439ec9867bbff6bc9ab7dcc11d1b",
                 "outputs": {
@@ -5820,7 +5809,7 @@
             },
             {
                 "destination": "component-constellation-places-tied-components-around-the-hub-08",
-                "line": 2753,
+                "line": 2751,
                 "anchor": "#component-constellation-places-tied-components-around-the-hub",
                 "content_sha1": "ff741a2e4203278c40ee3cad951c4f809cbf8d9b",
                 "outputs": {
@@ -5831,7 +5820,7 @@
             },
             {
                 "destination": "tied-components-ring-the-hub-on-every-side-onion",
-                "line": 2794,
+                "line": 2792,
                 "anchor": "#tied-components-ring-the-hub-on-every-side-onion",
                 "content_sha1": "ddbcafa2c0d01dc90c747cff57f2b0d2971b17a3",
                 "outputs": {
@@ -5842,7 +5831,7 @@
             },
             {
                 "destination": "tied-components-ring-the-hub-on-every-side-onion-02",
-                "line": 2795,
+                "line": 2793,
                 "anchor": "#tied-components-ring-the-hub-on-every-side-onion",
                 "content_sha1": "9ab2bf3a05a9ac4f9027855aed566f2c00019cf4",
                 "outputs": {
@@ -5853,7 +5842,7 @@
             },
             {
                 "destination": "tied-components-ring-the-hub-on-every-side-onion-03",
-                "line": 2796,
+                "line": 2794,
                 "anchor": "#tied-components-ring-the-hub-on-every-side-onion",
                 "content_sha1": "0721af3f91891f5da64591231e9339686423a9a5",
                 "outputs": {
@@ -5864,7 +5853,7 @@
             },
             {
                 "destination": "tied-components-ring-the-hub-on-every-side-onion-04",
-                "line": 2797,
+                "line": 2795,
                 "anchor": "#tied-components-ring-the-hub-on-every-side-onion",
                 "content_sha1": "dcb3328b094b56b0d992fc7c141e6ae708d758c3",
                 "outputs": {
@@ -5875,7 +5864,7 @@
             },
             {
                 "destination": "tied-components-ring-the-hub-on-every-side-onion-05",
-                "line": 2798,
+                "line": 2796,
                 "anchor": "#tied-components-ring-the-hub-on-every-side-onion",
                 "content_sha1": "c655d2ffce79501a24bc666070960565184707e4",
                 "outputs": {
@@ -5886,7 +5875,7 @@
             },
             {
                 "destination": "tied-components-ring-the-hub-on-every-side-onion-06",
-                "line": 2799,
+                "line": 2797,
                 "anchor": "#tied-components-ring-the-hub-on-every-side-onion",
                 "content_sha1": "5ecc6b1615366d2fef148f64c7231d56600c1689",
                 "outputs": {
@@ -5897,7 +5886,7 @@
             },
             {
                 "destination": "tied-components-ring-the-hub-on-every-side-onion-07",
-                "line": 2800,
+                "line": 2798,
                 "anchor": "#tied-components-ring-the-hub-on-every-side-onion",
                 "content_sha1": "bf3d8a3de31744cdb763b37361b40f92a39dc047",
                 "outputs": {
@@ -5908,7 +5897,7 @@
             },
             {
                 "destination": "tied-components-ring-the-hub-on-every-side-onion-08",
-                "line": 2801,
+                "line": 2799,
                 "anchor": "#tied-components-ring-the-hub-on-every-side-onion",
                 "content_sha1": "bd9cf5239949bf9e8d92a2bde935b403c61361b1",
                 "outputs": {
@@ -5919,7 +5908,7 @@
             },
             {
                 "destination": "tied-components-ring-the-hub-on-every-side-onion-09",
-                "line": 2802,
+                "line": 2800,
                 "anchor": "#tied-components-ring-the-hub-on-every-side-onion",
                 "content_sha1": "3be6e5e1c91e5363e9d099e06d343a9d05dcd903",
                 "outputs": {
@@ -5930,7 +5919,7 @@
             },
             {
                 "destination": "tied-components-ring-the-hub-on-every-side-onion-10",
-                "line": 2803,
+                "line": 2801,
                 "anchor": "#tied-components-ring-the-hub-on-every-side-onion",
                 "content_sha1": "b1702bf83ed0c8ee5b3755040d10ae4e908b47cb",
                 "outputs": {
@@ -5941,7 +5930,7 @@
             },
             {
                 "destination": "tied-components-ring-the-hub-on-every-side-onion-11",
-                "line": 2804,
+                "line": 2802,
                 "anchor": "#tied-components-ring-the-hub-on-every-side-onion",
                 "content_sha1": "59704fc3e16105801d4212fdfe67d4b3aefc743c",
                 "outputs": {
@@ -5952,7 +5941,7 @@
             },
             {
                 "destination": "tied-components-ring-the-hub-on-every-side-onion-12",
-                "line": 2805,
+                "line": 2803,
                 "anchor": "#tied-components-ring-the-hub-on-every-side-onion",
                 "content_sha1": "aa2e671d5d9310fd51605801dab6e6f4fd1a64d8",
                 "outputs": {
@@ -5963,7 +5952,7 @@
             },
             {
                 "destination": "tied-components-ring-the-hub-on-every-side-onion-13",
-                "line": 2806,
+                "line": 2804,
                 "anchor": "#tied-components-ring-the-hub-on-every-side-onion",
                 "content_sha1": "a2f42edd72d5ab81455aafdf6c2711df65b4c2e7",
                 "outputs": {
@@ -5974,7 +5963,7 @@
             },
             {
                 "destination": "tied-components-ring-the-hub-on-every-side-onion-14",
-                "line": 2807,
+                "line": 2805,
                 "anchor": "#tied-components-ring-the-hub-on-every-side-onion",
                 "content_sha1": "6a1011e5898efbe05ec246bd70e3c69f0a391069",
                 "outputs": {
@@ -5985,7 +5974,7 @@
             },
             {
                 "destination": "tied-components-ring-the-hub-on-every-side-onion-15",
-                "line": 2808,
+                "line": 2806,
                 "anchor": "#tied-components-ring-the-hub-on-every-side-onion",
                 "content_sha1": "889ace4cf8173900eabb4bba57097e04f3970270",
                 "outputs": {
@@ -5996,7 +5985,7 @@
             },
             {
                 "destination": "tied-components-ring-the-hub-on-every-side-onion-16",
-                "line": 2809,
+                "line": 2807,
                 "anchor": "#tied-components-ring-the-hub-on-every-side-onion",
                 "content_sha1": "ec3d34057681071462a3490f856e6619057fbdf3",
                 "outputs": {
@@ -6007,7 +5996,7 @@
             },
             {
                 "destination": "tied-components-ring-the-hub-on-every-side-onion-17",
-                "line": 2810,
+                "line": 2808,
                 "anchor": "#tied-components-ring-the-hub-on-every-side-onion",
                 "content_sha1": "757d9036b19f50fcaf546d2a15429f8aed7ffe54",
                 "outputs": {
@@ -6018,7 +6007,7 @@
             },
             {
                 "destination": "tied-components-ring-the-hub-on-every-side-onion-18",
-                "line": 2811,
+                "line": 2809,
                 "anchor": "#tied-components-ring-the-hub-on-every-side-onion",
                 "content_sha1": "fd1392d6281b193249f7e6033db9d1aa6787aad7",
                 "outputs": {
@@ -6029,7 +6018,7 @@
             },
             {
                 "destination": "tied-components-ring-the-hub-on-every-side-onion-19",
-                "line": 2812,
+                "line": 2810,
                 "anchor": "#tied-components-ring-the-hub-on-every-side-onion",
                 "content_sha1": "b94d2a552a9ab7522c712ace2920b53b030be500",
                 "outputs": {
@@ -6040,7 +6029,7 @@
             },
             {
                 "destination": "single-node-ties-ring-their-core-graph",
-                "line": 2841,
+                "line": 2839,
                 "anchor": "#single-node-ties-ring-their-core-graph",
                 "content_sha1": "d3a37707887b03d903b9b9f37c0e6b66d2c06a3e",
                 "outputs": {
@@ -6051,7 +6040,7 @@
             },
             {
                 "destination": "single-node-ties-ring-their-core-graph-02",
-                "line": 2842,
+                "line": 2840,
                 "anchor": "#single-node-ties-ring-their-core-graph",
                 "content_sha1": "35da867578cfae3c36c44453ddf6c3c39d9e4853",
                 "outputs": {
@@ -6062,7 +6051,7 @@
             },
             {
                 "destination": "single-node-ties-ring-their-core-graph-03",
-                "line": 2843,
+                "line": 2841,
                 "anchor": "#single-node-ties-ring-their-core-graph",
                 "content_sha1": "b90a7fccdd38fe25141cea63c1968fe17f0f96d7",
                 "outputs": {
@@ -6073,7 +6062,7 @@
             },
             {
                 "destination": "single-node-ties-ring-their-core-graph-04",
-                "line": 2844,
+                "line": 2842,
                 "anchor": "#single-node-ties-ring-their-core-graph",
                 "content_sha1": "a020c0131fe3824f578153a1ba7ed882bd1f1cfa",
                 "outputs": {
@@ -6084,7 +6073,7 @@
             },
             {
                 "destination": "single-node-ties-ring-their-core-graph-05",
-                "line": 2845,
+                "line": 2843,
                 "anchor": "#single-node-ties-ring-their-core-graph",
                 "content_sha1": "b8d1c8e66ca727664d5cbc031c7addde62770e6b",
                 "outputs": {
@@ -6095,7 +6084,7 @@
             },
             {
                 "destination": "single-node-ties-ring-their-core-graph-06",
-                "line": 2846,
+                "line": 2844,
                 "anchor": "#single-node-ties-ring-their-core-graph",
                 "content_sha1": "bd978ad9f12d924740c3f306fbacce7d2e7faf89",
                 "outputs": {
@@ -6106,7 +6095,7 @@
             },
             {
                 "destination": "single-node-ties-ring-their-core-graph-07",
-                "line": 2847,
+                "line": 2845,
                 "anchor": "#single-node-ties-ring-their-core-graph",
                 "content_sha1": "1cdecd29f7ab4aae74d9c3613b818ca16a9df41e",
                 "outputs": {
@@ -6117,7 +6106,7 @@
             },
             {
                 "destination": "a-satellite-wraps-its-own-rows-not-the-whole-flank",
-                "line": 2881,
+                "line": 2879,
                 "anchor": "#a-satellite-wraps-its-own-rows-not-the-whole-flank",
                 "content_sha1": "f37d0c61f7bf9190be0ef5b10fb0c85bb86dc4a8",
                 "outputs": {
@@ -6128,7 +6117,7 @@
             },
             {
                 "destination": "a-satellite-wraps-its-own-rows-not-the-whole-flank-02",
-                "line": 2882,
+                "line": 2880,
                 "anchor": "#a-satellite-wraps-its-own-rows-not-the-whole-flank",
                 "content_sha1": "2511cd1ea83814a752ad27560749a4f06a0d1c4e",
                 "outputs": {
@@ -6139,7 +6128,7 @@
             },
             {
                 "destination": "a-satellite-wraps-its-own-rows-not-the-whole-flank-03",
-                "line": 2883,
+                "line": 2881,
                 "anchor": "#a-satellite-wraps-its-own-rows-not-the-whole-flank",
                 "content_sha1": "8e974148415cd9028cc62245407f017a09bbbe36",
                 "outputs": {
@@ -6150,7 +6139,7 @@
             },
             {
                 "destination": "a-satellite-wraps-its-own-rows-not-the-whole-flank-04",
-                "line": 2884,
+                "line": 2882,
                 "anchor": "#a-satellite-wraps-its-own-rows-not-the-whole-flank",
                 "content_sha1": "cb2edbadb6f0e87956ca6118560b3a329eb7dbb9",
                 "outputs": {
@@ -6161,7 +6150,7 @@
             },
             {
                 "destination": "a-satellite-wraps-its-own-rows-not-the-whole-flank-05",
-                "line": 2885,
+                "line": 2883,
                 "anchor": "#a-satellite-wraps-its-own-rows-not-the-whole-flank",
                 "content_sha1": "4994880f7aea29ab6077c1f39ee29dae6c220cb4",
                 "outputs": {
@@ -6172,7 +6161,7 @@
             },
             {
                 "destination": "a-satellite-wraps-its-own-rows-not-the-whole-flank-06",
-                "line": 2886,
+                "line": 2884,
                 "anchor": "#a-satellite-wraps-its-own-rows-not-the-whole-flank",
                 "content_sha1": "715412361a1c10832cb414a8783180e432016b2f",
                 "outputs": {
@@ -6183,7 +6172,7 @@
             },
             {
                 "destination": "a-satellite-wraps-its-own-rows-not-the-whole-flank-07",
-                "line": 2887,
+                "line": 2885,
                 "anchor": "#a-satellite-wraps-its-own-rows-not-the-whole-flank",
                 "content_sha1": "44bde88716def7222fcc8914dcf0235b10a084d3",
                 "outputs": {
@@ -6194,7 +6183,7 @@
             },
             {
                 "destination": "a-satellite-wraps-its-own-rows-not-the-whole-flank-08",
-                "line": 2888,
+                "line": 2886,
                 "anchor": "#a-satellite-wraps-its-own-rows-not-the-whole-flank",
                 "content_sha1": "42f38144e396250946b58c0db131f1b104cddeae",
                 "outputs": {
@@ -6205,7 +6194,7 @@
             },
             {
                 "destination": "a-satellite-wraps-its-own-rows-not-the-whole-flank-09",
-                "line": 2889,
+                "line": 2887,
                 "anchor": "#a-satellite-wraps-its-own-rows-not-the-whole-flank",
                 "content_sha1": "77518e3b4b41036557eb3569cfc1f15c99217352",
                 "outputs": {
@@ -6216,7 +6205,7 @@
             },
             {
                 "destination": "a-satellite-wraps-its-own-rows-not-the-whole-flank-10",
-                "line": 2890,
+                "line": 2888,
                 "anchor": "#a-satellite-wraps-its-own-rows-not-the-whole-flank",
                 "content_sha1": "df383b7fba5553805c25aad4e6588fd03a4f0edb",
                 "outputs": {
@@ -6227,7 +6216,7 @@
             },
             {
                 "destination": "a-satellite-wraps-its-own-rows-not-the-whole-flank-11",
-                "line": 2891,
+                "line": 2889,
                 "anchor": "#a-satellite-wraps-its-own-rows-not-the-whole-flank",
                 "content_sha1": "3a8169228c7a6dbd9161781313a275c5511f654c",
                 "outputs": {
@@ -6238,7 +6227,7 @@
             },
             {
                 "destination": "a-satellite-wraps-its-own-rows-not-the-whole-flank-12",
-                "line": 2892,
+                "line": 2890,
                 "anchor": "#a-satellite-wraps-its-own-rows-not-the-whole-flank",
                 "content_sha1": "7d30a166c2ad1062924992bb8f1ad9b6dd49cfc4",
                 "outputs": {
@@ -6249,7 +6238,7 @@
             },
             {
                 "destination": "a-near-to-concept-stays-beside-its-anchor-not-ringed",
-                "line": 2916,
+                "line": 2914,
                 "anchor": "#a-near-to-concept-stays-beside-its-anchor-not-ringed",
                 "content_sha1": "22e4859eb9239f9fd3f94ad0e8eabc0c43684af5",
                 "outputs": {
@@ -6260,7 +6249,7 @@
             },
             {
                 "destination": "a-near-to-concept-stays-beside-its-anchor-not-ringed-02",
-                "line": 2917,
+                "line": 2915,
                 "anchor": "#a-near-to-concept-stays-beside-its-anchor-not-ringed",
                 "content_sha1": "308931df88a826d01625e951cd1e1cb720a0eedb",
                 "outputs": {
@@ -6271,7 +6260,7 @@
             },
             {
                 "destination": "a-near-to-concept-stays-beside-its-anchor-not-ringed-03",
-                "line": 2918,
+                "line": 2916,
                 "anchor": "#a-near-to-concept-stays-beside-its-anchor-not-ringed",
                 "content_sha1": "18812a16ca276dd268e91549a2582ebf040c6cc1",
                 "outputs": {
@@ -6282,7 +6271,7 @@
             },
             {
                 "destination": "unresolved-node-lays-out-as-its-primary-candidate",
-                "line": 2940,
+                "line": 2938,
                 "anchor": "#unresolved-node-lays-out-as-its-primary-candidate",
                 "content_sha1": "9a22194a7c9d769a52d1170b56ec96519a356b67",
                 "outputs": {
@@ -6293,7 +6282,7 @@
             },
             {
                 "destination": "unresolved-node-lays-out-as-its-primary-candidate-02",
-                "line": 2941,
+                "line": 2939,
                 "anchor": "#unresolved-node-lays-out-as-its-primary-candidate",
                 "content_sha1": "24edf5e5acab40d6969c078a7ee11ef5277fc98e",
                 "outputs": {
@@ -6304,7 +6293,7 @@
             },
             {
                 "destination": "unresolved-node-lays-out-as-its-primary-candidate-03",
-                "line": 2942,
+                "line": 2940,
                 "anchor": "#unresolved-node-lays-out-as-its-primary-candidate",
                 "content_sha1": "086be2bca69e08c7516c2735a9ab6f1d168c9133",
                 "outputs": {
@@ -6315,7 +6304,7 @@
             },
             {
                 "destination": "thing-to-concept-spacing",
-                "line": 3024,
+                "line": 3022,
                 "anchor": "#thing-to-concept-spacing",
                 "content_sha1": "c5435a32d8bba2a3092fbb98590c892b79d77bca",
                 "outputs": {
@@ -6326,7 +6315,7 @@
             },
             {
                 "destination": "thing-to-concept-spacing-02",
-                "line": 3025,
+                "line": 3023,
                 "anchor": "#thing-to-concept-spacing",
                 "content_sha1": "fadf130ef00cca9c18a6837da31dfb8f9891813c",
                 "outputs": {
@@ -6337,7 +6326,7 @@
             },
             {
                 "destination": "thing-to-concept-spacing-03",
-                "line": 3026,
+                "line": 3024,
                 "anchor": "#thing-to-concept-spacing",
                 "content_sha1": "5a76e3b4a932eca646faf678f81b4e6cb27d9c80",
                 "outputs": {
@@ -6348,7 +6337,7 @@
             },
             {
                 "destination": "thing-to-concept-spacing-04",
-                "line": 3027,
+                "line": 3025,
                 "anchor": "#thing-to-concept-spacing",
                 "content_sha1": "16d7b4d49ee7ea6ab5f6b1f4f718e10a1088e84b",
                 "outputs": {
@@ -6359,7 +6348,7 @@
             },
             {
                 "destination": "thing-to-concept-spacing-05",
-                "line": 3028,
+                "line": 3026,
                 "anchor": "#thing-to-concept-spacing",
                 "content_sha1": "172c5bc80e6bac832d29b8eda9dd3ceae6f00f85",
                 "outputs": {
@@ -6370,7 +6359,7 @@
             },
             {
                 "destination": "thing-to-concept-spacing-06",
-                "line": 3029,
+                "line": 3027,
                 "anchor": "#thing-to-concept-spacing",
                 "content_sha1": "f1473aa172c3fc68172a97cbfaf316a750d46f6b",
                 "outputs": {
@@ -6381,7 +6370,7 @@
             },
             {
                 "destination": "thing-to-concept-spacing-07",
-                "line": 3030,
+                "line": 3028,
                 "anchor": "#thing-to-concept-spacing",
                 "content_sha1": "967296494a8efce8fe7e09fdeef48ffd0bc0eda3",
                 "outputs": {
@@ -6392,7 +6381,7 @@
             },
             {
                 "destination": "long-event-widens-and-stays-centered",
-                "line": 3060,
+                "line": 3058,
                 "anchor": "#long-event-widens-and-stays-centered",
                 "content_sha1": "a74f77dc8d91a7217b3eefe42f21ddbcc1b40121",
                 "outputs": {
@@ -6403,7 +6392,7 @@
             },
             {
                 "destination": "long-event-widens-and-stays-centered-02",
-                "line": 3061,
+                "line": 3059,
                 "anchor": "#long-event-widens-and-stays-centered",
                 "content_sha1": "0c8a8b4531d20ad666d41d08815f47aa8628df05",
                 "outputs": {
@@ -6414,7 +6403,7 @@
             },
             {
                 "destination": "long-event-widens-and-stays-centered-03",
-                "line": 3062,
+                "line": 3060,
                 "anchor": "#long-event-widens-and-stays-centered",
                 "content_sha1": "fdc2384a3f3e190d0ec8f77a2ed91b421f363417",
                 "outputs": {
@@ -6425,7 +6414,7 @@
             },
             {
                 "destination": "s-and-e-boundaries-connect-on-their-bottom-and-top",
-                "line": 3099,
+                "line": 3097,
                 "anchor": "#s-and-e-boundaries-connect-on-their-bottom-and-top",
                 "content_sha1": "9b6c3ce48074af99137a58015c6eeec6ee8ae008",
                 "outputs": {
@@ -6436,7 +6425,7 @@
             },
             {
                 "destination": "s-and-e-boundaries-connect-on-their-bottom-and-top-02",
-                "line": 3100,
+                "line": 3098,
                 "anchor": "#s-and-e-boundaries-connect-on-their-bottom-and-top",
                 "content_sha1": "34480eb403efd11c512a17611a4e119f3db44b1a",
                 "outputs": {
@@ -6447,7 +6436,7 @@
             },
             {
                 "destination": "s-and-e-boundaries-connect-on-their-bottom-and-top-03",
-                "line": 3101,
+                "line": 3099,
                 "anchor": "#s-and-e-boundaries-connect-on-their-bottom-and-top",
                 "content_sha1": "8c37419c5091ada555816b401098200db796dadf",
                 "outputs": {
@@ -6458,7 +6447,7 @@
             },
             {
                 "destination": "s-and-e-boundaries-connect-on-their-bottom-and-top-04",
-                "line": 3102,
+                "line": 3100,
                 "anchor": "#s-and-e-boundaries-connect-on-their-bottom-and-top",
                 "content_sha1": "b26c4826f55978f69c730970f1b89aa42c51a6bc",
                 "outputs": {
@@ -6469,7 +6458,7 @@
             },
             {
                 "destination": "s-and-e-boundaries-connect-on-their-bottom-and-top-05",
-                "line": 3103,
+                "line": 3101,
                 "anchor": "#s-and-e-boundaries-connect-on-their-bottom-and-top",
                 "content_sha1": "97482e95ce17008ca24b92e1f31bf6a44da6f802",
                 "outputs": {
@@ -6480,7 +6469,7 @@
             },
             {
                 "destination": "s-and-e-boundaries-connect-on-their-bottom-and-top-06",
-                "line": 3104,
+                "line": 3102,
                 "anchor": "#s-and-e-boundaries-connect-on-their-bottom-and-top",
                 "content_sha1": "f426cfbe888e677230a5ee9fd68ed5d09eac9414",
                 "outputs": {
@@ -6491,7 +6480,7 @@
             },
             {
                 "destination": "s-and-e-boundaries-connect-on-their-bottom-and-top-07",
-                "line": 3105,
+                "line": 3103,
                 "anchor": "#s-and-e-boundaries-connect-on-their-bottom-and-top",
                 "content_sha1": "ca8978ade09463c473adaa41aa1dc3633e83ab25",
                 "outputs": {
@@ -6502,7 +6491,7 @@
             },
             {
                 "destination": "s-and-e-boundaries-connect-on-their-bottom-and-top-08",
-                "line": 3106,
+                "line": 3104,
                 "anchor": "#s-and-e-boundaries-connect-on-their-bottom-and-top",
                 "content_sha1": "7d20d4a7a79e0fb11e19aaea417b978898d0e8b2",
                 "outputs": {
@@ -6513,7 +6502,7 @@
             },
             {
                 "destination": "s-and-e-boundaries-connect-on-their-bottom-and-top-09",
-                "line": 3107,
+                "line": 3105,
                 "anchor": "#s-and-e-boundaries-connect-on-their-bottom-and-top",
                 "content_sha1": "eb73cb645b0fc59233c715814068f259e195c6cb",
                 "outputs": {
@@ -6524,7 +6513,7 @@
             },
             {
                 "destination": "s-and-e-boundaries-connect-on-their-bottom-and-top-10",
-                "line": 3108,
+                "line": 3106,
                 "anchor": "#s-and-e-boundaries-connect-on-their-bottom-and-top",
                 "content_sha1": "ff6466a376c486a5a69f283265b256e4ec0577d5",
                 "outputs": {
@@ -6535,7 +6524,7 @@
             },
             {
                 "destination": "s-and-e-boundaries-connect-on-their-bottom-and-top-11",
-                "line": 3109,
+                "line": 3107,
                 "anchor": "#s-and-e-boundaries-connect-on-their-bottom-and-top",
                 "content_sha1": "d8ddd92b8efea55167c63165e540a01375c17c86",
                 "outputs": {
@@ -6546,7 +6535,7 @@
             },
             {
                 "destination": "s-and-e-boundaries-connect-on-their-bottom-and-top-12",
-                "line": 3110,
+                "line": 3108,
                 "anchor": "#s-and-e-boundaries-connect-on-their-bottom-and-top",
                 "content_sha1": "14e1b51890b566f930d6129c7a5b6e7eb75e33cc",
                 "outputs": {
@@ -6557,7 +6546,7 @@
             },
             {
                 "destination": "s-and-e-boundaries-connect-on-their-bottom-and-top-13",
-                "line": 3111,
+                "line": 3109,
                 "anchor": "#s-and-e-boundaries-connect-on-their-bottom-and-top",
                 "content_sha1": "a1d5e70b9baeda9fdcbfdf3e5aaea5b146f59151",
                 "outputs": {
@@ -6568,7 +6557,7 @@
             },
             {
                 "destination": "a-two-concept-fan-mirrors-exactly-about-its-parent",
-                "line": 3131,
+                "line": 3129,
                 "anchor": "#a-two-concept-fan-mirrors-exactly-about-its-parent",
                 "content_sha1": "061a0007b2a968dd8ac52cfea71d3ae3fd77db65",
                 "outputs": {
@@ -6579,7 +6568,7 @@
             },
             {
                 "destination": "a-two-concept-fan-mirrors-exactly-about-its-parent-02",
-                "line": 3132,
+                "line": 3130,
                 "anchor": "#a-two-concept-fan-mirrors-exactly-about-its-parent",
                 "content_sha1": "342acf85c3a54d6027e7ef6823a813239acfa22e",
                 "outputs": {
@@ -6590,7 +6579,7 @@
             },
             {
                 "destination": "a-standalone-shared-concept-diamond-centres-symmetrically",
-                "line": 3162,
+                "line": 3160,
                 "anchor": "#a-standalone-shared-concept-diamond-centres-symmetrically",
                 "content_sha1": "f1d0df3b37759caf4e52f7809dc1dce1d2010597",
                 "outputs": {
@@ -6601,7 +6590,7 @@
             },
             {
                 "destination": "a-standalone-shared-concept-diamond-centres-symmetrically-02",
-                "line": 3163,
+                "line": 3161,
                 "anchor": "#a-standalone-shared-concept-diamond-centres-symmetrically",
                 "content_sha1": "28214fc49e7a9a1ca5fb3f68bc42dded811344a0",
                 "outputs": {
@@ -6612,7 +6601,7 @@
             },
             {
                 "destination": "a-standalone-shared-concept-diamond-centres-symmetrically-03",
-                "line": 3164,
+                "line": 3162,
                 "anchor": "#a-standalone-shared-concept-diamond-centres-symmetrically",
                 "content_sha1": "6675515bbd5cec19dd218dc3a619fb369ed86dd2",
                 "outputs": {
@@ -6623,7 +6612,7 @@
             },
             {
                 "destination": "a-standalone-shared-concept-diamond-centres-symmetrically-04",
-                "line": 3165,
+                "line": 3163,
                 "anchor": "#a-standalone-shared-concept-diamond-centres-symmetrically",
                 "content_sha1": "aee2765aba7642f944ba6699cfd648838041aee1",
                 "outputs": {
@@ -6634,7 +6623,7 @@
             },
             {
                 "destination": "a-standalone-shared-concept-diamond-centres-symmetrically-05",
-                "line": 3166,
+                "line": 3164,
                 "anchor": "#a-standalone-shared-concept-diamond-centres-symmetrically",
                 "content_sha1": "2c9c56ea1a28234d7df1302430486c41b634cf30",
                 "outputs": {
@@ -6645,7 +6634,7 @@
             },
             {
                 "destination": "a-standalone-shared-concept-diamond-centres-symmetrically-06",
-                "line": 3167,
+                "line": 3165,
                 "anchor": "#a-standalone-shared-concept-diamond-centres-symmetrically",
                 "content_sha1": "c40df825b711e7537cf9d04d1b4f17e6c09770bc",
                 "outputs": {
@@ -6656,7 +6645,7 @@
             },
             {
                 "destination": "a-standalone-shared-concept-diamond-centres-symmetrically-07",
-                "line": 3168,
+                "line": 3166,
                 "anchor": "#a-standalone-shared-concept-diamond-centres-symmetrically",
                 "content_sha1": "ed77e20d7a60ac5ef63f20939e2770ea9e378995",
                 "outputs": {
@@ -6667,7 +6656,7 @@
             },
             {
                 "destination": "a-standalone-shared-concept-diamond-centres-symmetrically-08",
-                "line": 3169,
+                "line": 3167,
                 "anchor": "#a-standalone-shared-concept-diamond-centres-symmetrically",
                 "content_sha1": "241e36c546a73900bf0f162ce625f572773de65f",
                 "outputs": {
@@ -6678,7 +6667,7 @@
             },
             {
                 "destination": "a-standalone-shared-concept-diamond-centres-symmetrically-09",
-                "line": 3170,
+                "line": 3168,
                 "anchor": "#a-standalone-shared-concept-diamond-centres-symmetrically",
                 "content_sha1": "71ec481817dc8f34b14adaa2a066543afed3e37d",
                 "outputs": {
@@ -6689,7 +6678,7 @@
             },
             {
                 "destination": "a-standalone-shared-concept-diamond-centres-symmetrically-10",
-                "line": 3171,
+                "line": 3169,
                 "anchor": "#a-standalone-shared-concept-diamond-centres-symmetrically",
                 "content_sha1": "1a56a73bff2fd64fcb03500d81a11cb0bdfaa95a",
                 "outputs": {
@@ -6700,7 +6689,7 @@
             },
             {
                 "destination": "a-standalone-shared-concept-diamond-centres-symmetrically-11",
-                "line": 3172,
+                "line": 3170,
                 "anchor": "#a-standalone-shared-concept-diamond-centres-symmetrically",
                 "content_sha1": "71c280943bb58696a2b490a3d8f7d44fe1b1dde2",
                 "outputs": {
@@ -6711,7 +6700,7 @@
             },
             {
                 "destination": "a-standalone-shared-concept-diamond-centres-symmetrically-12",
-                "line": 3173,
+                "line": 3171,
                 "anchor": "#a-standalone-shared-concept-diamond-centres-symmetrically",
                 "content_sha1": "7333e2af6853482ea61c655ec3177cff7d586835",
                 "outputs": {
@@ -6722,7 +6711,7 @@
             },
             {
                 "destination": "shared-thing-anchors-to-its-deepest-composite",
-                "line": 3200,
+                "line": 3198,
                 "anchor": "#shared-thing-anchors-to-its-deepest-composite",
                 "content_sha1": "8b47e38c5ce4d11c5ddcf8fc3857911aaf40c481",
                 "outputs": {
@@ -6733,7 +6722,7 @@
             },
             {
                 "destination": "shared-thing-anchors-to-its-deepest-composite-02",
-                "line": 3201,
+                "line": 3199,
                 "anchor": "#shared-thing-anchors-to-its-deepest-composite",
                 "content_sha1": "05c4686488839bc7e31672b671ae54999f170fbc",
                 "outputs": {
@@ -6744,7 +6733,7 @@
             },
             {
                 "destination": "shared-thing-anchors-to-its-deepest-composite-03",
-                "line": 3202,
+                "line": 3200,
                 "anchor": "#shared-thing-anchors-to-its-deepest-composite",
                 "content_sha1": "a1d85d4595e5f76f89b24edce14c806d85ed3e2c",
                 "outputs": {
@@ -6755,7 +6744,7 @@
             },
             {
                 "destination": "shared-thing-anchors-to-its-deepest-composite-04",
-                "line": 3203,
+                "line": 3201,
                 "anchor": "#shared-thing-anchors-to-its-deepest-composite",
                 "content_sha1": "fcc5ca9169a275196fc5dc9683574273fd52f8b0",
                 "outputs": {
@@ -6766,7 +6755,7 @@
             },
             {
                 "destination": "shared-thing-anchors-to-its-deepest-composite-05",
-                "line": 3204,
+                "line": 3202,
                 "anchor": "#shared-thing-anchors-to-its-deepest-composite",
                 "content_sha1": "e9c9887673bcfdb7855c9c808104fcc57942a729",
                 "outputs": {
@@ -6777,7 +6766,7 @@
             },
             {
                 "destination": "shared-thing-anchors-to-its-deepest-composite-06",
-                "line": 3205,
+                "line": 3203,
                 "anchor": "#shared-thing-anchors-to-its-deepest-composite",
                 "content_sha1": "3d7cf545dbc363164072730e0d589261479dcb47",
                 "outputs": {
@@ -6788,7 +6777,7 @@
             },
             {
                 "destination": "shared-thing-anchors-to-its-deepest-composite-07",
-                "line": 3206,
+                "line": 3204,
                 "anchor": "#shared-thing-anchors-to-its-deepest-composite",
                 "content_sha1": "8b90e967383a523727849abd459de37b18036f67",
                 "outputs": {
@@ -6799,7 +6788,7 @@
             },
             {
                 "destination": "shared-thing-anchors-to-its-deepest-composite-08",
-                "line": 3207,
+                "line": 3205,
                 "anchor": "#shared-thing-anchors-to-its-deepest-composite",
                 "content_sha1": "0186ac70be2b701f3cfca845c0d6ed5c39723c2e",
                 "outputs": {
@@ -6810,7 +6799,7 @@
             },
             {
                 "destination": "shared-thing-anchors-to-its-deepest-composite-09",
-                "line": 3208,
+                "line": 3206,
                 "anchor": "#shared-thing-anchors-to-its-deepest-composite",
                 "content_sha1": "2abeee09377c2426599ccffd26fac33b54b07b5c",
                 "outputs": {
@@ -6821,7 +6810,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
-                "line": 3261,
+                "line": 3259,
                 "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
                 "content_sha1": "2e3538ee21711f2759f38286c140abbcdb9b62d0",
                 "outputs": {
@@ -6832,7 +6821,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-02",
-                "line": 3262,
+                "line": 3260,
                 "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
                 "content_sha1": "0e5aaee7575dc128a675c18ad28bb05ad5f72bdd",
                 "outputs": {
@@ -6843,7 +6832,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-03",
-                "line": 3263,
+                "line": 3261,
                 "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
                 "content_sha1": "7930d89445224dfff39098afe4710a8a0e2c31da",
                 "outputs": {
@@ -6854,7 +6843,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-04",
-                "line": 3264,
+                "line": 3262,
                 "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
                 "content_sha1": "d1e6f81fdedff315b58ec53c1c1a9674ffd34359",
                 "outputs": {
@@ -6865,7 +6854,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-05",
-                "line": 3265,
+                "line": 3263,
                 "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
                 "content_sha1": "b33a497a64e93a34056f488e3c73263a9e0086cd",
                 "outputs": {
@@ -6876,7 +6865,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-06",
-                "line": 3266,
+                "line": 3264,
                 "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
                 "content_sha1": "8f377f4201f2b55c68c8a665ed73cdd5a12f277f",
                 "outputs": {
@@ -6887,7 +6876,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-07",
-                "line": 3267,
+                "line": 3265,
                 "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
                 "content_sha1": "872189aff787238b4c3de7a5c351aae3ecc50ebd",
                 "outputs": {
@@ -6898,7 +6887,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-08",
-                "line": 3268,
+                "line": 3266,
                 "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
                 "content_sha1": "6455a938ac9ab921279bbe8e47745147dda5901d",
                 "outputs": {
@@ -6909,7 +6898,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-09",
-                "line": 3269,
+                "line": 3267,
                 "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
                 "content_sha1": "a040a5d7512c4fd7e0aad59cbce1dee488daf2b5",
                 "outputs": {
@@ -6920,7 +6909,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-10",
-                "line": 3270,
+                "line": 3268,
                 "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
                 "content_sha1": "e23d5d6b6283ffa3e1831648849288df98ce8d9e",
                 "outputs": {
@@ -6931,7 +6920,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-11",
-                "line": 3271,
+                "line": 3269,
                 "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
                 "content_sha1": "040cf9e72f8dee124570255f488a4e13f78ee6a6",
                 "outputs": {
@@ -6942,7 +6931,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-12",
-                "line": 3272,
+                "line": 3270,
                 "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
                 "content_sha1": "0e2ebd664bcab3e79d24280748e145da1faa6fc7",
                 "outputs": {
@@ -6953,7 +6942,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-13",
-                "line": 3273,
+                "line": 3271,
                 "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
                 "content_sha1": "7a40f96411aec2aa6a1592eef256ae90d5f72d67",
                 "outputs": {
@@ -6964,7 +6953,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-14",
-                "line": 3274,
+                "line": 3272,
                 "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
                 "content_sha1": "e5ee9977b12073845a693e1eae61b66d41e16499",
                 "outputs": {
@@ -6975,7 +6964,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-15",
-                "line": 3275,
+                "line": 3273,
                 "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
                 "content_sha1": "7f1c4aa2b433fe237435a52ee96b59d7d9384584",
                 "outputs": {
@@ -6986,7 +6975,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-16",
-                "line": 3276,
+                "line": 3274,
                 "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
                 "content_sha1": "32c7faaec586275463244a5f6d7c0efbde68d131",
                 "outputs": {
@@ -6997,7 +6986,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-17",
-                "line": 3277,
+                "line": 3275,
                 "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
                 "content_sha1": "008ad2a49c7710ebbb668450b6bf98287d64cc6e",
                 "outputs": {
@@ -7008,7 +6997,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
-                "line": 3306,
+                "line": 3304,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "49c2d753cf9fbbe8a11794b9a5681bd90212dd6b",
                 "outputs": {
@@ -7019,7 +7008,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-02",
-                "line": 3307,
+                "line": 3305,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "963a9c4c0a0c977c8d7753059c73364d26753d33",
                 "outputs": {
@@ -7030,7 +7019,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-03",
-                "line": 3308,
+                "line": 3306,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "3c99d58b106cf213d2df9015b1e3f0b747acd440",
                 "outputs": {
@@ -7041,7 +7030,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-04",
-                "line": 3309,
+                "line": 3307,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "2b54bec321fdb8fbbf3f49585528d34530d81beb",
                 "outputs": {
@@ -7052,7 +7041,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-05",
-                "line": 3310,
+                "line": 3308,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "d15e08fedb8feec8ee3cb1f4101d91bb0e68c436",
                 "outputs": {
@@ -7063,7 +7052,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-06",
-                "line": 3311,
+                "line": 3309,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "d42cf9c69e5a5d047dc2bff1a8a5e0fa8c88f9c4",
                 "outputs": {
@@ -7074,7 +7063,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-07",
-                "line": 3312,
+                "line": 3310,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "7d30a166c2ad1062924992bb8f1ad9b6dd49cfc4",
                 "outputs": {
@@ -7085,7 +7074,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-08",
-                "line": 3313,
+                "line": 3311,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "29d623c8a4eff09db6cf6f7e9a55506b3c524c9b",
                 "outputs": {
@@ -7096,7 +7085,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-09",
-                "line": 3314,
+                "line": 3312,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "7361ecfd45e163623144dd3e35523384f3abed68",
                 "outputs": {
@@ -7107,7 +7096,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-10",
-                "line": 3315,
+                "line": 3313,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "779246a4fc13b6646e3f8f6c3edde13d034681ca",
                 "outputs": {
@@ -7118,7 +7107,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-11",
-                "line": 3316,
+                "line": 3314,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "64d7d4f1b94913b2cfb773890fff0bde8b13fb07",
                 "outputs": {
@@ -7129,7 +7118,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-12",
-                "line": 3317,
+                "line": 3315,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "155de4c73a273c979d691f0effb84a64a1e3d485",
                 "outputs": {
@@ -7140,7 +7129,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-13",
-                "line": 3318,
+                "line": 3316,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "8c240e22ec1c20297ce214c09b4509c9c90650d6",
                 "outputs": {
@@ -7151,7 +7140,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-14",
-                "line": 3319,
+                "line": 3317,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "b632b68c0e99b3fab473ee52a91e9405372cc59e",
                 "outputs": {
@@ -7162,7 +7151,7 @@
             },
             {
                 "destination": "a-diagonal-near-to-connects-the-facing-sides",
-                "line": 3344,
+                "line": 3342,
                 "anchor": "#a-diagonal-near-to-connects-the-facing-sides",
                 "content_sha1": "4a92d7e25692e9de6250997887db60f4a2f2aa31",
                 "outputs": {
@@ -7173,7 +7162,7 @@
             },
             {
                 "destination": "a-diagonal-near-to-connects-the-facing-sides-02",
-                "line": 3345,
+                "line": 3343,
                 "anchor": "#a-diagonal-near-to-connects-the-facing-sides",
                 "content_sha1": "de4783684a76a9cc5b6a36b69b98b4b291a26cc9",
                 "outputs": {
@@ -7184,7 +7173,7 @@
             },
             {
                 "destination": "a-diagonal-near-to-connects-the-facing-sides-03",
-                "line": 3346,
+                "line": 3344,
                 "anchor": "#a-diagonal-near-to-connects-the-facing-sides",
                 "content_sha1": "e48f281c0fa720c63e17a5a856a920cc7176ae85",
                 "outputs": {
@@ -7195,7 +7184,7 @@
             },
             {
                 "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
-                "line": 3382,
+                "line": 3380,
                 "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
                 "content_sha1": "bffe6ac41d9a86f0fc5faec244d87e725c499561",
                 "outputs": {
@@ -7206,7 +7195,7 @@
             },
             {
                 "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-02",
-                "line": 3383,
+                "line": 3381,
                 "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
                 "content_sha1": "1981f70f34452e962895a968881daa3e25a5a5fc",
                 "outputs": {
@@ -7217,7 +7206,7 @@
             },
             {
                 "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-03",
-                "line": 3384,
+                "line": 3382,
                 "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
                 "content_sha1": "70bf14429240174ebbbea0de44425a2cd542d28b",
                 "outputs": {
@@ -7228,7 +7217,7 @@
             },
             {
                 "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-04",
-                "line": 3385,
+                "line": 3383,
                 "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
                 "content_sha1": "0348d396e9ee0b4b912ef74089cc8fb931662ffa",
                 "outputs": {
@@ -7239,7 +7228,7 @@
             },
             {
                 "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-05",
-                "line": 3386,
+                "line": 3384,
                 "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
                 "content_sha1": "47c8c1b209529e39098384990a3969ea1b7a4912",
                 "outputs": {
@@ -7250,7 +7239,7 @@
             },
             {
                 "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-06",
-                "line": 3387,
+                "line": 3385,
                 "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
                 "content_sha1": "646e9f029a1833e5a582ef9e37d99f85babc4f67",
                 "outputs": {
@@ -7261,7 +7250,7 @@
             },
             {
                 "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-07",
-                "line": 3388,
+                "line": 3386,
                 "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
                 "content_sha1": "9e046b58e8ddc804e456422f549e4e9e04023d1e",
                 "outputs": {
@@ -7272,7 +7261,7 @@
             },
             {
                 "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-08",
-                "line": 3389,
+                "line": 3387,
                 "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
                 "content_sha1": "c10e1afb8e62150877a3c586ed1d907a102cd3e8",
                 "outputs": {
@@ -7283,7 +7272,7 @@
             },
             {
                 "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-09",
-                "line": 3390,
+                "line": 3388,
                 "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
                 "content_sha1": "e778aa4982b92a5c12fb97e72e2cada091ba7785",
                 "outputs": {
@@ -7294,7 +7283,7 @@
             },
             {
                 "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-10",
-                "line": 3391,
+                "line": 3389,
                 "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
                 "content_sha1": "fee6fecd9726ee29db90f05abb670f7e89a67c77",
                 "outputs": {
@@ -7305,7 +7294,7 @@
             },
             {
                 "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-11",
-                "line": 3392,
+                "line": 3390,
                 "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
                 "content_sha1": "8c70a7f1691b3c1acd2663e4d7012901e36412c8",
                 "outputs": {
@@ -7316,7 +7305,7 @@
             },
             {
                 "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-12",
-                "line": 3393,
+                "line": 3391,
                 "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
                 "content_sha1": "c9cf0bfb2c956da05d049e2cb4d13edf59211a41",
                 "outputs": {
@@ -7327,7 +7316,7 @@
             },
             {
                 "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-13",
-                "line": 3394,
+                "line": 3392,
                 "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
                 "content_sha1": "33ad99bedd805b83c301630c07196c6e6182013a",
                 "outputs": {

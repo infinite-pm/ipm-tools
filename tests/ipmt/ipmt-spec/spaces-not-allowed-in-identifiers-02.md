@@ -18,13 +18,7 @@ klm-opq::a Text abc ::t
 
 - [spaces-not-allowed-in-identifiers-02.ipmt](spaces-not-allowed-in-identifiers-02.ipmt) - ipmt input
 - [spaces-not-allowed-in-identifiers-02.json](spaces-not-allowed-in-identifiers-02.json) - Parsed structure
-- [spaces-not-allowed-in-identifiers-02.layout.json](spaces-not-allowed-in-identifiers-02.layout.json) - Layout coordinates
-- [spaces-not-allowed-in-identifiers-02.ipm.svg](spaces-not-allowed-in-identifiers-02.ipm.svg) - Rendered diagram
-
-## Rendered Diagram
-
-![spaces-not-allowed-in-identifiers-02](spaces-not-allowed-in-identifiers-02.ipm.svg)
 
 This test case was automatically generated from the specification document.
 
-The ipmt code block was extracted using [sync-test-cases](../../../docs/dev/testing.md) and saved to [spaces-not-allowed-in-identifiers-02.ipmt](spaces-not-allowed-in-identifiers-02.ipmt), then parsed into the [JSON structure](spaces-not-allowed-in-identifiers-02.json) and laid out into [layout coordinates](spaces-not-allowed-in-identifiers-02.layout.json). The [SVG diagram](spaces-not-allowed-in-identifiers-02.ipm.svg) was rendered using [ipmsvg-gen](../../../docs/ipmsvg-gen.md).
+The ipmt code block was extracted using [sync-test-cases](../../../docs/dev/testing.md) and saved to [spaces-not-allowed-in-identifiers-02.ipmt](spaces-not-allowed-in-identifiers-02.ipmt), then parsed into the [JSON structure](spaces-not-allowed-in-identifiers-02.json).

@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3153-L3156 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-standalone-shared-concept-diamond-centres-symmetrically)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3151-L3154 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-standalone-shared-concept-diamond-centres-symmetrically)
 
 ## ipmt Content
 
@@ -25,23 +25,23 @@ cL ::c, cR ::c --> cB ::c
 
 ## Layout Validation Rules
 
-Test line: 3153
+Test line: 3151
 
 ✅ All 13 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 3162](gl:docs/dev/layout-gen/layout-alg.md#L3162): `#cS,#cB have same center-x` ([a-standalone-shared-concept-diamond-centres-symmetrically.dsl](../layout-gen-rules/a-standalone-shared-concept-diamond-centres-symmetrically.dsl))
-- ✓ [Line 3163](gl:docs/dev/layout-gen/layout-alg.md#L3163): `#cS is horizontally-centered-between #tL,#tR` ([a-standalone-shared-concept-diamond-centres-symmetrically-02.dsl](../layout-gen-rules/a-standalone-shared-concept-diamond-centres-symmetrically-02.dsl))
-- ✓ [Line 3164](gl:docs/dev/layout-gen/layout-alg.md#L3164): `#cL is left-of #cS with gap=60` ([a-standalone-shared-concept-diamond-centres-symmetrically-03.dsl](../layout-gen-rules/a-standalone-shared-concept-diamond-centres-symmetrically-03.dsl))
-- ✓ [Line 3165](gl:docs/dev/layout-gen/layout-alg.md#L3165): `#cR is right-of #cS with gap=60` ([a-standalone-shared-concept-diamond-centres-symmetrically-04.dsl](../layout-gen-rules/a-standalone-shared-concept-diamond-centres-symmetrically-04.dsl))
-- ✓ [Line 3166](gl:docs/dev/layout-gen/layout-alg.md#L3166): `edge #tL,#cS has target-side=left` ([a-standalone-shared-concept-diamond-centres-symmetrically-05.dsl](../layout-gen-rules/a-standalone-shared-concept-diamond-centres-symmetrically-05.dsl))
-- ✓ [Line 3167](gl:docs/dev/layout-gen/layout-alg.md#L3167): `edge #tL,#cS has target-position=0.25` ([a-standalone-shared-concept-diamond-centres-symmetrically-06.dsl](../layout-gen-rules/a-standalone-shared-concept-diamond-centres-symmetrically-06.dsl))
-- ✓ [Line 3168](gl:docs/dev/layout-gen/layout-alg.md#L3168): `edge #tR,#cS has target-side=right` ([a-standalone-shared-concept-diamond-centres-symmetrically-07.dsl](../layout-gen-rules/a-standalone-shared-concept-diamond-centres-symmetrically-07.dsl))
-- ✓ [Line 3169](gl:docs/dev/layout-gen/layout-alg.md#L3169): `edge #tR,#cS has target-position=0.25` ([a-standalone-shared-concept-diamond-centres-symmetrically-08.dsl](../layout-gen-rules/a-standalone-shared-concept-diamond-centres-symmetrically-08.dsl))
-- ✓ [Line 3170](gl:docs/dev/layout-gen/layout-alg.md#L3170): `edge #cL,#cB has target-side=left` ([a-standalone-shared-concept-diamond-centres-symmetrically-09.dsl](../layout-gen-rules/a-standalone-shared-concept-diamond-centres-symmetrically-09.dsl))
-- ✓ [Line 3171](gl:docs/dev/layout-gen/layout-alg.md#L3171): `edge #cL,#cB has target-position=0.25` ([a-standalone-shared-concept-diamond-centres-symmetrically-10.dsl](../layout-gen-rules/a-standalone-shared-concept-diamond-centres-symmetrically-10.dsl))
-- ✓ [Line 3172](gl:docs/dev/layout-gen/layout-alg.md#L3172): `edge #cR,#cB has target-side=right` ([a-standalone-shared-concept-diamond-centres-symmetrically-11.dsl](../layout-gen-rules/a-standalone-shared-concept-diamond-centres-symmetrically-11.dsl))
-- ✓ [Line 3173](gl:docs/dev/layout-gen/layout-alg.md#L3173): `edge #cR,#cB has target-position=0.25` ([a-standalone-shared-concept-diamond-centres-symmetrically-12.dsl](../layout-gen-rules/a-standalone-shared-concept-diamond-centres-symmetrically-12.dsl))
+- ✓ [Line 3160](gl:docs/dev/layout-gen/layout-alg.md#L3160): `#cS,#cB have same center-x` ([a-standalone-shared-concept-diamond-centres-symmetrically.dsl](../layout-gen-rules/a-standalone-shared-concept-diamond-centres-symmetrically.dsl))
+- ✓ [Line 3161](gl:docs/dev/layout-gen/layout-alg.md#L3161): `#cS is horizontally-centered-between #tL,#tR` ([a-standalone-shared-concept-diamond-centres-symmetrically-02.dsl](../layout-gen-rules/a-standalone-shared-concept-diamond-centres-symmetrically-02.dsl))
+- ✓ [Line 3162](gl:docs/dev/layout-gen/layout-alg.md#L3162): `#cL is left-of #cS with gap=60` ([a-standalone-shared-concept-diamond-centres-symmetrically-03.dsl](../layout-gen-rules/a-standalone-shared-concept-diamond-centres-symmetrically-03.dsl))
+- ✓ [Line 3163](gl:docs/dev/layout-gen/layout-alg.md#L3163): `#cR is right-of #cS with gap=60` ([a-standalone-shared-concept-diamond-centres-symmetrically-04.dsl](../layout-gen-rules/a-standalone-shared-concept-diamond-centres-symmetrically-04.dsl))
+- ✓ [Line 3164](gl:docs/dev/layout-gen/layout-alg.md#L3164): `edge #tL,#cS has target-side=left` ([a-standalone-shared-concept-diamond-centres-symmetrically-05.dsl](../layout-gen-rules/a-standalone-shared-concept-diamond-centres-symmetrically-05.dsl))
+- ✓ [Line 3165](gl:docs/dev/layout-gen/layout-alg.md#L3165): `edge #tL,#cS has target-position=0.25` ([a-standalone-shared-concept-diamond-centres-symmetrically-06.dsl](../layout-gen-rules/a-standalone-shared-concept-diamond-centres-symmetrically-06.dsl))
+- ✓ [Line 3166](gl:docs/dev/layout-gen/layout-alg.md#L3166): `edge #tR,#cS has target-side=right` ([a-standalone-shared-concept-diamond-centres-symmetrically-07.dsl](../layout-gen-rules/a-standalone-shared-concept-diamond-centres-symmetrically-07.dsl))
+- ✓ [Line 3167](gl:docs/dev/layout-gen/layout-alg.md#L3167): `edge #tR,#cS has target-position=0.25` ([a-standalone-shared-concept-diamond-centres-symmetrically-08.dsl](../layout-gen-rules/a-standalone-shared-concept-diamond-centres-symmetrically-08.dsl))
+- ✓ [Line 3168](gl:docs/dev/layout-gen/layout-alg.md#L3168): `edge #cL,#cB has target-side=left` ([a-standalone-shared-concept-diamond-centres-symmetrically-09.dsl](../layout-gen-rules/a-standalone-shared-concept-diamond-centres-symmetrically-09.dsl))
+- ✓ [Line 3169](gl:docs/dev/layout-gen/layout-alg.md#L3169): `edge #cL,#cB has target-position=0.25` ([a-standalone-shared-concept-diamond-centres-symmetrically-10.dsl](../layout-gen-rules/a-standalone-shared-concept-diamond-centres-symmetrically-10.dsl))
+- ✓ [Line 3170](gl:docs/dev/layout-gen/layout-alg.md#L3170): `edge #cR,#cB has target-side=right` ([a-standalone-shared-concept-diamond-centres-symmetrically-11.dsl](../layout-gen-rules/a-standalone-shared-concept-diamond-centres-symmetrically-11.dsl))
+- ✓ [Line 3171](gl:docs/dev/layout-gen/layout-alg.md#L3171): `edge #cR,#cB has target-position=0.25` ([a-standalone-shared-concept-diamond-centres-symmetrically-12.dsl](../layout-gen-rules/a-standalone-shared-concept-diamond-centres-symmetrically-12.dsl))
 
 ## Rendered Diagram
 

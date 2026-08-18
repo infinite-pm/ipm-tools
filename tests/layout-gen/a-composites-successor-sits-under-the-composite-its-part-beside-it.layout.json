@@ -23,7 +23,7 @@
       "id": "3",
       "type": "event",
       "label": "e2",
-      "x": 220,
+      "x": 40,
       "y": 240,
       "width": 120,
       "height": 60
@@ -32,7 +32,7 @@
       "id": "4",
       "type": "event",
       "label": "e3",
-      "x": 220,
+      "x": 40,
       "y": 360,
       "width": 120,
       "height": 60
@@ -51,7 +51,7 @@
       "type": "boundary",
       "label": "E",
       "x": 80,
-      "y": 480,
+      "y": 460,
       "width": 40,
       "height": 40
     }
@@ -75,7 +75,7 @@
       }
     },
     {
-      "from": "2",
+      "from": "1",
       "to": "3",
       "dir": "fwd",
       "base": "leadsto",
@@ -146,7 +146,7 @@
   "meta": {
     "bounds": {
       "width": 380,
-      "height": 560,
+      "height": 540,
       "marginX": 40,
       "marginY": 40
     },
