@@ -246,6 +246,42 @@ func (g *graph) evictAuxFromShellsOnce(ci int, gp *groupsPlan) bool {
 				}
 				return need[order[a]] < need[order[b]]
 			})
+			// ... but a band never CHANGES SIDES of its owner while any
+			// other exit works: the horizontal exit that would carry a
+			// left band to the owner's right is tried only after every
+			// other side failed even the shells-only test — in the zoom
+			// canvas a click that opens a neighbour must not flip a
+			// composite's things from its left to its right (NDA: part
+			// 1's band, left in every other state, right of the shell in
+			// s:211.213.215 — every pair with those things flipped)
+			flipSide := -1
+			if k >= 0 {
+				own := g.nodes[k]
+				ocx := own.x + own.w/2
+				sum, cnt := 0, 0
+				for _, n := range members {
+					sum += n.x + n.w/2
+					cnt++
+				}
+				flip := -1
+				if cnt > 0 {
+					if sum/cnt < ocx {
+						flip = 1 // a left band: the right exit flips it
+					} else if sum/cnt > ocx {
+						flip = 0
+					}
+				}
+				if flip >= 0 {
+					kept := order[:0]
+					for _, s := range order {
+						if s != flip {
+							kept = append(kept, s)
+						}
+					}
+					order = kept
+					flipSide = flip
+				}
+			}
 			movedBox := func(n *node, side int) (int, int) {
 				d := gridUp(need[side])
 				switch side {
@@ -290,19 +326,19 @@ func (g *graph) evictAuxFromShellsOnce(ci int, gp *groupsPlan) bool {
 			}
 			side := order[0]
 			found := false
-			for _, s := range order {
-				if clearOf(s, true) {
-					side, found = s, true
-					break
-				}
-			}
-			if !found {
-				for _, s := range order {
-					if clearOf(s, false) {
-						side = s
-						break
+			tryOrder := func(sides []int) {
+				for _, aux := range []bool{true, false} {
+					for _, s := range sides {
+						if clearOf(s, aux) {
+							side, found = s, true
+							return
+						}
 					}
 				}
+			}
+			tryOrder(order)
+			if !found && flipSide >= 0 {
+				tryOrder([]int{flipSide})
 			}
 			for _, n := range members {
 				nd := 0
