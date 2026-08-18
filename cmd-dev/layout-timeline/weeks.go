@@ -38,7 +38,10 @@ type snapshot struct {
 	Pipeline []string
 	// Tools is THIS repository — the module the era recipe's {merge} helper
 	// is built from. The repair of an era is today's code, not the era's.
-	Tools   string
+	Tools string
+	// Rev is the branch this lineage's history is walked on. A command that
+	// re-walks it needs this: an old lineage's commits are not on HEAD.
+	Rev     string
 	Monday  time.Time // the week boundary this snapshot stands for (week columns)
 	SHA     string    // resolved commit, "" when the repo had no commits yet
 	Subject string
@@ -329,7 +332,7 @@ func resolveAcrossWindows(wins []window, bounds []boundary, mode atMode) ([]snap
 			return nil, err
 		}
 		s := snapshot{Monday: m, Repo: w.src.Repo, Source: w.src.Name, EnginePaths: w.src.EnginePaths,
-			Build: w.src.Build, Pipeline: w.src.Pipeline}
+			Build: w.src.Build, Pipeline: w.src.Pipeline, Rev: w.src.Rev}
 		s.label = b.Label
 		if sha == "" && prev != "" {
 			sha = prev
@@ -612,6 +615,43 @@ func recentLayoutCommits(repo, rev string, paths []string, n int) ([]snapshot, e
 // guessed here.
 var auditsItself = []string{"pkg/layoutaudit", "pkg/layoutdiff", "cmd-dev"}
 
+// insertByDate puts a tail column where it BELONGS IN TIME, not on the end.
+//
+// Appending was wrong in a way that inverted the report. A daily column
+// resolves to "the last commit before that day", which can be NEWER than a
+// layout commit the tail also selects — 92ddaec at 23:34:10 stood for
+// "2026-08-18" while 5756e62 (21:43) and 4f62dd2 (23:34:01) were appended
+// after it. compare() pairs each column with the one before it, so those two
+// were diffed against their own DESCENDANT: the before picture was drawn by a
+// later engine, every change read backwards, the same change appeared three
+// times, and the generated bisect command spanned an empty range
+// (92ddaec..5756e62 contains no commits). Order is not cosmetic here — it is
+// what makes a column mean anything.
+//
+// Only snapshots that HAVE a commit date can position one; a column with no
+// commit of its own, or one standing in for a quiet week, carries no time to
+// compare against.
+func insertByDate(snaps []snapshot, s snapshot) []snapshot {
+	if s.Date.IsZero() {
+		return append(snaps, s)
+	}
+	at := len(snaps)
+	for i := len(snaps) - 1; i >= 0; i-- {
+		if snaps[i].Date.IsZero() {
+			continue
+		}
+		if !snaps[i].Date.After(s.Date) {
+			at = i + 1
+			break
+		}
+		at = i
+	}
+	snaps = append(snaps, snapshot{})
+	copy(snaps[at+1:], snaps[at:])
+	snaps[at] = s
+	return snaps
+}
+
 // topLevels is the distinct first path segment of each engine path, in order:
 // ["pkg/layout7", "pkg/layout", "cmd/layout-gen"] -> ["pkg", "cmd"].
 //
@@ -655,7 +695,7 @@ func appendRecent(repo, rev, source string, paths []string, n int, snaps []snaps
 		}
 		have[s.SHA] = true
 		s.Source = source
-		snaps = append(snaps, s)
+		snaps = insertByDate(snaps, s)
 	}
 	// The working tree last, and only when it differs from what is now the
 	// final column — that is the whole point of it.

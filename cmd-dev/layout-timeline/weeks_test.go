@@ -582,3 +582,59 @@ func subjectsOf(snaps []snapshot) []string {
 	}
 	return out
 }
+
+// A column is only meaningful next to the one before it, so the series must
+// run forwards in time.
+//
+// Tail columns were APPENDED. A daily column resolves to "the last commit
+// before that day", which can be newer than a layout commit the tail also
+// selects — so an ancestor landed to the right of its own descendant, was
+// diffed against it, and every change in that column read backwards. The same
+// change then appeared twice, once inverted, and the generated bisect command
+// spanned an empty range.
+func TestTailColumnsLandInTimeOrder(t *testing.T) {
+	at := func(s string) time.Time {
+		v, err := time.Parse(time.RFC3339, s)
+		if err != nil {
+			t.Fatal(err)
+		}
+		return v
+	}
+	// A daily column standing for a commit made late on the 17th…
+	snaps := []snapshot{
+		{label: "2026-08-17", SHA: "aaa", Date: at("2026-08-17T09:00:00+02:00")},
+		{label: "2026-08-18", SHA: "ddd", Date: at("2026-08-17T23:34:10+02:00")},
+	}
+	// …and two layout commits from EARLIER that day, which the tail selects.
+	for _, s := range []snapshot{
+		{label: "2026-08-17 bbb", SHA: "bbb", Date: at("2026-08-17T21:43:01+02:00")},
+		{label: "2026-08-17 ccc", SHA: "ccc", Date: at("2026-08-17T23:34:01+02:00")},
+	} {
+		snaps = insertByDate(snaps, s)
+	}
+
+	var order []string
+	for _, s := range snaps {
+		order = append(order, s.SHA)
+	}
+	want := []string{"aaa", "bbb", "ccc", "ddd"}
+	if strings.Join(order, ",") != strings.Join(want, ",") {
+		t.Errorf("columns are ordered %v, want %v — an ancestor must not follow its descendant", order, want)
+	}
+	for i := 1; i < len(snaps); i++ {
+		if snaps[i].Date.Before(snaps[i-1].Date) {
+			t.Errorf("column %d (%s) is older than the one before it (%s)",
+				i, snaps[i].label, snaps[i-1].label)
+		}
+	}
+}
+
+// A snapshot with no commit date cannot be positioned by one; it must not be
+// dropped or wedged in front of dated columns.
+func TestUndatedTailColumnStillLands(t *testing.T) {
+	snaps := []snapshot{{label: "c1", SHA: "aaa", Date: time.Now()}}
+	got := insertByDate(snaps, snapshot{label: "x", SHA: "xxx"})
+	if len(got) != 2 || got[1].SHA != "xxx" {
+		t.Errorf("an undated column was lost or misplaced: %+v", got)
+	}
+}

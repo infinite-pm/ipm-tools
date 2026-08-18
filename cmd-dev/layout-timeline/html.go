@@ -15,6 +15,7 @@ package main
 import (
 	"fmt"
 	"html/template"
+	"path/filepath"
 	"sort"
 	"strings"
 	"time"
@@ -147,6 +148,9 @@ type vmVersion struct {
 	// Repo is the checkout this engine commit lives in — not always the one
 	// the diagrams come from, and not always the same as the version before.
 	Repo string
+	// Rev is the branch that lineage is walked on; a command that re-walks it
+	// needs it, since an old lineage's commits are not on HEAD.
+	Rev string
 	// The version before this one on the page: what the "before" picture is,
 	// and the other half of any regression report.
 	PrevLabel, PrevSHA, PrevSource, PrevRepo string
@@ -340,6 +344,21 @@ func markSeen(cells []vmHistCell, before string, afterOf func(label string) stri
 	}
 }
 
+// widthFor scales one picture against the page's widest canvas.
+//
+// Zero bounds mean two different things and the difference is the whole point:
+// NO PANE on that side (nothing to size, and nothing is drawn), or a pane that
+// exists while the engine reported no bounds — a "repaired" or "broken"
+// version says 0x0 and still has a rendering. Scaling the second to 0% hid it
+// completely: 143 layers across 35 diagram pages were present in the HTML and
+// invisible on screen.
+func widthFor(w, widest int, hasPane bool) string {
+	if w <= 0 && hasPane {
+		return "100%"
+	}
+	return layoutaudit.WidthOf(w, widest)
+}
+
 // diagramDir is a diagram's own page.
 func diagramDir(id string) string { return "d/" + layoutaudit.Sanitize(id) }
 
@@ -384,7 +403,7 @@ func buildDiagram(in timelineInput, id string) vmDiagram {
 				bounds = fmt.Sprintf("%d×%d → %d×%d", ob.Width, ob.Height, nb.Width, nb.Height)
 			}
 			v := vmVersion{
-				Label: w.Label, Anchor: anchor, Source: w.Source, Repo: w.Snap.Repo,
+				Label: w.Label, Anchor: anchor, Source: w.Source, Repo: w.Snap.Repo, Rev: w.Snap.Rev,
 				Date: stampDate(w.Snap.Date), EnginePaths: w.Snap.EnginePaths,
 				SHA: layoutaudit.Short(w.SHA), Subject: w.Subject,
 				Tier: tier, Score: fmt.Sprintf("%.0f", c.Report.Score),
@@ -428,8 +447,9 @@ func buildDiagram(in timelineInput, id string) vmDiagram {
 		}
 	}
 	for i := range d.Versions {
-		d.Versions[i].OldWidth = layoutaudit.WidthOf(d.Versions[i].oldW, widest)
-		d.Versions[i].NewWidth = layoutaudit.WidthOf(d.Versions[i].newW, widest)
+		v := &d.Versions[i]
+		v.OldWidth = widthFor(v.oldW, widest, v.BeforeSrc != "")
+		v.NewWidth = widthFor(v.newW, widest, v.AfterSrc != "" || v.MarkedSrc != "")
 	}
 	if widest > 0 {
 		// +20 for the pane's own padding, so the picture inside lands on
@@ -768,6 +788,10 @@ table.grid td.name{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;white
 table.grid td:empty::before{content:"";display:block;width:16px;height:16px;
   border-radius:3px;background:var(--line);opacity:.35}
 .moves{color:var(--muted);font-variant-numeric:tabular-nums;padding-left:8px}
+/* A column's note belongs on the INDEX, not only on its own page: "this
+   engine is not deterministic" is exactly what a reader needs before trusting
+   a row, and they may never open the column to find out. */
+.warn{color:var(--worse)}
 table.cols{border-collapse:collapse;width:100%;background:var(--card);border:1px solid var(--line);border-radius:10px}
 table.cols th{text-align:left;font-size:12px;color:var(--muted);padding:8px 10px;border-bottom:1px solid var(--line)}
 table.cols td{padding:7px 10px;border-bottom:1px solid var(--line);font-size:13px;vertical-align:top}
@@ -825,7 +849,8 @@ td.date{white-space:nowrap;font-weight:600}
     <td class="n">{{if .Changed}}<span class="pill {{tier .Worst}}">{{.Changed}}</span>{{end}}</td>
     <td class="n">{{if .Identical}}{{.Identical}}{{end}}</td>
     <td class="quiet">{{if .Against}}vs {{.Against}}{{end}} {{if .Span}}· {{.Span}}{{end}}
-      {{if .QuietAfter}}<br><span title="{{.QuietWhich}}">then {{.QuietAfter}} column(s) with no change</span>{{end}}</td>
+      {{if .QuietAfter}}<br><span title="{{.QuietWhich}}">then {{.QuietAfter}} column(s) with no change</span>{{end}}
+      {{if .Note}}<br><span class="warn">{{.Note}}</span>{{end}}</td>
   </tr>
   {{end}}
 </table>
@@ -1181,7 +1206,7 @@ table.ch td,table.ch th{text-align:left;padding:2px 10px 2px 0;vertical-align:to
    the comparison runs DOWN the page, and each row keeps the whole width for
    one picture — larger, and with the three states still swapping in place,
    which is the registration a blink comparison needs. */
-.panes.one{grid-template-columns:1fr;max-width:{{.MaxWidth}}}
+.panes.one{grid-template-columns:1fr{{if .MaxWidth}};max-width:{{.MaxWidth}}{{end}}}
 
 /* The input, at hand. Every picture on this page is this one text read by a
    different engine, so when two versions disagree the question is always
@@ -1225,7 +1250,7 @@ table.ch td,table.ch th{text-align:left;padding:2px 10px 2px 0;vertical-align:to
     <span class="pill {{tier .Tier}}">{{.Tier}}</span>
     <span class="quiet">score {{.Score}} · {{.Bounds}} · <span class="sha">{{.SHA}}</span> {{.Subject}}</span>
     <button type="button" class="copy anchor" data-anchor="{{.Anchor}}" title="copy a link straight to this version">&#128279;</button>
-    <button type="button" class="copy hand" data-copy="md-{{.Anchor}}" data-anchor="{{.Anchor}}" title="copy a description of THIS version for an agent: the diagram, the engine commit, the source and what changed">for agent</button>
+    <button type="button" class="copy hand" data-copy="md-{{.Anchor}}" data-anchor="{{.Anchor}}" title="copy a description of THIS version for an agent: the diagram, the engine commit that drew it, and the source">for agent</button>
     <button type="button" class="copy hand warn" data-copy="rg-{{.Anchor}}" data-anchor="{{.Anchor}}" title="copy a regression report: the same, plus the version before it — the rendering that still looked right">regression</button>
     <a class="allref" href="{{.ColumnHref}}">all diagrams in {{.Label}} →</a>
   </div>
@@ -1463,7 +1488,7 @@ func regressionMarkdown(d vmDiagram, v vmVersion, sources string) string {
 	b.WriteString("\n## Reproduce\n\n")
 	b.WriteString(reproduceCmd(d, v, sources))
 	b.WriteString("\n## Find the commit that introduced it\n\n")
-	b.WriteString(bisectCmd(d, v))
+	b.WriteString(bisectCmd(d, v, sources))
 	b.WriteString("\n## What I want\n\n")
 	b.WriteString("1. Reproduce both renderings and confirm the regression.\n")
 	b.WriteString("2. Narrow it to the single engine commit that introduced it.\n")
@@ -1520,6 +1545,44 @@ func reproduceCmd(d vmDiagram, v vmVersion, sources string) string {
 		return "The two commits are not both known here, so there is no single command\n" +
 			"to re-run this pair. The report page above shows both renderings.\n"
 	}
+	if !sameLineage(v) {
+		return crossLineageNote(v)
+	}
+	cmd := "go run ./cmd-dev/layout-audit"
+	if v.Repo != "" {
+		cmd += " --repo " + v.Repo
+	}
+	cmd += fmt.Sprintf(" --old %s --new %s", v.PrevSHA, v.SHA)
+	// layout-audit has NO --sources flag: the engine comes from --repo and the
+	// diagrams come from the POSITIONAL paths, which may live anywhere. Emitting
+	// --sources produced a command that exits on an unknown flag.
+	cmd += " " + diagramPath(d.ID, sources, v.Repo)
+	return "```sh\n" + cmd + "\n```\n\n" +
+		"That writes an HTML report comparing exactly these two engines over this file.\n"
+}
+
+// diagramPath is the file to hand a command. Relative when the diagrams live
+// in the engine's own repository, absolute when they do not — which is how
+// layout-audit takes sources from another checkout.
+func diagramPath(id, sources, repo string) string {
+	file := fileOf(id)
+	if sources != "" && sources != repo {
+		return filepath.Join(sources, file)
+	}
+	return file
+}
+
+// sameLineage reports whether two versions can be spanned by one commit range.
+//
+// The same repository is not enough: two lineages can share a checkout and sit
+// on branches with no merge base (pre2b and pre1 are both pre-ipm-tools), and
+// `git log A..B` across those lists everything or nothing rather than the
+// commits between.
+func sameLineage(v vmVersion) bool {
+	return v.PrevRepo == v.Repo && v.PrevSource == v.Source
+}
+
+func crossLineageNote(v vmVersion) string {
 	if v.PrevRepo != v.Repo {
 		return fmt.Sprintf(
 			"These two versions come from DIFFERENT repositories (`%s` and `%s`).\n"+
@@ -1528,23 +1591,17 @@ func reproduceCmd(d vmDiagram, v vmVersion, sources string) string {
 				"See `layout-history.json` for how the lineages are chained.\n",
 			v.PrevRepo, v.Repo)
 	}
-	cmd := "go run ./cmd-dev/layout-audit"
-	if v.Repo != "" {
-		cmd += " --repo " + v.Repo
-	}
-	cmd += fmt.Sprintf(" --old %s --new %s", v.PrevSHA, v.SHA)
-	if sources != "" && sources != v.Repo {
-		cmd += " --sources " + sources
-	}
-	cmd += " " + fileOf(d.ID)
-	return "```sh\n" + cmd + "\n```\n\n" +
-		"That writes an HTML report comparing exactly these two engines over this file.\n"
+	return fmt.Sprintf(
+		"These two versions come from different LINEAGES (`%s` and `%s`) that share the\n"+
+			"checkout `%s`. They sit on branches with no commit range between them, so\n"+
+			"one command cannot span the pair. See `layout-history.json`.\n",
+		v.PrevSource, v.Source, v.Repo)
 }
 
 // bisectCmd narrows "somewhere between these two" to one commit.
-func bisectCmd(d vmDiagram, v vmVersion) string {
-	if v.PrevSHA == "" || v.SHA == "" || v.PrevRepo != v.Repo {
-		return "Not available for this pair: the two versions do not share a repository,\n" +
+func bisectCmd(d vmDiagram, v vmVersion, sources string) string {
+	if v.PrevSHA == "" || v.SHA == "" || !sameLineage(v) {
+		return "Not available for this pair: the two versions do not share one lineage,\n" +
 			"so there is no single commit range between them to walk.\n"
 	}
 	paths := strings.Join(v.EnginePaths, " ")
@@ -1557,14 +1614,40 @@ func bisectCmd(d vmDiagram, v vmVersion) string {
 		v.Repo, v.PrevSHA, v.SHA, paths)
 	b.WriteString("Then give each of those commits its own column, for this one diagram,\n")
 	b.WriteString("so the exact commit where the picture changes is visible:\n\n")
+
 	cmd := fmt.Sprintf("go run ./cmd-dev/layout-timeline --repo %s --by engine-commit", v.Repo)
+	if v.Rev != "" {
+		// Without --rev the walk is HEAD, which for an old lineage is another
+		// branch entirely and contains none of these commits.
+		cmd += " --rev " + v.Rev
+	}
+	// --weeks and --days OVERRIDE --since (see dateRange), and both default to
+	// non-zero: the range below was silently replaced by "the last six weeks".
+	cmd += " --weeks 0 --days 0"
 	if v.PrevDate != "" {
 		cmd += " --since " + v.PrevDate
 	}
 	if v.Date != "" {
-		cmd += " --until " + v.Date
+		// --until parses to MIDNIGHT, so passing the bad commit's own date
+		// excludes the commit this is trying to find. Take the day after.
+		cmd += " --until " + dayAfter(v.Date)
 	}
-	cmd += " " + fileOf(d.ID)
+	if sources != "" && sources != v.Repo {
+		// The diagrams are not in the engine's repository here, and without
+		// this the run sweeps whatever that repository happens to contain.
+		cmd += " --sources " + sources
+	}
+	cmd += " " + diagramPath(d.ID, sources, v.Repo)
 	fmt.Fprintf(&b, "```sh\n%s\n```\n", cmd)
 	return b.String()
+}
+
+// dayAfter shifts a YYYY-MM-DD stamp forward one day, so an --until built from
+// it includes everything committed ON that day.
+func dayAfter(stamp string) string {
+	t, err := time.Parse("2006-01-02", stamp)
+	if err != nil {
+		return stamp
+	}
+	return t.AddDate(0, 0, 1).Format("2006-01-02")
 }

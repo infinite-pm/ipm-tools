@@ -530,7 +530,7 @@ func TestDiagramPageIsOneColumn(t *testing.T) {
 	}
 	// And the one-column rule must actually be in the stylesheet, carrying
 	// the cap that stops a small diagram being blown up to fill the width.
-	if !strings.Contains(html, ".panes.one{grid-template-columns:1fr;max-width:") {
+	if !strings.Contains(html, ".panes.one{grid-template-columns:1fr") {
 		t.Error("nothing collapses the pane grid to one column")
 	}
 }
@@ -851,7 +851,7 @@ func TestRegressionAcrossReposRefusesToInventACommand(t *testing.T) {
 	if !strings.Contains(md, "DIFFERENT repositories") {
 		t.Error("did not explain why there is no command")
 	}
-	if !strings.Contains(md, "do not share a repository") {
+	if !strings.Contains(md, "do not share one lineage") {
 		t.Error("the bisect section invented a commit range across two repositories")
 	}
 }
@@ -976,7 +976,7 @@ func TestRegressionPromptCanBeReproducedAndBisected(t *testing.T) {
 		// …and find WHEN it was introduced
 		"## Find the commit that introduced it",
 		"git -C /repo log --oneline 1a2b3c4..9f3a2b1 -- pkg/layout7 cmd/layout-gen",
-		"--by engine-commit --since 2026-07-13 --until 2026-07-20 docs/x.md",
+		"--by engine-commit --weeks 0 --days 0 --since 2026-07-13 --until 2026-07-21 docs/x.md",
 		// the source, so it can be rendered without the report
 		"```ipmt\na --> b\n```",
 		// and an explicit ask
@@ -993,12 +993,12 @@ func TestRegressionPromptCanBeReproducedAndBisected(t *testing.T) {
 func TestBisectUsesThisLineagesEnginePaths(t *testing.T) {
 	v := vmVersion{SHA: "bbb", PrevSHA: "aaa", Repo: "/r", PrevRepo: "/r",
 		EnginePaths: []string{"pkg/layoutpasses"}}
-	if got := bisectCmd(vmDiagram{ID: "x.ipmt"}, v); !strings.Contains(got, "-- pkg/layoutpasses") {
+	if got := bisectCmd(vmDiagram{ID: "x.ipmt"}, v, ""); !strings.Contains(got, "-- pkg/layoutpasses") {
 		t.Errorf("bisect ignored the lineage's engine paths:\n%s", got)
 	}
 	// With none recorded, fall back to today's rather than to nothing.
 	v.EnginePaths = nil
-	if got := bisectCmd(vmDiagram{ID: "x.ipmt"}, v); !strings.Contains(got, "pkg/layout7") {
+	if got := bisectCmd(vmDiagram{ID: "x.ipmt"}, v, ""); !strings.Contains(got, "pkg/layout7") {
 		t.Errorf("no engine paths at all:\n%s", got)
 	}
 }
@@ -1225,5 +1225,106 @@ func TestAddedDiagramsAreNotReportedAsALoss(t *testing.T) {
 	// And nothing is said at all when the corpus did not move.
 	if n := len(corpusNotes(nil, nil, nil)); n != 0 {
 		t.Errorf("a still corpus produced %d note(s)", n)
+	}
+}
+
+// A width of zero means the canvas size is UNKNOWN — a diagram the engine
+// could not lay out reports 0x0 — not that the picture is zero pixels wide.
+// Rendering those at 0% hid 143 layers across 35 pages: the picture was there,
+// the page just never showed it.
+func TestUnknownBoundsStillRender(t *testing.T) {
+	svg := []byte(`<svg viewBox="0 0 10 10"></svg>`)
+	mk := func(label string, ow, nw int, status string) week {
+		return week{Label: label, Subject: "s", Changes: []change{{
+			ID: "a", Status: status, OldSVG: svg, NewSVG: svg, NewMarked: svg,
+			Report: layoutdiff.Report{
+				Tier: layoutdiff.TierGeometry, Counts: map[string]int{},
+				OldBounds: layout.Bounds{Width: ow, Height: 400},
+				NewBounds: layout.Bounds{Width: nw, Height: 400},
+			}}}}
+	}
+	// A repaired row: the old engine laid nothing out, so bounds are 0x0.
+	in := timelineInput{
+		Weeks: []week{mk("c1", 0, 0, "repaired"), mk("c2", 380, 560, "changed")},
+		Panes: chainPool("a", "c1", "c2"),
+	}
+	html := renderDiagram(in, "a")
+	if strings.Contains(html, `style="width:0%"`) {
+		t.Error("a layer renders at zero width, so its picture is invisible")
+	}
+	// And the cap must not be emitted empty — `max-width:}` is invalid CSS and
+	// takes the whole rule, including the one-column layout, with it.
+	only := renderDiagram(timelineInput{
+		Weeks: []week{mk("c1", 0, 0, "repaired")},
+		Panes: chainPool("a", "c1"),
+	}, "a")
+	if strings.Contains(only, "max-width:}") || strings.Contains(only, "max-width:;") {
+		t.Error("emitted an empty max-width, which invalidates the rule it sits in")
+	}
+	if !strings.Contains(only, ".panes.one{grid-template-columns:1fr") {
+		t.Error("the one-column rule was lost")
+	}
+}
+
+// The commands a payload hands over must actually run. These did not: an
+// invented --sources flag, a --since silently overridden by --weeks, an
+// --until that excluded the very commit it was narrowing to, a missing --rev
+// that walked the wrong branch, and a "same repo" guard that spanned two
+// lineages with no commit range between them.
+func TestPayloadCommandsAreRunnable(t *testing.T) {
+	d := vmDiagram{ID: "docs/x.md#100"}
+	v := vmVersion{
+		Label: "2026-07-20", Source: "pre1", SHA: "9f3a2b1", Repo: "/eng", Rev: "main-pre1",
+		Date:      "2026-07-20",
+		PrevLabel: "2026-07-13", PrevSource: "pre1", PrevSHA: "1a2b3c4", PrevRepo: "/eng",
+		PrevDate: "2026-07-13", EnginePaths: []string{"pkg/layout"},
+	}
+
+	// Diagrams from a DIFFERENT checkout than the engine.
+	repro := reproduceCmd(d, v, "/srcs")
+	if strings.Contains(repro, "--sources") {
+		t.Error("reproduce emits --sources, which layout-audit does not have")
+	}
+	if !strings.Contains(repro, "/srcs/docs/x.md") {
+		t.Errorf("reproduce does not point at the diagram's real location:\n%s", repro)
+	}
+
+	bis := bisectCmd(d, v, "/srcs")
+	for _, want := range []string{
+		"--rev main-pre1",    // an old lineage is not on HEAD
+		"--weeks 0 --days 0", // …or --since is silently overridden
+		"--since 2026-07-13", //
+		"--until 2026-07-21", // the day AFTER, or the target is excluded
+		"--sources /srcs",    // layout-timeline DOES have this one
+		"/srcs/docs/x.md",    //
+	} {
+		if !strings.Contains(bis, want) {
+			t.Errorf("bisect is missing %q:\n%s", want, bis)
+		}
+	}
+
+	// Two lineages sharing one checkout have no range between them.
+	shared := v
+	shared.PrevSource = "pre2b"
+	if got := bisectCmd(d, shared, ""); !strings.Contains(got, "do not share one lineage") {
+		t.Errorf("spanned two lineages in one repo:\n%s", got)
+	}
+	if got := reproduceCmd(d, shared, ""); !strings.Contains(got, "different LINEAGES") {
+		t.Errorf("reproduce spanned two lineages in one repo:\n%s", got)
+	}
+}
+
+// A column's note has to reach the INDEX. "This engine is not deterministic"
+// is precisely what a reader needs before trusting a row, and it only existed
+// on the column's own page — which they may never open.
+func TestIndexShowsAColumnsWarning(t *testing.T) {
+	weeks := sampleWeeks()
+	weeks[1].Note = "⚠ this engine is NOT deterministic — it returns a different layout"
+	html := renderIndex(timelineInput{Weeks: weeks, Diagrams: 1})
+	if !strings.Contains(html, "NOT deterministic") {
+		t.Error("the index does not carry the column's warning")
+	}
+	if !strings.Contains(html, `class="warn"`) {
+		t.Error("the warning is not marked as one")
 	}
 }

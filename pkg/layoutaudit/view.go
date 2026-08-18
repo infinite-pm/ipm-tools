@@ -108,6 +108,9 @@ func WidthOf(w, reference int) string {
 		return "100%"
 	}
 	if w <= 0 {
+		// Zero means NO PANE on that side, which takes no space. A pane that
+		// exists but whose bounds are unknown is a different case and must
+		// not come here — see widthFor in the timeline's html.go.
 		return "0%"
 	}
 	return fmt.Sprintf("%.2f%%", float64(w)/float64(reference)*100)

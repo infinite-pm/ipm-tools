@@ -536,15 +536,16 @@ func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagra
 				continue
 			}
 			gen := layoutaudit.SweepOne(diagrams, eng.LayoutGen, sweepJobs)
-			noteNondeterministic(&w, eng.LayoutGen, diagrams)
 			if prevGen == nil {
 				w.Note = "first engine in range — nothing to compare against"
+				noteNondeterministic(&w, eng.LayoutGen, diagrams)
 				prevGen, prevLabel = gen, s.Label()
 				out = append(out, w)
 				continue
 			}
 			w.Against = prevLabel
 			collect(&w, layoutaudit.PairUp(diagrams, prevGen, gen), limitPerWeek, noSVG)
+			noteNondeterministic(&w, eng.LayoutGen, diagrams)
 			noteQuietEngine(&w, s)
 			if verbose {
 				fmt.Fprintf(os.Stderr, "layout-timeline: %s — %d changed, %d identical\n",
@@ -583,9 +584,9 @@ func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagra
 			continue
 		}
 		gen := layoutaudit.SweepOne(diagrams, eng.LayoutGen, sweepJobs)
-		noteNondeterministic(&w, eng.LayoutGen, diagrams)
 		if prevGen == nil {
 			w.Note = "first engine in range — nothing to compare against"
+			noteNondeterministic(&w, eng.LayoutGen, diagrams)
 			prevGen, prevLabel = gen, s.Label()
 			out = append(out, w)
 			continue
@@ -596,6 +597,7 @@ func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagra
 		// rather than letting the column imply a seven-day span.
 		w.Against = prevLabel
 		collect(&w, layoutaudit.PairUp(diagrams, prevGen, gen), limitPerWeek, noSVG)
+		noteNondeterministic(&w, eng.LayoutGen, diagrams)
 		noteQuietEngine(&w, s)
 		if verbose {
 			fmt.Fprintf(os.Stderr, "layout-timeline: %s — %d changed, %d identical\n",
@@ -663,20 +665,6 @@ func corpusNotes(added, removed, edited []string) []string {
 	return out
 }
 
-// poolPanes writes every distinct picture ONCE, named by its content, and
-// returns where each row's panes live.
-//
-// Two reasons, and the second is the one that matters. Nearly half the
-// pictures are duplicates — a column's "before" IS the previous column's
-// "after" — so content-addressing them roughly halves the file count. And
-// because the name is the content, a re-run writes NOTHING for a picture that
-// has not changed: the report can be regenerated all day without touching the
-// filesystem.
-//
-// That is not a tidiness point. Bulk file generation into this repository's
-// temp/ is the recorded cause of the editor's renderer dying with SIGILL —
-// the workspace watcher stalls the extension host — and writing 2,600 files
-// on every run was walking straight into it.
 // sourceOrder ranks the diagrams by WHERE THEY LIVE: file, then position
 // within that file.
 //
@@ -702,7 +690,9 @@ func sourceOrder(diagrams []layoutaudit.Diagram) map[string]int {
 	for i, d := range sorted {
 		rank[d.ID] = i
 		// An alias is the same source under another name; it belongs in the
-		// same place, not at the end.
+		// same place, not at the end. Today no alias reaches the grid — the
+		// sweep reports under the surviving id — so this costs nothing and
+		// holds if that changes.
 		for _, a := range d.Aliases {
 			if _, seen := rank[a]; !seen {
 				rank[a] = i
@@ -738,6 +728,20 @@ func readSources(diagrams []layoutaudit.Diagram, weeks []week) map[string]string
 	return out
 }
 
+// poolPanes writes every distinct picture ONCE, named by its content, and
+// returns where each row's panes live.
+//
+// Two reasons, and the second is the one that matters. Nearly half the
+// pictures are duplicates — a column's "before" IS the previous column's
+// "after" — so content-addressing them roughly halves the file count. And
+// because the name is the content, a re-run writes NOTHING for a picture that
+// has not changed: the report can be regenerated all day without touching the
+// filesystem.
+//
+// That is not a tidiness point. Bulk file generation into this repository's
+// temp/ is the recorded cause of the editor's renderer dying with SIGILL —
+// the workspace watcher stalls the extension host — and writing 2,600 files
+// on every run was walking straight into it.
 func poolPanes(outAbs string, weeks []week, current map[string][]byte) (map[string]string, int, error) {
 	dir := filepath.Join(outAbs, "panes")
 	if err := os.MkdirAll(dir, 0o755); err != nil {
