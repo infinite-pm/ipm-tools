@@ -3373,6 +3373,9 @@ func (g *graph) grazeCount(pts [][2]int, e *edge) float64 {
 		if !nd.placed || nd.idx == e.from || nd.idx == e.to {
 			continue
 		}
+		if nd.shell && shellExempts(nd, e) {
+			continue
+		}
 		// a ROW-MATE's border is never exempt: a branch hugging its
 		// row-mate for the run reads as touching — the
 		// around-the-row lane wins instead. BOUNDARY boxes are never
@@ -3445,6 +3448,9 @@ func (g *graph) hitsNode(pts [][2]int, e *edge) bool {
 	for _, n := range g.nodes {
 		if !n.placed || n.idx == e.from || n.idx == e.to {
 			continue
+		}
+		if n.shell && shellExempts(n, e) {
+			continue // a member's edge crosses its own shell's border
 		}
 		x0, y0 := n.x+2, n.y+2
 		x1, y1 := n.x+n.w-2, n.y+n.h-2

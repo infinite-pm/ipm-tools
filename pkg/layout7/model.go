@@ -51,7 +51,16 @@ type node struct {
 	comp     int  // component index (v7P1), set by membership
 	placed   bool // true once x/y are meaningful
 	boundary bool // synthesized S/E node (v7P1: every event component gets its own)
-	pureGen  bool // member of a layered-generation row (v7P4) — its row is structural
+	// shell: a synthesized container box around an OPEN composite (Options.
+	// Shells) — the composite and every part-of descendant present in the
+	// graph, plus ShellPad. Created after the skeleton, sized at the end of
+	// place, an obstacle in routing for every edge that does not touch what
+	// it wraps, emitted as a layout.Node with Container. shellOf is the
+	// composite's node idx; shellMembers the wrapped set (composite included).
+	shell        bool
+	shellOf      int
+	shellMembers map[int]bool
+	pureGen      bool // member of a layered-generation row (v7P4) — its row is structural
 }
 
 // edge is the engine's working edge.

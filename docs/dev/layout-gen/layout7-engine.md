@@ -52,6 +52,8 @@ value is the plain flat layout, and that is what every shipping tool uses.
 | option | default | effect |
 |---|---|---|
 | `Containers` | off | a composite event's part-of sub-grid claims its vertical band EXCLUSIVELY |
+| `Shells` | off | emits a container box (`Container != nil`) around every root composite with members present, `ShellPad` of air inside, and treats it as a box of the layout: tiling and rings keep their gap from it, other edges route around it, member edges cross it; the composite's aux bands above/below sit outside it, and any aux left inside is evicted sideways before routing. Implies `Containers`. The zoom canvas's open composite, laid out by the engine itself (`wip/zoom-frame-routing/design.md`, "shells in the core") |
+| `Anchor` | nil | a soft arrangement anchor: node id → box centre from a reference layout. With it, `assemble` keeps the reference's cross-component arrangement at COMPONENT granularity — each component's known nodes' centre of mass lands where the anchor had it, components that grew are pushed right/down the way the anchor had them, unknown components wrap after — so the states of one document read the same way (`framecheck --stability`). Positions inside a component are this layout's; nothing is stamped |
 
 `Containers` exists for renderers that draw a container SHELL around
 `{composite ∪ its part-of subtree}`. A shell is the bbox of that set, so it

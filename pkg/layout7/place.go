@@ -125,10 +125,27 @@ func (g *graph) place(m *membership, gp *groupsPlan, sp *skeletonPlan) {
 		// event (v7P6/P8) — a side stack may rise beside another lane
 		// without inflating it. ----
 		xOverlap := func(a0, a1, b0, b1 int) bool { return a0 < b1 && b0 < a1 }
+		// shellOver: with Shells, how far a composite's SHELL reaches above
+		// and below its box — the sub-grid centres on the composite (placeSubs),
+		// so half the extra extent each way, plus ShellPad. Its aux bands
+		// above/below the box are pushed out by this much (they would sit
+		// inside the shell), and the Y pass measures their rise/hang from
+		// there. Zero without shells or subs.
+		shellOver := func(ev int) int {
+			if !g.opts.Shells || len(sp.subStacks[ev]) == 0 {
+				return 0
+			}
+			over := g.subGridExtent(ev, sp, gp) - g.nodes[ev].h
+			if over < 0 {
+				over = 0
+			}
+			return gridUp((over+1)/2) + ShellPad
+		}
 		type hangBox struct{ x0, x1, over int }
 		boxesOf := func(ev int, above bool) []hangBox {
 			en := g.nodes[ev]
 			out := []hangBox{{en.x, en.x + en.w, 0}}
+			so := shellOver(ev)
 			for n, rp := range gp.rel {
 				if rp.event != ev {
 					continue
@@ -137,8 +154,14 @@ func (g *graph) place(m *membership, gp *groupsPlan, sp *skeletonPlan) {
 				over := 0
 				if above {
 					over = -rp.dy
+					if so > 0 && rp.dy+nb.h <= 0 {
+						over += so
+					}
 				} else {
 					over = rp.dy + nb.h - en.h
+					if so > 0 && rp.dy >= en.h {
+						over += so
+					}
 				}
 				if over < 0 {
 					over = 0
@@ -166,10 +189,62 @@ func (g *graph) place(m *membership, gp *groupsPlan, sp *skeletonPlan) {
 						over = 0
 					}
 					out = append(out, hangBox{sn.x - gp.leftExt[sub], sn.x + sn.w + gp.rightExt[sub], over})
+					// and the member's own aux bands, which rise above /
+					// hang below the member (a satellite at the top of a
+					// sub-grid rose into the shell above; with Shells the
+					// grid's rise is measured to the shell edge)
+					for m, rp := range gp.rel {
+						if rp.event != sub {
+							continue
+						}
+						mb := g.nodes[m]
+						o := 0
+						if above {
+							o = en.y - (sn.y + rp.dy)
+						} else {
+							o = sn.y + rp.dy + mb.h - (en.y + en.h)
+						}
+						if o < 0 {
+							o = 0
+						}
+						out = append(out, hangBox{sn.x + rp.dx, sn.x + rp.dx + mb.w, o})
+					}
 					walkSubs(sub)
 				}
 			}
 			walkSubs(ev)
+			// with Shells the composite's SHELL is one hang box the full
+			// width of {composite ∪ sub-grid} + ShellPad — the sub-grid
+			// hangs beside the composite's column, and a neighbour's aux band
+			// rising in that column x-overlapped nothing and rose INTO the
+			// shell (NDA: part 2's satellites inside part 1's shell)
+			if g.opts.Shells && len(sp.subStacks[ev]) > 0 {
+				x0, x1 := en.x, en.x+en.w
+				top, bot := en.y, en.y+en.h
+				var walkExt func(parent int)
+				walkExt = func(parent int) {
+					for _, sub := range sp.subStacks[parent] {
+						sn := g.nodes[sub]
+						if !sn.placed {
+							continue
+						}
+						x0, x1 = minInt(x0, sn.x), maxInt(x1, sn.x+sn.w)
+						top, bot = minInt(top, sn.y), maxInt(bot, sn.y+sn.h)
+						walkExt(sub)
+					}
+				}
+				walkExt(ev)
+				over := 0
+				if above {
+					over = en.y - (top - ShellPad)
+				} else {
+					over = bot + ShellPad - (en.y + en.h)
+				}
+				if over < 0 {
+					over = 0
+				}
+				out = append(out, hangBox{x0 - ShellPad, x1 + ShellPad, over})
+			}
 			return out
 		}
 		for r := 0; r < len(rows); r++ {
@@ -358,6 +433,16 @@ func (g *graph) place(m *membership, gp *groupsPlan, sp *skeletonPlan) {
 			en := g.nodes[rp.event]
 			g.nodes[n].x = en.x + rp.dx
 			g.nodes[n].y = en.y + rp.dy
+			// a band above or below an OPEN composite's box sits outside its
+			// shell, not inside it (Shells; see shellOver)
+			if so := shellOver(rp.event); so > 0 {
+				nb := g.nodes[n]
+				if rp.dy+nb.h <= 0 {
+					g.nodes[n].y -= so
+				} else if rp.dy >= en.h {
+					g.nodes[n].y += so
+				}
+			}
 			g.nodes[n].placed = true
 		}
 		// ---- final no-overlap floor (v7P8): aux placed in different
@@ -1142,6 +1227,13 @@ func (g *graph) place(m *membership, gp *groupsPlan, sp *skeletonPlan) {
 			g.emitPositions("pull", ci)
 		}
 
+		// ---- shells (Options.Shells): sized from the members and aux just
+		// placed, aux inside evicted — BEFORE S/E, which cap the timeline
+		// below/above every box, evicted ones included; and before the bbox,
+		// what tiling and rings keep their gap from. ----
+		g.sizeShells(ci)
+		g.evictAuxFromShells(ci, gp)
+
 		// ---- S/E boundaries (v7P1/P3): S stays on the start event; E caps
 		// the timeline centred under the end events. ----
 		if len(comp.events) > 0 && len(rows) > 0 && len(rows[0]) > 0 {
@@ -1359,6 +1451,11 @@ func (g *graph) subGridOverhang(ev int, sp *skeletonPlan, gp *groupsPlan) int {
 	over := g.subGridExtent(ev, sp, gp) - g.nodes[ev].h
 	if over <= 0 {
 		return 0
+	}
+	// with Shells the box the spine keeps its row gap from is the SHELL:
+	// the sub-grid plus ShellPad above and below
+	if g.opts.Shells {
+		over += 2 * ShellPad
 	}
 	return gridUp((over + 1) / 2)
 }

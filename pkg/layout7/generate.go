@@ -31,7 +31,27 @@ type Options struct {
 	// vertical space in exact proportion to the sub-grid's height — that
 	// room is what makes the shell exclusive.
 	Containers bool
+	// Shells emits a container box (Container != nil, RenderKind
+	// "<type>-container") around every ROOT composite that has part-of
+	// members present in the graph, and treats it as a real box: the
+	// component's tiling and rings keep their gap from it, other edges route
+	// around it, member edges cross it freely. Implies Containers. This is
+	// what the zoom canvas draws as an open composite; with it the canvas
+	// can lay a state out with the engine alone ("shells in the core").
+	Shells bool
+	// Anchor is a SOFT arrangement anchor: node id -> box centre from a
+	// reference layout (the zoom canvas passes its all-open layout). Wherever
+	// the engine has a free choice — the order of wrapped tiles, the flank a
+	// tied component rings on when crossings tie — it keeps the arrangement
+	// the anchor had, so two states of one document read the same way
+	// (wip/zoom-frame-routing/design.md: arrangement stability, "a reader
+	// must not be confused by a click"). Positions themselves are still this
+	// layout's; nothing is stamped. Nil: the grammar decides alone.
+	Anchor map[string][2]int
 }
+
+// ShellPad is the air between an open composite's content and its shell.
+const ShellPad = 20
 
 // Generate lays out an IPM graph by the v7 principles and returns the
 // shared ipm-simple-graph structure (pkg/layout.Graph) — every edge
@@ -53,9 +73,13 @@ func GenerateWithOptions(doc *model.IpmGraph, opts Options) (*layout.Graph, erro
 		return nil, err
 	}
 	g.opts = opts
+	if opts.Shells {
+		g.opts.Containers = true
+	}
 	m := g.resolveMembership()
 	gp := g.buildGroups(m)
 	sp := g.buildSkeleton(gp)
+	g.addShellNodes(sp)
 	g.place(m, gp, sp)
 	g.assemble()
 	routes := g.route()
@@ -114,19 +138,45 @@ func (g *graph) emit(routes []routed) *layout.Graph {
 	}
 
 	maxX, maxY := 0, 0
+	// shells first: their wrapped nodes get ParentNodeIDs
+	parentOf := map[string]string{}
 	for _, n := range g.nodes {
+		if !n.shell || !n.placed {
+			continue
+		}
+		sn, ids := g.emitShell(n)
+		for _, id := range ids {
+			parentOf[id] = sn.ID
+		}
+		out.Nodes = append(out.Nodes, sn)
+		if n.x+n.w > maxX {
+			maxX = n.x + n.w
+		}
+		if n.y+n.h > maxY {
+			maxY = n.y + n.h
+		}
+	}
+	for _, n := range g.nodes {
+		if n.shell {
+			continue
+		}
 		t, cands := emitType(n)
+		var parents []string
+		if p, ok := parentOf[strconv.Itoa(n.id)]; ok {
+			parents = []string{p}
+		}
 		out.Nodes = append(out.Nodes, layout.Node{
-			ID:         strconv.Itoa(n.id),
-			Type:       t,
-			Label:      n.name,
-			Alias:      n.alias,
-			Tooltip:    n.tooltip,
-			X:          n.x,
-			Y:          n.y,
-			Width:      n.w,
-			Height:     n.h,
-			Candidates: cands,
+			ID:            strconv.Itoa(n.id),
+			Type:          t,
+			Label:         n.name,
+			Alias:         n.alias,
+			Tooltip:       n.tooltip,
+			X:             n.x,
+			Y:             n.y,
+			Width:         n.w,
+			Height:        n.h,
+			Candidates:    cands,
+			ParentNodeIDs: parents,
 		})
 		if n.x+n.w > maxX {
 			maxX = n.x + n.w

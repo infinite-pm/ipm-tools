@@ -3,6 +3,7 @@ package layout7
 import (
 	"math"
 	"sort"
+	"strconv"
 )
 
 // assemble implements v7P2 — the most central component first, the rest
@@ -22,6 +23,9 @@ import (
 // stacking degenerates. Untied components follow after the placed group.
 func (g *graph) assemble() {
 	if len(g.comps) == 0 {
+		return
+	}
+	if g.assembleAnchored() {
 		return
 	}
 	edgeCount := make([]int, len(g.comps))
@@ -52,6 +56,34 @@ func (g *graph) assemble() {
 		}
 		return order[a] < order[b]
 	})
+
+	// the soft anchor (Options.Anchor): a component's anchor box = the
+	// bounding box of its nodes' anchor centres; ok when at least one node
+	// has one. Used only where the grammar has a free choice.
+	anchorBox := func(comps ...int) (x0, y0, x1, y1 int, ok bool) {
+		if g.opts.Anchor == nil {
+			return 0, 0, 0, 0, false
+		}
+		first := true
+		for _, ci := range comps {
+			for _, n := range g.nodes {
+				if n.comp != ci || n.shell || n.boundary {
+					continue
+				}
+				c, has := g.opts.Anchor[strconv.Itoa(n.id)]
+				if !has {
+					continue
+				}
+				if first {
+					x0, y0, x1, y1, first = c[0], c[1], c[0], c[1], false
+					continue
+				}
+				x0, y0 = minInt(x0, c[0]), minInt(y0, c[1])
+				x1, y1 = maxInt(x1, c[0]), maxInt(y1, c[1])
+			}
+		}
+		return x0, y0, x1, y1, !first
+	}
 
 	target := TargetAspectW / TargetAspectH
 	aspectDev := func(w, h int) float64 {
@@ -257,6 +289,26 @@ func (g *graph) assemble() {
 			px0, py0 = minInt(px0, x0), minInt(py0, y0)
 			px1, py1 = maxInt(px1, x1), maxInt(py1, y1)
 		}
+		// the flank the ANCHOR had this component on, relative to the node it
+		// ties to: -1 when unknown. Preferred when crossings tie.
+		anchorSide := -1
+		if ax0, ay0, ax1, ay1, ok := anchorBox(ci); ok {
+			if a, has := g.opts.Anchor[strconv.Itoa(anchor.id)]; has {
+				cx, cy := (ax0+ax1)/2, (ay0+ay1)/2
+				dx, dy := cx-a[0], cy-a[1]
+				if absInt(dx) >= absInt(dy) {
+					if dx < 0 {
+						anchorSide = 0
+					} else {
+						anchorSide = 1
+					}
+				} else if dy < 0 {
+					anchorSide = 2
+				} else {
+					anchorSide = 3
+				}
+			}
+		}
 		nearest := 0
 		if anchorCx*2 >= hx0+hx1 {
 			nearest = 1
@@ -374,7 +426,22 @@ func (g *graph) assemble() {
 			// sent comp 12 LEFT with a 940px slide instead of right with 420.
 			// The priority stays crossings, aspect, nearest side; disp is
 			// reported so the slide is visible in --why -v.)
-			if cross < bestCross || (cross == bestCross && dev < bestDev-1e-9) {
+			// crossings first; then the anchor's flank (arrangement stability
+			// across the states of one document); then aspect; then the
+			// nearest side (evaluation order)
+			better := cross < bestCross
+			if !better && cross == bestCross && anchorSide >= 0 {
+				if side == anchorSide && bestSide != anchorSide {
+					better = true
+				} else if side != anchorSide && bestSide == anchorSide {
+					better = false
+				} else {
+					better = dev < bestDev-1e-9
+				}
+			} else if !better && cross == bestCross {
+				better = dev < bestDev-1e-9
+			}
+			if better {
 				bestSide, bestOffX, bestOffY = side, offX, offY
 				bestCross, bestDev = cross, dev
 			}
@@ -661,6 +728,41 @@ func (g *graph) assemble() {
 		c := g.comps[ci]
 		tiles = append(tiles, tile{comps: []int{ci}, minX: c.minX, minY: c.minY, maxX: c.maxX, maxY: c.maxY})
 	}
+	// with an anchor, wrapped tiles keep the anchor's READING ORDER (rows,
+	// then left to right) instead of centrality order: expanding one T/C
+	// changed a component's centrality and re-tiled the whole canvas — a
+	// component that was bottom-left jumped to top-right, 6640px, on one
+	// click. Tiles without an anchor (all new) keep their centrality slot
+	// after the anchored ones.
+	if g.opts.Anchor != nil {
+		type keyed struct {
+			t      tile
+			ay, ax int
+			ok     bool
+			seq    int
+		}
+		ks := make([]keyed, 0, len(tiles))
+		for i, t := range tiles {
+			x0, y0, _, _, ok := anchorBox(t.comps...)
+			ks = append(ks, keyed{t, y0, x0, ok, i})
+		}
+		sort.SliceStable(ks, func(a, b int) bool {
+			if ks[a].ok != ks[b].ok {
+				return ks[a].ok
+			}
+			if !ks[a].ok {
+				return ks[a].seq < ks[b].seq
+			}
+			// rows: anchor tops within a component height read as one row
+			if absInt(ks[a].ay-ks[b].ay) > 2*RowGap {
+				return ks[a].ay < ks[b].ay
+			}
+			return ks[a].ax < ks[b].ax
+		})
+		for i := range ks {
+			tiles[i] = ks[i].t
+		}
+	}
 	if len(placedComp) > 0 && len(tiles) > 0 {
 		minX, minY := math.MaxInt32, math.MaxInt32
 		maxX, maxY := math.MinInt32, math.MinInt32
@@ -747,28 +849,7 @@ func (g *graph) assemble() {
 		}
 	}
 
-	// normalize to margins
-	minX, minY := math.MaxInt32, math.MaxInt32
-	for _, n := range g.nodes {
-		if !n.placed {
-			continue
-		}
-		if n.x < minX {
-			minX = n.x
-		}
-		if n.y < minY {
-			minY = n.y
-		}
-	}
-	if minX == math.MaxInt32 {
-		return
-	}
-	for _, n := range g.nodes {
-		if n.placed {
-			n.x += Margin - minX
-			n.y += Margin - minY
-		}
-	}
+	g.normalizeToMargins()
 }
 
 func maxInt(a, b int) int {

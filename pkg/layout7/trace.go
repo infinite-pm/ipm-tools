@@ -50,6 +50,9 @@ func GenerateTracedWithOptions(doc *model.IpmGraph, opts Options, t Trace) (*lay
 		return nil, err
 	}
 	g.opts = opts
+	if opts.Shells {
+		g.opts.Containers = true
+	}
 	g.trace = t
 	m := g.resolveMembership()
 	if g.tracing() {
@@ -64,6 +67,7 @@ func GenerateTracedWithOptions(doc *model.IpmGraph, opts Options, t Trace) (*lay
 		g.emitRankRows(sp)
 		g.emitSubRows(sp)
 	}
+	g.addShellNodes(sp)
 	g.place(m, gp, sp)
 	if g.tracing() {
 		g.emitPositions("place", -1)
