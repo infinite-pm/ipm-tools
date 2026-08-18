@@ -293,10 +293,16 @@ func parseOneNodeSpec(pt string) (parsedNode, error) {
 	// After extracting alias, tooltip, and type, the remaining text is the name
 	name := strings.TrimSpace(rest)
 
-	// Strip bracket labels: "e1 [long label text]" → "e1"
-	if bi := strings.Index(name, "["); bi >= 0 {
-		if ci := strings.LastIndex(name, "]"); ci > bi {
-			name = strings.TrimSpace(name[:bi])
+	// Strip bracket labels: "e1 [long label text]" → "e1". Never inside a
+	// QUOTED name — quoting is how a name keeps characters the grammar would
+	// otherwise eat, and this ran before the quotes came off, so
+	// `"not until [when used before a time expression]"` became `"not until`
+	// (a dangling quote, and a collision with the node named `not until`).
+	if !strings.HasPrefix(name, "\"") {
+		if bi := strings.Index(name, "["); bi >= 0 {
+			if ci := strings.LastIndex(name, "]"); ci > bi {
+				name = strings.TrimSpace(name[:bi])
+			}
 		}
 	}
 

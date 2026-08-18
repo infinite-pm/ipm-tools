@@ -692,3 +692,21 @@ c1 --- c2 "Related Concept" ::c
 		}
 	}
 }
+
+// An unquoted "[...]" is a bracket label and is stripped from the name; a
+// QUOTED name keeps its brackets. The strip used to run before the quotes came
+// off, so `"not until [when …]"` parsed as `"not until` — a dangling quote,
+// and a second node named `not until`.
+func TestParseBracketLabelStripsOnlyUnquoted(t *testing.T) {
+	g, err := Parse([]byte("e1 [long label text] ::e --> \"e2 [kept]\" ::e\n"), Options{})
+	if err != nil {
+		t.Fatalf("parse: %v", err)
+	}
+	names := map[string]bool{}
+	for _, n := range g.Nodes {
+		names[n.Name] = true
+	}
+	if !names["e1"] || !names["e2 [kept]"] || len(g.Nodes) != 2 {
+		t.Errorf("got %v, want {e1, \"e2 [kept]\"}", names)
+	}
+}

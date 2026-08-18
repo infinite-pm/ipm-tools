@@ -86,3 +86,38 @@ func TestSerializeSpecialCharsRoundTrip(t *testing.T) {
 		t.Errorf("round-trip mismatch:\n got %q\nwant %q", got, name)
 	}
 }
+
+// A name that contains a bracket pair must round-trip: unquoted, "[...]" is a
+// bracket label the parser strips, so `not until [when used before a time
+// expression]` came back as `not until` and collided with the node of that
+// name (SSTorytime's chinese_story_bear). The writer quotes it, and the parser
+// leaves brackets alone inside quotes.
+func TestSerializeBracketNameRoundTrips(t *testing.T) {
+	const name = "not until [when used before a time expression]"
+	g := &model.IpmGraph{
+		Version: "test",
+		Nodes: []model.Node{
+			{ID: 1, Name: "not until", Type: model.Concept},
+			{ID: 2, Name: name, Type: model.Concept},
+			{ID: 3, Name: "cai", Type: model.Thing},
+		},
+		Edges: []model.Edge{
+			{ID: 4, Source: 3, Target: 2, SstLinkType: model.Expresses, Dir: model.DirFwd},
+		},
+	}
+	out, err := Serialize(g)
+	if err != nil {
+		t.Fatal(err)
+	}
+	doc, err := parser.Parse([]byte(out), parser.Options{})
+	if err != nil {
+		t.Fatalf("re-parse failed: %v\n%s", err, out)
+	}
+	names := map[string]bool{}
+	for i := range doc.Nodes {
+		names[doc.Nodes[i].Name] = true
+	}
+	if !names[name] || !names["not until"] || len(doc.Nodes) != 3 {
+		t.Errorf("round-trip lost the bracket name: nodes %v\n%s", names, out)
+	}
+}

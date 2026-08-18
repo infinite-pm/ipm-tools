@@ -74,6 +74,23 @@ To keep a whitespace-surrounded `#` literal, quote the name:
 "Step # 3" ::t --> E1::a Event 1 ::e
 ```
 
+## Bracket labels
+
+An unquoted `[...]` at the end of a name is a *bracket label*: a note for the
+reader that is stripped from the name.
+```ipmt
+open [the long label of the first event] ::e --> close [the second one] ::e
+```
+is valid and means:
+```ipmt
+open ::e --> close ::e
+```
+
+A name that must KEEP its brackets is quoted — inside double quotes nothing is
+stripped:
+```ipmt
+"not until [when used before a time expression]" ::c
+```
 ## Nodes
 
 ### Node with long name

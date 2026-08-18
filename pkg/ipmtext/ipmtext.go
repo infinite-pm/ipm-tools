@@ -135,6 +135,14 @@ func needsQuoting(value string) bool {
 			return true
 		}
 	}
+	// An unquoted "[...]" is a bracket label the parser strips from the name
+	// ("e1 [long label text]" -> "e1"); a name that contains one must be
+	// quoted to round-trip. SSTorytime's chinese_story_bear had
+	// `not until [when used before a time expression]`, which stripped to
+	// `not until` and collided with the node of that name.
+	if bi := strings.Index(value, "["); bi >= 0 && strings.LastIndex(value, "]") > bi {
+		return true
+	}
 	// A '#' surrounded by whitespace (or at a token boundary) begins a trailing
 	// comment when re-parsed, so such a name must be quoted to round-trip. A '#'
 	// glued to a non-space character ("Agent #1", "C#") stays literal and is fine.
