@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-shells.md",
-        "source_sha1": "8adf42a36d51286f26542448e9b8ed5ac6a69126",
+        "source_sha1": "92fea23a591155c2e4d06cc92fa88db8ca8c22c9",
         "name": "layout shells test rules",
         "method": "parser",
         "parser_name": "ipmdev-layout-rule-md",
@@ -382,6 +382,86 @@
                     "dsl": "fe75bfebbf88e1fa7b5b3d39bf8fd394bcae12cf"
                 },
                 "heading": "a member's satellites sit outside the shell, their edges cross it",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-successors-band-rises-beside-the-shell-not-into-it",
+                "line": 153,
+                "anchor": "#a-successors-band-rises-beside-the-shell-not-into-it",
+                "content_sha1": "4950c5ffd7f3db8793d29cf7ffb0424302ada625",
+                "heading": "a successor's band rises beside the shell, not into it",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-successors-band-rises-beside-the-shell-not-into-it-02",
+                "line": 154,
+                "anchor": "#a-successors-band-rises-beside-the-shell-not-into-it",
+                "content_sha1": "956ae52098d8cf0a8aaea362b03f7b9cde810462",
+                "heading": "a successor's band rises beside the shell, not into it",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-successors-band-rises-beside-the-shell-not-into-it-03",
+                "line": 155,
+                "anchor": "#a-successors-band-rises-beside-the-shell-not-into-it",
+                "content_sha1": "ef4103c13d32e05bf3c3e966705366fa33afd051",
+                "heading": "a successor's band rises beside the shell, not into it",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-successors-band-rises-beside-the-shell-not-into-it-04",
+                "line": 156,
+                "anchor": "#a-successors-band-rises-beside-the-shell-not-into-it",
+                "content_sha1": "9af022dc6449e12a57e262d06727e0c3f856fe6e",
+                "heading": "a successor's band rises beside the shell, not into it",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-successors-band-rises-beside-the-shell-not-into-it-05",
+                "line": 157,
+                "anchor": "#a-successors-band-rises-beside-the-shell-not-into-it",
+                "content_sha1": "3c99acfa6d5b2ec4c2ed0f89256d76e96e193105",
+                "heading": "a successor's band rises beside the shell, not into it",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-successors-band-rises-beside-the-shell-not-into-it-06",
+                "line": 158,
+                "anchor": "#a-successors-band-rises-beside-the-shell-not-into-it",
+                "content_sha1": "302da286ff917c5a386b2eba08a2ea85d6923c67",
+                "heading": "a successor's band rises beside the shell, not into it",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-successors-band-rises-beside-the-shell-not-into-it-07",
+                "line": 159,
+                "anchor": "#a-successors-band-rises-beside-the-shell-not-into-it",
+                "content_sha1": "a9bc0225118d1d19508cdeb31d8fb9402b0468bc",
+                "heading": "a successor's band rises beside the shell, not into it",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-successors-band-rises-beside-the-shell-not-into-it-08",
+                "line": 160,
+                "anchor": "#a-successors-band-rises-beside-the-shell-not-into-it",
+                "content_sha1": "5d74db48c7077d76888cce7f0099cccec8ab9eb3",
+                "heading": "a successor's band rises beside the shell, not into it",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-successors-band-rises-beside-the-shell-not-into-it-09",
+                "line": 161,
+                "anchor": "#a-successors-band-rises-beside-the-shell-not-into-it",
+                "content_sha1": "a31a70aa4c26194fe79e6bcde0e2c3926eae0035",
+                "heading": "a successor's band rises beside the shell, not into it",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-successors-band-rises-beside-the-shell-not-into-it-10",
+                "line": 162,
+                "anchor": "#a-successors-band-rises-beside-the-shell-not-into-it",
+                "content_sha1": "9aafc8b15a16312fbece92909a5c340ed42faa5b",
+                "heading": "a successor's band rises beside the shell, not into it",
                 "section": "Cases"
             }
         ]

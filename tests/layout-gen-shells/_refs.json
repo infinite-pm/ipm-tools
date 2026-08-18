@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-shells.md",
-        "source_sha1": "8adf42a36d51286f26542448e9b8ed5ac6a69126",
+        "source_sha1": "92fea23a591155c2e4d06cc92fa88db8ca8c22c9",
         "name": "ipmt layout algorithm shells",
         "method": "parser",
         "parser_name": "ipmt-md",
@@ -53,6 +53,21 @@
                     "md": "f5ab915c802dd9c8b9cdf4b5b29a166a534c3207"
                 },
                 "heading": "a member's satellites sit outside the shell, their edges cross it",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-successors-band-rises-beside-the-shell-not-into-it",
+                "line": 142,
+                "anchor": "#a-successors-band-rises-beside-the-shell-not-into-it",
+                "content_sha1": "bb238234f96c023041aeeb2cdb7a61ed7f8935db",
+                "outputs": {
+                    "ipm.svg": "3d3049f622634c9dced69e23e04bf3c32ddd2cc5",
+                    "ipmt": "bb238234f96c023041aeeb2cdb7a61ed7f8935db",
+                    "json": "1bade4b43c0ad379bab29ff88cc45dddbd747a56",
+                    "layout.json": "d44b1a1cac4fa673e51b1b8b199deb1093ad22a6",
+                    "md": "f4d52cb56bb1f6a8572ce02e250321a749301a39"
+                },
+                "heading": "a successor's band rises beside the shell, not into it",
                 "section": "Cases"
             }
         ]
