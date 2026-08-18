@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-ext.md",
-        "source_sha1": "446933b91db9ef4715ca7ecc1cd837204b30f4ec",
+        "source_sha1": "f203a986a06edbcc164b2c2c4b5db662efd19e03",
         "name": "layout ext test rules",
         "method": "parser",
         "parser_name": "ipmdev-layout-rule-md",
@@ -3190,81 +3190,111 @@
             },
             {
                 "destination": "a-leads-to-into-a-sub-grid-member-bends-around-the-members-above",
-                "line": 1362,
+                "line": 1364,
                 "anchor": "#a-leads-to-into-a-sub-grid-member-bends-around-the-members-above",
                 "content_sha1": "ae956b81c5a0a9d4d34e5695e67143d175f4d2ea",
+                "outputs": {
+                    "dsl": "ae956b81c5a0a9d4d34e5695e67143d175f4d2ea"
+                },
                 "heading": "a leads-to into a sub-grid member bends around the members above",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-leads-to-into-a-sub-grid-member-bends-around-the-members-above-02",
-                "line": 1363,
+                "line": 1365,
                 "anchor": "#a-leads-to-into-a-sub-grid-member-bends-around-the-members-above",
                 "content_sha1": "7f05921647561dd898738111b3a85063930e5abd",
+                "outputs": {
+                    "dsl": "7f05921647561dd898738111b3a85063930e5abd"
+                },
                 "heading": "a leads-to into a sub-grid member bends around the members above",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-leads-to-into-a-sub-grid-member-bends-around-the-members-above-03",
-                "line": 1364,
+                "line": 1366,
                 "anchor": "#a-leads-to-into-a-sub-grid-member-bends-around-the-members-above",
                 "content_sha1": "8270fece00147d19ed500095a4d09b355f964725",
+                "outputs": {
+                    "dsl": "8270fece00147d19ed500095a4d09b355f964725"
+                },
                 "heading": "a leads-to into a sub-grid member bends around the members above",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-leads-to-into-a-sub-grid-member-bends-around-the-members-above-04",
-                "line": 1365,
+                "line": 1367,
                 "anchor": "#a-leads-to-into-a-sub-grid-member-bends-around-the-members-above",
                 "content_sha1": "8192c1fcdceb68b4ed11c749d49084a43dac51eb",
+                "outputs": {
+                    "dsl": "8192c1fcdceb68b4ed11c749d49084a43dac51eb"
+                },
                 "heading": "a leads-to into a sub-grid member bends around the members above",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-leads-to-into-a-sub-grid-member-bends-around-the-members-above-05",
-                "line": 1366,
+                "line": 1368,
                 "anchor": "#a-leads-to-into-a-sub-grid-member-bends-around-the-members-above",
                 "content_sha1": "2ed276df8083981511e9b1914c3baba4de4a9bbd",
+                "outputs": {
+                    "dsl": "2ed276df8083981511e9b1914c3baba4de4a9bbd"
+                },
                 "heading": "a leads-to into a sub-grid member bends around the members above",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-leads-to-into-a-sub-grid-member-bends-around-the-members-above-06",
-                "line": 1367,
+                "line": 1369,
                 "anchor": "#a-leads-to-into-a-sub-grid-member-bends-around-the-members-above",
                 "content_sha1": "3c86049523655bf15344272ffe5339a23bb6ffa0",
+                "outputs": {
+                    "dsl": "3c86049523655bf15344272ffe5339a23bb6ffa0"
+                },
                 "heading": "a leads-to into a sub-grid member bends around the members above",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-leads-to-into-a-sub-grid-member-bends-around-the-members-above-07",
-                "line": 1368,
+                "line": 1370,
                 "anchor": "#a-leads-to-into-a-sub-grid-member-bends-around-the-members-above",
                 "content_sha1": "b6c816bce3a4a7793e72979684f63e916ebce0cf",
+                "outputs": {
+                    "dsl": "b6c816bce3a4a7793e72979684f63e916ebce0cf"
+                },
                 "heading": "a leads-to into a sub-grid member bends around the members above",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-leads-to-into-a-sub-grid-member-bends-around-the-members-above-08",
-                "line": 1369,
+                "line": 1371,
                 "anchor": "#a-leads-to-into-a-sub-grid-member-bends-around-the-members-above",
                 "content_sha1": "3c01bffb9a02d19e4163bf11783e72248a9121e2",
+                "outputs": {
+                    "dsl": "3c01bffb9a02d19e4163bf11783e72248a9121e2"
+                },
                 "heading": "a leads-to into a sub-grid member bends around the members above",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-leads-to-into-a-sub-grid-member-bends-around-the-members-above-09",
-                "line": 1370,
+                "line": 1372,
                 "anchor": "#a-leads-to-into-a-sub-grid-member-bends-around-the-members-above",
                 "content_sha1": "e368c7f47d3081310c344c75c83c80e3045a808e",
+                "outputs": {
+                    "dsl": "e368c7f47d3081310c344c75c83c80e3045a808e"
+                },
                 "heading": "a leads-to into a sub-grid member bends around the members above",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-leads-to-into-a-sub-grid-member-bends-around-the-members-above-10",
-                "line": 1371,
+                "line": 1373,
                 "anchor": "#a-leads-to-into-a-sub-grid-member-bends-around-the-members-above",
                 "content_sha1": "8ce64f57d474e19025267c8a05b0d038552f5c0c",
+                "outputs": {
+                    "dsl": "8ce64f57d474e19025267c8a05b0d038552f5c0c"
+                },
                 "heading": "a leads-to into a sub-grid member bends around the members above",
                 "section": "v7 acceptance targets"
             }

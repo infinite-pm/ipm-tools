@@ -1,0 +1,60 @@
+[
+    {
+        "source": "../../docs/dev/layout-gen/layout-alg-shells.md",
+        "source_sha1": "8adf42a36d51286f26542448e9b8ed5ac6a69126",
+        "name": "ipmt layout algorithm shells",
+        "method": "parser",
+        "parser_name": "ipmt-md",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmt"
+        },
+        "items": [
+            {
+                "destination": "a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air",
+                "line": 37,
+                "anchor": "#a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air",
+                "content_sha1": "c1bb8d7138b0a9b0edb25cfeb38cb7dbd76c0287",
+                "outputs": {
+                    "ipm.svg": "a03fac9301404e8707cccee1c662ae185ef433f4",
+                    "ipmt": "c1bb8d7138b0a9b0edb25cfeb38cb7dbd76c0287",
+                    "json": "22b858740412b14651d11b07c3dde979ff506bf6",
+                    "layout.json": "9ad19b267ae03bed0797eda6c7f664c3950cf449",
+                    "md": "ffe787eb0bf8e7c41099264093544c165e4c361e"
+                },
+                "heading": "a shell wraps the composite and its members with one pad of air",
+                "section": "Cases"
+            },
+            {
+                "destination": "the-spine-keeps-its-row-gap-from-a-shell-hangs-included",
+                "line": 75,
+                "anchor": "#the-spine-keeps-its-row-gap-from-a-shell-hangs-included",
+                "content_sha1": "91bde0b98d38430babf5054705a4bc41cf1d4d48",
+                "outputs": {
+                    "ipm.svg": "545bd766096567cc797b0074aba6dfc328c7ed9b",
+                    "ipmt": "91bde0b98d38430babf5054705a4bc41cf1d4d48",
+                    "json": "c768f0ddefe082990ece53e523d2c3b4ca2227d8",
+                    "layout.json": "a9ca55a697bd356a103030f791304c52ff8d55be",
+                    "md": "438d639b28cbfe3aa4c7793b8e74ef660cb88e34"
+                },
+                "heading": "the spine keeps its row gap from a shell, hangs included",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-members-satellites-sit-outside-the-shell-their-edges-cross-it",
+                "line": 105,
+                "anchor": "#a-members-satellites-sit-outside-the-shell-their-edges-cross-it",
+                "content_sha1": "369378f18000bdc9ba9f51660ae17561785dc73e",
+                "outputs": {
+                    "ipm.svg": "589030b6327df3f4262793ee84a2ea3882b55176",
+                    "ipmt": "369378f18000bdc9ba9f51660ae17561785dc73e",
+                    "json": "63d3955745e14d7caa02ea997cf88851bd9fdd44",
+                    "layout.json": "aef128d4064f0607c491533ac04259712c399509",
+                    "md": "f5ab915c802dd9c8b9cdf4b5b29a166a534c3207"
+                },
+                "heading": "a member's satellites sit outside the shell, their edges cross it",
+                "section": "Cases"
+            }
+        ]
+    }
+]

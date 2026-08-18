@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-ext.md",
-        "source_sha1": "446933b91db9ef4715ca7ecc1cd837204b30f4ec",
+        "source_sha1": "f203a986a06edbcc164b2c2c4b5db662efd19e03",
         "name": "ipmt layout algorithm extensions",
         "method": "parser",
         "parser_name": "ipmt-md",
@@ -498,7 +498,8 @@
                     "ipm.svg": "4cff4a40789777c14aa884189799ae9b795f4b23",
                     "ipmt": "8a238f4715f635629fecd3d96f102c52a327ea5d",
                     "json": "352d59236f0fc5d6345d57ca1da7acdf083bbfcb",
-                    "layout.json": "355b1527e32651134eb52240133c0bbabbc0579a"
+                    "layout.json": "355b1527e32651134eb52240133c0bbabbc0579a",
+                    "md": "6c8aa271cd9f2414bd7d318b8d9416be00affe99"
                 },
                 "heading": "a leads-to into a sub-grid member bends around the members above",
                 "section": "v7 acceptance targets"

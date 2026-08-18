@@ -1,0 +1,389 @@
+[
+    {
+        "source": "../../docs/dev/layout-gen/layout-alg-shells.md",
+        "source_sha1": "8adf42a36d51286f26542448e9b8ed5ac6a69126",
+        "name": "layout shells test rules",
+        "method": "parser",
+        "parser_name": "ipmdev-layout-rule-md",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmdev-layout-rule"
+        },
+        "items": [
+            {
+                "destination": "a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air",
+                "line": 49,
+                "anchor": "#a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air",
+                "content_sha1": "4950c5ffd7f3db8793d29cf7ffb0424302ada625",
+                "outputs": {
+                    "dsl": "4950c5ffd7f3db8793d29cf7ffb0424302ada625"
+                },
+                "heading": "a shell wraps the composite and its members with one pad of air",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air-02",
+                "line": 50,
+                "anchor": "#a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air",
+                "content_sha1": "956ae52098d8cf0a8aaea362b03f7b9cde810462",
+                "outputs": {
+                    "dsl": "956ae52098d8cf0a8aaea362b03f7b9cde810462"
+                },
+                "heading": "a shell wraps the composite and its members with one pad of air",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air-03",
+                "line": 51,
+                "anchor": "#a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air",
+                "content_sha1": "ef4103c13d32e05bf3c3e966705366fa33afd051",
+                "outputs": {
+                    "dsl": "ef4103c13d32e05bf3c3e966705366fa33afd051"
+                },
+                "heading": "a shell wraps the composite and its members with one pad of air",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air-04",
+                "line": 52,
+                "anchor": "#a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air",
+                "content_sha1": "0b16e7b0e0f2f841835562d839b7668aac7fd38f",
+                "outputs": {
+                    "dsl": "0b16e7b0e0f2f841835562d839b7668aac7fd38f"
+                },
+                "heading": "a shell wraps the composite and its members with one pad of air",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air-05",
+                "line": 53,
+                "anchor": "#a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air",
+                "content_sha1": "40007d2e80e84626ebbf4cb6ec6a11fc1a6e8980",
+                "outputs": {
+                    "dsl": "40007d2e80e84626ebbf4cb6ec6a11fc1a6e8980"
+                },
+                "heading": "a shell wraps the composite and its members with one pad of air",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air-06",
+                "line": 54,
+                "anchor": "#a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air",
+                "content_sha1": "bb89ae30555336fb5b83c24bcb5f0782b942da97",
+                "outputs": {
+                    "dsl": "bb89ae30555336fb5b83c24bcb5f0782b942da97"
+                },
+                "heading": "a shell wraps the composite and its members with one pad of air",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air-07",
+                "line": 55,
+                "anchor": "#a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air",
+                "content_sha1": "66496654af286dec0f614a0c05b63d765168e4fb",
+                "outputs": {
+                    "dsl": "66496654af286dec0f614a0c05b63d765168e4fb"
+                },
+                "heading": "a shell wraps the composite and its members with one pad of air",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air-08",
+                "line": 56,
+                "anchor": "#a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air",
+                "content_sha1": "9c769f5ae36b68687f30250be981d64e061cfcfd",
+                "outputs": {
+                    "dsl": "9c769f5ae36b68687f30250be981d64e061cfcfd"
+                },
+                "heading": "a shell wraps the composite and its members with one pad of air",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air-09",
+                "line": 57,
+                "anchor": "#a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air",
+                "content_sha1": "730047369a9551eefdece03fc81f02d39aa3f2a8",
+                "outputs": {
+                    "dsl": "730047369a9551eefdece03fc81f02d39aa3f2a8"
+                },
+                "heading": "a shell wraps the composite and its members with one pad of air",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air-10",
+                "line": 58,
+                "anchor": "#a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air",
+                "content_sha1": "9af022dc6449e12a57e262d06727e0c3f856fe6e",
+                "outputs": {
+                    "dsl": "9af022dc6449e12a57e262d06727e0c3f856fe6e"
+                },
+                "heading": "a shell wraps the composite and its members with one pad of air",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air-11",
+                "line": 59,
+                "anchor": "#a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air",
+                "content_sha1": "a650e4e5870ac5729410d6b7571fc4f47ed0cc97",
+                "outputs": {
+                    "dsl": "a650e4e5870ac5729410d6b7571fc4f47ed0cc97"
+                },
+                "heading": "a shell wraps the composite and its members with one pad of air",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air-12",
+                "line": 60,
+                "anchor": "#a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air",
+                "content_sha1": "18d5f980cc2b867f05d54552a27af9b436b08fd7",
+                "outputs": {
+                    "dsl": "18d5f980cc2b867f05d54552a27af9b436b08fd7"
+                },
+                "heading": "a shell wraps the composite and its members with one pad of air",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air-13",
+                "line": 61,
+                "anchor": "#a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air",
+                "content_sha1": "a10857956ff8d5c624e7f921690e805d680bb501",
+                "outputs": {
+                    "dsl": "a10857956ff8d5c624e7f921690e805d680bb501"
+                },
+                "heading": "a shell wraps the composite and its members with one pad of air",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air-14",
+                "line": 62,
+                "anchor": "#a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air",
+                "content_sha1": "9aafc8b15a16312fbece92909a5c340ed42faa5b",
+                "outputs": {
+                    "dsl": "9aafc8b15a16312fbece92909a5c340ed42faa5b"
+                },
+                "heading": "a shell wraps the composite and its members with one pad of air",
+                "section": "Cases"
+            },
+            {
+                "destination": "the-spine-keeps-its-row-gap-from-a-shell-hangs-included",
+                "line": 86,
+                "anchor": "#the-spine-keeps-its-row-gap-from-a-shell-hangs-included",
+                "content_sha1": "ac30373281c2bb1f77ea44da12c9f3ba1f8aef45",
+                "outputs": {
+                    "dsl": "ac30373281c2bb1f77ea44da12c9f3ba1f8aef45"
+                },
+                "heading": "the spine keeps its row gap from a shell, hangs included",
+                "section": "Cases"
+            },
+            {
+                "destination": "the-spine-keeps-its-row-gap-from-a-shell-hangs-included-02",
+                "line": 87,
+                "anchor": "#the-spine-keeps-its-row-gap-from-a-shell-hangs-included",
+                "content_sha1": "b266c1475c76eeadd627e3ea9abb7b44636dce8e",
+                "outputs": {
+                    "dsl": "b266c1475c76eeadd627e3ea9abb7b44636dce8e"
+                },
+                "heading": "the spine keeps its row gap from a shell, hangs included",
+                "section": "Cases"
+            },
+            {
+                "destination": "the-spine-keeps-its-row-gap-from-a-shell-hangs-included-03",
+                "line": 88,
+                "anchor": "#the-spine-keeps-its-row-gap-from-a-shell-hangs-included",
+                "content_sha1": "75842dd49c549ad0bbb6f26c064c94e81ef03139",
+                "outputs": {
+                    "dsl": "75842dd49c549ad0bbb6f26c064c94e81ef03139"
+                },
+                "heading": "the spine keeps its row gap from a shell, hangs included",
+                "section": "Cases"
+            },
+            {
+                "destination": "the-spine-keeps-its-row-gap-from-a-shell-hangs-included-04",
+                "line": 89,
+                "anchor": "#the-spine-keeps-its-row-gap-from-a-shell-hangs-included",
+                "content_sha1": "a2de56074f74fd0592d8db1ba7c431fbdaba34b2",
+                "outputs": {
+                    "dsl": "a2de56074f74fd0592d8db1ba7c431fbdaba34b2"
+                },
+                "heading": "the spine keeps its row gap from a shell, hangs included",
+                "section": "Cases"
+            },
+            {
+                "destination": "the-spine-keeps-its-row-gap-from-a-shell-hangs-included-05",
+                "line": 90,
+                "anchor": "#the-spine-keeps-its-row-gap-from-a-shell-hangs-included",
+                "content_sha1": "282f7f47d63ea5d797c98a28bc19905c9252c6af",
+                "outputs": {
+                    "dsl": "282f7f47d63ea5d797c98a28bc19905c9252c6af"
+                },
+                "heading": "the spine keeps its row gap from a shell, hangs included",
+                "section": "Cases"
+            },
+            {
+                "destination": "the-spine-keeps-its-row-gap-from-a-shell-hangs-included-06",
+                "line": 91,
+                "anchor": "#the-spine-keeps-its-row-gap-from-a-shell-hangs-included",
+                "content_sha1": "9af022dc6449e12a57e262d06727e0c3f856fe6e",
+                "outputs": {
+                    "dsl": "9af022dc6449e12a57e262d06727e0c3f856fe6e"
+                },
+                "heading": "the spine keeps its row gap from a shell, hangs included",
+                "section": "Cases"
+            },
+            {
+                "destination": "the-spine-keeps-its-row-gap-from-a-shell-hangs-included-07",
+                "line": 92,
+                "anchor": "#the-spine-keeps-its-row-gap-from-a-shell-hangs-included",
+                "content_sha1": "a10857956ff8d5c624e7f921690e805d680bb501",
+                "outputs": {
+                    "dsl": "a10857956ff8d5c624e7f921690e805d680bb501"
+                },
+                "heading": "the spine keeps its row gap from a shell, hangs included",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-members-satellites-sit-outside-the-shell-their-edges-cross-it",
+                "line": 117,
+                "anchor": "#a-members-satellites-sit-outside-the-shell-their-edges-cross-it",
+                "content_sha1": "3ca2ad4806b7cd9221077f106f649617783baf13",
+                "outputs": {
+                    "dsl": "3ca2ad4806b7cd9221077f106f649617783baf13"
+                },
+                "heading": "a member's satellites sit outside the shell, their edges cross it",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-members-satellites-sit-outside-the-shell-their-edges-cross-it-02",
+                "line": 118,
+                "anchor": "#a-members-satellites-sit-outside-the-shell-their-edges-cross-it",
+                "content_sha1": "5ef7e21f51151fb00c6c50beffbcb4fc366db9f7",
+                "outputs": {
+                    "dsl": "5ef7e21f51151fb00c6c50beffbcb4fc366db9f7"
+                },
+                "heading": "a member's satellites sit outside the shell, their edges cross it",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-members-satellites-sit-outside-the-shell-their-edges-cross-it-03",
+                "line": 119,
+                "anchor": "#a-members-satellites-sit-outside-the-shell-their-edges-cross-it",
+                "content_sha1": "69d281d4470effe43e56c36ae184c05a496f4065",
+                "outputs": {
+                    "dsl": "69d281d4470effe43e56c36ae184c05a496f4065"
+                },
+                "heading": "a member's satellites sit outside the shell, their edges cross it",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-members-satellites-sit-outside-the-shell-their-edges-cross-it-04",
+                "line": 120,
+                "anchor": "#a-members-satellites-sit-outside-the-shell-their-edges-cross-it",
+                "content_sha1": "069a04055fe9b8efd38334dccda306b8ce1c0375",
+                "outputs": {
+                    "dsl": "069a04055fe9b8efd38334dccda306b8ce1c0375"
+                },
+                "heading": "a member's satellites sit outside the shell, their edges cross it",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-members-satellites-sit-outside-the-shell-their-edges-cross-it-05",
+                "line": 121,
+                "anchor": "#a-members-satellites-sit-outside-the-shell-their-edges-cross-it",
+                "content_sha1": "a3f2452a4eff64913fac32478c48d2495e11da49",
+                "outputs": {
+                    "dsl": "a3f2452a4eff64913fac32478c48d2495e11da49"
+                },
+                "heading": "a member's satellites sit outside the shell, their edges cross it",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-members-satellites-sit-outside-the-shell-their-edges-cross-it-06",
+                "line": 122,
+                "anchor": "#a-members-satellites-sit-outside-the-shell-their-edges-cross-it",
+                "content_sha1": "7d814f425656bdc02277294989aa722881f95a5c",
+                "outputs": {
+                    "dsl": "7d814f425656bdc02277294989aa722881f95a5c"
+                },
+                "heading": "a member's satellites sit outside the shell, their edges cross it",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-members-satellites-sit-outside-the-shell-their-edges-cross-it-07",
+                "line": 123,
+                "anchor": "#a-members-satellites-sit-outside-the-shell-their-edges-cross-it",
+                "content_sha1": "ec8977b9dae9937fda37a7392638469e8c51aaba",
+                "outputs": {
+                    "dsl": "ec8977b9dae9937fda37a7392638469e8c51aaba"
+                },
+                "heading": "a member's satellites sit outside the shell, their edges cross it",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-members-satellites-sit-outside-the-shell-their-edges-cross-it-08",
+                "line": 124,
+                "anchor": "#a-members-satellites-sit-outside-the-shell-their-edges-cross-it",
+                "content_sha1": "887de20b66a9ffbfed46e0a1f43c1da69efeb12a",
+                "outputs": {
+                    "dsl": "887de20b66a9ffbfed46e0a1f43c1da69efeb12a"
+                },
+                "heading": "a member's satellites sit outside the shell, their edges cross it",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-members-satellites-sit-outside-the-shell-their-edges-cross-it-09",
+                "line": 125,
+                "anchor": "#a-members-satellites-sit-outside-the-shell-their-edges-cross-it",
+                "content_sha1": "8676ba752e685151867644d422b757a91d3dbeb3",
+                "outputs": {
+                    "dsl": "8676ba752e685151867644d422b757a91d3dbeb3"
+                },
+                "heading": "a member's satellites sit outside the shell, their edges cross it",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-members-satellites-sit-outside-the-shell-their-edges-cross-it-10",
+                "line": 126,
+                "anchor": "#a-members-satellites-sit-outside-the-shell-their-edges-cross-it",
+                "content_sha1": "6a0df3d40515f902bd288ee842c8c7b5e4c66ce3",
+                "outputs": {
+                    "dsl": "6a0df3d40515f902bd288ee842c8c7b5e4c66ce3"
+                },
+                "heading": "a member's satellites sit outside the shell, their edges cross it",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-members-satellites-sit-outside-the-shell-their-edges-cross-it-11",
+                "line": 127,
+                "anchor": "#a-members-satellites-sit-outside-the-shell-their-edges-cross-it",
+                "content_sha1": "6636048c3625ab68876696c586ee596ce9929562",
+                "outputs": {
+                    "dsl": "6636048c3625ab68876696c586ee596ce9929562"
+                },
+                "heading": "a member's satellites sit outside the shell, their edges cross it",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-members-satellites-sit-outside-the-shell-their-edges-cross-it-12",
+                "line": 128,
+                "anchor": "#a-members-satellites-sit-outside-the-shell-their-edges-cross-it",
+                "content_sha1": "17b95c8466c97dba6b7a5e86b3c3298177d9c06e",
+                "outputs": {
+                    "dsl": "17b95c8466c97dba6b7a5e86b3c3298177d9c06e"
+                },
+                "heading": "a member's satellites sit outside the shell, their edges cross it",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-members-satellites-sit-outside-the-shell-their-edges-cross-it-13",
+                "line": 129,
+                "anchor": "#a-members-satellites-sit-outside-the-shell-their-edges-cross-it",
+                "content_sha1": "fe75bfebbf88e1fa7b5b3d39bf8fd394bcae12cf",
+                "outputs": {
+                    "dsl": "fe75bfebbf88e1fa7b5b3d39bf8fd394bcae12cf"
+                },
+                "heading": "a member's satellites sit outside the shell, their edges cross it",
+                "section": "Cases"
+            }
+        ]
+    }
+]
