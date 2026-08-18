@@ -4,6 +4,7 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/infinite-pm/ipm-tools/pkg/layout"
 	"github.com/infinite-pm/ipm-tools/pkg/layoutdiff"
 )
 
@@ -81,5 +82,65 @@ func TestGalleryDropsWhatAnEngineCannotDraw(t *testing.T) {
 	}
 	if !strings.Contains(html, "every diagram") {
 		t.Error("the gallery lost its heading")
+	}
+}
+
+// A gallery item has to be actionable on its own: a link to itself, where the
+// source lives, how settled the diagram is, and a report to hand over.
+func TestGalleryItemIsActionable(t *testing.T) {
+	svg := []byte(`<svg viewBox="0 0 10 10"></svg>`)
+	rep := layoutdiff.Report{Tier: layoutdiff.TierGeometry, Counts: map[string]int{},
+		NewBounds: layout.Bounds{Width: 560, Height: 420}}
+	in := timelineInput{
+		Weeks: []week{
+			{Label: "c1", Base: map[string][]byte{"docs/x.md#100": svg}},
+			{Label: "c2", Subject: "route ties", SHA: "9f3a2b1",
+				Changes: []change{{ID: "docs/x.md#100", Status: "changed", Report: rep, NewSVG: svg}}},
+		},
+		Order:   map[string]int{"docs/x.md#100": 0},
+		Where:   map[string]string{"docs/x.md#100": "docs/x.md:42"},
+		IPMT:    map[string]string{"docs/x.md#100": "a --> b"},
+		Sources: "/repo",
+		Panes: map[string]string{
+			"c1\x00docs/x.md#100\x00after": "../../panes/a1.svg",
+			"c2\x00docs/x.md#100\x00after": "../../panes/a2.svg",
+		},
+	}
+	g := galleries(in)
+	html := renderGallery(in, 1, g["c2"])
+
+	for _, want := range []string{
+		`id="g-docs_x.md-100"`,              // an anchor of its own
+		`data-anchor="g-docs_x.md-100"`,     // …that a link copies
+		`data-text="docs/x.md:42"`,          // where the source lives
+		"this diagram moved 1×",             // how settled it is
+		"560×420",                           // what this engine made it
+		`href="index.html#d-docs_x.md-100"`, // its before/after, which a gallery has not got
+		`data-copy="iss-g-docs_x.md-100"`,   // the report to hand over
+		`<pre class="payload" id="iss-g-docs_x.md-100" hidden>`,
+		"Report a layout issue",
+		"- source: `docs/x.md:42`", // file AND location in the text
+		"```ipmt\na --&gt; b\n```", // …and the ipmt
+	} {
+		if !strings.Contains(html, want) {
+			t.Errorf("gallery item is missing %q", want)
+		}
+	}
+	// A gallery is one rendering: it must not claim a comparison it has not got.
+	if strings.Contains(html, "looked right") || strings.Contains(html, "Investigate a layout regression") {
+		t.Error("the gallery payload describes a regression it cannot see")
+	}
+}
+
+// A diagram that never moved is the interesting case for an issue: if it is
+// wrong, it has been wrong the whole time.
+func TestIssueSaysWhenADiagramNeverMoved(t *testing.T) {
+	md := issueMarkdown(vmDiagram{ID: "docs/x.md#100"},
+		vmVersion{Label: "c1", Where: "docs/x.md:42"}, "", 0)
+	if !strings.Contains(md, "NEVER moved") || !strings.Contains(md, "not a regression") {
+		t.Errorf("an unmoved diagram is not called out:\n%s", md)
+	}
+	if !strings.Contains(issueMarkdown(vmDiagram{ID: "a"}, vmVersion{Label: "c"}, "", 3), "moved 3×") {
+		t.Error("a restless diagram does not say how often it moved")
 	}
 }

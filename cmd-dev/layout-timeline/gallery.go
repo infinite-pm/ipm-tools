@@ -12,7 +12,12 @@ package main
 // carrying the previous column forward and overwriting only what moved, and
 // the pictures are the pool's existing files.
 
-import "sort"
+import (
+	"fmt"
+	"sort"
+
+	"github.com/infinite-pm/ipm-tools/pkg/layoutaudit"
+)
 
 // galleryItem is one diagram as one engine drew it.
 type galleryItem struct {
@@ -21,6 +26,24 @@ type galleryItem struct {
 	Src   string // "" when this engine could not lay it out
 	Tier  string // set when the diagram MOVED in this column
 	Note  string
+	// Anchor identifies the item on the page, so a copied link lands on it.
+	Anchor string
+	// IssueMD is a ready-to-paste report about THIS diagram under THIS engine.
+	// A gallery has no comparison, so there is no regression to describe —
+	// only "here is what it draws, and something about it is wrong".
+	IssueMD string
+	// Moves is how often this diagram has EVER moved, across the whole
+	// history. A gallery is a still photograph; this is the one number that
+	// says whether the thing being looked at is settled or restless.
+	Moves int
+	// HistHref opens this diagram's own page, where those moves are.
+	HistHref string
+	// Canvas is the size this engine gave it, carried forward exactly like
+	// the picture: a diagram that did not move did not change size either.
+	Canvas string
+	// MovedHref points at this diagram's row on the column page, set only
+	// when it moved HERE — that row is the before/after this page has not got.
+	MovedHref string
 }
 
 // galleries is one complete picture set per column, oldest column first.
@@ -30,8 +53,16 @@ type galleryItem struct {
 // picture forward there would show a diagram the engine cannot actually draw.
 func galleries(in timelineInput) map[string][]galleryItem {
 	out := map[string][]galleryItem{}
-	carry := map[string]string{} // id -> pane href
-	tier := map[string]string{}  // id -> why it changed, this column only
+	// How often each diagram moved across the WHOLE history, counted once.
+	moves := map[string]int{}
+	for _, w := range in.Weeks {
+		for _, c := range w.Changes {
+			moves[c.ID]++
+		}
+	}
+	carry := map[string]string{}  // id -> pane href
+	canvas := map[string]string{} // id -> its size under the carried engine
+	tier := map[string]string{}   // id -> why it changed, this column only
 
 	for _, w := range in.Weeks {
 		for id := range tier {
@@ -41,6 +72,12 @@ func galleries(in timelineInput) map[string][]galleryItem {
 		for id := range w.Base {
 			if ref := in.pane(w.Label, id, "after"); ref != "" {
 				carry[id] = ref
+			}
+		}
+		for _, c := range w.Changes {
+			nb := c.Report.NewBounds
+			if nb.Width > 0 || nb.Height > 0 {
+				canvas[c.ID] = fmt.Sprintf("%d×%d", nb.Width, nb.Height)
 			}
 		}
 		for _, c := range w.Changes {
@@ -94,9 +131,21 @@ func galleries(in timelineInput) map[string][]galleryItem {
 		for _, id := range ids {
 			items = append(items, galleryItem{
 				ID: id, Where: in.Where[id], Src: carry[id], Tier: tier[id],
+				Anchor: "g-" + layoutaudit.Sanitize(id),
+				Moves:  moves[id], HistHref: "../../" + diagramDir(id) + "/index.html",
+				Canvas: canvas[id], MovedHref: movedHere(tier[id], id),
 			})
 		}
 		out[w.Label] = items
 	}
 	return out
+}
+
+// movedHere links an item to its row on the column page, which holds the
+// before/after a gallery deliberately does not.
+func movedHere(tier, id string) string {
+	if tier == "" {
+		return ""
+	}
+	return "index.html#" + anchorOf(id)
 }

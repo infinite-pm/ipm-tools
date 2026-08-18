@@ -409,6 +409,15 @@ A diagram this engine cannot lay out is LISTED and says so, rather than
 vanishing (which reads as "not in the corpus") or keeping the previous
 engine's picture (which would show a diagram it does not draw).
 
+Each item carries 🔗 a link to itself, 🗎 its source location, its canvas size,
+**this diagram moved N×** (linking to its own page), a link to its row on the
+column page when it moved *here* — and an **agent** button. That payload is an
+ISSUE report, not a regression one: a gallery holds a single rendering, so
+there is no "it used to look like this" to offer. It says which diagram, where
+the source lives, which engine drew it, the ipmt itself, and — the useful part
+— whether the diagram has ever moved at all. One that never has is the
+interesting case: if it is wrong, it has been wrong the whole time.
+
 **A diagram page** (`d/<diagram>/index.html`): one diagram, every version of
 it, oldest first — followed from a grid cell or from a row's history strip.
 Following a version used to open a column page carrying two hundred diagrams

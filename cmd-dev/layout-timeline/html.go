@@ -1405,6 +1405,16 @@ func fileOf(id string) string {
 	return id
 }
 
+// cameFrom names the checkout a diagram actually lives in. For our own that
+// is the corpus root; for a foreign one it is that repository, and saying the
+// corpus root would send a reader to the wrong tree.
+func cameFrom(id, sources string) string {
+	if repo := repoOf(id); repo != "" {
+		return repo
+	}
+	return sources
+}
+
 // repoOf is the repository an id names, "" for this one.
 func repoOf(id string) string {
 	if i := strings.IndexByte(id, '#'); i >= 0 {
@@ -1420,10 +1430,17 @@ func repoOf(id string) string {
 // markdown file, or a whole .ipmt file. Saying "block X of X" for the second
 // kind is noise a reader has to decode before trusting the rest.
 func whichDiagram(id string) string {
-	if i := strings.IndexByte(id, '#'); i >= 0 {
-		return fmt.Sprintf("`%s` (block `%s` of `%s`)", id, id[i+1:], id[:i])
+	file, repo := fileOf(id), repoOf(id)
+	in := ""
+	if repo != "" {
+		in = fmt.Sprintf(" in `%s`", repo)
 	}
-	return fmt.Sprintf("`%s` (a whole .ipmt file)", id)
+	if i := strings.IndexByte(id, '#'); i >= 0 {
+		// "block 100 of ipm-overview:README.md" reads as a path with a colon
+		// in it. The repository is a separate fact and is said separately.
+		return fmt.Sprintf("`%s` (block `%s` of `%s`%s)", id, id[i+1:], file, in)
+	}
+	return fmt.Sprintf("`%s` (a whole .ipmt file%s)", id, in)
 }
 
 // fence wraps the source so it survives being pasted into a chat, using a
@@ -1509,8 +1526,8 @@ func agentMarkdown(d vmDiagram, v vmVersion, sources string) string {
 	if v.Repo != "" {
 		fmt.Fprintf(&b, "- engine repository: `%s`\n", v.Repo)
 	}
-	if sources != "" {
-		fmt.Fprintf(&b, "- diagram came from: `%s`\n", sources)
+	if from := cameFrom(d.ID, sources); from != "" {
+		fmt.Fprintf(&b, "- checkout: `%s`\n", from)
 	}
 	fmt.Fprintf(&b, "- report page: %s\n", urlMark)
 	if v.Err != "" {
@@ -1523,6 +1540,45 @@ func agentMarkdown(d vmDiagram, v vmVersion, sources string) string {
 	// diagram read as a complaint about it.
 	b.WriteString("\n## What I want\n\n")
 	b.WriteString("<!-- replace this line with the question -->\n")
+	return b.String()
+}
+
+// issueMarkdown reports something wrong with ONE rendering.
+//
+// A gallery has no comparison in it, so there is no "it used to look like
+// this" to offer — only what this engine draws, where the source lives, and
+// what it says. That is still enough to act on, and it is the report a reader
+// files when a diagram has been wrong for months rather than since Tuesday.
+func issueMarkdown(d vmDiagram, v vmVersion, sources string, moves int) string {
+	var b strings.Builder
+	b.WriteString("Report a layout issue in the ipm layout engine.\n\n")
+	b.WriteString("I am looking at how the engine draws this diagram — one rendering, not a\n")
+	b.WriteString("comparison — and something about it looks wrong.\n\n")
+
+	fmt.Fprintf(&b, "## The diagram\n\n")
+	fmt.Fprintf(&b, "- id: %s\n", whichDiagram(d.ID))
+	if v.Where != "" {
+		fmt.Fprintf(&b, "- source: `%s`\n", v.Where)
+	}
+	fmt.Fprintf(&b, "- drawn by: %s\n", engineOf(v.Label, v.Source, v.SHA, v.Subject))
+	if v.Repo != "" {
+		fmt.Fprintf(&b, "- engine repository: `%s`\n", v.Repo)
+	}
+	if from := cameFrom(d.ID, sources); from != "" {
+		fmt.Fprintf(&b, "- checkout: `%s`\n", from)
+	}
+	switch {
+	case moves == 0:
+		b.WriteString("- history: this diagram has NEVER moved in the reported range, so if it is\n" +
+			"  wrong it has been wrong the whole time — not a regression\n")
+	default:
+		fmt.Fprintf(&b, "- history: this diagram has moved %d× in the reported range; its own page\n"+
+			"  shows every version\n", moves)
+	}
+	fmt.Fprintf(&b, "- report page: %s\n", urlMark)
+	writeSource(&b, d, "The source it was drawn from")
+	b.WriteString("\n## What looks wrong\n\n")
+	b.WriteString("<!-- replace this line with what is wrong in the picture -->\n")
 	return b.String()
 }
 
@@ -1762,13 +1818,21 @@ func buildGallery(in timelineInput, i int, items []galleryItem) vmGallery {
 	if hasPage(w) {
 		g.ColumnHref = "index.html"
 	}
-	for _, it := range items {
+	for k := range items {
+		it := &items[k]
 		if it.Src == "" {
 			g.Missing++
 		} else {
 			g.Drawn++
 		}
+		it.IssueMD = issueMarkdown(
+			vmDiagram{ID: it.ID, IPMT: in.IPMT[it.ID]},
+			vmVersion{
+				Label: w.Label, Source: w.Source, SHA: layoutaudit.Short(w.SHA),
+				Subject: w.Subject, Repo: w.Snap.Repo, Where: it.Where,
+			}, in.Sources, it.Moves)
 	}
+	g.Items = items
 	return g
 }
 
@@ -1794,6 +1858,8 @@ var galleryTmpl = template.Must(template.New("gallery").
 .pic{padding:10px}
 .pic img{display:block;height:auto;max-width:100%}
 .gone{padding:10px 14px;font-size:13px;color:var(--worse)}
+a.pill{text-decoration:none}
+.itemhead .quiet{font-variant-numeric:tabular-nums}
 nav{display:flex;gap:14px;align-items:center;font-size:13px;margin-top:8px}
 nav a{color:var(--muted)}
 {{copyCSS}}
@@ -1812,12 +1878,17 @@ nav a{color:var(--muted)}
 </header>
 <main class="gal">
 {{range .Items}}
-<div class="item">
+<div class="item" id="{{.Anchor}}">
   <div class="itemhead">
+    <button type="button" class="copy anchor" data-anchor="{{.Anchor}}" title="copy a link straight to this diagram">&#128279;</button>
     {{if .Where}}<button type="button" class="copy anchor" data-text="{{.Where}}" title="copy the source location: {{.Where}}">&#128462;</button>{{end}}
     <span class="id">{{.ID}}</span>
-    {{if .Tier}}<span class="pill {{tier .Tier}}">{{.Tier}} here</span>{{end}}
+    {{if .Tier}}<a class="pill {{tier .Tier}}" href="{{.MovedHref}}" title="this column's before/after for it">{{.Tier}} here →</a>{{end}}
+    {{if .Canvas}}<span class="quiet">{{.Canvas}}</span>{{end}}
+    <a class="quiet" href="{{.HistHref}}" title="every version of this diagram">this diagram moved {{.Moves}}×</a>
+    <button type="button" class="copy hand warn" data-copy="iss-{{.Anchor}}" data-anchor="{{.Anchor}}" title="copy an issue report: this diagram, its source location and its ipmt">agent</button>
   </div>
+  <pre class="payload" id="iss-{{.Anchor}}" hidden>{{.IssueMD}}</pre>
   {{if .Src}}<div class="pic"><img src="{{.Src}}" loading="lazy" alt="{{.ID}}"></div>
   {{else}}<div class="gone">this engine could not lay this diagram out</div>{{end}}
 </div>
