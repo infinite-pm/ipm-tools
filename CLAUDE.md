@@ -57,6 +57,8 @@ pinned broke, not what changed:
 
 ```bash
 make layout-audit          # HEAD vs the working tree; OLD=<ref> to pick another
+make layout-audit-ext      # the same over the EXTENDED corpus (sibling checkouts,
+                           # the lab's SST corpus; its outliers skipped) — run both
 ```
 
 It sweeps both corpora, `examples/` and every doc diagram through the engine at
@@ -65,7 +67,13 @@ It sweeps both corpora, `examples/` and every doc diagram through the engine at
 `temp/layout-audit/index.html`. Open it: a change that is green on fitness AND
 on the ratchet can still have moved a diagram nobody pinned — that is what this
 catches, and it is where the "snapshot the examples before/after" step below
-now happens automatically. `gl:docs/dev-tools/layout-audit.md`.
+now happens automatically. `gl:docs/dev-tools/layout-audit.md`. The default
+set is small diagrams; NDA-scale faults show only in the extended corpus.
+
+The zoom canvas (ipm-drawio) is the engine too — every click-path state is a
+layout7 run with `Options.Shells`/`Options.Anchor`. An engine change that
+touches placement or routing: `make zoom-check` in `../ipm-drawio` (the zoom
+ratchet, `framecheck --corpus --baseline`), and re-render the lab.
 
 Then re-render the doc diagrams so a human can review them:
 
