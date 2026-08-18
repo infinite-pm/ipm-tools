@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -460,7 +461,7 @@ func TestRecentLayoutCommitsGetTheirOwnColumns(t *testing.T) {
 	commit("pkg/ipmsvg/r.go", "package ipmsvg", "layout: renderer rounding") // message
 	commit("pkg/layout7/b.go", "package layout7", "engine: route ties")      // path
 
-	got, err := recentLayoutCommits(repo, "HEAD", []string{"pkg/layout7"}, 3)
+	got, err := recentLayoutCommits(repo, "HEAD", []string{"pkg/layout7"}, 3, time.Time{})
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -512,7 +513,7 @@ func TestTailDoesNotRepeatAColumnAlreadyThere(t *testing.T) {
 
 	// A weekly column already stands for that commit.
 	snaps := []snapshot{{SHA: head, label: "2026-08-10"}}
-	got, err := appendRecent(repo, "HEAD", "", []string{"pkg/layout7"}, 3, snaps)
+	got, err := appendRecent(repo, "HEAD", "", []string{"pkg/layout7"}, 3, time.Time{}, snaps)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -559,7 +560,7 @@ func TestTheReportDoesNotReportOnItself(t *testing.T) {
 	commit("pkg/layoutdiff/y.go", "layout-audit: rank by tier")
 	commit("cmd-dev/layout-timeline/z.go", "layout-timeline: copy buttons")
 
-	got, err := recentLayoutCommits(repo, "HEAD", []string{"pkg/layout7"}, 3)
+	got, err := recentLayoutCommits(repo, "HEAD", []string{"pkg/layout7"}, 3, time.Time{})
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -636,5 +637,71 @@ func TestUndatedTailColumnStillLands(t *testing.T) {
 	got := insertByDate(snaps, snapshot{label: "x", SHA: "xxx"})
 	if len(got) != 2 || got[1].SHA != "xxx" {
 		t.Errorf("an undated column was lost or misplaced: %+v", got)
+	}
+}
+
+// A fixed count answers "which of mine did this" for three commits and hides
+// the rest inside the day column they collapse into. Everything in the recent
+// window gets a column, however many that is.
+func TestTheRecentWindowKeepsEveryCommitInIt(t *testing.T) {
+	repo := t.TempDir()
+	git := func(env []string, args ...string) {
+		t.Helper()
+		cmd := exec.Command("git", args...)
+		cmd.Dir = repo
+		cmd.Env = append(append(os.Environ(),
+			"GIT_CONFIG_GLOBAL=/dev/null", "GIT_CONFIG_SYSTEM=/dev/null"), env...)
+		if out, err := cmd.CombinedOutput(); err != nil {
+			t.Skipf("git %v: %v: %s", args, err, out)
+		}
+	}
+	git(nil, "init", "-q")
+	git(nil, "config", "user.email", "t@e")
+	git(nil, "config", "user.name", "t")
+
+	// Six engine commits: three old, three within the last hour.
+	at := func(h int) []string {
+		when := time.Now().Add(-time.Duration(h) * time.Hour).Format(time.RFC3339)
+		return []string{"GIT_AUTHOR_DATE=" + when, "GIT_COMMITTER_DATE=" + when}
+	}
+	for i, hrs := range []int{50, 40, 30, 2, 1, 0} {
+		p := filepath.Join(repo, "pkg/layout7", fmt.Sprintf("f%d.go", i))
+		if err := os.MkdirAll(filepath.Dir(p), 0o755); err != nil {
+			t.Fatal(err)
+		}
+		if err := os.WriteFile(p, []byte("package layout7"), 0o644); err != nil {
+			t.Fatal(err)
+		}
+		git(at(hrs), "add", "-A")
+		git(at(hrs), "commit", "-qm", fmt.Sprintf("engine: change %d", i))
+	}
+
+	// Three by count alone.
+	byCount, err := recentLayoutCommits(repo, "HEAD", []string{"pkg/layout7"}, 3, time.Time{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(byCount) != 3 {
+		t.Fatalf("count-only gave %d columns, want 3", len(byCount))
+	}
+	// A three-hour window holds the same three here, so widen it: six hours
+	// still holds three, but a 45-hour window must hold five.
+	wide, err := recentLayoutCommits(repo, "HEAD", []string{"pkg/layout7"}, 3,
+		time.Now().Add(-45*time.Hour))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(wide) != 5 {
+		t.Errorf("the window kept %d commits, want the 5 inside it", len(wide))
+	}
+	// The count is a FLOOR, never a ceiling: a window with nothing in it still
+	// yields the newest n.
+	none, err := recentLayoutCommits(repo, "HEAD", []string{"pkg/layout7"}, 2,
+		time.Now().Add(-time.Minute))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(none) != 2 {
+		t.Errorf("an empty window gave %d columns, want the newest 2", len(none))
 	}
 }

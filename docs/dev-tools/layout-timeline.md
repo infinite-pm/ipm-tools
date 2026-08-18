@@ -255,9 +255,20 @@ Weeks the tool handles without pretending:
 | the engine cannot be built at that commit | *engine could not be built at this commit: …* — an early commit may predate `cmd/layout-gen` entirely; the next buildable week then compares against the last one that built, and the heading says **vs \<week\>** so the span is never implied to be seven days |
 | the first buildable week | *first engine in range — nothing to compare against* |
 
-`--head` (on by default) appends columns for **what you have right now**: the
-last `--head-commits` (default 3) layout-relevant commits, each on its own,
-then the working tree. Without it the series stops at the start of the current
+`--head` (on by default) appends columns for **what you have right now**: every
+layout-relevant commit from the last `--head-hours` (default 3), plus at least
+the last `--head-commits` (default 3), then the working tree.
+
+The hours matter as much as the count. A burst of six commits in one hour is
+exactly when "which of mine did this" gets asked, and a fixed count answers it
+for three of them while the rest collapse into the day column. The count is a
+FLOOR, never a ceiling — a quiet window still yields the newest few:
+
+```
+--head-hours 3   → 3 commit columns   (2 engine commits in the window)
+--head-hours 12  → 4                  (4)
+--head-hours 24  → 10                 (10)
+``` Without it the series stops at the start of the current
 week, and everything since Monday — often the very work being asked about — is
 invisible. One HEAD column was not enough either: a day with three engine
 commits in it collapsed to one, which is the day you most need separated.
@@ -475,7 +486,8 @@ ship") belongs to a column page.
 | `--engine-paths` | `pkg/layout7 pkg/layout cmd/layout-gen` | what counts as the engine |
 | `--at` | `week-start` | `week-start` or `first-of-week` (week columns only) |
 | `--head` | on | append the newest work as trailing columns |
-| `--head-commits` | `3` | how many recent layout-relevant commits get their own column |
+| `--head-commits` | `3` | how many recent layout-relevant commits get their own column — a floor |
+| `--head-hours` | `3` | ALSO a column for every layout-relevant commit this recent, however many (0 = off) |
 | `--list` | off | print the weekly commits and exit — no builds, no sweep |
 | `--limit-per-week` | `6` | rendered diagrams per week (0 = all) |
 | `--no-svg` | off | grid and tables only |

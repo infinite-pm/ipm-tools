@@ -518,8 +518,8 @@ func firstCommitDate(repo, rev string) (time.Time, error) {
 //
 // The union over-reports rather than under-reports, which is the right way for
 // a tool whose failure mode is "your change is not in the report".
-func recentLayoutCommits(repo, rev string, paths []string, n int) ([]snapshot, error) {
-	if n <= 0 {
+func recentLayoutCommits(repo, rev string, paths []string, n int, since time.Time) ([]snapshot, error) {
+	if n <= 0 && since.IsZero() {
 		return nil, nil
 	}
 	seen := map[string]bool{}
@@ -590,8 +590,23 @@ func recentLayoutCommits(repo, rev string, paths []string, n int) ([]snapshot, e
 		}
 		return all[i].when.After(all[j].when) // outside the walk window
 	})
-	if len(all) > n {
-		all = all[:n]
+	// Keep the newest n — AND everything inside the recent window, however
+	// many that is. A burst of six commits in an hour is exactly when "which
+	// of mine did this" is asked, and a fixed count answers it for three of
+	// them and hides the rest behind the day column they collapse into.
+	keep := n
+	if !since.IsZero() {
+		for i, d := range all {
+			if d.when.Before(since) {
+				break
+			}
+			if i+1 > keep {
+				keep = i + 1
+			}
+		}
+	}
+	if len(all) > keep {
+		all = all[:keep]
 	}
 	// Oldest first, so the tail reads in the same direction as the rest.
 	out := make([]snapshot, 0, len(all))
@@ -678,8 +693,8 @@ func topLevels(paths []string) []string {
 // Anything already covered by an earlier column is dropped: a commit that a
 // weekly column already stands for would otherwise be compared against itself
 // and report, truthfully but uselessly, that nothing moved.
-func appendRecent(repo, rev, source string, paths []string, n int, snaps []snapshot) ([]snapshot, error) {
-	recent, err := recentLayoutCommits(repo, rev, paths, n)
+func appendRecent(repo, rev, source string, paths []string, n int, since time.Time, snaps []snapshot) ([]snapshot, error) {
+	recent, err := recentLayoutCommits(repo, rev, paths, n, since)
 	if err != nil {
 		return snaps, err
 	}

@@ -88,7 +88,7 @@ func run() int {
 		by, enginePaths, rev, sources      string
 		configPath, corpusPath             string
 		days, weeks, limitPerWeek          int
-		headCommits, sweepJobs             int
+		headCommits, sweepJobs, headHours  int
 		list, noSVG, verbose, head         bool
 		buildOnly, showExample             bool
 		showCorpusExample                  bool
@@ -116,6 +116,7 @@ func run() int {
 	flag.StringVar(&cache, "cache", layoutaudit.DefaultCache(), "engine build cache, shared with layout-audit so a commit is built once (outside the repo: it is a cache, not output)")
 	flag.IntVar(&limitPerWeek, "limit-per-column", 0, "render at most N changed diagrams per column page (0 = all, bounded by --max-mb); the rest are listed by name")
 	flag.BoolVar(&head, "head", true, "add columns for the newest work, so what was committed since Monday is not invisible")
+	flag.IntVar(&headHours, "head-hours", 3, "ALSO give its own column to every layout-relevant commit from the last N hours, however many that is (0 = off). A burst of six commits in an hour is exactly when \"which of mine did this\" is asked, and a fixed count hides the rest")
 	flag.IntVar(&headCommits, "head-commits", 3, "how many of the most recent LAYOUT-RELEVANT commits get their own column at the end (touching --engine-paths, or saying \"layout\"). A daily column hides a day with three engine commits in it — which is the day you need to see")
 	flag.BoolVar(&list, "list", false, "print the weekly commits and exit — no builds, no sweep")
 	flag.BoolVar(&noSVG, "no-svg", false, "skip the diagram panes; produce the grid and the change tables only")
@@ -183,14 +184,14 @@ func run() int {
 
 	var snaps []snapshot
 	if cfg == nil {
-		if snaps, err = resolveOne(repoAbs, rev, by, at, since, until, days, weeks, engine, head, headCommits); err != nil {
+		if snaps, err = resolveOne(repoAbs, rev, by, at, since, until, days, weeks, engine, head, headCommits, headHours); err != nil {
 			return fail("%v", err)
 		}
 	} else {
 		if verbose || list {
 			fmt.Fprintf(os.Stderr, "layout-timeline: %s — %s\n", cfgPath, cfg.describeSources())
 		}
-		if snaps, err = resolveChained(cfg, repoAbs, rev, by, at, since, until, days, weeks, head, verbose || list, headCommits); err != nil {
+		if snaps, err = resolveChained(cfg, repoAbs, rev, by, at, since, until, days, weeks, head, verbose || list, headCommits, headHours); err != nil {
 			return fail("%v", err)
 		}
 		if len(paths) == 0 && len(cfg.Diagrams) > 0 {
@@ -435,7 +436,15 @@ func repoDesc(cfg *Config, repoAbs, rev string) string {
 }
 
 // resolveOne is the single-repository path: one lineage, walked directly.
-func resolveOne(repoAbs, rev, by, at, since, until string, days, weeks int, engine []string, head bool, headCommits int) ([]snapshot, error) {
+// hoursAgo is the start of the recent window, zero when it is switched off.
+func hoursAgo(h int) time.Time {
+	if h <= 0 {
+		return time.Time{}
+	}
+	return time.Now().Add(-time.Duration(h) * time.Hour)
+}
+
+func resolveOne(repoAbs, rev, by, at, since, until string, days, weeks int, engine []string, head bool, headCommits, headHours int) ([]snapshot, error) {
 	var snaps []snapshot
 	var err error
 	switch by {
@@ -461,14 +470,14 @@ func resolveOne(repoAbs, rev, by, at, since, until string, days, weeks int, engi
 		return nil, fmt.Errorf("--by must be week or engine-commit, got %q", by)
 	}
 	if head {
-		return appendRecent(repoAbs, rev, "", engine, headCommits, snaps)
+		return appendRecent(repoAbs, rev, "", engine, headCommits, hoursAgo(headHours), snaps)
 	}
 	return snaps, nil
 }
 
 // resolveChained walks every lineage the config names, each within the span
 // it owns, and hands back one series in date order.
-func resolveChained(cfg *Config, repoAbs, rev, by, at, since, until string, days, weeks int, head, announce bool, headCommits int) ([]snapshot, error) {
+func resolveChained(cfg *Config, repoAbs, rev, by, at, since, until string, days, weeks int, head, announce bool, headCommits, headHours int) ([]snapshot, error) {
 	if err := cfg.resolveTips(); err != nil {
 		return nil, err
 	}
@@ -506,7 +515,8 @@ func resolveChained(cfg *Config, repoAbs, rev, by, at, since, until string, days
 	}
 	if head {
 		last := cfg.Sources[len(cfg.Sources)-1]
-		return appendRecent(last.Repo, last.Rev, last.Name, last.EnginePaths, headCommits, snaps)
+		return appendRecent(last.Repo, last.Rev, last.Name, last.EnginePaths, headCommits,
+			hoursAgo(headHours), snaps)
 	}
 	return snaps, nil
 }
