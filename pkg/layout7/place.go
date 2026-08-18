@@ -702,6 +702,12 @@ func (g *graph) place(m *membership, gp *groupsPlan, sp *skeletonPlan) {
 		// loop and the leaf rescue's spot search (the
 		// rescue must not park a leaf ON the line the floors stepped it
 		// off of).
+		// the END events of this component (one E connects to — sp.ends):
+		// the leaf rescue keeps a leaf off their line to E
+		endEvents := map[int]bool{}
+		for _, ev := range sp.ends[ci] {
+			endEvents[ev] = true
+		}
 		sweptBySkeleton := func(bx, by, bw, bh int) bool {
 			for _, e := range g.edges {
 				fn, tn := g.nodes[e.from], g.nodes[e.to]
@@ -990,6 +996,14 @@ func (g *graph) place(m *membership, gp *groupsPlan, sp *skeletonPlan) {
 			}
 			if side < 0 {
 				spots[2][0] = owner.x - ColGap - c.w
+			}
+			// an END event's below-centred spot is its line to E (the
+			// corridor rule leaves an event's OWN aux below it alone, and
+			// the E fan cannot drop past a box directly beneath the port):
+			// brains' hippocampus had its third concept rescued there and
+			// speared. Below-outward and beside remain.
+			if endEvents[owner.idx] {
+				spots = spots[1:]
 			}
 			// each spot family SLIDES laterally (grid steps, centre-out)
 			// before the next family is tried: the ideal spot may be
