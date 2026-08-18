@@ -400,26 +400,33 @@ func (g *graph) place(m *membership, gp *groupsPlan, sp *skeletonPlan) {
 				}
 				return out
 			}
+			// The push is COMPUTED, not stepped: the deepest colliding
+			// pair's overlap (its bottom + clearance − my top) is the
+			// least drop that clears every pair colliding now; a
+			// GridStep-at-a-time walk under a 200-step guard gave up at
+			// 4000px (NDA: 45-member grids of tall clauses in one column,
+			// each 12000px tall — part 2's grid rose 5900px into part 1's,
+			// 133 member overlaps). The loop stays for pairs the drop
+			// newly exposes.
 			for guard := 0; guard < 200; guard++ {
 				mine := boxes(family, false)
 				others := boxes(family, true)
-				hit := false
+				push := 0
 				for _, a := range mine {
 					for _, b := range others {
 						if a[0] < b[2]+10 && b[0] < a[2]+10 && a[1] < b[3]+10 && b[1] < a[3]+10 {
-							hit = true
-							break
+							if need := b[3] + 10 - a[1]; need > push {
+								push = need
+							}
 						}
 					}
-					if hit {
-						break
-					}
 				}
-				if !hit {
+				if push == 0 {
 					break
 				}
+				push = gridUp(push)
 				for n := range family {
-					g.nodes[n].y += GridStep
+					g.nodes[n].y += push
 				}
 			}
 		}
@@ -832,13 +839,41 @@ func (g *graph) place(m *membership, gp *groupsPlan, sp *skeletonPlan) {
 						continue
 					}
 					near, far := ev.x+ev.w+ColGap, ev.x-ColGap-b.w
+					nearStep, farStep := b.w+ColGap, -(b.w + ColGap)
 					if b.x+b.w/2 < cx {
 						near, far = far, near
+						nearStep, farStep = farStep, nearStep
 					}
+					// the nearest free column on either flank, up to
+					// three columns out (chinese_story: chūfā's E line
+					// through the concept chain parked under it — the
+					// first column each way was taken, so it stayed)
 					if freeAt(b, near) {
 						b.x = near
-					} else if freeAt(b, far) {
+						break
+					}
+					if freeAt(b, far) {
 						b.x = far
+						break
+					}
+					// past the first column each way, the flank the box's
+					// PARENT is on comes first — the far column pulled EBS
+					// two columns left of its expresser on the right
+					// (kubernetes), and the placing edge then crossed the
+					// end event's own fan
+					if px, ok := g.parentCentreX(ai); ok && (px < cx) != (near < cx) {
+						near, far = far, near
+						nearStep, farStep = farStep, nearStep
+					}
+					for k := 1; k < 3; k++ {
+						if x := near + k*nearStep; freeAt(b, x) {
+							b.x = x
+							break
+						}
+						if x := far + k*farStep; freeAt(b, x) {
+							b.x = x
+							break
+						}
 					}
 					break
 				}
@@ -1660,4 +1695,23 @@ func (g *graph) subSlotX(parent int, sp *skeletonPlan, gp *groupsPlan) map[int]i
 		}
 	}
 	return out
+}
+
+// parentCentreX is the centre x of the node whose placing edge put aux ai
+// where it is (its structural parent — the expresser, the composite, the
+// tie's anchor), if any is placed.
+func (g *graph) parentCentreX(ai int) (int, bool) {
+	for _, e := range append(append([]*edge{}, g.in[ai]...), g.out[ai]...) {
+		if !e.structural {
+			continue
+		}
+		o := e.from
+		if o == ai {
+			o = e.to
+		}
+		if p := g.nodes[o]; p.placed {
+			return p.x + p.w/2, true
+		}
+	}
+	return 0, false
 }

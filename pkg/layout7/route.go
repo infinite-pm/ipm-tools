@@ -726,10 +726,16 @@ func (g *graph) route() []routed {
 				if !g.hitsNode(pts, e) {
 					r = routed{src: r.src, tgt: r.tgt, bends: []layout.Position{bend}}
 				}
-			} else if !g.isFlow(e) {
-				// structural aux edges never hide (v7P9's hierarchy); a
-				// blocked straight resolves cost-aware below, once every
-				// structural line is known.
+			} else {
+				// structural edges never hide (v7P9's hierarchy); a blocked
+				// straight resolves cost-aware below, once every structural
+				// line is known. A FLOW leads-to lands here too since sub-grid
+				// boundaries: the skeleton keeps predecessor over successor in
+				// a lane for top-level pairs, but a leads-to INTO a member from
+				// an event beside the grid comes from the side and crossed the
+				// members above its target (CFEngine: `editfiles field_edits ->
+				// insert_lines` through delete_lines and field_edits) — it was
+				// left straight because "flow never hits a box".
 				blocked = append(blocked, e)
 			}
 		} else if !g.isFlow(e) && g.grazeCount(straight.pts, e) > 0 {
@@ -969,11 +975,9 @@ func (g *graph) route() []routed {
 		basePl := line(e, r)
 		baseCross := g.crossingCost(basePl, others)
 		baseGraze := 0.5 * g.grazeCount(basePl.pts, e)
-		baseHit := g.hitsNode(basePl.pts, e)
-		best, bestScore := r, baseCross+baseGraze
-		if baseHit {
-			bestScore += 100
-		}
+		baseHits := g.hitCount(basePl.pts, e)
+		baseHit := baseHits > 0
+		best, bestScore := r, baseCross+baseGraze+100*float64(baseHits)
 		if g.tracing() {
 			g.emitCandidate(e, "structural", -1, r, baseCross, baseGraze, 0, baseHit, false)
 		}
@@ -1044,11 +1048,9 @@ func (g *graph) route() []routed {
 			pl := line(e, c)
 			cross := g.crossingCost(pl, others)
 			graze := 0.5 * g.grazeCount(pl.pts, e)
-			hit := g.hitsNode(pl.pts, e)
-			score := cross + graze
-			if hit {
-				score += 100
-			}
+			hits := g.hitCount(pl.pts, e)
+			hit := hits > 0
+			score := cross + graze + 100*float64(hits)
 			take := false
 			switch {
 			case !haveChoice && !hit && score <= budget:
@@ -3469,6 +3471,17 @@ func (g *graph) grazeCount(pts [][2]int, e *edge) float64 {
 // hitsNode reports whether the polyline passes through any placed node box
 // (shrunk 2px — touching a border is fine), endpoints excluded.
 func (g *graph) hitsNode(pts [][2]int, e *edge) bool {
+	return g.hitCount(pts, e) > 0
+}
+
+// hitCount is how MANY boxes the polyline spears — the currency when no
+// candidate is clean (a structural edge never hides, v7P9): one box
+// speared beats twenty-five. A boolean hit priced every candidate alike,
+// and the cheapest-crossing pick then ran a member's part-of straight down
+// its 45-member column (NDA: 6. INTELLECTUAL PROPERTY → part 1 through
+// every clause below it) because the flank straight brushed one box.
+func (g *graph) hitCount(pts [][2]int, e *edge) int {
+	hits := 0
 	for _, n := range g.nodes {
 		if !n.placed || n.idx == e.from || n.idx == e.to {
 			continue
@@ -3480,11 +3493,12 @@ func (g *graph) hitsNode(pts [][2]int, e *edge) bool {
 		x1, y1 := n.x+n.w-2, n.y+n.h-2
 		for i := 0; i+1 < len(pts); i++ {
 			if segIntersectsBox(pts[i], pts[i+1], x0, y0, x1, y1) {
-				return true
+				hits++
+				break
 			}
 		}
 	}
-	return false
+	return hits
 }
 
 // polyline is a routed edge's concrete geometry, used for crossing and
@@ -3609,10 +3623,8 @@ func (g *graph) leastBad(e *edge, cands []routed,
 	best, bestScore := 0, 1e18
 	for i, c := range cands {
 		pl := line(e, c)
-		score := g.crossingCost(pl, placed) + 0.5*g.grazeCount(pl.pts, e) + detourTax(pl.pts)
-		if g.hitsNode(pl.pts, e) {
-			score += 100
-		}
+		score := g.crossingCost(pl, placed) + 0.5*g.grazeCount(pl.pts, e) + detourTax(pl.pts) +
+			100*float64(g.hitCount(pl.pts, e))
 		if score < bestScore {
 			best, bestScore = i, score
 		}

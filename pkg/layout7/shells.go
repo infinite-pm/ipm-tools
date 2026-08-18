@@ -162,108 +162,160 @@ func (g *graph) evictAuxFromShellsOnce(ci int, gp *groupsPlan) bool {
 		if !sh.shell || sh.comp != ci || !sh.placed {
 			continue
 		}
-		// intruders, each with its shortest way out; then ONE delta per
-		// side — the largest needed — applied to every intruder on that side,
-		// so a stacked band leaves the shell as the stack it was (evicting
-		// each to the edge collapsed a column of things onto one row)
+		// intruders, grouped by the BAND they belong to (gp.rel: a stack
+		// of part-of things beside a spine event, a fan of concepts; a
+		// bandless aux is its own group), each group with ONE way out
+		// and ONE delta per side — the largest any of its intruders
+		// needs — applied to the whole band, so a stacked band leaves the
+		// shell as the stack it was (evicting each to the edge collapsed a
+		// column of things onto one row; evicting the few that crossed the
+		// shell edge broke the stack and leapfrogged the rest).
 		type out struct {
 			n    *node
 			side int
 			need int
 		}
 		var outs []out
+		isAux := func(n *node) bool {
+			return n.comp == ci && n.placed && !n.shell && !n.boundary && n.kind != KindEvent
+		}
+		intrudes := func(n *node) bool {
+			return !(n.x >= sh.x+sh.w || n.x+n.w <= sh.x || n.y >= sh.y+sh.h || n.y+n.h <= sh.y)
+		}
+		groupOf := func(n *node) int {
+			if gp != nil {
+				if rp, ok := gp.rel[n.idx]; ok {
+					return rp.event
+				}
+			}
+			return -(n.idx + 1)
+		}
+		groups := map[int][]*node{}
+		var keys []int
 		for _, n := range g.nodes {
-			if n.comp != ci || !n.placed || n.shell || n.boundary || sh.shellMembers[n.idx] {
+			if !isAux(n) || sh.shellMembers[n.idx] || !intrudes(n) {
 				continue
 			}
-			if n.kind == KindEvent {
-				continue // an event that is not a member is a spine neighbour: the Y pass owns it
+			k := groupOf(n)
+			if _, ok := groups[k]; !ok {
+				keys = append(keys, k)
 			}
-			if n.x >= sh.x+sh.w || n.x+n.w <= sh.x || n.y >= sh.y+sh.h || n.y+n.h <= sh.y {
-				continue
+			groups[k] = append(groups[k], n)
+		}
+		sort.Ints(keys)
+		for _, k := range keys {
+			intruders := groups[k]
+			// the whole band moves: every band mate of the owner
+			members := append([]*node{}, intruders...)
+			inGroup := map[int]bool{}
+			for _, n := range intruders {
+				inGroup[n.idx] = true
 			}
-			left := n.x + n.w - sh.x
-			right := sh.x + sh.w - n.x
-			up := n.y + n.h - sh.y
-			down := sh.y + sh.h - n.y
-			// the shortest way out that does not land inside ANOTHER shell
-			// of the component (two composites stacked: evicting up out of
-			// the lower one landed in the upper one; sideways is the way)
+			if k >= 0 && gp != nil {
+				for m, rp := range gp.rel {
+					if rp.event != k || inGroup[m] {
+						continue
+					}
+					mn := g.nodes[m]
+					if !isAux(mn) || sh.shellMembers[m] {
+						continue
+					}
+					members = append(members, mn)
+					inGroup[m] = true
+				}
+			}
+			// per side, the push the deepest intruder needs
+			need := [4]int{}
+			for _, n := range intruders {
+				d := [4]int{n.x + n.w - sh.x, sh.x + sh.w - n.x, n.y + n.h - sh.y, sh.y + sh.h - n.y}
+				for s := 0; s < 4; s++ {
+					if d[s]+Clearance > need[s] {
+						need[s] = d[s] + Clearance
+					}
+				}
+			}
 			// sideways first: above and below the shell is the spine's
-			// corridor (the composite's flow to its successor and to E, which
-			// never bends), and a thing evicted into it was cut by that flow;
-			// left/right by the shorter push, then up/down only when both
-			// horizontal exits land inside another shell
-			dists := []int{left, right, up, down}
+			// corridor (the composite's flow to its successor and to E,
+			// which never bends), and a thing evicted into it was cut by
+			// that flow; left/right by the shorter push, then up/down
 			order := []int{0, 1, 2, 3}
 			sort.Slice(order, func(a, b int) bool {
 				ha, hb := order[a] <= 1, order[b] <= 1
 				if ha != hb {
 					return ha
 				}
-				return dists[order[a]] < dists[order[b]]
+				return need[order[a]] < need[order[b]]
 			})
-			side, best := order[0], dists[order[0]]
-			for _, k := range order {
-				x, y := n.x, n.y
-				switch k {
+			movedBox := func(n *node, side int) (int, int) {
+				d := gridUp(need[side])
+				switch side {
 				case 0:
-					x = sh.x - Clearance - n.w
+					return n.x - d, n.y
 				case 1:
-					x = sh.x + sh.w + Clearance
+					return n.x + d, n.y
 				case 2:
-					y = sh.y - Clearance - n.h
-				default:
-					y = sh.y + sh.h + Clearance
+					return n.x, n.y - d
 				}
-				clear := true
-				for _, o := range g.nodes {
-					if !o.shell || o.idx == sh.idx || o.comp != ci || !o.placed {
-						continue
-					}
-					if x < o.x+o.w && o.x < x+n.w && y < o.y+o.h && o.y < y+n.h {
-						clear = false
-						break
+				return n.x, n.y + d
+			}
+			// a side is taken only when the moved band lands clear of
+			// every OTHER shell of the component (two composites stacked:
+			// evicting up out of the lower one landed in the upper one)
+			// — and, preferably, clear of other aux: a horizontal exit
+			// that lands on another event's band grows past it and leaves
+			// the evicted band BEHIND that band, its part-of lines through
+			// it (NDA: part 1's things pushed left past part 0's, 16
+			// throughs per state); the gap above the shell held them
+			// beside their owner
+			clearOf := func(side int, aux bool) bool {
+				for _, n := range members {
+					x, y := movedBox(n, side)
+					for _, o := range g.nodes {
+						if o.comp != ci || !o.placed || inGroup[o.idx] {
+							continue
+						}
+						if o.shell {
+							if o.idx != sh.idx && x < o.x+o.w && o.x < x+n.w && y < o.y+o.h && o.y < y+n.h {
+								return false
+							}
+							continue
+						}
+						if aux && isAux(o) &&
+							x < o.x+o.w+Clearance && o.x < x+n.w+Clearance && y < o.y+o.h+Clearance && o.y < y+n.h+Clearance {
+							return false
+						}
 					}
 				}
-				if clear {
-					side, best = k, dists[k]
+				return true
+			}
+			side := order[0]
+			found := false
+			for _, s := range order {
+				if clearOf(s, true) {
+					side, found = s, true
 					break
 				}
 			}
-			outs = append(outs, out{n, side, best + Clearance})
+			if !found {
+				for _, s := range order {
+					if clearOf(s, false) {
+						side = s
+						break
+					}
+				}
+			}
+			for _, n := range members {
+				nd := 0
+				if intrudes(n) {
+					nd = need[side]
+				}
+				outs = append(outs, out{n, side, nd})
+			}
 		}
 		delta := [4]int{}
 		for _, o := range outs {
 			if o.need > delta[o.side] {
 				delta[o.side] = o.need
-			}
-		}
-		// an intruder that is one of an event's BAND (gp.rel: a stack of
-		// part-of things beside a spine event, a fan of concepts) takes the
-		// whole band with it, on the same side — evicting the few that
-		// crossed the shell edge broke the stack and leapfrogged the rest
-		if gp != nil {
-			byOwner := map[int]int{} // owner event -> side of its intruders
-			for _, o := range outs {
-				if rp, ok := gp.rel[o.n.idx]; ok {
-					byOwner[rp.event] = o.side
-				}
-			}
-			have := map[int]bool{}
-			for _, o := range outs {
-				have[o.n.idx] = true
-			}
-			for m, rp := range gp.rel {
-				side, ok := byOwner[rp.event]
-				if !ok || have[m] {
-					continue
-				}
-				mn := g.nodes[m]
-				if mn.comp != ci || !mn.placed || sh.shellMembers[m] {
-					continue
-				}
-				outs = append(outs, out{mn, side, 0})
 			}
 		}
 		evicted := map[int]bool{}

@@ -33,6 +33,10 @@ type Common struct {
 	// Options.Containers): a composite's sub-grid claims its vertical band
 	// exclusively. Off is the flat render.
 	Containers bool
+	// Shells emits the composite shells as engine output (layout7
+	// Options.Shells, implies Containers) — the shells-in-the-core
+	// candidate the zoom canvas's engine pipeline runs.
+	Shells bool
 }
 
 // RegisterCommon registers --in/--out/--pretty on fs and returns the
@@ -44,6 +48,7 @@ func RegisterCommon(fs *flag.FlagSet) *Common {
 	fs.StringVar(&c.Out, "out", "-", "output ipm-simple-graph JSON file (use - for stdout)")
 	fs.BoolVar(&c.Pretty, "pretty", true, "pretty-print JSON output")
 	fs.BoolVar(&c.Containers, "containers", false, "run the engine as the zoom canvas does (layout7 Options.Containers: a composite's sub-grid claims its vertical band exclusively) — the decisions a canvas URL asks about; off is the flat render")
+	fs.BoolVar(&c.Shells, "shells", false, "run the engine with composite SHELLS as its own output (layout7 Options.Shells, implies --containers): the shells-in-the-core pipeline a `framecheck --engine --dump-ipmt` state graph is laid out with")
 	return c
 }
 
@@ -124,7 +129,7 @@ func LoadReport(c *Common) (*l7report.Report, *DetectedInput, error) {
 	case InputTypeLayoutGraph:
 		return &l7report.Report{Graph: detected.LayoutGraph}, detected, nil
 	case InputTypeIPMGraph, InputTypeIPMT:
-		rep, err := l7report.RunWithOptions(detected.IPMGraph, layout7.Options{Containers: c.Containers})
+		rep, err := l7report.RunWithOptions(detected.IPMGraph, layout7.Options{Containers: c.Containers, Shells: c.Shells})
 		if err != nil {
 			return nil, nil, err
 		}

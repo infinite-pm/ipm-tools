@@ -1333,3 +1333,42 @@ all #b1,#g1 have same center-x
 all #c1,#h1 have same center-x
 all #d1,#i1 have same center-x
 ```
+
+### a leads-to into a sub-grid member bends around the members above
+
+v7P3/v7P9: a leads-to that ENTERS a composite's sub-grid from an event
+beside the grid comes in from the side, and its straight line to a member
+low in the column runs through every member above it. Flow never hides
+(v7P9's hierarchy) — but "flow never hits a box" was read as "flow is never
+blocked", and the straight was kept, boxes and all (CFEngine:
+`editfiles field_edits -> insert_lines` through `delete_lines` and
+`field_edits`). Such a leads-to is a BLOCKED structural edge like any
+other: it resolves cost-aware — a slid straight, a dogleg, a lane beside the
+column — and when nothing clears, the fewest boxes speared wins over the
+fewest crossings (one box beats twenty-five, however cheap the crossing
+count). The externals `x1..x4` each lead to their own member; whatever the
+placement, no member sits on another external's line.
+
+```ipmt
+m1 ::e, m2 ::e, m3 ::e, m4 ::e --::P--> eC ::e
+x1 ::e --> m1
+x2 ::e --> m2
+x3 ::e --> m3
+x4 ::e --> m4
+```
+<!-- ipm-svg id=1j0 hash=b51740ba -->
+![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1j0.ipm.svg)
+
+```ipmdev-layout-rule
+@scope local
+edge #x3,#m3 has visibility=visible
+edge #x4,#m4 has visibility=visible
+node #m1 does not straddle edge #x3,#m3
+node #m2 does not straddle edge #x3,#m3
+node #m1 does not straddle edge #x4,#m4
+node #m2 does not straddle edge #x4,#m4
+node #m3 does not straddle edge #x4,#m4
+node #m1 does not straddle edge #x2,#m2
+edge #x3,#m3 has max-bends=2
+edge #x4,#m4 has max-bends=2
+```
