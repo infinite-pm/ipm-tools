@@ -256,3 +256,56 @@ func (g *graph) normalizeToMargins() {
 		}
 	}
 }
+
+// anchorOrder returns ids sorted as the soft anchor had them — top to bottom,
+// then left to right — when every id has an anchor position; nil otherwise
+// (no anchor, or a node the anchor does not know). The free orders inside a
+// component (a fan, a stack, a fork's branches) follow it so a state keeps
+// the arrangement of the all-open layout; declaration order breaks ties.
+func (g *graph) anchorOrder(ids []int) []int {
+	if g.opts.Anchor == nil || len(ids) < 2 {
+		return nil
+	}
+	pos := make(map[int][2]int, len(ids))
+	for _, id := range ids {
+		p, has := g.opts.Anchor[strconv.Itoa(g.nodes[id].id)]
+		if !has {
+			return nil
+		}
+		pos[id] = p
+	}
+	out := append([]int(nil), ids...)
+	sort.SliceStable(out, func(a, b int) bool {
+		pa, pb := pos[out[a]], pos[out[b]]
+		if pa[1] != pb[1] {
+			return pa[1] < pb[1]
+		}
+		return pa[0] < pb[0]
+	})
+	return out
+}
+
+// anchorOrderX is anchorOrder for a ROW: left to right, then top to bottom
+// (a fork's branches share a row).
+func (g *graph) anchorOrderX(ids []int) []int {
+	if g.opts.Anchor == nil || len(ids) < 2 {
+		return nil
+	}
+	pos := make(map[int][2]int, len(ids))
+	for _, id := range ids {
+		p, has := g.opts.Anchor[strconv.Itoa(g.nodes[id].id)]
+		if !has {
+			return nil
+		}
+		pos[id] = p
+	}
+	out := append([]int(nil), ids...)
+	sort.SliceStable(out, func(a, b int) bool {
+		pa, pb := pos[out[a]], pos[out[b]]
+		if pa[0] != pb[0] {
+			return pa[0] < pb[0]
+		}
+		return pa[1] < pb[1]
+	})
+	return out
+}

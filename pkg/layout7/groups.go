@@ -2,7 +2,6 @@ package layout7
 
 import (
 	"sort"
-	"strconv"
 
 	"github.com/infinite-pm/ipm-tools/pkg/layout"
 )
@@ -82,29 +81,9 @@ func (g *graph) affinityOrder(siblings []int) []int {
 	// layout) the order is the ANCHOR's — siblings sorted by where the
 	// anchor had them (top to bottom, then left to right) — so a stack
 	// keeps its order from state to state; declaration order breaks ties
-	if g.opts.Anchor != nil {
-		all := true
-		ay := map[int][2]int{}
-		for _, s := range siblings {
-			p, has := g.opts.Anchor[strconv.Itoa(g.nodes[s].id)]
-			if !has {
-				all = false
-				break
-			}
-			ay[s] = p
-		}
-		if all {
-			ordered := append([]int(nil), siblings...)
-			sort.SliceStable(ordered, func(a, b int) bool {
-				pa, pb := ay[ordered[a]], ay[ordered[b]]
-				if pa[1] != pb[1] {
-					return pa[1] < pb[1]
-				}
-				return pa[0] < pb[0]
-			})
-			for i, s := range ordered {
-				pos[s] = i
-			}
+	if ao := g.anchorOrder(siblings); ao != nil {
+		for i, s := range ao {
+			pos[s] = i
 		}
 	}
 	// union siblings that share a further connection or a tie
@@ -789,6 +768,9 @@ func (g *graph) buildGroups(m *membership) *groupsPlan {
 			if e.structural && e.rel == RelExpresses && g.nodes[e.to].kind == KindConcept && !placed[e.to] {
 				concepts = append(concepts, e.to)
 			}
+		}
+		if ao := g.anchorOrder(concepts); ao != nil {
+			concepts = ao // the fan in the anchor's order (Options.Anchor)
 		}
 		switch {
 		case len(concepts) == 0:

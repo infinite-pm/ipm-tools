@@ -3,7 +3,6 @@ package layout7
 import (
 	"math"
 	"sort"
-	"strconv"
 )
 
 // skeleton implements v7P3 — the event skeleton: leads-to runs down, part-of
@@ -519,32 +518,12 @@ func (g *graph) orderedChildren(ev int, succ map[int][]int, _ map[int]bool) []in
 	for i, k := range kids {
 		posOf[k] = i
 	}
-	if g.opts.Anchor != nil && len(kids) >= 2 {
-		all := true
-		ax := map[int][2]int{}
-		for _, k := range kids {
-			p, has := g.opts.Anchor[strconv.Itoa(g.nodes[k].id)]
-			if !has {
-				all = false
-				break
-			}
-			ax[k] = p
+	if ao := g.anchorOrderX(kids); ao != nil {
+		for i, k := range ao {
+			posOf[k] = i
 		}
-		if all {
-			ordered := append([]int(nil), kids...)
-			sort.SliceStable(ordered, func(a, b int) bool {
-				pa, pb := ax[ordered[a]], ax[ordered[b]]
-				if pa[0] != pb[0] {
-					return pa[0] < pb[0]
-				}
-				return pa[1] < pb[1]
-			})
-			for i, k := range ordered {
-				posOf[k] = i
-			}
-			if len(kids) < 3 {
-				return ordered
-			}
+		if len(kids) < 3 {
+			return ao
 		}
 	}
 	if len(kids) < 3 {
