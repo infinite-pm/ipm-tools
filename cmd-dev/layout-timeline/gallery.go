@@ -1,0 +1,102 @@
+package main
+
+// One engine, every diagram — no comparison at all.
+//
+// The rest of the report answers "what changed"; this answers "what does the
+// whole corpus look like under THIS engine". Both are needed: a column that
+// moved four diagrams says nothing about the three hundred it left alone, and
+// those are where a reader notices that something has been wrong for months.
+//
+// It costs almost nothing, because a diagram that did not move was not
+// re-rendered — it IS the previous column's picture. So a gallery is built by
+// carrying the previous column forward and overwriting only what moved, and
+// the pictures are the pool's existing files.
+
+import "sort"
+
+// galleryItem is one diagram as one engine drew it.
+type galleryItem struct {
+	ID    string
+	Where string
+	Src   string // "" when this engine could not lay it out
+	Tier  string // set when the diagram MOVED in this column
+	Note  string
+}
+
+// galleries is one complete picture set per column, oldest column first.
+//
+// A diagram enters the set when some engine first draws it, is replaced when
+// it moves, and LEAVES it when an engine cannot lay it out — carrying the old
+// picture forward there would show a diagram the engine cannot actually draw.
+func galleries(in timelineInput) map[string][]galleryItem {
+	out := map[string][]galleryItem{}
+	carry := map[string]string{} // id -> pane href
+	tier := map[string]string{}  // id -> why it changed, this column only
+
+	for _, w := range in.Weeks {
+		for id := range tier {
+			delete(tier, id)
+		}
+		// The first column arrives as a whole corpus; later ones as changes.
+		for id := range w.Base {
+			if ref := in.pane(w.Label, id, "after"); ref != "" {
+				carry[id] = ref
+			}
+		}
+		for _, c := range w.Changes {
+			ref := in.pane(w.Label, c.ID, "after")
+			if ref == "" {
+				// Broken here, or not drawn. Either way this engine has no
+				// picture of it, and the previous engine's is not one.
+				delete(carry, c.ID)
+				tier[c.ID] = c.Status
+				continue
+			}
+			carry[c.ID] = ref
+			tier[c.ID] = c.Status
+			if c.Status == "changed" {
+				tier[c.ID] = c.Report.Tier.String()
+			}
+		}
+		if !hasPage(w) && len(w.Base) == 0 {
+			continue // a column with nothing of its own shows nothing new
+		}
+
+		// Everything this engine draws, PLUS anything it failed on here. A
+		// diagram it cannot lay out is not simply absent — that reads as "not
+		// in the corpus" when the truth is "this engine cannot draw it".
+		seen := map[string]bool{}
+		ids := make([]string, 0, len(carry)+len(tier))
+		for id := range carry {
+			seen[id] = true
+			ids = append(ids, id)
+		}
+		for id := range tier {
+			if !seen[id] {
+				ids = append(ids, id)
+			}
+		}
+		// Source order, the same as the index grid: a catalogue is looked
+		// things up in.
+		sort.Slice(ids, func(a, b int) bool {
+			ra, oka := in.Order[ids[a]]
+			rb, okb := in.Order[ids[b]]
+			if oka && okb && ra != rb {
+				return ra < rb
+			}
+			if oka != okb {
+				return oka
+			}
+			return ids[a] < ids[b]
+		})
+
+		items := make([]galleryItem, 0, len(ids))
+		for _, id := range ids {
+			items = append(items, galleryItem{
+				ID: id, Where: in.Where[id], Src: carry[id], Tier: tier[id],
+			})
+		}
+		out[w.Label] = items
+	}
+	return out
+}

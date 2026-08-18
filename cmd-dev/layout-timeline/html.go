@@ -95,8 +95,11 @@ type vmGridRow struct {
 type vmColumn struct {
 	Label, Source, SHA, Subject, Note, Against, Span string
 	Href                                             string // "" when the column has no page
-	Changed, Identical, Skipped                      int
-	Worst                                            string // most severe tier in the column
+	// GalleryHref is this engine's picture of EVERY diagram, which a column
+	// with no changes still has — nothing moved, but the corpus is still there.
+	GalleryHref                 string
+	Changed, Identical, Skipped int
+	Worst                       string // most severe tier in the column
 	// QuietAfter counts the columns following this one in which nothing
 	// moved. They are not shown: a grid of 89 columns where 72 are blank is
 	// mostly blank, and the eye has to find the 17 that matter. The count
@@ -245,6 +248,16 @@ type vmPage struct {
 }
 
 // ---- assembly --------------------------------------------------------------
+
+// galleryHref points at a column's complete picture set, "" when it has none
+// (nothing has been drawn yet at that point in the history).
+func galleryHref(in timelineInput, i int) string {
+	w := in.Weeks[i]
+	if len(w.Base) == 0 && !hasPage(w) {
+		return ""
+	}
+	return pageDir(w.Label) + "/all.html"
+}
 
 // pageDir is a column's directory under the report root.
 func pageDir(label string) string { return "w/" + layoutaudit.Sanitize(label) }
@@ -559,7 +572,8 @@ func buildIndex(in timelineInput) vmIndex {
 		m.Columns = append(m.Columns, vmColumn{
 			Label: w.Label, Source: w.Source, SHA: layoutaudit.Short(w.SHA), Subject: w.Subject,
 			Note: w.Note, Against: w.Against, Span: w.Span, Href: href,
-			Changed: len(w.Changes), Identical: w.Identical, Skipped: w.Skipped,
+			GalleryHref: galleryHref(in, i),
+			Changed:     len(w.Changes), Identical: w.Identical, Skipped: w.Skipped,
 			Worst: worstTier(w), QuietAfter: n, QuietWhich: which,
 		})
 	}
@@ -894,7 +908,8 @@ td.date{white-space:nowrap;font-weight:600}
   <tr><th>column</th><th>lineage</th><th>commit</th><th class="n">changed</th><th class="n">same</th><th>what happened</th></tr>
   {{range .Columns}}
   <tr {{if not .Href}}class="quietrow"{{end}}>
-    <td class="date">{{if .Href}}<a href="{{.Href}}">{{.Label}}</a>{{else}}{{.Label}}{{end}}</td>
+    <td class="date">{{if .Href}}<a href="{{.Href}}">{{.Label}}</a>{{else}}{{.Label}}{{end}}
+      {{if .GalleryHref}}<br><a class="quiet" href="{{.GalleryHref}}">all</a>{{end}}</td>
     <td>{{if .Source}}<span class="pill">{{.Source}}</span>{{end}}</td>
     <td><span class="sha">{{.SHA}}</span> {{.Subject}}</td>
     <td class="n">{{if .Changed}}<span class="pill {{tier .Worst}}">{{.Changed}}</span>{{end}}</td>
@@ -973,6 +988,7 @@ nav a{color:var(--muted)}
   </div>
   <nav class="top">
     <a href="../../index.html">← all diagrams &amp; columns</a>
+    <a href="all.html">every diagram this engine draws →</a>
     <span class="here">this column, all diagrams</span>
     <span class="sep">|</span>
     {{if .PrevHref}}<a href="{{.PrevHref}}">← {{.PrevLabel}}</a>{{end}}
@@ -1727,3 +1743,88 @@ func dayAfter(stamp string) string {
 	}
 	return t.AddDate(0, 0, 1).Format("2006-01-02")
 }
+
+// ---- the gallery: one engine, every diagram ---------------------------------
+
+type vmGallery struct {
+	Label, Source, SHA, Subject string
+	Items                       []galleryItem
+	Drawn, Missing              int
+	ColumnHref, IndexRef        string
+}
+
+func buildGallery(in timelineInput, i int, items []galleryItem) vmGallery {
+	w := in.Weeks[i]
+	g := vmGallery{
+		Label: w.Label, Source: w.Source, SHA: layoutaudit.Short(w.SHA), Subject: w.Subject,
+		Items: items, IndexRef: "../../index.html",
+	}
+	if hasPage(w) {
+		g.ColumnHref = "index.html"
+	}
+	for _, it := range items {
+		if it.Src == "" {
+			g.Missing++
+		} else {
+			g.Drawn++
+		}
+	}
+	return g
+}
+
+func renderGallery(in timelineInput, i int, items []galleryItem) string {
+	var b strings.Builder
+	if err := galleryTmpl.Execute(&b, buildGallery(in, i, items)); err != nil {
+		return errPage("gallery", err)
+	}
+	return b.String()
+}
+
+var galleryTmpl = template.Must(template.New("gallery").
+	Funcs(reportFuncs()).Parse(`<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{.Label}} — every diagram</title>
+<style>` + sharedCSS + `
+.gal{display:flex;flex-direction:column;gap:14px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.itemhead{padding:8px 14px;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;
+  border-bottom:1px solid var(--line);font-size:13px}
+.itemhead .id{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.pic{padding:10px}
+.pic img{display:block;height:auto;max-width:100%}
+.gone{padding:10px 14px;font-size:13px;color:var(--worse)}
+nav{display:flex;gap:14px;align-items:center;font-size:13px;margin-top:8px}
+nav a{color:var(--muted)}
+{{copyCSS}}
+</style></head><body>
+<header>
+  <h1>{{.Label}} — every diagram</h1>
+  <div class="prov">
+    <b>engine</b><span>{{if .Source}}[{{.Source}}] {{end}}<span class="sha">{{.SHA}}</span> {{.Subject}}</span>
+    <b>corpus</b><span>{{.Drawn}} drawn{{if .Missing}} · {{.Missing}} this engine cannot lay out{{end}} — no comparison, just what this engine draws</span>
+  </div>
+  <nav class="top">
+    <a href="{{.IndexRef}}">← all diagrams &amp; columns</a>
+    {{if .ColumnHref}}<a href="{{.ColumnHref}}">what MOVED in {{.Label}} →</a>{{end}}
+    <span class="here">every diagram, as this engine draws it</span>
+  </nav>
+</header>
+<main class="gal">
+{{range .Items}}
+<div class="item">
+  <div class="itemhead">
+    {{if .Where}}<button type="button" class="copy anchor" data-text="{{.Where}}" title="copy the source location: {{.Where}}">&#128462;</button>{{end}}
+    <span class="id">{{.ID}}</span>
+    {{if .Tier}}<span class="pill {{tier .Tier}}">{{.Tier}} here</span>{{end}}
+  </div>
+  {{if .Src}}<div class="pic"><img src="{{.Src}}" loading="lazy" alt="{{.ID}}"></div>
+  {{else}}<div class="gone">this engine could not lay this diagram out</div>{{end}}
+</div>
+{{end}}
+</main>
+<script>
+{{copyJS}}
+</script>
+</body></html>
+`))

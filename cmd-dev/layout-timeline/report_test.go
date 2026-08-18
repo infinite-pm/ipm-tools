@@ -1,6 +1,8 @@
 package main
 
 import (
+	"os"
+	"path/filepath"
 	"regexp"
 	"strconv"
 	"strings"
@@ -1406,5 +1408,46 @@ func TestSourceLocationsNameFileAndLine(t *testing.T) {
 		if got[id] != want {
 			t.Errorf("%s -> %q, want %q", id, got[id], want)
 		}
+	}
+}
+
+// The pane pool is write-once and content-addressed, which makes a re-run
+// cheap and makes it ACCUMULATE: every renamed or edited diagram leaves its
+// pictures behind forever. 1,577 of 8,455 files were orphans before this.
+func TestOrphanedPanesArePruned(t *testing.T) {
+	out := t.TempDir()
+	dir := filepath.Join(out, "panes")
+	if err := os.MkdirAll(dir, 0o755); err != nil {
+		t.Fatal(err)
+	}
+	for _, n := range []string{"keep1.svg", "keep2.svg", "orphan.svg"} {
+		if err := os.WriteFile(filepath.Join(dir, n), []byte("x"), 0o644); err != nil {
+			t.Fatal(err)
+		}
+	}
+	refs := map[string]string{
+		"c\x00a\x00before": "../../panes/keep1.svg",
+		"c\x00a\x00after":  "../../panes/keep2.svg",
+	}
+	n, err := prunePanes(out, refs)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if n != 1 {
+		t.Errorf("pruned %d, want 1", n)
+	}
+	for _, keep := range []string{"keep1.svg", "keep2.svg"} {
+		if _, err := os.Stat(filepath.Join(dir, keep)); err != nil {
+			t.Errorf("%s was deleted while still referenced", keep)
+		}
+	}
+
+	// A --no-svg run references NO panes. Pruning then would delete the whole
+	// pool a previous full run built.
+	if n, err := prunePanes(out, nil); err != nil || n != 0 {
+		t.Errorf("an empty reference set pruned %d file(s) — it must prune none", n)
+	}
+	if _, err := os.Stat(filepath.Join(dir, "keep1.svg")); err != nil {
+		t.Error("the pool was wiped by a run that rendered nothing")
 	}
 }

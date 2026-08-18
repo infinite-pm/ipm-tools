@@ -61,18 +61,23 @@ type change struct {
 
 // week is one snapshot and what it did to the diagrams.
 type week struct {
-	Snap      snapshot `json:"-"`
-	Label     string   `json:"week"`
-	SHA       string   `json:"sha,omitempty"`
-	Subject   string   `json:"subject,omitempty"`
-	Note      string   `json:"note,omitempty"`    // why a week has no comparison
-	Span      string   `json:"span,omitempty"`    // how many commits this column covers
-	Source    string   `json:"source,omitempty"`  // which lineage the commit came from
-	Against   string   `json:"against,omitempty"` // the snapshot this week is diffed against
-	Changes   []change `json:"changes,omitempty"`
-	Identical int      `json:"identical"`
-	Skipped   int      `json:"skipped"`
-	Rendered  int      `json:"-"`
+	Snap    snapshot `json:"-"`
+	Label   string   `json:"week"`
+	SHA     string   `json:"sha,omitempty"`
+	Subject string   `json:"subject,omitempty"`
+	Note    string   `json:"note,omitempty"`    // why a week has no comparison
+	Span    string   `json:"span,omitempty"`    // how many commits this column covers
+	Source  string   `json:"source,omitempty"`  // which lineage the commit came from
+	Against string   `json:"against,omitempty"` // the snapshot this week is diffed against
+	Changes []change `json:"changes,omitempty"`
+	// Base is the FIRST column's rendering of every diagram, changed or not.
+	// A gallery needs a complete picture of one engine, and every later column
+	// gets there by carrying this forward and overwriting only what moved —
+	// which is exactly what "unchanged" means, so nothing is rendered twice.
+	Base      map[string][]byte `json:"-"`
+	Identical int               `json:"identical"`
+	Skipped   int               `json:"skipped"`
+	Rendered  int               `json:"-"`
 }
 
 func main() { os.Exit(run()) }
@@ -308,7 +313,15 @@ func run() int {
 	in.IPMT = readSources(diagrams, weeksOut)
 	in.Order = sourceOrder(diagrams)
 	in.Where = sourceLocations(diagrams)
-	fmt.Fprintf(os.Stderr, "layout-timeline: %d pane file(s) written (the rest were already there)\n", written)
+	pruned, err := prunePanes(outAbs, panes)
+	if err != nil {
+		return fail("prune panes: %v", err)
+	}
+	fmt.Fprintf(os.Stderr, "layout-timeline: %d pane file(s) written (the rest were already there)", written)
+	if pruned > 0 {
+		fmt.Fprintf(os.Stderr, ", %d orphan(s) removed", pruned)
+	}
+	fmt.Fprintln(os.Stderr)
 
 	// One page per column, and an index over them. A single page for a long
 	// history is unopenable however carefully it is rationed; this way the
@@ -334,6 +347,24 @@ func run() int {
 	}
 	// One page per diagram that ever moved: following a history box should
 	// load ONE diagram's versions, not a column carrying two hundred others.
+	galleryPages := 0
+	gal := galleries(in)
+	for i, w := range weeksOut {
+		items := gal[w.Label]
+		if len(items) == 0 {
+			continue
+		}
+		dir := filepath.Join(outAbs, pageDir(w.Label))
+		if err := os.MkdirAll(dir, 0o755); err != nil {
+			return fail("create %s: %v", dir, err)
+		}
+		if err := os.WriteFile(filepath.Join(dir, "all.html"),
+			[]byte(renderGallery(in, i, items)), 0o644); err != nil {
+			return fail("write gallery %s: %v", w.Label, err)
+		}
+		galleryPages++
+	}
+
 	if err := os.RemoveAll(filepath.Join(outAbs, "d")); err != nil {
 		return fail("clear diagram pages: %v", err)
 	}
@@ -360,8 +391,8 @@ func run() int {
 	for _, w := range weeksOut {
 		moved += len(w.Changes)
 	}
-	fmt.Fprintf(os.Stderr, "layout-timeline: %d column(s), %d diagram-change(s), %d column page(s), %d diagram page(s) [%s]\n",
-		len(weeksOut), moved, pages, diagramPages, time.Since(started).Round(time.Millisecond))
+	fmt.Fprintf(os.Stderr, "layout-timeline: %d column(s), %d diagram-change(s), %d column page(s), %d gallery page(s), %d diagram page(s) [%s]\n",
+		len(weeksOut), moved, pages, galleryPages, diagramPages, time.Since(started).Round(time.Millisecond))
 	fmt.Println(reportPath)
 	return 0
 }
@@ -571,6 +602,7 @@ func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagra
 			if prevGen == nil {
 				w.Note = "first engine in range — nothing to compare against"
 				noteNondeterministic(&w, eng.LayoutGen, diagrams)
+				w.Base = renderAll(diagrams, gen, noSVG)
 				prevGen, prevLabel = gen, s.Label()
 				out = append(out, w)
 				continue
@@ -619,6 +651,7 @@ func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagra
 		if prevGen == nil {
 			w.Note = "first engine in range — nothing to compare against"
 			noteNondeterministic(&w, eng.LayoutGen, diagrams)
+			w.Base = renderAll(diagrams, gen, noSVG)
 			prevGen, prevLabel = gen, s.Label()
 			out = append(out, w)
 			continue
@@ -840,8 +873,51 @@ func poolPanes(outAbs string, weeks []week, current map[string][]byte) (map[stri
 				return nil, written, err
 			}
 		}
+		// The first column's complete rendering. It carries no changes, so
+		// nothing above reached these.
+		for id, svg := range w.Base {
+			if err := put(w.Label, id, "after", svg); err != nil {
+				return nil, written, err
+			}
+		}
 	}
 	return refs, written, nil
+}
+
+// prunePanes deletes pictures no longer referenced by anything.
+//
+// The pool is write-once and content-addressed, which makes a re-run cheap and
+// makes it ACCUMULATE: every diagram renamed, every diagram edited, every
+// corpus that ever differed leaves its pictures behind forever. 1,577 of 8,455
+// files (36 MB of 124 MB) were orphans by the time anyone looked.
+//
+// The guard matters more than the sweep. A --no-svg run references NO panes,
+// and pruning on that would delete the entire pool a previous full run built —
+// so an empty reference set prunes nothing. Deletion is reported, never silent.
+func prunePanes(outAbs string, refs map[string]string) (int, error) {
+	if len(refs) == 0 {
+		return 0, nil // nothing rendered this run; the pool is not ours to judge
+	}
+	keep := make(map[string]bool, len(refs))
+	for _, ref := range refs {
+		keep[filepath.Base(ref)] = true
+	}
+	dir := filepath.Join(outAbs, "panes")
+	entries, err := os.ReadDir(dir)
+	if err != nil {
+		return 0, nil // no pool yet
+	}
+	removed := 0
+	for _, e := range entries {
+		if e.IsDir() || keep[e.Name()] {
+			continue
+		}
+		if err := os.Remove(filepath.Join(dir, e.Name())); err != nil {
+			return removed, err
+		}
+		removed++
+	}
+	return removed, nil
 }
 
 // renderCurrent lays out every diagram that appears in the report with the
@@ -1021,6 +1097,28 @@ func diffPair(p layoutaudit.Pair) change {
 		}
 	}
 	return c
+}
+
+// renderAll draws every diagram of ONE sweep.
+//
+// Only the first column needs this. Every later one inherits the pictures of
+// the column before and replaces just the diagrams that moved — which is what
+// "did not move" means — so no diagram is ever drawn twice by two engines that
+// agree about it.
+func renderAll(diagrams []layoutaudit.Diagram, gen []layoutaudit.Generated, noSVG bool) map[string][]byte {
+	if noSVG {
+		return nil
+	}
+	out := make(map[string][]byte, len(diagrams))
+	for i, g := range gen {
+		if i >= len(diagrams) || g.Graph == nil {
+			continue
+		}
+		if svg, err := ipmsvg.Render(g.Graph); err == nil {
+			out[diagrams[i].ID] = svg
+		}
+	}
+	return out
 }
 
 func renderPanes(c *change, p layoutaudit.Pair) {

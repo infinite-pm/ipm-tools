@@ -392,6 +392,23 @@ was *compared against*, which after an unbuildable stretch is not the column
 immediately before it. They cost ~2 KB per row: 29% of the largest column page
 in the base report, which is 313 rows.
 
+**A gallery** (`w/<column>/all.html`): ONE engine, EVERY diagram — no
+comparison at all. The rest of the report answers "what changed"; this answers
+"what does the whole corpus look like under this engine", which is where a
+reader notices something that has been wrong for months and never moved. One
+column, one diagram per row.
+
+It is nearly free, and that is the point. A diagram that did not move was not
+re-rendered — it IS the previous column's picture — so a gallery is built by
+carrying the previous column forward and overwriting only what moved. Across
+the base report's 22 galleries, **6,823 pictures reference 1,990 distinct
+files: 71% reuse**, and a gallery page is ~140 KB of lazy `<img>` refs. Only
+the FIRST column renders the corpus outright, to have something to carry.
+
+A diagram this engine cannot lay out is LISTED and says so, rather than
+vanishing (which reads as "not in the corpus") or keeping the previous
+engine's picture (which would show a diagram it does not draw).
+
 **A diagram page** (`d/<diagram>/index.html`): one diagram, every version of
 it, oldest first — followed from a grid cell or from a row's history strip.
 Following a version used to open a column page carrying two hundred diagrams
