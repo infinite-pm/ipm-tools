@@ -28,11 +28,17 @@ func (r *Report) Emit(e layout7.TraceEvent) { r.Events = append(r.Events, e) }
 
 // Run generates the layout with tracing and returns the report.
 func Run(doc *model.IpmGraph) (*Report, error) {
+	return RunWithOptions(doc, layout7.Options{})
+}
+
+// RunWithOptions is Run with engine options — the zoom canvas's anchor runs
+// with Containers on, and its decisions are the ones a canvas URL asks about.
+func RunWithOptions(doc *model.IpmGraph, opts layout7.Options) (*Report, error) {
 	if !layout7.TraceAvailable {
 		return nil, fmt.Errorf("layout7 was built with -tags l7notrace: trace events are compiled out, no report is possible")
 	}
 	r := &Report{}
-	g, err := layout7.GenerateTraced(doc, r)
+	g, err := layout7.GenerateTracedWithOptions(doc, opts, r)
 	if err != nil {
 		return nil, err
 	}

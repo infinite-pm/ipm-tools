@@ -38,10 +38,18 @@ type TraceEvent struct {
 // GenerateTraced is Generate with a decision trace. Generate(doc) ==
 // GenerateTraced(doc, nil).
 func GenerateTraced(doc *model.IpmGraph, t Trace) (*layout.Graph, error) {
+	return GenerateTracedWithOptions(doc, Options{}, t)
+}
+
+// GenerateTracedWithOptions is GenerateWithOptions with a decision trace —
+// the zoom canvas runs the engine with Containers on (and on a lifted graph),
+// and its decisions could not be narrated by --why before this.
+func GenerateTracedWithOptions(doc *model.IpmGraph, opts Options, t Trace) (*layout.Graph, error) {
 	g, err := normalize(doc)
 	if err != nil {
 		return nil, err
 	}
+	g.opts = opts
 	g.trace = t
 	m := g.resolveMembership()
 	if g.tracing() {

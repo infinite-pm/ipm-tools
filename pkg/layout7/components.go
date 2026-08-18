@@ -350,13 +350,30 @@ func (g *graph) assemble() {
 			ux0, uy0 := minInt(px0, c.minX+offX), minInt(py0, c.minY+offY)
 			ux1, uy1 := maxInt(px1, c.maxX+offX), maxInt(py1, c.maxY+offY)
 			dev := aspectDev(ux1-ux0, uy1-uy0)
+			// how far the flank's slide took the tie node from its anchor's
+			// row (left/right) or column (top/bottom): the tie's length, in
+			// effect. Reported in the trace — kubernetes' anchor rang comp 12
+			// on a flank whose slide put Kubernetes 420px below its anchor —
+			// but not a priority (v7P2: crossings, aspect, nearest side).
+			disp := 0
+			if side <= 1 {
+				disp = absInt(selfN.y + selfN.h/2 + offY - anchorCy)
+			} else {
+				disp = absInt(selfN.x + selfN.w/2 + offX - anchorCx)
+			}
 			if g.tracing() {
 				g.trace.Emit(TraceEvent{Stage: "assemble", Kind: "tile-candidate", Data: map[string]any{
 					"comp": ci, "self": g.traceName(tie.self), "hub": hub,
 					"anchor": g.traceName(tie.anchor), "side": [4]string{"left", "right", "top", "bottom"}[side],
-					"cross": cross, "aspectDev": dev, "offX": offX, "offY": offY,
+					"cross": cross, "aspectDev": dev, "offX": offX, "offY": offY, "disp": disp,
 				}})
 			}
+			// (A tiebreak on disp when the aspects are within 0.02 was tried
+			// 2026-08-18 and dropped: it flips D and F in the onion fixture,
+			// and the changed early rings cascade — kubernetes' anchor then
+			// sent comp 12 LEFT with a 940px slide instead of right with 420.
+			// The priority stays crossings, aspect, nearest side; disp is
+			// reported so the slide is visible in --why -v.)
 			if cross < bestCross || (cross == bestCross && dev < bestDev-1e-9) {
 				bestSide, bestOffX, bestOffY = side, offX, offY
 				bestCross, bestDev = cross, dev

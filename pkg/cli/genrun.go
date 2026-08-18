@@ -29,6 +29,10 @@ type Common struct {
 	In     string
 	Out    string
 	Pretty bool
+	// Containers runs the engine the way the zoom canvas does (layout7
+	// Options.Containers): a composite's sub-grid claims its vertical band
+	// exclusively. Off is the flat render.
+	Containers bool
 }
 
 // RegisterCommon registers --in/--out/--pretty on fs and returns the
@@ -39,6 +43,7 @@ func RegisterCommon(fs *flag.FlagSet) *Common {
 	fs.StringVar(&c.In, "in", "-", "input file: .ipmt, .ipm.json (IPM graph), or .layout.json (use - for stdin)")
 	fs.StringVar(&c.Out, "out", "-", "output ipm-simple-graph JSON file (use - for stdout)")
 	fs.BoolVar(&c.Pretty, "pretty", true, "pretty-print JSON output")
+	fs.BoolVar(&c.Containers, "containers", false, "run the engine as the zoom canvas does (layout7 Options.Containers: a composite's sub-grid claims its vertical band exclusively) — the decisions a canvas URL asks about; off is the flat render")
 	return c
 }
 
@@ -119,7 +124,7 @@ func LoadReport(c *Common) (*l7report.Report, *DetectedInput, error) {
 	case InputTypeLayoutGraph:
 		return &l7report.Report{Graph: detected.LayoutGraph}, detected, nil
 	case InputTypeIPMGraph, InputTypeIPMT:
-		rep, err := l7report.Run(detected.IPMGraph)
+		rep, err := l7report.RunWithOptions(detected.IPMGraph, layout7.Options{Containers: c.Containers})
 		if err != nil {
 			return nil, nil, err
 		}

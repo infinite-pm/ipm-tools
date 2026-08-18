@@ -29,6 +29,7 @@ Layout analysis goes through THESE interfaces and no others:
 go run ./cmd-dev/layout-debug --in case.ipmt --why                # decision story
 go run ./cmd-dev/layout-debug --in case.ipmt --why --candidates   # + route budget arithmetic
 go run ./cmd-dev/layout-debug --in case.ipmt --why --sel tB,e2    # filtered to named nodes
+go run ./cmd-dev/layout-debug --in case.ipmt --why --containers # the engine as the zoom canvas runs it
 go run ./cmd-dev/layout-debug --in case.ipmt --facts              # observed rule-DSL facts
 go run ./cmd-dev/layout-debug --in case.ipmt --table              # or --edges: geometry tables
 go run ./cmd-dev/layout-debug --in case.ipmt --check              # universal invariants, one diagram
@@ -84,7 +85,12 @@ The engine's ONLY debug surface is `pkg/layout7/trace.go`:
   each event's flow predecessors and the sub-event it is laned under —
   `--why` prints them as `== rank rows`; before it, "why is this event
   on that row" had no answer short of reading `place.go`.)
-- `GenerateTraced(doc, t)` — `Generate(doc)` ≡ `GenerateTraced(doc, nil)`.
+- `GenerateTraced(doc, t)` — `Generate(doc)` ≡ `GenerateTraced(doc, nil)`;
+  `GenerateTracedWithOptions(doc, opts, t)` for the zoom canvas's engine
+  options (`--containers`; and ipm-drawio's `framecheck --anchor-why`
+  narrates the anchor's exact run, lifted graph included). The
+  `tile-candidate` event carries `disp` — how far the flank's slide took
+  the tie node from its anchor's row.
 - Position snapshots after the floor pass, the pull pass, place and
   assemble give the movement trajectory; the groups stage emits each
   aux node's band assignment (anchor, side, offset); route candidates
