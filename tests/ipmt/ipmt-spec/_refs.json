@@ -1,7 +1,7 @@
 [
     {
         "source": "../../../docs/ipmt-spec.md",
-        "source_sha1": "572e90d7537de3f48b311944ec4ccf4f07048748",
+        "source_sha1": "2c3b2bc276ea4a4dda45c4dd243054c54bbc52d4",
         "name": "ipmt specification",
         "method": "parser",
         "parser_name": "ipmt-md",
@@ -123,8 +123,50 @@
                 "section": "Comments"
             },
             {
+                "destination": "bracket-labels",
+                "line": 82,
+                "anchor": "#bracket-labels",
+                "content_sha1": "6561c6276a0a573876b723209f48e3f5d0ee45fb",
+                "outputs": {
+                    "ipm.svg": "6dd195984c63bc62f5bd958bae8e474161f7e116",
+                    "ipmt": "6561c6276a0a573876b723209f48e3f5d0ee45fb",
+                    "json": "80f6b62f71f4a4978f80b19a797427725325eb9c",
+                    "layout.json": "27de09d9f7f29494115bda1b27e792ac4b241fd0",
+                    "md": "daa9d6acd9f209bf1c523749b0a512c37f6178b8"
+                },
+                "section": "Bracket labels"
+            },
+            {
+                "destination": "bracket-labels-02",
+                "line": 86,
+                "anchor": "#bracket-labels",
+                "content_sha1": "d703c16ebceb293f1a0714976adbea5d42d98244",
+                "outputs": {
+                    "ipm.svg": "6dd195984c63bc62f5bd958bae8e474161f7e116",
+                    "ipmt": "d703c16ebceb293f1a0714976adbea5d42d98244",
+                    "json": "a41dc176cce7931b5c003bcb06e4bc737675a890",
+                    "layout.json": "27de09d9f7f29494115bda1b27e792ac4b241fd0",
+                    "md": "2d4e90b0e2f1caea084e6a63e94dc698bf9b8f7f"
+                },
+                "section": "Bracket labels"
+            },
+            {
+                "destination": "bracket-labels-03",
+                "line": 92,
+                "anchor": "#bracket-labels",
+                "content_sha1": "1466af58fa91b5cb236de394fa0d27bd46926bce",
+                "outputs": {
+                    "ipm.svg": "c9ff98267e9ecc830a62c82564a1c98507991a5d",
+                    "ipmt": "1466af58fa91b5cb236de394fa0d27bd46926bce",
+                    "json": "def258d74e7230eb7cde66ccd1495bc6dcff99a8",
+                    "layout.json": "df4273fd1f2192d43f5b423a191852410b474ab6",
+                    "md": "45353e265a862322def58e70bc056a48283bd50e"
+                },
+                "section": "Bracket labels"
+            },
+            {
                 "destination": "node-with-long-name",
-                "line": 83,
+                "line": 100,
                 "anchor": "#node-with-long-name",
                 "content_sha1": "1ff7a2f5cf750d7d5781cf8173b101e802461f82",
                 "outputs": {
@@ -132,14 +174,14 @@
                     "ipmt": "1ff7a2f5cf750d7d5781cf8173b101e802461f82",
                     "json": "78860a3882829e4cb2f5890eb8017d28fb569406",
                     "layout.json": "37d5eddf2fa7860bcc8d030e22ad1d554cc002aa",
-                    "md": "c7730671313f0965f758ba69379ff027c416f7e6"
+                    "md": "01252d392470f384da5e497d79af648bf11a23c9"
                 },
                 "heading": "Node with long name",
                 "section": "Nodes"
             },
             {
                 "destination": "node-with-long-name-02",
-                "line": 87,
+                "line": 104,
                 "anchor": "#node-with-long-name",
                 "content_sha1": "f79bf42fa5a458fdc84e83e78114b0287ce975f2",
                 "outputs": {
@@ -147,14 +189,14 @@
                     "ipmt": "f79bf42fa5a458fdc84e83e78114b0287ce975f2",
                     "json": "51376f3d6e8e2c4b4107a1f82715017b747835dc",
                     "layout.json": "37d5eddf2fa7860bcc8d030e22ad1d554cc002aa",
-                    "md": "64f4cf8ddacbaeaedeb625b2c2509199df4c0a56"
+                    "md": "5447c18aa0498dfe5fe932007084bf4cac86b79b"
                 },
                 "heading": "Node with long name",
                 "section": "Nodes"
             },
             {
                 "destination": "node-alias",
-                "line": 97,
+                "line": 114,
                 "anchor": "#node-alias",
                 "content_sha1": "c69c1266a28baff931d0d2b2bb9cdc5c5594a7b1",
                 "outputs": {
@@ -162,14 +204,14 @@
                     "ipmt": "c69c1266a28baff931d0d2b2bb9cdc5c5594a7b1",
                     "json": "c53df87961f6de6129015e35987e78eec986ca4c",
                     "layout.json": "aee92d8ef2a1bf8b0af7c632fac4ad8a4c98c6d1",
-                    "md": "fe29dfe5457dca2f7bfef57808015cc10c84fee9"
+                    "md": "34f59424764d667d89b882141e31fcd0f02f35df"
                 },
                 "heading": "Node alias",
                 "section": "Nodes"
             },
             {
                 "destination": "node-alias-02",
-                "line": 102,
+                "line": 119,
                 "anchor": "#node-alias",
                 "content_sha1": "5e00bef074ecee7c983c0d830df9583a8401589f",
                 "outputs": {
@@ -177,14 +219,14 @@
                     "ipmt": "5e00bef074ecee7c983c0d830df9583a8401589f",
                     "json": "d391b809f0f202a8402df8b33648e58cf0c1148e",
                     "layout.json": "aee92d8ef2a1bf8b0af7c632fac4ad8a4c98c6d1",
-                    "md": "9d9e028ab900990d501b8115138097c243745e53"
+                    "md": "2967d4efec5dca382c4ec67adea3708a738d645d"
                 },
                 "heading": "Node alias",
                 "section": "Nodes"
             },
             {
                 "destination": "node-type",
-                "line": 119,
+                "line": 136,
                 "anchor": "#node-type",
                 "content_sha1": "2988a97da6de1788471bd8883bad713103161839",
                 "outputs": {
@@ -192,27 +234,27 @@
                     "ipmt": "2988a97da6de1788471bd8883bad713103161839",
                     "json": "e55e2c6106b1502ae6b1072fb58f6cdb802646c1",
                     "layout.json": "026e9edde4e9da135d128110e020ed9bd389dee0",
-                    "md": "d01d42a05332c93f93e3fd2460e09afc5ed997e6"
+                    "md": "194715879287b66779af083ecec83b111ac63922"
                 },
                 "heading": "Node type",
                 "section": "Nodes"
             },
             {
                 "destination": "node-type-02",
-                "line": 133,
+                "line": 150,
                 "anchor": "#node-type",
                 "content_sha1": "2ecfcc0b5514d3fd2d8c1746d8f9cbac04c2347c",
                 "outputs": {
                     "ipmt": "2ecfcc0b5514d3fd2d8c1746d8f9cbac04c2347c",
                     "json": "7e6267e1de559751cb4c585d962380b97d69939b",
-                    "md": "831775495d13be0063692f2ad35795b2b94b846a"
+                    "md": "16a83504389668b6c38622b82bd9d2ea0b832276"
                 },
                 "heading": "Node type",
                 "section": "Nodes"
             },
             {
                 "destination": "node-tooltip",
-                "line": 143,
+                "line": 160,
                 "anchor": "#node-tooltip",
                 "content_sha1": "10486e4314a58aaa7cdd98fbe7363202e125f85c",
                 "outputs": {
@@ -220,14 +262,14 @@
                     "ipmt": "10486e4314a58aaa7cdd98fbe7363202e125f85c",
                     "json": "5d436d1ed971b9328fef43916506dd1c6eb116e3",
                     "layout.json": "e704311976ed710fe35db7d8de33e80e61410ea4",
-                    "md": "f144b4451f7f2f69ca27b3c9f2f417146f604203"
+                    "md": "3797b4a8b6914d65f41ce3e82856ca2cae7e1171"
                 },
                 "heading": "Node tooltip",
                 "section": "Nodes"
             },
             {
                 "destination": "annotation-order",
-                "line": 165,
+                "line": 182,
                 "anchor": "#annotation-order",
                 "content_sha1": "2dda6ffef9a4ffed92f561564d9031d7e46df3c0",
                 "outputs": {
@@ -235,14 +277,14 @@
                     "ipmt": "2dda6ffef9a4ffed92f561564d9031d7e46df3c0",
                     "json": "770f0925cb4bbe3b6aa2df96a43b01397d221985",
                     "layout.json": "7773629f4cd2d38b1bec5c5aed58cf292e898805",
-                    "md": "97cb5f194ff6f37d71cc7f2df4e36897eaa90eb7"
+                    "md": "387b619a34df87bc1165e20d8b00dbb1686dd7ad"
                 },
                 "heading": "Annotation order",
                 "section": "Nodes"
             },
             {
                 "destination": "simple-arrow",
-                "line": 178,
+                "line": 195,
                 "anchor": "#simple-arrow",
                 "content_sha1": "7bed6fd5dfdc4267245585b807baf9e48645dd86",
                 "outputs": {
@@ -250,14 +292,14 @@
                     "ipmt": "7bed6fd5dfdc4267245585b807baf9e48645dd86",
                     "json": "84a4ef9ce78da550c8dafe2241bedf40eada91f6",
                     "layout.json": "da34391728fd6e30211176e37367bf1c6973d103",
-                    "md": "f15632f613a8b7d314ed2ef95cfda60e4b92ce55"
+                    "md": "ed93e2f291971cdade3bb83664cf151bfbf59bfe"
                 },
                 "heading": "Simple arrow",
                 "section": "Links"
             },
             {
                 "destination": "reverse-arrow",
-                "line": 250,
+                "line": 267,
                 "anchor": "#reverse-arrow",
                 "content_sha1": "3696b5c5b6549cb7c8a963ab5fbabc2793449b45",
                 "outputs": {
@@ -265,14 +307,14 @@
                     "ipmt": "3696b5c5b6549cb7c8a963ab5fbabc2793449b45",
                     "json": "980cb223bee90f3da3f82c1eff685eb9ac75d8f6",
                     "layout.json": "f88bf3f4f169b2b7b077978f4385308154f8da4d",
-                    "md": "06e3e91d83d43f22d84cca5b1bd40d068169c47b"
+                    "md": "a741510360613182c0c74ae5b356fb1b30ec3cac"
                 },
                 "heading": "Reverse arrow",
                 "section": "Links"
             },
             {
                 "destination": "reverse-arrow-02",
-                "line": 256,
+                "line": 273,
                 "anchor": "#reverse-arrow",
                 "content_sha1": "7042b400149931b59033f462d192d004a97a128e",
                 "outputs": {
@@ -280,14 +322,14 @@
                     "ipmt": "7042b400149931b59033f462d192d004a97a128e",
                     "json": "65c16671ce938acd612df8c93cfb991260cd4926",
                     "layout.json": "5367e184fa96279b4dcc0fa81985e24716e5cf51",
-                    "md": "c3165d251d6f1c0b6b961cfc275e30ada9976248"
+                    "md": "978a3ae6a52fc7263394ae0d4dab9daa6d964461"
                 },
                 "heading": "Reverse arrow",
                 "section": "Links"
             },
             {
                 "destination": "reverse-arrow-03",
-                "line": 260,
+                "line": 277,
                 "anchor": "#reverse-arrow",
                 "content_sha1": "cbad58bc720ff77816c8c2d75ee31647bd03dfd9",
                 "outputs": {
@@ -295,14 +337,14 @@
                     "ipmt": "cbad58bc720ff77816c8c2d75ee31647bd03dfd9",
                     "json": "efe18b08842ed19df6ac63cbc5a492492bc2347b",
                     "layout.json": "10a78487e2e51b15b09cfac71f9f10b2eb81e14d",
-                    "md": "2b96483838d69a86b863b66391293cd882e3cfbe"
+                    "md": "c4a84b90b0bdffe103db6559d387b752c0a19ae5"
                 },
                 "heading": "Reverse arrow",
                 "section": "Links"
             },
             {
                 "destination": "reverse-arrow-04",
-                "line": 265,
+                "line": 282,
                 "anchor": "#reverse-arrow",
                 "content_sha1": "616249ce9a21adda78d251431ea790ca078e4756",
                 "outputs": {
@@ -310,14 +352,14 @@
                     "ipmt": "616249ce9a21adda78d251431ea790ca078e4756",
                     "json": "351803a705b0b13a08600239c52617e9e0f91b46",
                     "layout.json": "9a12d7a6337a76c13522e46be32bb95b76402051",
-                    "md": "24f02d6427a39f89efc4b63d8c9026d0a5cf929b"
+                    "md": "72cc2f270111fa5a5f7e787be456c0d06495d1a1"
                 },
                 "heading": "Reverse arrow",
                 "section": "Links"
             },
             {
                 "destination": "reverse-arrow-05",
-                "line": 269,
+                "line": 286,
                 "anchor": "#reverse-arrow",
                 "content_sha1": "2f000b2c45bf3c93c4857372f3fc40309373b7d9",
                 "outputs": {
@@ -325,14 +367,14 @@
                     "ipmt": "2f000b2c45bf3c93c4857372f3fc40309373b7d9",
                     "json": "fb01101bf834f9ec6b9b46d109b2bda523f48859",
                     "layout.json": "73ea2a6defb0ec78d3ec3cdd281e7f65136c0c75",
-                    "md": "23b53cd471411e60b91c4034208cfccce450e289"
+                    "md": "6f78a36091362aa5ce7a29dfcc09b4ffd490ad42"
                 },
                 "heading": "Reverse arrow",
                 "section": "Links"
             },
             {
                 "destination": "edge-tooltip",
-                "line": 275,
+                "line": 292,
                 "anchor": "#edge-tooltip",
                 "content_sha1": "e3ce184acd0b0785865fde66a1ce7cf2ea99b5fe",
                 "outputs": {
@@ -340,14 +382,14 @@
                     "ipmt": "e3ce184acd0b0785865fde66a1ce7cf2ea99b5fe",
                     "json": "38dadbadecc4f93b79f87bc9660a39092d0fda29",
                     "layout.json": "594e93e805e2a9c9d2280fc4ad7f7996c4708e51",
-                    "md": "e9589d84664900535fe2d1078d1b6d5a2e7db9f6"
+                    "md": "b41bc1c7b0c2ada539ecdf0d0a37dcfe56664350"
                 },
                 "heading": "Edge tooltip",
                 "section": "Links"
             },
             {
                 "destination": "edge-tooltip-02",
-                "line": 281,
+                "line": 298,
                 "anchor": "#edge-tooltip",
                 "content_sha1": "b5023f049fa89b9c216314ed03bf2cdfdafb4c10",
                 "outputs": {
@@ -355,14 +397,14 @@
                     "ipmt": "b5023f049fa89b9c216314ed03bf2cdfdafb4c10",
                     "json": "25747517008c32a50e22910bc89c5a65b4f2061f",
                     "layout.json": "bec0695cba5d60597275ce8cc9020ad15ee292c5",
-                    "md": "b986b3fe46fdee2b61ac7bd181858bf2b9b87b0e"
+                    "md": "5b7846d26862abee18b0c0abadd294d7fda6a4c5"
                 },
                 "heading": "Edge tooltip",
                 "section": "Links"
             },
             {
                 "destination": "edge-tooltip-03",
-                "line": 288,
+                "line": 305,
                 "anchor": "#edge-tooltip",
                 "content_sha1": "d21cc21067ac2004538e918e900f984d86646159",
                 "outputs": {
@@ -370,14 +412,14 @@
                     "ipmt": "d21cc21067ac2004538e918e900f984d86646159",
                     "json": "56a88be5ef3c5fa7c0881a988117f2dd8fbd3f9d",
                     "layout.json": "594e93e805e2a9c9d2280fc4ad7f7996c4708e51",
-                    "md": "60148bdb73e8b878a727586dafedbd2d321745ac"
+                    "md": "8bd33f13f2c234b50ea597a8eb001ca508f58d9e"
                 },
                 "heading": "Edge tooltip",
                 "section": "Links"
             },
             {
                 "destination": "edge-tooltip-04",
-                "line": 296,
+                "line": 313,
                 "anchor": "#edge-tooltip",
                 "content_sha1": "25ef54fc4bd431bcf0386fcaf264ff09e246b51f",
                 "outputs": {
@@ -385,14 +427,14 @@
                     "ipmt": "25ef54fc4bd431bcf0386fcaf264ff09e246b51f",
                     "json": "343dc900decc69a7879d8a9647745d0269b9627a",
                     "layout.json": "594e93e805e2a9c9d2280fc4ad7f7996c4708e51",
-                    "md": "d26b78f4a39e6e1be1f0a5651913993254761658"
+                    "md": "2781e2169b8746b1cea0846663b053d1a7682c5a"
                 },
                 "heading": "Edge tooltip",
                 "section": "Links"
             },
             {
                 "destination": "edge-tooltip-05",
-                "line": 300,
+                "line": 317,
                 "anchor": "#edge-tooltip",
                 "content_sha1": "ef3b9b9fc20067d5ea477f83c582373635335707",
                 "outputs": {
@@ -400,14 +442,14 @@
                     "ipmt": "ef3b9b9fc20067d5ea477f83c582373635335707",
                     "json": "23181b1269c5df708f9fc01c52a7f70394e11c9b",
                     "layout.json": "f7a1c76c85d75fdfdb5407d59e149f87e6d9bd77",
-                    "md": "e97f5635be151dcf8d078e422c30dbba015a697c"
+                    "md": "7bdcfcfccff24e1e1c284d737e44bf80d4689e34"
                 },
                 "heading": "Edge tooltip",
                 "section": "Links"
             },
             {
                 "destination": "explicit-arrow-with-tooltip",
-                "line": 309,
+                "line": 326,
                 "anchor": "#explicit-arrow-with-tooltip",
                 "content_sha1": "19e062770343dacfa4ef73e745b6a00adb185a4a",
                 "outputs": {
@@ -415,14 +457,14 @@
                     "ipmt": "19e062770343dacfa4ef73e745b6a00adb185a4a",
                     "json": "c25648543e5e2469d5e1f1ae64cc1bca8a97e823",
                     "layout.json": "d50a95554968947d278f48238b20d71977025e8e",
-                    "md": "7cffa64754945fc1ce84eaf240e274c5363a36c1"
+                    "md": "5c8fc41ea0e22086b38ebd3c0fa796c45ec755be"
                 },
                 "heading": "Explicit arrow with tooltip",
                 "section": "Links"
             },
             {
                 "destination": "explicit-arrow-with-tooltip-02",
-                "line": 315,
+                "line": 332,
                 "anchor": "#explicit-arrow-with-tooltip",
                 "content_sha1": "319bd5f5b90197c8f207182ae14748149bc18612",
                 "outputs": {
@@ -430,14 +472,14 @@
                     "ipmt": "319bd5f5b90197c8f207182ae14748149bc18612",
                     "json": "54e7e020bba7fd7f2cb14ef237fa0ef0821cc8c9",
                     "layout.json": "d50a95554968947d278f48238b20d71977025e8e",
-                    "md": "cc02d741618b063d1c1dc26743435bac6eba7757"
+                    "md": "2179511830ba4216f277b8548c060eb48e28d432"
                 },
                 "heading": "Explicit arrow with tooltip",
                 "section": "Links"
             },
             {
                 "destination": "explicit-arrow-with-tooltip-03",
-                "line": 320,
+                "line": 337,
                 "anchor": "#explicit-arrow-with-tooltip",
                 "content_sha1": "ea2f59878067db4010b8c8d60b9640394fd5f717",
                 "outputs": {
@@ -445,14 +487,14 @@
                     "ipmt": "ea2f59878067db4010b8c8d60b9640394fd5f717",
                     "json": "9804038bac5ff5697367c89f77ea27998f802c0d",
                     "layout.json": "a211ca2a132d87333f0943ea29511ab2f8e2d3a5",
-                    "md": "c7e8332f52d6643310dba9581796a9ad9a389d0f"
+                    "md": "f57655fea8476a374586ed16165fdc0361ca4082"
                 },
                 "heading": "Explicit arrow with tooltip",
                 "section": "Links"
             },
             {
                 "destination": "explicit-arrow-with-tooltip-04",
-                "line": 325,
+                "line": 342,
                 "anchor": "#explicit-arrow-with-tooltip",
                 "content_sha1": "2ab28a1b71b051b86cb6548b4a320420afacebc5",
                 "outputs": {
@@ -460,14 +502,14 @@
                     "ipmt": "2ab28a1b71b051b86cb6548b4a320420afacebc5",
                     "json": "71a340c55374fcbe0cccacf96b4550fd0cea90fb",
                     "layout.json": "692dc5c8f5cbb50432f6f6f3d8f8eb8a04c171c2",
-                    "md": "b2b3e00ee2cf60c5d59ed2148cd536a1c248c3d9"
+                    "md": "81477cfa88e78e27f06a8a4713bba66aec331b6f"
                 },
                 "heading": "Explicit arrow with tooltip",
                 "section": "Links"
             },
             {
                 "destination": "chaining-arrows",
-                "line": 333,
+                "line": 350,
                 "anchor": "#chaining-arrows",
                 "content_sha1": "0a5947aca3a2fbc6f633dcd9f0ef71c731ddbdc7",
                 "outputs": {
@@ -475,13 +517,13 @@
                     "ipmt": "0a5947aca3a2fbc6f633dcd9f0ef71c731ddbdc7",
                     "json": "611be30af34ef9b5787fb5229ed515d36bc288b0",
                     "layout.json": "07277ddbbc3e532e63f159298b4d20ff1ab074e6",
-                    "md": "eb533a3f0e92c64c6667ee265e11a268cfec2ee8"
+                    "md": "46fb291a492b3b1d7340c03a6c423deb75b4eca4"
                 },
                 "section": "Chaining arrows"
             },
             {
                 "destination": "chaining-arrows-02",
-                "line": 337,
+                "line": 354,
                 "anchor": "#chaining-arrows",
                 "content_sha1": "9ac8ea358d593f8324cceb91604ad1ae0c58da8e",
                 "outputs": {
@@ -489,13 +531,13 @@
                     "ipmt": "9ac8ea358d593f8324cceb91604ad1ae0c58da8e",
                     "json": "bc41c34362c89536999e5936a9f511fa80243ba4",
                     "layout.json": "07277ddbbc3e532e63f159298b4d20ff1ab074e6",
-                    "md": "105eaf42423f4aa3b0b34501555cbbcc4d6b333f"
+                    "md": "15fbe417838d66fb7ec0803b99c9b8bd5153277f"
                 },
                 "section": "Chaining arrows"
             },
             {
                 "destination": "chaining-arrows-03",
-                "line": 343,
+                "line": 360,
                 "anchor": "#chaining-arrows",
                 "content_sha1": "42f8d3ed3b779e229adaa704f3a9541f877a2a6e",
                 "outputs": {
@@ -503,13 +545,13 @@
                     "ipmt": "42f8d3ed3b779e229adaa704f3a9541f877a2a6e",
                     "json": "67fef66e6d6ebe3dd98567ff1929089ffbb23d20",
                     "layout.json": "d14f1b4c0dd903c53e8781dba42dc7d0ded981be",
-                    "md": "3b4ead79d0ccced0fc05e68a44db60242e2cc005"
+                    "md": "183e569436b6884150032e6e0f6d51c2eb64ab1d"
                 },
                 "section": "Chaining arrows"
             },
             {
                 "destination": "chaining-arrows-04",
-                "line": 347,
+                "line": 364,
                 "anchor": "#chaining-arrows",
                 "content_sha1": "fac7b171ebb9346939d025675bd6763bd0d4ad66",
                 "outputs": {
@@ -517,13 +559,13 @@
                     "ipmt": "fac7b171ebb9346939d025675bd6763bd0d4ad66",
                     "json": "875deee4eea291b87f1d9ec37ffd12ef995906fe",
                     "layout.json": "a3b04d6c4abae95888d3e183db4057e4568d3deb",
-                    "md": "206206f497cf11aee3d6293eb4de02594ab0fd8d"
+                    "md": "deaaffbdb0e879d28e2e233ce510cc05e898ad2b"
                 },
                 "section": "Chaining arrows"
             },
             {
                 "destination": "chaining-arrows-05",
-                "line": 354,
+                "line": 371,
                 "anchor": "#chaining-arrows",
                 "content_sha1": "f5e57ac2c1d22b8dea2f473e2fd255c86409482d",
                 "outputs": {
@@ -531,13 +573,13 @@
                     "ipmt": "f5e57ac2c1d22b8dea2f473e2fd255c86409482d",
                     "json": "4c990acdeb7360fb62ca920525f8c968c9978286",
                     "layout.json": "a3b04d6c4abae95888d3e183db4057e4568d3deb",
-                    "md": "ebb3061b3e8099685f35e67c1968c6f10242a39b"
+                    "md": "4c88d1e2dd0d83a47bf8fab208a0de42c6062aa1"
                 },
                 "section": "Chaining arrows"
             },
             {
                 "destination": "backslash-escape-sequences-inside-double-quotes",
-                "line": 382,
+                "line": 399,
                 "anchor": "#backslash-escape-sequences-inside-double-quotes",
                 "content_sha1": "e982e7bd6ceecb5d2d43b4c26b80ed94b7b6a6c8",
                 "outputs": {
@@ -545,27 +587,27 @@
                     "ipmt": "e982e7bd6ceecb5d2d43b4c26b80ed94b7b6a6c8",
                     "json": "77b7d7d6fd227a5a2aa2f2d426d4bda6a272cde2",
                     "layout.json": "06ecc1812f421c7c82dc08e6fc35723addcefa1d",
-                    "md": "93000a3b4332a9a397a9099ee8bce615005c5165"
+                    "md": "34510b935b310ca55f9032462ae513d2efa9904e"
                 },
                 "heading": "Backslash escape sequences inside double quotes",
                 "section": "Double quotes and escapes"
             },
             {
                 "destination": "backslash-escapes-outside-double-quotes",
-                "line": 397,
+                "line": 414,
                 "anchor": "#backslash-escapes-outside-double-quotes",
                 "content_sha1": "ec410417f6938ad8610ea6b8b661eea7dd05fa64",
                 "outputs": {
                     "ipmt": "ec410417f6938ad8610ea6b8b661eea7dd05fa64",
                     "json": "5dd8b86f6382c4a501e2f1331638e92fbe713b17",
-                    "md": "2453e575d240ea36d140145c8b9115e28f6ff0d8"
+                    "md": "1d79362c3fe0c20e87e209bb55a924b053d552b8"
                 },
                 "heading": "Backslash escapes outside double quotes",
                 "section": "Double quotes and escapes"
             },
             {
                 "destination": "newlines",
-                "line": 416,
+                "line": 433,
                 "anchor": "#newlines",
                 "content_sha1": "a1c015b4f20f66d3dad22aeeaba1e544d41bd982",
                 "outputs": {
@@ -573,14 +615,14 @@
                     "ipmt": "a1c015b4f20f66d3dad22aeeaba1e544d41bd982",
                     "json": "16bf032cf76912aefe3170b6fdafd31d20619e24",
                     "layout.json": "aa9a5daff97949d5496f17ce39638b0314834a92",
-                    "md": "5831fb61ed83a83500cd33f595afde6167bb3e1f"
+                    "md": "ae974d010bff4dd676ceca53915a4117ef0100dd"
                 },
                 "heading": "Newlines",
                 "section": "Whitespace"
             },
             {
                 "destination": "newlines-02",
-                "line": 427,
+                "line": 444,
                 "anchor": "#newlines",
                 "content_sha1": "2fe032a4e3137a54ff2d836c9966e8c250c1dfda",
                 "outputs": {
@@ -588,14 +630,14 @@
                     "ipmt": "2fe032a4e3137a54ff2d836c9966e8c250c1dfda",
                     "json": "64268dd3d52c5d6acd5cc52373631489415e481f",
                     "layout.json": "aa9a5daff97949d5496f17ce39638b0314834a92",
-                    "md": "5b35da4c2584944af13479cdb6e0b86b26a05e18"
+                    "md": "82b1b33baeba64643b8c8bffbfd69ad1e38cc066"
                 },
                 "heading": "Newlines",
                 "section": "Whitespace"
             },
             {
                 "destination": "newlines-03",
-                "line": 432,
+                "line": 449,
                 "anchor": "#newlines",
                 "content_sha1": "f17dcb9a6f27f25e5834fd0a18137dc7557f829a",
                 "outputs": {
@@ -603,14 +645,14 @@
                     "ipmt": "f17dcb9a6f27f25e5834fd0a18137dc7557f829a",
                     "json": "7d9c28d974e54d6881c13001741b7a34c0c3f9c0",
                     "layout.json": "4051be0b52bc82568781f0de18676df16bd0ce59",
-                    "md": "cb5c62e1bcbbb80183b99a5b79efb643b43a7bc1"
+                    "md": "eba0f759447faf0cebba7ee6eed8cfbe851f8090"
                 },
                 "heading": "Newlines",
                 "section": "Whitespace"
             },
             {
                 "destination": "newlines-outside-double-quotes",
-                "line": 439,
+                "line": 456,
                 "anchor": "#newlines-outside-double-quotes",
                 "content_sha1": "7bc401fb2a9fb328e69c6769b1d11405165632fb",
                 "outputs": {
@@ -618,14 +660,14 @@
                     "ipmt": "7bc401fb2a9fb328e69c6769b1d11405165632fb",
                     "json": "06a806428a2353625235a76892b92d3f986e24d6",
                     "layout.json": "f4e5694e3a7ae6f74c43d90c3abca49ef7d0e89f",
-                    "md": "fb88606942012b170506ebcc0447069f0cb1869d"
+                    "md": "52c605fef16745f43820926b428bdf094b21eaa6"
                 },
                 "heading": "Newlines outside double quotes",
                 "section": "Whitespace"
             },
             {
                 "destination": "newlines-outside-double-quotes-02",
-                "line": 445,
+                "line": 462,
                 "anchor": "#newlines-outside-double-quotes",
                 "content_sha1": "da23f1b7e97d2c894261e163e477542e871ee08c",
                 "outputs": {
@@ -633,14 +675,14 @@
                     "ipmt": "da23f1b7e97d2c894261e163e477542e871ee08c",
                     "json": "70cdff60c35e9931b5264b45cb267b9a618c2de3",
                     "layout.json": "f4e5694e3a7ae6f74c43d90c3abca49ef7d0e89f",
-                    "md": "3437c3311786c2f7168a25010993d9c9b2838665"
+                    "md": "6e351935f26bab68492d5cbbe9bed55ffa048c2d"
                 },
                 "heading": "Newlines outside double quotes",
                 "section": "Whitespace"
             },
             {
                 "destination": "newlines-outside-double-quotes-03",
-                "line": 449,
+                "line": 466,
                 "anchor": "#newlines-outside-double-quotes",
                 "content_sha1": "cb565a8e4be9b6e191ad4218b0fb984755e2419d",
                 "outputs": {
@@ -648,14 +690,14 @@
                     "ipmt": "cb565a8e4be9b6e191ad4218b0fb984755e2419d",
                     "json": "54452ca84b298f8147641520ad9c661ea05e0220",
                     "layout.json": "19a508dc4eb31d811070032a0525ce4453824780",
-                    "md": "1037617168bdf7c953a31738183e72cf7f70938a"
+                    "md": "5b0741ddc3dea6da2ca522e8b3198e2c589da2c3"
                 },
                 "heading": "Newlines outside double quotes",
                 "section": "Whitespace"
             },
             {
                 "destination": "comma-separator",
-                "line": 477,
+                "line": 494,
                 "anchor": "#comma-separator",
                 "content_sha1": "f62d6d80fe506320e1bf90b4fe64a1bc4b90f1fd",
                 "outputs": {
@@ -663,13 +705,13 @@
                     "ipmt": "f62d6d80fe506320e1bf90b4fe64a1bc4b90f1fd",
                     "json": "ef3096db6ff361aaf1631e2c9ca97878cd138ef1",
                     "layout.json": "7e2147b67cb9da8896319a6bff7d614dc5f2be81",
-                    "md": "4bd64d0d486b38c109596bce62bfebc2ffe8a9e8"
+                    "md": "854306f83b8ac39e4402e29139e0654dff2fe514"
                 },
                 "section": "Comma separator"
             },
             {
                 "destination": "comma-separator-02",
-                "line": 482,
+                "line": 499,
                 "anchor": "#comma-separator",
                 "content_sha1": "71cebda9c59331d60d4197de61ce1d0467af9e4d",
                 "outputs": {
@@ -677,13 +719,13 @@
                     "ipmt": "71cebda9c59331d60d4197de61ce1d0467af9e4d",
                     "json": "0567b3c43cefd9d154ef11d2a21d3dbd9f9135a1",
                     "layout.json": "7e2147b67cb9da8896319a6bff7d614dc5f2be81",
-                    "md": "fa110a0b524b7a2073e8df3a816ed9e3d6c5da7d"
+                    "md": "1a41708c0c247597d5175f04adf154d232c24058"
                 },
                 "section": "Comma separator"
             },
             {
                 "destination": "comma-separator-03",
-                "line": 492,
+                "line": 509,
                 "anchor": "#comma-separator",
                 "content_sha1": "d0b3991e528464deb8ca497ddad3cb4ec0f27703",
                 "outputs": {
@@ -691,13 +733,13 @@
                     "ipmt": "d0b3991e528464deb8ca497ddad3cb4ec0f27703",
                     "json": "e14431303210afd2c11c3ccfd3adb71453ce57f9",
                     "layout.json": "3a79e8d061436472918ee4e8764f61da90d63a35",
-                    "md": "cf97a8c0847121b9751c46db6ef688e5d514d75d"
+                    "md": "906a45cf3ee61246c9bbd4d16e845adf88fd0a84"
                 },
                 "section": "Comma separator"
             },
             {
                 "destination": "comma-separator-04",
-                "line": 496,
+                "line": 513,
                 "anchor": "#comma-separator",
                 "content_sha1": "1fe26a90b2b7092bd425e4d71e6857577e8620d7",
                 "outputs": {
@@ -705,13 +747,13 @@
                     "ipmt": "1fe26a90b2b7092bd425e4d71e6857577e8620d7",
                     "json": "9c3316492cd50d9777099198b3efb089507bcbc0",
                     "layout.json": "0965f7e962096ae1ba14de12f1d00bb94982b5ba",
-                    "md": "c812bc92acf982ca4e12639644310fd1d6000c07"
+                    "md": "3ee44d3622bc548823fe0d96d6733b01dcc2c33b"
                 },
                 "section": "Comma separator"
             },
             {
                 "destination": "comma-separated-with-more-arrows-on-one-line",
-                "line": 508,
+                "line": 525,
                 "anchor": "#comma-separated-with-more-arrows-on-one-line",
                 "content_sha1": "7f9da77f92643388a5b73f44b11fa7614fd7d3c2",
                 "outputs": {
@@ -719,14 +761,14 @@
                     "ipmt": "7f9da77f92643388a5b73f44b11fa7614fd7d3c2",
                     "json": "1a3881f03340d7346ce3cda94974bbbc9872cd30",
                     "layout.json": "4aaf48c1002c43124bee559e18f055fecd26c13f",
-                    "md": "4e91bae7ac394ad5ad67fdab3f44764e699c0a74"
+                    "md": "8a6e64ab412757b8bc52f4a94e71cec4f0d63852"
                 },
                 "heading": "Comma separated with more arrows on one line",
                 "section": "Comma separator"
             },
             {
                 "destination": "comma-separated-with-more-arrows-on-one-line-02",
-                "line": 512,
+                "line": 529,
                 "anchor": "#comma-separated-with-more-arrows-on-one-line",
                 "content_sha1": "2f2ea161fe37c3e5392b36d1d40849919546696b",
                 "outputs": {
@@ -734,14 +776,14 @@
                     "ipmt": "2f2ea161fe37c3e5392b36d1d40849919546696b",
                     "json": "fd096cb164ae39f76ebeef2f76606877e9f40fc3",
                     "layout.json": "77d98793195402b050239fc08dd6a4161f6a8be9",
-                    "md": "0fc5c6e804bb76d79238c064f0b80fb74fda2ced"
+                    "md": "cba3d7cbc1c11bc3283b4f1d612a9cef992a5acb"
                 },
                 "heading": "Comma separated with more arrows on one line",
                 "section": "Comma separator"
             },
             {
                 "destination": "comma-separated-with-more-arrows-on-one-line-03",
-                "line": 519,
+                "line": 536,
                 "anchor": "#comma-separated-with-more-arrows-on-one-line",
                 "content_sha1": "dff1a184904401c29e645c7881084437de6fbb82",
                 "outputs": {
@@ -749,14 +791,14 @@
                     "ipmt": "dff1a184904401c29e645c7881084437de6fbb82",
                     "json": "b38f4114e7d48930a1d7a4b07f46fd7edd3a5c55",
                     "layout.json": "2d46d126fe14dc0ee49d4770db8653de0862f61f",
-                    "md": "a5982d54aa82a933068126f31b72d87f77b915de"
+                    "md": "91d3162b7537242324e263992a223e239b86921a"
                 },
                 "heading": "Comma separated with more arrows on one line",
                 "section": "Comma separator"
             },
             {
                 "destination": "comma-separated-with-more-arrows-on-one-line-04",
-                "line": 523,
+                "line": 540,
                 "anchor": "#comma-separated-with-more-arrows-on-one-line",
                 "content_sha1": "279cb5c0369a8eb9f4a85f85a2884092f714ff98",
                 "outputs": {
@@ -764,14 +806,14 @@
                     "ipmt": "279cb5c0369a8eb9f4a85f85a2884092f714ff98",
                     "json": "c9eb4409cd8f1214a8ad5cd8cf8b9259f4fb746e",
                     "layout.json": "2d46d126fe14dc0ee49d4770db8653de0862f61f",
-                    "md": "045b3557d54665c8c6df5df5a9f18864a0ee9c4c"
+                    "md": "dd3fddaaa478f6a0a2be9bad49530b245b95d82b"
                 },
                 "heading": "Comma separated with more arrows on one line",
                 "section": "Comma separator"
             },
             {
                 "destination": "comma-separated-targets-with-edge-tooltip",
-                "line": 532,
+                "line": 549,
                 "anchor": "#comma-separated-targets-with-edge-tooltip",
                 "content_sha1": "7ecc50f6de72eecc4d7f56acea5457162d413019",
                 "outputs": {
@@ -779,14 +821,14 @@
                     "ipmt": "7ecc50f6de72eecc4d7f56acea5457162d413019",
                     "json": "baa418e269caafec4cc8cc998326443c8363774a",
                     "layout.json": "c6c0b35ed06fff2b3747d2c0d691ba618b2409f2",
-                    "md": "d3be4608e26d37308413a76aa1e30bedd5b4cce9"
+                    "md": "2a16ff144cc63b3c61552886dfa4123830f40bd2"
                 },
                 "heading": "Comma separated targets with edge tooltip",
                 "section": "Comma separator"
             },
             {
                 "destination": "comma-separated-targets-with-edge-tooltip-02",
-                "line": 536,
+                "line": 553,
                 "anchor": "#comma-separated-targets-with-edge-tooltip",
                 "content_sha1": "ba63a3afd2e34901bc957f117130c7ab62ae99f5",
                 "outputs": {
@@ -794,14 +836,14 @@
                     "ipmt": "ba63a3afd2e34901bc957f117130c7ab62ae99f5",
                     "json": "c22007554e303cfb1da4eacc0a7870f24f9b4f11",
                     "layout.json": "c6c0b35ed06fff2b3747d2c0d691ba618b2409f2",
-                    "md": "04d8f08c587fe2baf7b4e7b26ccbd4e77a4943a8"
+                    "md": "cd7f764c750e2d1f33a6c43f059d74fe4d2e3062"
                 },
                 "heading": "Comma separated targets with edge tooltip",
                 "section": "Comma separator"
             },
             {
                 "destination": "spaces-not-allowed-in-identifiers",
-                "line": 547,
+                "line": 564,
                 "anchor": "#spaces-not-allowed-in-identifiers",
                 "content_sha1": "4a491db12415b45b804199bfe4f10fffabf343a5",
                 "outputs": {
@@ -809,27 +851,27 @@
                     "ipmt": "4a491db12415b45b804199bfe4f10fffabf343a5",
                     "json": "03fe0c7319424c5759d50d50488fb9e3945a49c9",
                     "layout.json": "8ede844898175c605c8851b9046019353d1896d5",
-                    "md": "59eab4e6c9831676af5b57c49a7a74e1ad4ff61b"
+                    "md": "cf546f55816350f8c0826188272d214b32210cec"
                 },
                 "heading": "Spaces not allowed in identifiers",
                 "section": "Invalid syntax"
             },
             {
                 "destination": "spaces-not-allowed-in-identifiers-02",
-                "line": 551,
+                "line": 568,
                 "anchor": "#spaces-not-allowed-in-identifiers",
                 "content_sha1": "92c2323659bfa09489aa846780084ea4ad7a63db",
                 "outputs": {
                     "ipmt": "92c2323659bfa09489aa846780084ea4ad7a63db",
                     "json": "9c1cc1873e61e46a8104cc9c298344b19a04cc8e",
-                    "md": "ec5bbbb5cd4d0146e4fbbdcdb4f68c551b269cd3"
+                    "md": "fdc64b11f90cfc60608ccac457548f7aee48eb63"
                 },
                 "heading": "Spaces not allowed in identifiers",
                 "section": "Invalid syntax"
             },
             {
                 "destination": "sequence-of-nodes-without-commas",
-                "line": 582,
+                "line": 599,
                 "anchor": "#sequence-of-nodes-without-commas",
                 "content_sha1": "0c27c40e844173de901d3cb697664a0d22268ea6",
                 "outputs": {
@@ -837,14 +879,14 @@
                     "ipmt": "0c27c40e844173de901d3cb697664a0d22268ea6",
                     "json": "7a823f611ca8e1ab5e08bababaf6ce43f1e13164",
                     "layout.json": "0496f30233a111787d947a6f6f5196b9be65e2db",
-                    "md": "866b962a9ccefccc626580dd7748983e16ed13b7"
+                    "md": "56669586be8c460383e720d2e8d0683c4bb656c8"
                 },
                 "heading": "Sequence of nodes without commas",
                 "section": "Invalid syntax"
             },
             {
                 "destination": "ambiguous-separator-use",
-                "line": 594,
+                "line": 611,
                 "anchor": "#ambiguous-separator-use",
                 "content_sha1": "9c2902be172676d7a50a0f8ae97ef9764da0e4f5",
                 "outputs": {
@@ -852,14 +894,14 @@
                     "ipmt": "9c2902be172676d7a50a0f8ae97ef9764da0e4f5",
                     "json": "7392b0f560dc75f879070fcda2cd5bc0917b30a3",
                     "layout.json": "81829ae33d8d2016afe253083af31f8c83c5ba11",
-                    "md": "b6009ae5105b51e7465048215603f4e542be73cc"
+                    "md": "32f4ca86bf38dd959d3096cabe8b3fa7f6fda24e"
                 },
                 "heading": "Ambiguous separator use",
                 "section": "Invalid syntax"
             },
             {
                 "destination": "ambiguous-separator-use-02",
-                "line": 599,
+                "line": 616,
                 "anchor": "#ambiguous-separator-use",
                 "content_sha1": "d125384aa690b04ef0220dfa4cb1c0d9d72cd124",
                 "outputs": {
@@ -867,27 +909,27 @@
                     "ipmt": "d125384aa690b04ef0220dfa4cb1c0d9d72cd124",
                     "json": "3c10f3b50619947f6edd851c3cde333091f7ecdc",
                     "layout.json": "7367e4e5dffcfb2fbaca4a74361c437f5d3da427",
-                    "md": "4503dfd1cf9ff1a574793c7d7295146b7fa672c6"
+                    "md": "72e8a8a533051f43f67f5b329e68e0f4a7816939"
                 },
                 "heading": "Ambiguous separator use",
                 "section": "Invalid syntax"
             },
             {
                 "destination": "a-creates-link-validity",
-                "line": 646,
+                "line": 663,
                 "anchor": "#a-creates-link-validity",
                 "content_sha1": "93e325a01fe2c5a31d381145b7925e982c10c992",
                 "outputs": {
                     "ipmt": "93e325a01fe2c5a31d381145b7925e982c10c992",
                     "json": "d00628e31cd40f600691dbff56d6186427479845",
-                    "md": "9cc02acdea7b1d34660bf4dd61265e5b67653b8f"
+                    "md": "181472f89bc248fc93824d26ee76dbe58cb43dce"
                 },
                 "heading": "A creates link validity",
                 "section": "Invalid semantics"
             },
             {
                 "destination": "minimal-example",
-                "line": 684,
+                "line": 701,
                 "anchor": "#minimal-example",
                 "content_sha1": "11f1f49126e1ea5e8bac605d4835a43eda26227a",
                 "outputs": {
@@ -895,14 +937,14 @@
                     "ipmt": "11f1f49126e1ea5e8bac605d4835a43eda26227a",
                     "json": "ef7abcbc111b7b20e458c90d2a7e6e9b5a7fa9a8",
                     "layout.json": "c8e094be58936651164637623857d18e67d4f2bd",
-                    "md": "fb0929e3fdd17b98ada0cecd0d80c1b0cca0a964"
+                    "md": "4c8e6ef0c1c7ec3d9bb91522f91fb7f612a07e76"
                 },
                 "heading": "Minimal example",
                 "section": "Examples"
             },
             {
                 "destination": "rich-example",
-                "line": 691,
+                "line": 708,
                 "anchor": "#rich-example",
                 "content_sha1": "5ff451447492aef5929cdbd303eca7681b71f93c",
                 "outputs": {
@@ -910,7 +952,7 @@
                     "ipmt": "5ff451447492aef5929cdbd303eca7681b71f93c",
                     "json": "b8975a0a0b7bae6f9fe3699cbe1fb577cab57e5d",
                     "layout.json": "ef78d20921b491531d706556d08a4115f69302f1",
-                    "md": "1d5474455c441d8377845b0100d03d3685e25df3"
+                    "md": "738863ae32c2558f080cdbf909b5aaa007f04b11"
                 },
                 "heading": "Rich example",
                 "section": "Examples"

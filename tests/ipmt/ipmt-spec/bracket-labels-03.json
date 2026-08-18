@@ -1,0 +1,25 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "\"not until [when used before a time expression]\" ::c",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          48
+        ]
+      },
+      "edges": {}
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "not until [when used before a time expression]",
+      "alias": "",
+      "type": "Concept"
+    }
+  ],
+  "edges": null
+}

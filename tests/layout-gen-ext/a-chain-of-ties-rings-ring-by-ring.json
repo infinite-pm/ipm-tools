@@ -1,0 +1,258 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "h1 ::e --\u003e h2 ::e --\u003e h3 ::e\np ::e --::X--\u003e h1\nq ::e --::X--\u003e h3\nr2 ::e --::X--\u003e r1 ::e\nr3 ::e --::X--\u003e r2\nr1 --::X--\u003e h2",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          2
+        ],
+        "2": [
+          11,
+          13
+        ],
+        "3": [
+          22,
+          24
+        ],
+        "4": [
+          29,
+          30
+        ],
+        "5": [
+          47,
+          48
+        ],
+        "6": [
+          65,
+          67
+        ],
+        "7": [
+          81,
+          83
+        ],
+        "8": [
+          88,
+          90
+        ]
+      },
+      "edges": {
+        "10": {
+          "arrow": [
+            17,
+            22
+          ],
+          "source": [
+            11,
+            13
+          ],
+          "target": [
+            22,
+            24
+          ]
+        },
+        "11": {
+          "arrow": [
+            34,
+            44
+          ],
+          "source": [
+            29,
+            30
+          ],
+          "target": [
+            44,
+            46
+          ]
+        },
+        "12": {
+          "arrow": [
+            52,
+            62
+          ],
+          "source": [
+            47,
+            48
+          ],
+          "target": [
+            62,
+            64
+          ]
+        },
+        "13": {
+          "arrow": [
+            71,
+            81
+          ],
+          "source": [
+            65,
+            67
+          ],
+          "target": [
+            81,
+            83
+          ]
+        },
+        "14": {
+          "arrow": [
+            94,
+            104
+          ],
+          "source": [
+            88,
+            90
+          ],
+          "target": [
+            104,
+            106
+          ]
+        },
+        "15": {
+          "arrow": [
+            109,
+            119
+          ],
+          "source": [
+            107,
+            109
+          ],
+          "target": [
+            119,
+            121
+          ]
+        },
+        "9": {
+          "arrow": [
+            6,
+            11
+          ],
+          "source": [
+            0,
+            2
+          ],
+          "target": [
+            11,
+            13
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "h1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "h2",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "h3",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 4,
+      "name": "p",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 5,
+      "name": "q",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 6,
+      "name": "r2",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 7,
+      "name": "r1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 8,
+      "name": "r3",
+      "alias": "",
+      "type": "Event"
+    }
+  ],
+  "edges": [
+    {
+      "id": 9,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 10,
+      "source": 2,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 11,
+      "source": 4,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 12,
+      "source": 5,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 13,
+      "source": 6,
+      "target": 7,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 14,
+      "source": 8,
+      "target": 6,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 15,
+      "source": 7,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

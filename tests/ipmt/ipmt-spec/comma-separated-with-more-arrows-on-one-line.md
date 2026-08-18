@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/ipmt-spec.md#L508-L509 | [docs/ipmt-spec.md](../../../docs/ipmt-spec.md#comma-separated-with-more-arrows-on-one-line)
+**Source:** gl:docs/ipmt-spec.md#L525-L526 | [docs/ipmt-spec.md](../../../docs/ipmt-spec.md#comma-separated-with-more-arrows-on-one-line)
 
 ## ipmt Content
 

@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/ipmt-spec.md#L630-L633 | [docs/ipmt-spec.md](../../../docs/ipmt-spec.md#self-loop)
+**Source:** gl:docs/ipmt-spec.md#L647-L650 | [docs/ipmt-spec.md](../../../docs/ipmt-spec.md#self-loop)
 
 ## ipmt Content
 

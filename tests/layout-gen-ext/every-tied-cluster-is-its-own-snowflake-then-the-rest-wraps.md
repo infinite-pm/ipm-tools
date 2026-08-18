@@ -25,7 +25,14 @@ d1 ::e --::N-- c2
 ## Generated Files
 
 - [every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps.ipmt](every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps.ipmt) - ipmt input
+- [every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps.json](every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps.json) - Parsed structure
+- [every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps.layout.json](every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps.layout.json) - Layout coordinates
+- [every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps.ipm.svg](every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps.ipm.svg) - Rendered diagram
+
+## Rendered Diagram
+
+![every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps](every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps.ipm.svg)
 
 This test case was automatically generated from the specification document.
 
-The ipmt code block was extracted using [sync-test-cases](../../docs/dev/testing.md) and saved to [every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps.ipmt](every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps.ipmt).
+The ipmt code block was extracted using [sync-test-cases](../../docs/dev/testing.md) and saved to [every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps.ipmt](every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps.ipmt), then parsed into the [JSON structure](every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps.json) and laid out into [layout coordinates](every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps.layout.json). The [SVG diagram](every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps.ipm.svg) was rendered using [ipmsvg-gen](../../docs/ipmsvg-gen.md).

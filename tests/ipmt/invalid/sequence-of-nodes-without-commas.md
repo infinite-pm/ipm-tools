@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/ipmt-spec.md#L576-L577 | [docs/ipmt-spec.md](../../../docs/ipmt-spec.md#sequence-of-nodes-without-commas)
+**Source:** gl:docs/ipmt-spec.md#L593-L594 | [docs/ipmt-spec.md](../../../docs/ipmt-spec.md#sequence-of-nodes-without-commas)
 
 ## ipmt Content
 

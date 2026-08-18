@@ -1,0 +1,126 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "prep ::e --\u003e chop ::e\nchop --::P--\u003e cook ::e\ncook --\u003e serve ::e",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          4
+        ],
+        "2": [
+          13,
+          17
+        ],
+        "3": [
+          36,
+          40
+        ],
+        "4": [
+          54,
+          59
+        ]
+      },
+      "edges": {
+        "5": {
+          "arrow": [
+            8,
+            13
+          ],
+          "source": [
+            0,
+            4
+          ],
+          "target": [
+            13,
+            17
+          ]
+        },
+        "6": {
+          "arrow": [
+            26,
+            36
+          ],
+          "source": [
+            22,
+            26
+          ],
+          "target": [
+            36,
+            40
+          ]
+        },
+        "7": {
+          "arrow": [
+            49,
+            54
+          ],
+          "source": [
+            45,
+            49
+          ],
+          "target": [
+            54,
+            59
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "prep",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "chop",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "cook",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 4,
+      "name": "serve",
+      "alias": "",
+      "type": "Event"
+    }
+  ],
+  "edges": [
+    {
+      "id": 5,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 6,
+      "source": 2,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 7,
+      "source": 3,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

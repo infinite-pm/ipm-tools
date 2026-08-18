@@ -22,8 +22,14 @@ r1 --::X--> h2
 ## Generated Files
 
 - [a-chain-of-ties-rings-ring-by-ring.ipmt](a-chain-of-ties-rings-ring-by-ring.ipmt) - ipmt input
+- [a-chain-of-ties-rings-ring-by-ring.json](a-chain-of-ties-rings-ring-by-ring.json) - Parsed structure
 - [a-chain-of-ties-rings-ring-by-ring.layout.json](a-chain-of-ties-rings-ring-by-ring.layout.json) - Layout coordinates
+- [a-chain-of-ties-rings-ring-by-ring.ipm.svg](a-chain-of-ties-rings-ring-by-ring.ipm.svg) - Rendered diagram
+
+## Rendered Diagram
+
+![a-chain-of-ties-rings-ring-by-ring](a-chain-of-ties-rings-ring-by-ring.ipm.svg)
 
 This test case was automatically generated from the specification document.
 
-The ipmt code block was extracted using [sync-test-cases](../../docs/dev/testing.md) and saved to [a-chain-of-ties-rings-ring-by-ring.ipmt](a-chain-of-ties-rings-ring-by-ring.ipmt).
+The ipmt code block was extracted using [sync-test-cases](../../docs/dev/testing.md) and saved to [a-chain-of-ties-rings-ring-by-ring.ipmt](a-chain-of-ties-rings-ring-by-ring.ipmt), then parsed into the [JSON structure](a-chain-of-ties-rings-ring-by-ring.json) and laid out into [layout coordinates](a-chain-of-ties-rings-ring-by-ring.layout.json). The [SVG diagram](a-chain-of-ties-rings-ring-by-ring.ipm.svg) was rendered using [ipmsvg-gen](../../docs/ipmsvg-gen.md).

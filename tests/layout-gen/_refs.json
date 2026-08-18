@@ -50,7 +50,7 @@
                     "ipmt": "29409e2472d985d93e350dba58cbdd92bf1acefa",
                     "json": "fe5f59ff75e00356e53c332c6b921552f2de07b3",
                     "layout.json": "594e93e805e2a9c9d2280fc4ad7f7996c4708e51",
-                    "md": "2c4aad77c5a29542ef84b22998bd7127e597647b"
+                    "md": "bf1efed90c2852b0bd13185e66bc5291402acb5a"
                 },
                 "heading": "two events connected",
                 "section": "Events"
@@ -436,9 +436,11 @@
                 "anchor": "#a-leads-to-out-of-a-sub-event-runs-down-under-it",
                 "content_sha1": "53d323726b5cd2bcf6d3cbd553f279b99e976562",
                 "outputs": {
+                    "ipm.svg": "f584232b933998c591b6679b90e2c830a5c0a3df",
                     "ipmt": "53d323726b5cd2bcf6d3cbd553f279b99e976562",
+                    "json": "d850f100db357a86d779b6043f961de9c0cb1c0c",
                     "layout.json": "abe9e1d419699256a8a60752809f4a70059f3e4e",
-                    "md": "8a4a482d8de537dc7f2d7174197341fc77e8df65"
+                    "md": "d8fdee2c9e205f40683c1a7626348538dc103be7"
                 },
                 "heading": "a leads-to out of a sub-event runs down under it",
                 "section": "Events"
@@ -449,9 +451,11 @@
                 "anchor": "#a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor",
                 "content_sha1": "4a5d0183a9c8cb5490150d02ac99216f8cecab89",
                 "outputs": {
+                    "ipm.svg": "ed6251db35099b1a81a16ffb8f1006dc8fd932ca",
                     "ipmt": "4a5d0183a9c8cb5490150d02ac99216f8cecab89",
+                    "json": "6983c1b5d6c0d6c1b3a80aaa8b8e88de058384fd",
                     "layout.json": "99c95bb9630927a9a874804559826c07f9c44888",
-                    "md": "200aa32a529190aa02d5557b1a123f666d2bf4c1"
+                    "md": "571b52e62a21c37cd4d2b731f1203608fdb2ad20"
                 },
                 "heading": "a leads-to into a sub-event lanes the composite under the predecessor",
                 "section": "Events"
@@ -612,9 +616,11 @@
                 "anchor": "#declaration-order-does-not-decide-where-a-chain-spanning-thing-sits",
                 "content_sha1": "e2812ec90dbd3c9c8538f40c97793af76572de0a",
                 "outputs": {
+                    "ipm.svg": "be9fd5e3f8a6c84192e4cd76cc5c82b68db0807b",
                     "ipmt": "e2812ec90dbd3c9c8538f40c97793af76572de0a",
+                    "json": "c1413e6fb518382224fbc1ff5e954b1db70d3fb2",
                     "layout.json": "484917a28fcbe8cf61256f45c57b63cec59ba5ec",
-                    "md": "0acae2e529a84266eaf2ac212831c460890d6614"
+                    "md": "31cdb4ab1280a0f83e0c4c578d5387f5138e7750"
                 },
                 "heading": "declaration order does not decide where a chain-spanning thing sits",
                 "section": "Layered composites with aux"
@@ -1165,10 +1171,11 @@
                 "anchor": "#a-far-tie-draws-long-the-concept-stays-beside-its-anchor",
                 "content_sha1": "f274625ef8fcd3d7860bb45be0c145432c75aba9",
                 "outputs": {
+                    "ipm.svg": "582a1fb51d572bc2c8e18745d05012e1644fc606",
                     "ipmt": "f274625ef8fcd3d7860bb45be0c145432c75aba9",
                     "json": "2778ea12e2294acc73104cb4d807248ae65b56f8",
                     "layout.json": "a76f760a7b7a4e73e99dbc32d6d4d6ea5ab73c54",
-                    "md": "6469cf36d154c2a27807960157b13597904293ed"
+                    "md": "b73a4eadf976cbd33bda336e133bf25bb847e513"
                 },
                 "heading": "a far tie draws long; the concept stays beside its anchor",
                 "section": "Not connected nodes"

@@ -31,7 +31,12 @@ kB --> kB1 ::c
 - [a-deep-concept-fan-survives-a-foreign-bands-column.ipmt](a-deep-concept-fan-survives-a-foreign-bands-column.ipmt) - ipmt input
 - [a-deep-concept-fan-survives-a-foreign-bands-column.json](a-deep-concept-fan-survives-a-foreign-bands-column.json) - Parsed structure
 - [a-deep-concept-fan-survives-a-foreign-bands-column.layout.json](a-deep-concept-fan-survives-a-foreign-bands-column.layout.json) - Layout coordinates
+- [a-deep-concept-fan-survives-a-foreign-bands-column.ipm.svg](a-deep-concept-fan-survives-a-foreign-bands-column.ipm.svg) - Rendered diagram
+
+## Rendered Diagram
+
+![a-deep-concept-fan-survives-a-foreign-bands-column](a-deep-concept-fan-survives-a-foreign-bands-column.ipm.svg)
 
 This test case was automatically generated from the specification document.
 
-The ipmt code block was extracted using [sync-test-cases](../../docs/dev/testing.md) and saved to [a-deep-concept-fan-survives-a-foreign-bands-column.ipmt](a-deep-concept-fan-survives-a-foreign-bands-column.ipmt), then parsed into the [JSON structure](a-deep-concept-fan-survives-a-foreign-bands-column.json) and laid out into [layout coordinates](a-deep-concept-fan-survives-a-foreign-bands-column.layout.json).
+The ipmt code block was extracted using [sync-test-cases](../../docs/dev/testing.md) and saved to [a-deep-concept-fan-survives-a-foreign-bands-column.ipmt](a-deep-concept-fan-survives-a-foreign-bands-column.ipmt), then parsed into the [JSON structure](a-deep-concept-fan-survives-a-foreign-bands-column.json) and laid out into [layout coordinates](a-deep-concept-fan-survives-a-foreign-bands-column.layout.json). The [SVG diagram](a-deep-concept-fan-survives-a-foreign-bands-column.ipm.svg) was rendered using [ipmsvg-gen](../../docs/ipmsvg-gen.md).

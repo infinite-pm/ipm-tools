@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/ipmt-spec.md#L646-L650 | [docs/ipmt-spec.md](../../../docs/ipmt-spec.md#a-creates-link-validity)
+**Source:** gl:docs/ipmt-spec.md#L663-L667 | [docs/ipmt-spec.md](../../../docs/ipmt-spec.md#a-creates-link-validity)
 
 ## ipmt Content
 
@@ -21,7 +21,13 @@ tA --> e2
 
 - [a-creates-link-validity.ipmt](a-creates-link-validity.ipmt) - ipmt input
 - [a-creates-link-validity.json](a-creates-link-validity.json) - Parsed structure
+- [a-creates-link-validity.layout.json](a-creates-link-validity.layout.json) - Layout coordinates
+- [a-creates-link-validity.ipm.svg](a-creates-link-validity.ipm.svg) - Rendered diagram
+
+## Rendered Diagram
+
+![a-creates-link-validity](a-creates-link-validity.ipm.svg)
 
 This test case was automatically generated from the specification document.
 
-The ipmt code block was extracted using [sync-test-cases](../../../docs/dev/testing.md) and saved to [a-creates-link-validity.ipmt](a-creates-link-validity.ipmt), then parsed into the [JSON structure](a-creates-link-validity.json).
+The ipmt code block was extracted using [sync-test-cases](../../../docs/dev/testing.md) and saved to [a-creates-link-validity.ipmt](a-creates-link-validity.ipmt), then parsed into the [JSON structure](a-creates-link-validity.json) and laid out into [layout coordinates](a-creates-link-validity.layout.json). The [SVG diagram](a-creates-link-validity.ipm.svg) was rendered using [ipmsvg-gen](../../../docs/ipmsvg-gen.md).

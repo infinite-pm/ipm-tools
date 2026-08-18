@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/ipmt-spec.md#L618-L620 | [docs/ipmt-spec.md](../../../docs/ipmt-spec.md#multiple-sources-and-multiple-targets-combined)
+**Source:** gl:docs/ipmt-spec.md#L635-L637 | [docs/ipmt-spec.md](../../../docs/ipmt-spec.md#multiple-sources-and-multiple-targets-combined)
 
 ## ipmt Content
 

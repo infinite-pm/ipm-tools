@@ -21,6 +21,7 @@ e8 --::X--> c1-far
 - [a-far-tie-draws-long-the-concept-stays-beside-its-anchor.ipmt](a-far-tie-draws-long-the-concept-stays-beside-its-anchor.ipmt) - ipmt input
 - [a-far-tie-draws-long-the-concept-stays-beside-its-anchor.json](a-far-tie-draws-long-the-concept-stays-beside-its-anchor.json) - Parsed structure
 - [a-far-tie-draws-long-the-concept-stays-beside-its-anchor.layout.json](a-far-tie-draws-long-the-concept-stays-beside-its-anchor.layout.json) - Layout coordinates
+- [a-far-tie-draws-long-the-concept-stays-beside-its-anchor.ipm.svg](a-far-tie-draws-long-the-concept-stays-beside-its-anchor.ipm.svg) - Rendered diagram
 
 ## Layout Validation Rules
 
@@ -41,6 +42,10 @@ Test line: 2650
 - ✓ [Line 2684](gl:docs/dev/layout-gen/layout-alg.md#L2684): `node #e6 does not straddle edge #e8,#c1-far` ([a-far-tie-draws-long-the-concept-stays-beside-its-anchor-10.dsl](../layout-gen-rules/a-far-tie-draws-long-the-concept-stays-beside-its-anchor-10.dsl))
 - ✓ [Line 2685](gl:docs/dev/layout-gen/layout-alg.md#L2685): `node #e7 does not straddle edge #e8,#c1-far` ([a-far-tie-draws-long-the-concept-stays-beside-its-anchor-11.dsl](../layout-gen-rules/a-far-tie-draws-long-the-concept-stays-beside-its-anchor-11.dsl))
 
+## Rendered Diagram
+
+![a-far-tie-draws-long-the-concept-stays-beside-its-anchor](a-far-tie-draws-long-the-concept-stays-beside-its-anchor.ipm.svg)
+
 This test case was automatically generated from the specification document.
 
-The ipmt code block was extracted using [sync-test-cases](../../docs/dev/testing.md) and saved to [a-far-tie-draws-long-the-concept-stays-beside-its-anchor.ipmt](a-far-tie-draws-long-the-concept-stays-beside-its-anchor.ipmt), then parsed into the [JSON structure](a-far-tie-draws-long-the-concept-stays-beside-its-anchor.json) and laid out into [layout coordinates](a-far-tie-draws-long-the-concept-stays-beside-its-anchor.layout.json).
+The ipmt code block was extracted using [sync-test-cases](../../docs/dev/testing.md) and saved to [a-far-tie-draws-long-the-concept-stays-beside-its-anchor.ipmt](a-far-tie-draws-long-the-concept-stays-beside-its-anchor.ipmt), then parsed into the [JSON structure](a-far-tie-draws-long-the-concept-stays-beside-its-anchor.json) and laid out into [layout coordinates](a-far-tie-draws-long-the-concept-stays-beside-its-anchor.layout.json). The [SVG diagram](a-far-tie-draws-long-the-concept-stays-beside-its-anchor.ipm.svg) was rendered using [ipmsvg-gen](../../docs/ipmsvg-gen.md).

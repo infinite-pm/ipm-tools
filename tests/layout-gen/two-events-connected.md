@@ -25,13 +25,9 @@ e1 ::e --> e2 ::e
 
 Test line: 147
 
-✅ All 5 rules passed
+✅ All 1 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 82](gl:docs/dev/layout-gen/layout-alg.md#L82): `type=event has width=120` ([one-event.dsl](../layout-gen-rules/one-event.dsl))
-- ✓ [Line 83](gl:docs/dev/layout-gen/layout-alg.md#L83): `type=event has min-gap-to-others>=10` ([one-event-02.dsl](../layout-gen-rules/one-event-02.dsl))
-- ✓ [Line 84](gl:docs/dev/layout-gen/layout-alg.md#L84): `type=boundary has size=40x40` ([one-event-03.dsl](../layout-gen-rules/one-event-03.dsl))
-- ✓ [Line 162](gl:docs/dev/layout-gen/layout-alg.md#L162): `#S,#e1,#e2,#E have same center-x` ([two-events-connected.dsl](../layout-gen-rules/two-events-connected.dsl))
 
 ## Rendered Diagram
 

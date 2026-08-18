@@ -28,7 +28,12 @@ C --> e2, e4
 - [cross-component-arrivals-keep-the-approach-order.ipmt](cross-component-arrivals-keep-the-approach-order.ipmt) - ipmt input
 - [cross-component-arrivals-keep-the-approach-order.json](cross-component-arrivals-keep-the-approach-order.json) - Parsed structure
 - [cross-component-arrivals-keep-the-approach-order.layout.json](cross-component-arrivals-keep-the-approach-order.layout.json) - Layout coordinates
+- [cross-component-arrivals-keep-the-approach-order.ipm.svg](cross-component-arrivals-keep-the-approach-order.ipm.svg) - Rendered diagram
+
+## Rendered Diagram
+
+![cross-component-arrivals-keep-the-approach-order](cross-component-arrivals-keep-the-approach-order.ipm.svg)
 
 This test case was automatically generated from the specification document.
 
-The ipmt code block was extracted using [sync-test-cases](../../docs/dev/testing.md) and saved to [cross-component-arrivals-keep-the-approach-order.ipmt](cross-component-arrivals-keep-the-approach-order.ipmt), then parsed into the [JSON structure](cross-component-arrivals-keep-the-approach-order.json) and laid out into [layout coordinates](cross-component-arrivals-keep-the-approach-order.layout.json).
+The ipmt code block was extracted using [sync-test-cases](../../docs/dev/testing.md) and saved to [cross-component-arrivals-keep-the-approach-order.ipmt](cross-component-arrivals-keep-the-approach-order.ipmt), then parsed into the [JSON structure](cross-component-arrivals-keep-the-approach-order.json) and laid out into [layout coordinates](cross-component-arrivals-keep-the-approach-order.layout.json). The [SVG diagram](cross-component-arrivals-keep-the-approach-order.ipm.svg) was rendered using [ipmsvg-gen](../../docs/ipmsvg-gen.md).

@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/ipmt-spec.md#L589-L590 | [docs/ipmt-spec.md](../../../docs/ipmt-spec.md#ambiguous-separator-use)
+**Source:** gl:docs/ipmt-spec.md#L606-L607 | [docs/ipmt-spec.md](../../../docs/ipmt-spec.md#ambiguous-separator-use)
 
 ## ipmt Content
 

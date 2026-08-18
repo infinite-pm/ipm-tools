@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/ipmt-spec.md#L83-L84 | [docs/ipmt-spec.md](../../../docs/ipmt-spec.md#node-with-long-name)
+**Source:** gl:docs/ipmt-spec.md#L100-L101 | [docs/ipmt-spec.md](../../../docs/ipmt-spec.md#node-with-long-name)
 
 ## ipmt Content
 

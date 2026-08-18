@@ -19,7 +19,9 @@ cook --> serve ::e
 ## Generated Files
 
 - [a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor.ipmt](a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor.ipmt) - ipmt input
+- [a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor.json](a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor.json) - Parsed structure
 - [a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor.layout.json](a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor.layout.json) - Layout coordinates
+- [a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor.ipm.svg](a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor.ipm.svg) - Rendered diagram
 
 ## Layout Validation Rules
 
@@ -42,6 +44,10 @@ Test line: 1109
 - ✓ [Line 1133](gl:docs/dev/layout-gen/layout-alg.md#L1133): `#S is above #prep with gap=40` ([a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-09.dsl](../layout-gen-rules/a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-09.dsl))
 - ✓ [Line 1134](gl:docs/dev/layout-gen/layout-alg.md#L1134): `#E is below #serve with gap=60` ([a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-10.dsl](../layout-gen-rules/a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-10.dsl))
 
+## Rendered Diagram
+
+![a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor](a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor.ipm.svg)
+
 This test case was automatically generated from the specification document.
 
-The ipmt code block was extracted using [sync-test-cases](../../docs/dev/testing.md) and saved to [a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor.ipmt](a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor.ipmt).
+The ipmt code block was extracted using [sync-test-cases](../../docs/dev/testing.md) and saved to [a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor.ipmt](a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor.ipmt), then parsed into the [JSON structure](a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor.json) and laid out into [layout coordinates](a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor.layout.json). The [SVG diagram](a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor.ipm.svg) was rendered using [ipmsvg-gen](../../docs/ipmsvg-gen.md).

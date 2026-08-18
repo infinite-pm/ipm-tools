@@ -1,0 +1,26 @@
+{
+  "version": "26.07-v7",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "concept",
+      "label": "not until [when used before a time expression]",
+      "x": 40,
+      "y": 40,
+      "width": 120,
+      "height": 100
+    }
+  ],
+  "edges": [],
+  "meta": {
+    "bounds": {
+      "width": 200,
+      "height": 180,
+      "marginX": 40,
+      "marginY": 40
+    },
+    "constants": {
+      "gridStep": 20
+    }
+  }
+}

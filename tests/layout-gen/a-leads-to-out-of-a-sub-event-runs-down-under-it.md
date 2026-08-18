@@ -20,7 +20,9 @@ e2 --> e3 ::e
 ## Generated Files
 
 - [a-leads-to-out-of-a-sub-event-runs-down-under-it.ipmt](a-leads-to-out-of-a-sub-event-runs-down-under-it.ipmt) - ipmt input
+- [a-leads-to-out-of-a-sub-event-runs-down-under-it.json](a-leads-to-out-of-a-sub-event-runs-down-under-it.json) - Parsed structure
 - [a-leads-to-out-of-a-sub-event-runs-down-under-it.layout.json](a-leads-to-out-of-a-sub-event-runs-down-under-it.layout.json) - Layout coordinates
+- [a-leads-to-out-of-a-sub-event-runs-down-under-it.ipm.svg](a-leads-to-out-of-a-sub-event-runs-down-under-it.ipm.svg) - Rendered diagram
 
 ## Layout Validation Rules
 
@@ -43,6 +45,10 @@ Test line: 1073
 - ✓ [Line 1102](gl:docs/dev/layout-gen/layout-alg.md#L1102): `#S is above #e1 with gap=40` ([a-leads-to-out-of-a-sub-event-runs-down-under-it-09.dsl](../layout-gen-rules/a-leads-to-out-of-a-sub-event-runs-down-under-it-09.dsl))
 - ✓ [Line 1103](gl:docs/dev/layout-gen/layout-alg.md#L1103): `#E is below #e3 with gap=60` ([a-leads-to-out-of-a-sub-event-runs-down-under-it-10.dsl](../layout-gen-rules/a-leads-to-out-of-a-sub-event-runs-down-under-it-10.dsl))
 
+## Rendered Diagram
+
+![a-leads-to-out-of-a-sub-event-runs-down-under-it](a-leads-to-out-of-a-sub-event-runs-down-under-it.ipm.svg)
+
 This test case was automatically generated from the specification document.
 
-The ipmt code block was extracted using [sync-test-cases](../../docs/dev/testing.md) and saved to [a-leads-to-out-of-a-sub-event-runs-down-under-it.ipmt](a-leads-to-out-of-a-sub-event-runs-down-under-it.ipmt).
+The ipmt code block was extracted using [sync-test-cases](../../docs/dev/testing.md) and saved to [a-leads-to-out-of-a-sub-event-runs-down-under-it.ipmt](a-leads-to-out-of-a-sub-event-runs-down-under-it.ipmt), then parsed into the [JSON structure](a-leads-to-out-of-a-sub-event-runs-down-under-it.json) and laid out into [layout coordinates](a-leads-to-out-of-a-sub-event-runs-down-under-it.layout.json). The [SVG diagram](a-leads-to-out-of-a-sub-event-runs-down-under-it.ipm.svg) was rendered using [ipmsvg-gen](../../docs/ipmsvg-gen.md).

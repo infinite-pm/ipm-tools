@@ -21,7 +21,9 @@ tP --> e3, e2, e1
 ## Generated Files
 
 - [declaration-order-does-not-decide-where-a-chain-spanning-thing-sits.ipmt](declaration-order-does-not-decide-where-a-chain-spanning-thing-sits.ipmt) - ipmt input
+- [declaration-order-does-not-decide-where-a-chain-spanning-thing-sits.json](declaration-order-does-not-decide-where-a-chain-spanning-thing-sits.json) - Parsed structure
 - [declaration-order-does-not-decide-where-a-chain-spanning-thing-sits.layout.json](declaration-order-does-not-decide-where-a-chain-spanning-thing-sits.layout.json) - Layout coordinates
+- [declaration-order-does-not-decide-where-a-chain-spanning-thing-sits.ipm.svg](declaration-order-does-not-decide-where-a-chain-spanning-thing-sits.ipm.svg) - Rendered diagram
 
 ## Layout Validation Rules
 
@@ -45,6 +47,10 @@ Test line: 1564
 - ✓ [Line 1587](gl:docs/dev/layout-gen/layout-alg.md#L1587): `edge #tP,#e2 does not cross edge #tP,#e3` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-13.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-13.dsl))
 - ✓ [Line 1588](gl:docs/dev/layout-gen/layout-alg.md#L1588): `edge #tP,#e1 does not cross edge #tP,#e3` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-14.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-14.dsl))
 
+## Rendered Diagram
+
+![declaration-order-does-not-decide-where-a-chain-spanning-thing-sits](declaration-order-does-not-decide-where-a-chain-spanning-thing-sits.ipm.svg)
+
 This test case was automatically generated from the specification document.
 
-The ipmt code block was extracted using [sync-test-cases](../../docs/dev/testing.md) and saved to [declaration-order-does-not-decide-where-a-chain-spanning-thing-sits.ipmt](declaration-order-does-not-decide-where-a-chain-spanning-thing-sits.ipmt).
+The ipmt code block was extracted using [sync-test-cases](../../docs/dev/testing.md) and saved to [declaration-order-does-not-decide-where-a-chain-spanning-thing-sits.ipmt](declaration-order-does-not-decide-where-a-chain-spanning-thing-sits.ipmt), then parsed into the [JSON structure](declaration-order-does-not-decide-where-a-chain-spanning-thing-sits.json) and laid out into [layout coordinates](declaration-order-does-not-decide-where-a-chain-spanning-thing-sits.layout.json). The [SVG diagram](declaration-order-does-not-decide-where-a-chain-spanning-thing-sits.ipm.svg) was rendered using [ipmsvg-gen](../../docs/ipmsvg-gen.md).

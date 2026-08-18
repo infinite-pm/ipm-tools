@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/ipmt-spec.md#L133-L134 | [docs/ipmt-spec.md](../../../docs/ipmt-spec.md#node-type)
+**Source:** gl:docs/ipmt-spec.md#L150-L151 | [docs/ipmt-spec.md](../../../docs/ipmt-spec.md#node-type)
 
 ## ipmt Content
 
@@ -18,7 +18,13 @@ n1 ::?et --> e9 ::e
 
 - [node-type-02.ipmt](node-type-02.ipmt) - ipmt input
 - [node-type-02.json](node-type-02.json) - Parsed structure
+- [node-type-02.layout.json](node-type-02.layout.json) - Layout coordinates
+- [node-type-02.ipm.svg](node-type-02.ipm.svg) - Rendered diagram
+
+## Rendered Diagram
+
+![node-type-02](node-type-02.ipm.svg)
 
 This test case was automatically generated from the specification document.
 
-The ipmt code block was extracted using [sync-test-cases](../../../docs/dev/testing.md) and saved to [node-type-02.ipmt](node-type-02.ipmt), then parsed into the [JSON structure](node-type-02.json).
+The ipmt code block was extracted using [sync-test-cases](../../../docs/dev/testing.md) and saved to [node-type-02.ipmt](node-type-02.ipmt), then parsed into the [JSON structure](node-type-02.json) and laid out into [layout coordinates](node-type-02.layout.json). The [SVG diagram](node-type-02.ipm.svg) was rendered using [ipmsvg-gen](../../../docs/ipmsvg-gen.md).

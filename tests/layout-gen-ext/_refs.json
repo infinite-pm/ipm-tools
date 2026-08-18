@@ -255,10 +255,11 @@
                 "anchor": "#a-deep-concept-fan-survives-a-foreign-bands-column",
                 "content_sha1": "f7c7fc19f44b73dcec5722207b95fd962e737191",
                 "outputs": {
+                    "ipm.svg": "a8e9dd307a2dd0deb90ef247e36293042ee633a7",
                     "ipmt": "f7c7fc19f44b73dcec5722207b95fd962e737191",
                     "json": "5c75edb1b404414815f3e3066d22c37379709fb9",
                     "layout.json": "8b3b6d54d59e7781cce7a8dfc36f731c666d684c",
-                    "md": "5909ff9d96c5289a2cbd9a211228d438e294a870"
+                    "md": "2785beb6fd9efb9269893b75951e0c5b6ff5bbfb"
                 },
                 "heading": "a deep concept fan survives a foreign band's column",
                 "section": "v7 acceptance targets"
@@ -269,10 +270,11 @@
                 "anchor": "#cross-component-arrivals-keep-the-approach-order",
                 "content_sha1": "29eed9ea6e5067c36d38fe3ffd17378d0e4e40aa",
                 "outputs": {
+                    "ipm.svg": "d6342b7fa248f0ecadbf7dcc1bf304b1bc9147b2",
                     "ipmt": "29eed9ea6e5067c36d38fe3ffd17378d0e4e40aa",
                     "json": "3e2940048a15bd54c17e91f45e5440008a35ba82",
                     "layout.json": "cb174b0ff5e0eaf834eede808d5974669038f3ab",
-                    "md": "95c1994fd94868a4bb762115d775e2c79f807a2e"
+                    "md": "a2fe310fc6b3df7b73febd8f0106a1c9460d5f9a"
                 },
                 "heading": "cross-component arrivals keep the approach order",
                 "section": "v7 acceptance targets"
@@ -448,9 +450,11 @@
                 "anchor": "#a-chain-of-ties-rings-ring-by-ring",
                 "content_sha1": "07e5e5c712c3c6600f2fb1e455e50fe0739562d7",
                 "outputs": {
+                    "ipm.svg": "ee9f0f1ad32cabc2dbc6e1856a3dd42bee3ae757",
                     "ipmt": "07e5e5c712c3c6600f2fb1e455e50fe0739562d7",
+                    "json": "23d21636070c6265d5e626f9c7816dce5e34c736",
                     "layout.json": "6b8107e8c405d1816529c155aaf2cca7087455a4",
-                    "md": "d0224f38272ba8e8aaf4bb14e9bf761fda8f5c2b"
+                    "md": "3b0eb6d54caf5c0fbebd844d43253b5254f10d50"
                 },
                 "heading": "a chain of ties rings ring by ring",
                 "section": "v7 acceptance targets"
@@ -461,8 +465,11 @@
                 "anchor": "#every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps",
                 "content_sha1": "702cdac4d51ce1032ef7c333f71f9f89247c8ad5",
                 "outputs": {
+                    "ipm.svg": "210121b6d658e16c572f4fc67d4e0cab3256f730",
                     "ipmt": "702cdac4d51ce1032ef7c333f71f9f89247c8ad5",
-                    "md": "e82b9c409714683f4426a1a2bd97780bb7c85a37"
+                    "json": "db237d9d2fb369c4eb1732485bae333f133e7502",
+                    "layout.json": "459a120f64d26d571f14e29a6eaddaf32037dcda",
+                    "md": "f05f6e2cf43796180cc5996cd4a53b4715f032c3"
                 },
                 "heading": "every tied cluster is its own snowflake, then the rest wraps",
                 "section": "v7 acceptance targets"

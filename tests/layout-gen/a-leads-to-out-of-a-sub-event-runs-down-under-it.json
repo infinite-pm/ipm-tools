@@ -1,0 +1,126 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "e1 ::e\ne1a ::e --::P--\u003e e1\ne1a --\u003e e2 ::e\ne2 --\u003e e3 ::e",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          2
+        ],
+        "2": [
+          7,
+          10
+        ],
+        "3": [
+          35,
+          37
+        ],
+        "4": [
+          49,
+          51
+        ]
+      },
+      "edges": {
+        "5": {
+          "arrow": [
+            14,
+            24
+          ],
+          "source": [
+            7,
+            10
+          ],
+          "target": [
+            24,
+            26
+          ]
+        },
+        "6": {
+          "arrow": [
+            30,
+            35
+          ],
+          "source": [
+            27,
+            30
+          ],
+          "target": [
+            35,
+            37
+          ]
+        },
+        "7": {
+          "arrow": [
+            44,
+            49
+          ],
+          "source": [
+            42,
+            44
+          ],
+          "target": [
+            49,
+            51
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "e1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "e1a",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "e2",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 4,
+      "name": "e3",
+      "alias": "",
+      "type": "Event"
+    }
+  ],
+  "edges": [
+    {
+      "id": 5,
+      "source": 2,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 6,
+      "source": 2,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 7,
+      "source": 3,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

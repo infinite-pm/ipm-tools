@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/ipmt-spec.md#L669-L672 | [docs/ipmt-spec.md](../../../docs/ipmt-spec.md#duplicate-pair-relation)
+**Source:** gl:docs/ipmt-spec.md#L686-L689 | [docs/ipmt-spec.md](../../../docs/ipmt-spec.md#duplicate-pair-relation)
 
 ## ipmt Content
 
