@@ -1328,3 +1328,38 @@ func TestIndexShowsAColumnsWarning(t *testing.T) {
 		t.Error("the warning is not marked as one")
 	}
 }
+
+// A reader who spots something wrong is as likely to be scanning a COLUMN as a
+// single diagram, so the hand-over payloads belong on both. They are built by
+// the same two functions, so the two page kinds cannot drift.
+func TestColumnRowsAlsoOfferThePayloads(t *testing.T) {
+	in := timelineInput{
+		Repo: "/repo", Sources: "/repo", Weeks: sampleWeeks(), At: "week-start",
+		IPMT:  map[string]string{"docs/x.md#100": "a --> b"},
+		Panes: panePool("2026-07-13", "docs/x.md#100", "before", "after", "marked"),
+	}
+	html := renderPage(in, 1)
+
+	for _, want := range []string{
+		`data-copy="md-d-docs_x.md-100" data-anchor="d-docs_x.md-100"`,
+		`data-copy="rg-d-docs_x.md-100" data-anchor="d-docs_x.md-100"`,
+		`<pre class="payload" id="md-d-docs_x.md-100" hidden>`,
+		`<pre class="payload" id="rg-d-docs_x.md-100" hidden>`,
+		"Investigate a layout regression", // the regression payload's opening
+		"```ipmt\na --&gt; b\n```",        // the source, escaped into the page
+	} {
+		if !strings.Contains(html, want) {
+			t.Errorf("the column row is missing %q", want)
+		}
+	}
+	// The regression payload must name the column this one was compared
+	// against — that is the half a reader can see and an agent cannot.
+	if !strings.Contains(html, "2026-07-06") {
+		t.Error("the regression payload does not name the column it is compared against")
+	}
+	// And the "for agent" one must still describe ONE version only.
+	md := strings.SplitN(strings.SplitN(html, `id="md-d-docs_x.md-100" hidden>`, 2)[1], "</pre>", 2)[0]
+	if strings.Contains(md, "2026-07-06") || strings.Contains(md, "compared against") {
+		t.Errorf("the agent payload on a column row leaked the previous column:\n%s", md)
+	}
+}

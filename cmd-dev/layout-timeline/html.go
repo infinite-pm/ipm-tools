@@ -120,12 +120,17 @@ type vmRow struct {
 	// MaxWidth caps how far THIS row's pictures are blown up: two panes at
 	// the diagram's natural size, never more. Per row here, because each row
 	// is a different diagram with a size of its own.
-	MaxWidth           template.CSS
-	History            []vmHistCell
-	Moves              int
-	HistPrev, HistNext string
-	HistPrevLabel      string
-	HistNextLabel      string
+	MaxWidth template.CSS
+	// The same two hand-over payloads a diagram page offers. A reader who
+	// spots something wrong is just as likely to be scanning a column as a
+	// single diagram, and having to navigate elsewhere to copy the context is
+	// how the context stops being copied.
+	AgentMD, RegressionMD string
+	History               []vmHistCell
+	Moves                 int
+	HistPrev, HistNext    string
+	HistPrevLabel         string
+	HistNextLabel         string
 }
 
 // vmVersion is one column's picture of ONE diagram, on that diagram's page.
@@ -342,6 +347,38 @@ func markSeen(cells []vmHistCell, before string, afterOf func(label string) stri
 		}
 		return
 	}
+}
+
+// versionAt describes one row of a column the way a diagram page describes one
+// of its versions, so both can hand the same payloads to an agent from one
+// implementation. The "previous" half comes from the column this one was
+// compared against — which is not always the column before it, since an
+// unbuildable stretch is skipped.
+func versionAt(in timelineInput, i int, c change, row vmRow) (vmDiagram, vmVersion) {
+	w := in.Weeks[i]
+	d := vmDiagram{ID: c.ID, IPMT: in.IPMT[c.ID]}
+	nb := c.Report.NewBounds
+	v := vmVersion{
+		Label: w.Label, Anchor: row.Anchor, Source: w.Source,
+		SHA: layoutaudit.Short(w.SHA), Subject: w.Subject,
+		Repo: w.Snap.Repo, Rev: w.Snap.Rev, Date: stampDate(w.Snap.Date),
+		EnginePaths: w.Snap.EnginePaths,
+		Tier:        row.Tier, Score: row.Score, Bounds: row.Bounds,
+		Canvas:        fmt.Sprintf("%d×%d", nb.Width, nb.Height),
+		Changes:       row.Changes,
+		FindingsAdded: c.Report.FindingsAdded,
+		Err:           c.Err,
+	}
+	for j := range in.Weeks {
+		if in.Weeks[j].Label == w.Against {
+			prev := in.Weeks[j]
+			v.PrevLabel, v.PrevSource = prev.Label, prev.Source
+			v.PrevSHA = layoutaudit.Short(prev.SHA)
+			v.PrevRepo, v.PrevDate = prev.Snap.Repo, stampDate(prev.Snap.Date)
+			break
+		}
+	}
+	return d, v
 }
 
 // widthFor scales one picture against the page's widest canvas.
@@ -634,6 +671,9 @@ func buildPage(in timelineInput, i int) vmPage {
 		row.CurrentSrc = in.pane(w.Label, c.ID, "current")
 		row.History, row.Moves, row.HistPrev, row.HistNext, row.HistPrevLabel, row.HistNextLabel =
 			historyOf(in.Weeks, shownColumns(in.Weeks), c.ID, i)
+		d, v := versionAt(in, i, c, row)
+		row.AgentMD = agentMarkdown(d, v, in.Sources)
+		row.RegressionMD = regressionMarkdown(d, v, in.Sources)
 		markSeen(row.History, row.BeforeSrc, func(label string) string {
 			return in.pane(label, c.ID, "after")
 		})
@@ -937,7 +977,11 @@ nav a{color:var(--muted)}
     <span class="id">{{.ID}}</span>
     <span class="pill {{tier .Tier}}">{{.Tier}}</span>
     <span class="quiet">score {{.Score}} · {{.Bounds}}</span>
+    <button type="button" class="copy hand" data-copy="md-{{.Anchor}}" data-anchor="{{.Anchor}}" title="copy a description of THIS diagram at THIS column for an agent">for agent</button>
+    <button type="button" class="copy hand warn" data-copy="rg-{{.Anchor}}" data-anchor="{{.Anchor}}" title="copy a regression report: the same, plus the column before it">regression</button>
   </div>
+  <pre class="payload" id="md-{{.Anchor}}" hidden>{{.AgentMD}}</pre>
+  <pre class="payload" id="rg-{{.Anchor}}" hidden>{{.RegressionMD}}</pre>
   {{if .Summary}}<div class="summary">{{.Summary}}</div>{{end}}
   {{if .Err}}<div class="summary">{{.Err}}</div>{{end}}
   <div class="panes"{{if .MaxWidth}} style="max-width:{{.MaxWidth}}"{{end}}>

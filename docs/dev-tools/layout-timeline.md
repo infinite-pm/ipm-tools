@@ -373,6 +373,13 @@ are rendered; the rest are listed by name. `--no-svg` drops the panes entirely.
 Each row carries the `layout-audit --old … --new …` command that reproduces
 that week as a full audit.
 
+Both hand-over buttons — **for agent** and **regression** — sit on column rows
+as well as on diagram versions, built by the same two functions so the two page
+kinds cannot drift. On a column row the "previous" half is the column this one
+was *compared against*, which after an unbuildable stretch is not the column
+immediately before it. They cost ~2 KB per row: 29% of the largest column page
+in the base report, which is 313 rows.
+
 **A diagram page** (`d/<diagram>/index.html`): one diagram, every version of
 it, oldest first — followed from a grid cell or from a row's history strip.
 Following a version used to open a column page carrying two hundred diagrams
