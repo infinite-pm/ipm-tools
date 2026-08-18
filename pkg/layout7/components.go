@@ -389,135 +389,262 @@ func (g *graph) assemble() {
 	// order within a pass keeps the result deterministic; the wrap gets only
 	// what no pass could reach. The onion fixture (one hop, every satellite
 	// on the hub) is the first pass of this, unchanged.
-	pending := append([]int{}, order[1:]...)
-	for progress := true; progress && len(pending) > 0; {
-		progress = false
-		var still []int
-		for _, ci := range pending {
-			var tie *tieRef
-			for _, tr := range ties[ci] {
-				if placedComp[tr.other] {
-					tie = &tr
-					break
-				}
+	//
+	// And it runs PER SNOWFLAKE. The fixpoint reaches everything tied,
+	// transitively, to the seed hub — and nothing else: a tied cluster with
+	// no tie to the seed's cluster went to the wrap as INDIVIDUALS, split
+	// apart by the count ladder. kubernetes root: `nodes` --near-to--
+	// `API server`, two components tied only to each other, ended 1170px
+	// apart with a V between them. So the components are first clustered by
+	// their ties (union-find); the seed's cluster is built where it is; every
+	// other cluster of two or more is built as its own snowflake in a LOCAL
+	// frame — its most central member the hub at (0,0), the same fixpoint,
+	// the same recentring — and the wrap then tiles SNOWFLAKES and singles
+	// alike ("build snowflakes first, then the rest").
+	ringCluster := func(hub int, members []int) {
+		pending := make([]int, 0, len(members))
+		for _, ci := range members {
+			if ci != hub {
+				pending = append(pending, ci)
 			}
-			if tie == nil {
-				still = append(still, ci)
-				continue
-			}
-			progress = true
-			ringOne(ci, tie)
 		}
-		pending = still
+		for progress := true; progress && len(pending) > 0; {
+			progress = false
+			var still []int
+			for _, ci := range pending {
+				var tie *tieRef
+				for _, tr := range ties[ci] {
+					if placedComp[tr.other] {
+						tie = &tr
+						break
+					}
+				}
+				if tie == nil {
+					still = append(still, ci)
+					continue
+				}
+				progress = true
+				ringOne(ci, tie)
+			}
+			pending = still
+		}
+		// what no pass could reach joins the wrap as singles
+		wrapList = append(wrapList, pending...)
 	}
-	wrapList = append(wrapList, pending...)
 
-	// Same-anchor PURE tiles centre on their anchor (v7P2:
-	// two near-to thing structures tied to one anchor read
-	// SYMMETRIC — one at the row and one dangling below reads lopsided).
-	// The group's combined span recentres on the anchor like a band
-	// stack on its event row; event tiles keep the stack (their S→E
-	// verticality is a timeline).
-	{
-		type ringKey struct{ hub, anchor, side int }
-		groups := map[ringKey][]int{}
-		var keys []ringKey
-		for _, r := range ringPlaced {
-			if len(g.comps[r.ci].events) > 0 {
-				continue
-			}
-			k := ringKey{r.hub, r.anchor, r.side}
-			if _, ok := groups[k]; !ok {
-				keys = append(keys, k)
-			}
-			groups[k] = append(groups[k], r.ci)
+	// tie clusters over the components (union-find)
+	up := make([]int, len(g.comps))
+	for i := range up {
+		up[i] = i
+	}
+	var findC func(int) int
+	findC = func(a int) int {
+		if up[a] != a {
+			up[a] = findC(up[a])
 		}
-		sort.Slice(keys, func(a, b int) bool {
-			if keys[a].hub != keys[b].hub {
-				return keys[a].hub < keys[b].hub
-			}
-			if keys[a].anchor != keys[b].anchor {
-				return keys[a].anchor < keys[b].anchor
-			}
-			return keys[a].side < keys[b].side
-		})
-		for _, k := range keys {
-			members := groups[k]
-			if len(members) < 2 {
-				continue
-			}
-			inGroup := map[int]bool{}
-			for _, ci := range members {
-				inGroup[ci] = true
-			}
-			vertical := k.side <= 1 // left/right flanks stack in Y
-			lo, hi := 1<<30, -(1 << 30)
-			for _, ci := range members {
-				c, off := g.comps[ci], offsets[ci]
-				if vertical {
-					lo, hi = minInt(lo, c.minY+off[1]), maxInt(hi, c.maxY+off[1])
-				} else {
-					lo, hi = minInt(lo, c.minX+off[0]), maxInt(hi, c.maxX+off[0])
+		return up[a]
+	}
+	for ci, trs := range ties {
+		for _, tr := range trs {
+			up[findC(ci)] = findC(tr.other)
+		}
+	}
+	clusterOf := map[int][]int{} // root -> members in centrality order
+	for _, ci := range order {
+		r := findC(ci)
+		clusterOf[r] = append(clusterOf[r], ci)
+	}
+
+	// snowflake tiles the wrap lays out as units: the seed's cluster is
+	// placed at its absolute offsets; the others carry LOCAL offsets until
+	// the wrap moves them.
+	type flake struct {
+		comps                  []int
+		minX, minY, maxX, maxY int
+	}
+	var flakes []flake
+	flakeOf := map[int]int{} // comp -> index into flakes (members of non-seed flakes)
+
+	primary := clusterOf[findC(order[0])]
+	ringCluster(order[0], primary)
+	// recentring is per snowflake: it reads the flake's own ring records
+	// against the flake's own offsets
+	recentre := func() {
+		// Same-anchor PURE tiles centre on their anchor (v7P2:
+		// two near-to thing structures tied to one anchor read
+		// SYMMETRIC — one at the row and one dangling below reads lopsided).
+		// The group's combined span recentres on the anchor like a band
+		// stack on its event row; event tiles keep the stack (their S→E
+		// verticality is a timeline).
+		{
+			type ringKey struct{ hub, anchor, side int }
+			groups := map[ringKey][]int{}
+			var keys []ringKey
+			for _, r := range ringPlaced {
+				if len(g.comps[r.ci].events) > 0 {
+					continue
 				}
+				k := ringKey{r.hub, r.anchor, r.side}
+				if _, ok := groups[k]; !ok {
+					keys = append(keys, k)
+				}
+				groups[k] = append(groups[k], r.ci)
 			}
-			an := g.nodes[k.anchor]
-			hubOff := offsets[k.hub]
-			anchorC := an.y + an.h/2 + hubOff[1]
-			if !vertical {
-				anchorC = an.x + an.w/2 + hubOff[0]
-			}
-			delta := (anchorC - (lo+hi)/2) / GridStep * GridStep
-			// back the shift toward zero until every member clears the
-			// placed comps outside the group (gaps only shrink to zero)
-			clears := func(d int) bool {
+			sort.Slice(keys, func(a, b int) bool {
+				if keys[a].hub != keys[b].hub {
+					return keys[a].hub < keys[b].hub
+				}
+				if keys[a].anchor != keys[b].anchor {
+					return keys[a].anchor < keys[b].anchor
+				}
+				return keys[a].side < keys[b].side
+			})
+			for _, k := range keys {
+				members := groups[k]
+				if len(members) < 2 {
+					continue
+				}
+				inGroup := map[int]bool{}
+				for _, ci := range members {
+					inGroup[ci] = true
+				}
+				vertical := k.side <= 1 // left/right flanks stack in Y
+				lo, hi := 1<<30, -(1 << 30)
 				for _, ci := range members {
 					c, off := g.comps[ci], offsets[ci]
-					x0, y0 := c.minX+off[0], c.minY+off[1]
 					if vertical {
-						y0 += d
+						lo, hi = minInt(lo, c.minY+off[1]), maxInt(hi, c.maxY+off[1])
 					} else {
-						x0 += d
+						lo, hi = minInt(lo, c.minX+off[0]), maxInt(hi, c.maxX+off[0])
 					}
-					x1, y1 := x0+(c.maxX-c.minX), y0+(c.maxY-c.minY)
-					for pi := range placedComp {
-						if inGroup[pi] {
-							continue
+				}
+				an := g.nodes[k.anchor]
+				hubOff := offsets[k.hub]
+				anchorC := an.y + an.h/2 + hubOff[1]
+				if !vertical {
+					anchorC = an.x + an.w/2 + hubOff[0]
+				}
+				delta := (anchorC - (lo+hi)/2) / GridStep * GridStep
+				// back the shift toward zero until every member clears the
+				// placed comps outside the group (gaps only shrink to zero)
+				clears := func(d int) bool {
+					for _, ci := range members {
+						c, off := g.comps[ci], offsets[ci]
+						x0, y0 := c.minX+off[0], c.minY+off[1]
+						if vertical {
+							y0 += d
+						} else {
+							x0 += d
 						}
-						poff := offsets[pi]
-						for ni := range g.nodes {
-							n := g.nodes[ni]
-							if n.comp != pi || !n.placed {
+						x1, y1 := x0+(c.maxX-c.minX), y0+(c.maxY-c.minY)
+						for pi := range placedComp {
+							if inGroup[pi] {
 								continue
 							}
-							nx0, ny0 := n.x+poff[0], n.y+poff[1]
-							if x0 < nx0+n.w+CompGap && nx0 < x1+CompGap &&
-								y0 < ny0+n.h+CompGap && ny0 < y1+CompGap {
-								return false
+							poff := offsets[pi]
+							for ni := range g.nodes {
+								n := g.nodes[ni]
+								if n.comp != pi || !n.placed {
+									continue
+								}
+								nx0, ny0 := n.x+poff[0], n.y+poff[1]
+								if x0 < nx0+n.w+CompGap && nx0 < x1+CompGap &&
+									y0 < ny0+n.h+CompGap && ny0 < y1+CompGap {
+									return false
+								}
 							}
 						}
 					}
+					return true
 				}
-				return true
-			}
-			for ; delta != 0; delta -= sign(delta) * GridStep {
-				if clears(delta) {
-					break
+				for ; delta != 0; delta -= sign(delta) * GridStep {
+					if clears(delta) {
+						break
+					}
 				}
-			}
-			for _, ci := range members {
-				if vertical {
-					offsets[ci] = [2]int{offsets[ci][0], offsets[ci][1] + delta}
-				} else {
-					offsets[ci] = [2]int{offsets[ci][0] + delta, offsets[ci][1]}
+				for _, ci := range members {
+					if vertical {
+						offsets[ci] = [2]int{offsets[ci][0], offsets[ci][1] + delta}
+					} else {
+						offsets[ci] = [2]int{offsets[ci][0] + delta, offsets[ci][1]}
+					}
 				}
 			}
 		}
 	}
+	recentre()
 
-	// ---- untied components: the count-ladder wrap after the placed group. ----
+	// the other clusters, each in a local frame: swap the maps the closures
+	// read (offsets, placedComp, ringPlaced, sideCount), build, record, restore
+	mainOffsets, mainPlaced := offsets, placedComp
+	for _, ci := range order {
+		r := findC(ci)
+		if r == findC(order[0]) {
+			continue
+		}
+		members := clusterOf[r]
+		if len(members) < 2 {
+			wrapList = append(wrapList, ci) // an untied component wraps on its own
+			continue
+		}
+		if members[0] != ci {
+			continue // a cluster is built at its hub's turn
+		}
+		offsets, placedComp = map[int][2]int{}, map[int]bool{}
+		ringPlaced, sideCount = nil, map[[2]int]int{}
+		offsets[ci] = [2]int{0, 0}
+		placedComp[ci] = true
+		ringCluster(ci, members)
+		recentre()
+		f := flake{minX: math.MaxInt32, minY: math.MaxInt32, maxX: math.MinInt32, maxY: math.MinInt32}
+		for m := range placedComp {
+			x0, y0, x1, y1 := absBox(m)
+			f.comps = append(f.comps, m)
+			f.minX, f.minY = minInt(f.minX, x0), minInt(f.minY, y0)
+			f.maxX, f.maxY = maxInt(f.maxX, x1), maxInt(f.maxY, y1)
+			mainOffsets[m] = offsets[m] // local, until the wrap moves the flake
+		}
+		sort.Ints(f.comps)
+		for _, m := range f.comps {
+			flakeOf[m] = len(flakes)
+		}
+		flakes = append(flakes, f)
+	}
+	offsets, placedComp = mainOffsets, mainPlaced
+
+	// ---- untied components and the other snowflakes: the count-ladder wrap
+	// after the placed group. ----
 	wrapX, wrapTop, groupH := 0, 0, 0
 	haveGroup := false
-	if len(placedComp) > 0 && len(wrapList) < len(order) {
+	// wrap TILES: a single component, or a whole snowflake moved as one.
+	// Order: the components' centrality order, a snowflake at its hub's turn.
+	type tile struct {
+		comps                  []int
+		minX, minY, maxX, maxY int
+	}
+	var tiles []tile
+	seenFlake := map[int]bool{}
+	inWrap := map[int]bool{}
+	for _, ci := range wrapList {
+		inWrap[ci] = true
+	}
+	for _, ci := range order {
+		if fi, ok := flakeOf[ci]; ok {
+			if seenFlake[fi] {
+				continue
+			}
+			seenFlake[fi] = true
+			f := flakes[fi]
+			tiles = append(tiles, tile{comps: f.comps, minX: f.minX, minY: f.minY, maxX: f.maxX, maxY: f.maxY})
+			continue
+		}
+		if !inWrap[ci] {
+			continue
+		}
+		c := g.comps[ci]
+		tiles = append(tiles, tile{comps: []int{ci}, minX: c.minX, minY: c.minY, maxX: c.maxX, maxY: c.maxY})
+	}
+	if len(placedComp) > 0 && len(tiles) > 0 {
 		minX, minY := math.MaxInt32, math.MaxInt32
 		maxX, maxY := math.MinInt32, math.MinInt32
 		for pi := range placedComp {
@@ -525,11 +652,14 @@ func (g *graph) assemble() {
 			minX, minY = minInt(minX, x0), minInt(minY, y0)
 			maxX, maxY = maxInt(maxX, x1), maxInt(maxY, y1)
 		}
-		if len(wrapList) == len(order)-1 && len(placedComp) == 1 {
-			// no ring happened — the hub joins the wrap flow as row 1
-			wrapList = append([]int{order[0]}, wrapList...)
+		if len(placedComp) == 1 {
+			// no ring happened at the seed — the hub joins the wrap flow as
+			// row 1's first tile
+			c := g.comps[order[0]]
+			tiles = append([]tile{{comps: []int{order[0]}, minX: c.minX, minY: c.minY, maxX: c.maxX, maxY: c.maxY}}, tiles...)
 			delete(offsets, order[0])
-		} else if len(wrapList) > 0 {
+			delete(placedComp, order[0])
+		} else {
 			wrapX, wrapTop, groupH = maxX, minY, maxY-minY
 			haveGroup = true
 		}
@@ -539,9 +669,9 @@ func (g *graph) assemble() {
 	// a third row at nine — a rectangle canvas by default"): columns
 	// start at three, then rows and columns grow ALTERNATELY —
 	// 3×1, 3×2, 4×2, 4×3, 5×3, 5×4 … The ladder picks the row count by
-	// COMPONENT COUNT (a placed tied group counts as one row-1 tile);
-	// rows fill evenly in reading order.
-	nTiles := len(wrapList)
+	// TILE COUNT (a placed tied group counts as one row-1 tile, a snowflake
+	// is one tile); rows fill evenly in reading order.
+	nTiles := len(tiles)
 	groupTile := 0
 	if haveGroup {
 		groupTile = 1
@@ -570,17 +700,21 @@ func (g *graph) assemble() {
 		if ri > 0 {
 			row = rowState{top: row.top + row.height + CompGap}
 		}
-		for k := 0; k < cnt; k++ {
-			ci := wrapList[idx]
+		for k := 0; k < cnt && idx < len(tiles); k++ {
+			t := tiles[idx]
 			idx++
-			c := g.comps[ci]
-			w := c.maxX - c.minX
-			h := c.maxY - c.minY
+			w := t.maxX - t.minX
+			h := t.maxY - t.minY
 			x := row.x
 			if row.x > 0 {
 				x += CompGap
 			}
-			offsets[ci] = [2]int{x - c.minX, row.top - c.minY}
+			dx, dy := x-t.minX, row.top-t.minY
+			for _, ci := range t.comps {
+				off := offsets[ci] // a snowflake member's LOCAL offset; a single's zero
+				offsets[ci] = [2]int{off[0] + dx, off[1] + dy}
+				placedComp[ci] = true
+			}
 			row.x = x + w
 			if h > row.height {
 				row.height = h

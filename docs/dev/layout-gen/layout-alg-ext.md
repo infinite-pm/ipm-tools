@@ -1260,6 +1260,46 @@ all #h2,#r1,#r2,#r3 have same y
 each edge has max-bends=0
 ```
 
+### every tied cluster is its own snowflake, then the rest wraps
+
+v7P2, one level up: the ring pass reaches everything tied — transitively —
+to the SEED hub, and nothing else. A tied cluster with no tie to the seed's
+cluster used to go to the wrap as INDIVIDUALS, and the count ladder split it:
+here `a1→a2→a3` and `b1` are tied only to each other, `c1→c2` and `d1` too,
+and their members interleave in centrality order (`a` three events, `c` two,
+`b` and `d` one each), so the old wrap laid the row a, c, b, d — `b1` a
+row below `a3`, `d1` far from `c2`. Now the components are clustered by
+their ties first; each cluster of two or more is built as its own
+snowflake — its most central member the hub, the same fixpoint and
+recentring — and the wrap tiles snowflakes and singles alike. `b1` sits one
+component gap off `a3`, `d1` off `c2`. (kubernetes root: `nodes` near-to
+`API server`, two components tied only to each other, stood 1170px apart with
+a V between them; brains: every tie drawn where 488 had been hidden.)
+
+```ipmt
+h1 ::e --> h2 ::e
+h2 --> h3 ::e
+s1 ::e --::X--> h2
+s2 ::e --::X--> h2
+a1 ::e --> a2 ::e
+a2 --> a3 ::e
+b1 ::e --::N-- a3
+c1 ::e --> c2 ::e
+d1 ::e --::N-- c2
+```
+<!-- ipm-svg id=1hv hash=595ded10 -->
+![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1hv.ipm.svg)
+
+```ipmdev-layout-rule
+@scope local
+all #a3,#b1 have same y
+#a3 is left-of #b1 with gap=120
+all #c2,#d1 have same y
+#c2 is left-of #d1 with gap=120
+all #s1,#s2 have same y
+each edge has max-bends=0
+```
+
 ### untied components wrap toward the canvas
 
 v7P2: eight identical single-event components with no ties pack by the

@@ -178,14 +178,21 @@ structures mirror symmetrically about their anchor instead of one at
 the row and one dangling below; event tiles keep the
 one-directional stack, their S→E verticality is a timeline; once it
 degenerates, the next clean flank opens — four components tied to one
-concept RING it rather than pile into a tall column. Components with no tie follow in the same order,
-after the placed group, packed by the COUNT LADDER (a rectangle
+concept RING it rather than pile into a tall column. The ring reaches
+everything tied, transitively, to the most central component — one
+SNOWFLAKE — and every OTHER tied cluster (components tied to each other but
+to nothing in that snowflake) is built the same way as a snowflake of its
+own: its most central member the hub, its ties ringing it. Snowflakes
+first, then the rest: components with no tie follow in the same order,
+after the placed group, and snowflakes and singles alike are packed by the
+COUNT LADDER (a rectangle
 canvas by default): columns start at THREE and rows and
 columns then grow alternately — 3×1 up to three tiles, 3×2 up to six,
 4×2 up to eight, 4×3 up to twelve, 5×3, 5×4 … — evenly filled rows in
-reading order, the placed tied group counting as one row-1 tile;
-never a per-tile greedy wrap, which would split eight equal tiles 3+5
-where the ladder says 4+4.
+reading order, the placed tied group counting as one row-1 tile and every
+other snowflake as one tile; never a per-tile greedy wrap, which would split
+eight equal tiles 3+5 where the ladder says 4+4 — nor a tied pair across
+rows.
 
 The CANVAS caps the arrangement: the diagram aims to fill a 16:9
 rectangle, so a tied component may take a NON-IDEAL side when the ideal
