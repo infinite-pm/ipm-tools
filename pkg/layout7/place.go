@@ -221,6 +221,7 @@ func (g *graph) place(m *membership, gp *groupsPlan, sp *skeletonPlan) {
 			if g.opts.Shells && len(sp.subStacks[ev]) > 0 {
 				x0, x1 := en.x, en.x+en.w
 				top, bot := en.y, en.y+en.h
+				anyPlaced := false
 				var walkExt func(parent int)
 				walkExt = func(parent int) {
 					for _, sub := range sp.subStacks[parent] {
@@ -228,6 +229,7 @@ func (g *graph) place(m *membership, gp *groupsPlan, sp *skeletonPlan) {
 						if !sn.placed {
 							continue
 						}
+						anyPlaced = true
 						x0, x1 = minInt(x0, sn.x), maxInt(x1, sn.x+sn.w)
 						top, bot = minInt(top, sn.y), maxInt(bot, sn.y+sn.h)
 						walkExt(sub)
@@ -239,6 +241,16 @@ func (g *graph) place(m *membership, gp *groupsPlan, sp *skeletonPlan) {
 					over = en.y - (top - ShellPad)
 				} else {
 					over = bot + ShellPad - (en.y + en.h)
+				}
+				if !anyPlaced {
+					// the composite's OWN row is being placed: its subs are
+					// not yet, so the shell is predicted from the plan — the
+					// grid's half extent plus pad, over the grid's column
+					// (a predecessor's concept fan hung to the shell's very
+					// edge: the pad alone was the rise, and the fan's hang
+					// and the grid's rise were never summed)
+					over = shellOver(ev)
+					x1 = en.x + en.w + g.subColumnWidth(ev, sp, gp)
 				}
 				if over < 0 {
 					over = 0

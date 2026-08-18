@@ -20,8 +20,8 @@ package main
 //
 //	go run ./cmd-dev/refs-rehash [--check] [-v] [dir ...]
 //
-// Each dir must contain a _refs.json. With no args the two layout corpora
-// (tests/layout-gen, tests/layout-gen-ext) are
+// Each dir must contain a _refs.json. With no args the three layout corpora
+// (tests/layout-gen, tests/layout-gen-ext, tests/layout-gen-shells) are
 // refreshed. Exit 0 when everything is fresh or was refreshed, 1 when --check
 // found stale hashes, 2 on read/write errors.
 //
@@ -48,6 +48,7 @@ import (
 var defaultDirs = []string{
 	"tests/layout-gen",
 	"tests/layout-gen-ext",
+	"tests/layout-gen-shells",
 }
 
 // standardOutputKeys are the generated-artifact suffixes sync-test-cases

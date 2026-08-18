@@ -48,7 +48,7 @@ Layout algorithm test cases focusing on specific layout scenarios like node posi
 
 **Purpose**: Validate layout generation algorithms
 
-**Source**: `docs/dev/layout-gen/layout-alg.md` (and `layout-alg-ext.md` → `tests/layout-gen-ext/`)
+**Source**: `docs/dev/layout-gen/layout-alg.md` (and `layout-alg-ext.md` → `tests/layout-gen-ext/`, `layout-alg-shells.md` → `tests/layout-gen-shells/`, run with `--shells`)
 
 ## File Naming Conventions
 

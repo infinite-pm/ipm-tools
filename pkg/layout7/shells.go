@@ -122,8 +122,16 @@ func (g *graph) emitShell(sh *node) (layout.Node, []string) {
 	}
 	sort.Strings(ids)
 	shellID := "shell-" + strconv.Itoa(c.id)
+	// the alias makes the shell addressable where the composite is: a
+	// fixture rule says `#shell-eC` (pkg/layouttest names nodes by alias
+	// first — the composite's alias, else its name); the canvas ignores it
+	alias := "shell-" + c.name
+	if c.alias != "" {
+		alias = "shell-" + c.alias
+	}
 	return layout.Node{
 		ID:         shellID,
+		Alias:      alias,
 		Type:       t,
 		X:          sh.x,
 		Y:          sh.y,

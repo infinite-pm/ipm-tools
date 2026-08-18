@@ -52,7 +52,7 @@ value is the plain flat layout, and that is what every shipping tool uses.
 | option | default | effect |
 |---|---|---|
 | `Containers` | off | a composite event's part-of sub-grid claims its vertical band EXCLUSIVELY |
-| `Shells` | off | emits a container box (`Container != nil`) around every root composite with members present, `ShellPad` of air inside, and treats it as a box of the layout: tiling and rings keep their gap from it, other edges route around it, member edges cross it; the composite's aux bands above/below sit outside it, and any aux left inside is evicted before routing — a whole band at once, sideways first, to the first side whose landing is free of other aux (else the first free of other shells), and never across its owner while another exit works. Implies `Containers`. The zoom canvas's open composite, laid out by the engine itself (`wip/zoom-frame-routing/design.md`, "shells in the core") |
+| `Shells` | off | emits a container box (`Container != nil`) around every root composite with members present, `ShellPad` of air inside, and treats it as a box of the layout: tiling and rings keep their gap from it, other edges route around it, member edges cross it; the composite's aux bands above/below sit outside it, and any aux left inside is evicted before routing — a whole band at once, sideways first, to the first side whose landing is free of other aux (else the first free of other shells), and never across its owner while another exit works. Implies `Containers`. The zoom canvas's open composite, laid out by the engine itself; the shells corpus `gl:docs/dev/layout-gen/layout-alg-shells.md` (`tests/layout-gen-shells`, run with `layout-test-runner --shells`) pins it |
 | `Anchor` | nil | a soft arrangement anchor: node id → box centre from a reference layout. With it, `assemble` keeps the reference's cross-component arrangement at COMPONENT granularity — each component's known nodes' centre of mass lands where the anchor had it, components that grew are pushed right/down the way the anchor had them, unknown components wrap after — so the states of one document read the same way (`framecheck --stability`). Positions inside a component are this layout's; nothing is stamped |
 
 `Containers` exists for renderers that draw a container SHELL around
@@ -177,7 +177,9 @@ regression (or a freshly authored target), not a reconciliation gap.
   `*.ipmt` case, and validates the produced `*.layout.json` against the rules.
   Run with `make layout-fitness` (score-only) or `make layout-test` (verbose);
   both also run the combination corpus from `layout-alg-ext.md`
-  (`tests/layout-gen-ext`). After any engine change additionally run
+  (`tests/layout-gen-ext`) and the shells corpus from `layout-alg-shells.md`
+  (`tests/layout-gen-shells`, `--shells`: layout7 `Options.Shells`; not in
+  `CHECK_PATHS` — the flat invariant checker counts shells as boxes). After any engine change additionally run
   `make layout-check` — it checks the universal invariants (no node overlap, no
   edge through a node) across both corpora (`CHECK_PATHS` in the Makefile), where
   combinations surface bugs no single fixture anticipates;

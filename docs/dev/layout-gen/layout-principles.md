@@ -6,7 +6,8 @@ them. Each principle gives a plain statement, one simple example of what
 it covers, and one of what it deliberately does NOT cover (owned by
 another principle). The fixture catalogue
 (`gl:docs/dev/layout-gen/layout-alg.md`,
-`gl:docs/dev/layout-gen/layout-alg-ext.md`) executes these principles as
+`gl:docs/dev/layout-gen/layout-alg-ext.md`, and for composite shells
+`gl:docs/dev/layout-gen/layout-alg-shells.md`) executes these principles as
 rules; the engine's map and status live in
 `gl:docs/dev/layout-gen/layout7-engine.md`. Detail sections at the end:
 the 11-combination coverage map, the solving algorithm, and the design

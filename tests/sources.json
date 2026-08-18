@@ -87,6 +87,28 @@
         }
     },
     {
+        "name": "ipmt layout algorithm shells",
+        "destination": "layout-gen-shells",
+        "source_files": [ "../docs/dev/layout-gen/layout-alg-shells.md" ],
+        "method": "parser",
+        "params": {
+            "parser_name": "ipmt-md",
+            "parser_params": {
+                "filter": "valid"
+            }
+        }
+    },
+    {
+        "name": "layout shells test rules",
+        "destination": "layout-gen-shells-rules",
+        "source_files": [ "../docs/dev/layout-gen/layout-alg-shells.md" ],
+        "method": "parser",
+        "params": {
+            "parser_name": "ipmdev-layout-rule-md",
+            "parser_params": {}
+        }
+    },
+    {
         "name": "ipmt examples in Markdown files",
         "destination": "ipmt/files-md",
         "sources_glob": [ "../**/*.md" ],

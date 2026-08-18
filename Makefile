@@ -78,14 +78,17 @@ build-dev:
 		go build -trimpath -o $(BIN_DIR)/$$c ./cmd-dev/$$c || exit 1; \
 	done
 
-# Layout regression testing (base corpus + the layout-alg-ext combinations).
+# Layout regression testing (base corpus, the layout-alg-ext combinations, and
+# the layout-alg-shells cases run with Options.Shells).
 layout-test:
 	@go run ./cmd-dev/layout-test-runner -v
 	@go run ./cmd-dev/layout-test-runner -v --dir tests/layout-gen-ext
+	@go run ./cmd-dev/layout-test-runner -v --shells --dir tests/layout-gen-shells
 
 layout-fitness:
 	@go run ./cmd-dev/layout-test-runner
 	@go run ./cmd-dev/layout-test-runner --dir tests/layout-gen-ext
+	@go run ./cmd-dev/layout-test-runner --shells --dir tests/layout-gen-shells
 
 # Universal-invariant check (no node overlaps, no edge through/grazing a box,
 # no crossings/covers, badges & chips clear of boxes, nothing reads-as-paired)
@@ -93,6 +96,7 @@ layout-fitness:
 # against the committed baseline: FAILS when any file's finding count grows.
 # When your change shrinks the counts, tighten the ratchet with
 # `make layout-check-baseline` and commit the updated baseline.
+# (not tests/layout-gen-shells: the flat invariant checker counts shells as boxes)
 CHECK_PATHS := tests/layout-gen tests/layout-gen-ext
 
 layout-check:
