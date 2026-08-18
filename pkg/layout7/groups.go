@@ -2,6 +2,7 @@ package layout7
 
 import (
 	"sort"
+	"strconv"
 
 	"github.com/infinite-pm/ipm-tools/pkg/layout"
 )
@@ -76,6 +77,35 @@ func (g *graph) affinityOrder(siblings []int) []int {
 	pos := map[int]int{}
 	for i, s := range siblings {
 		pos[s] = i
+	}
+	// with a soft anchor (Options.Anchor: the zoom canvas's all-open
+	// layout) the order is the ANCHOR's — siblings sorted by where the
+	// anchor had them (top to bottom, then left to right) — so a stack
+	// keeps its order from state to state; declaration order breaks ties
+	if g.opts.Anchor != nil {
+		all := true
+		ay := map[int][2]int{}
+		for _, s := range siblings {
+			p, has := g.opts.Anchor[strconv.Itoa(g.nodes[s].id)]
+			if !has {
+				all = false
+				break
+			}
+			ay[s] = p
+		}
+		if all {
+			ordered := append([]int(nil), siblings...)
+			sort.SliceStable(ordered, func(a, b int) bool {
+				pa, pb := ay[ordered[a]], ay[ordered[b]]
+				if pa[1] != pb[1] {
+					return pa[1] < pb[1]
+				}
+				return pa[0] < pb[0]
+			})
+			for i, s := range ordered {
+				pos[s] = i
+			}
+		}
 	}
 	// union siblings that share a further connection or a tie
 	parent := map[int]int{}
