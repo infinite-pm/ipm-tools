@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-ext.md",
-        "source_sha1": "5c4254a1c30857046a25cb39b3716cb5c48aa2ff",
+        "source_sha1": "4c77633376bae0feb5ca25c6cfc56c1c0544b19f",
         "name": "layout ext test rules",
         "method": "parser",
         "parser_name": "ipmdev-layout-rule-md",
@@ -3377,7 +3377,7 @@
             },
             {
                 "destination": "a-concept-fan-stays-whole-beside-a-successors-grid",
-                "line": 1432,
+                "line": 1434,
                 "anchor": "#a-concept-fan-stays-whole-beside-a-successors-grid",
                 "content_sha1": "9bd6ece6490411c875f83d0dc284253421cc3d2e",
                 "outputs": {
@@ -3388,18 +3388,18 @@
             },
             {
                 "destination": "a-concept-fan-stays-whole-beside-a-successors-grid-02",
-                "line": 1433,
+                "line": 1435,
                 "anchor": "#a-concept-fan-stays-whole-beside-a-successors-grid",
                 "content_sha1": "9bd7902f2aa40356ce611cc153b542c5fb3fa4ca",
                 "outputs": {
-                    "dsl": "dcef7dffc7bf66043c3a93d26feb60d3cab624c4"
+                    "dsl": "9bd7902f2aa40356ce611cc153b542c5fb3fa4ca"
                 },
                 "heading": "a concept fan stays whole beside a successor's grid",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-concept-fan-stays-whole-beside-a-successors-grid-03",
-                "line": 1434,
+                "line": 1436,
                 "anchor": "#a-concept-fan-stays-whole-beside-a-successors-grid",
                 "content_sha1": "4df9299c9f57d982233e0dd2f424640d9becb08e",
                 "outputs": {
@@ -3410,7 +3410,7 @@
             },
             {
                 "destination": "a-concept-fan-stays-whole-beside-a-successors-grid-04",
-                "line": 1435,
+                "line": 1437,
                 "anchor": "#a-concept-fan-stays-whole-beside-a-successors-grid",
                 "content_sha1": "be0e8027bb313ea73d1f461bf641215ad6b7a054",
                 "outputs": {
@@ -3421,7 +3421,7 @@
             },
             {
                 "destination": "a-concept-fan-stays-whole-beside-a-successors-grid-05",
-                "line": 1436,
+                "line": 1438,
                 "anchor": "#a-concept-fan-stays-whole-beside-a-successors-grid",
                 "content_sha1": "3cafe0f736c4605ac9991438a0633fdf1951d425",
                 "outputs": {
@@ -3432,7 +3432,7 @@
             },
             {
                 "destination": "a-concept-fan-stays-whole-beside-a-successors-grid-06",
-                "line": 1437,
+                "line": 1439,
                 "anchor": "#a-concept-fan-stays-whole-beside-a-successors-grid",
                 "content_sha1": "a10857956ff8d5c624e7f921690e805d680bb501",
                 "outputs": {
