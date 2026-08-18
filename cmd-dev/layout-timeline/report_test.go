@@ -1197,3 +1197,33 @@ func regexpAll(s, pat string) []string {
 	}
 	return out
 }
+
+// A diagram added since the last report is NOT a diagram without history.
+//
+// The sources are fixed within a run, so one written today is swept by every
+// engine back to the start of the range exactly like the rest — its page shows
+// what each of them would have drawn. Only the EDITED case is dangerous, and
+// reporting the two in the same tone taught at least one reader otherwise.
+func TestAddedDiagramsAreNotReportedAsALoss(t *testing.T) {
+	msgs := corpusNotes(
+		[]string{"docs/new.md#100"}, // added
+		nil,                         // removed
+		[]string{"examples/x.ipmt"}, // edited
+	)
+	all := strings.Join(msgs, "\n")
+
+	if !strings.Contains(all, "carry full history here") {
+		t.Errorf("the added note does not say they have history:\n%s", all)
+	}
+	if strings.Contains(all, "no history") {
+		t.Errorf("the added note still claims they lack history:\n%s", all)
+	}
+	// The edited case must keep its warning — that is the one that matters.
+	if !strings.Contains(all, "cannot be compared with an older report") {
+		t.Errorf("the edited warning was lost:\n%s", all)
+	}
+	// And nothing is said at all when the corpus did not move.
+	if n := len(corpusNotes(nil, nil, nil)); n != 0 {
+		t.Errorf("a still corpus produced %d note(s)", n)
+	}
+}

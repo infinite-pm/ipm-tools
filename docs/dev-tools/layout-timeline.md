@@ -118,10 +118,15 @@ snapshot of a moving target. What that costs, and what it does not:
   columns cannot be compared with an older report
   ```
 
-  Added and removed are reported too, but **edited** is the one that matters:
-  an added diagram simply has no history, whereas an edited one silently
-  changes what every earlier column's picture is a picture of. Two reports of
-  the same range are only comparable when their corpus fingerprints match.
+  Added and removed are reported too, but **edited** is the one that matters.
+  An added diagram arrives with its FULL history — the sources are fixed within
+  a run, so a diagram written today is swept by every engine back to the start
+  of the range exactly like any other, and its page shows what each of them
+  would have drawn. What it lacks is a row in the PREVIOUS report, which costs
+  a reader nothing. An edited one is the dangerous case: both reports have the
+  row, and every earlier column's picture silently becomes a picture of a
+  different source. Two reports of the same range are only comparable when
+  their corpus fingerprints match.
 
 A note on identity: diagrams with byte-identical sources are collapsed
 (a fixture and the doc block that quotes it), so editing ONE of a pair reads

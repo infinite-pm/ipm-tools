@@ -632,13 +632,25 @@ func corpusDrift(outAbs string, diagrams []layoutaudit.Diagram) []string {
 	if len(was) == 0 {
 		return nil
 	}
-	added, removed, edited := layoutaudit.DiffSets(was, now)
+	return corpusNotes(layoutaudit.DiffSets(was, now))
+}
+
+// corpusNotes turns a corpus diff into what the report says about it. Split
+// out from the I/O so the wording is testable — it is the wording that misled.
+func corpusNotes(added, removed, edited []string) []string {
 	if len(added)+len(removed)+len(edited) == 0 {
 		return nil
 	}
 	var out []string
 	if n := len(added); n > 0 {
-		out = append(out, fmt.Sprintf("corpus: %d diagram(s) added since the last report, e.g. %s", n, added[0]))
+		// Said plainly, because next to the EDITED warning below a bare count
+		// reads as a second problem. It is not one: the sources are fixed
+		// within a run, so a diagram written today is swept by every engine
+		// back to the start of the range exactly like any other and arrives
+		// with its full history. All it lacks is a row in the previous report.
+		out = append(out, fmt.Sprintf("corpus: %d diagram(s) added since the last report (e.g. %s) — "+
+			"they carry full history here, having been run through every engine like the rest; "+
+			"they are simply absent from any older report", n, added[0]))
 	}
 	if n := len(removed); n > 0 {
 		out = append(out, fmt.Sprintf("corpus: %d diagram(s) gone since the last report, e.g. %s", n, removed[0]))
