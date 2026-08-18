@@ -128,3 +128,36 @@ edge #m3,#eC has target-side=right
 edge #m1,#eC does not cross edge #m2,#eC
 edge #m2,#eC does not cross edge #m3,#eC
 ```
+
+### a successor's band rises beside the shell, not into it
+
+`e2` follows the composite and carries a stack of five things: centred on
+`e2`, the stack rises two rows above it — alongside the shell's left edge, one
+`ColGap` from it, never inside it. The shell is a hang box only for what
+x-overlaps it, so `e2` keeps its plain `RowGap` from the shell's bottom and
+the band climbs past it; a band that x-overlapped the shell (a concept fan on
+the grid's side) would push `e2` down by its rise instead.
+
+```ipmt
+# ipmt: embed=false
+e1 ::e --> eC ::e --> e2 ::e
+m1 ::e --> m2 ::e
+m1, m2 --::P--> eC
+e2 <-- tB1, tB2, tB3, tB4, tB5
+```
+
+![a successor's band rises beside the shell, not into it](../../../tests/layout-gen-shells/a-successors-band-rises-beside-the-shell-not-into-it.ipm.svg)
+
+```ipmdev-layout-rule
+@scope local
+#shell-eC has x=200
+#shell-eC has y=240
+#shell-eC has size=340x220
+#e2 is below #shell-eC with gap=60
+all #tB1,#tB2,#tB3,#tB4,#tB5 have same center-x
+#tB1 is left-of #shell-eC with gap=40
+#tB1 has y=320
+#tB3 has y=520
+all #tB3,#e2 have same y
+edge #eC,#e2 is vertical
+```
