@@ -946,6 +946,19 @@ func (g *graph) place(m *membership, gp *groupsPlan, sp *skeletonPlan) {
 			if !ok || deg != 1 || owner == nil || !owner.placed {
 				continue
 			}
+			// ... SOLE: the owner's only placed concept. A member of a
+			// FAN sits where its siblings put it — the last of five,
+			// two rows down its stack, is not stranded (it was rescued
+			// to below-outward, alone on the other flank: a 4+1 fan)
+			fan := 0
+			for _, oe := range g.out[owner.idx] {
+				if oe.structural && oe.rel == RelExpresses && g.nodes[oe.to].kind == KindConcept {
+					fan++
+				}
+			}
+			if fan > 1 {
+				continue
+			}
 			// stranded means more than a full row pitch below the
 			// owner's bottom — the own-column floor steps AND the
 			// offset-column band spot alike (swap of

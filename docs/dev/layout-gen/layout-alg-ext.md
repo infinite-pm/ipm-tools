@@ -1409,3 +1409,32 @@ edge #a1,#p1 has target-side=right
 edge #b4,#p2 has target-side=right
 edge #a4,#p1 does not cross edge #b1,#p2
 ```
+
+### a concept fan stays whole beside a successor's grid
+
+v7P4: `e1`'s five concepts stack as one band on its right; the successor
+composite `eC` hangs its sub-grid in that same column below. The band's
+last member sits two rows under its expresser — where its siblings put it,
+not stranded — yet the sole-leaf rescue read it as a lone concept two rows
+off its owner and relocated it to the other flank (a 4+1 fan, one concept
+alone on the left). A member of a fan is never a sole leaf; the fan stays
+whole, and the grid keeps its row gap below the fan.
+
+```ipmt
+e1 ::e --> eC ::e --> e2 ::e
+e1 --> cA1 ::c, cA2 ::c, cA3 ::c, cA4 ::c, cA5 ::c
+m1 ::e --> m2 ::e
+m1, m2 --::P--> eC
+```
+<!-- ipm-svg id=1l0 hash=0a1a9422 -->
+![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1l0.ipm.svg)
+
+```ipmdev-layout-rule
+@scope local
+all #cA1,#cA2,#cA3,#cA4,#cA5 have same center-x
+#cA5 is right-of #e1 with gap=60
+#cA2 is below #cA1 with gap=40
+#cA5 is below #cA4 with gap=40
+#m1 is below #cA5 with gap=60
+edge #e1,#eC is vertical
+```
