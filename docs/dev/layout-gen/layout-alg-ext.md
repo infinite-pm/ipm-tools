@@ -1372,3 +1372,40 @@ node #m1 does not straddle edge #x2,#m2
 edge #x3,#m3 has max-bends=2
 edge #x4,#m4 has max-bends=2
 ```
+
+### successive composites keep their grids one row gap apart
+
+v7P3/v7P8: two composites in a chain each hang a sub-grid in the column to
+their right — the same column. The predecessor's grid hangs below its box and
+the successor's rises above its own (a grid centres on its composite), and the
+flat layout measured only the first: the successor's members were not placed
+when its row was, so `a4` sat 10px over `b1` and read as one column of eight
+(at forty-five members a grid, the two grids interleaved). The successor's
+rise is known from the plan; when the grids share a column the row gap holds
+between them, as between any two rows. Built from NDA's shape at readable
+scale — the document itself is a corpus outlier
+(`docs/dev-tools/layout-timeline.md`, "outliers"), this is its rule.
+
+```ipmt
+p1 ::e --> p2 ::e
+a1 ::e --> a2 ::e --> a3 ::e --> a4 ::e
+a1, a2, a3, a4 --::P--> p1
+b1 ::e --> b2 ::e --> b3 ::e --> b4 ::e
+b1, b2, b3, b4 --::P--> p2
+p1 <-- tA, tB
+p2 <-- tC
+a2 <-- tD
+```
+<!-- ipm-svg id=1k0 hash=a230c480 -->
+![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1k0.ipm.svg)
+
+```ipmdev-layout-rule
+@scope local
+all #a1,#a2,#a3,#a4,#b1,#b2,#b3,#b4 have same center-x
+all #p1,#p2 have same center-x
+edge #p1,#p2 is vertical
+#b1 is below #a4 with gap=60
+edge #a1,#p1 has target-side=right
+edge #b4,#p2 has target-side=right
+edge #a4,#p1 does not cross edge #b1,#p2
+```

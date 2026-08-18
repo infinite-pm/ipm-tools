@@ -323,6 +323,28 @@ func (g *graph) place(m *membership, gp *groupsPlan, sp *skeletonPlan) {
 							g.subGridOverhang(ev, sp, gp); need > gap {
 							gap = need
 						}
+						// FLAT (no Containers): a grid still keeps the row gap
+						// from a grid IN ITS OWN COLUMN. The pred's grid hangs
+						// below it (its subs are placed, the hang boxes above
+						// see them); the successor's grid rises above it and
+						// its subs are not placed yet — so the two grids of a
+						// composite chain sat 10px apart (a4 over b1, "reads
+						// as paired"), and at NDA's scale interleaved. The
+						// rise is predicted from the plan, and counted only
+						// when the grids' columns overlap: a grid beside a
+						// neighbour's column still sits level with it.
+						if !g.opts.Containers {
+							if rise := g.subGridRise(ev, sp, gp); rise > 0 {
+								ex0, ex1 := g.subGridColumn(ev, sp, gp)
+								for _, a := range boxesOf(p, false) {
+									if a.over > 0 && xOverlap(a.x0, a.x1, ex0, ex1) {
+										if need := a.over + RowGap + rise; need > gap {
+											gap = need
+										}
+									}
+								}
+							}
+						}
 						// demand-pass growth below the pred (v7P8 §4; a stranded
 						// sole leaf posted it so the part-of diagonal drops under
 						// the leaf's near-anchor wedge)
@@ -1593,6 +1615,33 @@ func (g *graph) subGridExtent(ev int, sp *skeletonPlan, gp *groupsPlan) int {
 		total += h
 	}
 	return total
+}
+
+// subGridRise is how far a composite's sub-grid reaches above (and below) its
+// box regardless of Options — the grid centres on the composite, so half of
+// whatever the grid is taller by; the flat Y pass uses it for grids sharing a
+// column (subGridOverhang is the same figure gated on Containers, plus the
+// shell pad).
+func (g *graph) subGridRise(ev int, sp *skeletonPlan, gp *groupsPlan) int {
+	over := g.subGridExtent(ev, sp, gp) - g.nodes[ev].h
+	if over <= 0 {
+		return 0
+	}
+	return gridUp((over + 1) / 2)
+}
+
+// subGridColumn is the x-range a composite's sub-grid occupies: from one
+// column gap right of the composite (and its right band) to the grid's
+// widest row — subSlotX's arithmetic, as a span.
+func (g *graph) subGridColumn(ev int, sp *skeletonPlan, gp *groupsPlan) (int, int) {
+	en := g.nodes[ev]
+	slot := g.subSlotX(ev, sp, gp)
+	x0, x1 := en.x+en.w+ColGap, en.x+en.w+g.subColumnWidth(ev, sp, gp)
+	for s, dx := range slot {
+		x0 = minInt(x0, en.x+dx)
+		x1 = maxInt(x1, en.x+dx+g.nodes[s].w)
+	}
+	return x0, x1
 }
 
 // subGridOverhang is how far a composite's sub-grid reaches ABOVE (and,
