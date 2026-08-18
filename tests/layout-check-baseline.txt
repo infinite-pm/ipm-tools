@@ -7,6 +7,7 @@
 0 2 0 0 tests/layout-gen-ext/a-deep-concept-fan-survives-a-foreign-bands-column.ipmt
 0 0 1 0 tests/layout-gen-ext/a-flank-tie-crosses-the-fan-under-the-kind-budget.ipmt
 0 2 1 0 tests/layout-gen-ext/a-late-side-branch-merge-keeps-its-join-edge-short.ipmt
+0 3 2 0 tests/layout-gen-ext/a-leads-to-into-a-sub-grid-member-bends-around-the-members-above.ipmt
 0 3 0 0 tests/layout-gen-ext/a-satellite-wraps-a-pure-grid-from-the-outer-flank.ipmt
 0 1 0 0 tests/layout-gen-ext/a-shared-child-concept-centres-between-its-column-parents.ipmt
 0 2 1 0 tests/layout-gen-ext/cross-component-arrivals-keep-the-approach-order.ipmt
@@ -17,7 +18,7 @@
 0 2 0 0 tests/layout-gen/a-satellite-wraps-its-own-rows-not-the-whole-flank.ipmt
 0 1 1 0 tests/layout-gen/a-stack-members-own-concept-steps-outward-under-the-shared-one.ipmt
 0 1 0 0 tests/layout-gen/a-standalone-shared-concept-diamond-centres-symmetrically.ipmt
-0 0 3 0 tests/layout-gen/a-stranded-leaf-concept-comes-back-to-its-owner.ipmt
+0 2 1 0 tests/layout-gen/a-stranded-leaf-concept-comes-back-to-its-owner.ipmt
 0 0 2 0 tests/layout-gen/a-sub-grid-return-lane-centres-in-the-free-row-gap.ipmt
 0 3 0 0 tests/layout-gen/a-thing-hierarchy-and-its-concepts-join-the-event-chain.ipmt
 0 2 0 0 tests/layout-gen/an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap.ipmt

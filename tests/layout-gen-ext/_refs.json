@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-ext.md",
-        "source_sha1": "d8badb95034b4bb71c04ee26adfe4ea6a48c32b7",
+        "source_sha1": "446933b91db9ef4715ca7ecc1cd837204b30f4ec",
         "name": "ipmt layout algorithm extensions",
         "method": "parser",
         "parser_name": "ipmt-md",
@@ -123,7 +123,7 @@
                     "ipm.svg": "1f3903eea76117dcd492b92e13100ebdfb6a4105",
                     "ipmt": "870192f0cc103a224efb981a9d7d40f1fc77fada",
                     "json": "cc1d4f562c7ec4772d444ae0cb9720b66023ed0f",
-                    "layout.json": "1737406067c250310a7e41fd850e8de81a5603e5",
+                    "layout.json": "73115fff818b01be406ef66892951cf1ee6d8161",
                     "md": "a6802a78b11e5cbec8810d6705ba8a55cc1cc679"
                 },
                 "heading": "a late side-branch merge keeps its join edge short",
@@ -487,6 +487,20 @@
                     "md": "c71cd97b82d09d4a244d76b420aa19d54f808286"
                 },
                 "heading": "untied components wrap toward the canvas",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-leads-to-into-a-sub-grid-member-bends-around-the-members-above",
+                "line": 1353,
+                "anchor": "#a-leads-to-into-a-sub-grid-member-bends-around-the-members-above",
+                "content_sha1": "8a238f4715f635629fecd3d96f102c52a327ea5d",
+                "outputs": {
+                    "ipm.svg": "4cff4a40789777c14aa884189799ae9b795f4b23",
+                    "ipmt": "8a238f4715f635629fecd3d96f102c52a327ea5d",
+                    "json": "352d59236f0fc5d6345d57ca1da7acdf083bbfcb",
+                    "layout.json": "355b1527e32651134eb52240133c0bbabbc0579a"
+                },
+                "heading": "a leads-to into a sub-grid member bends around the members above",
                 "section": "v7 acceptance targets"
             }
         ]
