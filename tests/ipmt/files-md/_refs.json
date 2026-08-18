@@ -87,7 +87,7 @@
                 "outputs": {
                     "ipmt": "9f52e24fde9cfd9e4c7fd842b1e473c75c737f28",
                     "json": "53d231dc62890207cc3418692e258b553cc82783",
-                    "md": "bbdbebc795b9c212d049be9eea3f04adc56f2a5d"
+                    "md": "a4b9d0e508232326a694ad9963f11cb197f01143"
                 },
                 "section": "v7P1 — components separate along event structure"
             },
@@ -99,7 +99,7 @@
                 "outputs": {
                     "ipmt": "396f6e517b547186e8a71bc22c9ef8ae2f075397",
                     "json": "dfdc5dceb55ee2eceadf74ffc67be78783ef1aa2",
-                    "md": "4e268dee165dd8018bc6e65d62f8559744da8d29"
+                    "md": "d0f81c80efdac25d5f7dc0118d4a3f0ceeb8c876"
                 },
                 "section": "v7P2 — the most central component first, tied components around it"
             },
@@ -111,7 +111,7 @@
                 "outputs": {
                     "ipmt": "01e80f0479738c574d1e5a716ff475bae4a526e3",
                     "json": "e86bff08ecbcb221bbcd0d9d068406084bd3b5bf",
-                    "md": "7ed538f84f1cf49cb73beb2f50f0e6a36ae10587"
+                    "md": "ff52ef4958d481acd0c19864870f7512a123d25c"
                 },
                 "section": "v7P2 — the most central component first, tied components around it"
             },
@@ -123,7 +123,7 @@
                 "outputs": {
                     "ipmt": "0c7f40ee7a5a37218da7ddeaf3da6ea194d484a0",
                     "json": "49442e66c5f56850ebea7a1465b7770118f14206",
-                    "md": "3bf4e4f6999a04b5d70897d247f1b79822cff8fd"
+                    "md": "1fdbfc709fe56bc98223cc3941bf6cd28ab8c5be"
                 },
                 "section": "v7P3 — the event skeleton: leads-to runs down, part-of indents right, forks spread symmetrically"
             },
@@ -135,7 +135,7 @@
                 "outputs": {
                     "ipmt": "466f2b4be1c78a0b043aa5b26a18ec90e11b3901",
                     "json": "743fce03d93b227bb48e432c3fef2406958b1cee",
-                    "md": "1a1dc53e9eeeb9e94f2d31dce8fc4d8d2545b525"
+                    "md": "8bea087dd717ff431a199d1f3cab6ebc99322f3a"
                 },
                 "section": "v7P3 — the event skeleton: leads-to runs down, part-of indents right, forks spread symmetrically"
             },
@@ -147,7 +147,7 @@
                 "outputs": {
                     "ipmt": "d4bd84b10966e8b5b2cb4be96d09142d056b9596",
                     "json": "51e928f52d52302af778bfda2cae53692c79b973",
-                    "md": "b030ab2f34bc0eed02a96c633d1d4c509a6e4b3e"
+                    "md": "78133ceeb5bf162be130e94d90c92ed59a4800c0"
                 },
                 "section": "v7P4 — aux attaches in groups: on the event's row, wholes outward, parts above, concepts down"
             },
@@ -159,7 +159,7 @@
                 "outputs": {
                     "ipmt": "13194370782d7722871d1a43fb14b0f9803b26d7",
                     "json": "bcdfbe8251de09d5d669b63753b9da71722ea2e1",
-                    "md": "6364dc2470f8c1593adce955f4aa58dc40ded54e"
+                    "md": "5d302be45ecb5399817a9103e559b2aec164fa32"
                 },
                 "section": "v7P4 — aux attaches in groups: on the event's row, wholes outward, parts above, concepts down"
             },
@@ -171,7 +171,7 @@
                 "outputs": {
                     "ipmt": "ab8fbced62b3e9735511d3f63befd463f444ac14",
                     "json": "d9fc8685d2bf0ae5e04e361d0d021b81f2f083d0",
-                    "md": "bc5e83b8bb6ba204bbbab490454b06e84dc39afe"
+                    "md": "64b25ac6bbf4748d3c8f14e02bfb5f7e1f450835"
                 },
                 "section": "v7P5 — same-kind ties: draw, order, or wrap as the outermost layer"
             },
@@ -183,7 +183,7 @@
                 "outputs": {
                     "ipmt": "2d7572fad701b00336d93185323982c77a5da90e",
                     "json": "139e9b47af1fabe6f701ddb6242d0089f07351ef",
-                    "md": "d8d966112c37ee87ed2c3aa6eb0b375f3b7820db"
+                    "md": "4537eaa84ce92ee0a57ec328cc8c1461bebfa24d"
                 },
                 "section": "v7P8 — spacing: gaps are minimums, growth is symmetric, the grid is exact"
             },
@@ -195,7 +195,7 @@
                 "outputs": {
                     "ipmt": "4de6caa4f77b7d41345b2ab95c8c500e0034ba39",
                     "json": "33e793372f6302ea375fafa3e72964e79a341035",
-                    "md": "52b92bdafeb071b6409e3192a9eaa0b918abc763"
+                    "md": "b955d6954d17e68808e320836ea1d45541d643f5"
                 },
                 "section": "v7P8 — spacing: gaps are minimums, growth is symmetric, the grid is exact"
             },
@@ -207,7 +207,7 @@
                 "outputs": {
                     "ipmt": "ed5235eaeca4a77efb0cba65d81180e9777570f3",
                     "json": "cc99276ab96e4acaa6d8ecf024d9e9e7ad1ac16d",
-                    "md": "1a89866ed481b8ccb90d20977b5c37aa4cbbf180"
+                    "md": "6962220f6b53b85c45569908a331eb435ebcb5d9"
                 },
                 "section": "v7P8 — spacing: gaps are minimums, growth is symmetric, the grid is exact"
             },
@@ -219,7 +219,7 @@
                 "outputs": {
                     "ipmt": "c8d9176a9d8d8d61ca3620c10cdeb7753335b0dd",
                     "json": "a37f0dd44929088ab902bcc082c495ba2748ddb8",
-                    "md": "af0625e1e912ccfd1a048b2edf74b9a7d5de9803"
+                    "md": "07f469556152915fe2bcf6566bc521bac9fe8719"
                 },
                 "section": "v7P8 — spacing: gaps are minimums, growth is symmetric, the grid is exact"
             }

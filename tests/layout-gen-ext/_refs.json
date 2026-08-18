@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-ext.md",
-        "source_sha1": "aadf3f73c3465ca09a3140c1f4188698cfc423c0",
+        "source_sha1": "5c4254a1c30857046a25cb39b3716cb5c48aa2ff",
         "name": "ipmt layout algorithm extensions",
         "method": "parser",
         "parser_name": "ipmt-md",
@@ -517,6 +517,21 @@
                     "md": "9ed5435def9feae05e13c5e22bedef55de6b9e75"
                 },
                 "heading": "successive composites keep their grids one row gap apart",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-concept-fan-stays-whole-beside-a-successors-grid",
+                "line": 1424,
+                "anchor": "#a-concept-fan-stays-whole-beside-a-successors-grid",
+                "content_sha1": "c4930282b25817b6466525c74b212b15cf9a42f1",
+                "outputs": {
+                    "ipm.svg": "9c9dc43ffbb4d2bd3892023a92c5bb538de77c07",
+                    "ipmt": "c4930282b25817b6466525c74b212b15cf9a42f1",
+                    "json": "4a3d90406e2903c1746138195404419280326dfd",
+                    "layout.json": "6a49f3c8ed0e77b21b9cd983fc80e6a517bc484b",
+                    "md": "8d92518724279dfcd3779bd01a90d8fe4e577c38"
+                },
+                "heading": "a concept fan stays whole beside a successor's grid",
                 "section": "v7 acceptance targets"
             }
         ]

@@ -4,6 +4,7 @@
 # regenerate: make layout-check-baseline  (layout-debug --check --write-baseline <file> <paths...>)
 0 0 1 0 tests/layout-gen-ext/a-bent-ties-approach-follows-its-last-leg.ipmt
 0 1 1 0 tests/layout-gen-ext/a-budgeted-crossing-beats-a-two-bend-detour.ipmt
+0 1 0 0 tests/layout-gen-ext/a-concept-fan-stays-whole-beside-a-successors-grid.ipmt
 0 2 0 0 tests/layout-gen-ext/a-deep-concept-fan-survives-a-foreign-bands-column.ipmt
 0 0 1 0 tests/layout-gen-ext/a-flank-tie-crosses-the-fan-under-the-kind-budget.ipmt
 0 2 1 0 tests/layout-gen-ext/a-late-side-branch-merge-keeps-its-join-edge-short.ipmt

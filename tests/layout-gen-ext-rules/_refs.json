@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-ext.md",
-        "source_sha1": "aadf3f73c3465ca09a3140c1f4188698cfc423c0",
+        "source_sha1": "5c4254a1c30857046a25cb39b3716cb5c48aa2ff",
         "name": "layout ext test rules",
         "method": "parser",
         "parser_name": "ipmdev-layout-rule-md",
@@ -3300,58 +3300,145 @@
             },
             {
                 "destination": "successive-composites-keep-their-grids-one-row-gap-apart",
-                "line": 1402,
+                "line": 1404,
                 "anchor": "#successive-composites-keep-their-grids-one-row-gap-apart",
                 "content_sha1": "1abbda30e2ae6f4fc858cd8953e32e8975a67267",
+                "outputs": {
+                    "dsl": "1abbda30e2ae6f4fc858cd8953e32e8975a67267"
+                },
                 "heading": "successive composites keep their grids one row gap apart",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "successive-composites-keep-their-grids-one-row-gap-apart-02",
-                "line": 1403,
+                "line": 1405,
                 "anchor": "#successive-composites-keep-their-grids-one-row-gap-apart",
                 "content_sha1": "89dcb10300bdbf1ea2af40ffd77e1bef2dd4515b",
+                "outputs": {
+                    "dsl": "89dcb10300bdbf1ea2af40ffd77e1bef2dd4515b"
+                },
                 "heading": "successive composites keep their grids one row gap apart",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "successive-composites-keep-their-grids-one-row-gap-apart-03",
-                "line": 1404,
+                "line": 1406,
                 "anchor": "#successive-composites-keep-their-grids-one-row-gap-apart",
                 "content_sha1": "1363429a3aae4e6c214d518a777e91867c072a6b",
+                "outputs": {
+                    "dsl": "1363429a3aae4e6c214d518a777e91867c072a6b"
+                },
                 "heading": "successive composites keep their grids one row gap apart",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "successive-composites-keep-their-grids-one-row-gap-apart-04",
-                "line": 1405,
+                "line": 1407,
                 "anchor": "#successive-composites-keep-their-grids-one-row-gap-apart",
                 "content_sha1": "f52388cc997b8db5e000af5358b62e3f43b51c62",
+                "outputs": {
+                    "dsl": "f52388cc997b8db5e000af5358b62e3f43b51c62"
+                },
                 "heading": "successive composites keep their grids one row gap apart",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "successive-composites-keep-their-grids-one-row-gap-apart-05",
-                "line": 1406,
+                "line": 1408,
                 "anchor": "#successive-composites-keep-their-grids-one-row-gap-apart",
                 "content_sha1": "f453114c6f25331f0b11eb783aa4eb883e1c2f0b",
+                "outputs": {
+                    "dsl": "f453114c6f25331f0b11eb783aa4eb883e1c2f0b"
+                },
                 "heading": "successive composites keep their grids one row gap apart",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "successive-composites-keep-their-grids-one-row-gap-apart-06",
-                "line": 1407,
+                "line": 1409,
                 "anchor": "#successive-composites-keep-their-grids-one-row-gap-apart",
                 "content_sha1": "b463c47e6fbf80ac22bdc2cc839928122f16c49f",
+                "outputs": {
+                    "dsl": "b463c47e6fbf80ac22bdc2cc839928122f16c49f"
+                },
                 "heading": "successive composites keep their grids one row gap apart",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "successive-composites-keep-their-grids-one-row-gap-apart-07",
-                "line": 1408,
+                "line": 1410,
                 "anchor": "#successive-composites-keep-their-grids-one-row-gap-apart",
                 "content_sha1": "e88aa16507f2feb24857574f3b36d07c185aeaa1",
+                "outputs": {
+                    "dsl": "e88aa16507f2feb24857574f3b36d07c185aeaa1"
+                },
                 "heading": "successive composites keep their grids one row gap apart",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-concept-fan-stays-whole-beside-a-successors-grid",
+                "line": 1432,
+                "anchor": "#a-concept-fan-stays-whole-beside-a-successors-grid",
+                "content_sha1": "9bd6ece6490411c875f83d0dc284253421cc3d2e",
+                "outputs": {
+                    "dsl": "9bd6ece6490411c875f83d0dc284253421cc3d2e"
+                },
+                "heading": "a concept fan stays whole beside a successor's grid",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-concept-fan-stays-whole-beside-a-successors-grid-02",
+                "line": 1433,
+                "anchor": "#a-concept-fan-stays-whole-beside-a-successors-grid",
+                "content_sha1": "9bd7902f2aa40356ce611cc153b542c5fb3fa4ca",
+                "outputs": {
+                    "dsl": "dcef7dffc7bf66043c3a93d26feb60d3cab624c4"
+                },
+                "heading": "a concept fan stays whole beside a successor's grid",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-concept-fan-stays-whole-beside-a-successors-grid-03",
+                "line": 1434,
+                "anchor": "#a-concept-fan-stays-whole-beside-a-successors-grid",
+                "content_sha1": "4df9299c9f57d982233e0dd2f424640d9becb08e",
+                "outputs": {
+                    "dsl": "4df9299c9f57d982233e0dd2f424640d9becb08e"
+                },
+                "heading": "a concept fan stays whole beside a successor's grid",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-concept-fan-stays-whole-beside-a-successors-grid-04",
+                "line": 1435,
+                "anchor": "#a-concept-fan-stays-whole-beside-a-successors-grid",
+                "content_sha1": "be0e8027bb313ea73d1f461bf641215ad6b7a054",
+                "outputs": {
+                    "dsl": "be0e8027bb313ea73d1f461bf641215ad6b7a054"
+                },
+                "heading": "a concept fan stays whole beside a successor's grid",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-concept-fan-stays-whole-beside-a-successors-grid-05",
+                "line": 1436,
+                "anchor": "#a-concept-fan-stays-whole-beside-a-successors-grid",
+                "content_sha1": "3cafe0f736c4605ac9991438a0633fdf1951d425",
+                "outputs": {
+                    "dsl": "3cafe0f736c4605ac9991438a0633fdf1951d425"
+                },
+                "heading": "a concept fan stays whole beside a successor's grid",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-concept-fan-stays-whole-beside-a-successors-grid-06",
+                "line": 1437,
+                "anchor": "#a-concept-fan-stays-whole-beside-a-successors-grid",
+                "content_sha1": "a10857956ff8d5c624e7f921690e805d680bb501",
+                "outputs": {
+                    "dsl": "a10857956ff8d5c624e7f921690e805d680bb501"
+                },
+                "heading": "a concept fan stays whole beside a successor's grid",
                 "section": "v7 acceptance targets"
             }
         ]

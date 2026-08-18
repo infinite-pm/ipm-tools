@@ -1,0 +1,347 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "e1 ::e --\u003e eC ::e --\u003e e2 ::e\ne1 --\u003e cA1 ::c, cA2 ::c, cA3 ::c, cA4 ::c, cA5 ::c\nm1 ::e --\u003e m2 ::e\nm1, m2 --::P--\u003e eC",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          2
+        ],
+        "10": [
+          91,
+          93
+        ],
+        "2": [
+          11,
+          13
+        ],
+        "3": [
+          22,
+          24
+        ],
+        "4": [
+          36,
+          39
+        ],
+        "5": [
+          45,
+          48
+        ],
+        "6": [
+          54,
+          57
+        ],
+        "7": [
+          63,
+          66
+        ],
+        "8": [
+          72,
+          75
+        ],
+        "9": [
+          80,
+          82
+        ]
+      },
+      "edges": {
+        "11": {
+          "arrow": [
+            6,
+            11
+          ],
+          "source": [
+            0,
+            2
+          ],
+          "target": [
+            11,
+            13
+          ]
+        },
+        "12": {
+          "arrow": [
+            17,
+            22
+          ],
+          "source": [
+            11,
+            13
+          ],
+          "target": [
+            22,
+            24
+          ]
+        },
+        "13": {
+          "arrow": [
+            31,
+            36
+          ],
+          "source": [
+            29,
+            31
+          ],
+          "target": [
+            36,
+            39
+          ]
+        },
+        "14": {
+          "arrow": [
+            31,
+            36
+          ],
+          "source": [
+            29,
+            31
+          ],
+          "target": [
+            45,
+            48
+          ]
+        },
+        "15": {
+          "arrow": [
+            31,
+            36
+          ],
+          "source": [
+            29,
+            31
+          ],
+          "target": [
+            54,
+            57
+          ]
+        },
+        "16": {
+          "arrow": [
+            31,
+            36
+          ],
+          "source": [
+            29,
+            31
+          ],
+          "target": [
+            63,
+            66
+          ]
+        },
+        "17": {
+          "arrow": [
+            31,
+            36
+          ],
+          "source": [
+            29,
+            31
+          ],
+          "target": [
+            72,
+            75
+          ]
+        },
+        "18": {
+          "arrow": [
+            86,
+            91
+          ],
+          "source": [
+            80,
+            82
+          ],
+          "target": [
+            91,
+            93
+          ]
+        },
+        "19": {
+          "arrow": [
+            104,
+            114
+          ],
+          "source": [
+            98,
+            100
+          ],
+          "target": [
+            114,
+            116
+          ]
+        },
+        "20": {
+          "arrow": [
+            104,
+            114
+          ],
+          "source": [
+            102,
+            104
+          ],
+          "target": [
+            114,
+            116
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "e1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "eC",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "e2",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 4,
+      "name": "cA1",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 5,
+      "name": "cA2",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 6,
+      "name": "cA3",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 7,
+      "name": "cA4",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 8,
+      "name": "cA5",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 9,
+      "name": "m1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 10,
+      "name": "m2",
+      "alias": "",
+      "type": "Event"
+    }
+  ],
+  "edges": [
+    {
+      "id": 11,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 12,
+      "source": 2,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 13,
+      "source": 1,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 14,
+      "source": 1,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 15,
+      "source": 1,
+      "target": 6,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 16,
+      "source": 1,
+      "target": 7,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 17,
+      "source": 1,
+      "target": 8,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 18,
+      "source": 9,
+      "target": 10,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 19,
+      "source": 9,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 20,
+      "source": 10,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}
