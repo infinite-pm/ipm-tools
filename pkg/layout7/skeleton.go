@@ -3,6 +3,7 @@ package layout7
 import (
 	"math"
 	"sort"
+	"strconv"
 )
 
 // skeleton implements v7P3 — the event skeleton: leads-to runs down, part-of
@@ -511,12 +512,43 @@ func (g *graph) buildSkeleton(gp *groupsPlan) *skeletonPlan {
 // adjacent (a cluster sorts by its first-declared member).
 func (g *graph) orderedChildren(ev int, succ map[int][]int, _ map[int]bool) []int {
 	kids := succ[ev]
-	if len(kids) < 3 {
-		return kids
-	}
+	// with a soft anchor (Options.Anchor) the fork's order is the ANCHOR's:
+	// branches left to right as the all-open layout had them, so a fork
+	// keeps its order from state to state (declaration breaks ties)
 	posOf := map[int]int{}
 	for i, k := range kids {
 		posOf[k] = i
+	}
+	if g.opts.Anchor != nil && len(kids) >= 2 {
+		all := true
+		ax := map[int][2]int{}
+		for _, k := range kids {
+			p, has := g.opts.Anchor[strconv.Itoa(g.nodes[k].id)]
+			if !has {
+				all = false
+				break
+			}
+			ax[k] = p
+		}
+		if all {
+			ordered := append([]int(nil), kids...)
+			sort.SliceStable(ordered, func(a, b int) bool {
+				pa, pb := ax[ordered[a]], ax[ordered[b]]
+				if pa[0] != pb[0] {
+					return pa[0] < pb[0]
+				}
+				return pa[1] < pb[1]
+			})
+			for i, k := range ordered {
+				posOf[k] = i
+			}
+			if len(kids) < 3 {
+				return ordered
+			}
+		}
+	}
+	if len(kids) < 3 {
+		return kids
 	}
 	// cluster by shared direct join target
 	parent := map[int]int{}
