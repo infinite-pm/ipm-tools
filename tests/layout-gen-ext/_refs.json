@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-ext.md",
-        "source_sha1": "416384bee58d39746b5f34b394e2c6ad427fe076",
+        "source_sha1": "d8badb95034b4bb71c04ee26adfe4ea6a48c32b7",
         "name": "ipmt layout algorithm extensions",
         "method": "parser",
         "parser_name": "ipmt-md",
@@ -456,8 +456,20 @@
                 "section": "v7 acceptance targets"
             },
             {
+                "destination": "every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps",
+                "line": 1280,
+                "anchor": "#every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps",
+                "content_sha1": "702cdac4d51ce1032ef7c333f71f9f89247c8ad5",
+                "outputs": {
+                    "ipmt": "702cdac4d51ce1032ef7c333f71f9f89247c8ad5",
+                    "md": "e82b9c409714683f4426a1a2bd97780bb7c85a37"
+                },
+                "heading": "every tied cluster is its own snowflake, then the rest wraps",
+                "section": "v7 acceptance targets"
+            },
+            {
                 "destination": "untied-components-wrap-toward-the-canvas",
-                "line": 1273,
+                "line": 1313,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "0c477965a92823cf12ef9e5ac80d3bcfc5214347",
                 "outputs": {
@@ -465,7 +477,7 @@
                     "ipmt": "0c477965a92823cf12ef9e5ac80d3bcfc5214347",
                     "json": "5f3ae19ff573bd57d49568ce522d6f87d4e6b245",
                     "layout.json": "86ddbc6a12fa9ec776f7f20e0f89bffd02e5b625",
-                    "md": "b74f937a1d440da80e4b0cebc3dc2073e7e3c61e"
+                    "md": "c71cd97b82d09d4a244d76b420aa19d54f808286"
                 },
                 "heading": "untied components wrap toward the canvas",
                 "section": "v7 acceptance targets"

@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-principles.md#L221-L226 | [docs/dev/layout-gen/layout-principles.md](../../../docs/dev/layout-gen/layout-principles.md#v7p2-the-most-central-component-first-tied-components-around-it)
+**Source:** gl:docs/dev/layout-gen/layout-principles.md#L228-L233 | [docs/dev/layout-gen/layout-principles.md](../../../docs/dev/layout-gen/layout-principles.md#v7p2-the-most-central-component-first-tied-components-around-it)
 
 ## ipmt Content
 

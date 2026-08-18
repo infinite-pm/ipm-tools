@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-ext.md",
-        "source_sha1": "416384bee58d39746b5f34b394e2c6ad427fe076",
+        "source_sha1": "d8badb95034b4bb71c04ee26adfe4ea6a48c32b7",
         "name": "layout ext test rules",
         "method": "parser",
         "parser_name": "ipmdev-layout-rule-md",
@@ -3035,8 +3035,74 @@
                 "section": "v7 acceptance targets"
             },
             {
+                "destination": "every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps",
+                "line": 1295,
+                "anchor": "#every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps",
+                "content_sha1": "2844fd276847fa2884c042558934d8a76340bb27",
+                "outputs": {
+                    "dsl": "2844fd276847fa2884c042558934d8a76340bb27"
+                },
+                "heading": "every tied cluster is its own snowflake, then the rest wraps",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps-02",
+                "line": 1296,
+                "anchor": "#every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps",
+                "content_sha1": "730ee6f4859a68c348cc22360067f6fb3eaaf97e",
+                "outputs": {
+                    "dsl": "730ee6f4859a68c348cc22360067f6fb3eaaf97e"
+                },
+                "heading": "every tied cluster is its own snowflake, then the rest wraps",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps-03",
+                "line": 1297,
+                "anchor": "#every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps",
+                "content_sha1": "6f577760cae9318f24af2ec4f46188a7d89e3d22",
+                "outputs": {
+                    "dsl": "6f577760cae9318f24af2ec4f46188a7d89e3d22"
+                },
+                "heading": "every tied cluster is its own snowflake, then the rest wraps",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps-04",
+                "line": 1298,
+                "anchor": "#every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps",
+                "content_sha1": "a09741819327e5f64c210ad3c26620f2167d75ac",
+                "outputs": {
+                    "dsl": "a09741819327e5f64c210ad3c26620f2167d75ac"
+                },
+                "heading": "every tied cluster is its own snowflake, then the rest wraps",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps-05",
+                "line": 1299,
+                "anchor": "#every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps",
+                "content_sha1": "d6517b3410c1e8cf616072a234f512e1a7494cad",
+                "outputs": {
+                    "dsl": "d6517b3410c1e8cf616072a234f512e1a7494cad"
+                },
+                "heading": "every tied cluster is its own snowflake, then the rest wraps",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps-06",
+                "line": 1300,
+                "anchor": "#every-tied-cluster-is-its-own-snowflake-then-the-rest-wraps",
+                "content_sha1": "ca8978ade09463c473adaa41aa1dc3633e83ab25",
+                "outputs": {
+                    "dsl": "ca8978ade09463c473adaa41aa1dc3633e83ab25"
+                },
+                "heading": "every tied cluster is its own snowflake, then the rest wraps",
+                "section": "v7 acceptance targets"
+            },
+            {
                 "destination": "untied-components-wrap-toward-the-canvas",
-                "line": 1287,
+                "line": 1327,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "cdf20d9f4909501627c0d08b37915e5b5a40c219",
                 "outputs": {
@@ -3047,7 +3113,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-02",
-                "line": 1288,
+                "line": 1328,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "85ff40fb2940db10bfa37ef797472cc2188b3f8d",
                 "outputs": {
@@ -3058,7 +3124,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-03",
-                "line": 1289,
+                "line": 1329,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "0991e1360fdf66af48d8be5e60ef0360b4445899",
                 "outputs": {
@@ -3069,7 +3135,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-04",
-                "line": 1290,
+                "line": 1330,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "6897619f1a9db488f7b796bf1913bf3e892f1721",
                 "outputs": {
@@ -3080,7 +3146,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-05",
-                "line": 1291,
+                "line": 1331,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "f0888e84d5cb06361b15c1dc1fc7e7afdd31e40e",
                 "outputs": {
@@ -3091,7 +3157,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-06",
-                "line": 1292,
+                "line": 1332,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "83d53c9322d1a9516a697c09faafb1424e32bcd5",
                 "outputs": {
@@ -3102,7 +3168,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-07",
-                "line": 1293,
+                "line": 1333,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "3e7a435eb055316b32f91d7221f6809f6a99cd20",
                 "outputs": {
@@ -3113,7 +3179,7 @@
             },
             {
                 "destination": "untied-components-wrap-toward-the-canvas-08",
-                "line": 1294,
+                "line": 1334,
                 "anchor": "#untied-components-wrap-toward-the-canvas",
                 "content_sha1": "cae593ff493c2b1dbb627bb04205c851cf7df3e1",
                 "outputs": {

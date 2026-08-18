@@ -70,7 +70,7 @@
     },
     {
         "source": "../../../docs/dev/layout-gen/layout-principles.md",
-        "source_sha1": "2f92009905df4dca70875c95394fc3561f46c117",
+        "source_sha1": "579093719ad226af9630e42232ed11d96c81d40e",
         "name": "ipmt examples in Markdown files",
         "method": "parser",
         "parser_name": "ipmt-md",
@@ -93,133 +93,133 @@
             },
             {
                 "destination": "v7p2-the-most-central-component-first-tied-components-around-it",
-                "line": 202,
+                "line": 209,
                 "anchor": "#v7p2-the-most-central-component-first-tied-components-around-it",
                 "content_sha1": "396f6e517b547186e8a71bc22c9ef8ae2f075397",
                 "outputs": {
                     "ipmt": "396f6e517b547186e8a71bc22c9ef8ae2f075397",
                     "json": "dfdc5dceb55ee2eceadf74ffc67be78783ef1aa2",
-                    "md": "e3672d6d6d3613ea64676413f493094122164ad7"
+                    "md": "4e268dee165dd8018bc6e65d62f8559744da8d29"
                 },
                 "section": "v7P2 — the most central component first, tied components around it"
             },
             {
                 "destination": "v7p2-the-most-central-component-first-tied-components-around-it-02",
-                "line": 221,
+                "line": 228,
                 "anchor": "#v7p2-the-most-central-component-first-tied-components-around-it",
                 "content_sha1": "01e80f0479738c574d1e5a716ff475bae4a526e3",
                 "outputs": {
                     "ipmt": "01e80f0479738c574d1e5a716ff475bae4a526e3",
                     "json": "e86bff08ecbcb221bbcd0d9d068406084bd3b5bf",
-                    "md": "be905d04c123c46441009f13a32eb4d4cfdacb70"
+                    "md": "7ed538f84f1cf49cb73beb2f50f0e6a36ae10587"
                 },
                 "section": "v7P2 — the most central component first, tied components around it"
             },
             {
                 "destination": "v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy",
-                "line": 294,
+                "line": 301,
                 "anchor": "#v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-symmetrically",
                 "content_sha1": "0c7f40ee7a5a37218da7ddeaf3da6ea194d484a0",
                 "outputs": {
                     "ipmt": "0c7f40ee7a5a37218da7ddeaf3da6ea194d484a0",
                     "json": "49442e66c5f56850ebea7a1465b7770118f14206",
-                    "md": "b715c92e893280b1166c47e90cf5b439e2f55d44"
+                    "md": "3bf4e4f6999a04b5d70897d247f1b79822cff8fd"
                 },
                 "section": "v7P3 — the event skeleton: leads-to runs down, part-of indents right, forks spread symmetrically"
             },
             {
                 "destination": "v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy-02",
-                "line": 335,
+                "line": 342,
                 "anchor": "#v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-symmetrically",
                 "content_sha1": "466f2b4be1c78a0b043aa5b26a18ec90e11b3901",
                 "outputs": {
                     "ipmt": "466f2b4be1c78a0b043aa5b26a18ec90e11b3901",
                     "json": "743fce03d93b227bb48e432c3fef2406958b1cee",
-                    "md": "084408f2ad9d81cab0ea6d68ddb250a87aa68057"
+                    "md": "1a1dc53e9eeeb9e94f2d31dce8fc4d8d2545b525"
                 },
                 "section": "v7P3 — the event skeleton: leads-to runs down, part-of indents right, forks spread symmetrically"
             },
             {
                 "destination": "v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept",
-                "line": 512,
+                "line": 519,
                 "anchor": "#v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concepts-down",
                 "content_sha1": "d4bd84b10966e8b5b2cb4be96d09142d056b9596",
                 "outputs": {
                     "ipmt": "d4bd84b10966e8b5b2cb4be96d09142d056b9596",
                     "json": "51e928f52d52302af778bfda2cae53692c79b973",
-                    "md": "cd797f73ed0a48c7b69ba888cdfb5cd0d8c09594"
+                    "md": "b030ab2f34bc0eed02a96c633d1d4c509a6e4b3e"
                 },
                 "section": "v7P4 — aux attaches in groups: on the event's row, wholes outward, parts above, concepts down"
             },
             {
                 "destination": "v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept-02",
-                "line": 551,
+                "line": 558,
                 "anchor": "#v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concepts-down",
                 "content_sha1": "13194370782d7722871d1a43fb14b0f9803b26d7",
                 "outputs": {
                     "ipmt": "13194370782d7722871d1a43fb14b0f9803b26d7",
                     "json": "bcdfbe8251de09d5d669b63753b9da71722ea2e1",
-                    "md": "ab3552bab0c440c20e84cafe2c22e2bbea64c009"
+                    "md": "6364dc2470f8c1593adce955f4aa58dc40ded54e"
                 },
                 "section": "v7P4 — aux attaches in groups: on the event's row, wholes outward, parts above, concepts down"
             },
             {
                 "destination": "v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer",
-                "line": 591,
+                "line": 598,
                 "anchor": "#v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer",
                 "content_sha1": "ab8fbced62b3e9735511d3f63befd463f444ac14",
                 "outputs": {
                     "ipmt": "ab8fbced62b3e9735511d3f63befd463f444ac14",
                     "json": "d9fc8685d2bf0ae5e04e361d0d021b81f2f083d0",
-                    "md": "e7efc393dc8c0deb7124d27766a53ddb2e665615"
+                    "md": "bc5e83b8bb6ba204bbbab490454b06e84dc39afe"
                 },
                 "section": "v7P5 — same-kind ties: draw, order, or wrap as the outermost layer"
             },
             {
                 "destination": "v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact",
-                "line": 838,
+                "line": 845,
                 "anchor": "#v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact",
                 "content_sha1": "2d7572fad701b00336d93185323982c77a5da90e",
                 "outputs": {
                     "ipmt": "2d7572fad701b00336d93185323982c77a5da90e",
                     "json": "139e9b47af1fabe6f701ddb6242d0089f07351ef",
-                    "md": "3d1584c4135a545a4a23d803b33d90d75e566978"
+                    "md": "d8d966112c37ee87ed2c3aa6eb0b375f3b7820db"
                 },
                 "section": "v7P8 — spacing: gaps are minimums, growth is symmetric, the grid is exact"
             },
             {
                 "destination": "v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-02",
-                "line": 848,
+                "line": 855,
                 "anchor": "#v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact",
                 "content_sha1": "4de6caa4f77b7d41345b2ab95c8c500e0034ba39",
                 "outputs": {
                     "ipmt": "4de6caa4f77b7d41345b2ab95c8c500e0034ba39",
                     "json": "33e793372f6302ea375fafa3e72964e79a341035",
-                    "md": "1e2386ff961d20df888779bff6e8a80efccb8de8"
+                    "md": "52b92bdafeb071b6409e3192a9eaa0b918abc763"
                 },
                 "section": "v7P8 — spacing: gaps are minimums, growth is symmetric, the grid is exact"
             },
             {
                 "destination": "v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-03",
-                "line": 856,
+                "line": 863,
                 "anchor": "#v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact",
                 "content_sha1": "ed5235eaeca4a77efb0cba65d81180e9777570f3",
                 "outputs": {
                     "ipmt": "ed5235eaeca4a77efb0cba65d81180e9777570f3",
                     "json": "cc99276ab96e4acaa6d8ecf024d9e9e7ad1ac16d",
-                    "md": "0206dad30e804a6a8b98580784e8ea05455c1fb7"
+                    "md": "1a89866ed481b8ccb90d20977b5c37aa4cbbf180"
                 },
                 "section": "v7P8 — spacing: gaps are minimums, growth is symmetric, the grid is exact"
             },
             {
                 "destination": "v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-04",
-                "line": 867,
+                "line": 874,
                 "anchor": "#v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact",
                 "content_sha1": "c8d9176a9d8d8d61ca3620c10cdeb7753335b0dd",
                 "outputs": {
                     "ipmt": "c8d9176a9d8d8d61ca3620c10cdeb7753335b0dd",
                     "json": "a37f0dd44929088ab902bcc082c495ba2748ddb8",
-                    "md": "f8d5303611f4648deb99974eb99dceb86f63ebbc"
+                    "md": "af0625e1e912ccfd1a048b2edf74b9a7d5de9803"
                 },
                 "section": "v7P8 — spacing: gaps are minimums, growth is symmetric, the grid is exact"
             }
