@@ -22,7 +22,7 @@ The other gates reduce a diagram to a verdict:
 
 | gate | says |
 |---|---|
-| `make layout-fitness` | the pinned RULES still hold (94 base + 31 ext cases) |
+| `make layout-fitness` | the pinned RULES still hold (98 base + 31 ext cases) |
 | `make layout-check` | no file's invariant COUNT grew, versus the committed baseline |
 | `go test ./pkg/layout7` | the spec's own covers examples, and byte-identical re-generation |
 
