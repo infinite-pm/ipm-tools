@@ -680,22 +680,46 @@ func (g *graph) route() []routed {
 					}
 					return true
 				}
+				// The lane to drop in: the edge's own first; when a box sits
+				// IN that lane (an aux the no-overlap floor stepped down into
+				// the corridor — brains: hypothalamus's tall concept under
+				// "ultimately expand…", whose line to E then speared it),
+				// the lanes beside it, nearest first, up to ten grid steps
+				// either way (past a 120px box and its gap). Before this the own lane was the only try, every
+				// bend hit, and the straight through the box was kept.
 				var bend layout.Position
-				if g.nodes[e.to].boundary {
-					bend = layout.Position{X: sx, Y: ty - BoundaryGap}
-					for y := sy + GridStep; y < ty-BoundaryGap; y += GridStep {
-						if clear([][2]int{{sx, sy}, {sx, y}, {tx, ty}}) {
-							bend.Y = y
-							break
+				found := false
+				lanes := []int{0}
+				for k := 1; k <= 10; k++ { // up to ten grid steps aside: past a box and its gap
+					lanes = append(lanes, -k*GridStep, k*GridStep)
+				}
+				for _, dx := range lanes {
+					if g.nodes[e.to].boundary {
+						lx := sx + dx
+						for y := sy + GridStep; y < ty-BoundaryGap; y += GridStep {
+							if clear([][2]int{{sx, sy}, {lx, y}, {tx, ty}}) {
+								bend, found = layout.Position{X: lx, Y: y}, true
+								break
+							}
+						}
+					} else {
+						lx := tx + dx
+						for y := ty - GridStep; y > sy+BoundaryGap; y -= GridStep {
+							if clear([][2]int{{sx, sy}, {lx, y}, {tx, ty}}) {
+								bend, found = layout.Position{X: lx, Y: y}, true
+								break
+							}
 						}
 					}
-				} else {
-					bend = layout.Position{X: tx, Y: sy + BoundaryGap}
-					for y := ty - GridStep; y > sy+BoundaryGap; y -= GridStep {
-						if clear([][2]int{{sx, sy}, {tx, y}, {tx, ty}}) {
-							bend.Y = y
-							break
-						}
+					if found {
+						break
+					}
+				}
+				if !found {
+					if g.nodes[e.to].boundary {
+						bend = layout.Position{X: sx, Y: ty - BoundaryGap}
+					} else {
+						bend = layout.Position{X: tx, Y: sy + BoundaryGap}
 					}
 				}
 				pts := [][2]int{{sx, sy}, {bend.X, bend.Y}, {tx, ty}}

@@ -736,6 +736,114 @@ func (g *graph) place(m *membership, gp *groupsPlan, sp *skeletonPlan) {
 				break
 			}
 		}
+		// ---- END-EVENT CORRIDOR (v7P6: the flow corridor never yields):
+		// below an event with no leads-to successor runs its line to E,
+		// which the router pins in that column. The floors above step an
+		// aux DOWN out of a skeleton line, and stepping down along the same
+		// column can park it exactly there — brains: hypothalamus's tall
+		// concept stepped under "ultimately expand…", whose line to E then
+		// speared it, and no drop from that port could avoid a box directly
+		// beneath it. Such an aux moves sideways to the nearest free
+		// column, like the tree intruders above. ----
+		{
+			// an END event: one E connects to — sp.ends, the top-level events
+			// with no top-level successor (a sub-grid's last member ends its
+			// grid, not the timeline; sp.flowSucc alone would call r1 an end
+			// while it leads to r2 inside its grid)
+			endSet := map[int]bool{}
+			for _, ev := range sp.ends[ci] {
+				endSet[ev] = true
+			}
+			isEnd := func(ev int) bool { return endSet[ev] }
+			corridorHit := func(x, w int) bool {
+				for _, ei := range evIdx {
+					ev := g.nodes[ei]
+					cx := ev.x + ev.w/2
+					m := GridStep / 2
+					if x < cx+m && cx-m < x+w {
+						return true
+					}
+				}
+				return false
+			}
+			freeAt := func(b *node, x int) bool {
+				for _, oi := range auxIdx {
+					o := g.nodes[oi]
+					if o == b {
+						continue
+					}
+					if x < o.x+o.w+10 && o.x < x+b.w+10 && b.y < o.y+o.h+10 && o.y < b.y+b.h+10 {
+						return false
+					}
+				}
+				for _, ei := range evIdx {
+					o := g.nodes[ei]
+					if x < o.x+o.w+10 && o.x < x+b.w+10 && b.y < o.y+o.h+10 && o.y < b.y+b.h+10 {
+						return false
+					}
+				}
+				return !corridorHit(x, b.w)
+			}
+			ownerOf := func(ai int) int {
+				// the event an aux hangs off: its band anchor, or its tree
+				// root's — an event's OWN aux below it (a leaf fan, layered
+				// generations, v7P4) belongs in that column and is not an
+				// intruder; only another event's aux stepped there is
+				if root, ok := gp.treeOf[ai]; ok {
+					if rp, ok := gp.rel[root]; ok {
+						return rp.event
+					}
+				}
+				if rp, ok := gp.rel[ai]; ok {
+					return rp.event
+				}
+				return -1
+			}
+			// E's column: the timeline axis (S/E placement below puts E on
+			// the starts' midpoint), so an end event's line to E runs from
+			// its bottom centre toward that axis, far down — that ray is the
+			// corridor, not the event's own column
+			axisX := 0
+			if starts := sp.starts[ci]; len(starts) > 0 {
+				sum := 0
+				for _, st := range starts {
+					sum += g.nodes[st].x + g.nodes[st].w/2
+				}
+				axisX = sum / len(starts)
+			} else if len(rows) > 0 && len(rows[0]) > 0 {
+				sum := 0
+				for _, st := range rows[0] {
+					sum += g.nodes[st].x + g.nodes[st].w/2
+				}
+				axisX = sum / len(rows[0])
+			}
+			for _, ai := range auxIdx {
+				b := g.nodes[ai]
+				for _, ei := range evIdx {
+					ev := g.nodes[ei]
+					if !isEnd(ei) || b.y < ev.y+ev.h || ownerOf(ai) == ei {
+						continue
+					}
+					cx := ev.x + ev.w/2
+					m := GridStep / 2
+					p0 := [2]int{cx, ev.y + ev.h}
+					p1 := [2]int{axisX, ev.y + ev.h + 100000}
+					if !segIntersectsBox(p0, p1, b.x-m, b.y-m, b.x+b.w+m, b.y+b.h+m) {
+						continue
+					}
+					near, far := ev.x+ev.w+ColGap, ev.x-ColGap-b.w
+					if b.x+b.w/2 < cx {
+						near, far = far, near
+					}
+					if freeAt(b, near) {
+						b.x = near
+					} else if freeAt(b, far) {
+						b.x = far
+					}
+					break
+				}
+			}
+		}
 		// a sole LEAF concept stays ADJACENT to its expresser (v7P4:
 		// a one-edge leaf has no reason to end up far
 		// away): when the no-overlap floors stepped it more than a row
