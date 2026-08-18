@@ -131,3 +131,14 @@ func TestSourceBoxCopiesItsText(t *testing.T) {
 		t.Errorf("source box copied %q", got)
 	}
 }
+
+// A short literal needs no hidden element to live in — and must not have the
+// URL placeholder substituted into it, which would corrupt a path.
+func TestLiteralTextIsCopiedVerbatim(t *testing.T) {
+	got := clickInNode(t,
+		`{ "path": { dataset: { text: "docs/x.md:42", anchor: "c-2026-07-20" } } }`,
+		`{}`, "path")
+	if got != "docs/x.md:42" {
+		t.Errorf("copied %q, want the bare source location", got)
+	}
+}

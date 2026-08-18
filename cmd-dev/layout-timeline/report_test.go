@@ -1363,3 +1363,48 @@ func TestColumnRowsAlsoOfferThePayloads(t *testing.T) {
 		t.Errorf("the agent payload on a column row leaked the previous column:\n%s", md)
 	}
 }
+
+// An id names a block by its md-embed marker ("docs/x.md#170") and no editor
+// takes a marker, so a reader who wants the source has to go and find it. The
+// location button hands over what an editor understands.
+func TestSourceLocationIsOfferedOnBothPageKinds(t *testing.T) {
+	in := timelineInput{
+		Repo: "/repo", Weeks: sampleWeeks(), At: "week-start",
+		Where: map[string]string{"docs/x.md#100": "docs/x.md:42"},
+		IPMT:  map[string]string{"docs/x.md#100": "a --> b"},
+		Panes: panePool("2026-07-13", "docs/x.md#100", "before", "after", "marked"),
+	}
+	want := `data-text="docs/x.md:42" title="copy the source location: docs/x.md:42"`
+	if col := renderPage(in, 1); !strings.Contains(col, want) {
+		t.Error("a column row does not offer its source location")
+	}
+	if dia := renderDiagram(in, "docs/x.md#100"); !strings.Contains(dia, want) {
+		t.Error("a diagram version does not offer its source location")
+	}
+	// Without one, no button promising a location it does not have.
+	bare := timelineInput{Weeks: sampleWeeks(),
+		Panes: panePool("2026-07-13", "docs/x.md#100", "before", "after")}
+	if strings.Contains(renderPage(bare, 1), "copy the source location") {
+		t.Error("offered a location for a diagram that has none")
+	}
+}
+
+// A whole .ipmt file is one diagram with no line to jump to; a markdown block
+// carries the line its fence opens on.
+func TestSourceLocationsNameFileAndLine(t *testing.T) {
+	got := sourceLocations([]layoutaudit.Diagram{
+		{ID: "docs/x.md#170", Line: 42},
+		{ID: "examples/two.ipmt"},
+		{ID: "docs/y.md#100", Line: 7, Aliases: []string{"tests/y.ipmt"}},
+	})
+	for id, want := range map[string]string{
+		"docs/x.md#170":     "docs/x.md:42",
+		"examples/two.ipmt": "examples/two.ipmt",
+		"docs/y.md#100":     "docs/y.md:7",
+		"tests/y.ipmt":      "docs/y.md:7", // an alias points at the same source
+	} {
+		if got[id] != want {
+			t.Errorf("%s -> %q, want %q", id, got[id], want)
+		}
+	}
+}

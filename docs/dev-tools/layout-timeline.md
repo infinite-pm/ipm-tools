@@ -373,6 +373,15 @@ are rendered; the rest are listed by name. `--no-svg` drops the panes entirely.
 Each row carries the `layout-audit --old … --new …` command that reproduces
 that week as a full audit.
 
+Every row and every version carries four copy controls:
+
+| | copies |
+|---|---|
+| 🔗 | a link straight to this row — this page's URL at this anchor |
+| 🗎 | the source location, `docs/solver-examples/partof.md:63` — the line the fence opens on, which an editor understands and an id's `#170` marker does not |
+| **for agent** | this diagram at this version: which engine drew it, its canvas, the ipmt source |
+| **regression** | the same plus the version before it, what the diff reported, and the commands to reproduce and bisect |
+
 Both hand-over buttons — **for agent** and **regression** — sit on column rows
 as well as on diagram versions, built by the same two functions so the two page
 kinds cannot drift. On a column row the "previous" half is the column this one

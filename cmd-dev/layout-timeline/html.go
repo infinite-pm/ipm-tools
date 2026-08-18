@@ -60,6 +60,11 @@ type timelineInput struct {
 	// a catalogue is looked things UP in — so it reads in the order of the
 	// tree it came from, not by how eventful each row happened to be.
 	Order map[string]int
+	// Where is each diagram's source location — "docs/x.md:42" for a block,
+	// the plain path for a whole .ipmt file. What a reader needs to OPEN the
+	// thing, which the diagram id alone does not give: an id names the block
+	// by its marker ("#170"), and no editor takes a marker.
+	Where map[string]string
 	// IPMT is each diagram's source text. Every picture on a diagram page is
 	// this one input read by a different engine, so the input is the thing
 	// worth having at hand when the pictures disagree — and worth copying out
@@ -121,6 +126,8 @@ type vmRow struct {
 	// the diagram's natural size, never more. Per row here, because each row
 	// is a different diagram with a size of its own.
 	MaxWidth template.CSS
+	// Where is this diagram's source location, ready to paste into an editor.
+	Where string
 	// The same two hand-over payloads a diagram page offers. A reader who
 	// spots something wrong is just as likely to be scanning a column as a
 	// single diagram, and having to navigate elsewhere to copy the context is
@@ -167,6 +174,8 @@ type vmVersion struct {
 	// Ready-to-paste markdown. Built here rather than in the browser so it can
 	// be tested, and because everything it needs is already in this struct.
 	AgentMD, RegressionMD string
+	// Where is this diagram's source location, ready to paste into an editor.
+	Where string
 	// Canvas widths in layout units, kept so the page can scale every version
 	// against its widest. Unexported: the template wants OldWidth/NewWidth.
 	oldW, newW int
@@ -494,6 +503,7 @@ func buildDiagram(in timelineInput, id string) vmDiagram {
 		d.MaxWidth = template.CSS(fmt.Sprintf("%dpx", widest+20))
 	}
 	for i := range d.Versions {
+		d.Versions[i].Where = in.Where[id]
 		d.Versions[i].AgentMD = agentMarkdown(d, d.Versions[i], in.Sources)
 		d.Versions[i].RegressionMD = regressionMarkdown(d, d.Versions[i], in.Sources)
 	}
@@ -671,6 +681,7 @@ func buildPage(in timelineInput, i int) vmPage {
 		row.CurrentSrc = in.pane(w.Label, c.ID, "current")
 		row.History, row.Moves, row.HistPrev, row.HistNext, row.HistPrevLabel, row.HistNextLabel =
 			historyOf(in.Weeks, shownColumns(in.Weeks), c.ID, i)
+		row.Where = in.Where[c.ID]
 		d, v := versionAt(in, i, c, row)
 		row.AgentMD = agentMarkdown(d, v, in.Sources)
 		row.RegressionMD = regressionMarkdown(d, v, in.Sources)
@@ -974,6 +985,7 @@ nav a{color:var(--muted)}
 <section class="row first{{if not .BeforeSrc}} no-before{{end}}" id="{{.Anchor}}">
   <div class="rowhead">
     <button type="button" class="copy anchor" data-anchor="{{.Anchor}}" title="copy a link straight to this diagram in this column">&#128279;</button>
+    {{if .Where}}<button type="button" class="copy anchor" data-text="{{.Where}}" title="copy the source location: {{.Where}}">&#128462;</button>{{end}}
     <span class="id">{{.ID}}</span>
     <span class="pill {{tier .Tier}}">{{.Tier}}</span>
     <span class="quiet">score {{.Score}} · {{.Bounds}}</span>
@@ -1128,12 +1140,16 @@ const copyJS = `
       // copied a bare link and the substitution below was unreachable.
       // data-copy names WHAT to copy; data-anchor only says where the page's
       // own URL should be spliced in.
+      // Three sources, in order of specificity: an element to copy
+      // (data-copy), a literal short string (data-text), or this page's own
+      // URL at an anchor (data-anchor alone).
       var el = btn.dataset.copy ? document.getElementById(btn.dataset.copy) : null;
       var text = el ? el.textContent
+        : btn.dataset.text ? btn.dataset.text
         : (btn.dataset.anchor ? anchorURL(btn.dataset.anchor) : "");
       // Only the browser knows where this page was opened from, so the
       // payload carries a placeholder and it is filled in here.
-      if (btn.dataset.anchor) {
+      if (btn.dataset.anchor && text.indexOf("__URL__") >= 0) {
         text = text.split("__URL__").join(anchorURL(btn.dataset.anchor));
       }
       if (!text) { return; }
@@ -1294,6 +1310,7 @@ table.ch td,table.ch th{text-align:left;padding:2px 10px 2px 0;vertical-align:to
     <span class="pill {{tier .Tier}}">{{.Tier}}</span>
     <span class="quiet">score {{.Score}} · {{.Bounds}} · <span class="sha">{{.SHA}}</span> {{.Subject}}</span>
     <button type="button" class="copy anchor" data-anchor="{{.Anchor}}" title="copy a link straight to this version">&#128279;</button>
+    {{if .Where}}<button type="button" class="copy anchor" data-text="{{.Where}}" title="copy the source location: {{.Where}}">&#128462;</button>{{end}}
     <button type="button" class="copy hand" data-copy="md-{{.Anchor}}" data-anchor="{{.Anchor}}" title="copy a description of THIS version for an agent: the diagram, the engine commit that drew it, and the source">for agent</button>
     <button type="button" class="copy hand warn" data-copy="rg-{{.Anchor}}" data-anchor="{{.Anchor}}" title="copy a regression report: the same, plus the version before it — the rendering that still looked right">regression</button>
     <a class="allref" href="{{.ColumnHref}}">all diagrams in {{.Label}} →</a>

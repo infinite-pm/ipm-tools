@@ -307,6 +307,7 @@ func run() int {
 	in.Panes = panes
 	in.IPMT = readSources(diagrams, weeksOut)
 	in.Order = sourceOrder(diagrams)
+	in.Where = sourceLocations(diagrams)
 	fmt.Fprintf(os.Stderr, "layout-timeline: %d pane file(s) written (the rest were already there)\n", written)
 
 	// One page per column, and an index over them. A single page for a long
@@ -731,6 +732,27 @@ func sourceOrder(diagrams []layoutaudit.Diagram) map[string]int {
 		}
 	}
 	return rank
+}
+
+// sourceLocations is where each diagram can be OPENED: "docs/x.md:42" for a
+// markdown block, the plain path for a whole .ipmt file.
+//
+// The id names a block by its md-embed marker ("docs/x.md#170") and no editor
+// takes a marker, so a reader who wants the source has to go and find it. The
+// line is the fence's own, which is what an editor jumps to.
+func sourceLocations(diagrams []layoutaudit.Diagram) map[string]string {
+	out := make(map[string]string, len(diagrams))
+	for _, d := range diagrams {
+		where := fileOf(d.ID)
+		if d.Line > 0 {
+			where = fmt.Sprintf("%s:%d", where, d.Line)
+		}
+		out[d.ID] = where
+		for _, a := range d.Aliases {
+			out[a] = where
+		}
+	}
+	return out
 }
 
 // readSources loads the ipmt text of every diagram that has a page, so the
