@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-ext.md",
-        "source_sha1": "f203a986a06edbcc164b2c2c4b5db662efd19e03",
+        "source_sha1": "aadf3f73c3465ca09a3140c1f4188698cfc423c0",
         "name": "layout ext test rules",
         "method": "parser",
         "parser_name": "ipmdev-layout-rule-md",
@@ -3296,6 +3296,62 @@
                     "dsl": "8ce64f57d474e19025267c8a05b0d038552f5c0c"
                 },
                 "heading": "a leads-to into a sub-grid member bends around the members above",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "successive-composites-keep-their-grids-one-row-gap-apart",
+                "line": 1402,
+                "anchor": "#successive-composites-keep-their-grids-one-row-gap-apart",
+                "content_sha1": "1abbda30e2ae6f4fc858cd8953e32e8975a67267",
+                "heading": "successive composites keep their grids one row gap apart",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "successive-composites-keep-their-grids-one-row-gap-apart-02",
+                "line": 1403,
+                "anchor": "#successive-composites-keep-their-grids-one-row-gap-apart",
+                "content_sha1": "89dcb10300bdbf1ea2af40ffd77e1bef2dd4515b",
+                "heading": "successive composites keep their grids one row gap apart",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "successive-composites-keep-their-grids-one-row-gap-apart-03",
+                "line": 1404,
+                "anchor": "#successive-composites-keep-their-grids-one-row-gap-apart",
+                "content_sha1": "1363429a3aae4e6c214d518a777e91867c072a6b",
+                "heading": "successive composites keep their grids one row gap apart",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "successive-composites-keep-their-grids-one-row-gap-apart-04",
+                "line": 1405,
+                "anchor": "#successive-composites-keep-their-grids-one-row-gap-apart",
+                "content_sha1": "f52388cc997b8db5e000af5358b62e3f43b51c62",
+                "heading": "successive composites keep their grids one row gap apart",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "successive-composites-keep-their-grids-one-row-gap-apart-05",
+                "line": 1406,
+                "anchor": "#successive-composites-keep-their-grids-one-row-gap-apart",
+                "content_sha1": "f453114c6f25331f0b11eb783aa4eb883e1c2f0b",
+                "heading": "successive composites keep their grids one row gap apart",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "successive-composites-keep-their-grids-one-row-gap-apart-06",
+                "line": 1407,
+                "anchor": "#successive-composites-keep-their-grids-one-row-gap-apart",
+                "content_sha1": "b463c47e6fbf80ac22bdc2cc839928122f16c49f",
+                "heading": "successive composites keep their grids one row gap apart",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "successive-composites-keep-their-grids-one-row-gap-apart-07",
+                "line": 1408,
+                "anchor": "#successive-composites-keep-their-grids-one-row-gap-apart",
+                "content_sha1": "e88aa16507f2feb24857574f3b36d07c185aeaa1",
+                "heading": "successive composites keep their grids one row gap apart",
                 "section": "v7 acceptance targets"
             }
         ]

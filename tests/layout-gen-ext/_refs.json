@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-ext.md",
-        "source_sha1": "f203a986a06edbcc164b2c2c4b5db662efd19e03",
+        "source_sha1": "aadf3f73c3465ca09a3140c1f4188698cfc423c0",
         "name": "ipmt layout algorithm extensions",
         "method": "parser",
         "parser_name": "ipmt-md",
@@ -502,6 +502,21 @@
                     "md": "6c8aa271cd9f2414bd7d318b8d9416be00affe99"
                 },
                 "heading": "a leads-to into a sub-grid member bends around the members above",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "successive-composites-keep-their-grids-one-row-gap-apart",
+                "line": 1390,
+                "anchor": "#successive-composites-keep-their-grids-one-row-gap-apart",
+                "content_sha1": "af078085b73e116c7e11751c67bd65dfae9e91cc",
+                "outputs": {
+                    "ipm.svg": "627d33c9059835415ccfab9d8cf8564479b33c68",
+                    "ipmt": "af078085b73e116c7e11751c67bd65dfae9e91cc",
+                    "json": "a9f41fde20a4042aae5a4a58da017c3b4f902fb4",
+                    "layout.json": "9662288ec41c99c5d10f85fbd1a77a1fef010a23",
+                    "md": "9ed5435def9feae05e13c5e22bedef55de6b9e75"
+                },
+                "heading": "successive composites keep their grids one row gap apart",
                 "section": "v7 acceptance targets"
             }
         ]

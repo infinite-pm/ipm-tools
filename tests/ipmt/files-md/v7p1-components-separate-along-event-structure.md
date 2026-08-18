@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-principles.md#L91-L94 | [docs/dev/layout-gen/layout-principles.md](../../../docs/dev/layout-gen/layout-principles.md#v7p1-components-separate-along-event-structure)
+**Source:** gl:docs/dev/layout-gen/layout-principles.md#L92-L95 | [docs/dev/layout-gen/layout-principles.md](../../../docs/dev/layout-gen/layout-principles.md#v7p1-components-separate-along-event-structure)
 
 ## ipmt Content
 

@@ -70,7 +70,7 @@
     },
     {
         "source": "../../../docs/dev/layout-gen/layout-principles.md",
-        "source_sha1": "579093719ad226af9630e42232ed11d96c81d40e",
+        "source_sha1": "52ba7c003c9cf3bc6fce58395fe4f03e20983339",
         "name": "ipmt examples in Markdown files",
         "method": "parser",
         "parser_name": "ipmt-md",
@@ -81,7 +81,7 @@
         "items": [
             {
                 "destination": "v7p1-components-separate-along-event-structure",
-                "line": 91,
+                "line": 92,
                 "anchor": "#v7p1-components-separate-along-event-structure",
                 "content_sha1": "9f52e24fde9cfd9e4c7fd842b1e473c75c737f28",
                 "outputs": {
@@ -93,7 +93,7 @@
             },
             {
                 "destination": "v7p2-the-most-central-component-first-tied-components-around-it",
-                "line": 209,
+                "line": 210,
                 "anchor": "#v7p2-the-most-central-component-first-tied-components-around-it",
                 "content_sha1": "396f6e517b547186e8a71bc22c9ef8ae2f075397",
                 "outputs": {
@@ -105,7 +105,7 @@
             },
             {
                 "destination": "v7p2-the-most-central-component-first-tied-components-around-it-02",
-                "line": 228,
+                "line": 229,
                 "anchor": "#v7p2-the-most-central-component-first-tied-components-around-it",
                 "content_sha1": "01e80f0479738c574d1e5a716ff475bae4a526e3",
                 "outputs": {
@@ -117,7 +117,7 @@
             },
             {
                 "destination": "v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy",
-                "line": 301,
+                "line": 302,
                 "anchor": "#v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-symmetrically",
                 "content_sha1": "0c7f40ee7a5a37218da7ddeaf3da6ea194d484a0",
                 "outputs": {
@@ -129,7 +129,7 @@
             },
             {
                 "destination": "v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy-02",
-                "line": 342,
+                "line": 343,
                 "anchor": "#v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-symmetrically",
                 "content_sha1": "466f2b4be1c78a0b043aa5b26a18ec90e11b3901",
                 "outputs": {
@@ -141,7 +141,7 @@
             },
             {
                 "destination": "v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept",
-                "line": 519,
+                "line": 520,
                 "anchor": "#v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concepts-down",
                 "content_sha1": "d4bd84b10966e8b5b2cb4be96d09142d056b9596",
                 "outputs": {
@@ -153,7 +153,7 @@
             },
             {
                 "destination": "v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept-02",
-                "line": 558,
+                "line": 559,
                 "anchor": "#v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concepts-down",
                 "content_sha1": "13194370782d7722871d1a43fb14b0f9803b26d7",
                 "outputs": {
@@ -165,7 +165,7 @@
             },
             {
                 "destination": "v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer",
-                "line": 598,
+                "line": 599,
                 "anchor": "#v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer",
                 "content_sha1": "ab8fbced62b3e9735511d3f63befd463f444ac14",
                 "outputs": {
@@ -177,7 +177,7 @@
             },
             {
                 "destination": "v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact",
-                "line": 845,
+                "line": 846,
                 "anchor": "#v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact",
                 "content_sha1": "2d7572fad701b00336d93185323982c77a5da90e",
                 "outputs": {
@@ -189,7 +189,7 @@
             },
             {
                 "destination": "v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-02",
-                "line": 855,
+                "line": 856,
                 "anchor": "#v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact",
                 "content_sha1": "4de6caa4f77b7d41345b2ab95c8c500e0034ba39",
                 "outputs": {
@@ -201,7 +201,7 @@
             },
             {
                 "destination": "v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-03",
-                "line": 863,
+                "line": 864,
                 "anchor": "#v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact",
                 "content_sha1": "ed5235eaeca4a77efb0cba65d81180e9777570f3",
                 "outputs": {
@@ -213,7 +213,7 @@
             },
             {
                 "destination": "v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-04",
-                "line": 874,
+                "line": 875,
                 "anchor": "#v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact",
                 "content_sha1": "c8d9176a9d8d8d61ca3620c10cdeb7753335b0dd",
                 "outputs": {
