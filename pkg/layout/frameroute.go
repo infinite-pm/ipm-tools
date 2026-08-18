@@ -272,9 +272,10 @@ func RouteFrameEdges(g *Graph) FrameRouteStats {
 			straight := [][2]int{{seg.x1, seg.y1}, {seg.x2, seg.y2}}
 			blocked := pathBlocked(straight, obstacles, e.From, e.To, nb)
 			leastBadCost = 1e18
+			price := func(pts [][2]int) float64 { return pathCost(pts, obstacles, paths, i, e.Base, g) }
 			if !blocked {
 				chosen = straight
-				cost = pathCost(straight, obstacles, paths, i, e.Base, g)
+				cost = price(straight)
 			}
 			// The least-bad route, kept alongside the clean search: route.go's
 			// leastBad scores every candidate INCLUDING the blocked ones (a hit
@@ -302,13 +303,13 @@ func RouteFrameEdges(g *Graph) FrameRouteStats {
 						if !mustDraw {
 							continue
 						}
-						cc := pathCost(c, obstacles, paths, i, e.Base, g) + badness(c, obstacles, e.From, e.To, nb)
+						cc := price(c) + badness(c, obstacles, e.From, e.To, nb)
 						if cc < leastBadCost || (cc == leastBadCost && pathLength(c) < pathLength(leastBad)) {
 							leastBad, leastBadCost = c, cc
 						}
 						continue
 					}
-					cc := pathCost(c, obstacles, paths, i, e.Base, g)
+					cc := price(c)
 					if cc < bestCost || (cc == bestCost && pathLength(c) < pathLength(best)) {
 						best, bestCost = c, cc
 					}
@@ -760,9 +761,12 @@ func crossNear(a, b [][2]int, boxes []Node, within int) bool {
 			if !segmentsCross(a[i][0], a[i][1], a[i+1][0], a[i+1][1], b[j][0], b[j][1], b[j+1][0], b[j+1][1]) {
 				continue
 			}
-			// The crossing point is somewhere on both segments; the segment
-			// midpoint-to-box distance is a fine proxy at this granularity.
-			mx, my := (a[i][0]+a[i+1][0])/2, (a[i][1]+a[i+1][1])/2
+			// The actual crossing point — the segment midpoint was the proxy
+			// before, and for a 450px straight whose crossing sits at its very
+			// end (an arrival brushing a sibling's arrival 12px from their
+			// shared box) the midpoint was 200px away, so the brush was priced
+			// as a tangle and the straight lost to a route through the box.
+			mx, my := crossingPoint(a[i], a[i+1], b[j], b[j+1])
 			ok := false
 			for _, n := range boxes {
 				dx := maxInt(0, maxInt(n.X-mx, mx-(n.X+n.Width)))
@@ -1124,14 +1128,18 @@ func staleEnds(g *Graph, byID map[string]Node, routes []EdgeRoute, i int, e *Edg
 	}
 	src := PortJSON{Side: routes[i].Source.Side, Position: routes[i].Source.Position}
 	tgt := PortJSON{Side: routes[i].Target.Side, Position: routes[i].Target.Position}
+	// the partner points that order the slots: the OTHER end's port as it
+	// stands (its own re-face, if any, is applied first for the source so the
+	// target's slot is ordered against the final source point)
+	x2, y2 := EdgePortPoint(to, from, EdgePort{Side: tgt.Side, Position: tgt.Position})
 	if sF != "" {
-		src = PortJSON{Side: sF, Position: freeSlot(g, routes, i, e.From, sF)}
-	}
-	if sT != "" {
-		tgt = PortJSON{Side: sT, Position: freeSlot(g, routes, i, e.To, sT)}
+		src = PortJSON{Side: sF, Position: freeSlot(g, byID, routes, i, e.From, sF, [2]int{x2, y2})}
 	}
 	x1, y1 := EdgePortPoint(from, to, EdgePort{Side: src.Side, Position: src.Position})
-	x2, y2 := EdgePortPoint(to, from, EdgePort{Side: tgt.Side, Position: tgt.Position})
+	if sT != "" {
+		tgt = PortJSON{Side: sT, Position: freeSlot(g, byID, routes, i, e.To, sT, [2]int{x1, y1})}
+		x2, y2 = EdgePortPoint(to, from, EdgePort{Side: tgt.Side, Position: tgt.Position})
+	}
 	return uturnAlt{source: src, target: tgt, seg: detourSeg{x1, y1, x2, y2}}, true
 }
 
@@ -1165,26 +1173,105 @@ func refacedSide(node, other Node, side string) string {
 	return want
 }
 
-// freeSlot picks a slot on (node, side) not held by another edge's port.
-func freeSlot(g *Graph, routes []EdgeRoute, self int, node, side string) float64 {
+// freeSlot picks a slot on (node, side) for edge `self`'s re-faced end: not
+// held by another edge's port, and in PARTNER ORDER with the ends already on
+// that side — the same monotonicity OrderSharedPorts guarantees, which that
+// pass cannot apply here because the re-face happens after it. Without the
+// order, three arrivals re-faced onto API's right side took 0.5 / 0.35 / 0.65
+// in edge order; the one from above got the lowest slot and needed an L that
+// came down the box's border where the straight would have done.
+//
+// `partner` is the far end's port point; the side's axis coordinate of it
+// (y for left/right, x for top/bottom) orders the slots. Among the free
+// candidate slots the one with no order violation against the placed ends
+// wins, then the fewest, then the one nearest the midline.
+func freeSlot(g *Graph, byID map[string]Node, routes []EdgeRoute, self int, node, side string, partner [2]int) float64 {
+	type placed struct {
+		slot  float64
+		along int
+	}
+	var ends []placed
 	used := map[float64]bool{}
 	for j := range g.Edges {
 		if j == self || g.Edges[j].Visibility == visibilityStubbed {
 			continue
 		}
-		if g.Edges[j].From == node && routes[j].Source.Side == side {
-			used[routes[j].Source.Position] = true
+		o := g.Edges[j]
+		var slot float64
+		var other Node
+		var okO bool
+		switch {
+		case o.From == node && routes[j].Source.Side == side:
+			slot = routes[j].Source.Position
+			other, okO = byID[o.To]
+			if okO {
+				px, py := EdgePortPoint(other, byID[node], routes[j].Target)
+				ends = append(ends, placed{slot, alongOf(side, px, py)})
+			}
+		case o.To == node && routes[j].Target.Side == side:
+			slot = routes[j].Target.Position
+			other, okO = byID[o.From]
+			if okO {
+				px, py := EdgePortPoint(other, byID[node], routes[j].Source)
+				ends = append(ends, placed{slot, alongOf(side, px, py)})
+			}
+		default:
+			continue
 		}
-		if g.Edges[j].To == node && routes[j].Target.Side == side {
-			used[routes[j].Target.Position] = true
+		used[slot] = true
+	}
+	mine := alongOf(side, partner[0], partner[1])
+	// the ordered neighbours: the highest slot among ends whose partner is
+	// before mine, the lowest among those after — a slot between them keeps
+	// the side monotonic
+	lo, hi := 0.0, 1.0
+	for _, e := range ends {
+		if e.along < mine && e.slot > lo {
+			lo = e.slot
+		}
+		if e.along > mine && e.slot < hi {
+			hi = e.slot
 		}
 	}
-	for _, p := range []float64{0.5, 0.35, 0.65, 0.25, 0.75} {
+	best, bestDist := -1.0, 2.0
+	for _, p := range []float64{0.5, 0.35, 0.65, 0.25, 0.75, 0.15, 0.85} {
+		if used[p] || p <= lo || p >= hi {
+			continue
+		}
+		dist := p - 0.5
+		if dist < 0 {
+			dist = -dist
+		}
+		if dist < bestDist {
+			best, bestDist = p, dist
+		}
+	}
+	if best >= 0 {
+		return best
+	}
+	// no discrete slot fits between the neighbours: take their midpoint when
+	// there is room for a lane (API's right side had 88 at 0.35 and 98 at
+	// 0.50 with the third arrival's partner between theirs), else the
+	// nearest free discrete slot, order be damned — a wrong slot beats two
+	// ends on one point
+	if hi-lo >= 0.1 {
+		return (lo + hi) / 2
+	}
+	for _, p := range []float64{0.5, 0.35, 0.65, 0.25, 0.75, 0.15, 0.85} {
 		if !used[p] {
 			return p
 		}
 	}
 	return 0.5
+}
+
+// alongOf is the coordinate that orders a side's slots: y for left/right,
+// x for top/bottom.
+func alongOf(side string, x, y int) int {
+	if side == "left" || side == "right" {
+		return y
+	}
+	return x
 }
 
 // pathGrazesWithin says whether any segment of pts passes within `band` px
@@ -1263,4 +1350,18 @@ func stubbedAtTarget(c [][2]int, out [2]int, d int) ([][2]int, bool) {
 	v = append(v, c[:n-2]...)
 	v = append(v, moved, stub, b)
 	return v, true
+}
+
+// crossingPoint returns the intersection of two segments known to cross
+// (segmentsCross said so), rounded to px; falls back to the first segment's
+// midpoint if the lines are parallel.
+func crossingPoint(p1, p2, q1, q2 [2]int) (int, int) {
+	x1, y1, x2, y2 := float64(p1[0]), float64(p1[1]), float64(p2[0]), float64(p2[1])
+	x3, y3, x4, y4 := float64(q1[0]), float64(q1[1]), float64(q2[0]), float64(q2[1])
+	den := (x1-x2)*(y3-y4) - (y1-y2)*(x3-x4)
+	if den == 0 {
+		return (p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2
+	}
+	t := ((x1-x3)*(y3-y4) - (y1-y3)*(x3-x4)) / den
+	return int(x1 + t*(x2-x1) + 0.5), int(y1 + t*(y2-y1) + 0.5)
 }
