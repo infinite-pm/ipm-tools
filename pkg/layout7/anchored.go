@@ -65,6 +65,44 @@ func (g *graph) assembleAnchored() bool {
 			a.known = true
 			a.acx, a.acy = sax/cnt, say/cnt
 			a.lcx, a.lcy = slx/cnt, sly/cnt
+			// ... the centre of mass over the component's EVENTS when it has
+			// any (the spine is what a click never adds to; a thing or
+			// concept expanded into the component would otherwise pull the
+			// whole component toward itself), and, for a component of
+			// things and concepts alone, its HUB — the known node with the
+			// most edges (declaration order breaks ties) — lands exactly
+			// where the anchor had it and everything a click adds grows
+			// around it (FriendsAndFiends: Mike's stack slid 560px left
+			// when Adam and his friends joined; the centre of mass moved
+			// with them).
+			esx, esy, elx, ely, ecnt := 0, 0, 0, 0, 0
+			hub, hubDeg := -1, -1
+			for _, n := range g.nodes {
+				if n.comp != ci || n.shell || n.boundary || !n.placed {
+					continue
+				}
+				p, has := g.opts.Anchor[strconv.Itoa(n.id)]
+				if !has {
+					continue
+				}
+				if n.kind == KindEvent {
+					esx, esy = esx+p[0], esy+p[1]
+					elx, ely = elx+n.x+n.w/2, ely+n.y+n.h/2
+					ecnt++
+				}
+				if deg := len(g.in[n.idx]) + len(g.out[n.idx]); deg > hubDeg {
+					hub, hubDeg = n.idx, deg
+				}
+			}
+			if ecnt > 0 {
+				a.acx, a.acy = esx/ecnt, esy/ecnt
+				a.lcx, a.lcy = elx/ecnt, ely/ecnt
+			} else if hub >= 0 {
+				hn := g.nodes[hub]
+				p := g.opts.Anchor[strconv.Itoa(hn.id)]
+				a.acx, a.acy = p[0], p[1]
+				a.lcx, a.lcy = hn.x+hn.w/2, hn.y+hn.h/2
+			}
 			known++
 		}
 		acs[ci] = a
