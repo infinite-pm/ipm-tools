@@ -27,8 +27,11 @@ A long history is mostly `go build`, and that half never changes: a commit's
 engine is the same today as it was last week. So it is separated.
 
 ```bash
-go run ./cmd-dev/layout-timeline --build-only     # phase 1: every engine, cached by commit
-go run ./cmd-dev/layout-timeline                  # phase 2: sweeps + report, off the cache
+make layout-timeline-build                        # phase 1: every engine, cached by commit
+make layout-timeline                              # phase 2: sweeps + report, off the cache
+
+go run ./cmd-dev/layout-timeline --build-only     # the same, spelled out
+go run ./cmd-dev/layout-timeline
 ```
 
 Phase 1 is idempotent — a commit already built is skipped — so the second and
@@ -146,8 +149,8 @@ So which diagrams to sweep is a FILE, not a flag — and there are two:
 | **extended** | the above plus `../ipm-overview`, `../ipm-graphs-mj41`, `../ipm-intro`, `../ipm-k8s-case`, `../ipm-projs`, `../ipm-drawio/docs` | wherever the corpus file says | no — the file lives outside this repo |
 
 ```bash
-make layout-timeline                     # base:     316 diagrams
-make layout-timeline-ext                 # extended: 477
+make layout-timeline                     # base:     this repo only
+make layout-timeline-ext                 # extended: + ~160 diagrams from six siblings
 go run ./cmd-dev/layout-timeline --corpus ../ipm-drawio/layout-corpus.json
 go run ./cmd-dev/layout-timeline --corpus-example > ../ipm-drawio/layout-corpus.json
 ```
@@ -549,7 +552,9 @@ unstable engines in this history.
 
 ## Cost
 
-Measured on 313 diagrams × 32 columns, 16 CPUs, from an EMPTY cache:
+Measured 2026-08-18 on ~320 diagrams × 32 columns, 16 CPUs, from an EMPTY
+cache. Exact counts move with every fixture added, so read these as the shape
+rather than as a promise:
 
 | | wall | |
 |---|---|---|
@@ -600,10 +605,14 @@ switched on inside the picture, because CSS cannot reach inside an `<img>`.
 
 Two things make a long history's report expensive, and both are capped.
 
-**Processes.** A sweep spawns two per diagram, so 143 columns × 311 diagrams is
-~89,000 of them, plus one `go build` per commit. `--jobs` (default 2) bounds
-both, because the machine running this is usually also running an editor and a
-language server.
+**Processes.** A sweep spawns ONE per diagram per column — it used to be two,
+until the fold made each engine's results serve as the next column's "before" —
+so 143 columns × ~320 diagrams is ~45,000 of them, plus one `go build` per
+commit. The two halves are bounded SEPARATELY, because they scale in opposite
+directions: `--jobs` (default 2) for builds, each of which is a full `go build`
+and the memory-hungry half; `--sweep-jobs` (default: up to 8, by CPU) for the
+sweep, which is many tiny short-lived processes. The machine running this is
+usually also running an editor and a language server.
 
 **The page.** Panes are inlined SVG, and a report of a long history can carry
 hundreds. That is not merely large: **843 continuously animating SVG layers
