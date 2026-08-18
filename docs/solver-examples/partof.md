@@ -57,18 +57,18 @@ via leads-to, so nothing stays grey — defaults change nothing.
 ```ipmt
 # given
 prep ::?etc --::L--> chop ::?etc
-chop --::P--> cook ::?etc
-cook --::L--> serve ::?etc
+cook ::?etc --::L--> serve ::?etc
+prep, chop --::P--> cook
 ```
 ```ipmt
 # then
 prep ::e --::L--> chop ::e
-chop ::e --::P--> cook ::e
 cook ::e --::L--> serve ::e
+prep, chop --::P--> cook
 ```
 ```ipmt
 # then defaults
 prep ::e --::L--> chop ::e
-chop ::e --::P--> cook ::e
 cook ::e --::L--> serve ::e
+prep, chop --::P--> cook
 ```

@@ -1067,40 +1067,38 @@ edge #e1b,#e1c has visibility=visible
 edge #e1b,#e1d has visibility=visible
 ```
 
-### a leads-to out of a sub-event runs down under it
+### a composite's successor sits under the composite, its part beside it
 
 ```ipmt
 e1 ::e
 e1a ::e --::P--> e1
-e1a --> e2 ::e
+e1 --> e2 ::e
 e2 --> e3 ::e
 ```
-<!-- ipm-svg id=1e8 hash=ea6f7b7b -->
+<!-- ipm-svg id=1e8 hash=8daeb12d -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1e8.ipm.svg)
 
-'e1a' is part-of 'e1' and leads to 'e2', which is not a member of anything.
-The leads-to points DOWN (v7P3): 'e2' ranks below the composite and takes
-the sub-event's COLUMN, so 'e1a' → 'e2' is one vertical line, and 'e3'
-follows in the same lane. Before this, only leads-to between top-level
-events ranked: 'e2' had no predecessor, was drawn as a start (S onto it) on
-the composite's row, and its leads-to was a slant — in the zoom canvas the
-lifted edge was a U under both boxes (kubernetes: sidecar container →
-separation of concerns). S stays on 'e1' — the one start; E caps the
-timeline on the S axis (asymmetric terminals centre the boundaries), so
-'e3' → E may slant.
+'e1' is a composite with one part, 'e1a', and leads to 'e2', which leads to
+'e3'. The composite carries the flow: 'e2' ranks below 'e1' and takes the
+COMPOSITE's column — S, 'e1', 'e2', 'e3' one vertical line, the two leads-to
+straight — while 'e1a' nests one step to the right of 'e1' on its row
+(v7P3: leads-to runs down, part-of indents right). E caps the timeline on
+the same axis. (A member's own leads-to to an outside event is the
+sub-grid-boundary case: it ranks for the composite too, and lanes the
+successor under the member — see "a leads-to into a sub-event lanes the
+composite under the predecessor" for the mirror.)
 
 ```ipmdev-layout-rule
 @scope local
 #e1a is right-of #e1 with gap=60
-all #e1a,#e2,#e3 have same center-x
-#e2 is below #e1a with gap=60
+all #e1,#e1a have same y
+all #S,#e1,#e2,#e3,#E have same center-x
+#e2 is below #e1 with gap=60
 #e3 is below #e2 with gap=60
-edge #e1a,#e2 is vertical
+edge #e1,#e2 is vertical
 edge #e2,#e3 is vertical
-edge #e1a,#e2 has visibility=visible
-all #S,#e1 have same center-x
 #S is above #e1 with gap=40
-#E is below #e3 with gap=60
+#E is below #e3 with gap=40
 ```
 
 ### a leads-to into a sub-event lanes the composite under the predecessor
