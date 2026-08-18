@@ -238,31 +238,68 @@ func analysisRoot(root, mdPath string) string {
 		return root
 	}
 	dir := filepath.Dir(mdPath)
-	for at := dir; ; {
+	if root := RepoRootOf(mdPath); root != "" {
+		return root
+	}
+	return dir // no repository above it; the file's own directory will do
+}
+
+// RepoRootOf is the nearest ancestor of path holding a .git, or "".
+func RepoRootOf(path string) string {
+	at := filepath.Dir(path)
+	for {
 		if _, err := os.Stat(filepath.Join(at, ".git")); err == nil {
 			return at
 		}
 		up := filepath.Dir(at)
 		if up == at {
-			return dir // no repository above it; the file's own directory will do
+			return ""
 		}
 		at = up
 	}
 }
 
-// relTo names a diagram relative to the corpus root.
+// RepoRelative names a file the way its OWN repository does.
 //
-// A path that escapes the root keeps its "../" form rather than falling back
-// to an absolute one. Sibling repositories are a first-class corpus — the
-// engine is this repo's, the diagrams can come from anywhere — and
-// "../ipm-overview/docs/x.md#100" says where a diagram lives at a glance,
-// where "/home/mj/work-stai/ipm-overview/docs/x.md#100" only says it once and
-// then makes every page name and every report row carry the whole machine.
+// A diagram's id is relative to the corpus root, which for a sibling checkout
+// means "../ipm-drawio/docs/x.md" — correct as an identity, useless as a
+// location. Nobody works in the corpus root when they open that file; they
+// work in ipm-drawio, where it is "docs/x.md". So a location is resolved
+// against the first .git above the file, whichever repository that is.
+func RepoRelative(path string) string {
+	root := RepoRootOf(path)
+	if root == "" {
+		return filepath.ToSlash(path)
+	}
+	rel, err := filepath.Rel(root, path)
+	if err != nil {
+		return filepath.ToSlash(path)
+	}
+	return filepath.ToSlash(rel)
+}
+
+// relTo names a diagram.
 //
-// It stays unique: one root, one relative path per file.
+// Inside the corpus root, that is the path as its own repository writes it:
+// "docs/x.md". Outside it — a sibling checkout, which is a first-class corpus
+// here since the engine is this repo's and the diagrams can come from anywhere
+// — the name is "repo:path", as in "ipm-drawio:docs/mj-ex/wip-notes.md".
+//
+// Not "../ipm-drawio/docs/...": a "../" path is only meaningful from one
+// directory, and it is not the directory anyone opens the file in. The repo
+// name plus the path THAT repo uses is true from anywhere, and reads as what
+// it is. An absolute path would be true too, and would put the whole machine
+// into every id, page name and row.
+//
+// It stays unique: one repository name, one path within it.
 func relTo(root, p string) string {
-	if rel, err := filepath.Rel(root, p); err == nil {
+	if rel, err := filepath.Rel(root, p); err == nil && !strings.HasPrefix(rel, "..") {
 		return filepath.ToSlash(rel)
+	}
+	if repo := RepoRootOf(p); repo != "" {
+		if rel, err := filepath.Rel(repo, p); err == nil {
+			return filepath.Base(repo) + ":" + filepath.ToSlash(rel)
+		}
 	}
 	return filepath.ToSlash(p)
 }

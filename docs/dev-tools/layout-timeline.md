@@ -164,9 +164,12 @@ The corpus file:
 ```
 
 - **`paths`** resolve against the DIAGRAM ROOT (`--sources`, default `--repo`),
-  so a sibling checkout is `../name` and a diagram from it is called
-  `../ipm-overview/docs/x.md#100` — relative, not the absolute path that would
-  otherwise put the whole machine into every page name.
+  so a sibling checkout is `../name`. A diagram from one is NAMED by its
+  repository, not by the path from here: `ipm-drawio:docs/mj-ex/wip-notes.md#1a0`,
+  and its 🗎 location copies as `docs/mj-ex/wip-notes.md:127`. A `../` path is
+  only meaningful from one directory and it is not the directory anyone opens
+  the file in; an absolute path would put the whole machine into every id, page
+  name and row. The repo name plus that repo's own path is true from anywhere.
 - **`out`** resolves against THE CORPUS FILE'S OWN directory, so a corpus kept
   in `ipm-drawio` writes its report into `ipm-drawio` from wherever the tool is
   invoked. The two runs therefore cannot overwrite each other. An explicit
@@ -378,7 +381,7 @@ Every row and every version carries four copy controls:
 | | copies |
 |---|---|
 | 🔗 | a link straight to this row — this page's URL at this anchor |
-| 🗎 | the source location, `docs/solver-examples/partof.md:63` — the line the fence opens on, which an editor understands and an id's `#170` marker does not |
+| 🗎 | the source location as ITS OWN repository writes it — `docs/mj-ex/wip-notes.md:127` — the line the fence opens on, which an editor understands and an id's `#1a0` marker does not |
 | **for agent** | this diagram at this version: which engine drew it, its canvas, the ipmt source |
 | **regression** | the same plus the version before it, what the diff reported, and the commands to reproduce and bisect |
 

@@ -1380,9 +1380,24 @@ func stampDate(t time.Time) string {
 // fileOf is the path a diagram id points at: "docs/x.md#100" -> "docs/x.md".
 func fileOf(id string) string {
 	if i := strings.IndexByte(id, '#'); i >= 0 {
-		return id[:i]
+		id = id[:i]
+	}
+	// An id from another repository is "repo:path"; the file is the path.
+	if i := strings.IndexByte(id, ':'); i >= 0 {
+		return id[i+1:]
 	}
 	return id
+}
+
+// repoOf is the repository an id names, "" for this one.
+func repoOf(id string) string {
+	if i := strings.IndexByte(id, '#'); i >= 0 {
+		id = id[:i]
+	}
+	if i := strings.IndexByte(id, ':'); i >= 0 {
+		return id[:i]
+	}
+	return ""
 }
 
 // whichDiagram names the diagram the way it actually exists: a block inside a

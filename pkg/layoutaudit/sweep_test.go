@@ -142,13 +142,49 @@ func TestAnExternalFileIsReadAgainstItsOwnRepository(t *testing.T) {
 	}
 }
 
-// An external diagram keeps a readable name. Falling back to an absolute path
-// put the whole machine into every id, every page name and every report row.
-func TestExternalDiagramsKeepARelativeName(t *testing.T) {
-	if got := relTo("/a/ours", "/a/theirs/docs/x.md"); got != "../theirs/docs/x.md" {
-		t.Errorf("external id = %q, want ../theirs/docs/x.md", got)
+// A diagram from another repository is named "repo:path" — the path THAT
+// repository uses. Not "../ipm-drawio/docs/x.md", which is only meaningful
+// from one directory and is not the directory anyone opens the file in; and
+// not an absolute path, which puts the whole machine into every id, page name
+// and report row.
+func TestExternalDiagramsAreNamedByTheirRepository(t *testing.T) {
+	base := t.TempDir()
+	ours := filepath.Join(base, "ours")
+	theirs := filepath.Join(base, "ipm-drawio")
+	for _, d := range []string{ours, filepath.Join(theirs, ".git"), filepath.Join(theirs, "docs/mj-ex")} {
+		if err := os.MkdirAll(d, 0o755); err != nil {
+			t.Fatal(err)
+		}
 	}
-	if got := relTo("/a/ours", "/a/ours/docs/x.md"); got != "docs/x.md" {
-		t.Errorf("local id = %q, want docs/x.md", got)
+	got := relTo(ours, filepath.Join(theirs, "docs/mj-ex/wip-notes.md"))
+	if got != "ipm-drawio:docs/mj-ex/wip-notes.md" {
+		t.Errorf("external id = %q, want ipm-drawio:docs/mj-ex/wip-notes.md", got)
+	}
+	if got := relTo(ours, filepath.Join(ours, "docs/x.md")); got != "docs/x.md" {
+		t.Errorf("local id = %q, want docs/x.md — no repo prefix for our own", got)
+	}
+	// No repository above it: an absolute path is the honest fallback.
+	loose := filepath.Join(base, "loose/x.md")
+	if got := relTo(ours, loose); got != filepath.ToSlash(loose) {
+		t.Errorf("a file in no repository = %q, want the path itself", got)
+	}
+}
+
+// A location is the path its OWN repository uses, so it can be pasted while
+// working in that repository.
+func TestRepoRelativeUsesTheFilesOwnRepository(t *testing.T) {
+	base := t.TempDir()
+	repo := filepath.Join(base, "ipm-drawio")
+	if err := os.MkdirAll(filepath.Join(repo, ".git"), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.MkdirAll(filepath.Join(repo, "docs/mj-ex"), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if got := RepoRelative(filepath.Join(repo, "docs/mj-ex/wip-notes.md")); got != "docs/mj-ex/wip-notes.md" {
+		t.Errorf("location = %q, want docs/mj-ex/wip-notes.md", got)
+	}
+	if got := RepoRootOf(filepath.Join(base, "nowhere/x.md")); got != "" {
+		t.Errorf("found a repository where there is none: %q", got)
 	}
 }
