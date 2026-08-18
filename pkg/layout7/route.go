@@ -764,6 +764,18 @@ func (g *graph) route() []routed {
 	// compete on crossings against the other structural lines — never just
 	// "first that clears the boxes" (a blind alternate-axis
 	// take crossed a whole part-of fan; the far side lane was clean).
+	// shortest span first, declaration order among equals: with lanes
+	// nesting outward (below), the edge to the NEAREST partner takes the
+	// innermost lane and its hook never crosses a longer edge's lane — the
+	// declaration order gave the first-declared edge the inner rail whatever
+	// its reach, and every shorter hook then cut through it
+	sort.SliceStable(blocked, func(a, b int) bool {
+		fa, ta := g.nodes[blocked[a].from], g.nodes[blocked[a].to]
+		fb, tb := g.nodes[blocked[b].from], g.nodes[blocked[b].to]
+		sa := absInt(ta.x+ta.w/2-(fa.x+fa.w/2)) + absInt(ta.y+ta.h/2-(fa.y+fa.h/2))
+		sb := absInt(tb.x+tb.w/2-(fb.x+fb.w/2)) + absInt(tb.y+tb.h/2-(fb.y+fb.h/2))
+		return sa < sb
+	})
 	for _, e := range blocked {
 		f, t := g.nodes[e.from], g.nodes[e.to]
 		r := routes[e.idx]
@@ -926,8 +938,86 @@ func (g *graph) route() []routed {
 			}
 			return v
 		}
+		var others []polyline
+		for _, o := range g.edges {
+			if o.structural && o != e {
+				others = append(others, line(o, routes[o.idx]))
+			}
+		}
 		laneL := minInt(f.x, t.x) - structOff(3)
 		laneR := maxInt(f.x+f.w, t.x+t.w) + structOff(2)
+		// lanes NEST (v7P9, as the tie pass's corner nesting): a lane
+		// another structural line already runs in over this edge's span
+		// steps one grid step outward, up to ten — a fan of twelve part-of
+		// lines out of one hub onto a stack of fourteen boxes took ONE rail
+		// (FriendsAndFiends: Mark's friends, 0px apart for 900px) once the
+		// hit count sent them all round the column
+		{
+			vlo, vhi := minInt(f.y, t.y), maxInt(f.y+f.h, t.y+t.h)
+			taken := func(x int) bool {
+				for _, o := range others {
+					for i := 0; i+1 < len(o.pts); i++ {
+						a, b := o.pts[i], o.pts[i+1]
+						if absInt(a[0]-x) >= GridStep/2 || absInt(b[0]-x) >= GridStep/2 {
+							continue // not a vertical run in this lane
+						}
+						y0, y1 := minInt(a[1], b[1]), maxInt(a[1], b[1])
+						if y0 < vhi && vlo < y1 {
+							return true
+						}
+					}
+				}
+				return false
+			}
+			// ... but never INTO a box: the flank's free gap was measured
+			// for the first lane; a lane stepped past it would spear the
+			// neighbour (json_example_2: User 2's third lane through
+			// alice@example.com) — the step goes on PAST the box to the
+			// first lane that is both free and clear (Mark's fan past
+			// Jane1), and keeps the first lane when none is within reach
+			boxFree := func(x int) bool {
+				return !g.hitsNode([][2]int{{x, vlo}, {x, vhi}}, e)
+			}
+			// ... nor ACROSS a flow corridor (v7P6: the timeline never
+			// yields — User 2's fourth lane, nested outward, cut the S→E
+			// line of the next component's spine): a nested lane that
+			// would cross a flow line the first lane did not stays put
+			// (the hooks from the boxes to the lane are what would cross
+			// it: the reach from the first lane out to the nested one, on
+			// the source's and the target's rows)
+			ys, yt := f.y+f.h/2, t.y+t.h/2
+			cutsFlow := func(lane0, x int) bool {
+				for _, o := range others {
+					if !g.isFlow(o.e) {
+						continue
+					}
+					for i := 0; i+1 < len(o.pts); i++ {
+						if segsCross(o.pts[i], o.pts[i+1], [2]int{lane0, ys}, [2]int{x, ys}) ||
+							segsCross(o.pts[i], o.pts[i+1], [2]int{lane0, yt}, [2]int{x, yt}) {
+							return true
+						}
+					}
+				}
+				return false
+			}
+			nest := func(lane, dir int) int {
+				if !taken(lane) {
+					return lane
+				}
+				for k := 1; k <= 20; k++ {
+					x := lane + dir*k*GridStep
+					if cutsFlow(lane, x) {
+						return lane
+					}
+					if !taken(x) && boxFree(x) {
+						return x
+					}
+				}
+				return lane
+			}
+			laneL = nest(laneL, -1)
+			laneR = nest(laneR, +1)
+		}
 		vdir2 := 1
 		if t.y+t.h/2 < f.y+f.h/2 {
 			vdir2 = -1
@@ -965,12 +1055,6 @@ func (g *graph) route() []routed {
 				{X: bsx + hdir2*hop45(lane-ssy), Y: lane},
 				{X: btx - hdir2*hop45(lane-sty), Y: lane},
 			}})
-		}
-		var others []polyline
-		for _, o := range g.edges {
-			if o.structural && o != e {
-				others = append(others, line(o, routes[o.idx]))
-			}
 		}
 		basePl := line(e, r)
 		baseCross := g.crossingCost(basePl, others)
@@ -2425,6 +2509,33 @@ func (g *graph) separateLanes(routes []routed, point func(*node, layout.EdgePort
 					return on.x + on.w/2
 				}
 				mine := coord(otherIdx)
+				// a LANE end (two bends, the lane a known distance off
+				// this side) ranks against other lane ends by the LANE,
+				// not the partner: the inner lane owns the corner, the
+				// outer ones step off it — twelve nested part-of lanes
+				// out of one hub whose ports were handed out by partner
+				// order (the far partner on top, its lane the outermost)
+				// each cut every inner lane's climb (FriendsAndFiends:
+				// +67 crossings)
+				nd := g.nodes[ni]
+				laneDist := func(rr routed) (int, bool) {
+					if len(rr.bends) < 2 {
+						return 0, false
+					}
+					if vert {
+						x := rr.bends[0].X
+						if x < nd.x {
+							return nd.x - x, true
+						}
+						return x - (nd.x + nd.w), true
+					}
+					y := rr.bends[0].Y
+					if y < nd.y {
+						return nd.y - y, true
+					}
+					return y - (nd.y + nd.h), true
+				}
+				myLane, iAmLane := laneDist(*r)
 				rank := 0
 				for _, o := range auxOrder {
 					if o == e || routes[o.idx].stubbed || len(routes[o.idx].bends) == 0 {
@@ -2438,6 +2549,14 @@ func (g *graph) separateLanes(routes []routed, point func(*node, layout.EdgePort
 						oOther = o.from
 					default:
 						continue
+					}
+					if iAmLane {
+						if d, ok := laneDist(routes[o.idx]); ok {
+							if d < myLane {
+								rank++
+							}
+							continue
+						}
 					}
 					c := coord(oOther)
 					if (ext < 0.5 && c < mine) || (ext >= 0.5 && c > mine) {
