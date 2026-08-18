@@ -184,6 +184,16 @@ regression (or a freshly authored target), not a reconciliation gap.
   edge through a node) across both corpora (`CHECK_PATHS` in the Makefile), where
   combinations surface bugs no single fixture anticipates;
   the findings count must not grow. Full checklist: `gl:CLAUDE.md`.
+- Beyond the fixtures, an engine change is MEASURED on real documents:
+  `make layout-audit` (this repository's diagrams) and `make layout-audit-ext`
+  (the extended corpus — sibling checkouts and the lab's SST corpus, from
+  `layout-corpus.json`, `gl:docs/dev-tools/layout-timeline.md` "The corpus").
+  The corpus names its **outliers** — diagrams whose structural size is far
+  outside the rest (`layout-debug --stats`; more than three times the
+  next-highest number) — and every sweep skips them and says so: a metric
+  summed over such a diagram is that diagram's metric, and optimizing it
+  optimizes for a shape no story has. Their shapes come back as MODERATE
+  fixtures instead.
 - Prose paragraphs in the catalogue without an `ipmdev-layout-rule` block are descriptive only and
   are **not** enforced by the runner — treat them as intent, and verify against
   the source before relying on them.

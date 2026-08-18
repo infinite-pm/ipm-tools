@@ -82,21 +82,23 @@ func main() {
 
 func run() int {
 	var (
-		repo     string
-		oldRef   string
-		newRef   string
-		oldBin   string
-		newBin   string
-		outDir   string
-		cacheDir string
-		failOn   string
-		limit    int
-		carried  bool
-		clean    bool
-		verbose  bool
-		open     bool
+		repo       string
+		oldRef     string
+		newRef     string
+		oldBin     string
+		newBin     string
+		outDir     string
+		cacheDir   string
+		failOn     string
+		limit      int
+		carried    bool
+		clean      bool
+		verbose    bool
+		open       bool
+		corpusPath string
 	)
 	flag.StringVar(&repo, "repo", ".", "engine repository to build both sides from")
+	flag.StringVar(&corpusPath, "corpus", "", "corpus config (pkg/layoutaudit/corpus.go): its paths are swept when no positional paths are given, and its OUTLIERS are skipped either way — the diagrams whose size is far outside the rest, listed with why; skipped ones are reported, never silent")
 	flag.StringVar(&oldRef, "old", "HEAD", "git ref for the OLD engine (or "+workdirRef+")")
 	flag.StringVar(&newRef, "new", workdirRef, "git ref for the NEW engine ("+workdirRef+" = the working tree, dirty allowed)")
 	flag.StringVar(&oldBin, "old-bin", "", "use this layout-gen binary as the OLD engine instead of building a ref")
@@ -158,10 +160,24 @@ func run() int {
 		oldEng.Describe(), newEng.Describe())
 
 	paths := flag.Args()
+	var corpusCfg *layoutaudit.Corpus
+	if corpusPath != "" {
+		corpusCfg, err = layoutaudit.LoadCorpus(corpusPath)
+		if err != nil {
+			return fail("%v", err)
+		}
+		if corpusCfg == nil {
+			return fail("corpus %s: not found", corpusPath)
+		}
+		fmt.Fprintf(os.Stderr, "layout-audit: corpus %s\n", corpusCfg.Describe())
+	}
 	if len(paths) == 0 {
 		paths = defaultPaths
+		if corpusCfg != nil {
+			paths = corpusCfg.Paths
+		}
 	}
-	diagrams, warns, err := layoutaudit.Collect(repoAbs, paths, filepath.Join(outAbs, "src"))
+	diagrams, warns, err := layoutaudit.CollectExcluding(repoAbs, paths, filepath.Join(outAbs, "src"), corpusCfg.ExcludeFunc())
 	if err != nil {
 		return fail("collect: %v", err)
 	}

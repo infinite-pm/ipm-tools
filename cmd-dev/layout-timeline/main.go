@@ -250,7 +250,7 @@ func run() int {
 			return fail("resolve --sources: %v", err)
 		}
 	}
-	diagrams, warns, err := layoutaudit.Collect(srcRoot, paths, filepath.Join(outAbs, "src"))
+	diagrams, warns, err := layoutaudit.CollectExcluding(srcRoot, paths, filepath.Join(outAbs, "src"), corpusCfg.ExcludeFunc())
 	if err != nil {
 		return fail("collect: %v", err)
 	}

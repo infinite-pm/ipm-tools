@@ -128,7 +128,16 @@ Other repositories work too — the engine is this one's, only the sources move:
 
 ```bash
 go run ./cmd-dev/layout-audit ../ipm-k8s-case/prd ../ipm-drawio/docs
+go run ./cmd-dev/layout-audit --corpus ../ipm-drawio/layout-corpus.json   # the extended corpus, its outliers skipped
 ```
+
+`--corpus` reads the same file as `layout-timeline` (`gl:docs/dev-tools/layout-timeline.md`,
+"The corpus"): its `paths` are the set when no positional paths are given, and
+its **`outliers`** are skipped either way and named in the log
+(`outlier skipped: … — why`). The default set — this repository's fixtures,
+examples and docs — is a set of small diagrams; a change that only shows on
+NDA-scale documents shows only with the extended corpus, so run both after an
+engine change (the second is `make layout-audit-ext`).
 
 The richest set to point it at is the demo recorder's captured states — the
 diagrams a user types, mid-construction, which no authored fixture contains
@@ -145,7 +154,11 @@ go run ./cmd-dev/layout-audit ../vscode-infinite-pm-dev/demo/states/ipmt-preview
 | `--old` | `HEAD` | git ref for the old engine, or `workdir` |
 | `--new` | `workdir` | git ref, or the working tree (dirty allowed — and recorded) |
 | `--old-bin` / `--new-bin` | | use a `layout-gen`-compatible binary instead of building a ref |
+| `--print-path` | on | print the report path on stdout when finished |
+| `--verbose` | off | log each build and every swept diagram |
+| `--version` | | print the version and exit |
 | `--repo` | `.` | the engine repository both sides are built from |
+| `--corpus` | | corpus file: its paths when none are given, its outliers skipped always |
 | `--out` | `temp/layout-audit` | report and extracted block sources |
 | `--cache` | `~/.cache/ipm-layout-engines` | built engines, shared with layout-timeline |
 | `--limit` | `0` | draw at most N diagrams; the rest are LISTED by name, never drawn as empty frames |

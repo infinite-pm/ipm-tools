@@ -61,6 +61,14 @@ var skipDirs = map[string]bool{
 // `embed=false` / invalid lanes all decided in one place rather than
 // re-derived here.
 func Collect(root string, paths []string, srcDir string) ([]Diagram, []string, error) {
+	return CollectExcluding(root, paths, srcDir, nil)
+}
+
+// CollectExcluding is Collect with the corpus's outlier filter (Corpus.
+// Outlier): a diagram the filter names is left out and reported in the
+// warnings as "outlier skipped: <id> — <why>", so a sweep never silently
+// narrows.
+func CollectExcluding(root string, paths []string, srcDir string, exclude func(path string) (string, bool)) ([]Diagram, []string, error) {
 	var out []Diagram
 	var warns []string
 	if err := os.MkdirAll(srcDir, 0o755); err != nil {
@@ -102,6 +110,12 @@ func Collect(root string, paths []string, srcDir string) ([]Diagram, []string, e
 
 	for _, f := range files {
 		rel := relTo(root, f)
+		if exclude != nil {
+			if why, skip := exclude(rel); skip {
+				warns = append(warns, fmt.Sprintf("outlier skipped: %s — %s", rel, why))
+				continue
+			}
+		}
 		if strings.HasSuffix(f, ".ipmt") {
 			out = append(out, Diagram{ID: rel, Path: f, Origin: f})
 			continue

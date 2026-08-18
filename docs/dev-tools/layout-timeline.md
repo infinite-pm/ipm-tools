@@ -159,7 +159,9 @@ The corpus file:
   "name": "extended",
   "out": "temp/layout-timeline",
   "paths": ["tests/layout-gen", "examples", "docs",
-            "../ipm-overview", "../ipm-graphs-mj41", "../ipm-drawio/docs"]
+            "../ipm-overview", "../ipm-graphs-mj41", "../ipm-drawio/docs"],
+  "zoom": ["../infinite-pm-lab/docs/260606-sstcorpus"],
+  "outliers": [{"glob": "NDA*.ipmt", "why": "45-member grids, a 60-edge hub"}]
 }
 ```
 
@@ -174,8 +176,23 @@ The corpus file:
   in `ipm-drawio` writes its report into `ipm-drawio` from wherever the tool is
   invoked. The two runs therefore cannot overwrite each other. An explicit
   `--out` still wins.
-- Positional arguments override the file entirely: a one-off sweep needs no
-  config.
+- **`outliers`** (optional) name diagrams EVERY sweep — this tool,
+  `layout-audit --corpus`, ipm-drawio's `framecheck --corpus` — leaves out,
+  each a glob on the base name or the relative path (one glob covers the
+  `.nodefaults`/`.sst` lanes of a document too) with `why`. A diagram whose
+  structural size is far outside the rest (`layout-debug --stats`; the rule of
+  thumb: a number more than three times the next-highest in the corpus)
+  exercises the engine at a scale no story does, and a metric summed over the
+  corpus becomes a metric of that one diagram — one that rewards whatever makes
+  ITS picture less bad. Skipped ones are reported (`outlier skipped: … — why`),
+  never silent; moderate cases built from their shapes belong in the fixture
+  corpora. Our extended corpus lists `NDA*.ipmt` (45-member grids where the
+  next has 4, a 60-edge hub where the next has 6).
+- **`zoom`** (optional) lists directories of zoom bundles (`X.ipmt` beside an
+  `X.zoom.html`) for ipm-drawio's `framecheck --corpus` sweep of the click-path
+  pipelines; this tool ignores it.
+- Positional arguments override the file's paths: a one-off sweep needs no
+  config (the outliers still apply when the file is read).
 
 A file in a sibling repository is read against **its own** repository root, not
 this one — `md-embed` refuses a file outside its root, and that root is what
@@ -403,6 +420,18 @@ was *compared against*, which after an unbuildable stretch is not the column
 immediately before it. They cost ~2 KB per row: 29% of the largest column page
 in the base report, which is 313 rows.
 
+**The pane pool** (`panes/<sha>.svg`): every distinct picture once, named by
+its content. Nearly half of them are duplicates — a column's "before" IS the
+previous column's "after" — and because the name is the content, a re-run
+writes nothing for a picture that has not changed. That is not tidiness: bulk
+file generation into a watched directory is the recorded cause of the editor's
+renderer dying, and this keeps a regeneration at a few hundred writes.
+
+Being write-once, it also ACCUMULATES — every renamed or edited diagram leaves
+its pictures behind — so each run deletes the ones nothing references, and says
+how many. A run that renders nothing (`--no-svg`) prunes nothing, or it would
+delete the pool a previous full run built.
+
 **A gallery** (`w/<column>/all.html`): ONE engine, EVERY diagram — no
 comparison at all. The rest of the report answers "what changed"; this answers
 "what does the whole corpus look like under this engine", which is where a
@@ -489,7 +518,10 @@ ship") belongs to a column page.
 | `--head-commits` | `3` | how many recent layout-relevant commits get their own column — a floor |
 | `--head-hours` | `3` | ALSO a column for every layout-relevant commit this recent, however many (0 = off) |
 | `--list` | off | print the weekly commits and exit — no builds, no sweep |
-| `--limit-per-week` | `6` | rendered diagrams per week (0 = all) |
+| `--limit-per-column` | `0` | rendered diagrams per column page (0 = all, bounded by `--max-mb`); the rest are listed by name |
+| `--until` | today | last date to cover (YYYY-MM-DD) — note it parses to MIDNIGHT, so a commit later that day falls outside |
+| `--verbose` | off | log every build, sweep and corpus decision |
+| `--version` | | print the version and exit |
 | `--no-svg` | off | grid and tables only |
 | `--out` | `temp/layout-timeline` | report + extracted block sources |
 | `--cache` | `~/.cache/ipm-layout-engines` | built engines, shared with layout-audit |

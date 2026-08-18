@@ -34,6 +34,7 @@ go run ./cmd-dev/layout-debug --in case.ipmt --why --shells     # + shells as en
 go run ./cmd-dev/layout-debug --in case.ipmt --facts              # observed rule-DSL facts
 go run ./cmd-dev/layout-debug --in case.ipmt --table              # or --edges: geometry tables
 go run ./cmd-dev/layout-debug --in case.ipmt --check              # universal invariants, one diagram
+go run ./cmd-dev/layout-debug --stats tests docs ../lab/docs/corpus # structural size per diagram (outlier candidates)
 go run ./cmd-dev/layout-explain --in doc.md --block "heading"     # narrated .md report + SVG
 go run ./cmd-dev/layout-audit                                     # every diagram, HEAD vs workdir
 ```

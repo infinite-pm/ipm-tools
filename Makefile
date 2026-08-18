@@ -1,6 +1,6 @@
 .PHONY: help build test vet sync-test-cases gen-test-md gen-invalid-sidecars update-test-docs \
         refs-rehash layout-test layout-fitness layout-check layout-check-baseline \
-        layout-audit layout-timeline layout-timeline-build layout-timeline-ext \
+        layout-audit layout-audit-ext layout-timeline layout-timeline-build layout-timeline-ext \
         build-rpc build-all build-dev build-notrace
 
 BIN_DIR ?= bin
@@ -20,6 +20,7 @@ help:
 	@echo "  layout-fitness   - Show the fitness score only"
 	@echo "  layout-check     - Ratchet the universal-invariant findings vs the baseline"
 	@echo "  layout-audit     - HTML report: which diagrams a change moved, ranked (OLD=<ref>)"
+	@echo "  layout-audit-ext - the same over the extended corpus (CORPUS=..., outliers skipped)"
 	@echo "  layout-timeline  - HTML report: today's diagrams through each engine in history"
 	@echo "  layout-timeline-build - Phase 1 only: build every engine into the cache, then stop"
 	@echo "  layout-timeline-ext   - Same, over the EXTENDED corpus (sibling repos; needs CORPUS=<file>)"
@@ -117,6 +118,14 @@ AUDIT_PATHS ?= $(CHECK_PATHS) examples docs
 
 layout-audit:
 	@go run ./cmd-dev/layout-audit --old "$(OLD)" --new "$(NEW)" $(AUDIT_PATHS)
+
+# The EXTENDED corpus (sibling checkouts, the lab's SST corpus), its outliers
+# skipped — the same file layout-timeline-ext reads. Run both after an engine
+# change: the default set is small diagrams only.
+layout-audit-ext:
+	@test -f "$(CORPUS)" || { echo "no corpus at $(CORPUS) — write one with:"; \
+	  echo "  go run ./cmd-dev/layout-timeline --corpus-example > $(CORPUS)"; exit 1; }
+	@go run ./cmd-dev/layout-audit --old "$(OLD)" --new "$(NEW)" --corpus "$(CORPUS)"
 
 # When each diagram last moved: a column per engine in history, and TODAY's
 # diagrams run through all of them — so a cell in the grid means the ENGINE

@@ -28,7 +28,7 @@ import (
 func main() {
 	c := cli.RegisterCommon(flag.CommandLine)
 	var table, edges, why, facts, check bool
-	var candidates, verbose bool
+	var candidates, verbose, stats bool
 	var sel string
 	var cf checkFlags
 	flag.BoolVar(&table, "table", false, "print a node position table (id, label, type, x, y, w, h, component; sorted by y then x) instead of layout JSON")
@@ -36,6 +36,7 @@ func main() {
 	flag.BoolVar(&why, "why", false, "print the engine's DECISIONS instead of layout JSON: component membership (v7P1), anchor elections and demotions (v7P7), satellites (v7P5), sub-structure rank rows (v7P3), and every edge's final route with visibility (v7P9) — the narrative companion to --table/--edges")
 	flag.BoolVar(&facts, "facts", false, "print the layout as OBSERVED rule-DSL facts instead of layout JSON — same-y/same-center-x groups, adjacent left-of/right-of/above/below with gaps, per-edge port sides/positions/bends/visibility, crossings; one fact per line, deterministic; the same vocabulary fixture pins use, so canon-vs-actual is a plain diff")
 	flag.BoolVar(&check, "check", false, "print the UNIVERSAL invariant findings (node overlaps, edge-through/grazing a box, crossings, covers, badges, reads-as-paired) instead of layout JSON. With positional <paths…> or --baseline/--write-baseline it becomes the RATCHET: sweep many files, per-file per-category counts, fail only on growth")
+	flag.BoolVar(&stats, "stats", false, "print each diagram's STRUCTURAL SIZE (nodes, edges, kinds, composites, the largest composite's members, the widest fan-in, the biggest part-of hub, the longest leads-to chain, the widest expresses fan, near-to degree, leads-to across composites, nesting depth) — one row per file over positional <paths…>, no layout run; the numbers an outlier list is drawn from")
 	flag.BoolVar(&candidates, "candidates", false, "with --why: include the per-candidate route story (each candidate's crossings/graze/detour breakdown and whether it was chosen)")
 	flag.BoolVar(&verbose, "verbose", false, "with --why: append the raw trace, EVERY engine event on one line — the most verbose level; with --check ratchet: print a line per clean file too")
 	flag.StringVar(&sel, "sel", "", "comma-separated node names (label or alias): limit --why/--facts output to lines mentioning them (--table/--edges always print every row)")
@@ -60,6 +61,12 @@ func main() {
 	paths := flag.Args()
 	if cf.baseline != "" || cf.writeBaseline != "" || cf.sumBaseline != "" || (check && len(paths) > 0) {
 		os.Exit(runCheckRatchet(paths, cf))
+	}
+	if stats {
+		if len(paths) == 0 && c.In != "-" {
+			paths = []string{c.In}
+		}
+		os.Exit(runStats(paths))
 	}
 
 	rep, _, err := cli.LoadReport(c)
