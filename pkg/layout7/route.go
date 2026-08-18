@@ -1233,8 +1233,13 @@ func (g *graph) route() []routed {
 				}
 				return tn.y+tn.h/2 >= fn.y+fn.h/2
 			}
-			if pass && cost == 0 && facing(c.src.Side) {
-				if chosen == i {
+			// ... a candidate that is merely TAXED for its detour (no
+			// crossing, no graze) rescues a GRAZING pick too: the visible
+			// gap (v7P8) outranks the shape tax (the flank lane's square,
+			// level with the port, over its 45° hop skimming a corner)
+			if pass && cross == 0 && graze == 0 && facing(c.src.Side) &&
+				(cost == 0 || chosenGraze > 0) {
+				if chosen == i && cost == 0 {
 					chosenClean = true // the pick already is a clean exit
 				}
 				// a clean-free pick is never overridden — the override
@@ -3475,15 +3480,45 @@ func (g *graph) tieCandidates(e *edge,
 		if ady < 0 {
 			ady = -ady
 		}
+		// ... each lane also as its SQUARE (hops zeroed): the 45° hop is
+		// the nicer exit, but its target-side climb ends one clearance
+		// past the port and skims whatever sits there (kubernetes:
+		// CNCF→Kubernetes's hop over "declarative"'s corner, 70 states);
+		// the square arrives level with the port and, being free where the
+		// hop grazes, rescues it (same bend count)
+		square := func(r routed) routed {
+			if len(r.bends) != 2 {
+				return r
+			}
+			ssx, ssy := point(f, r.src)
+			stx, sty := point(t, r.tgt)
+			b := []layout.Position{r.bends[0], r.bends[1]}
+			if r.src.Side == "left" || r.src.Side == "right" {
+				b[0].Y, b[1].Y = ssy, sty
+			} else {
+				b[0].X, b[1].X = ssx, stx
+			}
+			return routed{src: r.src, tgt: r.tgt, bends: b}
+		}
+		withSquares := func(rs ...routed) []routed {
+			out := make([]routed, 0, 2*len(rs))
+			for _, r := range rs {
+				out = append(out, r)
+				if sq := square(r); sq.bends[0] != r.bends[0] || sq.bends[1] != r.bends[1] {
+					out = append(out, sq)
+				}
+			}
+			return out
+		}
 		if adx >= ady {
-			cands = append(cands, below(), above(),
+			cands = append(cands, withSquares(below(), above(),
 				sideLane("right", right+laneOff(2)),
-				sideLane("left", left-laneOff(3)))
+				sideLane("left", left-laneOff(3)))...)
 		} else {
-			cands = append(cands,
+			cands = append(cands, withSquares(
 				sideLane("right", right+laneOff(2)),
 				sideLane("left", left-laneOff(3)),
-				below(), above())
+				below(), above())...)
 		}
 	}
 	return cands
