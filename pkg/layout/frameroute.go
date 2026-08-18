@@ -268,7 +268,7 @@ func RouteFrameEdges(g *Graph) FrameRouteStats {
 		// else the cheapest clean candidate) and the least-bad fallback the
 		// guards may need. It is a closure so the same evaluation can be
 		// run for the engine's ports and, below, for a re-faced pair.
-		evalEnds := func(seg detourSeg) (chosen [][2]int, cost float64, leastBad [][2]int, leastBadCost float64) {
+		evalEnds := func(seg detourSeg, srcSide, tgtSide string) (chosen [][2]int, cost float64, leastBad [][2]int, leastBadCost float64) {
 			straight := [][2]int{{seg.x1, seg.y1}, {seg.x2, seg.y2}}
 			blocked := pathBlocked(straight, obstacles, e.From, e.To, nb)
 			leastBadCost = 1e18
@@ -286,7 +286,7 @@ func RouteFrameEdges(g *Graph) FrameRouteStats {
 			if blocked || cost > frameBudget {
 				// Look for a clean route. A candidate must be clear (not blocked)
 				// to be considered at all; among clean ones the cheapest wins.
-				cands := frameCandidates(seg, obstacles, e.From, e.To)
+				cands := frameCandidates(seg, obstacles, e.From, e.To, sideOut(srcSide), sideOut(tgtSide))
 				var best [][2]int
 				bestCost := 1e18
 				// Least-bad is only ever USED for an edge the guards force to
@@ -323,7 +323,7 @@ func RouteFrameEdges(g *Graph) FrameRouteStats {
 			return chosen, cost, leastBad, leastBadCost
 		}
 
-		chosen, cost, leastBad, leastBadCost := evalEnds(ends[i])
+		chosen, cost, leastBad, leastBadCost := evalEnds(ends[i], routes[i].Source.Side, routes[i].Target.Side)
 
 		// An edge with a STALE end — a port facing away from its partner,
 		// because the frame moved the boxes after the engine chose the sides
@@ -337,7 +337,7 @@ func RouteFrameEdges(g *Graph) FrameRouteStats {
 		// into a third box the U had cleared. The router knows; the pass did
 		// not.
 		if alt, okAlt := staleEnds(g, byID, routes, i, e); okAlt {
-			c2, k2, lb2, lbk2 := evalEnds(alt.seg)
+			c2, k2, lb2, lbk2 := evalEnds(alt.seg, alt.source.Side, alt.target.Side)
 			if c2 != nil && (chosen == nil || k2 <= cost) {
 				chosen, cost, leastBad, leastBadCost = c2, k2, lb2, lbk2
 				ends[i] = alt.seg
@@ -502,18 +502,42 @@ func hugsOwnBox(pts [][2]int, obstacles []Node, fromID, toID string) bool {
 			continue
 		}
 		l, r, tp, bt := o.X, o.X+o.Width, o.Y, o.Y+o.Height
+		// The arrival/departure is trimmed by PATH distance from THIS box's
+		// port — frameHugRun px along the polyline, across bends — so a
+		// stub of one lane out of the port plus the start of the run beside
+		// the box is one arrival, and a rail along the box always exceeds it.
+		var fromLeft, toLeft int
+		if o.ID == fromID {
+			fromLeft = frameHugRun
+		}
+		if o.ID == toID {
+			toLeft = frameHugRun
+		}
+		// distance from the source port to pts[i], and from pts[i+1] to
+		// the target port, along the path
+		n := len(pts)
+		fromDist := make([]int, n)
+		for i := 1; i < n; i++ {
+			fromDist[i] = fromDist[i-1] + absInt(pts[i][0]-pts[i-1][0]) + absInt(pts[i][1]-pts[i-1][1])
+		}
+		total := fromDist[n-1]
 		for i := 0; i+1 < len(pts); i++ {
 			a, b := pts[i], pts[i+1]
-			// Trim the arrival/departure off the segment that touches the port
-			// of THIS box, so entering it is never a hug.
-			if i == 0 && o.ID == fromID {
-				a = advance(a, b, frameHugRun)
+			if fromLeft > 0 {
+				if left := fromLeft - fromDist[i]; left > 0 {
+					a = advance(a, b, left)
+				}
 			}
-			if i+2 == len(pts) && o.ID == toID {
-				b = advance(b, a, frameHugRun)
+			if toLeft > 0 {
+				if left := toLeft - (total - fromDist[i+1]); left > 0 {
+					b = advance(b, a, left)
+				}
 			}
-			if a == b {
+			if a == b || (a[0] != b[0] && a[1] != b[1]) {
 				continue
+			}
+			if (b[0]-a[0])*(pts[i+1][0]-pts[i][0]) < 0 || (b[1]-a[1])*(pts[i+1][1]-pts[i][1]) < 0 {
+				continue // trims met and crossed: the segment is all arrival
 			}
 			switch {
 			case a[0] == b[0]: // vertical: beside the left or right side?
@@ -763,7 +787,7 @@ func crossNear(a, b [][2]int, boxes []Node, within int) bool {
 // plus LaneSep, so a rail along a box sits at clearance and one lane out from
 // where a neighbour's rail would be, instead of exactly at the old detourClear
 // that the clearance rule now forbids.
-func frameCandidates(s detourSeg, obstacles []Node, fromID, toID string) [][][2]int {
+func frameCandidates(s detourSeg, obstacles []Node, fromID, toID string, srcOut, tgtOut [2]int) [][][2]int {
 	x1, y1, x2, y2 := s.x1, s.y1, s.x2, s.y2
 	blockers := cutBoxes(x1, y1, x2, y2, obstacles, fromID, toID)
 	// Boxes within clearance of the straight count as blockers too: they are
@@ -820,6 +844,33 @@ func frameCandidates(s detourSeg, obstacles []Node, fromID, toID string) [][][2]
 				add([2]int{r, y1}, [2]int{r, y2})
 				add([2]int{x1, t}, [2]int{x2, t})
 				add([2]int{x1, b}, [2]int{x2, b})
+			}
+		}
+	}
+
+	// Port STUBS (v7P8/P9's port claim, the shape the lane pass cannot make):
+	// two edges leaving adjacent slots of one face and turning the same way
+	// run their first segment along their own border on top of each other —
+	// the lane pass never moves a port-touching segment, and no curated
+	// candidate here left the port any other way. So every curated candidate
+	// whose FIRST segment runs along the source's face gets variants that
+	// leave the port by one and two lanes first, then run parallel to the
+	// original; likewise before the target port. The router prices the shared
+	// run (overlapCost), so the stubbed variant wins exactly when the plain
+	// one would lie on an earlier edge. Curated only — the sweep below is
+	// single waypoints, which have no face-parallel first segment to stub.
+	curated := len(out)
+	for _, d := range [2]int{frameLaneSep, 2 * frameLaneSep} {
+		for ci := 0; ci < curated; ci++ {
+			c := out[ci]
+			if len(c) < 3 {
+				continue
+			}
+			if v, ok := stubbedAtSource(c, srcOut, d); ok {
+				out = append(out, v)
+			}
+			if v, ok := stubbedAtTarget(c, tgtOut, d); ok {
+				out = append(out, v)
 			}
 		}
 	}
@@ -1149,4 +1200,67 @@ func pathGrazesWithin(pts [][2]int, o Node, band int) bool {
 		}
 	}
 	return false
+}
+
+// sideOut is the unit vector pointing OUT of a port side; zero for center or
+// unknown (no stubs then).
+func sideOut(side string) [2]int {
+	switch side {
+	case "left":
+		return [2]int{-1, 0}
+	case "right":
+		return [2]int{1, 0}
+	case "top":
+		return [2]int{0, -1}
+	case "bottom":
+		return [2]int{0, 1}
+	}
+	return [2]int{}
+}
+
+// stubbedAtSource returns c with a stub of d px out of the source port before
+// its first segment, when that segment is axis-parallel and runs ALONG the
+// port's face (perpendicular to out) — the case where two departures from
+// one face coincide. The first bend moves with it, so the second segment
+// stays axis-parallel.
+func stubbedAtSource(c [][2]int, out [2]int, d int) ([][2]int, bool) {
+	if out == [2]int{} || len(c) < 3 {
+		return nil, false
+	}
+	a, b := c[0], c[1]
+	dx, dy := b[0]-a[0], b[1]-a[1]
+	if (dx != 0 && dy != 0) || (dx == 0 && dy == 0) {
+		return nil, false // slanted or degenerate
+	}
+	if dx*out[0]+dy*out[1] != 0 {
+		return nil, false // already leaves along the out vector
+	}
+	stub := [2]int{a[0] + d*out[0], a[1] + d*out[1]}
+	moved := [2]int{b[0] + d*out[0], b[1] + d*out[1]}
+	v := make([][2]int, 0, len(c)+1)
+	v = append(v, a, stub, moved)
+	v = append(v, c[2:]...)
+	return v, true
+}
+
+// stubbedAtTarget is stubbedAtSource mirrored at the target port.
+func stubbedAtTarget(c [][2]int, out [2]int, d int) ([][2]int, bool) {
+	if out == [2]int{} || len(c) < 3 {
+		return nil, false
+	}
+	n := len(c)
+	a, b := c[n-2], c[n-1]
+	dx, dy := a[0]-b[0], a[1]-b[1] // from the port back along the last segment
+	if (dx != 0 && dy != 0) || (dx == 0 && dy == 0) {
+		return nil, false
+	}
+	if dx*out[0]+dy*out[1] != 0 {
+		return nil, false
+	}
+	stub := [2]int{b[0] + d*out[0], b[1] + d*out[1]}
+	moved := [2]int{a[0] + d*out[0], a[1] + d*out[1]}
+	v := make([][2]int, 0, n+1)
+	v = append(v, c[:n-2]...)
+	v = append(v, moved, stub, b)
+	return v, true
 }

@@ -111,7 +111,11 @@ separation for interior segments; a budget of 1.0 priced by relation kind, with
 a tie crossing the flow over budget alone; grazes priced in the checker's 8px
 band; hide-as-stub over budget, never a leads-to or a node's last connection,
 which draw the least-bad candidate instead; a tie longer than 3200px hidden
-outright, an engine stub un-hidden only when short and clean). It also owns
+outright, an engine stub un-hidden only when short and clean; every curated
+candidate also in PORT-STUB variants that leave the port by one or two lanes
+before turning, so two departures from adjacent slots of one face do not lie
+on each other along their own border — the shape the lane pass cannot make,
+because a port-touching segment never moves). It also owns
 the one port change the order pass may not make: a **stale end** — a port
 facing away from its partner because the frame moved the boxes after the
 engine chose the sides (A pod stacked over a process, then set beside it: the
