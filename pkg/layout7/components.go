@@ -835,39 +835,157 @@ func (g *graph) assemble() {
 			lc++
 		}
 	}
-	counts := make([]int, lr)
-	for ri := range counts {
-		counts[ri] = nTiles / lr
-		if ri < nTiles%lr {
-			counts[ri]++
+	if haveGroup {
+		// With a PLACED GROUP the ladder's rows read wrong: row 1 ran
+		// right of the group at its top, and row 2 started under the
+		// WHOLE group — on kubernetes a strip of four small components
+		// along the bottom (y 3480) while the flank under row 1's tile
+		// sat empty ("should find better place to respect we aim for
+		// canvas rectangle shape"). Wrap tiles pack in COLUMNS down the
+		// group's right flank instead, reading order preserved (a column
+		// fills top to bottom, the next column to its right) — and the
+		// COLUMN HEIGHT aims the whole canvas at the target rectangle
+		// (v7P2), never blindly at the group's height: bounded by the
+		// group alone, a SHORT group's wrap degenerated into a ribbon
+		// (knowledge: 18240×1900). Every column count is tried; the one
+		// whose canvas is nearest the target aspect wins (the flank
+		// scorer's own measure), height capped at the tallest single
+		// tile when even one column cannot fit the group's height.
+		gMinX := math.MaxInt32
+		for pi := range placedComp {
+			x0, _, _, _ := absBox(pi)
+			gMinX = minInt(gMinX, x0)
 		}
-	}
-	counts[0] -= groupTile
-	type rowState struct{ x, top, height int }
-	row := rowState{x: wrapX, top: wrapTop, height: groupH}
-	idx := 0
-	for ri, cnt := range counts {
-		if ri > 0 {
-			row = rowState{top: row.top + row.height + CompGap}
+		pack := func(maxH int, place bool) (int, int) {
+			colX, colW, y := wrapX, 0, wrapTop
+			W, H := wrapX, wrapTop+groupH
+			for _, t := range tiles {
+				w := t.maxX - t.minX
+				h := t.maxY - t.minY
+				if y > wrapTop && y+h > wrapTop+maxH {
+					colX, colW, y = colX+colW+CompGap, 0, wrapTop
+				}
+				x := colX + CompGap
+				if place {
+					dx, dy := x-t.minX, y-t.minY
+					for _, ci := range t.comps {
+						off := offsets[ci] // a snowflake member's LOCAL offset; a single's zero
+						offsets[ci] = [2]int{off[0] + dx, off[1] + dy}
+						placedComp[ci] = true
+					}
+				}
+				y += h + CompGap
+				if x+w-colX > colW {
+					colW = x + w - colX
+				}
+				W = maxInt(W, colX+colW)
+				H = maxInt(H, y-CompGap)
+			}
+			return W, H
 		}
-		for k := 0; k < cnt && idx < len(tiles); k++ {
-			t := tiles[idx]
-			idx++
-			w := t.maxX - t.minX
+		tallest, total := 0, 0
+		for _, t := range tiles {
 			h := t.maxY - t.minY
-			x := row.x
-			if row.x > 0 {
-				x += CompGap
+			tallest = maxInt(tallest, h)
+			total += h + CompGap
+		}
+		bestH, bestDev := maxInt(groupH, tallest), math.Inf(1)
+		for h := maxInt(groupH, tallest); h <= total+groupH; h += RowPitch {
+			W, H := pack(h, false)
+			if dev := aspectDev(W-gMinX, H-wrapTop); dev < bestDev-1e-9 {
+				bestH, bestDev = h, dev
 			}
-			dx, dy := x-t.minX, row.top-t.minY
-			for _, ci := range t.comps {
-				off := offsets[ci] // a snowflake member's LOCAL offset; a single's zero
-				offsets[ci] = [2]int{off[0] + dx, off[1] + dy}
-				placedComp[ci] = true
+		}
+		// ... against the LADDER's rows-below shape: a WIDE, SHORT group
+		// (CFEngine) squares better with the wrap under it than beside it —
+		// both arrangements are measured, the one nearer the target
+		// rectangle places (rows below = the pre-2026-08-19 shape, kept as
+		// a candidate rather than the rule)
+		ladder := func(place bool) (int, int) {
+			counts := make([]int, lr)
+			for ri := range counts {
+				counts[ri] = nTiles / lr
+				if ri < nTiles%lr {
+					counts[ri]++
+				}
 			}
-			row.x = x + w
-			if h > row.height {
-				row.height = h
+			counts[0] -= groupTile
+			type rowState struct{ x, top, height int }
+			row := rowState{x: wrapX, top: wrapTop, height: groupH}
+			W, H := wrapX, wrapTop+groupH
+			idx := 0
+			for ri, cnt := range counts {
+				if ri > 0 {
+					row = rowState{top: row.top + row.height + CompGap}
+				}
+				for k := 0; k < cnt && idx < len(tiles); k++ {
+					t := tiles[idx]
+					idx++
+					w := t.maxX - t.minX
+					h := t.maxY - t.minY
+					x := row.x
+					if row.x > 0 {
+						x += CompGap
+					}
+					if place {
+						dx, dy := x-t.minX, row.top-t.minY
+						for _, ci := range t.comps {
+							off := offsets[ci]
+							offsets[ci] = [2]int{off[0] + dx, off[1] + dy}
+							placedComp[ci] = true
+						}
+					}
+					row.x = x + w
+					if h > row.height {
+						row.height = h
+					}
+					W = maxInt(W, row.x)
+					H = maxInt(H, row.top+row.height)
+				}
+			}
+			return W, H
+		}
+		lw, lh := ladder(false)
+		if aspectDev(lw-gMinX, lh-wrapTop) < bestDev-1e-9 {
+			ladder(true)
+		} else {
+			pack(bestH, true)
+		}
+	} else {
+		counts := make([]int, lr)
+		for ri := range counts {
+			counts[ri] = nTiles / lr
+			if ri < nTiles%lr {
+				counts[ri]++
+			}
+		}
+		counts[0] -= groupTile
+		type rowState struct{ x, top, height int }
+		row := rowState{x: wrapX, top: wrapTop, height: groupH}
+		idx := 0
+		for ri, cnt := range counts {
+			if ri > 0 {
+				row = rowState{top: row.top + row.height + CompGap}
+			}
+			for k := 0; k < cnt && idx < len(tiles); k++ {
+				t := tiles[idx]
+				idx++
+				w := t.maxX - t.minX
+				h := t.maxY - t.minY
+				x := row.x
+				if row.x > 0 {
+					x += CompGap
+				}
+				dx, dy := x-t.minX, row.top-t.minY
+				for _, ci := range t.comps {
+					off := offsets[ci] // a snowflake member's LOCAL offset; a single's zero
+					offsets[ci] = [2]int{off[0] + dx, off[1] + dy}
+					placedComp[ci] = true
+				}
+				row.x = x + w
+				if h > row.height {
+					row.height = h
+				}
 			}
 		}
 	}
