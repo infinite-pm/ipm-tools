@@ -86,8 +86,8 @@
       "id": "10",
       "type": "event",
       "label": "c1",
-      "x": 1240,
-      "y": 120,
+      "x": 760,
+      "y": 700,
       "width": 120,
       "height": 60
     },
@@ -95,8 +95,8 @@
       "id": "11",
       "type": "event",
       "label": "c2",
-      "x": 1240,
-      "y": 240,
+      "x": 760,
+      "y": 820,
       "width": 120,
       "height": 60
     },
@@ -104,8 +104,8 @@
       "id": "12",
       "type": "event",
       "label": "d1",
-      "x": 1480,
-      "y": 240,
+      "x": 1000,
+      "y": 820,
       "width": 120,
       "height": 60
     },
@@ -203,8 +203,8 @@
       "id": "23",
       "type": "boundary",
       "label": "S",
-      "x": 1280,
-      "y": 40,
+      "x": 800,
+      "y": 620,
       "width": 40,
       "height": 40
     },
@@ -212,8 +212,8 @@
       "id": "24",
       "type": "boundary",
       "label": "E",
-      "x": 1280,
-      "y": 340,
+      "x": 800,
+      "y": 920,
       "width": 40,
       "height": 40
     },
@@ -221,8 +221,8 @@
       "id": "25",
       "type": "boundary",
       "label": "S",
-      "x": 1520,
-      "y": 160,
+      "x": 1040,
+      "y": 740,
       "width": 40,
       "height": 40
     },
@@ -230,8 +230,8 @@
       "id": "26",
       "type": "boundary",
       "label": "E",
-      "x": 1520,
-      "y": 340,
+      "x": 1040,
+      "y": 920,
       "width": 40,
       "height": 40
     }
@@ -631,8 +631,8 @@
   ],
   "meta": {
     "bounds": {
-      "width": 1640,
-      "height": 540,
+      "width": 1160,
+      "height": 1000,
       "marginX": 40,
       "marginY": 40
     },

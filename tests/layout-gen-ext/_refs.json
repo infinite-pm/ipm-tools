@@ -468,7 +468,7 @@
                     "ipm.svg": "210121b6d658e16c572f4fc67d4e0cab3256f730",
                     "ipmt": "702cdac4d51ce1032ef7c333f71f9f89247c8ad5",
                     "json": "db237d9d2fb369c4eb1732485bae333f133e7502",
-                    "layout.json": "459a120f64d26d571f14e29a6eaddaf32037dcda",
+                    "layout.json": "1c5cc22ccfe0301bea21426002be8f7562da2804",
                     "md": "f05f6e2cf43796180cc5996cd4a53b4715f032c3"
                 },
                 "heading": "every tied cluster is its own snowflake, then the rest wraps",
