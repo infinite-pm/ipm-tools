@@ -17,10 +17,11 @@ import (
 // group with the count ladder. Nothing is stamped onto nodes: a component is
 // moved as a whole, its ports and routes are the engine's for this state.
 //
-// This is the "soft anchor" of wip/zoom-frame-routing/design.md in its
-// robust form: the free-choice tiebreaks (ring flank, tile order) were tried
-// first and did not hold — the jumps came from the seed and the hub choices,
-// which move with centrality on every click.
+// This is the "soft anchor" of the shells-in-the-core design (the Options
+// table in docs/dev/layout-gen/layout7-engine.md) in its robust form: the
+// free-choice tiebreaks (ring flank, tile order) were tried first and did
+// not hold — the jumps came from the seed and the hub choices, which move
+// with centrality on every click.
 
 // assembleAnchored returns false when the anchor covers no component; the
 // caller then assembles by centrality as always.

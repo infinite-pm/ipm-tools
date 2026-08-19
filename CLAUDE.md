@@ -70,10 +70,11 @@ catches, and it is where the "snapshot the examples before/after" step below
 now happens automatically. `gl:docs/dev-tools/layout-audit.md`. The default
 set is small diagrams; NDA-scale faults show only in the extended corpus.
 
-The zoom canvas (ipm-drawio) is the engine too — every click-path state is a
-layout7 run with `Options.Shells`/`Options.Anchor`. An engine change that
-touches placement or routing: `make zoom-check` in `../ipm-drawio` (the zoom
-ratchet, `framecheck --corpus --baseline`), and re-render the lab.
+The zoom canvas is the engine too — its consumer lays every click-path state
+out with `Options.Shells`/`Options.Anchor`. After an engine change that
+touches placement or routing, run that consumer's own ratchet (its
+`zoom-check` make target) and re-render its gallery; like the extended
+corpus, it is driven from the repo that owns it.
 
 Then re-render the doc diagrams so a human can review them:
 

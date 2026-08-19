@@ -62,7 +62,7 @@ different repository entirely. A source can therefore carry its own recipe:
 
 ```json
 {
-  "name": "drawio",
+  "name": "extended",
   "repo": "../other-repo",
   "rev": "3d833400",
   "from": "2025-06-01", "until": "2026-06-01",

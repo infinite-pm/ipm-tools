@@ -37,7 +37,7 @@ func TestApplyPortPinsOverridesAnEmittedRoute(t *testing.T) {
 				Source: PortJSON{Side: "right", Position: 0.5},
 				Target: PortJSON{Side: "left", Position: 0.5}},
 			FromPort: &EdgePort{Side: "right", Position: 0.8}}},
-		}
+	}
 	if n := ApplyPortPins(g); n != 1 {
 		t.Fatalf("changed %d ports, want 1", n)
 	}

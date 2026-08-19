@@ -1,7 +1,7 @@
 package main
 
 // --stats: the STRUCTURAL SIZE of a diagram, one line per file — the numbers
-// an outlier list is drawn from (docs/dev/layout-gen/layout-corpus.md): a
+// an outlier list is drawn from (the outliers section of docs/dev-tools/layout-timeline.md): a
 // corpus diagram whose composite has 45 members or whose hub fans onto 14
 // boxes exercises the engine at a scale the fixtures never will, and a
 // metric summed over it is a metric of that one diagram. Sweeps positional
@@ -21,16 +21,16 @@ import (
 
 // diagramStats are the per-diagram size numbers.
 type diagramStats struct {
-	nodes, edges                    int
-	events, things, concepts        int
-	composites                      int // events with ≥1 event member (PartOf event→event)
-	maxMembers                      int // the largest composite's direct member count
-	maxFanIn                        int // most edges into one node (any relation)
-	maxHubPartOf                    int // most PartOf edges into one event (members + things)
-	maxLeadsToChain                 int // longest leads-to chain (edges) among events
-	maxExpressFan, maxNearTo        int // widest expresses fan-out; most near-to at one node
-	crossCompositeLeadsTo           int // leads-to between members of DIFFERENT composites
-	depth                           int // deepest event nesting (PartOf event→event hops)
+	nodes, edges             int
+	events, things, concepts int
+	composites               int // events with ≥1 event member (PartOf event→event)
+	maxMembers               int // the largest composite's direct member count
+	maxFanIn                 int // most edges into one node (any relation)
+	maxHubPartOf             int // most PartOf edges into one event (members + things)
+	maxLeadsToChain          int // longest leads-to chain (edges) among events
+	maxExpressFan, maxNearTo int // widest expresses fan-out; most near-to at one node
+	crossCompositeLeadsTo    int // leads-to between members of DIFFERENT composites
+	depth                    int // deepest event nesting (PartOf event→event hops)
 }
 
 // diagramStatsOf measures the parsed graph.
@@ -55,8 +55,8 @@ func diagramStatsOf(doc *model.IpmGraph) diagramStats {
 	}
 	fanIn := map[int]int{}
 	hubPartOf := map[int]int{}
-	members := map[int]int{}   // composite → direct member count
-	parentOf := map[int]int{}  // member event → composite
+	members := map[int]int{}  // composite → direct member count
+	parentOf := map[int]int{} // member event → composite
 	expressFan := map[int]int{}
 	nearTo := map[int]int{}
 	succ := map[int][]int{}

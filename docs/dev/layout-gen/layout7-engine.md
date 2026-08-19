@@ -135,7 +135,7 @@ re-faced side.
 
 Run them in that order: ports first, so the routes are chosen against the
 corrected endpoints rather than bent around a tangle that is about to be
-untangled. `cmd-dev/framecheck` in ipm-drawio measures the frames of one file
+untangled. The zoom consumer's `framecheck` measures the frames of one file
 against the universal invariants — the number a change to these passes is
 judged by, since the fitness corpora cannot see them.
 

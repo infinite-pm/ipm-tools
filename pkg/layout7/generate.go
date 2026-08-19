@@ -44,7 +44,7 @@ type Options struct {
 	// the engine has a free choice — the order of wrapped tiles, the flank a
 	// tied component rings on when crossings tie — it keeps the arrangement
 	// the anchor had, so two states of one document read the same way
-	// (wip/zoom-frame-routing/design.md: arrangement stability, "a reader
+	// (the shells-in-the-core design's arrangement stability: "a reader
 	// must not be confused by a click"). Positions themselves are still this
 	// layout's; nothing is stamped. Nil: the grammar decides alone.
 	Anchor map[string][2]int

@@ -89,7 +89,7 @@ The engine's ONLY debug surface is `pkg/layout7/trace.go`:
   on that row" had no answer short of reading `place.go`.)
 - `GenerateTraced(doc, t)` — `Generate(doc)` ≡ `GenerateTraced(doc, nil)`;
   `GenerateTracedWithOptions(doc, opts, t)` for the zoom canvas's engine
-  options (`--containers`, `--shells`; and ipm-drawio's `framecheck --anchor-why`
+  options (`--containers`, `--shells`; and the zoom consumer's `framecheck --anchor-why`
   narrates the anchor's exact run, lifted graph included). The
   `tile-candidate` event carries `disp` — how far the flank's slide took
   the tie node from its anchor's row.

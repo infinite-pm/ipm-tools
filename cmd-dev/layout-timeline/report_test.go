@@ -1472,10 +1472,10 @@ func TestAForeignDiagramNamesItsOwnRepository(t *testing.T) {
 		t.Errorf("foreign whole-file described as %q", got)
 	}
 	// And the checkout must be the diagram's own, not the corpus root.
-	if got := cameFrom("consumer-a:README.md#100", "/home/mj/ipm-tools"); got != "consumer-a" {
+	if got := cameFrom("consumer-a:README.md#100", "/repo/ipm-tools"); got != "consumer-a" {
 		t.Errorf("checkout = %q, want the diagram's own repository", got)
 	}
-	if got := cameFrom("docs/x.md#100", "/home/mj/ipm-tools"); got != "/home/mj/ipm-tools" {
+	if got := cameFrom("docs/x.md#100", "/repo/ipm-tools"); got != "/repo/ipm-tools" {
 		t.Errorf("our own diagram's checkout = %q", got)
 	}
 }
