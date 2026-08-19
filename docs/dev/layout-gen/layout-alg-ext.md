@@ -1349,14 +1349,23 @@ fewest crossings (one box beats twenty-five, however cheap the crossing
 count). The externals `x1..x4` each lead to their own member; whatever the
 placement, no member sits on another external's line.
 
+The `x* --> m*` edges are DELIBERATELY the shape the semantic validator
+warns about (IPMV2.8/2.9: a leads-to from outside a container reaching a
+sub-part instead of the whole `eC`) — real imports carry it (CFEngine:
+`editfiles field_edits --> insert_lines`, a member of `edit_line bundle`),
+and this fixture pins that the engine draws warned input well. The members
+themselves are ordered (`m1 --> m2 --> m3 --> m4`), as CFEngine's are, so
+no IPMV2.7 noise obscures the two warnings under test.
+
 ```ipmt
-m1 ::e, m2 ::e, m3 ::e, m4 ::e --::P--> eC ::e
+m1 ::e --> m2 ::e --> m3 ::e --> m4 ::e
+m1, m2, m3, m4 --::P--> eC ::e
 x1 ::e --> m1
 x2 ::e --> m2
 x3 ::e --> m3
 x4 ::e --> m4
 ```
-<!-- ipm-svg id=1j0 hash=b51740ba -->
+<!-- ipm-svg id=1j0 hash=e77bf3f9 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1j0.ipm.svg)
 
 ```ipmdev-layout-rule
