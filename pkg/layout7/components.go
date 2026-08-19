@@ -269,6 +269,9 @@ func (g *graph) assemble() {
 			}
 			// members already on this side: slide along it until JUST
 			// clear — grid steps, so a stack lands at one component gap
+			// (one-way, down/right: ring stacking depends on it — a
+			// centre-out slide was tried 2026-08-19 and broke the onion's
+			// second row while churning 25 corpus diagrams)
 			for guard := 0; guard < 512; guard++ {
 				x0, y0 := c.minX+offX, c.minY+offY
 				if !overlapsPlaced(x0, y0, x0+w, y0+h, hub, standOff-GridStep/2) {
@@ -319,6 +322,7 @@ func (g *graph) assemble() {
 		}
 		bestSide, bestOffX, bestOffY := -1, 0, 0
 		bestCross, bestDev := 1<<30, math.Inf(1)
+		bestDisp := 1 << 30
 		for _, side := range []int{nearest, 1 - nearest, vertNear, 5 - vertNear} {
 			offX, offY := resolveSide(side)
 			// the tie line vs the hub's boxes (anchor excluded). The
@@ -354,7 +358,9 @@ func (g *graph) assemble() {
 				// tie that must cross another tie to reach its anchor is
 				// what the "fewer tie crossings" priority is FOR.
 				for _, e := range g.edges {
-					if e.structural || e.rel == RelLeadsTo {
+					flow := e.rel == RelLeadsTo &&
+						g.nodes[e.from].kind == KindEvent && g.nodes[e.to].kind == KindEvent
+					if (e.structural || e.rel == RelLeadsTo) && !flow {
 						continue
 					}
 					a, b := g.nodes[e.from], g.nodes[e.to]
@@ -370,6 +376,16 @@ func (g *graph) assemble() {
 					ao, bo := offsets[a.comp], offsets[b.comp]
 					q0 := [2]int{a.x + a.w/2 + ao[0], a.y + a.h/2 + ao[1]}
 					q1 := [2]int{b.x + b.w/2 + bo[0], b.y + b.h/2 + bo[1]}
+					if flow {
+						// the hub's FLOW CORRIDOR, S/E stubs included, at its
+						// port line (bottom centre → top centre): a near flank
+						// whose tie must slice the timeline is no bargain —
+						// the router prices that cut above everything, and the
+						// disp band choosing such a spot traded music's
+						// adjacency for 524 corridor crossings
+						q0 = [2]int{a.x + a.w/2 + ao[0], a.y + a.h + ao[1]}
+						q1 = [2]int{b.x + b.w/2 + bo[0], b.y + bo[1]}
+					}
 					if segsCross(p0, p1, q0, q1) {
 						n2++
 					}
@@ -420,30 +436,45 @@ func (g *graph) assemble() {
 					"cross": cross, "aspectDev": dev, "offX": offX, "offY": offY, "disp": disp,
 				}})
 			}
-			// (A tiebreak on disp when the aspects are within 0.02 was tried
-			// 2026-08-18 and dropped: it flips D and F in the onion fixture,
-			// and the changed early rings cascade — kubernetes' anchor then
-			// sent comp 12 LEFT with a 940px slide instead of right with 420.
-			// The priority stays crossings, aspect, nearest side; disp is
-			// reported so the slide is visible in --why -v.)
 			// crossings first; then the anchor's flank (arrangement stability
-			// across the states of one document); then aspect; then the
-			// nearest side (evaluation order)
+			// across the states of one document); then NEAR over FAR: a
+			// flank whose slide keeps the tie node within four row pitches
+			// of its anchor still reads as "beside it" — one that slides it
+			// 800px reads as unrelated (kubernetes: `cluster --expresses-->
+			// control plane` went LEFT of the hub, 820px below its anchor,
+			// over RIGHT at 40px, because left's aspect was 0.014 better;
+			// the user: "cluster can be left to control plane", i.e. BESIDE
+			// it); then aspect; then the nearest side (evaluation order).
+			// Exactly TWO bands, not a graded disp: the onion's ratified
+			// ring keeps D's 340px diagonal and E's 460px descent over the
+			// disp-0 spots
+			// (that spot is F's, placed later) — a raw disp tiebreak was
+			// tried 2026-08-18 and dropped for exactly that flip; within
+			// "near", aspect and the grid rule as before.
+			bandOf := func(d int) int {
+				if d <= 4*RowPitch {
+					return 0
+				}
+				return 1
+			}
 			better := cross < bestCross
-			if !better && cross == bestCross && anchorSide >= 0 {
-				if side == anchorSide && bestSide != anchorSide {
-					better = true
-				} else if side != anchorSide && bestSide == anchorSide {
-					better = false
+			if !better && cross == bestCross && anchorSide >= 0 &&
+				(side == anchorSide) != (bestSide == anchorSide) {
+				better = side == anchorSide
+			} else if !better && cross == bestCross {
+				// the band never PROMOTES the handicapped top flank (its
+				// equal cross is the +1 reading-direction handicap, not a
+				// real tangle — "wins only on strictly fewer crossings"):
+				// a top contest falls through to aspect as before
+				if side != 2 && bestSide != 2 && bandOf(disp) != bandOf(bestDisp) {
+					better = bandOf(disp) < bandOf(bestDisp)
 				} else {
 					better = dev < bestDev-1e-9
 				}
-			} else if !better && cross == bestCross {
-				better = dev < bestDev-1e-9
 			}
 			if better {
 				bestSide, bestOffX, bestOffY = side, offX, offY
-				bestCross, bestDev = cross, dev
+				bestCross, bestDev, bestDisp = cross, dev, disp
 			}
 		}
 		if g.tracing() {
