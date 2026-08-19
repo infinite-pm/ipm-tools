@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-ext.md",
-        "source_sha1": "4c77633376bae0feb5ca25c6cfc56c1c0544b19f",
+        "source_sha1": "a1069ec83cf930e72295992acea88d22f6aed935",
         "name": "ipmt layout algorithm extensions",
         "method": "parser",
         "parser_name": "ipmt-md",
@@ -491,22 +491,22 @@
             },
             {
                 "destination": "a-leads-to-into-a-sub-grid-member-bends-around-the-members-above",
-                "line": 1353,
+                "line": 1361,
                 "anchor": "#a-leads-to-into-a-sub-grid-member-bends-around-the-members-above",
-                "content_sha1": "8a238f4715f635629fecd3d96f102c52a327ea5d",
+                "content_sha1": "84849c8177d07cc1a1a3fdcf02e96b1c9a46a59e",
                 "outputs": {
-                    "ipm.svg": "4cff4a40789777c14aa884189799ae9b795f4b23",
-                    "ipmt": "8a238f4715f635629fecd3d96f102c52a327ea5d",
-                    "json": "352d59236f0fc5d6345d57ca1da7acdf083bbfcb",
-                    "layout.json": "355b1527e32651134eb52240133c0bbabbc0579a",
-                    "md": "6c8aa271cd9f2414bd7d318b8d9416be00affe99"
+                    "ipm.svg": "0cb602697b9bbd8c72ab2e56b9a5867b4ab77e8b",
+                    "ipmt": "84849c8177d07cc1a1a3fdcf02e96b1c9a46a59e",
+                    "json": "6c92c1979f74ce0b5f94a1070708a700ddc82b29",
+                    "layout.json": "b4552cf45710f301e8f840165662989c72c7320d",
+                    "md": "eb081a55e8bb228f08f7802d64000db2d6ccc1cb"
                 },
                 "heading": "a leads-to into a sub-grid member bends around the members above",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "successive-composites-keep-their-grids-one-row-gap-apart",
-                "line": 1390,
+                "line": 1399,
                 "anchor": "#successive-composites-keep-their-grids-one-row-gap-apart",
                 "content_sha1": "af078085b73e116c7e11751c67bd65dfae9e91cc",
                 "outputs": {
@@ -514,14 +514,14 @@
                     "ipmt": "af078085b73e116c7e11751c67bd65dfae9e91cc",
                     "json": "a9f41fde20a4042aae5a4a58da017c3b4f902fb4",
                     "layout.json": "9662288ec41c99c5d10f85fbd1a77a1fef010a23",
-                    "md": "9ed5435def9feae05e13c5e22bedef55de6b9e75"
+                    "md": "ca0e65ec72eedd548e91b48d5dbef81d8ee04cf6"
                 },
                 "heading": "successive composites keep their grids one row gap apart",
                 "section": "v7 acceptance targets"
             },
             {
                 "destination": "a-concept-fan-stays-whole-beside-a-successors-grid",
-                "line": 1424,
+                "line": 1433,
                 "anchor": "#a-concept-fan-stays-whole-beside-a-successors-grid",
                 "content_sha1": "c4930282b25817b6466525c74b212b15cf9a42f1",
                 "outputs": {
@@ -529,7 +529,7 @@
                     "ipmt": "c4930282b25817b6466525c74b212b15cf9a42f1",
                     "json": "4a3d90406e2903c1746138195404419280326dfd",
                     "layout.json": "6a49f3c8ed0e77b21b9cd983fc80e6a517bc484b",
-                    "md": "8d92518724279dfcd3779bd01a90d8fe4e577c38"
+                    "md": "3862ff9cd2e21e5ea0f6ceca6adc58f188f5cb4b"
                 },
                 "heading": "a concept fan stays whole beside a successor's grid",
                 "section": "v7 acceptance targets"

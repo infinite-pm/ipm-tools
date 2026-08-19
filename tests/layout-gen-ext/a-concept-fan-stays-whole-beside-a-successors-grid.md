@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L1424-L1428 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-concept-fan-stays-whole-beside-a-successors-grid)
+**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L1433-L1437 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-concept-fan-stays-whole-beside-a-successors-grid)
 
 ## ipmt Content
 

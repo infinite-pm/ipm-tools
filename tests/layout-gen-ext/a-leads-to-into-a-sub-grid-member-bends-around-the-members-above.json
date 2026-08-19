@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "m1 ::e, m2 ::e, m3 ::e, m4 ::e --::P--\u003e eC ::e\nx1 ::e --\u003e m1\nx2 ::e --\u003e m2\nx3 ::e --\u003e m3\nx4 ::e --\u003e m4",
+    "ipmt": "m1 ::e --\u003e m2 ::e --\u003e m3 ::e --\u003e m4 ::e\nm1, m2, m3, m4 --::P--\u003e eC ::e\nx1 ::e --\u003e m1\nx2 ::e --\u003e m2\nx3 ::e --\u003e m3\nx4 ::e --\u003e m4",
     "positions": {
       "nodes": {
         "1": [
@@ -10,149 +10,191 @@
           2
         ],
         "2": [
-          8,
-          10
+          11,
+          13
         ],
         "3": [
-          16,
-          18
+          22,
+          24
         ],
         "4": [
-          24,
-          26
+          33,
+          35
         ],
         "5": [
-          40,
-          42
+          64,
+          66
         ],
         "6": [
-          47,
-          49
+          71,
+          73
         ],
         "7": [
-          61,
-          63
+          85,
+          87
         ],
         "8": [
-          75,
-          77
+          99,
+          101
         ],
         "9": [
-          89,
-          91
+          113,
+          115
         ]
       },
       "edges": {
         "10": {
           "arrow": [
-            30,
-            40
+            6,
+            11
           ],
           "source": [
             0,
             2
           ],
           "target": [
-            40,
-            42
+            11,
+            13
           ]
         },
         "11": {
           "arrow": [
-            30,
-            40
+            17,
+            22
           ],
           "source": [
-            8,
-            10
+            11,
+            13
           ],
           "target": [
-            40,
-            42
+            22,
+            24
           ]
         },
         "12": {
           "arrow": [
-            30,
-            40
+            28,
+            33
           ],
           "source": [
-            16,
-            18
+            22,
+            24
           ],
           "target": [
-            40,
-            42
+            33,
+            35
           ]
         },
         "13": {
           "arrow": [
-            30,
-            40
+            54,
+            64
           ],
           "source": [
-            24,
-            26
-          ],
-          "target": [
             40,
             42
+          ],
+          "target": [
+            64,
+            66
           ]
         },
         "14": {
           "arrow": [
-            53,
-            58
+            54,
+            64
           ],
           "source": [
-            47,
-            49
+            44,
+            46
           ],
           "target": [
-            58,
-            60
+            64,
+            66
           ]
         },
         "15": {
           "arrow": [
-            67,
-            72
+            54,
+            64
           ],
           "source": [
-            61,
-            63
+            48,
+            50
           ],
           "target": [
-            72,
-            74
+            64,
+            66
           ]
         },
         "16": {
           "arrow": [
-            81,
-            86
+            54,
+            64
           ],
           "source": [
-            75,
-            77
+            52,
+            54
           ],
           "target": [
-            86,
-            88
+            64,
+            66
           ]
         },
         "17": {
           "arrow": [
-            95,
-            100
+            77,
+            82
           ],
           "source": [
-            89,
-            91
+            71,
+            73
           ],
           "target": [
-            100,
-            102
+            82,
+            84
+          ]
+        },
+        "18": {
+          "arrow": [
+            91,
+            96
+          ],
+          "source": [
+            85,
+            87
+          ],
+          "target": [
+            96,
+            98
+          ]
+        },
+        "19": {
+          "arrow": [
+            105,
+            110
+          ],
+          "source": [
+            99,
+            101
+          ],
+          "target": [
+            110,
+            112
+          ]
+        },
+        "20": {
+          "arrow": [
+            119,
+            124
+          ],
+          "source": [
+            113,
+            115
+          ],
+          "target": [
+            124,
+            126
           ]
         }
       }
@@ -218,33 +260,33 @@
     {
       "id": 10,
       "source": 1,
-      "target": 5,
+      "target": 2,
       "dir": "DirFwd",
       "tooltip": "",
-      "sstLinkType": "PartOf",
+      "sstLinkType": "LeadsTo",
       "semOrigin": "SemInferred"
     },
     {
       "id": 11,
       "source": 2,
-      "target": 5,
+      "target": 3,
       "dir": "DirFwd",
       "tooltip": "",
-      "sstLinkType": "PartOf",
+      "sstLinkType": "LeadsTo",
       "semOrigin": "SemInferred"
     },
     {
       "id": 12,
       "source": 3,
-      "target": 5,
+      "target": 4,
       "dir": "DirFwd",
       "tooltip": "",
-      "sstLinkType": "PartOf",
+      "sstLinkType": "LeadsTo",
       "semOrigin": "SemInferred"
     },
     {
       "id": 13,
-      "source": 4,
+      "source": 1,
       "target": 5,
       "dir": "DirFwd",
       "tooltip": "",
@@ -253,6 +295,33 @@
     },
     {
       "id": 14,
+      "source": 2,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 15,
+      "source": 3,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 16,
+      "source": 4,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 17,
       "source": 6,
       "target": 1,
       "dir": "DirFwd",
@@ -261,7 +330,7 @@
       "semOrigin": "SemInferred"
     },
     {
-      "id": 15,
+      "id": 18,
       "source": 7,
       "target": 2,
       "dir": "DirFwd",
@@ -270,7 +339,7 @@
       "semOrigin": "SemInferred"
     },
     {
-      "id": 16,
+      "id": 19,
       "source": 8,
       "target": 3,
       "dir": "DirFwd",
@@ -279,7 +348,7 @@
       "semOrigin": "SemInferred"
     },
     {
-      "id": 17,
+      "id": 20,
       "source": 9,
       "target": 4,
       "dir": "DirFwd",

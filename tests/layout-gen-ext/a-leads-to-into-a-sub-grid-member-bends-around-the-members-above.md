@@ -6,12 +6,13 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L1353-L1358 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-leads-to-into-a-sub-grid-member-bends-around-the-members-above)
+**Source:** gl:docs/dev/layout-gen/layout-alg-ext.md#L1361-L1367 | [docs/dev/layout-gen/layout-alg-ext.md](../../docs/dev/layout-gen/layout-alg-ext.md#a-leads-to-into-a-sub-grid-member-bends-around-the-members-above)
 
 ## ipmt Content
 
 ```ipmt
-m1 ::e, m2 ::e, m3 ::e, m4 ::e --::P--> eC ::e
+m1 ::e --> m2 ::e --> m3 ::e --> m4 ::e
+m1, m2, m3, m4 --::P--> eC ::e
 x1 ::e --> m1
 x2 ::e --> m2
 x3 ::e --> m3
