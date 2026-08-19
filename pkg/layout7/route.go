@@ -693,9 +693,29 @@ func (g *graph) route() []routed {
 				for k := 1; k <= 10; k++ { // up to ten grid steps aside: past a box and its gap
 					lanes = append(lanes, -k*GridStep, k*GridStep)
 				}
+				// ... but a lane never OVERSHOOTS: with real horizontal
+				// travel, a lane past the far end makes the last leg
+				// REVERSE direction — S→e9 in the late-side-branch-merge
+				// fixture bent 180px past e9's column and came back, a
+				// zigzag where the direct early turn merely grazed a box
+				// (found by eye in the layout-timeline report, 2026-08-19;
+				// the fallback below keeps the graze — hitsNode still
+				// rejects true hits). With no real travel (the brains
+				// case that motivated the lanes: a box directly beneath
+				// the port) both flanks stay open.
+				travel := tx - sx
+				overshoots := func(lx int) bool {
+					if absInt(travel) <= Clearance {
+						return false
+					}
+					return (lx-tx)*travel > 0
+				}
 				for _, dx := range lanes {
 					if g.nodes[e.to].boundary {
 						lx := sx + dx
+						if overshoots(lx) {
+							continue
+						}
 						for y := sy + GridStep; y < ty-BoundaryGap; y += GridStep {
 							if clear([][2]int{{sx, sy}, {lx, y}, {tx, ty}}) {
 								bend, found = layout.Position{X: lx, Y: y}, true
@@ -704,6 +724,9 @@ func (g *graph) route() []routed {
 						}
 					} else {
 						lx := tx + dx
+						if overshoots(lx) {
+							continue
+						}
 						for y := ty - GridStep; y > sy+BoundaryGap; y -= GridStep {
 							if clear([][2]int{{sx, sy}, {lx, y}, {tx, ty}}) {
 								bend, found = layout.Position{X: lx, Y: y}, true
