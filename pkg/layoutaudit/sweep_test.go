@@ -143,22 +143,22 @@ func TestAnExternalFileIsReadAgainstItsOwnRepository(t *testing.T) {
 }
 
 // A diagram from another repository is named "repo:path" — the path THAT
-// repository uses. Not "../ipm-drawio/docs/x.md", which is only meaningful
+// repository uses. Not "../<other>/docs/x.md", which is only meaningful
 // from one directory and is not the directory anyone opens the file in; and
 // not an absolute path, which puts the whole machine into every id, page name
 // and report row.
 func TestExternalDiagramsAreNamedByTheirRepository(t *testing.T) {
 	base := t.TempDir()
 	ours := filepath.Join(base, "ours")
-	theirs := filepath.Join(base, "ipm-drawio")
-	for _, d := range []string{ours, filepath.Join(theirs, ".git"), filepath.Join(theirs, "docs/mj-ex")} {
+	theirs := filepath.Join(base, "other-repo")
+	for _, d := range []string{ours, filepath.Join(theirs, ".git"), filepath.Join(theirs, "docs")} {
 		if err := os.MkdirAll(d, 0o755); err != nil {
 			t.Fatal(err)
 		}
 	}
-	got := relTo(ours, filepath.Join(theirs, "docs/mj-ex/wip-notes.md"))
-	if got != "ipm-drawio:docs/mj-ex/wip-notes.md" {
-		t.Errorf("external id = %q, want ipm-drawio:docs/mj-ex/wip-notes.md", got)
+	got := relTo(ours, filepath.Join(theirs, "docs/notes.md"))
+	if got != "other-repo:docs/notes.md" {
+		t.Errorf("external id = %q, want other-repo:docs/notes.md", got)
 	}
 	if got := relTo(ours, filepath.Join(ours, "docs/x.md")); got != "docs/x.md" {
 		t.Errorf("local id = %q, want docs/x.md — no repo prefix for our own", got)
@@ -174,15 +174,15 @@ func TestExternalDiagramsAreNamedByTheirRepository(t *testing.T) {
 // working in that repository.
 func TestRepoRelativeUsesTheFilesOwnRepository(t *testing.T) {
 	base := t.TempDir()
-	repo := filepath.Join(base, "ipm-drawio")
+	repo := filepath.Join(base, "other-repo")
 	if err := os.MkdirAll(filepath.Join(repo, ".git"), 0o755); err != nil {
 		t.Fatal(err)
 	}
-	if err := os.MkdirAll(filepath.Join(repo, "docs/mj-ex"), 0o755); err != nil {
+	if err := os.MkdirAll(filepath.Join(repo, "docs"), 0o755); err != nil {
 		t.Fatal(err)
 	}
-	if got := RepoRelative(filepath.Join(repo, "docs/mj-ex/wip-notes.md")); got != "docs/mj-ex/wip-notes.md" {
-		t.Errorf("location = %q, want docs/mj-ex/wip-notes.md", got)
+	if got := RepoRelative(filepath.Join(repo, "docs/notes.md")); got != "docs/notes.md" {
+		t.Errorf("location = %q, want docs/notes.md", got)
 	}
 	if got := RepoRootOf(filepath.Join(base, "nowhere/x.md")); got != "" {
 		t.Errorf("found a repository where there is none: %q", got)

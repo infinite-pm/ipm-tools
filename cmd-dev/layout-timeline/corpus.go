@@ -1,7 +1,7 @@
 package main
 
 // Which diagrams the report sweeps: the corpus file, shared with layout-audit
-// and ipm-drawio's framecheck — see pkg/layoutaudit/corpus.go for the schema
+// and the lab's framecheck — see pkg/layoutaudit/corpus.go for the schema
 // (paths, zoom bundle dirs, and the OUTLIERS every sweep skips) and why it is
 // a file rather than a flag.
 

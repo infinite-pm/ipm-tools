@@ -63,7 +63,7 @@ different repository entirely. A source can therefore carry its own recipe:
 ```json
 {
   "name": "drawio",
-  "repo": "../ipm-drawio",
+  "repo": "../other-repo",
   "rev": "3d833400",
   "from": "2025-06-01", "until": "2026-06-01",
   "enginePaths": ["pkg/layout", "pkg/layoutpasses", "cmd/layout-gen"],
@@ -146,13 +146,12 @@ So which diagrams to sweep is a FILE, not a flag — and there are two:
 | | corpus | report | committed? |
 |---|---|---|---|
 | **base** | this repo's defaults (`tests/layout-gen`, `tests/layout-gen-ext`, `examples`, `docs`) | `temp/layout-timeline/` | yes, it ships |
-| **extended** | the above plus `../ipm-overview`, `../ipm-graphs-mj41`, `../ipm-intro`, `../ipm-k8s-case`, `../ipm-projs`, `../ipm-drawio/docs` | wherever the corpus file says | no — the file lives outside this repo |
+| **extended** | the above plus whatever other checkouts the corpus names | wherever the corpus file says | no — the file lives outside this repo, and is driven from there |
 
 ```bash
-make layout-timeline                     # base:     this repo only
-make layout-timeline-ext                 # extended: + ~160 diagrams from six siblings
-go run ./cmd-dev/layout-timeline --corpus ../ipm-drawio/layout-corpus.json
-go run ./cmd-dev/layout-timeline --corpus-example > ../ipm-drawio/layout-corpus.json
+make layout-timeline                     # base: this repo only
+go run ./cmd-dev/layout-timeline --corpus <path>/layout-corpus.json
+go run ./cmd-dev/layout-timeline --corpus-example > <path>/layout-corpus.json
 ```
 
 The corpus file:
@@ -162,25 +161,25 @@ The corpus file:
   "name": "extended",
   "out": "temp/layout-timeline",
   "paths": ["tests/layout-gen", "examples", "docs",
-            "../ipm-overview", "../ipm-graphs-mj41", "../ipm-drawio/docs"],
-  "zoom": ["../infinite-pm-lab/docs/260606-sstcorpus"],
+            "../consumer-a", "../consumer-b/docs"],
+  "zoom": ["../consumer-b/docs/zoom-corpus"],
   "outliers": [{"glob": "NDA*.ipmt", "why": "45-member grids, a 60-edge hub"}]
 }
 ```
 
 - **`paths`** resolve against the DIAGRAM ROOT (`--sources`, default `--repo`),
   so a sibling checkout is `../name`. A diagram from one is NAMED by its
-  repository, not by the path from here: `ipm-drawio:docs/mj-ex/wip-notes.md#1a0`,
+  repository, not by the path from here: `other-repo:docs/notes.md#1a0`,
   and its 🗎 location copies as `docs/mj-ex/wip-notes.md:127`. A `../` path is
   only meaningful from one directory and it is not the directory anyone opens
   the file in; an absolute path would put the whole machine into every id, page
   name and row. The repo name plus that repo's own path is true from anywhere.
 - **`out`** resolves against THE CORPUS FILE'S OWN directory, so a corpus kept
-  in `ipm-drawio` writes its report into `ipm-drawio` from wherever the tool is
+  in `other-repo` writes its report into `other-repo` from wherever the tool is
   invoked. The two runs therefore cannot overwrite each other. An explicit
   `--out` still wins.
 - **`outliers`** (optional) name diagrams EVERY sweep — this tool,
-  `layout-audit --corpus`, ipm-drawio's `framecheck --corpus` — leaves out,
+  `layout-audit --corpus`, other-repo's `framecheck --corpus` — leaves out,
   each a glob on the base name or the relative path (one glob covers the
   `.nodefaults`/`.sst` lanes of a document too) with `why`. A diagram whose
   structural size is far outside the rest (`layout-debug --stats`; the rule of
@@ -192,7 +191,7 @@ The corpus file:
   corpora. Our extended corpus lists `NDA*.ipmt` (45-member grids where the
   next has 4, a 60-edge hub where the next has 6).
 - **`zoom`** (optional) lists directories of zoom bundles (`X.ipmt` beside an
-  `X.zoom.html`) for ipm-drawio's `framecheck --corpus` sweep of the click-path
+  `X.zoom.html`) for other-repo's `framecheck --corpus` sweep of the click-path
   pipelines; this tool ignores it.
 - Positional arguments override the file's paths: a one-off sweep needs no
   config (the outliers still apply when the file is read).
@@ -644,7 +643,7 @@ passes — `OrderSharedPorts`, `RouteFrameEdges`, `DetourBlockedEdges` — are *
 from the engine** (`gl:docs/dev/layout-gen/layout7-engine.md`), so a change
 confined to them cannot move a single diagram here however large it is. A real
 example from this repository: `372f0a8` rewrote pin/detour handling and moved
-**zero** of 311 diagrams, while its own measurements over ipm-drawio's zoom
+**zero** of 311 diagrams, while its own measurements over other-repo's zoom
 corpus showed crossings 44,442 → 21,247.
 
 So a column that reports engine commits and no diagram change says so

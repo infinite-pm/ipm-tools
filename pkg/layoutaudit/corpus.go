@@ -17,7 +17,7 @@ package layoutaudit
 // scale no real story does, and a metric summed over the corpus becomes a
 // metric of that one diagram — one that rewards whatever makes ITS picture
 // less bad. Such a diagram is listed under "outliers" with the reason; every
-// sweep (layout-audit, layout-timeline, ipm-drawio's framecheck) skips it and
+// sweep (layout-audit, layout-timeline, the lab's framecheck) skips it and
 // says so. Moderate cases built from its shapes belong in the fixture corpora
 // instead. The rule of thumb for the list: a size number more than three
 // times the next-highest in the corpus.
@@ -41,12 +41,12 @@ type Corpus struct {
 	// Paths are what to sweep, relative to the diagram root (or absolute).
 	Paths []string `json:"paths"`
 	// Zoom are directories of zoom BUNDLES — every `X.ipmt` beside an
-	// `X.zoom.html` — for the click-path sweeps (ipm-drawio framecheck).
+	// `X.zoom.html` — for the click-path sweeps (the lab's framecheck).
 	Zoom []string `json:"zoom,omitempty"`
 	// Outliers are diagrams every sweep skips, each with its reason.
 	Outliers []Outlier `json:"outliers,omitempty"`
 	// Out is where the report is written, relative to THIS FILE — so a corpus
-	// kept in ipm-drawio writes into ipm-drawio without naming a machine.
+	// kept in another checkout writes into that checkout without naming a machine.
 	Out string `json:"out,omitempty"`
 
 	dir string // the config's own directory
@@ -73,12 +73,12 @@ const CorpusExample = `{
     "tests/layout-gen-ext",
     "examples",
     "docs",
-    "../ipm-overview",
-    "../ipm-graphs-mj41",
-    "../ipm-drawio/docs"
+    "../consumer-a",
+    "../consumer-b",
+    "../<other-checkout>/docs"
   ],
   "zoom": [
-    "../infinite-pm-lab/docs/260606-sstcorpus"
+    "../consumer-b/docs/zoom-corpus"
   ],
   "outliers": [
     {"glob": "NDA*.ipmt", "why": "45-member grids of tall clauses, a hub with 60 part-of edges, a 183-step chain: a contract, not a story"}
@@ -128,7 +128,7 @@ func (c *Corpus) Dir() string {
 }
 
 // OutDir is where this corpus's report belongs, resolved against the config's
-// own directory. A corpus kept in ipm-drawio therefore writes into ipm-drawio
+// own directory. A corpus kept in another checkout therefore writes into other-repo
 // whatever directory the tool was invoked from.
 func (c *Corpus) OutDir(fallback string) string {
 	if c == nil || c.Out == "" {

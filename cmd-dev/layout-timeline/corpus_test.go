@@ -14,7 +14,7 @@ func TestCorpusReportLandsBesideItsConfig(t *testing.T) {
 	path := filepath.Join(dir, DefaultCorpusName)
 	if err := os.WriteFile(path, []byte(`{
 	  "name": "extended", "out": "temp/layout-timeline",
-	  "paths": ["docs", "../ipm-overview"]
+	  "paths": ["docs", "../consumer-a"]
 	}`), 0o644); err != nil {
 		t.Fatal(err)
 	}
@@ -25,7 +25,7 @@ func TestCorpusReportLandsBesideItsConfig(t *testing.T) {
 	if got, want := c.OutDir("/elsewhere"), filepath.Join(dir, "temp/layout-timeline"); got != want {
 		t.Errorf("report goes to %s, want %s — beside the corpus, not the caller", got, want)
 	}
-	if len(c.Paths) != 2 || c.Paths[1] != "../ipm-overview" {
+	if len(c.Paths) != 2 || c.Paths[1] != "../consumer-a" {
 		t.Errorf("paths = %v", c.Paths)
 	}
 	if !filepath.IsAbs(c.OutDir("")) {

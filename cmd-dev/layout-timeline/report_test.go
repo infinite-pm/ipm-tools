@@ -1453,26 +1453,26 @@ func TestOrphanedPanesArePruned(t *testing.T) {
 }
 
 // A foreign diagram's identity has two parts and they must be said separately.
-// "block 100 of ipm-overview:README.md" reads as a path with a colon in it,
+// "block 100 of consumer-a:README.md" reads as a path with a colon in it,
 // and naming the corpus root as where it "came from" sends a reader to the
 // wrong tree entirely.
 func TestAForeignDiagramNamesItsOwnRepository(t *testing.T) {
-	got := whichDiagram("ipm-overview:README.md#100")
-	if !strings.Contains(got, "block `100` of `README.md` in `ipm-overview`") {
+	got := whichDiagram("consumer-a:README.md#100")
+	if !strings.Contains(got, "block `100` of `README.md` in `consumer-a`") {
 		t.Errorf("foreign block described as %q", got)
 	}
-	if strings.Contains(got, "of `ipm-overview:README.md`") {
+	if strings.Contains(got, "of `consumer-a:README.md`") {
 		t.Error("the repo prefix is still glued to the file name")
 	}
 	if got := whichDiagram("docs/x.md#100"); !strings.Contains(got, "of `docs/x.md`") ||
 		strings.Contains(got, " in `") {
 		t.Errorf("our own block gained a repository it does not need: %q", got)
 	}
-	if got := whichDiagram("ipm-drawio:examples/two.ipmt"); !strings.Contains(got, "whole .ipmt file in `ipm-drawio`") {
+	if got := whichDiagram("other-repo:examples/two.ipmt"); !strings.Contains(got, "whole .ipmt file in `other-repo`") {
 		t.Errorf("foreign whole-file described as %q", got)
 	}
 	// And the checkout must be the diagram's own, not the corpus root.
-	if got := cameFrom("ipm-overview:README.md#100", "/home/mj/ipm-tools"); got != "ipm-overview" {
+	if got := cameFrom("consumer-a:README.md#100", "/home/mj/ipm-tools"); got != "consumer-a" {
 		t.Errorf("checkout = %q, want the diagram's own repository", got)
 	}
 	if got := cameFrom("docs/x.md#100", "/home/mj/ipm-tools"); got != "/home/mj/ipm-tools" {

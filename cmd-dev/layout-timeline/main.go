@@ -787,7 +787,7 @@ func sourceLocations(diagrams []layoutaudit.Diagram) map[string]string {
 	out := make(map[string]string, len(diagrams))
 	for _, d := range diagrams {
 		// Relative to the file's OWN repository, not to the corpus root: a
-		// sibling diagram is "../ipm-drawio/docs/x.md" as an identity and
+		// sibling diagram is "../<other>/docs/x.md" as an identity and
 		// "docs/x.md" as a place to open, and nobody opens it from here.
 		where := layoutaudit.RepoRelative(d.Origin)
 		if where == "" {

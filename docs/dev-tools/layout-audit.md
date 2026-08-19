@@ -127,8 +127,8 @@ Positional arguments are files or directories; the default is
 Other repositories work too — the engine is this one's, only the sources move:
 
 ```bash
-go run ./cmd-dev/layout-audit ../ipm-k8s-case/prd ../ipm-drawio/docs
-go run ./cmd-dev/layout-audit --corpus ../ipm-drawio/layout-corpus.json   # the extended corpus, its outliers skipped
+go run ./cmd-dev/layout-audit ../consumer-d/prd ../<other-checkout>/docs
+go run ./cmd-dev/layout-audit --corpus ../<that-repo>/layout-corpus.json   # the extended corpus, its outliers skipped
 ```
 
 `--corpus` reads the same file as `layout-timeline` (`gl:docs/dev-tools/layout-timeline.md`,
@@ -215,7 +215,7 @@ The audit runs `cmd/layout-gen`, so it sees what that produces.
 (`gl:docs/dev/layout-gen/layout7-engine.md`), and a change confined to them
 moves nothing here however large it is: `372f0a8` rewrote pin and detour
 handling, moved **0 of 311** diagrams in this report, and cut crossings by half
-over ipm-drawio's zoom corpus. A green audit means "nothing that layout-gen
+over other-repo's zoom corpus. A green audit means "nothing that layout-gen
 draws moved", not "nothing moved anywhere".
 
 ## Weight

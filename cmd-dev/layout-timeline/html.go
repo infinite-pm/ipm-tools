@@ -1436,7 +1436,7 @@ func whichDiagram(id string) string {
 		in = fmt.Sprintf(" in `%s`", repo)
 	}
 	if i := strings.IndexByte(id, '#'); i >= 0 {
-		// "block 100 of ipm-overview:README.md" reads as a path with a colon
+		// "block 100 of consumer-a:README.md" reads as a path with a colon
 		// in it. The repository is a separate fact and is said separately.
 		return fmt.Sprintf("`%s` (block `%s` of `%s`%s)", id, id[i+1:], file, in)
 	}

@@ -276,9 +276,9 @@ func RepoRootOf(path string) string {
 // RepoRelative names a file the way its OWN repository does.
 //
 // A diagram's id is relative to the corpus root, which for a sibling checkout
-// means "../ipm-drawio/docs/x.md" — correct as an identity, useless as a
+// means "../<other>/docs/x.md" — correct as an identity, useless as a
 // location. Nobody works in the corpus root when they open that file; they
-// work in ipm-drawio, where it is "docs/x.md". So a location is resolved
+// work in that repository, where it is "docs/x.md". So a location is resolved
 // against the first .git above the file, whichever repository that is.
 func RepoRelative(path string) string {
 	root := RepoRootOf(path)
@@ -297,9 +297,9 @@ func RepoRelative(path string) string {
 // Inside the corpus root, that is the path as its own repository writes it:
 // "docs/x.md". Outside it — a sibling checkout, which is a first-class corpus
 // here since the engine is this repo's and the diagrams can come from anywhere
-// — the name is "repo:path", as in "ipm-drawio:docs/mj-ex/wip-notes.md".
+// — the name is "repo:path", as in "other-repo:docs/notes.md".
 //
-// Not "../ipm-drawio/docs/...": a "../" path is only meaningful from one
+// Not "../<other>/docs/...": a "../" path is only meaningful from one
 // directory, and it is not the directory anyone opens the file in. The repo
 // name plus the path THAT repo uses is true from anywhere, and reads as what
 // it is. An absolute path would be true too, and would put the whole machine

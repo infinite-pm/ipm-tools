@@ -1,6 +1,6 @@
 .PHONY: help build test vet sync-test-cases gen-test-md gen-invalid-sidecars update-test-docs \
         refs-rehash layout-test layout-fitness layout-check layout-check-baseline \
-        layout-audit layout-audit-ext layout-timeline layout-timeline-build layout-timeline-ext \
+        layout-audit layout-audit-ext layout-timeline layout-timeline-build \
         build-rpc build-all build-dev build-notrace
 
 BIN_DIR ?= bin
@@ -20,10 +20,10 @@ help:
 	@echo "  layout-fitness   - Show the fitness score only"
 	@echo "  layout-check     - Ratchet the universal-invariant findings vs the baseline"
 	@echo "  layout-audit     - HTML report: which diagrams a change moved, ranked (OLD=<ref>)"
-	@echo "  layout-audit-ext - the same over the extended corpus (CORPUS=..., outliers skipped)"
+	@echo "  layout-audit-ext - the same over an extended corpus (needs CORPUS=<file>, outliers skipped)"
 	@echo "  layout-timeline  - HTML report: today's diagrams through each engine in history"
 	@echo "  layout-timeline-build - Phase 1 only: build every engine into the cache, then stop"
-	@echo "  layout-timeline-ext   - Same, over the EXTENDED corpus (sibling repos; needs CORPUS=<file>)"
+	@echo "                          (a corpus over OTHER checkouts is driven from those repos, via --corpus)"
 	@echo ""
 	@echo "Fixture maintenance (dev):"
 	@echo "  sync-test-cases  - Verify and update generated fixture coverage"
@@ -119,9 +119,16 @@ AUDIT_PATHS ?= $(CHECK_PATHS) examples docs
 layout-audit:
 	@go run ./cmd-dev/layout-audit --old "$(OLD)" --new "$(NEW)" $(AUDIT_PATHS)
 
-# The EXTENDED corpus (sibling checkouts, the lab's SST corpus), its outliers
-# skipped — the same file layout-timeline-ext reads. Run both after an engine
-# change: the default set is small diagrams only.
+# The EXTENDED corpus (other checkouts, the lab's SST corpus), its outliers
+# skipped. Run after an engine change: the default set is small diagrams only.
+#
+# CORPUS has NO DEFAULT, deliberately. A corpus that names other checkouts
+# belongs to the repository that owns them, and this one is published — it must
+# not carry the name of a private sibling. Drive it from there, or pass the
+# path explicitly:
+#
+#   make layout-audit-ext CORPUS=../<that-repo>/layout-corpus.json
+CORPUS ?=
 layout-audit-ext:
 	@test -f "$(CORPUS)" || { echo "no corpus at $(CORPUS) — write one with:"; \
 	  echo "  go run ./cmd-dev/layout-timeline --corpus-example > $(CORPUS)"; exit 1; }
@@ -151,21 +158,6 @@ layout-timeline:
 # a commit already in the cache is skipped.
 layout-timeline-build:
 	@go run ./cmd-dev/layout-timeline --build-only $(TIMELINE_FLAGS) $(AUDIT_PATHS)
-
-# The EXTENDED corpus: this repository's diagrams plus the sibling checkouts
-# that actually consume the engine. The corpus file lives OUTSIDE this
-# repository — this one is published, those checkouts are not — and it names
-# where its own report goes, so the two runs cannot overwrite each other.
-#
-#   make layout-timeline-ext                       # ../ipm-drawio/layout-corpus.json
-#   make layout-timeline-ext CORPUS=../other.json
-#
-# `--corpus-example` prints one to start from.
-CORPUS ?= ../ipm-drawio/layout-corpus.json
-layout-timeline-ext:
-	@test -f "$(CORPUS)" || { echo "no corpus at $(CORPUS) — write one with:"; \
-	  echo "  go run ./cmd-dev/layout-timeline --corpus-example > $(CORPUS)"; exit 1; }
-	@go run ./cmd-dev/layout-timeline --corpus "$(CORPUS)" $(TIMELINE_FLAGS)
 
 # Fixture maintenance. These REWRITE tracked files, so CI never runs them; CI
 # runs the read-only counterparts instead (`sync-test-cases --check`,
