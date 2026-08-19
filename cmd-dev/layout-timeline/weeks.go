@@ -52,6 +52,11 @@ type snapshot struct {
 	// Now marks the extra trailing snapshot for the current state, which is
 	// not a Monday and says so.
 	Now bool
+	// Published marks the column pinned at what the remote holds; Unpublished
+	// marks every column that is NOT an ancestor of it — including the
+	// working tree, which by definition is not.
+	Published   bool
+	Unpublished bool
 	// Workdir marks that trailing snapshot as the WORKING TREE rather than a
 	// commit: built from what is on disk right now, every run, so today's
 	// uncommitted engine work is in the report instead of missing from it.

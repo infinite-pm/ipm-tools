@@ -361,6 +361,42 @@ engine and the diagrams both change under it — so that line is what lets two
 reports be placed against each other, and what anyone filing a bug found in one
 has to quote.
 
+## What is published, and what is only here
+
+A published repository has a boundary no cadence can express: the commit the
+remote actually holds. Sampling by date lands *near* it and never *on* it, and
+near is useless for the question it answers — "is this engine change still mine
+to change, or has it shipped".
+
+So it is **pinned**: one extra column at the published commit, wherever in time
+that falls, with `--days` and `--weeks` having no say in it. The index header
+carries the state, and every column not contained in that commit is marked:
+
+```
+published   origin/main (d59a36c) — 113 commit(s) here are NOT published yet, 34 touching the engine
+
+2026-08-16 published   [published]
+2026-08-17             [not published]
+2026-08-19 5b7528f     [not published]
+```
+
+Two rules make the marking mean something:
+
+- **Ancestry, not date.** A commit made *before* the published tip can still be
+  unpublished — a branch, a rebase — and a date comparison would call it
+  shipped.
+- **Only this repository's columns are judged.** A chained history walks other
+  checkouts, and their commits are not in this remote by definition; saying
+  "not published" of them is true and useless. 7 of 32 columns are judged here;
+  the other 25 belong to other lineages and claim nothing.
+
+`--published <ref>` overrides the default (the branch's upstream, else
+`origin/main`); a repository with no remote says nothing at all.
+
+For the diff itself, `make layout-audit-published` puts the published engine
+against the working tree — the same two-engine report, bounded by what has
+actually shipped.
+
 **The tail is sampled by COMMIT, not by date.** A daily column is "the commit
 standing at the start of that day", which hides a day with three engine commits
 in it — exactly the day on which "which of mine did this" is asked. So the last
@@ -519,6 +555,7 @@ ship") belongs to a column page.
 | `--head` | on | append the newest work as trailing columns |
 | `--head-commits` | `3` | how many recent layout-relevant commits get their own column — a floor |
 | `--head-hours` | `3` | ALSO a column for every layout-relevant commit this recent, however many (0 = off) |
+| `--published` | the branch's upstream, else `origin/main` | ref the remote holds, PINNED as its own column; every column not in it is marked |
 | `--list` | off | print the weekly commits and exit — no builds, no sweep |
 | `--limit-per-column` | `0` | rendered diagrams per column page (0 = all, bounded by `--max-mb`); the rest are listed by name |
 | `--until` | today | last date to cover (YYYY-MM-DD) — note it parses to MIDNIGHT, so a commit later that day falls outside |

@@ -74,10 +74,14 @@ type week struct {
 	// A gallery needs a complete picture of one engine, and every later column
 	// gets there by carrying this forward and overwriting only what moved —
 	// which is exactly what "unchanged" means, so nothing is rendered twice.
-	Base      map[string][]byte `json:"-"`
-	Identical int               `json:"identical"`
-	Skipped   int               `json:"skipped"`
-	Rendered  int               `json:"-"`
+	// Published is the column pinned at what the remote holds; Unpublished is
+	// every column that is not in it.
+	Published   bool              `json:"published,omitempty"`
+	Unpublished bool              `json:"unpublished,omitempty"`
+	Base        map[string][]byte `json:"-"`
+	Identical   int               `json:"identical"`
+	Skipped     int               `json:"skipped"`
+	Rendered    int               `json:"-"`
 }
 
 func main() { os.Exit(run()) }
@@ -86,7 +90,7 @@ func run() int {
 	var (
 		repo, since, until, out, cache, at string
 		by, enginePaths, rev, sources      string
-		configPath, corpusPath             string
+		configPath, corpusPath, published  string
 		days, weeks, limitPerWeek          int
 		headCommits, sweepJobs, headHours  int
 		list, noSVG, verbose, head         bool
@@ -102,6 +106,7 @@ func run() int {
 	flag.StringVar(&configPath, "config", "", "history config naming the lineages to walk (default: "+DefaultConfigName+" beside --repo, when present)")
 	flag.BoolVar(&showExample, "config-example", false, "print a config to start from, and exit")
 	flag.StringVar(&corpusPath, "corpus", "", "corpus config naming the diagram paths to sweep — sibling checkouts included (default: "+DefaultCorpusName+" beside --repo, when present). Keep it OUTSIDE a published repo if it names private ones")
+	flag.StringVar(&published, "published", "", "ref the REMOTE holds, pinned as its own column wherever it falls in time (default: the branch's upstream, else origin/main). Every column after it is marked not-yet-published. This is a COMMIT boundary, so --days and --weeks have no say in it; \"\" or a ref that does not resolve turns it off")
 	flag.BoolVar(&showCorpusExample, "corpus-example", false, "print a corpus config to start from, and exit")
 	flag.BoolVar(&buildOnly, "build-only", false, "PHASE 1: resolve the columns and build every engine into the cache, then stop — the report run afterwards is sweeps only")
 	flag.IntVar(&jobs, "jobs", 2, "parallel engine BUILDS. Each one fans out to a full `go build`, so this is the memory-hungry half and the knob for a machine that is also running an editor")
@@ -239,6 +244,13 @@ func run() int {
 	for i := range snaps {
 		snaps[i].Tools = repoAbs
 	}
+	// The published boundary is a COMMIT, not a date: sampling by cadence
+	// lands near it and never on it, and near is useless for "has this
+	// shipped". Pinned as its own column, inserted where it truly falls.
+	pubRef := publishedRef(repoAbs, published)
+	if snaps, err = appendPublished(repoAbs, rev, pubRef, "", snaps); err != nil {
+		return fail("published: %v", err)
+	}
 
 	// The diagram set is collected ONCE, from one working tree: the sources
 	// are the constant, the engine is the variable. That tree need not be the
@@ -300,7 +312,8 @@ func run() int {
 	}
 	in := timelineInput{
 		Repo: repoDesc(cfg, repoAbs, rev), Head: headDesc(repoAbs, rev),
-		Sources: srcRoot, Paths: paths, Diagrams: len(diagrams),
+		Published: publishState(repoAbs, pubRef, engine),
+		Sources:   srcRoot, Paths: paths, Diagrams: len(diagrams),
 		Weeks: weeksOut, Elapsed: time.Since(started), At: at + " / " + by, NoSVG: noSVG,
 		Current: current, MaxBytes: maxMB * 1024 * 1024,
 		Corpus: corpus,
@@ -597,7 +610,8 @@ func compare(repo, cache string, snaps []snapshot, diagrams []layoutaudit.Diagra
 	var lastSeen string  // the previous snapshot that resolved to a commit
 
 	for _, s := range snaps {
-		w := week{Snap: s, Label: s.Label(), SHA: s.SHA, Subject: s.Subject, Span: s.Span(), Source: s.Source}
+		w := week{Snap: s, Label: s.Label(), SHA: s.SHA, Subject: s.Subject, Span: s.Span(), Source: s.Source,
+			Published: s.Published, Unpublished: s.Unpublished}
 		switch {
 		case s.Workdir:
 			// Never cached: the tree changes under us, and a stale binary

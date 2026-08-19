@@ -1,6 +1,6 @@
 .PHONY: help build test vet sync-test-cases gen-test-md gen-invalid-sidecars update-test-docs \
         refs-rehash layout-test layout-fitness layout-check layout-check-baseline \
-        layout-audit layout-audit-ext layout-timeline layout-timeline-build \
+        layout-audit layout-audit-ext layout-audit-published layout-timeline layout-timeline-build \
         build-rpc build-all build-dev build-notrace
 
 BIN_DIR ?= bin
@@ -21,6 +21,7 @@ help:
 	@echo "  layout-check     - Ratchet the universal-invariant findings vs the baseline"
 	@echo "  layout-audit     - HTML report: which diagrams a change moved, ranked (OLD=<ref>)"
 	@echo "  layout-audit-ext - the same over an extended corpus (needs CORPUS=<file>, outliers skipped)"
+	@echo "  layout-audit-published - what the engine does that is NOT published yet (PUBLISHED=<ref>)"
 	@echo "  layout-timeline  - HTML report: today's diagrams through each engine in history"
 	@echo "  layout-timeline-build - Phase 1 only: build every engine into the cache, then stop"
 	@echo "                          (a corpus over OTHER checkouts is driven from those repos, via --corpus)"
@@ -99,6 +100,7 @@ layout-fitness:
 # `make layout-check-baseline` and commit the updated baseline.
 # (not tests/layout-gen-shells: the flat invariant checker counts shells as boxes)
 CHECK_PATHS := tests/layout-gen tests/layout-gen-ext
+ENGINE_PATHS ?= pkg/layout7 pkg/layout cmd/layout-gen
 
 layout-check:
 	@go run ./cmd-dev/layout-debug --check --baseline tests/layout-check-baseline.txt $(CHECK_PATHS) 2>/dev/null
@@ -129,6 +131,21 @@ layout-audit:
 #
 #   make layout-audit-ext CORPUS=../<that-repo>/layout-corpus.json
 CORPUS ?=
+# WHAT IS NOT OUT YET: the engine the remote holds, against what is on disk.
+# The one question a published repository asks that no date range can — "is
+# this change still mine to change, or has it shipped".
+#
+#   make layout-audit-published                 # origin/main (or the upstream) vs the working tree
+#   make layout-audit-published PUBLISHED=v0.4.3
+PUBLISHED ?= $(shell git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null || echo origin/main)
+layout-audit-published:
+	@git rev-parse "$(PUBLISHED)^{commit}" >/dev/null 2>&1 || { \
+	  echo "no published ref at $(PUBLISHED) — fetch first, or pass PUBLISHED=<ref>"; exit 1; }
+	@echo "published $(PUBLISHED) ($$(git rev-parse --short $(PUBLISHED))) vs $(NEW):"
+	@echo "  $$(git rev-list --count $(PUBLISHED)..HEAD) commit(s) here are not published,"
+	@echo "  $$(git rev-list --count $(PUBLISHED)..HEAD -- $(ENGINE_PATHS)) of them touching the engine"
+	@go run ./cmd-dev/layout-audit --old "$(PUBLISHED)" --new "$(NEW)" $(AUDIT_PATHS)
+
 layout-audit-ext:
 	@test -f "$(CORPUS)" || { echo "no corpus at $(CORPUS) — write one with:"; \
 	  echo "  go run ./cmd-dev/layout-timeline --corpus-example > $(CORPUS)"; exit 1; }

@@ -55,6 +55,9 @@ type timelineInput struct {
 	// tree was clean. A report is a snapshot of a moving target: without it,
 	// two reports that disagree cannot be placed against each other.
 	Head string
+	// Published is the one-line publish state for the header: which ref the
+	// remote holds and how much here is not in it.
+	Published string
 	// Order ranks each diagram by where it lives: file, then position within
 	// that file. The grid is the catalogue of every diagram in the corpus, and
 	// a catalogue is looked things UP in — so it reads in the order of the
@@ -106,6 +109,10 @@ type vmColumn struct {
 	// keeps the time they represent visible.
 	QuietAfter int
 	QuietWhich string // their labels, for the tooltip
+	// Published is the column pinned at the remote's commit; Unpublished is a
+	// column not contained in it — work that has not shipped.
+	Published   bool
+	Unpublished bool
 }
 
 type vmChange struct {
@@ -229,6 +236,7 @@ type vmHistCell struct {
 type vmIndex struct {
 	Repo, Sources, Paths, Elapsed, At string
 	Head                              string
+	Published                         string
 	Diagrams, TotalMoves              int
 	WeekLabels                        []string
 	Grid                              []vmGridRow
@@ -534,7 +542,7 @@ func renderDiagram(in timelineInput, id string) string {
 // buildIndex assembles the front page: the grid, then the columns in order.
 func buildIndex(in timelineInput) vmIndex {
 	m := vmIndex{
-		Repo: in.Repo, Head: in.Head, Sources: in.Sources, Paths: strings.Join(in.Paths, " "),
+		Repo: in.Repo, Head: in.Head, Published: in.Published, Sources: in.Sources, Paths: strings.Join(in.Paths, " "),
 		Diagrams: in.Diagrams, Elapsed: in.Elapsed.Round(time.Millisecond).String(), At: in.At,
 		Corpus: in.Corpus,
 	}
@@ -573,7 +581,8 @@ func buildIndex(in timelineInput) vmIndex {
 			Label: w.Label, Source: w.Source, SHA: layoutaudit.Short(w.SHA), Subject: w.Subject,
 			Note: w.Note, Against: w.Against, Span: w.Span, Href: href,
 			GalleryHref: galleryHref(in, i),
-			Changed:     len(w.Changes), Identical: w.Identical, Skipped: w.Skipped,
+			Published:   w.Published, Unpublished: w.Unpublished,
+			Changed: len(w.Changes), Identical: w.Identical, Skipped: w.Skipped,
 			Worst: worstTier(w), QuietAfter: n, QuietWhich: which,
 		})
 	}
@@ -857,6 +866,10 @@ table.grid td:empty::before{content:"";display:block;width:16px;height:16px;
    engine is not deterministic" is exactly what a reader needs before trusting
    a row, and they may never open the column to find out. */
 .warn{color:var(--worse)}
+/* What is out, and what is only here. The boundary is a COMMIT — the one the
+   remote holds — so it is pinned rather than sampled. */
+.pill.pub{background:#e7f2e7;color:#2f6b34;border-color:#bcd9bd}
+.pill.unpub{background:#fdf1e3;color:#8a5a17;border-color:#eccfa6}
 table.cols{border-collapse:collapse;width:100%;background:var(--card);border:1px solid var(--line);border-radius:10px}
 table.cols th{text-align:left;font-size:12px;color:var(--muted);padding:8px 10px;border-bottom:1px solid var(--line)}
 table.cols td{padding:7px 10px;border-bottom:1px solid var(--line);font-size:13px;vertical-align:top}
@@ -872,6 +885,7 @@ td.date{white-space:nowrap;font-weight:600}
   <div class="prov">
     <b>history</b><span>{{.Repo}}</span>
     {{if .Head}}<b>generated at</b><span>{{.Head}}</span>{{end}}
+    {{if .Published}}<b>published</b><span>{{.Published}}</span>{{end}}
     <b>sources</b><span>{{.Diagrams}} diagrams from {{.Sources}} ({{.Paths}}) — fixed; only the engine moves</span>
     <b>columns</b><span>{{len .WeekLabels}} that moved{{if .QuietTotal}} (+{{.QuietTotal}} with no change, folded in){{end}} · {{.At}} · {{.TotalMoves}} diagram-change(s) · {{.Elapsed}}</span>
   </div>
@@ -910,7 +924,7 @@ td.date{white-space:nowrap;font-weight:600}
   <tr {{if not .Href}}class="quietrow"{{end}}>
     <td class="date">{{if .Href}}<a href="{{.Href}}">{{.Label}}</a>{{else}}{{.Label}}{{end}}
       {{if .GalleryHref}}<br><a class="quiet" href="{{.GalleryHref}}">all</a>{{end}}</td>
-    <td>{{if .Source}}<span class="pill">{{.Source}}</span>{{end}}</td>
+    <td>{{if .Source}}<span class="pill">{{.Source}}</span>{{end}}{{if .Published}}<span class="pill pub">published</span>{{end}}{{if .Unpublished}}<span class="pill unpub">not published</span>{{end}}</td>
     <td><span class="sha">{{.SHA}}</span> {{.Subject}}</td>
     <td class="n">{{if .Changed}}<span class="pill {{tier .Worst}}">{{.Changed}}</span>{{end}}</td>
     <td class="n">{{if .Identical}}{{.Identical}}{{end}}</td>
