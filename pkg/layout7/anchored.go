@@ -174,6 +174,50 @@ func (g *graph) assembleAnchored() bool {
 			break
 		}
 	}
+	// close the EMPTY BANDS: with a state's content hidden (a closed
+	// composite's members above all) the anchor's arrangement leaves holes
+	// where that content was — NDA's root state, every composite closed,
+	// was 420×47260: five ~800px stories with ~12000px of whitespace
+	// between them ("see height and whitespace"). A band no component
+	// crosses that is wider than four row pitches shrinks to the component
+	// gap, everything beyond it moving up (or left) as one; smaller bands
+	// are the anchor's own rhythm and stay — closing THEM was tried
+	// 2026-08-19 and traded kubernetes' shape for findings. Order is
+	// untouched: left stays left, above stays above.
+	closeBands := func(lo func(a *acomp) int, hi func(a *acomp) int, shift func(a *acomp, d int)) {
+		type iv struct{ lo, hi int }
+		ivs := make([]iv, 0, len(placed))
+		for _, a := range placed {
+			ivs = append(ivs, iv{lo(a), hi(a)})
+		}
+		sort.Slice(ivs, func(i, j int) bool { return ivs[i].lo < ivs[j].lo })
+		type gap struct{ at, excess int }
+		var gaps []gap
+		end := math.MinInt32
+		for _, v := range ivs {
+			if end != math.MinInt32 && v.lo-end > CompGap+4*RowPitch {
+				gaps = append(gaps, gap{at: v.lo, excess: v.lo - end - CompGap})
+			}
+			if v.hi > end {
+				end = v.hi
+			}
+		}
+		for _, a := range placed {
+			d := 0
+			for _, gp := range gaps {
+				if lo(a) >= gp.at {
+					d += gp.excess
+				}
+			}
+			if d > 0 {
+				shift(a, -gridSnap(d))
+			}
+		}
+	}
+	closeBands(func(a *acomp) int { return a.y }, func(a *acomp) int { return a.y + a.h },
+		func(a *acomp, d int) { a.y += d })
+	closeBands(func(a *acomp) int { return a.x }, func(a *acomp) int { return a.x + a.w },
+		func(a *acomp, d int) { a.x += d })
 	offsets := make(map[int][2]int, len(g.comps))
 	gx0, gy0, gx1, gy1 := math.MaxInt32, math.MaxInt32, math.MinInt32, math.MinInt32
 	for _, a := range placed {
