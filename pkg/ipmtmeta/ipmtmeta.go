@@ -32,12 +32,19 @@ const (
 	FlagUnresolved = "unresolved"
 	FlagDefaults   = "defaults"
 	FlagEmbedFalse = "embed=false"
+	// FlagUnionFalse marks a block that renders and validates normally but is
+	// AUTHORED OUT of graph unions and atlases: a shape example, a tutorial
+	// slice, a deliberately duplicated fragment — real ipmt, but not a claim
+	// the corpus makes. Consumed by ipm-graph-union's extractor; render tools
+	// ignore it.
+	FlagUnionFalse = "union=false"
 )
 
 var knownFlags = map[string]bool{
 	FlagUnresolved: true,
 	FlagDefaults:   true,
 	FlagEmbedFalse: true,
+	FlagUnionFalse: true,
 }
 
 // Contains reports whether meta carries flag.

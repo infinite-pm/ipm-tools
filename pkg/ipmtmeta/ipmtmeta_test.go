@@ -66,3 +66,20 @@ func TestEffectiveMeta(t *testing.T) {
 		})
 	}
 }
+
+func TestUnionFalseFlag(t *testing.T) {
+	meta, err := EffectiveMeta([]string{"union=false"}, "a::a A ::e\n")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !Contains(meta, FlagUnionFalse) {
+		t.Fatalf("union=false not carried: %v", meta)
+	}
+	meta, err = EffectiveMeta(nil, "# ipmt: union=false\na::a A ::e\n")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !Contains(meta, FlagUnionFalse) {
+		t.Fatalf("pragma union=false not carried: %v", meta)
+	}
+}

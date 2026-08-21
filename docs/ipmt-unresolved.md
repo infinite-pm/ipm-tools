@@ -75,6 +75,12 @@ writes no SVG). It is distinct from the [`ipmt-invalid` lane](ipmt-spec.md#inval
 which is for source that is *not valid ipmt* and uses a separate
 ` ```ipmt-invalid ` fence language.
 
+`union=false` marks a block that renders and validates normally but is
+**authored out of graph unions and atlases** — a shape example, a tutorial
+slice, a deliberately repeated fragment: real ipmt, not a claim the corpus
+makes. `ipm-graph-union` skips it (and reports it as skipped); every render
+tool ignores the flag.
+
 ## Pipeline
 
 ```
