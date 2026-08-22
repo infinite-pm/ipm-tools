@@ -38,6 +38,11 @@ import (
 // Options tunes the pass. The defaults are the ones measured in the design's
 // prototype table; they are parameters, not truths.
 type Options struct {
+	// Off disables the pass entirely — the caller gets the plain layout. It
+	// is spelled negatively so the zero value DOES something: a caller that
+	// asks for duplication and forgets to fill the thresholds gets the
+	// measured defaults, not silence.
+	Off bool
 	// LongFactor multiplies the diagram's MEDIAN edge length to decide what
 	// counts as too long to read from here.
 	LongFactor float64
@@ -150,15 +155,29 @@ func Generate(doc *model.IpmGraph, opts Options) (*Result, error) {
 }
 
 // GenerateWith is Generate with the engine call injected, so a caller that
-// runs the engine with its own options (the canvas does) keeps them.
+// runs the engine with its own options keeps them.
 func GenerateWith(doc *model.IpmGraph, opts Options, gen func(*model.IpmGraph) (*layout.Graph, error)) (*Result, error) {
+	return GenerateWithHints(doc, opts, func(d *model.IpmGraph, _ map[string][2]int) (*layout.Graph, error) {
+		return gen(d)
+	})
+}
+
+// GenerateWithHints is GenerateWith for an engine that PLACES BY POSITION —
+// the canvas anchors every component where the all-open layout had it, keyed
+// by node id. A copy has an id that anchor has never seen, so without a hint
+// it lands wherever the engine likes: measured on the kubernetes corpus, the
+// rewritten layout came out with its longest edge at 4897px against 1069px
+// before, and the pass rejected its own work. The hint says where each copy
+// belongs — the centre of the users it serves — and the caller merges it into
+// whatever positional option its engine takes.
+func GenerateWithHints(doc *model.IpmGraph, opts Options, gen func(*model.IpmGraph, map[string][2]int) (*layout.Graph, error)) (*Result, error) {
 	opts = opts.withDefaults()
-	first, err := gen(doc)
+	first, err := gen(doc, nil)
 	if err != nil {
 		return nil, err
 	}
 	res := &Result{Graph: first, Copies: map[string]string{}, Places: map[string][]string{}}
-	if len(doc.Nodes) < opts.MinNodes {
+	if opts.Off || len(doc.Nodes) < opts.MinNodes {
 		return res, nil
 	}
 
@@ -169,7 +188,7 @@ func GenerateWith(doc *model.IpmGraph, opts Options, gen func(*model.IpmGraph) (
 	}
 
 	dup, copies := rewrite(doc, plan)
-	second, err := gen(dup)
+	second, err := gen(dup, copyHints(first, dup, plan, copies))
 	if err != nil {
 		// A rewrite that the engine cannot lay out is a bug in this pass, not
 		// the caller's problem: fall back to the honest single-placement
@@ -397,6 +416,66 @@ func rewrite(doc *model.IpmGraph, plan []cluster) (*model.IpmGraph, map[string]s
 		}
 	}
 	return &out, copies
+}
+
+// copyHints says where each copy belongs: the centre of the users it serves,
+// in the coordinates of the layout that was just measured. An engine that
+// places by position takes these for the ids it has never seen.
+func copyHints(first *layout.Graph, dup *model.IpmGraph, plan []cluster, copies map[string]string) map[string][2]int {
+	center := map[int][2]float64{}
+	for _, n := range first.Nodes {
+		id, err := strconv.Atoi(n.ID)
+		if err != nil {
+			continue
+		}
+		center[id] = [2]float64{float64(n.X) + float64(n.Width)/2, float64(n.Y) + float64(n.Height)/2}
+	}
+	// which edges each copy carries, by copy id
+	edgeOf := map[int][]int{}
+	copyIDs := make([]string, 0, len(copies))
+	for id := range copies {
+		copyIDs = append(copyIDs, id)
+	}
+	sort.Strings(copyIDs)
+	// plan and the copy ids were assigned in the same order by rewrite
+	byPlan := make([]int, 0, len(plan))
+	for _, e := range dup.Nodes {
+		if _, ok := copies[strconv.Itoa(e.ID)]; ok {
+			byPlan = append(byPlan, e.ID)
+		}
+	}
+	for i, c := range plan {
+		if i < len(byPlan) {
+			edgeOf[byPlan[i]] = c.edges
+		}
+	}
+	edgeByID := map[int]model.Edge{}
+	for _, e := range dup.Edges {
+		edgeByID[e.ID] = e
+	}
+	hints := map[string][2]int{}
+	for copyID, edges := range edgeOf {
+		var sx, sy, n float64
+		for _, eid := range edges {
+			e, ok := edgeByID[eid]
+			if !ok {
+				continue
+			}
+			other := e.Source
+			if other == copyID {
+				other = e.Target
+			}
+			if p, ok := center[other]; ok {
+				sx += p[0]
+				sy += p[1]
+				n++
+			}
+		}
+		if n > 0 {
+			hints[strconv.Itoa(copyID)] = [2]int{int(sx / n), int(sy / n)}
+		}
+	}
+	return hints
 }
 
 // places lists every drawing of a duplicated node in reading order, the
