@@ -5,7 +5,7 @@
       "id": "1",
       "type": "event",
       "label": "get the party started",
-      "x": 40,
+      "x": 360,
       "y": 120,
       "width": 120,
       "height": 60
@@ -15,7 +15,7 @@
       "type": "event",
       "label": "Professor Plum murders Miss Scarlet in the library with the bread knife because she refused to marry him",
       "alias": "murder-e",
-      "x": 40,
+      "x": 360,
       "y": 240,
       "width": 120,
       "height": 200
@@ -24,7 +24,7 @@
       "id": "3",
       "type": "event",
       "label": "investigation begins",
-      "x": 40,
+      "x": 360,
       "y": 500,
       "width": 120,
       "height": 60
@@ -32,10 +32,10 @@
     {
       "id": "4",
       "type": "event",
-      "label": "Prof Plum \u0026 Miss Scarlett in the library",
+      "label": "Professor Plum \u0026 Miss Scarlet in the library",
       "alias": "library-ppms",
-      "x": 520,
-      "y": 120,
+      "x": 840,
+      "y": 160,
       "width": 120,
       "height": 80
     },
@@ -43,8 +43,8 @@
       "id": "5",
       "type": "concept",
       "label": "In the library",
-      "x": 700,
-      "y": 130,
+      "x": 180,
+      "y": 410,
       "width": 120,
       "height": 60
     },
@@ -52,8 +52,8 @@
       "id": "6",
       "type": "concept",
       "label": "where",
-      "x": 660,
-      "y": 230,
+      "x": 40,
+      "y": 510,
       "width": 120,
       "height": 60
     },
@@ -61,8 +61,8 @@
       "id": "7",
       "type": "concept",
       "label": "library",
-      "x": 840,
-      "y": 230,
+      "x": 220,
+      "y": 510,
       "width": 120,
       "height": 60
     },
@@ -71,8 +71,8 @@
       "type": "event",
       "label": "Miss Scarlet refuses to marry Professor Plum",
       "alias": "refusal-mspp",
-      "x": 520,
-      "y": 340,
+      "x": 840,
+      "y": 300,
       "width": 120,
       "height": 100
     },
@@ -81,8 +81,8 @@
       "type": "event",
       "label": "refusal marriage",
       "alias": "refusal-m",
-      "x": 700,
-      "y": 360,
+      "x": 1020,
+      "y": 320,
       "width": 120,
       "height": 60
     },
@@ -90,8 +90,8 @@
       "id": "10",
       "type": "concept",
       "label": "marriage",
-      "x": 1020,
-      "y": 410,
+      "x": 1200,
+      "y": 270,
       "width": 120,
       "height": 60
     },
@@ -99,18 +99,18 @@
       "id": "11",
       "type": "concept",
       "label": "refusal",
-      "x": 1020,
-      "y": 510,
+      "x": 1200,
+      "y": 370,
       "width": 120,
       "height": 60
     },
     {
       "id": "12",
       "type": "event",
-      "label": "Prof Plum murders Miss Scarlet",
+      "label": "Professor Plum murders Miss Scarlet",
       "alias": "ppmms",
-      "x": 520,
-      "y": 500,
+      "x": 840,
+      "y": 460,
       "width": 120,
       "height": 60
     },
@@ -119,8 +119,8 @@
       "type": "concept",
       "label": "murder by subtle knife",
       "alias": "murder-sk",
-      "x": 700,
-      "y": 500,
+      "x": 1020,
+      "y": 460,
       "width": 120,
       "height": 60
     },
@@ -129,8 +129,8 @@
       "type": "concept",
       "label": "use of subtle knife",
       "alias": "use-sk",
-      "x": 480,
-      "y": 600,
+      "x": 800,
+      "y": 560,
       "width": 120,
       "height": 60
     },
@@ -139,8 +139,8 @@
       "type": "concept",
       "label": "subtle knife",
       "alias": "sk",
-      "x": 400,
-      "y": 700,
+      "x": 720,
+      "y": 660,
       "width": 120,
       "height": 60
     },
@@ -148,8 +148,8 @@
       "id": "16",
       "type": "concept",
       "label": "knife",
-      "x": 220,
-      "y": 800,
+      "x": 540,
+      "y": 760,
       "width": 120,
       "height": 60
     },
@@ -157,8 +157,8 @@
       "id": "17",
       "type": "concept",
       "label": "what action",
-      "x": 660,
-      "y": 600,
+      "x": 980,
+      "y": 560,
       "width": 120,
       "height": 60
     },
@@ -166,8 +166,8 @@
       "id": "18",
       "type": "concept",
       "label": "murder",
-      "x": 840,
-      "y": 600,
+      "x": 1160,
+      "y": 560,
       "width": 120,
       "height": 60
     },
@@ -175,8 +175,8 @@
       "id": "19",
       "type": "concept",
       "label": "how",
-      "x": 580,
-      "y": 700,
+      "x": 900,
+      "y": 660,
       "width": 120,
       "height": 60
     },
@@ -184,8 +184,8 @@
       "id": "20",
       "type": "concept",
       "label": "cutting interdimensional rifts",
-      "x": 400,
-      "y": 800,
+      "x": 720,
+      "y": 760,
       "width": 120,
       "height": 60
     },
@@ -193,8 +193,8 @@
       "id": "21",
       "type": "concept",
       "label": "cutting bread",
-      "x": 580,
-      "y": 800,
+      "x": 900,
+      "y": 760,
       "width": 120,
       "height": 60
     },
@@ -202,7 +202,7 @@
       "id": "22",
       "type": "thing",
       "label": "Professor Plum",
-      "x": 1020,
+      "x": 180,
       "y": 210,
       "width": 120,
       "height": 60
@@ -211,7 +211,7 @@
       "id": "23",
       "type": "thing",
       "label": "Miss Scarlet",
-      "x": 1020,
+      "x": 180,
       "y": 310,
       "width": 120,
       "height": 60
@@ -220,7 +220,7 @@
       "id": "24",
       "type": "boundary",
       "label": "S",
-      "x": 80,
+      "x": 400,
       "y": 40,
       "width": 40,
       "height": 40
@@ -229,8 +229,8 @@
       "id": "25",
       "type": "boundary",
       "label": "E",
-      "x": 80,
-      "y": 900,
+      "x": 400,
+      "y": 860,
       "width": 40,
       "height": 40
     }
@@ -283,24 +283,24 @@
         },
         "target": {
           "side": "right",
-          "position": 0.5431215814362657
+          "position": 0.5
         }
       }
     },
     {
-      "from": "4",
+      "from": "2",
       "to": "5",
       "dir": "fwd",
       "base": "expresses",
       "style": "expresses",
       "route": {
         "source": {
-          "side": "right",
-          "position": 0.5
+          "side": "left",
+          "position": 0.75
         },
         "target": {
-          "side": "left",
-          "position": 0.35
+          "side": "right",
+          "position": 0.5
         }
       }
     },
@@ -334,7 +334,7 @@
         },
         "target": {
           "side": "top",
-          "position": 0.5
+          "position": 0.4166666666666667
         }
       }
     },
@@ -351,7 +351,7 @@
         },
         "target": {
           "side": "right",
-          "position": 0.5931215814362656
+          "position": 0.55
         }
       }
     },
@@ -381,7 +381,7 @@
       "route": {
         "source": {
           "side": "right",
-          "position": 0.6
+          "position": 0.25
         },
         "target": {
           "side": "left",
@@ -398,35 +398,12 @@
       "route": {
         "source": {
           "side": "right",
-          "position": 0.8
+          "position": 0.75
         },
         "target": {
           "side": "left",
           "position": 0.5
         }
-      }
-    },
-    {
-      "from": "8",
-      "to": "5",
-      "dir": "fwd",
-      "base": "expresses",
-      "style": "expresses",
-      "route": {
-        "source": {
-          "side": "top",
-          "position": 0.75
-        },
-        "target": {
-          "side": "left",
-          "position": 0.35
-        },
-        "bends": [
-          {
-            "X": 609,
-            "Y": 311
-          }
-        ]
       }
     },
     {
@@ -442,47 +419,9 @@
         },
         "target": {
           "side": "right",
-          "position": 0.6568784185637344
+          "position": 0.6
         }
       }
-    },
-    {
-      "from": "12",
-      "to": "5",
-      "dir": "fwd",
-      "base": "expresses",
-      "style": "expresses",
-      "route": {
-        "source": {
-          "side": "top",
-          "position": 0.3
-        },
-        "target": {
-          "side": "bottom",
-          "position": 0.4
-        },
-        "sourceStub": [
-          {
-            "X": 556,
-            "Y": 500
-          },
-          {
-            "X": 556,
-            "Y": 470
-          }
-        ],
-        "targetStub": [
-          {
-            "X": 748,
-            "Y": 190
-          },
-          {
-            "X": 748,
-            "Y": 210
-          }
-        ]
-      },
-      "visibility": "stubbed"
     },
     {
       "from": "12",
@@ -673,231 +612,35 @@
     },
     {
       "from": "22",
-      "to": "4",
+      "to": "2",
       "dir": "fwd",
       "base": "partof",
       "style": "partof",
       "route": {
         "source": {
-          "side": "top",
-          "position": 0.25
-        },
-        "target": {
-          "side": "top",
-          "position": 0.75
-        },
-        "bends": [
-          {
-            "X": 1050,
-            "Y": 80
-          },
-          {
-            "X": 610,
-            "Y": 80
-          }
-        ]
-      }
-    },
-    {
-      "from": "22",
-      "to": "8",
-      "dir": "fwd",
-      "base": "partof",
-      "style": "partof",
-      "route": {
-        "source": {
-          "side": "left",
-          "position": 0.7
-        },
-        "target": {
           "side": "right",
-          "position": 0.25
-        },
-        "sourceStub": [
-          {
-            "X": 1020,
-            "Y": 252
-          },
-          {
-            "X": 990,
-            "Y": 252
-          }
-        ],
-        "targetStub": [
-          {
-            "X": 640,
-            "Y": 365
-          },
-          {
-            "X": 670,
-            "Y": 365
-          }
-        ]
-      },
-      "visibility": "stubbed"
-    },
-    {
-      "from": "22",
-      "to": "9",
-      "dir": "fwd",
-      "base": "partof",
-      "style": "partof",
-      "route": {
-        "source": {
-          "side": "bottom",
           "position": 0.5
         },
         "target": {
-          "side": "top",
-          "position": 0.5
-        }
-      }
-    },
-    {
-      "from": "22",
-      "to": "12",
-      "dir": "fwd",
-      "base": "partof",
-      "style": "partof",
-      "route": {
-        "source": {
           "side": "left",
-          "position": 0.3
-        },
-        "target": {
-          "side": "right",
-          "position": 0.25
-        },
-        "sourceStub": [
-          {
-            "X": 1020,
-            "Y": 228
-          },
-          {
-            "X": 990,
-            "Y": 228
-          }
-        ],
-        "targetStub": [
-          {
-            "X": 640,
-            "Y": 515
-          },
-          {
-            "X": 670,
-            "Y": 515
-          }
-        ]
-      },
-      "visibility": "stubbed"
-    },
-    {
-      "from": "23",
-      "to": "4",
-      "dir": "fwd",
-      "base": "partof",
-      "style": "partof",
-      "route": {
-        "source": {
-          "side": "top",
-          "position": 0.7
-        },
-        "target": {
-          "side": "bottom",
-          "position": 0.7
-        },
-        "sourceStub": [
-          {
-            "X": 1104,
-            "Y": 310
-          },
-          {
-            "X": 1104,
-            "Y": 290
-          }
-        ],
-        "targetStub": [
-          {
-            "X": 604,
-            "Y": 200
-          },
-          {
-            "X": 604,
-            "Y": 230
-          }
-        ]
-      },
-      "visibility": "stubbed"
-    },
-    {
-      "from": "23",
-      "to": "8",
-      "dir": "fwd",
-      "base": "partof",
-      "style": "partof",
-      "route": {
-        "source": {
-          "side": "bottom",
-          "position": 0.7
-        },
-        "target": {
-          "side": "right",
-          "position": 0.7
-        },
-        "sourceStub": [
-          {
-            "X": 1104,
-            "Y": 370
-          },
-          {
-            "X": 1104,
-            "Y": 390
-          }
-        ],
-        "targetStub": [
-          {
-            "X": 640,
-            "Y": 410
-          },
-          {
-            "X": 670,
-            "Y": 410
-          }
-        ]
-      },
-      "visibility": "stubbed"
-    },
-    {
-      "from": "23",
-      "to": "9",
-      "dir": "fwd",
-      "base": "partof",
-      "style": "partof",
-      "route": {
-        "source": {
-          "side": "left",
-          "position": 0.5
-        },
-        "target": {
-          "side": "right",
-          "position": 0.43333333333333335
+          "position": 0.45
         }
       }
     },
     {
       "from": "23",
-      "to": "12",
+      "to": "2",
       "dir": "fwd",
       "base": "partof",
       "style": "partof",
       "route": {
         "source": {
-          "side": "bottom",
+          "side": "right",
           "position": 0.5
         },
         "target": {
-          "side": "top",
-          "position": 0.7
+          "side": "left",
+          "position": 0.5
         }
       }
     },
@@ -938,8 +681,8 @@
   ],
   "meta": {
     "bounds": {
-      "width": 1180,
-      "height": 980,
+      "width": 1360,
+      "height": 940,
       "marginX": 40,
       "marginY": 40
     },
