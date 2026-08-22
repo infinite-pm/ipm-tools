@@ -30,4 +30,5 @@ t1 ::t
 t2 ::t
 
 t1 --> e2a1, e2a3
-t2 --> e2a1, e2a2, e2a3, e2a3b1
+# lifted equals `t2 --> e2a1, e2a2, e2a3, e2a3b1` and `t2 --> e2a1, e2a2, e2a3b1` 
+t2 --> e2
