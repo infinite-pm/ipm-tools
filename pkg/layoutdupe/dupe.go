@@ -17,11 +17,17 @@
 //     take fresh ids and carry their local edges — layout7 runs unmodified,
 //     and the result carries a map back to the real ids.
 //
-// What may be copied is a matter of ROLE, not node kind: a node that plays a
-// reference role (a tool used in four steps, a concept many things express, a
-// definition) may be drawn wherever it is used, while the story's own spine
-// may not. So a node is eligible when it is NOT on a leads-to chain and NOT a
-// part-of parent — never a step, never a whole.
+// What may be copied is a PARTICIPANT: a thing or a concept. Events are never
+// copied, whatever their shape in the graph — an event happens once, and two
+// boxes reading the same happening say the story forked when it did not. The
+// reader's question this answers is "who takes part in this event", so the
+// answer is drawn beside the event; the event itself stays where the story
+// puts it.
+//
+// Role narrows it further: a node is eligible when it is NOT on a leads-to
+// chain and NOT a part-of parent — never a step, never a whole. In a
+// parser-legal graph leads-to joins two events, so for a participant it is
+// containment this catches: a thing that is the whole of other things.
 package layoutdupe
 
 import (
@@ -52,6 +58,15 @@ type Options struct {
 	// MinNodes is the size below which the pass does nothing. Small diagrams
 	// gained nothing and lost area in measurement.
 	MinNodes int
+	// FirstCopyID is the id the first copy takes; copies count up from it.
+	// A caller that runs the pass over SUBGRAPHS of one document — the zoom
+	// canvas lays out one per click-path state — must set it above every id
+	// in the WHOLE document: ids travel between states in the client (a
+	// selection kept across a click, a deep link naming a node), so a copy
+	// numbered from its own state's maximum would silently mean a different,
+	// real node in the next state. Zero keeps the local numbering, which is
+	// right for a caller that lays out the whole document at once.
+	FirstCopyID int
 }
 
 // DefaultOptions are the measured starting values.
@@ -187,7 +202,7 @@ func GenerateWithHints(doc *model.IpmGraph, opts Options, gen func(*model.IpmGra
 		return res, nil
 	}
 
-	dup, copies := rewrite(doc, plan)
+	dup, copies := rewrite(doc, plan, opts.FirstCopyID)
 	second, err := gen(dup, copyHints(first, dup, plan, copies))
 	if err != nil {
 		// A rewrite that the engine cannot lay out is a bug in this pass, not
@@ -247,13 +262,23 @@ func planCopies(doc *model.IpmGraph, first *layout.Graph, opts Options) ([]clust
 	median := lens[len(lens)/2]
 	threshold := math.Max(opts.LongFactor*median, opts.MinLongPx)
 
-	// Role, not kind: the spine and the containers are never copied.
+	// Kind first: only participants — things and concepts — may be drawn in
+	// more than one place. Then role: the spine and the containers are never
+	// copied, even when they are participants.
+	isParticipant := map[int]bool{}
+	for _, n := range doc.Nodes {
+		// An Unresolved node acts as its primary candidate — the same
+		// substitution the parser, the validator and layout7's kindOf make,
+		// so a document still being typed duplicates like a finished one.
+		t := n.Type
+		if t == model.Unresolved && len(n.Candidates) > 0 {
+			t = n.Candidates[0]
+		}
+		isParticipant[n.ID] = t == model.Thing || t == model.Concept
+	}
 	onSpine := map[int]bool{}
 	isParent := map[int]bool{}
-	incident := map[int][]model.Edge{}
 	for _, e := range doc.Edges {
-		incident[e.Source] = append(incident[e.Source], e)
-		incident[e.Target] = append(incident[e.Target], e)
 		switch e.SstLinkType {
 		case model.LeadsTo:
 			onSpine[e.Source] = true
@@ -263,16 +288,19 @@ func planCopies(doc *model.IpmGraph, first *layout.Graph, opts Options) ([]clust
 		}
 	}
 
-	// Which END of a long edge gets copied? The one that is SHARED — the
-	// participant many places use. Copying the other way round (drawing each
-	// user next to the participant) would move the problem rather than answer
-	// it: the reader would still have to travel, just in the other direction.
+	// Which END of a long edge gets copied? Only an eligible one can be, so an
+	// edge into an event pulls the participant TOWARD the event — which is the
+	// point: the reader asks who takes part here, and the answer is drawn here.
+	// When BOTH ends are participants the SHARED one is copied — the one many
+	// places use. Copying the rarer end there (drawing each user next to the
+	// participant) would move the problem rather than answer it: the reader
+	// would still have to travel, just in the other direction.
 	degree := map[int]int{}
 	for _, e := range doc.Edges {
 		degree[e.Source]++
 		degree[e.Target]++
 	}
-	eligible := func(id int) bool { return !onSpine[id] && !isParent[id] }
+	eligible := func(id int) bool { return isParticipant[id] && !onSpine[id] && !isParent[id] }
 
 	// far users, grouped by the node that will be copied for them
 	farOf := map[int][]farUser{}
@@ -377,7 +405,7 @@ func planCopies(doc *model.IpmGraph, first *layout.Graph, opts Options) ([]clust
 // rewrite builds the placement graph: one extra node per cluster, carrying
 // that cluster's edges. Returns it and the copy→original id map (layout ids,
 // which are strings).
-func rewrite(doc *model.IpmGraph, plan []cluster) (*model.IpmGraph, map[string]string) {
+func rewrite(doc *model.IpmGraph, plan []cluster, firstCopyID int) (*model.IpmGraph, map[string]string) {
 	out := *doc
 	out.Nodes = append([]model.Node(nil), doc.Nodes...)
 	out.Edges = append([]model.Edge(nil), doc.Edges...)
@@ -389,6 +417,9 @@ func rewrite(doc *model.IpmGraph, plan []cluster) (*model.IpmGraph, map[string]s
 		if n.ID > maxID {
 			maxID = n.ID
 		}
+	}
+	if firstCopyID > maxID {
+		maxID = firstCopyID - 1
 	}
 	edgeAt := map[int]int{} // edge id -> index in out.Edges
 	for i, e := range out.Edges {
@@ -432,11 +463,6 @@ func copyHints(first *layout.Graph, dup *model.IpmGraph, plan []cluster, copies 
 	}
 	// which edges each copy carries, by copy id
 	edgeOf := map[int][]int{}
-	copyIDs := make([]string, 0, len(copies))
-	for id := range copies {
-		copyIDs = append(copyIDs, id)
-	}
-	sort.Strings(copyIDs)
 	// plan and the copy ids were assigned in the same order by rewrite
 	byPlan := make([]int, 0, len(plan))
 	for _, e := range dup.Nodes {

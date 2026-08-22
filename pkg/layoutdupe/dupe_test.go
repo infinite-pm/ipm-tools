@@ -145,31 +145,99 @@ func TestNoNodeIsLeftWithoutEdges(t *testing.T) {
 	}
 }
 
-// Role, not kind: the story's spine and the containers are never copied, even
-// when their edges are long.
-func TestSpineAndContainersAreNeverCopied(t *testing.T) {
+// Kind first: an event is never copied, however it is wired. The k8s corpus
+// types definitions as events ("a container orchestration system ::e") and
+// several are referenced from all over the diagram, so the shape below —
+// distant users pointing at one hub — is not hypothetical. Copying it drew the
+// same happening twice, which reads as a fork in the story that is not there.
+//
+// The test is a CONTROL and a CASE on the same shape and the same placement:
+// things expressing a concept (legal: thing→concept) get copies; the identical
+// diagram with every node an event (legal: event→event) gets none. Only the
+// kind differs, so only the kind can explain the difference.
+func TestEventsAreNeverCopied(t *testing.T) {
+	control, err := GenerateWith(taxonomy(9), Options{}, fakeLayout)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(control.Copies) == 0 {
+		t.Fatal("control: a concept hub reached from across the diagram must be copied")
+	}
+
+	doc := taxonomy(9)
+	name := map[string]string{}
+	for i := range doc.Nodes {
+		doc.Nodes[i].Type = model.Event // users, partners and hub alike
+		name[strconv.Itoa(doc.Nodes[i].ID)] = doc.Nodes[i].Name
+	}
+	res, err := GenerateWith(doc, Options{}, fakeLayout)
+	if err != nil {
+		t.Fatal(err)
+	}
+	for copyID, origID := range res.Copies {
+		t.Errorf("copy %s duplicates event %s (%q)", copyID, origID, name[origID])
+	}
+	if len(res.Copies) == 0 && len(control.Copies) == 0 {
+		t.Fatal("neither run copied anything — the fixture no longer tests the gate")
+	}
+}
+
+// An Unresolved node (`::?ce`, still being typed) acts as its primary
+// candidate everywhere else in the stack — the parser, the validator, layout7's
+// kindOf — so it must here too. It read as "not a participant" once, which
+// switched duplication off for every document still being edited.
+func TestUnresolvedActsAsItsPrimaryCandidate(t *testing.T) {
+	doc := taxonomy(9)
+	hub := &doc.Nodes[len(doc.Nodes)-1]
+	hub.Type = model.Unresolved
+	hub.Candidates = []model.NodeType{model.Concept, model.Thing}
+	res, err := GenerateWith(doc, Options{}, fakeLayout)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(res.Places[strconv.Itoa(hub.ID)]) < 3 {
+		t.Fatalf("an unresolved hub whose primary kind is Concept must be copied like a concept: %v",
+			res.Places[strconv.Itoa(hub.ID)])
+	}
+}
+
+// Role narrows what the kind gate already allowed: a participant that is a
+// WHOLE is never copied, however long its edges are — forking a container
+// would fork the tree. (The other role term, the leads-to spine, can only bite
+// in a hand-built graph: leads-to is event→event, and no event gets this far.)
+func TestContainersAreNeverCopied(t *testing.T) {
 	g := &model.IpmGraph{Version: "test"}
-	for i := 1; i <= 20; i++ {
-		g.Nodes = append(g.Nodes, model.Node{ID: i, Name: fmt.Sprintf("e%d", i), Type: model.Event})
+	eid := 0
+	var kids []int
+	for i := 1; i <= 20; i += 2 {
+		// a part, and a partner beside it so the diagram has short edges too
+		g.Nodes = append(g.Nodes,
+			model.Node{ID: i, Name: fmt.Sprintf("p%d", i), Type: model.Thing},
+			model.Node{ID: i + 1, Name: fmt.Sprintf("q%d", i), Type: model.Thing})
+		eid++
+		g.Edges = append(g.Edges, model.Edge{ID: eid, Source: i, Target: i + 1, SstLinkType: model.NearTo})
+		kids = append(kids, i)
 	}
 	whole := 21
-	g.Nodes = append(g.Nodes, model.Node{ID: whole, Name: "the whole", Type: model.Event})
-	eid := 0
-	for i := 1; i < 20; i++ { // a leads-to chain: the spine
+	g.Nodes = append(g.Nodes, model.Node{ID: whole, Name: "the whole", Type: model.Thing})
+	for _, k := range kids { // child → parent, thing → thing
 		eid++
-		g.Edges = append(g.Edges, model.Edge{ID: eid, Source: i, Target: i + 1, SstLinkType: model.LeadsTo})
-	}
-	for i := 1; i <= 20; i++ { // every step part of one whole: containment
-		eid++
-		g.Edges = append(g.Edges, model.Edge{ID: eid, Source: i, Target: whole, SstLinkType: model.PartOf})
+		g.Edges = append(g.Edges, model.Edge{ID: eid, Source: k, Target: whole, SstLinkType: model.PartOf})
 	}
 	res, err := GenerateWith(g, Options{}, fakeLayout)
 	if err != nil {
 		t.Fatal(err)
 	}
-	if len(res.Copies) != 0 {
-		t.Fatalf("nothing here may be copied (all spine and container), got %d copies: %v",
-			len(res.Copies), res.Copies)
+	if len(res.Copies) == 0 {
+		t.Fatal("nothing was copied at all — the fixture no longer reaches the role test")
+	}
+	if places := res.Places[strconv.Itoa(whole)]; len(places) > 1 {
+		t.Errorf("the whole is drawn in %d places: %v", len(places), places)
+	}
+	for copyID, origID := range res.Copies {
+		if origID == strconv.Itoa(whole) {
+			t.Errorf("copy %s duplicates the container", copyID)
+		}
 	}
 }
 

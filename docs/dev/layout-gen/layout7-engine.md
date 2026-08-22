@@ -66,6 +66,45 @@ spine neighbours are pushed clear of the grid's full span (`subGridOverhang`
 in `place.go`). The cost is vertical space in exact proportion to the
 sub-grid's height — that room is what makes the shell exclusive.
 
+## Pre-layout pass: duplication (`pkg/layoutdupe`)
+
+Off by default; `layout-gen --duplicate` (and `canvas-server --duplicate`
+through ipm-drawio's `GenerateClickPathLayoutsDup`) turns it on. It answers a
+distance, not a route: when an edge is long enough that its far end cannot be
+read from here, the participant at that end is **drawn again**, next to the
+users that need it.
+
+The engine is untouched. The pass lays the graph out once to see the distances,
+plans the copies, rewrites the layout INPUT (a copy is a fresh node id carrying
+that cluster's edges), and lays that out — so `layout7` never learns the word.
+The result carries `Copies` (copy id → real id) and `Places` (real id → every
+id it is drawn as); the model graph is unchanged, exactly like a container
+shell or an S/E marker.
+
+Three rules decide what may be copied:
+
+- **kind**: a thing or a concept — a *participant*. Never an event: an event
+  happens once, and two boxes reading the same happening say the story forked.
+- **role**: not on a leads-to chain, not a part-of parent. A participant can
+  still carry the story, and forking a container would fork the tree.
+- **distance**: at least one edge longer than `max(factor × the diagram's
+  median edge, min-px)` — defaults 2× and 320px, both flags.
+
+Only an eligible end can be copied, so a long edge into an event pulls the
+participant to the event — the reader's question is who takes part here. When
+BOTH ends are participants the SHARED one is copied (higher degree, ties to the
+target of an expresses); copying the rarer end would move the problem instead
+of answering it. Far users are clustered by single linkage so
+neighbours share one copy, and the original keeps its best cluster unless it
+has near edges of its own. The pass then measures both layouts the way a reader
+feels them — total distance, worst edge, how many are still too long — and
+**keeps the rewrite only if it is not worse**, reporting `Rejected` otherwise:
+copies change the engine's input, and the engine re-places everything from it.
+
+Where the caller can place components itself (the zoom canvas anchors every
+component by node id), `GenerateWithHints` hands it each copy's intended place,
+since a copy's id is new and would otherwise have nowhere to be.
+
 ## Post-placement passes in `pkg/layout`
 
 An edge route is only partly relative. The PORTS are box-relative — "left

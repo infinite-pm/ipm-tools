@@ -27,7 +27,7 @@ func main() {
 	var dupMinPx float64
 	flag.Float64Var(&dupFactor, "duplicate-factor", 0, "with --duplicate: how many times the diagram's MEDIAN edge length counts as too long to read from here (default 2)")
 	flag.Float64Var(&dupMinPx, "duplicate-min-px", 0, "with --duplicate: the floor under that, in px (default 320) — in a tight diagram twice the median is still readable")
-	flag.BoolVar(&duplicate, "duplicate", false, "draw a participant more than once when its users are too far apart to read it from where they are (pkg/layoutdupe): the copies carry their local edges, the graph is unchanged. Off by default — a placement policy, measured per corpus")
+	flag.BoolVar(&duplicate, "duplicate", false, "draw a participant more than once when its users are too far apart to read it from where they are (pkg/layoutdupe): only things and concepts, never an event; the copies carry their local edges, the graph is unchanged. Off by default — a placement policy, measured per corpus")
 	flag.StringVar(&debugJSON, "debug-json", "", "also record the run — trace events plus the resulting graph — to this path as a throwaway .debug.json; the dev tools (layout-debug, layout-explain) then narrate it with --in <path> WITHOUT re-generating. The flag only installs the trace hook (otherwise nil); it costs nothing when absent")
 	version := cli.VersionFlag(flag.CommandLine, "layout-gen")
 	flag.Usage = func() {
