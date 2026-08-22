@@ -85,9 +85,11 @@
                 "anchor": "#v7p1-components-separate-along-event-structure",
                 "content_sha1": "9f52e24fde9cfd9e4c7fd842b1e473c75c737f28",
                 "outputs": {
+                    "ipm.svg": "5bd1df0966bc42c6a36d92fec67ced12be5d5353",
                     "ipmt": "9f52e24fde9cfd9e4c7fd842b1e473c75c737f28",
                     "json": "53d231dc62890207cc3418692e258b553cc82783",
-                    "md": "a4b9d0e508232326a694ad9963f11cb197f01143"
+                    "layout.json": "966919827b3ed905afb6aa193642c7f82f731f0e",
+                    "md": "c76e819da0b6c2b38d97e5ff5be066a6a5f33151"
                 },
                 "section": "v7P1 — components separate along event structure"
             },
@@ -97,9 +99,11 @@
                 "anchor": "#v7p2-the-most-central-component-first-tied-components-around-it",
                 "content_sha1": "396f6e517b547186e8a71bc22c9ef8ae2f075397",
                 "outputs": {
+                    "ipm.svg": "72ddff5763439cbde6cf71aec52d406a819f279c",
                     "ipmt": "396f6e517b547186e8a71bc22c9ef8ae2f075397",
                     "json": "dfdc5dceb55ee2eceadf74ffc67be78783ef1aa2",
-                    "md": "d0f81c80efdac25d5f7dc0118d4a3f0ceeb8c876"
+                    "layout.json": "636bf8657b1c48842f05f23e15623c5fbb993da5",
+                    "md": "b3d2973a93aa7eaa5e3f92ce21c94798a0a12a71"
                 },
                 "section": "v7P2 — the most central component first, tied components around it"
             },
@@ -109,9 +113,11 @@
                 "anchor": "#v7p2-the-most-central-component-first-tied-components-around-it",
                 "content_sha1": "01e80f0479738c574d1e5a716ff475bae4a526e3",
                 "outputs": {
+                    "ipm.svg": "8b41188ae736bbd6a54d2b07190504812ee50449",
                     "ipmt": "01e80f0479738c574d1e5a716ff475bae4a526e3",
                     "json": "e86bff08ecbcb221bbcd0d9d068406084bd3b5bf",
-                    "md": "ff52ef4958d481acd0c19864870f7512a123d25c"
+                    "layout.json": "a6ca18d3563a151a12a0a6209afb2f5ec5b29383",
+                    "md": "d1a24b31ae12011c839159386b2d31310d08f2ac"
                 },
                 "section": "v7P2 — the most central component first, tied components around it"
             },
@@ -121,9 +127,11 @@
                 "anchor": "#v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-symmetrically",
                 "content_sha1": "0c7f40ee7a5a37218da7ddeaf3da6ea194d484a0",
                 "outputs": {
+                    "ipm.svg": "5c2626b6cbaa3a052707cd5daf317649c1c2e4af",
                     "ipmt": "0c7f40ee7a5a37218da7ddeaf3da6ea194d484a0",
                     "json": "49442e66c5f56850ebea7a1465b7770118f14206",
-                    "md": "1fdbfc709fe56bc98223cc3941bf6cd28ab8c5be"
+                    "layout.json": "b20e549e01f0a51d201f9cc0ca85bbebb3c7eccb",
+                    "md": "b8d2cb756104574933040cd7195ef7ce1c00087a"
                 },
                 "section": "v7P3 — the event skeleton: leads-to runs down, part-of indents right, forks spread symmetrically"
             },
@@ -133,9 +141,11 @@
                 "anchor": "#v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-symmetrically",
                 "content_sha1": "466f2b4be1c78a0b043aa5b26a18ec90e11b3901",
                 "outputs": {
+                    "ipm.svg": "b3c22d077ad0a7d46fc5bc5ff09d1664a514beb3",
                     "ipmt": "466f2b4be1c78a0b043aa5b26a18ec90e11b3901",
                     "json": "743fce03d93b227bb48e432c3fef2406958b1cee",
-                    "md": "8bea087dd717ff431a199d1f3cab6ebc99322f3a"
+                    "layout.json": "63d21de3f3e978beaef389db8e787a5b4048f4e8",
+                    "md": "bb43f70fc7738510db5e2d18de7ae49fd458badf"
                 },
                 "section": "v7P3 — the event skeleton: leads-to runs down, part-of indents right, forks spread symmetrically"
             },
@@ -145,9 +155,11 @@
                 "anchor": "#v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concepts-down",
                 "content_sha1": "d4bd84b10966e8b5b2cb4be96d09142d056b9596",
                 "outputs": {
+                    "ipm.svg": "fb73d6c23fa8d54e75442f13a7aaada206e0b8dc",
                     "ipmt": "d4bd84b10966e8b5b2cb4be96d09142d056b9596",
                     "json": "51e928f52d52302af778bfda2cae53692c79b973",
-                    "md": "78133ceeb5bf162be130e94d90c92ed59a4800c0"
+                    "layout.json": "679d8da08f12721e59543866946ff8d2cf4e9b70",
+                    "md": "d4627ba8368f18ee29d9f274a20bddb5b96c0db6"
                 },
                 "section": "v7P4 — aux attaches in groups: on the event's row, wholes outward, parts above, concepts down"
             },
@@ -157,9 +169,11 @@
                 "anchor": "#v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concepts-down",
                 "content_sha1": "13194370782d7722871d1a43fb14b0f9803b26d7",
                 "outputs": {
+                    "ipm.svg": "73d09cca7883ef79db962765cf304c9ede3c20e4",
                     "ipmt": "13194370782d7722871d1a43fb14b0f9803b26d7",
                     "json": "bcdfbe8251de09d5d669b63753b9da71722ea2e1",
-                    "md": "5d302be45ecb5399817a9103e559b2aec164fa32"
+                    "layout.json": "6df5b94eeb167de17b493771ac9e01ff1f3138d4",
+                    "md": "7e6b5a5c177110d58d1f4cb99e4dcb7a3127050f"
                 },
                 "section": "v7P4 — aux attaches in groups: on the event's row, wholes outward, parts above, concepts down"
             },
@@ -169,9 +183,11 @@
                 "anchor": "#v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer",
                 "content_sha1": "ab8fbced62b3e9735511d3f63befd463f444ac14",
                 "outputs": {
+                    "ipm.svg": "022f2f9265211cbc80a2da65cd4ece5f61895672",
                     "ipmt": "ab8fbced62b3e9735511d3f63befd463f444ac14",
                     "json": "d9fc8685d2bf0ae5e04e361d0d021b81f2f083d0",
-                    "md": "64b25ac6bbf4748d3c8f14e02bfb5f7e1f450835"
+                    "layout.json": "b27c0a4b779067e6acd17bc7b48efa5b2e51a07a",
+                    "md": "4d4d5ea33d4873573b4a29205d39bd92c7b1522b"
                 },
                 "section": "v7P5 — same-kind ties: draw, order, or wrap as the outermost layer"
             },
@@ -181,9 +197,11 @@
                 "anchor": "#v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact",
                 "content_sha1": "2d7572fad701b00336d93185323982c77a5da90e",
                 "outputs": {
+                    "ipm.svg": "5a118048adbbcf807626efaab93b57f1052356fd",
                     "ipmt": "2d7572fad701b00336d93185323982c77a5da90e",
                     "json": "139e9b47af1fabe6f701ddb6242d0089f07351ef",
-                    "md": "4537eaa84ce92ee0a57ec328cc8c1461bebfa24d"
+                    "layout.json": "ab28892c363b112b6e4f47e8656e6025190e6402",
+                    "md": "e7128df29dd23ad2e3af5310e7cbd7efb2177ea4"
                 },
                 "section": "v7P8 — spacing: gaps are minimums, growth is symmetric, the grid is exact"
             },
@@ -193,9 +211,11 @@
                 "anchor": "#v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact",
                 "content_sha1": "4de6caa4f77b7d41345b2ab95c8c500e0034ba39",
                 "outputs": {
+                    "ipm.svg": "6f34d92493308c8a6ad31731f05c9ac82394b2a4",
                     "ipmt": "4de6caa4f77b7d41345b2ab95c8c500e0034ba39",
                     "json": "33e793372f6302ea375fafa3e72964e79a341035",
-                    "md": "b955d6954d17e68808e320836ea1d45541d643f5"
+                    "layout.json": "2c94108ffd9302c391726321a9a993d8e70214cb",
+                    "md": "e430b6cc4d2eae821ba2e2e1001fca037fedc875"
                 },
                 "section": "v7P8 — spacing: gaps are minimums, growth is symmetric, the grid is exact"
             },
@@ -205,9 +225,11 @@
                 "anchor": "#v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact",
                 "content_sha1": "ed5235eaeca4a77efb0cba65d81180e9777570f3",
                 "outputs": {
+                    "ipm.svg": "cefb283c0c215214c9317574b588f15f6d43952b",
                     "ipmt": "ed5235eaeca4a77efb0cba65d81180e9777570f3",
                     "json": "cc99276ab96e4acaa6d8ecf024d9e9e7ad1ac16d",
-                    "md": "6962220f6b53b85c45569908a331eb435ebcb5d9"
+                    "layout.json": "f08b34f947a87ecbbc53decb19eb5f0763fae44a",
+                    "md": "f485dc42af1ea7da9924a75004c8a900f6326ffe"
                 },
                 "section": "v7P8 — spacing: gaps are minimums, growth is symmetric, the grid is exact"
             },
@@ -217,9 +239,11 @@
                 "anchor": "#v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact",
                 "content_sha1": "c8d9176a9d8d8d61ca3620c10cdeb7753335b0dd",
                 "outputs": {
+                    "ipm.svg": "3ed14a17da05b4fbf380107aa2a189718f2402f3",
                     "ipmt": "c8d9176a9d8d8d61ca3620c10cdeb7753335b0dd",
                     "json": "a37f0dd44929088ab902bcc082c495ba2748ddb8",
-                    "md": "07f469556152915fe2bcf6566bc521bac9fe8719"
+                    "layout.json": "ae59b98baa4053ba8be82e96f7e5fbc6d1fe664a",
+                    "md": "3ef5d8f665373f59b8004e9f1979772359157704"
                 },
                 "section": "v7P8 — spacing: gaps are minimums, growth is symmetric, the grid is exact"
             }
@@ -340,9 +364,11 @@
                 "anchor": "#no-duplicate-edge-between-the-same-nodes",
                 "content_sha1": "c587cff042906ed5652e6268b3469a579ecedd11",
                 "outputs": {
+                    "ipm.svg": "4d094c75bb525fa751b2caa159e2d05ab10dadde",
                     "ipmt": "c587cff042906ed5652e6268b3469a579ecedd11",
                     "json": "3cf9826442602a200a601ee964302ea2a65e3234",
-                    "md": "0cbe9333e61f9735fc22041753ebd90f049f04f9"
+                    "layout.json": "059feec3fe28ce1aec69316e8e92e971bbd61ba3",
+                    "md": "9700e603602cec7616a3977226c7dbed69abbbaf"
                 },
                 "heading": "3. Best Practices for AI Assistants"
             }
@@ -569,10 +595,10 @@
                 "anchor": "#links-compact-arrows",
                 "content_sha1": "bff84a2b909c43323eebde1d6535920708eea2bf",
                 "outputs": {
-                    "ipm.svg": "17a24692fdb3a6653bedd01507e1d9c73ea0e6d0",
+                    "ipm.svg": "e59a34df784a021c95c3192e17978d386180f3d3",
                     "ipmt": "bff84a2b909c43323eebde1d6535920708eea2bf",
                     "json": "90d653c76221c5527d457061b8dd4a8b51239671",
-                    "layout.json": "18c395be57d9cebdcf298282dc29b0e435d744bf",
+                    "layout.json": "73b03eb5525bf01fbdfc33710ac7ea18d5fb9f6d",
                     "md": "649dc7680112619bf2ad8ba72e5179daee8337f0"
                 },
                 "heading": "links-compact-arrows",
@@ -719,10 +745,10 @@
                 "anchor": "#complex-1",
                 "content_sha1": "ab2362d13740e931664b02a8bc23109ed93d47ec",
                 "outputs": {
-                    "ipm.svg": "5449f38f160926b9a3a6b2bed11e364d0860f288",
+                    "ipm.svg": "a9a60e08ae3dc43ca7237e245ae96543b9ef20b4",
                     "ipmt": "ab2362d13740e931664b02a8bc23109ed93d47ec",
                     "json": "41ffd8033176baec16e763ab2e2f1120eb5effe0",
-                    "layout.json": "0741d01ee7f2dff817e8cbde9a555cad92996046",
+                    "layout.json": "dbd4d31f4f4d07e02c0f2794c4fe7fb70c60e934",
                     "md": "4708b09faa2d83ef063f84b38d00de25f8751ac7"
                 },
                 "heading": "complex 1",
@@ -805,7 +831,7 @@
                 "anchor": "#murder-mystery-june-2025",
                 "content_sha1": "a726cc3559ef0211b78b7f4d9d1d9e05aee77d1b",
                 "outputs": {
-                    "ipm.svg": "27bcd0fcf7e342c477350ff281b1880a64055def",
+                    "ipm.svg": "0dc52fd811a390d3ae465e52807a289dbf714d91",
                     "ipmt": "a726cc3559ef0211b78b7f4d9d1d9e05aee77d1b",
                     "json": "911d066a5e9e763265a1ed1b9c0126f1ac5a4de4",
                     "layout.json": "0578e485942637d944253a529051b7246ab2deb3",

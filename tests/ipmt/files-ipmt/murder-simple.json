@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "# Simplified zoom example based on the murder scenario.\n#\n# Naming is intentionally abstract:\n# - main events: e1, e2, e3\n# - sub-events of e2: e2a1, e2a2, e2a3\n# - deeper sub-event example: e2a3b1\n# - things: t1, t2\n# - concepts: c1, c2, c3, c4\n\ne1 ::e\n  --then--\u003e e2 ::e\n  --then--\u003e e3 ::e\n\ne2 \u003c--::P contains-- e2a1 ::e\n  --\u003e c1 ::c\n\ne2 \u003c--::P contains-- e2a2 ::e\n  --\u003e c2 ::c\n\ne2 \u003c--::P contains-- e2a3 ::e\n  --\u003e c3 ::c\n\ne2a3 \u003c--::P contains-- e2a3b1 ::e\ne2a3b1 --\u003e c4 ::c\n\n# Visible inner event order inside e2.\ne2a1 --\u003e e2a2 --\u003e e2a3\n\nt1 ::t\nt2 ::t\n\nt1 --\u003e e2a1, e2a3\nt2 --\u003e e2a1, e2a2, e2a3, e2a3b1\n",
+    "ipmt": "# Simplified zoom example based on the murder scenario.\n#\n# Naming is intentionally abstract:\n# - main events: e1, e2, e3\n# - sub-events of e2: e2a1, e2a2, e2a3\n# - deeper sub-event example: e2a3b1\n# - things: t1, t2\n# - concepts: c1, c2, c3, c4\n\ne1 ::e\n  --then--\u003e e2 ::e\n  --then--\u003e e3 ::e\n\ne2 \u003c--::P contains-- e2a1 ::e\n  --\u003e c1 ::c\n\ne2 \u003c--::P contains-- e2a2 ::e\n  --\u003e c2 ::c\n\ne2 \u003c--::P contains-- e2a3 ::e\n  --\u003e c3 ::c\n\ne2a3 \u003c--::P contains-- e2a3b1 ::e\ne2a3b1 --\u003e c4 ::c\n\n# Visible inner event order inside e2.\ne2a1 --\u003e e2a2 --\u003e e2a3\n\nt1 ::t\nt2 ::t\n\nt1 --\u003e e2a1, e2a3\n# lifted equals `t2 --\u003e e2a1, e2a2, e2a3, e2a3b1` and `t2 --\u003e e2a1, e2a2, e2a3b1` \nt2 --\u003e e2\n",
     "positions": {
       "nodes": {
         "1": [
@@ -257,58 +257,16 @@
         },
         "28": {
           "arrow": [
-            576,
-            581
+            659,
+            664
           ],
           "source": [
-            574,
-            576
+            657,
+            659
           ],
           "target": [
-            581,
-            585
-          ]
-        },
-        "29": {
-          "arrow": [
-            576,
-            581
-          ],
-          "source": [
-            574,
-            576
-          ],
-          "target": [
-            587,
-            591
-          ]
-        },
-        "30": {
-          "arrow": [
-            576,
-            581
-          ],
-          "source": [
-            574,
-            576
-          ],
-          "target": [
-            593,
-            597
-          ]
-        },
-        "31": {
-          "arrow": [
-            576,
-            581
-          ],
-          "source": [
-            574,
-            576
-          ],
-          "target": [
-            599,
-            605
+            664,
+            666
           ]
         }
       }
@@ -524,34 +482,7 @@
     {
       "id": 28,
       "source": 13,
-      "target": 4,
-      "dir": "DirFwd",
-      "tooltip": "",
-      "sstLinkType": "PartOf",
-      "semOrigin": "SemInferred"
-    },
-    {
-      "id": 29,
-      "source": 13,
-      "target": 6,
-      "dir": "DirFwd",
-      "tooltip": "",
-      "sstLinkType": "PartOf",
-      "semOrigin": "SemInferred"
-    },
-    {
-      "id": 30,
-      "source": 13,
-      "target": 8,
-      "dir": "DirFwd",
-      "tooltip": "",
-      "sstLinkType": "PartOf",
-      "semOrigin": "SemInferred"
-    },
-    {
-      "id": 31,
-      "source": 13,
-      "target": 10,
+      "target": 2,
       "dir": "DirFwd",
       "tooltip": "",
       "sstLinkType": "PartOf",

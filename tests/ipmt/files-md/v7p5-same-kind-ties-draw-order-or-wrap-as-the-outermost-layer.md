@@ -20,7 +20,13 @@ A --- B ::t
 
 - [v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer.ipmt](v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer.ipmt) - ipmt input
 - [v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer.json](v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer.json) - Parsed structure
+- [v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer.layout.json](v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer.layout.json) - Layout coordinates
+- [v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer.ipm.svg](v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer.ipm.svg) - Rendered diagram
+
+## Rendered Diagram
+
+![v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer](v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer.ipm.svg)
 
 This test case was automatically generated from the specification document.
 
-The ipmt code block was extracted using [sync-test-cases](../../../docs/dev/testing.md) and saved to [v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer.ipmt](v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer.ipmt), then parsed into the [JSON structure](v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer.json).
+The ipmt code block was extracted using [sync-test-cases](../../../docs/dev/testing.md) and saved to [v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer.ipmt](v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer.ipmt), then parsed into the [JSON structure](v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer.json) and laid out into [layout coordinates](v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer.layout.json). The [SVG diagram](v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer.ipm.svg) was rendered using [ipmsvg-gen](../../../docs/ipmsvg-gen.md).

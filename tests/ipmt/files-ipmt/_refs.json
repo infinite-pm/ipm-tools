@@ -26,7 +26,7 @@
     },
     {
         "source": "../../../examples/murder-full.ipmt",
-        "source_sha1": "cdf02b983e00510bad05d91c710174495c752981",
+        "source_sha1": "dc5c6746a85c85ab2d5cba28b4ff110890753ee7",
         "name": "ipmt files",
         "method": "parser",
         "parser_name": "ipmt-file",
@@ -38,20 +38,20 @@
             {
                 "destination": "murder-full",
                 "line": 1,
-                "content_sha1": "cdf02b983e00510bad05d91c710174495c752981",
+                "content_sha1": "dc5c6746a85c85ab2d5cba28b4ff110890753ee7",
                 "outputs": {
-                    "ipm.svg": "2d7dde4f5f480223f263d615380156ef1a46d799",
-                    "ipmt": "cdf02b983e00510bad05d91c710174495c752981",
-                    "json": "121c51132e8ab60642b9701dddf35d3e84986f61",
-                    "layout.json": "13f001d5bd85b91c5ebaa0a39b048a56beb72e46",
-                    "md": "62556896ca08112075db3676338d9871ea0f8ab3"
+                    "ipm.svg": "4d63652faf365014926fa0767ed4154a7a25455d",
+                    "ipmt": "dc5c6746a85c85ab2d5cba28b4ff110890753ee7",
+                    "json": "4f72162d816fb79a98d27d0218567024f8aafee3",
+                    "layout.json": "4d99e1ec7dc074514aced93532b8ddce228941df",
+                    "md": "844b993b03a0759e04d22810a8f6e4fc70daa764"
                 }
             }
         ]
     },
     {
         "source": "../../../examples/murder-simple.ipmt",
-        "source_sha1": "32704f15668b37b2cb7e436399e7ffbbd437b5c7",
+        "source_sha1": "3da06c585c72f294cb7a3e3fe94f2e5300017027",
         "name": "ipmt files",
         "method": "parser",
         "parser_name": "ipmt-file",
@@ -63,13 +63,13 @@
             {
                 "destination": "murder-simple",
                 "line": 1,
-                "content_sha1": "32704f15668b37b2cb7e436399e7ffbbd437b5c7",
+                "content_sha1": "3da06c585c72f294cb7a3e3fe94f2e5300017027",
                 "outputs": {
-                    "ipm.svg": "87e8da9afe4e55f583d3c3623220ef13da0d9978",
-                    "ipmt": "32704f15668b37b2cb7e436399e7ffbbd437b5c7",
-                    "json": "2d55ad8b09b6243d78547d178a082f03e1001df6",
-                    "layout.json": "8e88d3e79cc50914051b89fe2d3a2cedfd880d25",
-                    "md": "6518e1de51089442222fd1034c908de37b13814f"
+                    "ipm.svg": "8bc1ce44fd5d7df972d1c823e32c217a6dfa7642",
+                    "ipmt": "3da06c585c72f294cb7a3e3fe94f2e5300017027",
+                    "json": "5cfb68834f3320be45c91ee4ef9be1592622ab18",
+                    "layout.json": "e0b42fb4f0f2d556043725c56057dcf9c7f07b91",
+                    "md": "eef363f5fdee75224f30d7c6b72a20f2adf31d74"
                 }
             }
         ]
@@ -90,10 +90,10 @@
                 "line": 1,
                 "content_sha1": "6d7fa1e8a5c77eef366f009be398e47f1cc16e9c",
                 "outputs": {
-                    "ipm.svg": "7323c40ce0562f47bae046f12d9f235e2b3845a6",
+                    "ipm.svg": "31f20369ebf5102c2aaddddbb3c62f05da2a79f8",
                     "ipmt": "6d7fa1e8a5c77eef366f009be398e47f1cc16e9c",
                     "json": "256e4c3b6153da49a7d5ab25c280c419c48264f6",
-                    "layout.json": "9009a9eb6b9debea6ba4b536f55a74b5f38ce72b",
+                    "layout.json": "404379f63d375beedf3eb823d4599522663a41e2",
                     "md": "b11315fb6ff1c8148ecb973325f0336e8e08f4a2"
                 }
             }

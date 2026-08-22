@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:examples/murder-full.ipmt#L1-L37 | [examples/murder-full.ipmt](../../../examples/murder-full.ipmt#L1)
+**Source:** gl:examples/murder-full.ipmt#L1-L38 | [examples/murder-full.ipmt](../../../examples/murder-full.ipmt#L1)
 
 ## ipmt Content
 
@@ -15,23 +15,23 @@ get the party started ::e
   --then--> murder-e::a ::e Professor Plum murders Miss Scarlet in the library with the bread knife because she refused to marry him
   --then--> investigation begins ::e
 
-murder-e <--::P involves-- library-ppms::a ::e Prof Plum & Miss Scarlett in the library 
+murder-e <--::P involves-- library-ppms::a ::e Professor Plum & Miss Scarlet in the library
+
+murder-e
   --> In the library ::c
   --"answers question"--> where ::c
 
-# fix: library ::t -> ::c
+# "In the library" is the concept (::c); "library" is the abstract concept it expresses
 In the library --"involves"--> library ::c
 
-murder-e <--::P contains-- refusal-mspp::a ::e Miss Scarlet refuses to marry Professor Plum 
-  <--::P-- refusal-m::a ::e refusal marriage 
+murder-e <--::P contains-- refusal-mspp::a ::e Miss Scarlet refuses to marry Professor Plum
+  <--::P-- refusal-m::a ::e refusal marriage
   --> marriage ::c
 refusal-m --> refusal ::c
-refusal-mspp --> In the library
 
-murder-e <--::P contains-- ppmms::a ::e Prof Plum murders Miss Scarlet 
-  --> In the library
+murder-e <--::P contains-- ppmms::a ::e Professor Plum murders Miss Scarlet
 
-ppmms --"example of"--> murder-sk::a ::c murder by subtle knife 
+ppmms --"example of"--> murder-sk::a ::c murder by subtle knife
   --"example of"--> use-sk::a ::c use of subtle knife
   --"involves"--> sk::a ::c subtle knife
   --"kind of"--> knife ::c
@@ -42,11 +42,11 @@ use-sk --"answers question"--> how ::c
 sk --"used for"--> cutting interdimensional rifts ::c
 sk --"used for"--> cutting bread ::c
 
-# fix: add leads-to
+# leads-to ordering across the three sub-events of the murder
 library-ppms --> refusal-mspp --> ppmms
 
-Professor Plum --> library-ppms, refusal-mspp, refusal-m, ppmms
-Miss Scarlet --> library-ppms, refusal-mspp, refusal-m, ppmms
+Professor Plum --> murder-e
+Miss Scarlet --> murder-e
 ```
 
 ## Generated Files

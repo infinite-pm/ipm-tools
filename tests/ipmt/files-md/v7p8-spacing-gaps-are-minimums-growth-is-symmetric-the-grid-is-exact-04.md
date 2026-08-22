@@ -23,7 +23,13 @@ w --> y6 ::e
 
 - [v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-04.ipmt](v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-04.ipmt) - ipmt input
 - [v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-04.json](v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-04.json) - Parsed structure
+- [v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-04.layout.json](v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-04.layout.json) - Layout coordinates
+- [v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-04.ipm.svg](v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-04.ipm.svg) - Rendered diagram
+
+## Rendered Diagram
+
+![v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-04](v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-04.ipm.svg)
 
 This test case was automatically generated from the specification document.
 
-The ipmt code block was extracted using [sync-test-cases](../../../docs/dev/testing.md) and saved to [v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-04.ipmt](v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-04.ipmt), then parsed into the [JSON structure](v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-04.json).
+The ipmt code block was extracted using [sync-test-cases](../../../docs/dev/testing.md) and saved to [v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-04.ipmt](v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-04.ipmt), then parsed into the [JSON structure](v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-04.json) and laid out into [layout coordinates](v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-04.layout.json). The [SVG diagram](v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-04.ipm.svg) was rendered using [ipmsvg-gen](../../../docs/ipmsvg-gen.md).

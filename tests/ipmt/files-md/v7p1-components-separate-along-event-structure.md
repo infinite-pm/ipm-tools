@@ -20,7 +20,13 @@ e3 ::e --> e4 ::e
 
 - [v7p1-components-separate-along-event-structure.ipmt](v7p1-components-separate-along-event-structure.ipmt) - ipmt input
 - [v7p1-components-separate-along-event-structure.json](v7p1-components-separate-along-event-structure.json) - Parsed structure
+- [v7p1-components-separate-along-event-structure.layout.json](v7p1-components-separate-along-event-structure.layout.json) - Layout coordinates
+- [v7p1-components-separate-along-event-structure.ipm.svg](v7p1-components-separate-along-event-structure.ipm.svg) - Rendered diagram
+
+## Rendered Diagram
+
+![v7p1-components-separate-along-event-structure](v7p1-components-separate-along-event-structure.ipm.svg)
 
 This test case was automatically generated from the specification document.
 
-The ipmt code block was extracted using [sync-test-cases](../../../docs/dev/testing.md) and saved to [v7p1-components-separate-along-event-structure.ipmt](v7p1-components-separate-along-event-structure.ipmt), then parsed into the [JSON structure](v7p1-components-separate-along-event-structure.json).
+The ipmt code block was extracted using [sync-test-cases](../../../docs/dev/testing.md) and saved to [v7p1-components-separate-along-event-structure.ipmt](v7p1-components-separate-along-event-structure.ipmt), then parsed into the [JSON structure](v7p1-components-separate-along-event-structure.json) and laid out into [layout coordinates](v7p1-components-separate-along-event-structure.layout.json). The [SVG diagram](v7p1-components-separate-along-event-structure.ipm.svg) was rendered using [ipmsvg-gen](../../../docs/ipmsvg-gen.md).

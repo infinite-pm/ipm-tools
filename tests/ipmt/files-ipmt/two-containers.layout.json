@@ -6,7 +6,7 @@
       "type": "event",
       "label": "e1",
       "x": 40,
-      "y": 330,
+      "y": 180,
       "width": 120,
       "height": 60
     },
@@ -15,7 +15,7 @@
       "type": "event",
       "label": "e2",
       "x": 40,
-      "y": 450,
+      "y": 300,
       "width": 120,
       "height": 60
     },
@@ -24,7 +24,7 @@
       "type": "event",
       "label": "e3",
       "x": 40,
-      "y": 570,
+      "y": 420,
       "width": 120,
       "height": 60
     },
@@ -33,7 +33,7 @@
       "type": "event",
       "label": "e4",
       "x": 40,
-      "y": 950,
+      "y": 640,
       "width": 120,
       "height": 60
     },
@@ -42,7 +42,7 @@
       "type": "event",
       "label": "e5",
       "x": 40,
-      "y": 1210,
+      "y": 900,
       "width": 120,
       "height": 60
     },
@@ -69,7 +69,7 @@
       "type": "event",
       "label": "e2a2",
       "x": 220,
-      "y": 730,
+      "y": 430,
       "width": 120,
       "height": 60
     },
@@ -78,7 +78,7 @@
       "type": "concept",
       "label": "c1",
       "x": 400,
-      "y": 520,
+      "y": 220,
       "width": 120,
       "height": 60
     },
@@ -86,8 +86,8 @@
       "id": "10",
       "type": "thing",
       "label": "t1a",
-      "x": 400,
-      "y": 220,
+      "x": 580,
+      "y": 120,
       "width": 120,
       "height": 60
     },
@@ -95,8 +95,8 @@
       "id": "11",
       "type": "thing",
       "label": "t1b",
-      "x": 400,
-      "y": 320,
+      "x": 760,
+      "y": 120,
       "width": 120,
       "height": 60
     },
@@ -104,8 +104,8 @@
       "id": "12",
       "type": "thing",
       "label": "t1c",
-      "x": 400,
-      "y": 420,
+      "x": 940,
+      "y": 120,
       "width": 120,
       "height": 60
     },
@@ -114,7 +114,7 @@
       "type": "concept",
       "label": "c1a",
       "x": 360,
-      "y": 620,
+      "y": 320,
       "width": 120,
       "height": 60
     },
@@ -123,7 +123,7 @@
       "type": "concept",
       "label": "c1b",
       "x": 540,
-      "y": 620,
+      "y": 320,
       "width": 120,
       "height": 60
     },
@@ -132,7 +132,7 @@
       "type": "event",
       "label": "e4a1",
       "x": 220,
-      "y": 810,
+      "y": 500,
       "width": 120,
       "height": 60
     },
@@ -141,7 +141,7 @@
       "type": "concept",
       "label": "c3",
       "x": 400,
-      "y": 760,
+      "y": 450,
       "width": 120,
       "height": 60
     },
@@ -150,7 +150,7 @@
       "type": "event",
       "label": "e4a2",
       "x": 220,
-      "y": 970,
+      "y": 660,
       "width": 120,
       "height": 60
     },
@@ -159,7 +159,7 @@
       "type": "event",
       "label": "e4a3",
       "x": 220,
-      "y": 1090,
+      "y": 780,
       "width": 120,
       "height": 60
     },
@@ -168,7 +168,7 @@
       "type": "concept",
       "label": "c5",
       "x": 400,
-      "y": 1090,
+      "y": 780,
       "width": 120,
       "height": 60
     },
@@ -177,7 +177,7 @@
       "type": "thing",
       "label": "t2",
       "x": 400,
-      "y": 860,
+      "y": 550,
       "width": 120,
       "height": 60
     },
@@ -186,7 +186,7 @@
       "type": "concept",
       "label": "c6",
       "x": 220,
-      "y": 1210,
+      "y": 900,
       "width": 120,
       "height": 60
     },
@@ -204,7 +204,7 @@
       "type": "boundary",
       "label": "E",
       "x": 80,
-      "y": 1310,
+      "y": 1000,
       "width": 40,
       "height": 40
     }
@@ -342,7 +342,7 @@
         },
         "target": {
           "side": "left",
-          "position": 0.5
+          "position": 0.3
         }
       }
     },
@@ -359,12 +359,12 @@
         },
         "target": {
           "side": "left",
-          "position": 0.75
+          "position": 0.65
         },
         "bends": [
           {
             "X": 309,
-            "Y": 724
+            "Y": 419
           }
         ]
       }
@@ -394,11 +394,11 @@
       "style": "partof",
       "route": {
         "source": {
-          "side": "bottom",
+          "side": "right",
           "position": 0.5
         },
         "target": {
-          "side": "top",
+          "side": "left",
           "position": 0.5
         }
       }
@@ -411,11 +411,11 @@
       "style": "partof",
       "route": {
         "source": {
-          "side": "bottom",
+          "side": "right",
           "position": 0.5
         },
         "target": {
-          "side": "top",
+          "side": "left",
           "position": 0.5
         }
       }
@@ -428,11 +428,11 @@
       "style": "partof",
       "route": {
         "source": {
-          "side": "bottom",
+          "side": "right",
           "position": 0.5
         },
         "target": {
-          "side": "top",
+          "side": "left",
           "position": 0.5
         }
       }
@@ -678,8 +678,8 @@
   ],
   "meta": {
     "bounds": {
-      "width": 700,
-      "height": 1390,
+      "width": 1100,
+      "height": 1080,
       "marginX": 40,
       "marginY": 40
     },

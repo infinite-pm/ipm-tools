@@ -1,0 +1,26 @@
+{
+  "version": "26.07-v7",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "thing",
+      "label": "Thing A part 1.  line 1\\nline 2 ::tip",
+      "x": 40,
+      "y": 40,
+      "width": 120,
+      "height": 80
+    }
+  ],
+  "edges": [],
+  "meta": {
+    "bounds": {
+      "width": 200,
+      "height": 160,
+      "marginX": 40,
+      "marginY": 40
+    },
+    "constants": {
+      "gridStep": 20
+    }
+  }
+}

@@ -32,8 +32,8 @@
       "id": "4",
       "type": "thing",
       "label": "F",
-      "x": 740,
-      "y": 140,
+      "x": 500,
+      "y": 520,
       "width": 120,
       "height": 60
     },
@@ -41,8 +41,8 @@
       "id": "5",
       "type": "thing",
       "label": "G",
-      "x": 740,
-      "y": 40,
+      "x": 500,
+      "y": 420,
       "width": 120,
       "height": 60
     },
@@ -137,8 +137,8 @@
   ],
   "meta": {
     "bounds": {
-      "width": 900,
-      "height": 340,
+      "width": 660,
+      "height": 620,
       "marginX": 40,
       "marginY": 40
     },

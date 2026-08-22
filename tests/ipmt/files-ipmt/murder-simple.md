@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:examples/murder-simple.ipmt#L1-L35 | [examples/murder-simple.ipmt](../../../examples/murder-simple.ipmt#L1)
+**Source:** gl:examples/murder-simple.ipmt#L1-L36 | [examples/murder-simple.ipmt](../../../examples/murder-simple.ipmt#L1)
 
 ## ipmt Content
 
@@ -43,7 +43,8 @@ t1 ::t
 t2 ::t
 
 t1 --> e2a1, e2a3
-t2 --> e2a1, e2a2, e2a3, e2a3b1
+# lifted equals `t2 --> e2a1, e2a2, e2a3, e2a3b1` and `t2 --> e2a1, e2a2, e2a3b1` 
+t2 --> e2
 ```
 
 ## Generated Files

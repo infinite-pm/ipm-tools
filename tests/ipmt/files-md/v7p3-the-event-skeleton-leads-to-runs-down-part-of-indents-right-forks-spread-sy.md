@@ -22,7 +22,13 @@ e2c ::e --::P--> e2
 
 - [v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy.ipmt](v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy.ipmt) - ipmt input
 - [v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy.json](v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy.json) - Parsed structure
+- [v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy.layout.json](v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy.layout.json) - Layout coordinates
+- [v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy.ipm.svg](v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy.ipm.svg) - Rendered diagram
+
+## Rendered Diagram
+
+![v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy](v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy.ipm.svg)
 
 This test case was automatically generated from the specification document.
 
-The ipmt code block was extracted using [sync-test-cases](../../../docs/dev/testing.md) and saved to [v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy.ipmt](v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy.ipmt), then parsed into the [JSON structure](v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy.json).
+The ipmt code block was extracted using [sync-test-cases](../../../docs/dev/testing.md) and saved to [v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy.ipmt](v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy.ipmt), then parsed into the [JSON structure](v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy.json) and laid out into [layout coordinates](v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy.layout.json). The [SVG diagram](v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy.ipm.svg) was rendered using [ipmsvg-gen](../../../docs/ipmsvg-gen.md).

@@ -245,9 +245,11 @@
                 "anchor": "#node-type",
                 "content_sha1": "2ecfcc0b5514d3fd2d8c1746d8f9cbac04c2347c",
                 "outputs": {
+                    "ipm.svg": "1eb03b3120b53f03bfb2fb43c8cba31a60b217c6",
                     "ipmt": "2ecfcc0b5514d3fd2d8c1746d8f9cbac04c2347c",
                     "json": "7e6267e1de559751cb4c585d962380b97d69939b",
-                    "md": "a3654602209bd9d5f5fdb6aef5350e366828716e"
+                    "layout.json": "444530a5d486b3f6508e000767f0879e420f37c3",
+                    "md": "16a83504389668b6c38622b82bd9d2ea0b832276"
                 },
                 "heading": "Node type",
                 "section": "Nodes"
@@ -598,9 +600,11 @@
                 "anchor": "#backslash-escapes-outside-double-quotes",
                 "content_sha1": "ec410417f6938ad8610ea6b8b661eea7dd05fa64",
                 "outputs": {
+                    "ipm.svg": "8dffcb3a819337df37915ffc241b34da42510508",
                     "ipmt": "ec410417f6938ad8610ea6b8b661eea7dd05fa64",
                     "json": "5dd8b86f6382c4a501e2f1331638e92fbe713b17",
-                    "md": "91838441d6fdc90ae6ef3925024ec6cdf014e6fc"
+                    "layout.json": "10d6b6f7a4f4a75a74815e682199fba317d54039",
+                    "md": "1d79362c3fe0c20e87e209bb55a924b053d552b8"
                 },
                 "heading": "Backslash escapes outside double quotes",
                 "section": "Double quotes and escapes"
@@ -862,9 +866,11 @@
                 "anchor": "#spaces-not-allowed-in-identifiers",
                 "content_sha1": "92c2323659bfa09489aa846780084ea4ad7a63db",
                 "outputs": {
+                    "ipm.svg": "dedda0347b46f5a06f1a47dcdfb805682acbddaf",
                     "ipmt": "92c2323659bfa09489aa846780084ea4ad7a63db",
                     "json": "9c1cc1873e61e46a8104cc9c298344b19a04cc8e",
-                    "md": "1bea77c5a45fde5366da35e64bf31989dfc01a45"
+                    "layout.json": "93240caabde5e8ca4c3dc0dc627aad12f8e1b58b",
+                    "md": "fdc64b11f90cfc60608ccac457548f7aee48eb63"
                 },
                 "heading": "Spaces not allowed in identifiers",
                 "section": "Invalid syntax"
@@ -920,9 +926,11 @@
                 "anchor": "#a-creates-link-validity",
                 "content_sha1": "93e325a01fe2c5a31d381145b7925e982c10c992",
                 "outputs": {
+                    "ipm.svg": "b7a0f825eea7c6ea21fa669bfa7027735d7fe1f5",
                     "ipmt": "93e325a01fe2c5a31d381145b7925e982c10c992",
                     "json": "d00628e31cd40f600691dbff56d6186427479845",
-                    "md": "3193c65466bb98859b7c9ca6d924171d62c549aa"
+                    "layout.json": "0bbf9bc411579cf5734c6a4389f844b3f7a23c12",
+                    "md": "181472f89bc248fc93824d26ee76dbe58cb43dce"
                 },
                 "heading": "A creates link validity",
                 "section": "Invalid semantics"

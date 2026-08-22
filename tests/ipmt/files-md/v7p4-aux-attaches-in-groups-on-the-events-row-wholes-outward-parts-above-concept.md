@@ -23,7 +23,13 @@ q ::t --> p
 
 - [v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept.ipmt](v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept.ipmt) - ipmt input
 - [v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept.json](v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept.json) - Parsed structure
+- [v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept.layout.json](v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept.layout.json) - Layout coordinates
+- [v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept.ipm.svg](v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept.ipm.svg) - Rendered diagram
+
+## Rendered Diagram
+
+![v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept](v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept.ipm.svg)
 
 This test case was automatically generated from the specification document.
 
-The ipmt code block was extracted using [sync-test-cases](../../../docs/dev/testing.md) and saved to [v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept.ipmt](v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept.ipmt), then parsed into the [JSON structure](v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept.json).
+The ipmt code block was extracted using [sync-test-cases](../../../docs/dev/testing.md) and saved to [v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept.ipmt](v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept.ipmt), then parsed into the [JSON structure](v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept.json) and laid out into [layout coordinates](v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept.layout.json). The [SVG diagram](v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept.ipm.svg) was rendered using [ipmsvg-gen](../../../docs/ipmsvg-gen.md).

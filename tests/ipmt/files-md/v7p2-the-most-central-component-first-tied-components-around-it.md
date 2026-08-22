@@ -22,7 +22,13 @@ b1 --::X--> c1
 
 - [v7p2-the-most-central-component-first-tied-components-around-it.ipmt](v7p2-the-most-central-component-first-tied-components-around-it.ipmt) - ipmt input
 - [v7p2-the-most-central-component-first-tied-components-around-it.json](v7p2-the-most-central-component-first-tied-components-around-it.json) - Parsed structure
+- [v7p2-the-most-central-component-first-tied-components-around-it.layout.json](v7p2-the-most-central-component-first-tied-components-around-it.layout.json) - Layout coordinates
+- [v7p2-the-most-central-component-first-tied-components-around-it.ipm.svg](v7p2-the-most-central-component-first-tied-components-around-it.ipm.svg) - Rendered diagram
+
+## Rendered Diagram
+
+![v7p2-the-most-central-component-first-tied-components-around-it](v7p2-the-most-central-component-first-tied-components-around-it.ipm.svg)
 
 This test case was automatically generated from the specification document.
 
-The ipmt code block was extracted using [sync-test-cases](../../../docs/dev/testing.md) and saved to [v7p2-the-most-central-component-first-tied-components-around-it.ipmt](v7p2-the-most-central-component-first-tied-components-around-it.ipmt), then parsed into the [JSON structure](v7p2-the-most-central-component-first-tied-components-around-it.json).
+The ipmt code block was extracted using [sync-test-cases](../../../docs/dev/testing.md) and saved to [v7p2-the-most-central-component-first-tied-components-around-it.ipmt](v7p2-the-most-central-component-first-tied-components-around-it.ipmt), then parsed into the [JSON structure](v7p2-the-most-central-component-first-tied-components-around-it.json) and laid out into [layout coordinates](v7p2-the-most-central-component-first-tied-components-around-it.layout.json). The [SVG diagram](v7p2-the-most-central-component-first-tied-components-around-it.ipm.svg) was rendered using [ipmsvg-gen](../../../docs/ipmsvg-gen.md).
