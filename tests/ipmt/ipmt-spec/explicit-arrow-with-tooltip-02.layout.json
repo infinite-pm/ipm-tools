@@ -45,6 +45,7 @@
       "dir": "fwd",
       "base": "partof",
       "style": "partof",
+      "tooltip": "contains",
       "route": {
         "source": {
           "side": "left",

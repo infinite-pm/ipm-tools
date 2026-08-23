@@ -89,6 +89,7 @@
       "dir": "fwd",
       "base": "partof",
       "style": "partof",
+      "tooltip": "text",
       "route": {
         "source": {
           "side": "bottom",

@@ -19,6 +19,7 @@
     <path d="M 560.00 135.00 L 555.50 126.00 L 560.00 128.25 L 564.50 126.00 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
     </g>
     <g class="edge" data-edge-idx="1" data-edge-base="partof" data-edge-from="2" data-edge-to="3">
+      <title>text</title>
     <line x1="560.00" y1="205.00" x2="560.00" y2="228.25" stroke="#82b366" stroke-width="3" />
     <path d="M 560.00 235.00 L 555.50 226.00 L 560.00 228.25 L 564.50 226.00 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
     </g>

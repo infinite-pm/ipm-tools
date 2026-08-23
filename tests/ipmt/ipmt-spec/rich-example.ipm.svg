@@ -18,9 +18,11 @@
   </g>
   <g id="edges">
     <g class="edge" data-edge-idx="0" data-edge-base="nearto" data-edge-from="1" data-edge-to="2">
+      <title>Maghull is near UK</title>
     <line x1="395.00" y1="154.27" x2="165.00" y2="350.73" stroke="#999999" stroke-width="3" stroke-linecap="round" stroke-dasharray="0 6.050" />
     </g>
     <g class="edge" data-edge-idx="1" data-edge-base="partof" data-edge-from="1" data-edge-to="3">
+      <title>Town where Mark was born</title>
     <line x1="525.00" y1="152.92" x2="569.17" y2="178.68" stroke="#82b366" stroke-width="3" />
     <path d="M 575.00 182.08 L 564.96 181.44 L 569.17 178.68 L 569.49 173.66 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
     </g>

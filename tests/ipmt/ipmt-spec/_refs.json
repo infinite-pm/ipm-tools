@@ -380,10 +380,10 @@
                 "anchor": "#edge-tooltip",
                 "content_sha1": "e3ce184acd0b0785865fde66a1ce7cf2ea99b5fe",
                 "outputs": {
-                    "ipm.svg": "1e484be5dbdfa2ae965568734d74ab8629cb0e20",
+                    "ipm.svg": "6537a01cd34e595a7230c774bff5ea6fbd11da92",
                     "ipmt": "e3ce184acd0b0785865fde66a1ce7cf2ea99b5fe",
                     "json": "38dadbadecc4f93b79f87bc9660a39092d0fda29",
-                    "layout.json": "594e93e805e2a9c9d2280fc4ad7f7996c4708e51",
+                    "layout.json": "dfe34f61f431d19f4fd4186de7d8d1eb282d3dd1",
                     "md": "b41bc1c7b0c2ada539ecdf0d0a37dcfe56664350"
                 },
                 "heading": "Edge tooltip",
@@ -395,10 +395,10 @@
                 "anchor": "#edge-tooltip",
                 "content_sha1": "b5023f049fa89b9c216314ed03bf2cdfdafb4c10",
                 "outputs": {
-                    "ipm.svg": "367d2d488808cea31329a90f1c6635190054d347",
+                    "ipm.svg": "b058bc3567ca15bb78738d781a1397e8965a9a2f",
                     "ipmt": "b5023f049fa89b9c216314ed03bf2cdfdafb4c10",
                     "json": "25747517008c32a50e22910bc89c5a65b4f2061f",
-                    "layout.json": "bec0695cba5d60597275ce8cc9020ad15ee292c5",
+                    "layout.json": "61894a5ea659ec3c144c729acec3493cf2d83ff0",
                     "md": "5b7846d26862abee18b0c0abadd294d7fda6a4c5"
                 },
                 "heading": "Edge tooltip",
@@ -410,10 +410,10 @@
                 "anchor": "#edge-tooltip",
                 "content_sha1": "d21cc21067ac2004538e918e900f984d86646159",
                 "outputs": {
-                    "ipm.svg": "1e484be5dbdfa2ae965568734d74ab8629cb0e20",
+                    "ipm.svg": "e98875b95dcae60fa35d8f82e11d38b7a4f4b6fc",
                     "ipmt": "d21cc21067ac2004538e918e900f984d86646159",
                     "json": "56a88be5ef3c5fa7c0881a988117f2dd8fbd3f9d",
-                    "layout.json": "594e93e805e2a9c9d2280fc4ad7f7996c4708e51",
+                    "layout.json": "0199686d97254f2f5becc78cf0977715ee342349",
                     "md": "8bd33f13f2c234b50ea597a8eb001ca508f58d9e"
                 },
                 "heading": "Edge tooltip",
@@ -425,10 +425,10 @@
                 "anchor": "#edge-tooltip",
                 "content_sha1": "25ef54fc4bd431bcf0386fcaf264ff09e246b51f",
                 "outputs": {
-                    "ipm.svg": "1e484be5dbdfa2ae965568734d74ab8629cb0e20",
+                    "ipm.svg": "c1c497454b0ca30e706f1d1d5c1f2c5c0bc3b5f8",
                     "ipmt": "25ef54fc4bd431bcf0386fcaf264ff09e246b51f",
                     "json": "343dc900decc69a7879d8a9647745d0269b9627a",
-                    "layout.json": "594e93e805e2a9c9d2280fc4ad7f7996c4708e51",
+                    "layout.json": "bcbb079615a5c9ea5b2e14a55b2f1bc59f901451",
                     "md": "2781e2169b8746b1cea0846663b053d1a7682c5a"
                 },
                 "heading": "Edge tooltip",
@@ -440,10 +440,10 @@
                 "anchor": "#edge-tooltip",
                 "content_sha1": "ef3b9b9fc20067d5ea477f83c582373635335707",
                 "outputs": {
-                    "ipm.svg": "937ae1ff1f26e0b816221b6e60c252dc45e6f988",
+                    "ipm.svg": "53a82c682b8c0f92f05b5803b7a926266f4c971f",
                     "ipmt": "ef3b9b9fc20067d5ea477f83c582373635335707",
                     "json": "23181b1269c5df708f9fc01c52a7f70394e11c9b",
-                    "layout.json": "f7a1c76c85d75fdfdb5407d59e149f87e6d9bd77",
+                    "layout.json": "1a5852450a1898f28fdbdc977680e448b41a319e",
                     "md": "7bdcfcfccff24e1e1c284d737e44bf80d4689e34"
                 },
                 "heading": "Edge tooltip",
@@ -455,10 +455,10 @@
                 "anchor": "#explicit-arrow-with-tooltip",
                 "content_sha1": "19e062770343dacfa4ef73e745b6a00adb185a4a",
                 "outputs": {
-                    "ipm.svg": "c214360399d762388ffa12da3b2e5e27da06447c",
+                    "ipm.svg": "655d739ded4b2c3cde39d63a4b6e452d820f58bb",
                     "ipmt": "19e062770343dacfa4ef73e745b6a00adb185a4a",
                     "json": "c25648543e5e2469d5e1f1ae64cc1bca8a97e823",
-                    "layout.json": "d50a95554968947d278f48238b20d71977025e8e",
+                    "layout.json": "2b7d82318a811744c2d2a2ab40146b6e27804f3f",
                     "md": "5c8fc41ea0e22086b38ebd3c0fa796c45ec755be"
                 },
                 "heading": "Explicit arrow with tooltip",
@@ -470,10 +470,10 @@
                 "anchor": "#explicit-arrow-with-tooltip",
                 "content_sha1": "319bd5f5b90197c8f207182ae14748149bc18612",
                 "outputs": {
-                    "ipm.svg": "c214360399d762388ffa12da3b2e5e27da06447c",
+                    "ipm.svg": "f7577ab82a33858c19c8e2aa9b7fd7f143a5d586",
                     "ipmt": "319bd5f5b90197c8f207182ae14748149bc18612",
                     "json": "54e7e020bba7fd7f2cb14ef237fa0ef0821cc8c9",
-                    "layout.json": "d50a95554968947d278f48238b20d71977025e8e",
+                    "layout.json": "187be601f9b92fbff28742115b8d601e1fa37411",
                     "md": "2179511830ba4216f277b8548c060eb48e28d432"
                 },
                 "heading": "Explicit arrow with tooltip",
@@ -485,10 +485,10 @@
                 "anchor": "#explicit-arrow-with-tooltip",
                 "content_sha1": "ea2f59878067db4010b8c8d60b9640394fd5f717",
                 "outputs": {
-                    "ipm.svg": "01d884a64f2fc43cd044053688ca0a8c277f9187",
+                    "ipm.svg": "6b896eccfa63b02e634501b499a9e129b585c9a1",
                     "ipmt": "ea2f59878067db4010b8c8d60b9640394fd5f717",
                     "json": "9804038bac5ff5697367c89f77ea27998f802c0d",
-                    "layout.json": "a211ca2a132d87333f0943ea29511ab2f8e2d3a5",
+                    "layout.json": "9208ae8653cd4a3fa573c461aeb567b27a303f45",
                     "md": "f57655fea8476a374586ed16165fdc0361ca4082"
                 },
                 "heading": "Explicit arrow with tooltip",
@@ -500,10 +500,10 @@
                 "anchor": "#explicit-arrow-with-tooltip",
                 "content_sha1": "2ab28a1b71b051b86cb6548b4a320420afacebc5",
                 "outputs": {
-                    "ipm.svg": "477e0597a7a9494b6699b5b19c4b72f30bbe7af3",
+                    "ipm.svg": "818129956a6a636fd089c7f04c406b13f432b9e4",
                     "ipmt": "2ab28a1b71b051b86cb6548b4a320420afacebc5",
                     "json": "71a340c55374fcbe0cccacf96b4550fd0cea90fb",
-                    "layout.json": "692dc5c8f5cbb50432f6f6f3d8f8eb8a04c171c2",
+                    "layout.json": "88244c120076d64a441583242fdd9f46530789b6",
                     "md": "81477cfa88e78e27f06a8a4713bba66aec331b6f"
                 },
                 "heading": "Explicit arrow with tooltip",
@@ -571,10 +571,10 @@
                 "anchor": "#chaining-arrows",
                 "content_sha1": "f5e57ac2c1d22b8dea2f473e2fd255c86409482d",
                 "outputs": {
-                    "ipm.svg": "4cbc71fef0146a098f75858a891bf93ce5958c09",
+                    "ipm.svg": "feeb9fd4541003893278ca03cc35e71e8fa86b97",
                     "ipmt": "f5e57ac2c1d22b8dea2f473e2fd255c86409482d",
                     "json": "4c990acdeb7360fb62ca920525f8c968c9978286",
-                    "layout.json": "a3b04d6c4abae95888d3e183db4057e4568d3deb",
+                    "layout.json": "a7f1c31d79d2b8076bcea8cf66351972afc1539e",
                     "md": "4c88d1e2dd0d83a47bf8fab208a0de42c6062aa1"
                 },
                 "section": "Chaining arrows"
@@ -821,10 +821,10 @@
                 "anchor": "#comma-separated-targets-with-edge-tooltip",
                 "content_sha1": "7ecc50f6de72eecc4d7f56acea5457162d413019",
                 "outputs": {
-                    "ipm.svg": "8ec44fb9f9abd75b0919eb6eac2461987a382d3d",
+                    "ipm.svg": "78b2d14c14050ab55dc8d77611115ef12da4f5dc",
                     "ipmt": "7ecc50f6de72eecc4d7f56acea5457162d413019",
                     "json": "baa418e269caafec4cc8cc998326443c8363774a",
-                    "layout.json": "c6c0b35ed06fff2b3747d2c0d691ba618b2409f2",
+                    "layout.json": "189c8171cf93f71925f4804bd7fbae9ef6a313cc",
                     "md": "2a16ff144cc63b3c61552886dfa4123830f40bd2"
                 },
                 "heading": "Comma separated targets with edge tooltip",
@@ -836,10 +836,10 @@
                 "anchor": "#comma-separated-targets-with-edge-tooltip",
                 "content_sha1": "ba63a3afd2e34901bc957f117130c7ab62ae99f5",
                 "outputs": {
-                    "ipm.svg": "8ec44fb9f9abd75b0919eb6eac2461987a382d3d",
+                    "ipm.svg": "78b2d14c14050ab55dc8d77611115ef12da4f5dc",
                     "ipmt": "ba63a3afd2e34901bc957f117130c7ab62ae99f5",
                     "json": "c22007554e303cfb1da4eacc0a7870f24f9b4f11",
-                    "layout.json": "c6c0b35ed06fff2b3747d2c0d691ba618b2409f2",
+                    "layout.json": "189c8171cf93f71925f4804bd7fbae9ef6a313cc",
                     "md": "cd7f764c750e2d1f33a6c43f059d74fe4d2e3062"
                 },
                 "heading": "Comma separated targets with edge tooltip",
@@ -956,10 +956,10 @@
                 "anchor": "#rich-example",
                 "content_sha1": "5ff451447492aef5929cdbd303eca7681b71f93c",
                 "outputs": {
-                    "ipm.svg": "315903bda3b1514847ea1348de823a9b8d5eff39",
+                    "ipm.svg": "5611ea8a0058b30fe49f38d4fc7ee709b0110b46",
                     "ipmt": "5ff451447492aef5929cdbd303eca7681b71f93c",
                     "json": "b8975a0a0b7bae6f9fe3699cbe1fb577cab57e5d",
-                    "layout.json": "ef78d20921b491531d706556d08a4115f69302f1",
+                    "layout.json": "44f9f3d6f8f8e8e63a2d08e1164a679a358277e0",
                     "md": "738863ae32c2558f080cdbf909b5aaa007f04b11"
                 },
                 "heading": "Rich example",

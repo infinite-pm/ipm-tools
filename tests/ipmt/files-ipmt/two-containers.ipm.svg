@@ -31,22 +31,27 @@
   </g>
   <g id="edges">
     <g class="edge" data-edge-idx="0" data-edge-base="leadsto" data-edge-from="1" data-edge-to="2">
+      <title>then</title>
     <line x1="100.00" y1="245.00" x2="100.00" y2="288.25" stroke="#ff8000" stroke-width="3" />
     <path d="M 100.00 295.00 L 95.50 286.00 L 100.00 288.25 L 104.50 286.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
     </g>
     <g class="edge" data-edge-idx="1" data-edge-base="leadsto" data-edge-from="2" data-edge-to="3">
+      <title>then</title>
     <line x1="100.00" y1="365.00" x2="100.00" y2="408.25" stroke="#ff8000" stroke-width="3" />
     <path d="M 100.00 415.00 L 95.50 406.00 L 100.00 408.25 L 104.50 406.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
     </g>
     <g class="edge" data-edge-idx="2" data-edge-base="leadsto" data-edge-from="3" data-edge-to="4">
+      <title>then</title>
     <line x1="100.00" y1="485.00" x2="100.00" y2="628.25" stroke="#ff8000" stroke-width="3" />
     <path d="M 100.00 635.00 L 95.50 626.00 L 100.00 628.25 L 104.50 626.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
     </g>
     <g class="edge" data-edge-idx="3" data-edge-base="leadsto" data-edge-from="4" data-edge-to="5">
+      <title>then</title>
     <line x1="100.00" y1="705.00" x2="100.00" y2="888.25" stroke="#ff8000" stroke-width="3" />
     <path d="M 100.00 895.00 L 95.50 886.00 L 100.00 888.25 L 104.50 886.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
     </g>
     <g class="edge" data-edge-idx="4" data-edge-base="partof" data-edge-from="6" data-edge-to="2">
+      <title>contains</title>
     <line x1="215.00" y1="209.58" x2="168.12" y2="299.43" stroke="#82b366" stroke-width="3" />
     <path d="M 165.00 305.42 L 165.17 295.36 L 168.12 299.43 L 173.15 299.52 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
     </g>
@@ -55,6 +60,7 @@
     <path d="M 345.00 182.08 L 350.51 173.66 L 350.83 178.68 L 355.04 181.44 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
     </g>
     <g class="edge" data-edge-idx="6" data-edge-base="partof" data-edge-from="8" data-edge-to="2">
+      <title>contains</title>
     <line x1="215.00" y1="450.42" x2="168.12" y2="360.57" stroke="#82b366" stroke-width="3" />
     <path d="M 165.00 354.58 L 173.15 360.48 L 168.12 360.57 L 165.17 364.64 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
     </g>
@@ -91,6 +97,7 @@
     <path d="M 586.25 315.00 L 576.25 316.15 L 579.91 312.69 L 579.33 307.70 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
     </g>
     <g class="edge" data-edge-idx="15" data-edge-base="partof" data-edge-from="15" data-edge-to="4">
+      <title>contains</title>
     <line x1="215.00" y1="540.83" x2="167.83" y2="643.04" stroke="#82b366" stroke-width="3" />
     <path d="M 165.00 649.17 L 164.69 639.11 L 167.83 643.04 L 172.86 642.88 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
     </g>
@@ -99,10 +106,12 @@
     <path d="M 395.00 482.92 L 389.49 491.34 L 389.17 486.32 L 384.96 483.56 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
     </g>
     <g class="edge" data-edge-idx="17" data-edge-base="partof" data-edge-from="17" data-edge-to="4">
+      <title>contains</title>
     <line x1="215.00" y1="688.33" x2="171.40" y2="673.80" stroke="#82b366" stroke-width="3" />
     <path d="M 165.00 671.67 L 174.96 670.24 L 171.40 673.80 L 172.12 678.78 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
     </g>
     <g class="edge" data-edge-idx="18" data-edge-base="partof" data-edge-from="18" data-edge-to="4">
+      <title>contains</title>
     <line x1="215.00" y1="799.58" x2="167.92" y2="701.50" stroke="#82b366" stroke-width="3" />
     <path d="M 165.00 695.42 L 172.95 701.58 L 167.92 701.50 L 164.84 705.48 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
     </g>

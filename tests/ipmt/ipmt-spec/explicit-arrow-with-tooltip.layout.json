@@ -45,6 +45,7 @@
       "dir": "fwd",
       "base": "partof",
       "style": "partof",
+      "tooltip": "e2a is part of e2",
       "route": {
         "source": {
           "side": "left",

@@ -36,6 +36,7 @@
       "dir": "fwd",
       "base": "expresses",
       "style": "expresses",
+      "tooltip": "cA described by cB and cC",
       "route": {
         "source": {
           "side": "bottom",
@@ -53,6 +54,7 @@
       "dir": "fwd",
       "base": "expresses",
       "style": "expresses",
+      "tooltip": "cA described by cB and cC",
       "route": {
         "source": {
           "side": "bottom",

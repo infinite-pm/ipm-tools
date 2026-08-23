@@ -14,6 +14,7 @@
   </g>
   <g id="edges">
     <g class="edge" data-edge-idx="0" data-edge-base="nearto" data-edge-from="1" data-edge-to="2">
+      <title>near</title>
     <line x1="165.00" y1="150.00" x2="275.00" y2="150.00" stroke="#999999" stroke-width="3" stroke-linecap="round" stroke-dasharray="0 6.111" />
     </g>
     <g class="edge" data-edge-idx="1" data-edge-base="leadsto" data-edge-from="3" data-edge-to="1">

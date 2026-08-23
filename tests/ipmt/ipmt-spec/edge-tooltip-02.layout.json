@@ -54,6 +54,7 @@
       "dir": "fwd",
       "base": "partof",
       "style": "partof",
+      "tooltip": "tAp1 is part of tA",
       "route": {
         "source": {
           "side": "bottom",
@@ -71,6 +72,7 @@
       "dir": "fwd",
       "base": "partof",
       "style": "partof",
+      "tooltip": "e1 updates existing tAp1",
       "route": {
         "source": {
           "side": "bottom",
@@ -88,6 +90,7 @@
       "dir": "fwd",
       "base": "partof",
       "style": "partof",
+      "tooltip": "e-creates-t",
       "route": {
         "source": {
           "side": "bottom",

@@ -12,6 +12,7 @@
   </g>
   <g id="edges">
     <g class="edge" data-edge-idx="0" data-edge-base="partof" data-edge-from="2" data-edge-to="1">
+      <title>e2a is part of e1</title>
     <line x1="215.00" y1="150.00" x2="171.75" y2="150.00" stroke="#82b366" stroke-width="3" />
     <path d="M 165.00 150.00 L 174.00 145.50 L 171.75 150.00 L 174.00 154.50 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
     </g>

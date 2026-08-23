@@ -23,14 +23,17 @@
   </g>
   <g id="edges">
     <g class="edge" data-edge-idx="0" data-edge-base="leadsto" data-edge-from="1" data-edge-to="2">
+      <title>then</title>
     <line x1="280.00" y1="255.00" x2="280.00" y2="298.25" stroke="#ff8000" stroke-width="3" />
     <path d="M 280.00 305.00 L 275.50 296.00 L 280.00 298.25 L 284.50 296.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
     </g>
     <g class="edge" data-edge-idx="1" data-edge-base="leadsto" data-edge-from="2" data-edge-to="3">
+      <title>then</title>
     <line x1="280.00" y1="375.00" x2="280.00" y2="418.25" stroke="#ff8000" stroke-width="3" />
     <path d="M 280.00 425.00 L 275.50 416.00 L 280.00 418.25 L 284.50 416.00 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
     </g>
     <g class="edge" data-edge-idx="2" data-edge-base="partof" data-edge-from="4" data-edge-to="2">
+      <title>contains</title>
     <line x1="395.00" y1="210.83" x2="347.83" y2="313.04" stroke="#82b366" stroke-width="3" />
     <path d="M 345.00 319.17 L 344.69 309.11 L 347.83 313.04 L 352.86 312.88 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
     </g>
@@ -39,6 +42,7 @@
     <path d="M 575.00 152.92 L 569.49 161.34 L 569.17 156.32 L 564.96 153.56 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
     </g>
     <g class="edge" data-edge-idx="4" data-edge-base="partof" data-edge-from="6" data-edge-to="2">
+      <title>contains</title>
     <line x1="395.00" y1="358.33" x2="351.40" y2="343.80" stroke="#82b366" stroke-width="3" />
     <path d="M 345.00 341.67 L 354.96 340.24 L 351.40 343.80 L 352.12 348.78 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
     </g>
@@ -47,6 +51,7 @@
     <path d="M 575.00 360.00 L 566.00 364.50 L 568.25 360.00 L 566.00 355.50 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
     </g>
     <g class="edge" data-edge-idx="6" data-edge-base="partof" data-edge-from="8" data-edge-to="2">
+      <title>contains</title>
     <line x1="395.00" y1="469.58" x2="347.92" y2="371.50" stroke="#82b366" stroke-width="3" />
     <path d="M 345.00 365.42 L 352.95 371.58 L 347.92 371.50 L 344.84 375.48 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
     </g>
@@ -55,6 +60,7 @@
     <path d="M 460.00 545.00 L 455.50 536.00 L 460.00 538.25 L 464.50 536.00 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
     </g>
     <g class="edge" data-edge-idx="8" data-edge-base="partof" data-edge-from="10" data-edge-to="8">
+      <title>contains</title>
     <line x1="575.00" y1="480.00" x2="531.75" y2="480.00" stroke="#82b366" stroke-width="3" />
     <path d="M 525.00 480.00 L 534.00 475.50 L 531.75 480.00 L 534.00 484.50 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
     </g>

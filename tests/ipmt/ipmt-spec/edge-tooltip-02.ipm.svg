@@ -13,14 +13,17 @@
   </g>
   <g id="edges">
     <g class="edge" data-edge-idx="0" data-edge-base="partof" data-edge-from="1" data-edge-to="2">
+      <title>tAp1 is part of tA</title>
     <line x1="161.25" y1="105.00" x2="114.61" y2="131.65" stroke="#82b366" stroke-width="3" />
     <path d="M 108.75 135.00 L 114.33 126.63 L 114.61 131.65 L 118.80 134.44 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
     </g>
     <g class="edge" data-edge-idx="1" data-edge-base="partof" data-edge-from="1" data-edge-to="3">
+      <title>e1 updates existing tAp1</title>
     <line x1="238.75" y1="105.00" x2="285.39" y2="131.65" stroke="#82b366" stroke-width="3" />
     <path d="M 291.25 135.00 L 281.20 134.44 L 285.39 131.65 L 285.67 126.63 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
     </g>
     <g class="edge" data-edge-idx="2" data-edge-base="partof" data-edge-from="4" data-edge-to="5">
+      <title>e-creates-t</title>
     <line x1="540.00" y1="105.00" x2="540.00" y2="128.25" stroke="#82b366" stroke-width="3" />
     <path d="M 540.00 135.00 L 535.50 126.00 L 540.00 128.25 L 544.50 126.00 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
     </g>

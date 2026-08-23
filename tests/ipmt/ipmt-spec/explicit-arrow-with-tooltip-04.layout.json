@@ -63,6 +63,7 @@
       "dir": "undir",
       "base": "nearto",
       "style": "nearto",
+      "tooltip": "near",
       "route": {
         "source": {
           "side": "right",

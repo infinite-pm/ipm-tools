@@ -446,10 +446,10 @@
                 "anchor": "#tooltip-with-newline",
                 "content_sha1": "ea10ef8a08296e5aeb1b317587d7c00c8b5ad0ea",
                 "outputs": {
-                    "ipm.svg": "1e484be5dbdfa2ae965568734d74ab8629cb0e20",
+                    "ipm.svg": "f9cff2c4a62f2a25d71e271923e1263b83340666",
                     "ipmt": "ea10ef8a08296e5aeb1b317587d7c00c8b5ad0ea",
                     "json": "08952b79d5f4d4267cdc9b68ba2729c8ef91e190",
-                    "layout.json": "594e93e805e2a9c9d2280fc4ad7f7996c4708e51",
+                    "layout.json": "df24303347d9079dd9388b98c8e2c76ffe4eeeec",
                     "md": "a98121a2288b4cb6825fa07a7c405cfa43b49cb6"
                 },
                 "section": "Tooltip with newline"
@@ -595,10 +595,10 @@
                 "anchor": "#links-compact-arrows",
                 "content_sha1": "bff84a2b909c43323eebde1d6535920708eea2bf",
                 "outputs": {
-                    "ipm.svg": "e59a34df784a021c95c3192e17978d386180f3d3",
+                    "ipm.svg": "3d07bf77ab1de001436e951542c9970040089b9a",
                     "ipmt": "bff84a2b909c43323eebde1d6535920708eea2bf",
                     "json": "90d653c76221c5527d457061b8dd4a8b51239671",
-                    "layout.json": "73b03eb5525bf01fbdfc33710ac7ea18d5fb9f6d",
+                    "layout.json": "d2a2b1fa68b2e7eb8fa18b9396c4b89012d741c6",
                     "md": "649dc7680112619bf2ad8ba72e5179daee8337f0"
                 },
                 "heading": "links-compact-arrows",
@@ -730,10 +730,10 @@
                 "anchor": "#links-edge-tooltip-escaped",
                 "content_sha1": "79935a10ba2ef3cb4888bbebced77504139b1f51",
                 "outputs": {
-                    "ipm.svg": "4340c2e16fc0516750e70846cc8f7fd3876344f7",
+                    "ipm.svg": "d0e37da87e5deee38d588611d18ca7880c3ccaed",
                     "ipmt": "79935a10ba2ef3cb4888bbebced77504139b1f51",
                     "json": "57316b9d6c71830b41571c22f5e1d235484f89ac",
-                    "layout.json": "029f9971bbdf6aa6291caee4509788935b46dbe7",
+                    "layout.json": "6f2f2cb3dc351e241bc56d6ddef156e39051c7a8",
                     "md": "d5c0abb55e2dbff6592399fc2474c7bf14c781b3"
                 },
                 "heading": "links-edge-tooltip-escaped",
@@ -831,10 +831,10 @@
                 "anchor": "#murder-mystery-june-2025",
                 "content_sha1": "a726cc3559ef0211b78b7f4d9d1d9e05aee77d1b",
                 "outputs": {
-                    "ipm.svg": "0dc52fd811a390d3ae465e52807a289dbf714d91",
+                    "ipm.svg": "ead72e79d67c882ace4851d5f98a154bac8b9dd9",
                     "ipmt": "a726cc3559ef0211b78b7f4d9d1d9e05aee77d1b",
                     "json": "911d066a5e9e763265a1ed1b9c0126f1ac5a4de4",
-                    "layout.json": "0578e485942637d944253a529051b7246ab2deb3",
+                    "layout.json": "285ecddaddc4cbfca182d4f1e68618e46dc0f490",
                     "md": "c3a01254a1da503917828cf84e6f91fe7342cb90"
                 },
                 "section": "Murder Mystery, June 2025"

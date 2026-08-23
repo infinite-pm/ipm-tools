@@ -13,10 +13,12 @@
   </g>
   <g id="edges">
     <g class="edge" data-edge-idx="0" data-edge-base="partof" data-edge-from="1" data-edge-to="2">
+      <title>created-by</title>
     <line x1="165.00" y1="152.92" x2="209.17" y2="178.68" stroke="#82b366" stroke-width="3" />
     <path d="M 215.00 182.08 L 204.96 181.44 L 209.17 178.68 L 209.49 173.66 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
     </g>
     <g class="edge" data-edge-idx="1" data-edge-base="partof" data-edge-from="3" data-edge-to="2">
+      <title>created-by</title>
     <line x1="165.00" y1="247.08" x2="209.17" y2="221.32" stroke="#82b366" stroke-width="3" />
     <path d="M 215.00 217.92 L 209.49 226.34 L 209.17 221.32 L 204.96 218.56 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
     </g>

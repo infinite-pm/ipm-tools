@@ -81,6 +81,7 @@
       "dir": "fwd",
       "base": "partof",
       "style": "partof",
+      "tooltip": "tB is part of tA",
       "route": {
         "source": {
           "side": "left",
@@ -98,6 +99,7 @@
       "dir": "fwd",
       "base": "partof",
       "style": "partof",
+      "tooltip": "e1-hosts-tB",
       "route": {
         "source": {
           "side": "right",
@@ -115,6 +117,7 @@
       "dir": "undir",
       "base": "nearto",
       "style": "nearto",
+      "tooltip": "e1 near to e2",
       "route": {
         "source": {
           "side": "right",

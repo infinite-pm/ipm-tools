@@ -101,6 +101,7 @@
       "dir": "undir",
       "base": "nearto",
       "style": "nearto",
+      "tooltip": "Maghull is near UK",
       "route": {
         "source": {
           "side": "left",
@@ -118,6 +119,7 @@
       "dir": "fwd",
       "base": "partof",
       "style": "partof",
+      "tooltip": "Town where Mark was born",
       "route": {
         "source": {
           "side": "right",

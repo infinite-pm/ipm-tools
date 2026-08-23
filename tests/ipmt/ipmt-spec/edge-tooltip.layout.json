@@ -45,6 +45,7 @@
       "dir": "fwd",
       "base": "leadsto",
       "style": "leadsto",
+      "tooltip": "e1 leads to e2",
       "route": {
         "source": {
           "side": "bottom",

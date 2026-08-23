@@ -45,6 +45,7 @@
       "dir": "fwd",
       "base": "leadsto",
       "style": "leadsto",
+      "tooltip": "leadsto",
       "route": {
         "source": {
           "side": "bottom",

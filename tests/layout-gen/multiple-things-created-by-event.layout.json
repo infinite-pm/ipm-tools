@@ -54,6 +54,7 @@
       "dir": "fwd",
       "base": "partof",
       "style": "partof",
+      "tooltip": "created-by",
       "route": {
         "source": {
           "side": "right",
@@ -71,6 +72,7 @@
       "dir": "fwd",
       "base": "partof",
       "style": "partof",
+      "tooltip": "created-by",
       "route": {
         "source": {
           "side": "right",

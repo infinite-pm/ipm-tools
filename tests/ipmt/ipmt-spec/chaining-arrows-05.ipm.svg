@@ -16,14 +16,17 @@
   </g>
   <g id="edges">
     <g class="edge" data-edge-idx="0" data-edge-base="partof" data-edge-from="1" data-edge-to="2">
+      <title>tB is part of tA</title>
     <line x1="215.00" y1="150.00" x2="171.75" y2="150.00" stroke="#82b366" stroke-width="3" />
     <path d="M 165.00 150.00 L 174.00 145.50 L 171.75 150.00 L 174.00 154.50 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
     </g>
     <g class="edge" data-edge-idx="1" data-edge-base="partof" data-edge-from="1" data-edge-to="3">
+      <title>e1-hosts-tB</title>
     <line x1="345.00" y1="150.00" x2="388.25" y2="150.00" stroke="#82b366" stroke-width="3" />
     <path d="M 395.00 150.00 L 386.00 154.50 L 388.25 150.00 L 386.00 145.50 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
     </g>
     <g class="edge" data-edge-idx="2" data-edge-base="nearto" data-edge-from="3" data-edge-to="4">
+      <title>e1 near to e2</title>
     <line x1="525.00" y1="150.00" x2="635.00" y2="150.00" stroke="#999999" stroke-width="3" stroke-linecap="round" stroke-dasharray="0 6.111" />
     </g>
     <g class="edge" data-edge-idx="3" data-edge-base="leadsto" data-edge-from="5" data-edge-to="3">

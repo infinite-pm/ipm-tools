@@ -27,6 +27,7 @@
       "dir": "fwd",
       "base": "partof",
       "style": "partof",
+      "tooltip": "line with a \"quote\" and a \\ backslash",
       "route": {
         "source": {
           "side": "bottom",

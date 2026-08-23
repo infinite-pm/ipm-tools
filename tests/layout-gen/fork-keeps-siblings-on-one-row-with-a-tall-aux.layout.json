@@ -97,6 +97,7 @@
       "dir": "fwd",
       "base": "expresses",
       "style": "expresses",
+      "tooltip": "used for",
       "route": {
         "source": {
           "side": "right",
