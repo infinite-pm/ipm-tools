@@ -33,6 +33,10 @@ the shipped default leaves anything under 16 nodes alone, because small real
 diagrams gain nothing and pay area for it, but a case has to be small to be
 read. Everything else runs exactly as it ships.
 
+**In the picture.** Each place carries the same `2/3` badge the canvas draws —
+`ipmsvg` reads `layout.Node.CopyOf`, which the pass stamps on every copy — so a
+still diagram says what the canvas says with a click.
+
 **How a rule says "this is drawn twice".** Every place of a participant carries
 the same name, and a `#name` selector reaches only the first of them — so the
 count is a property: `#cX has places=2` is *drawn in two places*, and
@@ -57,7 +61,8 @@ e1, e2, e3, e4, e5, e6 --::X--> cX ::c
 
 Visual rules:
 - Six orange events run down one column; one blue concept `cX` appears TWICE to
-  their right, each beside the group of steps it serves.
+  their right, each beside the group of steps it serves, each wearing its place
+  badge (`1/2`, `2/2`).
 - Every expresses edge is short and none crosses another.
 
 Layout rules:

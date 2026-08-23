@@ -241,6 +241,14 @@ func GenerateWithHints(doc *model.IpmGraph, opts Options, gen func(*model.IpmGra
 		res.Before, res.After = before, after
 		return res, nil
 	}
+	// Stamp the fact onto the layout itself: a renderer that never heard of
+	// this package still has to be able to say "this box is one of several
+	// places", and the map alone travels only to callers who ask for it.
+	for i := range second.Nodes {
+		if orig, ok := copies[second.Nodes[i].ID]; ok {
+			second.Nodes[i].CopyOf = orig
+		}
+	}
 	res.Graph = second
 	res.Copies = copies
 	res.Places = places(second, copies)

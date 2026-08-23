@@ -68,11 +68,22 @@ sub-grid's height — that room is what makes the shell exclusive.
 
 ## Pre-layout pass: duplication (`pkg/layoutdupe`)
 
-Off by default; `layout-gen --duplicate` (and `canvas-server --duplicate`
-through ipm-drawio's `GenerateClickPathLayoutsDup`) turns it on. It answers a
-distance, not a route: when an edge is long enough that its far end cannot be
-read from here, the participant at that end is **drawn again**, next to the
-users that need it.
+ON by default since 2026-08-23 — in `layout-gen`, in `canvas-server` (through
+ipm-drawio's `GenerateClickPathLayoutsDup`) and in the flat renderer
+(`ipmsvg.GenerateFromIPM`, so a picture embedded in a page duplicates like the
+canvas does); `--duplicate=false` is the opt-out. It answers a distance, not a
+route: when an edge is long enough that its far end cannot be read from here,
+the participant at that end is **drawn again**, next to the users that need it.
+
+Turning it on was safe to do globally because the pass declines by default:
+the size gate leaves anything under 16 nodes alone and the guard refuses any
+rewrite that costs the picture, so switching it on re-rendered **not one**
+committed diagram in any of the four repos.
+
+Each place is stamped on the layout node — `layout.Node.CopyOf` names the node
+it is another place of — so any renderer can mark it. `ipmsvg` draws the same
+`2/3` badge the canvas does; without it two boxes carrying one name are two
+things to the reader.
 
 The engine is untouched. The pass lays the graph out once to see the distances,
 plans the copies, rewrites the layout INPUT (a copy is a fresh node id carrying

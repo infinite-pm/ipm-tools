@@ -397,3 +397,32 @@ func TestAWorseLayoutIsRejected(t *testing.T) {
 			len(res.Graph.Nodes), len(doc.Nodes))
 	}
 }
+
+// Every place carries the fact on the layout node itself: a renderer that has
+// never heard of this package still has to be able to say "one of several
+// places", and the Copies map travels only to callers who ask for it.
+func TestEveryCopyIsStampedOnTheLayout(t *testing.T) {
+	doc := taxonomy(9)
+	res, err := GenerateWithHints(doc, Options{}, fakeLayoutHinted)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(res.Copies) == 0 {
+		t.Fatal("the fixture no longer copies anything")
+	}
+	stamped := 0
+	for _, n := range res.Graph.Nodes {
+		orig, isCopy := res.Copies[n.ID]
+		switch {
+		case isCopy && n.CopyOf != orig:
+			t.Errorf("copy %s carries CopyOf=%q, want %q", n.ID, n.CopyOf, orig)
+		case isCopy:
+			stamped++
+		case n.CopyOf != "":
+			t.Errorf("node %s is not a copy but carries CopyOf=%q", n.ID, n.CopyOf)
+		}
+	}
+	if stamped != len(res.Copies) {
+		t.Errorf("stamped %d nodes, want %d", stamped, len(res.Copies))
+	}
+}

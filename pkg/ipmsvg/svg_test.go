@@ -135,3 +135,49 @@ func TestGenerateRendersEdgeTooltipAsTitle(t *testing.T) {
 		t.Fatalf("the title must open the edge group, before its geometry; got: %s", out)
 	}
 }
+
+// A participant drawn in several places (pkg/layoutdupe stamps layout.Node.CopyOf)
+// wears the place it is — "1/2", "2/2" — in reading order. A still picture needs
+// the badge more than the canvas does: it has no click to prove two boxes are one
+// thing.
+func TestGenerateBadgesEveryPlaceOfACopiedNode(t *testing.T) {
+	graph := &layout.Graph{
+		Nodes: []layout.Node{
+			{ID: "1", Type: "event", Label: "e1", X: 40, Y: 120, Width: 120, Height: 60},
+			{ID: "2", Type: "concept", Label: "cX", X: 280, Y: 120, Width: 120, Height: 60},
+			{ID: "3", Type: "concept", Label: "cX", X: 280, Y: 400, Width: 120, Height: 60, CopyOf: "2"},
+		},
+		Edges: []layout.Edge{{From: "1", To: "2", Dir: "fwd", Base: "expresses", Style: "expresses"}},
+		Meta:  layout.Meta{Bounds: layout.Bounds{Width: 460, Height: 520}},
+	}
+
+	svg, err := Render(graph)
+	if err != nil {
+		t.Fatalf("Render() error = %v", err)
+	}
+	out := string(svg)
+	for _, want := range []string{
+		`data-node-id="2" data-of="2"`, // the original is a place too
+		`data-node-id="3" data-of="2"`,
+		">1/2</text>",
+		">2/2</text>",
+		"<title>drawn in 2 places — this is 1/2</title>",
+	} {
+		if !strings.Contains(out, want) {
+			t.Fatalf("missing %q in: %s", want, out)
+		}
+	}
+	if strings.Count(out, "copy-badge") != 2 {
+		t.Fatalf("want one badge per place, got %d: %s", strings.Count(out, "copy-badge"), out)
+	}
+
+	// A node drawn once is never badged.
+	graph.Nodes = graph.Nodes[:2]
+	svg, err = Render(graph)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if strings.Contains(string(svg), "copy-badge") {
+		t.Fatalf("a single-placement diagram must carry no badges: %s", svg)
+	}
+}

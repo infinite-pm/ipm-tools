@@ -151,6 +151,12 @@ type Node struct {
 	// "thing"/"concept"), primary first. Set only when Type == "unresolved";
 	// ipmsvg renders one corner swatch per candidate.
 	Candidates []string `json:"candidates,omitempty"`
+	// CopyOf names the node this one is another PLACE of: the same thing or
+	// concept, drawn again next to users too far from the first (ipm-tools
+	// pkg/layoutdupe). Empty for an ordinary node — and for the original,
+	// which keeps its own id. Every renderer needs it: two boxes reading the
+	// same name are two things unless the picture says otherwise.
+	CopyOf string `json:"copyOf,omitempty"`
 }
 
 // EdgeRouteJSON is the serialized form of an edge's computed route.

@@ -17,7 +17,7 @@ import (
 
 	"github.com/infinite-pm/ipm-tools/pkg/ipm/model"
 	"github.com/infinite-pm/ipm-tools/pkg/layout"
-	"github.com/infinite-pm/ipm-tools/pkg/layout7"
+	"github.com/infinite-pm/ipm-tools/pkg/layoutdupe"
 	"github.com/infinite-pm/ipm-tools/pkg/nodehints"
 )
 
@@ -510,10 +510,63 @@ func (g *Generator) Generate(graph *layout.Graph) ([]byte, error) {
 			fmt.Fprintf(&b, "    </g>\n")
 		}
 	}
+	drawPlaceBadges(&b, nodes)
 	b.WriteString("  </g>\n")
 
 	b.WriteString("</svg>\n")
 	return []byte(b.String()), nil
+}
+
+// drawPlaceBadges marks every node that is one of SEVERAL places of the same
+// thing (layout.Node.CopyOf, stamped by pkg/layoutdupe) with the place it is:
+// "2/3", in reading order. Without it two boxes carrying one name are two
+// things to the reader — the interactive canvas has the same badge, and a
+// still picture needs it more, having no click to prove them one.
+func drawPlaceBadges(b *strings.Builder, nodes []layout.Node) {
+	byOrigin := map[string][]int{}
+	for i, n := range nodes {
+		if n.Container != nil {
+			continue
+		}
+		origin := n.CopyOf
+		if origin == "" {
+			origin = n.ID
+		}
+		byOrigin[origin] = append(byOrigin[origin], i)
+	}
+	origins := make([]string, 0, len(byOrigin))
+	for origin, idx := range byOrigin {
+		if len(idx) > 1 {
+			origins = append(origins, origin)
+		}
+	}
+	sort.Strings(origins)
+	for _, origin := range origins {
+		idx := byOrigin[origin]
+		// Reading order — top to bottom, then left to right — the order the
+		// canvas walks the places in.
+		sort.SliceStable(idx, func(a, c int) bool {
+			if nodes[idx[a]].Y != nodes[idx[c]].Y {
+				return nodes[idx[a]].Y < nodes[idx[c]].Y
+			}
+			return nodes[idx[a]].X < nodes[idx[c]].X
+		})
+		for place, i := range idx {
+			n := nodes[i]
+			label := fmt.Sprintf("%d/%d", place+1, len(idx))
+			w := 9 + 6*len(label)
+			x, y := n.X+n.Width-w+4, n.Y-3
+			fmt.Fprintf(b, "    <g class=\"copy-badge\" data-node-id=\"%s\" data-of=\"%d\">\n",
+				html.EscapeString(n.ID), len(idx))
+			fmt.Fprintf(b, "      <title>%s</title>\n",
+				html.EscapeString(fmt.Sprintf("drawn in %d places — this is %s", len(idx), label)))
+			fmt.Fprintf(b, "      <rect x=\"%d\" y=\"%d\" width=\"%d\" height=\"15\" rx=\"7.5\" ry=\"7.5\" fill=\"#fff4d6\" stroke=\"#d9a441\" stroke-width=\"1\"/>\n",
+				x, y, w)
+			fmt.Fprintf(b, "      <text x=\"%d\" y=\"%d\" text-anchor=\"middle\" dominant-baseline=\"central\" font-family=\"Helvetica,Inter,Segoe UI,Arial\" font-size=\"10\" font-weight=\"bold\" fill=\"#8a6116\">%s</text>\n",
+				x+w/2, y+8, label)
+			b.WriteString("    </g>\n")
+		}
+	}
 }
 
 // GenerateWithHints is like Generate but overlays per-node decoration symbols
@@ -609,10 +662,11 @@ func Render(graph *layout.Graph) ([]byte, error) {
 // GenerateFromIPM generates SVG from IPM model by running layout internally.
 // Convenience wrapper that composes layout generation with SVG rendering.
 func GenerateFromIPM(doc *model.IpmGraph) ([]byte, error) {
-	layoutGraph, err := layout7.Generate(doc)
+	res, err := layoutdupe.Generate(doc, layoutdupe.Options{})
 	if err != nil {
 		return nil, fmt.Errorf("layout generation: %w", err)
 	}
+	layoutGraph := res.Graph
 	gen, err := NewGenerator()
 	if err != nil {
 		return nil, err
