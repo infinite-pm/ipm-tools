@@ -1,0 +1,180 @@
+[
+    {
+        "source": "../../docs/dev/layout-gen/layout-alg-containers.md",
+        "source_sha1": "b9f17dd0c78b13f8b008552bbb19da49f1873d47",
+        "name": "layout containers test rules",
+        "method": "parser",
+        "parser_name": "ipmdev-layout-rule-md",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmdev-layout-rule"
+        },
+        "items": [
+            {
+                "destination": "the-successor-waits-for-the-whole-sub-grid-not-for-the-composites-box",
+                "line": 53,
+                "anchor": "#the-successor-waits-for-the-whole-sub-grid-not-for-the-composites-box",
+                "content_sha1": "b9580eff2781b3379522845b52598b6248cd23ed",
+                "outputs": {
+                    "dsl": "b9580eff2781b3379522845b52598b6248cd23ed"
+                },
+                "heading": "the successor waits for the whole sub-grid, not for the composite's box",
+                "section": "Cases"
+            },
+            {
+                "destination": "the-successor-waits-for-the-whole-sub-grid-not-for-the-composites-box-02",
+                "line": 54,
+                "anchor": "#the-successor-waits-for-the-whole-sub-grid-not-for-the-composites-box",
+                "content_sha1": "24911b758cd1a16d57c2d913bd4d1eeb50cdd0a7",
+                "outputs": {
+                    "dsl": "24911b758cd1a16d57c2d913bd4d1eeb50cdd0a7"
+                },
+                "heading": "the successor waits for the whole sub-grid, not for the composite's box",
+                "section": "Cases"
+            },
+            {
+                "destination": "the-successor-waits-for-the-whole-sub-grid-not-for-the-composites-box-03",
+                "line": 55,
+                "anchor": "#the-successor-waits-for-the-whole-sub-grid-not-for-the-composites-box",
+                "content_sha1": "bc2afaaf5692e0eea01cd46c3afd378bcf360fef",
+                "outputs": {
+                    "dsl": "bc2afaaf5692e0eea01cd46c3afd378bcf360fef"
+                },
+                "heading": "the successor waits for the whole sub-grid, not for the composite's box",
+                "section": "Cases"
+            },
+            {
+                "destination": "the-successor-waits-for-the-whole-sub-grid-not-for-the-composites-box-04",
+                "line": 56,
+                "anchor": "#the-successor-waits-for-the-whole-sub-grid-not-for-the-composites-box",
+                "content_sha1": "84acfabbbea3cf89e7373a5f629db686f1d76041",
+                "outputs": {
+                    "dsl": "84acfabbbea3cf89e7373a5f629db686f1d76041"
+                },
+                "heading": "the successor waits for the whole sub-grid, not for the composite's box",
+                "section": "Cases"
+            },
+            {
+                "destination": "the-successor-waits-for-the-whole-sub-grid-not-for-the-composites-box-05",
+                "line": 57,
+                "anchor": "#the-successor-waits-for-the-whole-sub-grid-not-for-the-composites-box",
+                "content_sha1": "437bc0406ffda0b6cb780343d9bf0d1189089445",
+                "outputs": {
+                    "dsl": "437bc0406ffda0b6cb780343d9bf0d1189089445"
+                },
+                "heading": "the successor waits for the whole sub-grid, not for the composite's box",
+                "section": "Cases"
+            },
+            {
+                "destination": "the-successor-waits-for-the-whole-sub-grid-not-for-the-composites-box-06",
+                "line": 58,
+                "anchor": "#the-successor-waits-for-the-whole-sub-grid-not-for-the-composites-box",
+                "content_sha1": "7d8357e9fffcb6e21e17e7f2690f1d461197d5c9",
+                "outputs": {
+                    "dsl": "7d8357e9fffcb6e21e17e7f2690f1d461197d5c9"
+                },
+                "heading": "the successor waits for the whole sub-grid, not for the composite's box",
+                "section": "Cases"
+            },
+            {
+                "destination": "the-successor-waits-for-the-whole-sub-grid-not-for-the-composites-box-07",
+                "line": 59,
+                "anchor": "#the-successor-waits-for-the-whole-sub-grid-not-for-the-composites-box",
+                "content_sha1": "183937c0c55d77b3d1ad40de39ab75355b6f5ce9",
+                "outputs": {
+                    "dsl": "183937c0c55d77b3d1ad40de39ab75355b6f5ce9"
+                },
+                "heading": "the successor waits for the whole sub-grid, not for the composite's box",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-deeper-grid-pushes-the-spine-further-row-for-row",
+                "line": 89,
+                "anchor": "#a-deeper-grid-pushes-the-spine-further-row-for-row",
+                "content_sha1": "b9580eff2781b3379522845b52598b6248cd23ed",
+                "outputs": {
+                    "dsl": "b9580eff2781b3379522845b52598b6248cd23ed"
+                },
+                "heading": "a deeper grid pushes the spine further, row for row",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-deeper-grid-pushes-the-spine-further-row-for-row-02",
+                "line": 90,
+                "anchor": "#a-deeper-grid-pushes-the-spine-further-row-for-row",
+                "content_sha1": "bc2afaaf5692e0eea01cd46c3afd378bcf360fef",
+                "outputs": {
+                    "dsl": "bc2afaaf5692e0eea01cd46c3afd378bcf360fef"
+                },
+                "heading": "a deeper grid pushes the spine further, row for row",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-deeper-grid-pushes-the-spine-further-row-for-row-03",
+                "line": 91,
+                "anchor": "#a-deeper-grid-pushes-the-spine-further-row-for-row",
+                "content_sha1": "0c506cca997a078af071c2a32e5407f35a666042",
+                "outputs": {
+                    "dsl": "0c506cca997a078af071c2a32e5407f35a666042"
+                },
+                "heading": "a deeper grid pushes the spine further, row for row",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-deeper-grid-pushes-the-spine-further-row-for-row-04",
+                "line": 92,
+                "anchor": "#a-deeper-grid-pushes-the-spine-further-row-for-row",
+                "content_sha1": "574b020e8e6565f8502ee08d513cbf9423f0f9dd",
+                "outputs": {
+                    "dsl": "574b020e8e6565f8502ee08d513cbf9423f0f9dd"
+                },
+                "heading": "a deeper grid pushes the spine further, row for row",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-deeper-grid-pushes-the-spine-further-row-for-row-05",
+                "line": 93,
+                "anchor": "#a-deeper-grid-pushes-the-spine-further-row-for-row",
+                "content_sha1": "ca59a669b5179649fd5307fea7cfc97e4b9b8a02",
+                "outputs": {
+                    "dsl": "ca59a669b5179649fd5307fea7cfc97e4b9b8a02"
+                },
+                "heading": "a deeper grid pushes the spine further, row for row",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-deeper-grid-pushes-the-spine-further-row-for-row-06",
+                "line": 94,
+                "anchor": "#a-deeper-grid-pushes-the-spine-further-row-for-row",
+                "content_sha1": "8f94c20a2083c6c131d1dbd38568e37b05919340",
+                "outputs": {
+                    "dsl": "8f94c20a2083c6c131d1dbd38568e37b05919340"
+                },
+                "heading": "a deeper grid pushes the spine further, row for row",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-deeper-grid-pushes-the-spine-further-row-for-row-07",
+                "line": 95,
+                "anchor": "#a-deeper-grid-pushes-the-spine-further-row-for-row",
+                "content_sha1": "5ebee47e4bd5e4e789b6e3f28e224674452b172d",
+                "outputs": {
+                    "dsl": "5ebee47e4bd5e4e789b6e3f28e224674452b172d"
+                },
+                "heading": "a deeper grid pushes the spine further, row for row",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-deeper-grid-pushes-the-spine-further-row-for-row-08",
+                "line": 96,
+                "anchor": "#a-deeper-grid-pushes-the-spine-further-row-for-row",
+                "content_sha1": "7d8357e9fffcb6e21e17e7f2690f1d461197d5c9",
+                "outputs": {
+                    "dsl": "7d8357e9fffcb6e21e17e7f2690f1d461197d5c9"
+                },
+                "heading": "a deeper grid pushes the spine further, row for row",
+                "section": "Cases"
+            }
+        ]
+    }
+]
