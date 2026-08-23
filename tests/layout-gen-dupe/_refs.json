@@ -1,0 +1,105 @@
+[
+    {
+        "source": "../../docs/dev/layout-gen/layout-alg-dupe.md",
+        "source_sha1": "9bec0cede8ca7bbf048ad9e6085e73351979edde",
+        "name": "ipmt layout algorithm duplication",
+        "method": "parser",
+        "parser_name": "ipmt-md",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmt"
+        },
+        "items": [
+            {
+                "destination": "a-concept-many-events-express-is-drawn-beside-each-group",
+                "line": 51,
+                "anchor": "#a-concept-many-events-express-is-drawn-beside-each-group",
+                "content_sha1": "c7db4b90afdde6a5518a68e7a74d2a68a5d42270",
+                "outputs": {
+                    "ipm.svg": "ec3867aa019231aaefb03723479be284ee84ed68",
+                    "ipmt": "c7db4b90afdde6a5518a68e7a74d2a68a5d42270",
+                    "json": "64e038fbf2f09ee49d3e2956a9e371147fa947a5",
+                    "layout.json": "1d43799f4d6d986bf2bb33f94b6c8baad97ab73a",
+                    "md": "25eec23c868c4175e663d7fbb96a36ac406d9143"
+                },
+                "heading": "a concept many events express is drawn beside each group",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-thing-many-events-use-is-drawn-beside-each-group",
+                "line": 80,
+                "anchor": "#a-thing-many-events-use-is-drawn-beside-each-group",
+                "content_sha1": "19dd2948ecbc4a84db273da729e4cd25a7650cdb",
+                "outputs": {
+                    "ipm.svg": "52043f9c11c2e84848691360c81c97a090ea0686",
+                    "ipmt": "19dd2948ecbc4a84db273da729e4cd25a7650cdb",
+                    "json": "95ed7a042d590f4c982920d22f4a5b4e16bdf08c",
+                    "layout.json": "9884d67d278e3f32ba5a2c114019f22dc231fa12",
+                    "md": "d5f34d40403584fb8916a03effce191574804106"
+                },
+                "heading": "a thing many events use is drawn beside each group",
+                "section": "Cases"
+            },
+            {
+                "destination": "an-event-is-never-drawn-twice",
+                "line": 109,
+                "anchor": "#an-event-is-never-drawn-twice",
+                "content_sha1": "54374a7650c05609e9f4608d7c0e9410666a3801",
+                "outputs": {
+                    "ipm.svg": "6a113d8f9b2e7260b2e4ae9e198b120cc519b3ae",
+                    "ipmt": "54374a7650c05609e9f4608d7c0e9410666a3801",
+                    "json": "fd19771706a17a03485e16cc21f4ddfe81f4a8c0",
+                    "layout.json": "b3c8979894dfd451f94d47f09453946a3f8a51ec",
+                    "md": "5f68918dbb862af90d45b6a232b0ceeeecf3d100"
+                },
+                "heading": "an event is never drawn twice",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-whole-is-never-drawn-twice",
+                "line": 134,
+                "anchor": "#a-whole-is-never-drawn-twice",
+                "content_sha1": "fced6f9ed425933c4345c1898a6671d5b34922a1",
+                "outputs": {
+                    "ipm.svg": "288273a2687f22de8d51ed13da2c72f159b7cdca",
+                    "ipmt": "fced6f9ed425933c4345c1898a6671d5b34922a1",
+                    "json": "1c62e435c42be95d26582f0ac71817e4dd9855af",
+                    "layout.json": "e67ea483dbc55bfe49d7fe09d460397210b50fcd",
+                    "md": "e8621e831c4e825c7c28b3442ef360b4312edcde"
+                },
+                "heading": "a whole is never drawn twice",
+                "section": "Cases"
+            },
+            {
+                "destination": "nothing-is-copied-when-nothing-is-far",
+                "line": 163,
+                "anchor": "#nothing-is-copied-when-nothing-is-far",
+                "content_sha1": "33e6ef14066cb009c81425046a89dbdbf7367f59",
+                "outputs": {
+                    "ipm.svg": "120420b28bedc82742565374e35d4977eeacf550",
+                    "ipmt": "33e6ef14066cb009c81425046a89dbdbf7367f59",
+                    "json": "c53a05afbb7f5a264e251030bc06a6a5a55e8a48",
+                    "layout.json": "a8f7dc660cdf4d4b26830966838cb675a3764751",
+                    "md": "b41860c0ec0fad4c0f1ecb27c496185e55e66989"
+                },
+                "heading": "nothing is copied when nothing is far",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-shorter-picture-that-would-tangle-is-refused",
+                "line": 192,
+                "anchor": "#a-shorter-picture-that-would-tangle-is-refused",
+                "content_sha1": "c7bd504f8f10762961afd05c49695f6a77a76360",
+                "outputs": {
+                    "ipm.svg": "35f5fe5e0f1eca760680c645dfcb5b76ed8a29f4",
+                    "ipmt": "c7bd504f8f10762961afd05c49695f6a77a76360",
+                    "json": "f2f92ce14068043712c4b2164c33d020ed1e5ae5",
+                    "layout.json": "dfa4de35ef3c768994c546516d66b95aeffdf2d0",
+                    "md": "ac63db6f1170d99577cbb7a4f3cc19d52d582048"
+                },
+                "heading": "a shorter picture that would tangle is refused",
+                "section": "Cases"
+            }
+        ]
+    }
+]

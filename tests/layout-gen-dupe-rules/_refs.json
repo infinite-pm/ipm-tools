@@ -1,0 +1,158 @@
+[
+    {
+        "source": "../../docs/dev/layout-gen/layout-alg-dupe.md",
+        "source_sha1": "9bec0cede8ca7bbf048ad9e6085e73351979edde",
+        "name": "layout duplication test rules",
+        "method": "parser",
+        "parser_name": "ipmdev-layout-rule-md",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmdev-layout-rule"
+        },
+        "items": [
+            {
+                "destination": "a-concept-many-events-express-is-drawn-beside-each-group",
+                "line": 68,
+                "anchor": "#a-concept-many-events-express-is-drawn-beside-each-group",
+                "content_sha1": "b57b7566715ee591d39b2a91cdadd881f99fa55a",
+                "outputs": {
+                    "dsl": "b57b7566715ee591d39b2a91cdadd881f99fa55a"
+                },
+                "heading": "a concept many events express is drawn beside each group",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-concept-many-events-express-is-drawn-beside-each-group-02",
+                "line": 69,
+                "anchor": "#a-concept-many-events-express-is-drawn-beside-each-group",
+                "content_sha1": "e5ff47cbb2c91b0b0eccedf3c553c31b72692ab4",
+                "outputs": {
+                    "dsl": "e5ff47cbb2c91b0b0eccedf3c553c31b72692ab4"
+                },
+                "heading": "a concept many events express is drawn beside each group",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-concept-many-events-express-is-drawn-beside-each-group-03",
+                "line": 70,
+                "anchor": "#a-concept-many-events-express-is-drawn-beside-each-group",
+                "content_sha1": "459af2ae5294798fe7eecdd2947369a9e7e6aaf0",
+                "outputs": {
+                    "dsl": "459af2ae5294798fe7eecdd2947369a9e7e6aaf0"
+                },
+                "heading": "a concept many events express is drawn beside each group",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-thing-many-events-use-is-drawn-beside-each-group",
+                "line": 96,
+                "anchor": "#a-thing-many-events-use-is-drawn-beside-each-group",
+                "content_sha1": "7aa60f0f545941b4c1077e44f74fb4aa7a536e3c",
+                "outputs": {
+                    "dsl": "7aa60f0f545941b4c1077e44f74fb4aa7a536e3c"
+                },
+                "heading": "a thing many events use is drawn beside each group",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-thing-many-events-use-is-drawn-beside-each-group-02",
+                "line": 97,
+                "anchor": "#a-thing-many-events-use-is-drawn-beside-each-group",
+                "content_sha1": "7754a6e3f2a2b54e928d3652dcdc8147815ca7fc",
+                "outputs": {
+                    "dsl": "7754a6e3f2a2b54e928d3652dcdc8147815ca7fc"
+                },
+                "heading": "a thing many events use is drawn beside each group",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-thing-many-events-use-is-drawn-beside-each-group-03",
+                "line": 98,
+                "anchor": "#a-thing-many-events-use-is-drawn-beside-each-group",
+                "content_sha1": "459af2ae5294798fe7eecdd2947369a9e7e6aaf0",
+                "outputs": {
+                    "dsl": "459af2ae5294798fe7eecdd2947369a9e7e6aaf0"
+                },
+                "heading": "a thing many events use is drawn beside each group",
+                "section": "Cases"
+            },
+            {
+                "destination": "an-event-is-never-drawn-twice",
+                "line": 124,
+                "anchor": "#an-event-is-never-drawn-twice",
+                "content_sha1": "11bf3186651d326ef39c5f7ab939becd0dbf5cd1",
+                "outputs": {
+                    "dsl": "11bf3186651d326ef39c5f7ab939becd0dbf5cd1"
+                },
+                "heading": "an event is never drawn twice",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-whole-is-never-drawn-twice",
+                "line": 151,
+                "anchor": "#a-whole-is-never-drawn-twice",
+                "content_sha1": "b1daaa25049aaf056b6d2b1564211739f672f4a0",
+                "outputs": {
+                    "dsl": "b1daaa25049aaf056b6d2b1564211739f672f4a0"
+                },
+                "heading": "a whole is never drawn twice",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-whole-is-never-drawn-twice-02",
+                "line": 152,
+                "anchor": "#a-whole-is-never-drawn-twice",
+                "content_sha1": "e270eb9e4f9a14ca8760dd815bfbb1a4a1211ebf",
+                "outputs": {
+                    "dsl": "e270eb9e4f9a14ca8760dd815bfbb1a4a1211ebf"
+                },
+                "heading": "a whole is never drawn twice",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-whole-is-never-drawn-twice-03",
+                "line": 153,
+                "anchor": "#a-whole-is-never-drawn-twice",
+                "content_sha1": "e240ca978b966fd8d6e578f8737b3d0802c24f4e",
+                "outputs": {
+                    "dsl": "e240ca978b966fd8d6e578f8737b3d0802c24f4e"
+                },
+                "heading": "a whole is never drawn twice",
+                "section": "Cases"
+            },
+            {
+                "destination": "nothing-is-copied-when-nothing-is-far",
+                "line": 178,
+                "anchor": "#nothing-is-copied-when-nothing-is-far",
+                "content_sha1": "0acd807d98ffd83946355a77869f7b2e7146b112",
+                "outputs": {
+                    "dsl": "0acd807d98ffd83946355a77869f7b2e7146b112"
+                },
+                "heading": "nothing is copied when nothing is far",
+                "section": "Cases"
+            },
+            {
+                "destination": "nothing-is-copied-when-nothing-is-far-02",
+                "line": 179,
+                "anchor": "#nothing-is-copied-when-nothing-is-far",
+                "content_sha1": "97fcba13651257ad023582bd2228ad963195475a",
+                "outputs": {
+                    "dsl": "97fcba13651257ad023582bd2228ad963195475a"
+                },
+                "heading": "nothing is copied when nothing is far",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-shorter-picture-that-would-tangle-is-refused",
+                "line": 213,
+                "anchor": "#a-shorter-picture-that-would-tangle-is-refused",
+                "content_sha1": "0acd807d98ffd83946355a77869f7b2e7146b112",
+                "outputs": {
+                    "dsl": "0acd807d98ffd83946355a77869f7b2e7146b112"
+                },
+                "heading": "a shorter picture that would tangle is refused",
+                "section": "Cases"
+            }
+        ]
+    }
+]

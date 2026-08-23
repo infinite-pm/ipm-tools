@@ -1,0 +1,5 @@
+# ipmt: embed=false
+e1 ::e --> e2 ::e --> e3 ::e --> e4 ::e --> e5 ::e --> e6 ::e
+tW --::P--> e1, e3, e5
+t1 --::P--> tW
+t2 --::P--> tW
