@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-dupe.md",
-        "source_sha1": "9bec0cede8ca7bbf048ad9e6085e73351979edde",
+        "source_sha1": "7666359bfedebd99f46d7e3ecee04eab7c641de5",
         "name": "ipmt layout algorithm duplication",
         "method": "parser",
         "parser_name": "ipmt-md",
@@ -12,14 +12,14 @@
         "items": [
             {
                 "destination": "a-concept-many-events-express-is-drawn-beside-each-group",
-                "line": 51,
+                "line": 55,
                 "anchor": "#a-concept-many-events-express-is-drawn-beside-each-group",
                 "content_sha1": "c7db4b90afdde6a5518a68e7a74d2a68a5d42270",
                 "outputs": {
-                    "ipm.svg": "ec3867aa019231aaefb03723479be284ee84ed68",
+                    "ipm.svg": "64896d33c81b6c5da28d57dc8527dc702c71ae46",
                     "ipmt": "c7db4b90afdde6a5518a68e7a74d2a68a5d42270",
                     "json": "64e038fbf2f09ee49d3e2956a9e371147fa947a5",
-                    "layout.json": "1d43799f4d6d986bf2bb33f94b6c8baad97ab73a",
+                    "layout.json": "90868c425b499e0715457b0a87edca2630346973",
                     "md": "25eec23c868c4175e663d7fbb96a36ac406d9143"
                 },
                 "heading": "a concept many events express is drawn beside each group",
@@ -27,14 +27,14 @@
             },
             {
                 "destination": "a-thing-many-events-use-is-drawn-beside-each-group",
-                "line": 80,
+                "line": 85,
                 "anchor": "#a-thing-many-events-use-is-drawn-beside-each-group",
                 "content_sha1": "19dd2948ecbc4a84db273da729e4cd25a7650cdb",
                 "outputs": {
-                    "ipm.svg": "52043f9c11c2e84848691360c81c97a090ea0686",
+                    "ipm.svg": "e01989fdc7097ddd11ef61245b68b5789b62997c",
                     "ipmt": "19dd2948ecbc4a84db273da729e4cd25a7650cdb",
                     "json": "95ed7a042d590f4c982920d22f4a5b4e16bdf08c",
-                    "layout.json": "9884d67d278e3f32ba5a2c114019f22dc231fa12",
+                    "layout.json": "9a898190c70bb7da4e84ff4fd95716b04ff10728",
                     "md": "d5f34d40403584fb8916a03effce191574804106"
                 },
                 "heading": "a thing many events use is drawn beside each group",
@@ -42,7 +42,7 @@
             },
             {
                 "destination": "an-event-is-never-drawn-twice",
-                "line": 109,
+                "line": 114,
                 "anchor": "#an-event-is-never-drawn-twice",
                 "content_sha1": "54374a7650c05609e9f4608d7c0e9410666a3801",
                 "outputs": {
@@ -57,7 +57,7 @@
             },
             {
                 "destination": "a-whole-is-never-drawn-twice",
-                "line": 134,
+                "line": 139,
                 "anchor": "#a-whole-is-never-drawn-twice",
                 "content_sha1": "fced6f9ed425933c4345c1898a6671d5b34922a1",
                 "outputs": {
@@ -72,7 +72,7 @@
             },
             {
                 "destination": "nothing-is-copied-when-nothing-is-far",
-                "line": 163,
+                "line": 168,
                 "anchor": "#nothing-is-copied-when-nothing-is-far",
                 "content_sha1": "33e6ef14066cb009c81425046a89dbdbf7367f59",
                 "outputs": {
@@ -87,7 +87,7 @@
             },
             {
                 "destination": "a-shorter-picture-that-would-tangle-is-refused",
-                "line": 192,
+                "line": 197,
                 "anchor": "#a-shorter-picture-that-would-tangle-is-refused",
                 "content_sha1": "c7bd504f8f10762961afd05c49695f6a77a76360",
                 "outputs": {

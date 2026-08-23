@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-dupe.md",
-        "source_sha1": "9bec0cede8ca7bbf048ad9e6085e73351979edde",
+        "source_sha1": "7666359bfedebd99f46d7e3ecee04eab7c641de5",
         "name": "layout duplication test rules",
         "method": "parser",
         "parser_name": "ipmdev-layout-rule-md",
@@ -12,7 +12,7 @@
         "items": [
             {
                 "destination": "a-concept-many-events-express-is-drawn-beside-each-group",
-                "line": 68,
+                "line": 73,
                 "anchor": "#a-concept-many-events-express-is-drawn-beside-each-group",
                 "content_sha1": "b57b7566715ee591d39b2a91cdadd881f99fa55a",
                 "outputs": {
@@ -23,7 +23,7 @@
             },
             {
                 "destination": "a-concept-many-events-express-is-drawn-beside-each-group-02",
-                "line": 69,
+                "line": 74,
                 "anchor": "#a-concept-many-events-express-is-drawn-beside-each-group",
                 "content_sha1": "e5ff47cbb2c91b0b0eccedf3c553c31b72692ab4",
                 "outputs": {
@@ -34,7 +34,7 @@
             },
             {
                 "destination": "a-concept-many-events-express-is-drawn-beside-each-group-03",
-                "line": 70,
+                "line": 75,
                 "anchor": "#a-concept-many-events-express-is-drawn-beside-each-group",
                 "content_sha1": "459af2ae5294798fe7eecdd2947369a9e7e6aaf0",
                 "outputs": {
@@ -45,7 +45,7 @@
             },
             {
                 "destination": "a-thing-many-events-use-is-drawn-beside-each-group",
-                "line": 96,
+                "line": 101,
                 "anchor": "#a-thing-many-events-use-is-drawn-beside-each-group",
                 "content_sha1": "7aa60f0f545941b4c1077e44f74fb4aa7a536e3c",
                 "outputs": {
@@ -56,7 +56,7 @@
             },
             {
                 "destination": "a-thing-many-events-use-is-drawn-beside-each-group-02",
-                "line": 97,
+                "line": 102,
                 "anchor": "#a-thing-many-events-use-is-drawn-beside-each-group",
                 "content_sha1": "7754a6e3f2a2b54e928d3652dcdc8147815ca7fc",
                 "outputs": {
@@ -67,7 +67,7 @@
             },
             {
                 "destination": "a-thing-many-events-use-is-drawn-beside-each-group-03",
-                "line": 98,
+                "line": 103,
                 "anchor": "#a-thing-many-events-use-is-drawn-beside-each-group",
                 "content_sha1": "459af2ae5294798fe7eecdd2947369a9e7e6aaf0",
                 "outputs": {
@@ -78,7 +78,7 @@
             },
             {
                 "destination": "an-event-is-never-drawn-twice",
-                "line": 124,
+                "line": 129,
                 "anchor": "#an-event-is-never-drawn-twice",
                 "content_sha1": "11bf3186651d326ef39c5f7ab939becd0dbf5cd1",
                 "outputs": {
@@ -89,7 +89,7 @@
             },
             {
                 "destination": "a-whole-is-never-drawn-twice",
-                "line": 151,
+                "line": 156,
                 "anchor": "#a-whole-is-never-drawn-twice",
                 "content_sha1": "b1daaa25049aaf056b6d2b1564211739f672f4a0",
                 "outputs": {
@@ -100,7 +100,7 @@
             },
             {
                 "destination": "a-whole-is-never-drawn-twice-02",
-                "line": 152,
+                "line": 157,
                 "anchor": "#a-whole-is-never-drawn-twice",
                 "content_sha1": "e270eb9e4f9a14ca8760dd815bfbb1a4a1211ebf",
                 "outputs": {
@@ -111,7 +111,7 @@
             },
             {
                 "destination": "a-whole-is-never-drawn-twice-03",
-                "line": 153,
+                "line": 158,
                 "anchor": "#a-whole-is-never-drawn-twice",
                 "content_sha1": "e240ca978b966fd8d6e578f8737b3d0802c24f4e",
                 "outputs": {
@@ -122,7 +122,7 @@
             },
             {
                 "destination": "nothing-is-copied-when-nothing-is-far",
-                "line": 178,
+                "line": 183,
                 "anchor": "#nothing-is-copied-when-nothing-is-far",
                 "content_sha1": "0acd807d98ffd83946355a77869f7b2e7146b112",
                 "outputs": {
@@ -133,7 +133,7 @@
             },
             {
                 "destination": "nothing-is-copied-when-nothing-is-far-02",
-                "line": 179,
+                "line": 184,
                 "anchor": "#nothing-is-copied-when-nothing-is-far",
                 "content_sha1": "97fcba13651257ad023582bd2228ad963195475a",
                 "outputs": {
@@ -144,7 +144,7 @@
             },
             {
                 "destination": "a-shorter-picture-that-would-tangle-is-refused",
-                "line": 213,
+                "line": 218,
                 "anchor": "#a-shorter-picture-that-would-tangle-is-refused",
                 "content_sha1": "0acd807d98ffd83946355a77869f7b2e7146b112",
                 "outputs": {

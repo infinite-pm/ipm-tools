@@ -91,5 +91,15 @@
     <text x="280" y="510" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="normal" fill="#3399ff">cX</text>
     <rect x="80" y="40" width="40" height="40" rx="4" ry="4" fill="#ffe6cc" stroke="#ff8000" stroke-width="2"/>
     <text x="100" y="60" text-anchor="middle" dominant-baseline="middle" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="16" font-weight="bold" fill="#ff8000">S</text>
+    <g class="copy-badge" data-node-id="7" data-of="2">
+      <title>drawn in 2 places — this is 1/2</title>
+      <rect x="317" y="117" width="27" height="15" rx="7.5" ry="7.5" fill="#fff4d6" stroke="#d9a441" stroke-width="1"/>
+      <text x="330" y="125" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="10" font-weight="bold" fill="#8a6116">1/2</text>
+    </g>
+    <g class="copy-badge" data-node-id="8" data-of="2">
+      <title>drawn in 2 places — this is 2/2</title>
+      <rect x="317" y="477" width="27" height="15" rx="7.5" ry="7.5" fill="#fff4d6" stroke="#d9a441" stroke-width="1"/>
+      <text x="330" y="485" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Inter,Segoe UI,Arial" font-size="10" font-weight="bold" fill="#8a6116">2/2</text>
+    </g>
   </g>
 </svg>
