@@ -91,7 +91,10 @@ func LoadGraph(c *Common) (*DetectedInput, *layout.Graph, error) {
 	case InputTypeLayoutGraph:
 		return detected, detected.LayoutGraph, nil
 	case InputTypeIPMGraph, InputTypeIPMT:
-		g, err := layout7.Generate(detected.IPMGraph)
+		// --containers / --shells reach the engine HERE too, not only on the
+		// --debug-json path below: a reader reproducing a shells case by hand
+		// was silently handed the flat picture.
+		g, err := layout7.GenerateWithOptions(detected.IPMGraph, layout7.Options{Containers: c.Containers, Shells: c.Shells})
 		if err != nil {
 			return nil, nil, fmt.Errorf("generate layout: %w", err)
 		}
