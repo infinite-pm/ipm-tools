@@ -128,6 +128,7 @@ fixture dir and runner flag, all four run by `make layout-test`:
 | --- | --- | --- |
 | [layout-alg.md](layout-alg.md) | default options | the grammar's geometry, events → things → concepts |
 | [layout-alg-ext.md](layout-alg-ext.md) | default options | the combinations the base cases do not reach |
+| [layout-alg-anchor.md](layout-alg-anchor.md) | `--anchor` | one layout's arrangement carried into another (a click must not re-tile) |
 | [layout-alg-containers.md](layout-alg-containers.md) | `--containers` | a composite's sub-grid claims its own rows (what the zoom canvas runs) |
 | [layout-alg-shells.md](layout-alg-shells.md) | `--shells` | the box drawn around an open composite, on top of that |
 | [layout-alg-dupe.md](layout-alg-dupe.md) | `--duplicate` | a participant drawn where it is used |

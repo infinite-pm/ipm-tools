@@ -80,12 +80,16 @@ build-dev:
 		go build -trimpath -o $(BIN_DIR)/$$c ./cmd-dev/$$c || exit 1; \
 	done
 
-# Layout regression testing (base corpus, the layout-alg-ext combinations, the
-# layout-alg-shells cases run with Options.Shells, and the layout-alg-dupe cases
-# run through pkg/layoutdupe with its size gate lifted so they can stay small).
+# Layout regression testing — one lane per way of running the engine: the base
+# corpus and the layout-alg-ext combinations on default options, layout-alg-anchor
+# with Options.Anchor built from each case's reference, layout-alg-containers with
+# Options.Containers alone, layout-alg-shells with Options.Shells on top, and
+# layout-alg-dupe through pkg/layoutdupe with its size gate lifted so the cases
+# can stay small.
 layout-test:
 	@go run ./cmd-dev/layout-test-runner -v
 	@go run ./cmd-dev/layout-test-runner -v --dir tests/layout-gen-ext
+	@go run ./cmd-dev/layout-test-runner -v --anchor --dir tests/layout-gen-anchor
 	@go run ./cmd-dev/layout-test-runner -v --containers --dir tests/layout-gen-containers
 	@go run ./cmd-dev/layout-test-runner -v --shells --dir tests/layout-gen-shells
 	@go run ./cmd-dev/layout-test-runner -v --duplicate --duplicate-min-nodes 1 --dir tests/layout-gen-dupe
@@ -93,6 +97,7 @@ layout-test:
 layout-fitness:
 	@go run ./cmd-dev/layout-test-runner
 	@go run ./cmd-dev/layout-test-runner --dir tests/layout-gen-ext
+	@go run ./cmd-dev/layout-test-runner --anchor --dir tests/layout-gen-anchor
 	@go run ./cmd-dev/layout-test-runner --containers --dir tests/layout-gen-containers
 	@go run ./cmd-dev/layout-test-runner --shells --dir tests/layout-gen-shells
 	@go run ./cmd-dev/layout-test-runner --duplicate --duplicate-min-nodes 1 --dir tests/layout-gen-dupe

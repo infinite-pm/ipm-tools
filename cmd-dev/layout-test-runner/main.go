@@ -59,6 +59,7 @@ func main() {
 	testDir := flag.String("dir", "tests/layout-gen", "Test directory")
 	verbose := flag.Bool("v", false, "Verbose output")
 	surveyAll := flag.Bool("all", false, "Report every failing rule for every case (no score, don't stop)")
+	flag.BoolVar(&engineAnchor, "anchor", false, "lay each case out with layout7 Options.Anchor built from a REFERENCE case: a fixture named X-02 is anchored to the layout of X (two ipmt blocks under one heading — the reference first, the state second; the tests/layout-gen-anchor corpus)")
 	flag.BoolVar(&engineContainers, "containers", false, "lay the cases out with layout7 Options.Containers and no shells (a composite's sub-grid claims its own rows; the tests/layout-gen-containers corpus) — the mode the zoom canvas runs in")
 	flag.BoolVar(&engineShells, "shells", false, "lay the cases out with layout7 Options.Shells (composite shells as engine output; the tests/layout-gen-shells corpus)")
 	flag.IntVar(&duplicateMinNodes, "duplicate-min-nodes", 0, "with --duplicate: the diagram size below which the pass does nothing (0 = the shipped default, 16). The dupe corpus runs with 1, so its cases can stay small enough to read")
@@ -261,7 +262,15 @@ func main() {
 		inputPath := filepath.Join(*testDir, testCase.Destination+".ipmt")
 		outputPath := filepath.Join(*testDir, testCase.Destination+".layout.json")
 
-		layout, err := runLayoutGen(inputPath, outputPath)
+		var anchor map[string][2]int
+		if engineAnchor {
+			anchor, err = anchorFor(*testDir, testCase.Destination)
+			if err != nil {
+				fmt.Fprintf(os.Stderr, "Error building anchor for test %s: %v\n", testCase.Destination, err)
+				os.Exit(1)
+			}
+		}
+		layout, err := runLayoutGen(inputPath, outputPath, anchor)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "Error running layout-gen for test %s: %v\n", testCase.Destination, err)
 			os.Exit(1)
@@ -442,6 +451,40 @@ var engineShells bool
 // padding on top.
 var engineContainers bool
 
+// engineAnchor runs the SECOND fixture of each case (X-02) with an anchor
+// built from the FIRST (X): the arrangement of one layout carried into
+// another, which is what keeps two states of one document reading the same
+// way. The reference itself runs flat, as any other case does.
+var engineAnchor bool
+
+// anchorFor lays the reference fixture out and returns its box centres, the
+// shape layout7.Options.Anchor takes. Only for a destination ending in "-02"
+// whose base fixture exists; anything else anchors to nothing.
+func anchorFor(testDir, destination string) (map[string][2]int, error) {
+	base := strings.TrimSuffix(destination, "-02")
+	if base == destination {
+		return nil, nil
+	}
+	path := filepath.Join(testDir, base+".ipmt")
+	src, err := os.ReadFile(path)
+	if err != nil {
+		return nil, nil // no reference: the case is its own
+	}
+	detected, err := cli.DetectInput(src, path)
+	if err != nil {
+		return nil, fmt.Errorf("reference %s: %w", base, err)
+	}
+	ref, err := layout7.GenerateWithOptions(detected.IPMGraph, layout7.Options{Containers: engineContainers, Shells: engineShells})
+	if err != nil {
+		return nil, fmt.Errorf("reference %s: %w", base, err)
+	}
+	anchor := make(map[string][2]int, len(ref.Nodes))
+	for _, n := range ref.Nodes {
+		anchor[n.ID] = [2]int{n.X + n.Width/2, n.Y + n.Height/2}
+	}
+	return anchor, nil
+}
+
 // engineDuplicate runs every case through pkg/layoutdupe (--duplicate): the
 // dupe corpus pins WHICH nodes get drawn more than once and where the copies
 // land. A copy's node id is minted by the pass (max id + 1, in plan order), so
@@ -454,7 +497,7 @@ var engineDuplicate bool
 // nothing, but a CASE has to be small to be readable.
 var duplicateMinNodes int
 
-func runLayoutGen(inputPath, outputPath string) (*layouttest.Layout, error) {
+func runLayoutGen(inputPath, outputPath string, anchor map[string][2]int) (*layouttest.Layout, error) {
 	// Read input
 	input, err := os.ReadFile(inputPath)
 	if err != nil {
@@ -473,7 +516,7 @@ func runLayoutGen(inputPath, outputPath string) (*layouttest.Layout, error) {
 	case cli.InputTypeLayoutGraph:
 		graph = detected.LayoutGraph
 	case cli.InputTypeIPMGraph, cli.InputTypeIPMT:
-		opts := layout7.Options{Containers: engineContainers, Shells: engineShells}
+		opts := layout7.Options{Containers: engineContainers, Shells: engineShells, Anchor: anchor}
 		if engineDuplicate {
 			res, derr := layoutdupe.GenerateWith(detected.IPMGraph, layoutdupe.Options{MinNodes: duplicateMinNodes}, func(d *model.IpmGraph) (*layout.Graph, error) {
 				return layout7.GenerateWithOptions(d, opts)
