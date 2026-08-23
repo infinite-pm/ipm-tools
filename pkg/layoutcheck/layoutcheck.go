@@ -589,3 +589,28 @@ func maxInt(a, b int) int {
 	}
 	return b
 }
+
+// WithoutShells returns a copy of g with the CONTAINER nodes and the edges
+// touching them removed. The checks here are flat: a container shell is a
+// region a reader sees around boxes, not a box in the picture, so measuring
+// it as one reports the shell's own geometry as damage. Every consumer that
+// measures a shelled layout — the corpus sweep, the duplication guard —
+// strips the same way, so their numbers mean the same thing.
+func WithoutShells(g *layout.Graph) *layout.Graph {
+	out := &layout.Graph{Version: g.Version, Meta: g.Meta}
+	shell := map[string]bool{}
+	for _, n := range g.Nodes {
+		if n.Container != nil {
+			shell[n.ID] = true
+			continue
+		}
+		out.Nodes = append(out.Nodes, n)
+	}
+	for _, e := range g.Edges {
+		if shell[e.From] || shell[e.To] {
+			continue
+		}
+		out.Edges = append(out.Edges, e)
+	}
+	return out
+}

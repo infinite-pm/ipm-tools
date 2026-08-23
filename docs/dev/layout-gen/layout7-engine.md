@@ -97,9 +97,21 @@ target of an expresses); copying the rarer end would move the problem instead
 of answering it. Far users are clustered by single linkage so
 neighbours share one copy, and the original keeps its best cluster unless it
 has near edges of its own. The pass then measures both layouts the way a reader
-feels them — total distance, worst edge, how many are still too long — and
-**keeps the rewrite only if it is not worse**, reporting `Rejected` otherwise:
-copies change the engine's input, and the engine re-places everything from it.
+feels them and **keeps the rewrite only if it is not worse**, reporting
+`Rejected` otherwise: copies change the engine's input, and the engine
+re-places everything from it. Two measures, because either alone is blind:
+
+- **distance** — total, worst edge, how many are still too long to read;
+- **damage** — `layoutcheck.Categorize` of the findings on the shell-stripped
+  graph, refused when `layoutcheck.Regressed` says so. The same four numbers
+  and the same severity order the corpus ratchet gates on, so a layout this
+  pass keeps is one the gate would accept too.
+
+Distance alone was not enough, and the corpus said so: swept over the 37 zoom
+bundles, duplication cut crossings 16% and still put 28 routes through a box
+where there had been none. With damage in the guard: through 0, crossings
+−18%, grazes −10%, and a third fewer copies kept
+(ipm-drawio docs/dev-tools/framecheck.md).
 
 Where the caller can place components itself (the zoom canvas anchors every
 component by node id), `GenerateWithHints` hands it each copy's intended place,

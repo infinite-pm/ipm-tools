@@ -54,7 +54,7 @@ func fakeLayout(doc *model.IpmGraph) (*layout.Graph, error) {
 		cluster := pair % 3 // …and the rows fall into three far-apart columns
 		g.Nodes = append(g.Nodes, layout.Node{
 			ID: strconv.Itoa(n.ID), Label: n.Name, Type: string(n.Type),
-			X: cluster*3000 + (i%2)*160, Y: (pair / 3) * 150, Width: 120, Height: 60,
+			X: cluster*3000 + (i%2)*160, Y: (pair / 3) * 400, Width: 120, Height: 60,
 		})
 	}
 	for _, e := range doc.Edges {
@@ -62,6 +62,28 @@ func fakeLayout(doc *model.IpmGraph) (*layout.Graph, error) {
 			From: strconv.Itoa(e.Source), To: strconv.Itoa(e.Target),
 			Base: baseOf(e.SstLinkType),
 		})
+	}
+	return g, nil
+}
+
+// fakeLayoutHinted is fakeLayout for the hinted path the real callers use:
+// the canvas places components by position, so a copy is laid out AT the hint
+// the pass computed for it (the centre of the users it serves). Without that
+// a copy lands wherever the id ordering puts it, which is not what the pass
+// asked for — and the guard, which now counts crossings, would rightly refuse
+// the result.
+func fakeLayoutHinted(doc *model.IpmGraph, hints map[string][2]int) (*layout.Graph, error) {
+	g, err := fakeLayout(doc)
+	if err != nil {
+		return nil, err
+	}
+	for i := range g.Nodes {
+		if h, ok := hints[g.Nodes[i].ID]; ok {
+			// Beside the cluster it serves, not on top of it: the hint is the
+			// centre of the users, and a real engine puts the copy next to
+			// them. The test double says that in the crudest possible way.
+			g.Nodes[i].X, g.Nodes[i].Y = h[0]+400, h[1]-g.Nodes[i].Height/2
+		}
 	}
 	return g, nil
 }
@@ -80,7 +102,7 @@ func baseOf(t model.SstLinkType) string {
 
 func TestTaxonomyHubIsDrawnInSeveralPlaces(t *testing.T) {
 	doc := taxonomy(8)
-	res, err := GenerateWith(doc, Options{}, fakeLayout)
+	res, err := GenerateWithHints(doc, Options{}, fakeLayoutHinted)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -92,13 +114,21 @@ func TestTaxonomyHubIsDrawnInSeveralPlaces(t *testing.T) {
 	if len(places) < 3 {
 		t.Fatalf("hub drawn in %d places, want at least 3: %v", len(places), places)
 	}
-	if places[0] != hub {
-		t.Errorf("the original must be one of the places (reading order): %v", places)
-	}
-	for _, p := range places[1:] {
+	// Places is in READING order (top-to-bottom, left-to-right), so the
+	// original is simply one of them — not necessarily the first — and every
+	// other place is a copy of it.
+	found := false
+	for _, p := range places {
+		if p == hub {
+			found = true
+			continue
+		}
 		if res.Copies[p] != hub {
 			t.Errorf("place %q does not map back to the hub", p)
 		}
+	}
+	if !found {
+		t.Errorf("the original is not among the places: %v", places)
 	}
 }
 
@@ -156,7 +186,7 @@ func TestNoNodeIsLeftWithoutEdges(t *testing.T) {
 // diagram with every node an event (legal: event→event) gets none. Only the
 // kind differs, so only the kind can explain the difference.
 func TestEventsAreNeverCopied(t *testing.T) {
-	control, err := GenerateWith(taxonomy(9), Options{}, fakeLayout)
+	control, err := GenerateWithHints(taxonomy(9), Options{}, fakeLayoutHinted)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -191,7 +221,7 @@ func TestUnresolvedActsAsItsPrimaryCandidate(t *testing.T) {
 	hub := &doc.Nodes[len(doc.Nodes)-1]
 	hub.Type = model.Unresolved
 	hub.Candidates = []model.NodeType{model.Concept, model.Thing}
-	res, err := GenerateWith(doc, Options{}, fakeLayout)
+	res, err := GenerateWithHints(doc, Options{}, fakeLayoutHinted)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -305,6 +335,34 @@ func TestNothingIsCopiedWhenEverythingIsClose(t *testing.T) {
 	}
 	if len(res.Copies) != 0 {
 		t.Fatalf("nothing is too far to read here; got %d copies", len(res.Copies))
+	}
+}
+
+// Distance is not the only thing a reader feels. A rewrite that is shorter but
+// more tangled — more routes crossing, or a route now cutting through a box —
+// is not an improvement, and the guard says so. Swept over the zoom corpus,
+// duplication cut crossings 16% overall and still made one bundle 31% worse
+// and put 28 routes through a box where there had been none: this is the rule
+// that catches those.
+func TestATangledLayoutIsNotAnImprovement(t *testing.T) {
+	// Damage is [overlap, through-node, edge-edge, badge].
+	base := Cost{Total: 1000, Max: 500, Long: 4, Damage: [4]int{0, 0, 10, 0}}
+	cases := []struct {
+		name   string
+		after  Cost
+		better bool
+	}{
+		{"shorter and no more damage", Cost{Total: 500, Max: 400, Long: 2, Damage: [4]int{0, 0, 10, 0}}, true},
+		{"shorter but one more crossing", Cost{Total: 500, Max: 400, Long: 2, Damage: [4]int{0, 0, 11, 0}}, false},
+		{"shorter but a route now cuts a box", Cost{Total: 500, Max: 400, Long: 2, Damage: [4]int{0, 1, 8, 0}}, false},
+		{"shorter but two boxes now overlap", Cost{Total: 500, Max: 400, Long: 2, Damage: [4]int{1, 0, 2, 0}}, false},
+		{"untangled and shorter", Cost{Total: 900, Max: 500, Long: 4, Damage: [4]int{0, 0, 3, 0}}, true},
+		{"untangled but longer", Cost{Total: 1200, Max: 500, Long: 4, Damage: [4]int{0, 0, 0, 0}}, false},
+	}
+	for _, c := range cases {
+		if got := c.after.betterThan(base); got != c.better {
+			t.Errorf("%s: betterThan = %v, want %v", c.name, got, c.better)
+		}
 	}
 }
 

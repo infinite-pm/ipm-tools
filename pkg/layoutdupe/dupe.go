@@ -39,6 +39,7 @@ import (
 	"github.com/infinite-pm/ipm-tools/pkg/ipm/model"
 	"github.com/infinite-pm/ipm-tools/pkg/layout"
 	"github.com/infinite-pm/ipm-tools/pkg/layout7"
+	"github.com/infinite-pm/ipm-tools/pkg/layoutcheck"
 )
 
 // Options tunes the pass. The defaults are the ones measured in the design's
@@ -112,15 +113,29 @@ type Result struct {
 	Before, After Cost
 }
 
-// Cost is what "better" means here: the reader's complaint is distance, so it
+// Cost is what "better" means here. The reader's complaint is distance, so it
 // is measured in distance — how much of it there is, how bad the worst one is,
-// and how many edges are still too long to read from where they start.
+// how many edges are still too long to read from where they start — and in the
+// DAMAGE the picture takes, which distance cannot see: overlaps, routes cut
+// through a box, edges crossing, badges colliding. Distance alone was not
+// enough: swept over the zoom corpus, duplication cut crossings 16% overall
+// and still put 28 routes through a box where there had been none.
 type Cost struct {
 	Total, Max float64
 	Long       int
+	// Damage is layoutcheck.Categorize of the findings on the shell-stripped
+	// graph — [overlap, through-node, edge-edge, badge], the same four numbers
+	// and the same severity order the corpus ratchet gates on.
+	Damage [4]int
 }
 
 func (a Cost) betterThan(b Cost) bool {
+	// Nothing a reader reads as damage may grow. The rule is not this pass's
+	// own: layoutcheck.Regressed IS the ratchet's, so a layout this pass keeps
+	// is one the corpus gate would also accept.
+	if layoutcheck.Regressed(b.Damage, a.Damage) {
+		return false
+	}
 	// Total length must not grow, and the worst edge must not get worse by
 	// more than a whisker (the engine shuffles; 5% is noise, 3x is not).
 	if a.Total > b.Total {
@@ -154,6 +169,10 @@ func cost(g *layout.Graph, edges []model.Edge) Cost {
 			c.Long++
 		}
 	}
+	// Measured the way every other consumer measures: flat (a container shell
+	// is a region, not a box) and visibility-aware (a stubbed edge is two
+	// badges, not a line).
+	c.Damage = layoutcheck.Categorize(layoutcheck.Findings(layoutcheck.WithoutShells(g), layoutcheck.Options{}))
 	return c
 }
 
@@ -569,13 +588,15 @@ func minDist(from [2]float64, g []farUser) float64 {
 // Describe is a one-line summary for a log or a report.
 func (r *Result) Describe() string {
 	if r.Rejected {
-		return fmt.Sprintf("copies rejected: the layout was not better (length %.0f→%.0f, longest %.0f→%.0f, too-long edges %d→%d)",
-			r.Before.Total, r.After.Total, r.Before.Max, r.After.Max, r.Before.Long, r.After.Long)
+		return fmt.Sprintf("copies rejected: the layout was not better (length %.0f→%.0f, longest %.0f→%.0f, too-long edges %d→%d, damage %v→%v)",
+			r.Before.Total, r.After.Total, r.Before.Max, r.After.Max, r.Before.Long, r.After.Long,
+			r.Before.Damage, r.After.Damage)
 	}
 	if len(r.Copies) == 0 {
 		return "no copies"
 	}
-	return fmt.Sprintf("%d copies of %d participants (long edge > %.0fpx, median %.0fpx): length %.0f→%.0f, longest %.0f→%.0f, too-long edges %d→%d",
+	return fmt.Sprintf("%d copies of %d participants (long edge > %.0fpx, median %.0fpx): length %.0f→%.0f, longest %.0f→%.0f, too-long edges %d→%d, damage %v→%v",
 		len(r.Copies), len(r.Places), r.Threshold, r.Median,
-		r.Before.Total, r.After.Total, r.Before.Max, r.After.Max, r.Before.Long, r.After.Long)
+		r.Before.Total, r.After.Total, r.Before.Max, r.After.Max, r.Before.Long, r.After.Long,
+		r.Before.Damage, r.After.Damage)
 }
