@@ -9,6 +9,7 @@ import (
 	"sync"
 	"testing"
 
+	"github.com/infinite-pm/ipm-tools/pkg/ipm/model"
 	"github.com/infinite-pm/ipm-tools/pkg/ipm/parser"
 	"github.com/infinite-pm/ipm-tools/pkg/layout"
 )
@@ -257,4 +258,32 @@ K ::c <-- a1
 		}()
 	}
 	wg.Wait()
+}
+
+// The edge tooltip survives the layout boundary. Node tooltips always did;
+// edges dropped theirs, which made a documented notation feature silently do
+// nothing from the renderer's point of view.
+func TestGenerateCarriesEdgeTooltip(t *testing.T) {
+	doc := &model.IpmGraph{
+		Nodes: []model.Node{
+			{ID: 1, Name: "e1", Type: model.Event},
+			{ID: 2, Name: "e2", Type: model.Event},
+		},
+		Edges: []model.Edge{
+			{ID: 1, Source: 1, Target: 2, SstLinkType: model.LeadsTo, Tooltip: "why it happens"},
+		},
+	}
+	g, err := Generate(doc)
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, e := range g.Edges {
+		if e.From == "1" && e.To == "2" {
+			if e.Tooltip != "why it happens" {
+				t.Fatalf("edge tooltip = %q, want it carried through", e.Tooltip)
+			}
+			return
+		}
+	}
+	t.Fatal("the edge is missing from the layout")
 }

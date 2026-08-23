@@ -232,6 +232,7 @@ func (g *graph) emit(routes []routed) *layout.Graph {
 			Dir:        dir,
 			Base:       emitBase(e.rel),
 			Style:      emitBase(e.rel),
+			Tooltip:    e.tooltip,
 			Route:      route,
 			Visibility: visibility,
 		})

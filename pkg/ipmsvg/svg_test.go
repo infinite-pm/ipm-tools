@@ -103,3 +103,35 @@ func TestGenerateEscapesNodeLabelAfterWrapping(t *testing.T) {
 		t.Fatalf("label wrapped on escaped text (%d <text> elements), got: %s", n, out)
 	}
 }
+
+// An edge tooltip (`--"why it happens"-->`) hovers like a node's. It was
+// parsed and then dropped at the layout boundary, so the four tooltip examples
+// in the spec rendered as plain arrows; the <title> is the first child of the
+// edge group, covering line, arrowhead and stub badges alike.
+func TestGenerateRendersEdgeTooltipAsTitle(t *testing.T) {
+	graph := &layout.Graph{
+		Nodes: []layout.Node{
+			{ID: "1", Type: "event", Label: "e1", X: 40, Y: 120, Width: 120, Height: 60},
+			{ID: "2", Type: "event", Label: "e2", X: 40, Y: 240, Width: 120, Height: 60},
+		},
+		Edges: []layout.Edge{
+			{From: "1", To: "2", Dir: "fwd", Base: "leadsto", Style: "leadsto", Tooltip: "why it happens <&>"},
+		},
+		Meta: layout.Meta{Bounds: layout.Bounds{Width: 200, Height: 360}},
+	}
+
+	svg, err := Render(graph)
+	if err != nil {
+		t.Fatalf("Render() error = %v", err)
+	}
+	out := string(svg)
+	if !strings.Contains(out, "<title>why it happens &lt;&amp;&gt;</title>") {
+		t.Fatalf("edge tooltip should be an escaped <title>, got: %s", out)
+	}
+	edgeAt := strings.Index(out, "<g class=\"edge\"")
+	titleAt := strings.Index(out, "<title>why it happens")
+	lineAt := strings.Index(out, "<line")
+	if edgeAt < 0 || titleAt < edgeAt || (lineAt >= 0 && titleAt > lineAt) {
+		t.Fatalf("the title must open the edge group, before its geometry; got: %s", out)
+	}
+}

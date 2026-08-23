@@ -336,6 +336,12 @@ func (g *Generator) Generate(graph *layout.Graph) ([]byte, error) {
 		// index into graph.Edges; base/from/to carry the link type and endpoints.
 		fmt.Fprintf(&b, "    <g class=\"edge\" data-edge-idx=\"%d\" data-edge-base=\"%s\" data-edge-from=\"%s\" data-edge-to=\"%s\">\n",
 			edgeIdx, html.EscapeString(e.Base), html.EscapeString(e.From), html.EscapeString(e.To))
+		// An edge tooltip (`--"why it happens"-->`) hovers like a node's: the
+		// <title> is the first child of the group, so it covers every part of
+		// the edge — line, arrowhead, stub badges.
+		if e.Tooltip != "" {
+			fmt.Fprintf(&b, "      <title>%s</title>\n", html.EscapeString(e.Tooltip))
+		}
 		// Cross-component Expresses/NearTo edges render as stubs: the full edge is
 		// kept (hidden, class edge-full) for hover-reveal, and short stub
 		// decorations are drawn at each end.

@@ -69,6 +69,7 @@ type edge struct {
 	from, to int // node idx
 	rel      Rel
 	undir    bool
+	tooltip  string
 
 	// Classification (membership.go). Exactly one of these is the edge's
 	// job; every edge is still DRAWN unless routing hides it (v7P9).
@@ -228,11 +229,12 @@ func normalize(doc *model.IpmGraph) (*graph, error) {
 			return nil, fmt.Errorf("edge %d: unknown target %d", me.ID, me.Target)
 		}
 		e := &edge{
-			idx:   len(g.edges),
-			from:  from,
-			to:    to,
-			rel:   r,
-			undir: me.Dir == model.DirUndir,
+			idx:     len(g.edges),
+			from:    from,
+			to:      to,
+			rel:     r,
+			undir:   me.Dir == model.DirUndir,
+			tooltip: me.Tooltip,
 		}
 		g.edges = append(g.edges, e)
 		g.out[from] = append(g.out[from], e)

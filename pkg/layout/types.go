@@ -175,12 +175,16 @@ type PortJSON struct {
 // specific side ("left"/"right"/"top"/"bottom"/"center") and position along
 // that side (0.0-1.0). Leave nil for default routing.
 type Edge struct {
-	From     string    `json:"from"`
-	To       string    `json:"to"`
-	Dir      string    `json:"dir"`
-	Base     string    `json:"base"`
-	Style    string    `json:"style"`
-	Label    string    `json:"label,omitempty"`
+	From  string `json:"from"`
+	To    string `json:"to"`
+	Dir   string `json:"dir"`
+	Base  string `json:"base"`
+	Style string `json:"style"`
+	Label string `json:"label,omitempty"`
+	// Tooltip is the edge's hover text (`--"why it happens"-->` in ipmt),
+	// carried through like a node's: the renderer emits it as a <title> on the
+	// edge group. It is NOT drawn — Label is the drawn text.
+	Tooltip  string    `json:"tooltip,omitempty"`
 	FromPort *EdgePort `json:"fromPort,omitempty"`
 	ToPort   *EdgePort `json:"toPort,omitempty"`
 	// Route is the OUTPUT geometry the layout owns (docs/dev/layout-engine.md
