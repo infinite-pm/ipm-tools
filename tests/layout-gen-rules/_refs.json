@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg.md",
-        "source_sha1": "1710d1d26d13d9b079e92dbe3227e81d49cc8df9",
+        "source_sha1": "67cca77c19c85a2ea65c352b1493310d05fc0432",
         "name": "layout test rules",
         "method": "parser",
         "parser_name": "ipmdev-layout-rule-md",
@@ -6974,195 +6974,426 @@
                 "section": "Recent layout behaviours"
             },
             {
-                "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
+                "destination": "near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses",
                 "line": 3378,
-                "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
+                "anchor": "#near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses",
                 "content_sha1": "2e3538ee21711f2759f38286c140abbcdb9b62d0",
                 "outputs": {
                     "dsl": "2e3538ee21711f2759f38286c140abbcdb9b62d0"
                 },
-                "heading": "near-to peers in a column: neighbours link, spanning ties hide",
+                "heading": "near-to peers in a column: neighbours link, the spanning tie bypasses",
                 "section": "Recent layout behaviours"
             },
             {
-                "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-02",
+                "destination": "near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-02",
                 "line": 3379,
-                "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
+                "anchor": "#near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses",
                 "content_sha1": "0e5aaee7575dc128a675c18ad28bb05ad5f72bdd",
                 "outputs": {
                     "dsl": "0e5aaee7575dc128a675c18ad28bb05ad5f72bdd"
                 },
-                "heading": "near-to peers in a column: neighbours link, spanning ties hide",
+                "heading": "near-to peers in a column: neighbours link, the spanning tie bypasses",
                 "section": "Recent layout behaviours"
             },
             {
-                "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-03",
+                "destination": "near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-03",
                 "line": 3380,
-                "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
+                "anchor": "#near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses",
                 "content_sha1": "7930d89445224dfff39098afe4710a8a0e2c31da",
                 "outputs": {
                     "dsl": "7930d89445224dfff39098afe4710a8a0e2c31da"
                 },
-                "heading": "near-to peers in a column: neighbours link, spanning ties hide",
+                "heading": "near-to peers in a column: neighbours link, the spanning tie bypasses",
                 "section": "Recent layout behaviours"
             },
             {
-                "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-04",
+                "destination": "near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-04",
                 "line": 3381,
-                "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
+                "anchor": "#near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses",
                 "content_sha1": "d1e6f81fdedff315b58ec53c1c1a9674ffd34359",
                 "outputs": {
                     "dsl": "d1e6f81fdedff315b58ec53c1c1a9674ffd34359"
                 },
-                "heading": "near-to peers in a column: neighbours link, spanning ties hide",
+                "heading": "near-to peers in a column: neighbours link, the spanning tie bypasses",
                 "section": "Recent layout behaviours"
             },
             {
-                "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-05",
+                "destination": "near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-05",
                 "line": 3382,
-                "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
+                "anchor": "#near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses",
                 "content_sha1": "b33a497a64e93a34056f488e3c73263a9e0086cd",
                 "outputs": {
                     "dsl": "b33a497a64e93a34056f488e3c73263a9e0086cd"
                 },
-                "heading": "near-to peers in a column: neighbours link, spanning ties hide",
+                "heading": "near-to peers in a column: neighbours link, the spanning tie bypasses",
                 "section": "Recent layout behaviours"
             },
             {
-                "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-06",
+                "destination": "near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-06",
                 "line": 3383,
-                "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
+                "anchor": "#near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses",
                 "content_sha1": "8f377f4201f2b55c68c8a665ed73cdd5a12f277f",
                 "outputs": {
                     "dsl": "8f377f4201f2b55c68c8a665ed73cdd5a12f277f"
                 },
-                "heading": "near-to peers in a column: neighbours link, spanning ties hide",
+                "heading": "near-to peers in a column: neighbours link, the spanning tie bypasses",
                 "section": "Recent layout behaviours"
             },
             {
-                "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-07",
+                "destination": "near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-07",
                 "line": 3384,
-                "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
+                "anchor": "#near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses",
                 "content_sha1": "872189aff787238b4c3de7a5c351aae3ecc50ebd",
                 "outputs": {
                     "dsl": "872189aff787238b4c3de7a5c351aae3ecc50ebd"
                 },
-                "heading": "near-to peers in a column: neighbours link, spanning ties hide",
+                "heading": "near-to peers in a column: neighbours link, the spanning tie bypasses",
                 "section": "Recent layout behaviours"
             },
             {
-                "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-08",
+                "destination": "near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-08",
                 "line": 3385,
-                "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
+                "anchor": "#near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses",
                 "content_sha1": "6455a938ac9ab921279bbe8e47745147dda5901d",
                 "outputs": {
                     "dsl": "6455a938ac9ab921279bbe8e47745147dda5901d"
                 },
-                "heading": "near-to peers in a column: neighbours link, spanning ties hide",
+                "heading": "near-to peers in a column: neighbours link, the spanning tie bypasses",
                 "section": "Recent layout behaviours"
             },
             {
-                "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-09",
+                "destination": "near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-09",
                 "line": 3386,
-                "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
+                "anchor": "#near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses",
                 "content_sha1": "a040a5d7512c4fd7e0aad59cbce1dee488daf2b5",
                 "outputs": {
                     "dsl": "a040a5d7512c4fd7e0aad59cbce1dee488daf2b5"
                 },
-                "heading": "near-to peers in a column: neighbours link, spanning ties hide",
+                "heading": "near-to peers in a column: neighbours link, the spanning tie bypasses",
                 "section": "Recent layout behaviours"
             },
             {
-                "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-10",
+                "destination": "near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-10",
                 "line": 3387,
-                "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
+                "anchor": "#near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses",
                 "content_sha1": "e23d5d6b6283ffa3e1831648849288df98ce8d9e",
                 "outputs": {
                     "dsl": "e23d5d6b6283ffa3e1831648849288df98ce8d9e"
                 },
-                "heading": "near-to peers in a column: neighbours link, spanning ties hide",
+                "heading": "near-to peers in a column: neighbours link, the spanning tie bypasses",
                 "section": "Recent layout behaviours"
             },
             {
-                "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-11",
+                "destination": "near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-11",
                 "line": 3388,
-                "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
+                "anchor": "#near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses",
                 "content_sha1": "040cf9e72f8dee124570255f488a4e13f78ee6a6",
                 "outputs": {
                     "dsl": "040cf9e72f8dee124570255f488a4e13f78ee6a6"
                 },
-                "heading": "near-to peers in a column: neighbours link, spanning ties hide",
+                "heading": "near-to peers in a column: neighbours link, the spanning tie bypasses",
                 "section": "Recent layout behaviours"
             },
             {
-                "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-12",
+                "destination": "near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-12",
                 "line": 3389,
-                "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
+                "anchor": "#near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses",
                 "content_sha1": "0e2ebd664bcab3e79d24280748e145da1faa6fc7",
                 "outputs": {
                     "dsl": "0e2ebd664bcab3e79d24280748e145da1faa6fc7"
                 },
-                "heading": "near-to peers in a column: neighbours link, spanning ties hide",
+                "heading": "near-to peers in a column: neighbours link, the spanning tie bypasses",
                 "section": "Recent layout behaviours"
             },
             {
-                "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-13",
+                "destination": "near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-13",
                 "line": 3390,
-                "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
+                "anchor": "#near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses",
                 "content_sha1": "7a40f96411aec2aa6a1592eef256ae90d5f72d67",
                 "outputs": {
                     "dsl": "7a40f96411aec2aa6a1592eef256ae90d5f72d67"
                 },
-                "heading": "near-to peers in a column: neighbours link, spanning ties hide",
+                "heading": "near-to peers in a column: neighbours link, the spanning tie bypasses",
                 "section": "Recent layout behaviours"
             },
             {
-                "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-14",
+                "destination": "near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-14",
                 "line": 3391,
-                "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
+                "anchor": "#near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses",
                 "content_sha1": "e5ee9977b12073845a693e1eae61b66d41e16499",
                 "outputs": {
                     "dsl": "e5ee9977b12073845a693e1eae61b66d41e16499"
                 },
-                "heading": "near-to peers in a column: neighbours link, spanning ties hide",
+                "heading": "near-to peers in a column: neighbours link, the spanning tie bypasses",
                 "section": "Recent layout behaviours"
             },
             {
-                "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-15",
+                "destination": "near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-15",
                 "line": 3392,
-                "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
+                "anchor": "#near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses",
                 "content_sha1": "7f1c4aa2b433fe237435a52ee96b59d7d9384584",
                 "outputs": {
                     "dsl": "7f1c4aa2b433fe237435a52ee96b59d7d9384584"
                 },
-                "heading": "near-to peers in a column: neighbours link, spanning ties hide",
+                "heading": "near-to peers in a column: neighbours link, the spanning tie bypasses",
                 "section": "Recent layout behaviours"
             },
             {
-                "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-16",
+                "destination": "near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-16",
                 "line": 3393,
-                "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
+                "anchor": "#near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses",
                 "content_sha1": "32c7faaec586275463244a5f6d7c0efbde68d131",
                 "outputs": {
                     "dsl": "32c7faaec586275463244a5f6d7c0efbde68d131"
                 },
-                "heading": "near-to peers in a column: neighbours link, spanning ties hide",
+                "heading": "near-to peers in a column: neighbours link, the spanning tie bypasses",
                 "section": "Recent layout behaviours"
             },
             {
-                "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide-17",
+                "destination": "near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-17",
                 "line": 3394,
-                "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
+                "anchor": "#near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses",
                 "content_sha1": "008ad2a49c7710ebbb668450b6bf98287d64cc6e",
                 "outputs": {
                     "dsl": "008ad2a49c7710ebbb668450b6bf98287d64cc6e"
                 },
-                "heading": "near-to peers in a column: neighbours link, spanning ties hide",
+                "heading": "near-to peers in a column: neighbours link, the spanning tie bypasses",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "a-denser-clique-hides-the-tie-neither-end-needs",
+                "line": 3440,
+                "anchor": "#a-denser-clique-hides-the-tie-neither-end-needs",
+                "content_sha1": "bb6bb26ec57e24bbb6faabf24fce4ee85ad3c99c",
+                "outputs": {
+                    "dsl": "bb6bb26ec57e24bbb6faabf24fce4ee85ad3c99c"
+                },
+                "heading": "a denser clique hides the tie neither end needs",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "a-denser-clique-hides-the-tie-neither-end-needs-02",
+                "line": 3441,
+                "anchor": "#a-denser-clique-hides-the-tie-neither-end-needs",
+                "content_sha1": "af140912c55caeb622d3f17c5720d82b8dae0fe7",
+                "outputs": {
+                    "dsl": "af140912c55caeb622d3f17c5720d82b8dae0fe7"
+                },
+                "heading": "a denser clique hides the tie neither end needs",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "a-denser-clique-hides-the-tie-neither-end-needs-03",
+                "line": 3442,
+                "anchor": "#a-denser-clique-hides-the-tie-neither-end-needs",
+                "content_sha1": "1387ab8f4fff0d40c6bfd82f9580584a8c53a442",
+                "outputs": {
+                    "dsl": "1387ab8f4fff0d40c6bfd82f9580584a8c53a442"
+                },
+                "heading": "a denser clique hides the tie neither end needs",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "a-denser-clique-hides-the-tie-neither-end-needs-04",
+                "line": 3443,
+                "anchor": "#a-denser-clique-hides-the-tie-neither-end-needs",
+                "content_sha1": "f6a0fa580e18470eee72bfceba66bd8cbe41edd9",
+                "outputs": {
+                    "dsl": "f6a0fa580e18470eee72bfceba66bd8cbe41edd9"
+                },
+                "heading": "a denser clique hides the tie neither end needs",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "a-denser-clique-hides-the-tie-neither-end-needs-05",
+                "line": 3444,
+                "anchor": "#a-denser-clique-hides-the-tie-neither-end-needs",
+                "content_sha1": "868a608a6421d7b632697d4951a7c13170295243",
+                "outputs": {
+                    "dsl": "868a608a6421d7b632697d4951a7c13170295243"
+                },
+                "heading": "a denser clique hides the tie neither end needs",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "a-denser-clique-hides-the-tie-neither-end-needs-06",
+                "line": 3445,
+                "anchor": "#a-denser-clique-hides-the-tie-neither-end-needs",
+                "content_sha1": "01293db1a881b3ab409362d07437d92b022979c5",
+                "outputs": {
+                    "dsl": "01293db1a881b3ab409362d07437d92b022979c5"
+                },
+                "heading": "a denser clique hides the tie neither end needs",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "a-denser-clique-hides-the-tie-neither-end-needs-07",
+                "line": 3446,
+                "anchor": "#a-denser-clique-hides-the-tie-neither-end-needs",
+                "content_sha1": "38a44cd03e22959ecb2e593b41ac0c873e48b358",
+                "outputs": {
+                    "dsl": "38a44cd03e22959ecb2e593b41ac0c873e48b358"
+                },
+                "heading": "a denser clique hides the tie neither end needs",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "a-denser-clique-hides-the-tie-neither-end-needs-08",
+                "line": 3447,
+                "anchor": "#a-denser-clique-hides-the-tie-neither-end-needs",
+                "content_sha1": "b66588bcd1da300878c0c9b02e6f3d93a9d95ebc",
+                "outputs": {
+                    "dsl": "b66588bcd1da300878c0c9b02e6f3d93a9d95ebc"
+                },
+                "heading": "a denser clique hides the tie neither end needs",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "a-denser-clique-hides-the-tie-neither-end-needs-09",
+                "line": 3448,
+                "anchor": "#a-denser-clique-hides-the-tie-neither-end-needs",
+                "content_sha1": "a4066d82dca7a2c7b41acf87838818a72d9c9908",
+                "outputs": {
+                    "dsl": "a4066d82dca7a2c7b41acf87838818a72d9c9908"
+                },
+                "heading": "a denser clique hides the tie neither end needs",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "a-denser-clique-hides-the-tie-neither-end-needs-10",
+                "line": 3449,
+                "anchor": "#a-denser-clique-hides-the-tie-neither-end-needs",
+                "content_sha1": "246c8039fa9e8bfd95bca7ab52950a479614208c",
+                "outputs": {
+                    "dsl": "246c8039fa9e8bfd95bca7ab52950a479614208c"
+                },
+                "heading": "a denser clique hides the tie neither end needs",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "a-lone-tie-is-never-the-one-that-hides",
+                "line": 3489,
+                "anchor": "#a-lone-tie-is-never-the-one-that-hides",
+                "content_sha1": "2131dfae74c700770da24956f98fd4622db6452c",
+                "outputs": {
+                    "dsl": "2131dfae74c700770da24956f98fd4622db6452c"
+                },
+                "heading": "a lone tie is never the one that hides",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "a-lone-tie-is-never-the-one-that-hides-02",
+                "line": 3490,
+                "anchor": "#a-lone-tie-is-never-the-one-that-hides",
+                "content_sha1": "cdb831aba6e3b5d8973a8ce083ad70b26eebe4e3",
+                "outputs": {
+                    "dsl": "cdb831aba6e3b5d8973a8ce083ad70b26eebe4e3"
+                },
+                "heading": "a lone tie is never the one that hides",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "a-lone-tie-is-never-the-one-that-hides-03",
+                "line": 3491,
+                "anchor": "#a-lone-tie-is-never-the-one-that-hides",
+                "content_sha1": "27a55cdea8d64918f277ca8f27ac063d39f088d6",
+                "outputs": {
+                    "dsl": "27a55cdea8d64918f277ca8f27ac063d39f088d6"
+                },
+                "heading": "a lone tie is never the one that hides",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "a-lone-tie-is-never-the-one-that-hides-04",
+                "line": 3492,
+                "anchor": "#a-lone-tie-is-never-the-one-that-hides",
+                "content_sha1": "e859a5c8e841ad4dfae50dcf44843c8c8b9bef07",
+                "outputs": {
+                    "dsl": "e859a5c8e841ad4dfae50dcf44843c8c8b9bef07"
+                },
+                "heading": "a lone tie is never the one that hides",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "a-lone-tie-is-never-the-one-that-hides-05",
+                "line": 3493,
+                "anchor": "#a-lone-tie-is-never-the-one-that-hides",
+                "content_sha1": "11f7bc4dc3889fcc56b18f17ea9311bb90890987",
+                "outputs": {
+                    "dsl": "11f7bc4dc3889fcc56b18f17ea9311bb90890987"
+                },
+                "heading": "a lone tie is never the one that hides",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "a-lone-tie-is-never-the-one-that-hides-06",
+                "line": 3494,
+                "anchor": "#a-lone-tie-is-never-the-one-that-hides",
+                "content_sha1": "1146a7201606ecc479623178b75513bad09f317a",
+                "outputs": {
+                    "dsl": "1146a7201606ecc479623178b75513bad09f317a"
+                },
+                "heading": "a lone tie is never the one that hides",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "a-lone-tie-is-never-the-one-that-hides-07",
+                "line": 3495,
+                "anchor": "#a-lone-tie-is-never-the-one-that-hides",
+                "content_sha1": "2ad2d2df87debcc96153d3c6e9449beea44c38d1",
+                "outputs": {
+                    "dsl": "2ad2d2df87debcc96153d3c6e9449beea44c38d1"
+                },
+                "heading": "a lone tie is never the one that hides",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "a-lone-tie-is-never-the-one-that-hides-08",
+                "line": 3496,
+                "anchor": "#a-lone-tie-is-never-the-one-that-hides",
+                "content_sha1": "58c58b4d2027840ebf1ed7b1fb86e981f6c7dd06",
+                "outputs": {
+                    "dsl": "58c58b4d2027840ebf1ed7b1fb86e981f6c7dd06"
+                },
+                "heading": "a lone tie is never the one that hides",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "a-lone-tie-is-never-the-one-that-hides-09",
+                "line": 3497,
+                "anchor": "#a-lone-tie-is-never-the-one-that-hides",
+                "content_sha1": "61f3f274fb5a22741f286e1cfaf64d54c3be657c",
+                "outputs": {
+                    "dsl": "61f3f274fb5a22741f286e1cfaf64d54c3be657c"
+                },
+                "heading": "a lone tie is never the one that hides",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "a-lone-tie-is-never-the-one-that-hides-10",
+                "line": 3498,
+                "anchor": "#a-lone-tie-is-never-the-one-that-hides",
+                "content_sha1": "df0e6b5b5272fbb05156212e6256ebfccc3f9518",
+                "outputs": {
+                    "dsl": "df0e6b5b5272fbb05156212e6256ebfccc3f9518"
+                },
+                "heading": "a lone tie is never the one that hides",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "a-lone-tie-is-never-the-one-that-hides-11",
+                "line": 3499,
+                "anchor": "#a-lone-tie-is-never-the-one-that-hides",
+                "content_sha1": "e9eab47245ffdc0756b7d8a7477b3f6444cd93a4",
+                "outputs": {
+                    "dsl": "e9eab47245ffdc0756b7d8a7477b3f6444cd93a4"
+                },
+                "heading": "a lone tie is never the one that hides",
                 "section": "Recent layout behaviours"
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
-                "line": 3423,
+                "line": 3528,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "49c2d753cf9fbbe8a11794b9a5681bd90212dd6b",
                 "outputs": {
@@ -7173,7 +7404,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-02",
-                "line": 3424,
+                "line": 3529,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "963a9c4c0a0c977c8d7753059c73364d26753d33",
                 "outputs": {
@@ -7184,7 +7415,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-03",
-                "line": 3425,
+                "line": 3530,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "3c99d58b106cf213d2df9015b1e3f0b747acd440",
                 "outputs": {
@@ -7195,7 +7426,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-04",
-                "line": 3426,
+                "line": 3531,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "2b54bec321fdb8fbbf3f49585528d34530d81beb",
                 "outputs": {
@@ -7206,7 +7437,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-05",
-                "line": 3427,
+                "line": 3532,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "d15e08fedb8feec8ee3cb1f4101d91bb0e68c436",
                 "outputs": {
@@ -7217,7 +7448,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-06",
-                "line": 3428,
+                "line": 3533,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "d42cf9c69e5a5d047dc2bff1a8a5e0fa8c88f9c4",
                 "outputs": {
@@ -7228,7 +7459,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-07",
-                "line": 3429,
+                "line": 3534,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "7d30a166c2ad1062924992bb8f1ad9b6dd49cfc4",
                 "outputs": {
@@ -7239,7 +7470,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-08",
-                "line": 3430,
+                "line": 3535,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "29d623c8a4eff09db6cf6f7e9a55506b3c524c9b",
                 "outputs": {
@@ -7250,7 +7481,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-09",
-                "line": 3431,
+                "line": 3536,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "7361ecfd45e163623144dd3e35523384f3abed68",
                 "outputs": {
@@ -7261,7 +7492,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-10",
-                "line": 3432,
+                "line": 3537,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "779246a4fc13b6646e3f8f6c3edde13d034681ca",
                 "outputs": {
@@ -7272,7 +7503,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-11",
-                "line": 3433,
+                "line": 3538,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "64d7d4f1b94913b2cfb773890fff0bde8b13fb07",
                 "outputs": {
@@ -7283,7 +7514,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-12",
-                "line": 3434,
+                "line": 3539,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "155de4c73a273c979d691f0effb84a64a1e3d485",
                 "outputs": {
@@ -7294,7 +7525,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-13",
-                "line": 3435,
+                "line": 3540,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "8c240e22ec1c20297ce214c09b4509c9c90650d6",
                 "outputs": {
@@ -7305,7 +7536,7 @@
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below-14",
-                "line": 3436,
+                "line": 3541,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "b632b68c0e99b3fab473ee52a91e9405372cc59e",
                 "outputs": {
@@ -7316,7 +7547,7 @@
             },
             {
                 "destination": "a-diagonal-near-to-connects-the-facing-sides",
-                "line": 3461,
+                "line": 3566,
                 "anchor": "#a-diagonal-near-to-connects-the-facing-sides",
                 "content_sha1": "4a92d7e25692e9de6250997887db60f4a2f2aa31",
                 "outputs": {
@@ -7327,7 +7558,7 @@
             },
             {
                 "destination": "a-diagonal-near-to-connects-the-facing-sides-02",
-                "line": 3462,
+                "line": 3567,
                 "anchor": "#a-diagonal-near-to-connects-the-facing-sides",
                 "content_sha1": "de4783684a76a9cc5b6a36b69b98b4b291a26cc9",
                 "outputs": {
@@ -7338,7 +7569,7 @@
             },
             {
                 "destination": "a-diagonal-near-to-connects-the-facing-sides-03",
-                "line": 3463,
+                "line": 3568,
                 "anchor": "#a-diagonal-near-to-connects-the-facing-sides",
                 "content_sha1": "e48f281c0fa720c63e17a5a856a920cc7176ae85",
                 "outputs": {
@@ -7349,7 +7580,7 @@
             },
             {
                 "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
-                "line": 3499,
+                "line": 3604,
                 "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
                 "content_sha1": "bffe6ac41d9a86f0fc5faec244d87e725c499561",
                 "outputs": {
@@ -7360,7 +7591,7 @@
             },
             {
                 "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-02",
-                "line": 3500,
+                "line": 3605,
                 "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
                 "content_sha1": "1981f70f34452e962895a968881daa3e25a5a5fc",
                 "outputs": {
@@ -7371,7 +7602,7 @@
             },
             {
                 "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-03",
-                "line": 3501,
+                "line": 3606,
                 "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
                 "content_sha1": "70bf14429240174ebbbea0de44425a2cd542d28b",
                 "outputs": {
@@ -7382,7 +7613,7 @@
             },
             {
                 "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-04",
-                "line": 3502,
+                "line": 3607,
                 "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
                 "content_sha1": "0348d396e9ee0b4b912ef74089cc8fb931662ffa",
                 "outputs": {
@@ -7393,7 +7624,7 @@
             },
             {
                 "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-05",
-                "line": 3503,
+                "line": 3608,
                 "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
                 "content_sha1": "47c8c1b209529e39098384990a3969ea1b7a4912",
                 "outputs": {
@@ -7404,7 +7635,7 @@
             },
             {
                 "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-06",
-                "line": 3504,
+                "line": 3609,
                 "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
                 "content_sha1": "646e9f029a1833e5a582ef9e37d99f85babc4f67",
                 "outputs": {
@@ -7415,7 +7646,7 @@
             },
             {
                 "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-07",
-                "line": 3505,
+                "line": 3610,
                 "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
                 "content_sha1": "9e046b58e8ddc804e456422f549e4e9e04023d1e",
                 "outputs": {
@@ -7426,7 +7657,7 @@
             },
             {
                 "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-08",
-                "line": 3506,
+                "line": 3611,
                 "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
                 "content_sha1": "c10e1afb8e62150877a3c586ed1d907a102cd3e8",
                 "outputs": {
@@ -7437,7 +7668,7 @@
             },
             {
                 "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-09",
-                "line": 3507,
+                "line": 3612,
                 "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
                 "content_sha1": "e778aa4982b92a5c12fb97e72e2cada091ba7785",
                 "outputs": {
@@ -7448,7 +7679,7 @@
             },
             {
                 "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-10",
-                "line": 3508,
+                "line": 3613,
                 "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
                 "content_sha1": "fee6fecd9726ee29db90f05abb670f7e89a67c77",
                 "outputs": {
@@ -7459,7 +7690,7 @@
             },
             {
                 "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-11",
-                "line": 3509,
+                "line": 3614,
                 "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
                 "content_sha1": "8c70a7f1691b3c1acd2663e4d7012901e36412c8",
                 "outputs": {
@@ -7470,7 +7701,7 @@
             },
             {
                 "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-12",
-                "line": 3510,
+                "line": 3615,
                 "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
                 "content_sha1": "c9cf0bfb2c956da05d049e2cb4d13edf59211a41",
                 "outputs": {
@@ -7481,7 +7712,7 @@
             },
             {
                 "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-13",
-                "line": 3511,
+                "line": 3616,
                 "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
                 "content_sha1": "33ad99bedd805b83c301630c07196c6e6182013a",
                 "outputs": {

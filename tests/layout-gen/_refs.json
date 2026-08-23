@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg.md",
-        "source_sha1": "1710d1d26d13d9b079e92dbe3227e81d49cc8df9",
+        "source_sha1": "67cca77c19c85a2ea65c352b1493310d05fc0432",
         "name": "ipmt layout algorithm",
         "method": "parser",
         "parser_name": "ipmt-md",
@@ -1496,23 +1496,53 @@
                 "section": "Recent layout behaviours"
             },
             {
-                "destination": "near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
+                "destination": "near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses",
                 "line": 3331,
-                "anchor": "#near-to-peers-in-a-column-neighbours-link-spanning-ties-hide",
+                "anchor": "#near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses",
                 "content_sha1": "49d8e8acbb523c25e56fe87848dba9c88b870b04",
                 "outputs": {
                     "ipm.svg": "72ceec2acbfe17f4dcd6363eaa69fc22c7b9dceb",
                     "ipmt": "49d8e8acbb523c25e56fe87848dba9c88b870b04",
                     "json": "b9e906a6fc531727626db1dd1dd982d54c6581c7",
                     "layout.json": "2c26c4c5c1d95e6d6df5ca33abaccf02846d9c1a",
-                    "md": "0d74769bbc98b2f18feaf78f8e13b59d1114aa59"
+                    "md": "ad501a8e09727434025c79640510c11440f051ac"
                 },
-                "heading": "near-to peers in a column: neighbours link, spanning ties hide",
+                "heading": "near-to peers in a column: neighbours link, the spanning tie bypasses",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "a-denser-clique-hides-the-tie-neither-end-needs",
+                "line": 3412,
+                "anchor": "#a-denser-clique-hides-the-tie-neither-end-needs",
+                "content_sha1": "1c057b6471cd84eb5bb3d81020ac74d7d3e88f06",
+                "outputs": {
+                    "ipm.svg": "cbed33c47c329a325091902778b905a04da8af0a",
+                    "ipmt": "1c057b6471cd84eb5bb3d81020ac74d7d3e88f06",
+                    "json": "a738134a1b8ca94322948218559c2b88e598fc33",
+                    "layout.json": "2b4ac31a75438d318941bf2ab77a6140ce4bc4e6",
+                    "md": "f0c84e39b0540ad7493df16523d819410eb91a15"
+                },
+                "heading": "a denser clique hides the tie neither end needs",
+                "section": "Recent layout behaviours"
+            },
+            {
+                "destination": "a-lone-tie-is-never-the-one-that-hides",
+                "line": 3461,
+                "anchor": "#a-lone-tie-is-never-the-one-that-hides",
+                "content_sha1": "49ba8aaa545d71675cf173bb69721c2c10caf677",
+                "outputs": {
+                    "ipm.svg": "54d6cac81d1d727937d3a24b6b38e58b2b77a440",
+                    "ipmt": "49ba8aaa545d71675cf173bb69721c2c10caf677",
+                    "json": "3d2cfb6d1ff8eff0343534591f9785ee57e29718",
+                    "layout.json": "9351fde0e1d36d899b769fd678d64a54d2cb80d5",
+                    "md": "2d61e1915f6df69b8a339d7cb0c5be3876209f57"
+                },
+                "heading": "a lone tie is never the one that hides",
                 "section": "Recent layout behaviours"
             },
             {
                 "destination": "near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
-                "line": 3400,
+                "line": 3505,
                 "anchor": "#near-to-peers-in-a-row-neighbours-link-the-spanning-tie-dips-below",
                 "content_sha1": "7cde2ceaa4ba7510fd9e5af3a6972ca2bef05172",
                 "outputs": {
@@ -1520,14 +1550,14 @@
                     "ipmt": "7cde2ceaa4ba7510fd9e5af3a6972ca2bef05172",
                     "json": "f1be0edcea361bc5ff6c96bd2fd0aec5c89941fd",
                     "layout.json": "b69c9e7172651a00e1d65ec54dbc010acaf67524",
-                    "md": "0b317e3ba0d75e735e13e41a27864c8cd4435490"
+                    "md": "95f088e21f0026ae5e54fae4f0a40ca584c6c95a"
                 },
                 "heading": "near-to peers in a row: neighbours link, the spanning tie dips below",
                 "section": "Recent layout behaviours"
             },
             {
                 "destination": "a-diagonal-near-to-connects-the-facing-sides",
-                "line": 3442,
+                "line": 3547,
                 "anchor": "#a-diagonal-near-to-connects-the-facing-sides",
                 "content_sha1": "7d6ffddf944b9c45a76fb609aec75818f6c17bf7",
                 "outputs": {
@@ -1535,14 +1565,14 @@
                     "ipmt": "7d6ffddf944b9c45a76fb609aec75818f6c17bf7",
                     "json": "24c2f8e1f004ba7e57ff5e74ae8f6b9fa485dbdf",
                     "layout.json": "00ad3bf12fc03433c95594c2c9833cdc3224ab0e",
-                    "md": "ce6b37b1602e17dabb750561b09e1c25570ef2d1"
+                    "md": "da4686cc488d3bcaf166d8dfaaa5d08eb1193f71"
                 },
                 "heading": "a diagonal near-to connects the facing sides",
                 "section": "Recent layout behaviours"
             },
             {
                 "destination": "a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
-                "line": 3469,
+                "line": 3574,
                 "anchor": "#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops",
                 "content_sha1": "06dbfb84257835f476231e2e84b0583347e9886e",
                 "outputs": {
@@ -1550,7 +1580,7 @@
                     "ipmt": "06dbfb84257835f476231e2e84b0583347e9886e",
                     "json": "81b6e37eb1f60896e6b956f59085774576d049b0",
                     "layout.json": "f8856bc684b6fbe794c7fbad7e456d8c95e41386",
-                    "md": "2ca83244ab539ac056bc6d4cde66489dbd8fb39f"
+                    "md": "352c36927987db0785c7de3f34d6a65854a523b4"
                 },
                 "heading": "a wide expresses fan orders its sides and lands on the row's tops",
                 "section": "Recent layout behaviours"

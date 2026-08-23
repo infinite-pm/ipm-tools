@@ -1,0 +1,374 @@
+{
+  "version": "26.07-v7",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "thing",
+      "label": "t1",
+      "x": 260,
+      "y": 200,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "2",
+      "type": "thing",
+      "label": "t2",
+      "x": 480,
+      "y": 200,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "3",
+      "type": "thing",
+      "label": "t3",
+      "x": 480,
+      "y": 380,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "4",
+      "type": "thing",
+      "label": "t4",
+      "x": 40,
+      "y": 200,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "5",
+      "type": "thing",
+      "label": "t5",
+      "x": 720,
+      "y": 40,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "6",
+      "type": "thing",
+      "label": "t6",
+      "x": 40,
+      "y": 380,
+      "width": 120,
+      "height": 60
+    }
+  ],
+  "edges": [
+    {
+      "from": "1",
+      "to": "2",
+      "dir": "undir",
+      "base": "nearto",
+      "style": "nearto",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "1",
+      "to": "3",
+      "dir": "undir",
+      "base": "nearto",
+      "style": "nearto",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.75
+        },
+        "target": {
+          "side": "left",
+          "position": 0.25
+        }
+      }
+    },
+    {
+      "from": "1",
+      "to": "4",
+      "dir": "undir",
+      "base": "nearto",
+      "style": "nearto",
+      "route": {
+        "source": {
+          "side": "left",
+          "position": 0.5
+        },
+        "target": {
+          "side": "right",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "1",
+      "to": "5",
+      "dir": "undir",
+      "base": "nearto",
+      "style": "nearto",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.25
+        },
+        "target": {
+          "side": "left",
+          "position": 0.47893069947814126
+        }
+      }
+    },
+    {
+      "from": "1",
+      "to": "6",
+      "dir": "undir",
+      "base": "nearto",
+      "style": "nearto",
+      "route": {
+        "source": {
+          "side": "left",
+          "position": 0.75
+        },
+        "target": {
+          "side": "right",
+          "position": 0.25
+        }
+      }
+    },
+    {
+      "from": "2",
+      "to": "3",
+      "dir": "undir",
+      "base": "nearto",
+      "style": "nearto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.65
+        },
+        "target": {
+          "side": "top",
+          "position": 0.25
+        }
+      }
+    },
+    {
+      "from": "2",
+      "to": "4",
+      "dir": "undir",
+      "base": "nearto",
+      "style": "nearto",
+      "route": {
+        "source": {
+          "side": "top",
+          "position": 0.25
+        },
+        "target": {
+          "side": "top",
+          "position": 0.75
+        },
+        "bends": [
+          {
+            "X": 470,
+            "Y": 160
+          },
+          {
+            "X": 170,
+            "Y": 160
+          }
+        ]
+      }
+    },
+    {
+      "from": "2",
+      "to": "5",
+      "dir": "undir",
+      "base": "nearto",
+      "style": "nearto",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.7808937155518698
+        }
+      }
+    },
+    {
+      "from": "2",
+      "to": "6",
+      "dir": "undir",
+      "base": "nearto",
+      "style": "nearto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.33
+        },
+        "target": {
+          "side": "right",
+          "position": 0.5249760785661579
+        },
+        "bends": [
+          {
+            "X": 520,
+            "Y": 279
+          }
+        ]
+      }
+    },
+    {
+      "from": "3",
+      "to": "4",
+      "dir": "undir",
+      "base": "nearto",
+      "style": "nearto",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.3
+        },
+        "target": {
+          "side": "bottom",
+          "position": 0.75
+        },
+        "sourceStub": [
+          {
+            "X": 600,
+            "Y": 398
+          },
+          {
+            "X": 630,
+            "Y": 398
+          }
+        ],
+        "targetStub": [
+          {
+            "X": 130,
+            "Y": 260
+          },
+          {
+            "X": 130,
+            "Y": 290
+          }
+        ]
+      },
+      "visibility": "stubbed"
+    },
+    {
+      "from": "3",
+      "to": "5",
+      "dir": "undir",
+      "base": "nearto",
+      "style": "nearto",
+      "route": {
+        "source": {
+          "side": "top",
+          "position": 0.75
+        },
+        "target": {
+          "side": "bottom",
+          "position": 0.25
+        }
+      }
+    },
+    {
+      "from": "3",
+      "to": "6",
+      "dir": "undir",
+      "base": "nearto",
+      "style": "nearto",
+      "route": {
+        "source": {
+          "side": "left",
+          "position": 0.75
+        },
+        "target": {
+          "side": "right",
+          "position": 0.7
+        }
+      }
+    },
+    {
+      "from": "4",
+      "to": "5",
+      "dir": "undir",
+      "base": "nearto",
+      "style": "nearto",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.25
+        },
+        "target": {
+          "side": "left",
+          "position": 0.2191062844481305
+        }
+      }
+    },
+    {
+      "from": "4",
+      "to": "6",
+      "dir": "undir",
+      "base": "nearto",
+      "style": "nearto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "5",
+      "to": "6",
+      "dir": "undir",
+      "base": "nearto",
+      "style": "nearto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "bottom",
+          "position": 0.75
+        },
+        "bends": [
+          {
+            "X": 740,
+            "Y": 480
+          },
+          {
+            "X": 170,
+            "Y": 480
+          }
+        ]
+      }
+    }
+  ],
+  "meta": {
+    "bounds": {
+      "width": 880,
+      "height": 520,
+      "marginX": 40,
+      "marginY": 40
+    },
+    "constants": {
+      "gridStep": 20
+    }
+  }
+}

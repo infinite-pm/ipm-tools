@@ -1,0 +1,455 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "t1 --- t2\nt1 --- t3\nt1 --- t4\nt1 --- t5\nt1 --- t6\nt2 --- t3\nt2 --- t4\nt2 --- t5\nt2 --- t6\nt3 --- t4\nt3 --- t5\nt3 --- t6\nt4 --- t5\nt4 --- t6\nt5 --- t6\nt7 --- t3",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          2
+        ],
+        "2": [
+          7,
+          9
+        ],
+        "3": [
+          17,
+          19
+        ],
+        "4": [
+          27,
+          29
+        ],
+        "5": [
+          37,
+          39
+        ],
+        "6": [
+          47,
+          49
+        ],
+        "7": [
+          150,
+          152
+        ]
+      },
+      "edges": {
+        "10": {
+          "arrow": [
+            22,
+            27
+          ],
+          "source": [
+            20,
+            22
+          ],
+          "target": [
+            27,
+            29
+          ]
+        },
+        "11": {
+          "arrow": [
+            32,
+            37
+          ],
+          "source": [
+            30,
+            32
+          ],
+          "target": [
+            37,
+            39
+          ]
+        },
+        "12": {
+          "arrow": [
+            42,
+            47
+          ],
+          "source": [
+            40,
+            42
+          ],
+          "target": [
+            47,
+            49
+          ]
+        },
+        "13": {
+          "arrow": [
+            52,
+            57
+          ],
+          "source": [
+            50,
+            52
+          ],
+          "target": [
+            57,
+            59
+          ]
+        },
+        "14": {
+          "arrow": [
+            62,
+            67
+          ],
+          "source": [
+            60,
+            62
+          ],
+          "target": [
+            67,
+            69
+          ]
+        },
+        "15": {
+          "arrow": [
+            72,
+            77
+          ],
+          "source": [
+            70,
+            72
+          ],
+          "target": [
+            77,
+            79
+          ]
+        },
+        "16": {
+          "arrow": [
+            82,
+            87
+          ],
+          "source": [
+            80,
+            82
+          ],
+          "target": [
+            87,
+            89
+          ]
+        },
+        "17": {
+          "arrow": [
+            92,
+            97
+          ],
+          "source": [
+            90,
+            92
+          ],
+          "target": [
+            97,
+            99
+          ]
+        },
+        "18": {
+          "arrow": [
+            102,
+            107
+          ],
+          "source": [
+            100,
+            102
+          ],
+          "target": [
+            107,
+            109
+          ]
+        },
+        "19": {
+          "arrow": [
+            112,
+            117
+          ],
+          "source": [
+            110,
+            112
+          ],
+          "target": [
+            117,
+            119
+          ]
+        },
+        "20": {
+          "arrow": [
+            122,
+            127
+          ],
+          "source": [
+            120,
+            122
+          ],
+          "target": [
+            127,
+            129
+          ]
+        },
+        "21": {
+          "arrow": [
+            132,
+            137
+          ],
+          "source": [
+            130,
+            132
+          ],
+          "target": [
+            137,
+            139
+          ]
+        },
+        "22": {
+          "arrow": [
+            142,
+            147
+          ],
+          "source": [
+            140,
+            142
+          ],
+          "target": [
+            147,
+            149
+          ]
+        },
+        "23": {
+          "arrow": [
+            152,
+            157
+          ],
+          "source": [
+            150,
+            152
+          ],
+          "target": [
+            157,
+            159
+          ]
+        },
+        "8": {
+          "arrow": [
+            2,
+            7
+          ],
+          "source": [
+            0,
+            2
+          ],
+          "target": [
+            7,
+            9
+          ]
+        },
+        "9": {
+          "arrow": [
+            12,
+            17
+          ],
+          "source": [
+            10,
+            12
+          ],
+          "target": [
+            17,
+            19
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "t1",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "t2",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 3,
+      "name": "t3",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 4,
+      "name": "t4",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 5,
+      "name": "t5",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 6,
+      "name": "t6",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 7,
+      "name": "t7",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 8,
+      "source": 1,
+      "target": 2,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 9,
+      "source": 1,
+      "target": 3,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 10,
+      "source": 1,
+      "target": 4,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 11,
+      "source": 1,
+      "target": 5,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 12,
+      "source": 1,
+      "target": 6,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 13,
+      "source": 2,
+      "target": 3,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 14,
+      "source": 2,
+      "target": 4,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 15,
+      "source": 2,
+      "target": 5,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 16,
+      "source": 2,
+      "target": 6,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 17,
+      "source": 3,
+      "target": 4,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 18,
+      "source": 3,
+      "target": 5,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 19,
+      "source": 3,
+      "target": 6,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 20,
+      "source": 4,
+      "target": 5,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 21,
+      "source": 4,
+      "target": 6,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 22,
+      "source": 5,
+      "target": 6,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 23,
+      "source": 7,
+      "target": 3,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

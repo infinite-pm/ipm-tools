@@ -14,8 +14,10 @@
 0 2 1 0 tests/layout-gen-ext/cross-component-arrivals-keep-the-approach-order.ipmt
 0 1 0 0 tests/layout-gen-ext/successive-composites-keep-their-grids-one-row-gap-apart.ipmt
 0 2 0 0 tests/layout-gen/a-concept-at-every-layer.ipmt
+0 0 3 0 tests/layout-gen/a-denser-clique-hides-the-tie-neither-end-needs.ipmt
 0 0 1 0 tests/layout-gen/a-diagonal-near-to-connects-the-facing-sides.ipmt
 0 1 0 0 tests/layout-gen/a-far-shared-concept-anchors-to-its-first-usage.ipmt
+0 0 3 0 tests/layout-gen/a-lone-tie-is-never-the-one-that-hides.ipmt
 0 0 1 0 tests/layout-gen/a-part-of-two-wholes-stays-on-the-root-row.ipmt
 0 2 0 0 tests/layout-gen/a-satellite-wraps-its-own-rows-not-the-whole-flank.ipmt
 0 1 1 0 tests/layout-gen/a-stack-members-own-concept-steps-outward-under-the-shared-one.ipmt
