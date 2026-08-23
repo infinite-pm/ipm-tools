@@ -1,0 +1,4 @@
+# ipmt: embed=false
+a ::e --> b ::e --> c ::e
+a, b, c --::P--> eC ::e
+who ::t --::P--> eC

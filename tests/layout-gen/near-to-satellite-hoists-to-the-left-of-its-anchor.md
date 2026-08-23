@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2292-L2297 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#near-to-satellite-hoists-to-the-left-of-its-anchor)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2359-L2364 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#near-to-satellite-hoists-to-the-left-of-its-anchor)
 
 ## ipmt Content
 
@@ -27,22 +27,22 @@ t1-sat1 --- tL
 
 ## Layout Validation Rules
 
-Test line: 2292
+Test line: 2359
 
 ✅ All 12 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2314](gl:docs/dev/layout-gen/layout-alg.md#L2314): `each edge has max-bends=0` ([near-to-satellite-hoists-to-the-left-of-its-anchor.dsl](../layout-gen-rules/near-to-satellite-hoists-to-the-left-of-its-anchor.dsl))
-- ✓ [Line 2315](gl:docs/dev/layout-gen/layout-alg.md#L2315): `#e1 is vertically-centered-between #tL,#tR` ([near-to-satellite-hoists-to-the-left-of-its-anchor-02.dsl](../layout-gen-rules/near-to-satellite-hoists-to-the-left-of-its-anchor-02.dsl))
-- ✓ [Line 2316](gl:docs/dev/layout-gen/layout-alg.md#L2316): `#tR is below #tL with gap=40` ([near-to-satellite-hoists-to-the-left-of-its-anchor-03.dsl](../layout-gen-rules/near-to-satellite-hoists-to-the-left-of-its-anchor-03.dsl))
-- ✓ [Line 2317](gl:docs/dev/layout-gen/layout-alg.md#L2317): `#tL is left-of #e1 with gap=60` ([near-to-satellite-hoists-to-the-left-of-its-anchor-04.dsl](../layout-gen-rules/near-to-satellite-hoists-to-the-left-of-its-anchor-04.dsl))
-- ✓ [Line 2318](gl:docs/dev/layout-gen/layout-alg.md#L2318): `#t1-sat1,#t2-sat2 have same center-x` ([near-to-satellite-hoists-to-the-left-of-its-anchor-05.dsl](../layout-gen-rules/near-to-satellite-hoists-to-the-left-of-its-anchor-05.dsl))
-- ✓ [Line 2319](gl:docs/dev/layout-gen/layout-alg.md#L2319): `#t2-sat2 is below #t1-sat1 with gap=40` ([near-to-satellite-hoists-to-the-left-of-its-anchor-06.dsl](../layout-gen-rules/near-to-satellite-hoists-to-the-left-of-its-anchor-06.dsl))
-- ✓ [Line 2320](gl:docs/dev/layout-gen/layout-alg.md#L2320): `#t1-sat1,#tL have same y` ([near-to-satellite-hoists-to-the-left-of-its-anchor-07.dsl](../layout-gen-rules/near-to-satellite-hoists-to-the-left-of-its-anchor-07.dsl))
-- ✓ [Line 2321](gl:docs/dev/layout-gen/layout-alg.md#L2321): `#t1-sat1 is left-of #tL with gap=100` ([near-to-satellite-hoists-to-the-left-of-its-anchor-08.dsl](../layout-gen-rules/near-to-satellite-hoists-to-the-left-of-its-anchor-08.dsl))
-- ✓ [Line 2322](gl:docs/dev/layout-gen/layout-alg.md#L2322): `edge #t1-sat1,#tL is horizontal` ([near-to-satellite-hoists-to-the-left-of-its-anchor-09.dsl](../layout-gen-rules/near-to-satellite-hoists-to-the-left-of-its-anchor-09.dsl))
-- ✓ [Line 2323](gl:docs/dev/layout-gen/layout-alg.md#L2323): `edge #t1-sat1,#tL has visibility=visible` ([near-to-satellite-hoists-to-the-left-of-its-anchor-10.dsl](../layout-gen-rules/near-to-satellite-hoists-to-the-left-of-its-anchor-10.dsl))
-- ✓ [Line 2324](gl:docs/dev/layout-gen/layout-alg.md#L2324): `edge #t1-sat1,#tL does not cross edge #S,#e1` ([near-to-satellite-hoists-to-the-left-of-its-anchor-11.dsl](../layout-gen-rules/near-to-satellite-hoists-to-the-left-of-its-anchor-11.dsl))
+- ✓ [Line 2381](gl:docs/dev/layout-gen/layout-alg.md#L2381): `each edge has max-bends=0` ([near-to-satellite-hoists-to-the-left-of-its-anchor.dsl](../layout-gen-rules/near-to-satellite-hoists-to-the-left-of-its-anchor.dsl))
+- ✓ [Line 2382](gl:docs/dev/layout-gen/layout-alg.md#L2382): `#e1 is vertically-centered-between #tL,#tR` ([near-to-satellite-hoists-to-the-left-of-its-anchor-02.dsl](../layout-gen-rules/near-to-satellite-hoists-to-the-left-of-its-anchor-02.dsl))
+- ✓ [Line 2383](gl:docs/dev/layout-gen/layout-alg.md#L2383): `#tR is below #tL with gap=40` ([near-to-satellite-hoists-to-the-left-of-its-anchor-03.dsl](../layout-gen-rules/near-to-satellite-hoists-to-the-left-of-its-anchor-03.dsl))
+- ✓ [Line 2384](gl:docs/dev/layout-gen/layout-alg.md#L2384): `#tL is left-of #e1 with gap=60` ([near-to-satellite-hoists-to-the-left-of-its-anchor-04.dsl](../layout-gen-rules/near-to-satellite-hoists-to-the-left-of-its-anchor-04.dsl))
+- ✓ [Line 2385](gl:docs/dev/layout-gen/layout-alg.md#L2385): `#t1-sat1,#t2-sat2 have same center-x` ([near-to-satellite-hoists-to-the-left-of-its-anchor-05.dsl](../layout-gen-rules/near-to-satellite-hoists-to-the-left-of-its-anchor-05.dsl))
+- ✓ [Line 2386](gl:docs/dev/layout-gen/layout-alg.md#L2386): `#t2-sat2 is below #t1-sat1 with gap=40` ([near-to-satellite-hoists-to-the-left-of-its-anchor-06.dsl](../layout-gen-rules/near-to-satellite-hoists-to-the-left-of-its-anchor-06.dsl))
+- ✓ [Line 2387](gl:docs/dev/layout-gen/layout-alg.md#L2387): `#t1-sat1,#tL have same y` ([near-to-satellite-hoists-to-the-left-of-its-anchor-07.dsl](../layout-gen-rules/near-to-satellite-hoists-to-the-left-of-its-anchor-07.dsl))
+- ✓ [Line 2388](gl:docs/dev/layout-gen/layout-alg.md#L2388): `#t1-sat1 is left-of #tL with gap=100` ([near-to-satellite-hoists-to-the-left-of-its-anchor-08.dsl](../layout-gen-rules/near-to-satellite-hoists-to-the-left-of-its-anchor-08.dsl))
+- ✓ [Line 2389](gl:docs/dev/layout-gen/layout-alg.md#L2389): `edge #t1-sat1,#tL is horizontal` ([near-to-satellite-hoists-to-the-left-of-its-anchor-09.dsl](../layout-gen-rules/near-to-satellite-hoists-to-the-left-of-its-anchor-09.dsl))
+- ✓ [Line 2390](gl:docs/dev/layout-gen/layout-alg.md#L2390): `edge #t1-sat1,#tL has visibility=visible` ([near-to-satellite-hoists-to-the-left-of-its-anchor-10.dsl](../layout-gen-rules/near-to-satellite-hoists-to-the-left-of-its-anchor-10.dsl))
+- ✓ [Line 2391](gl:docs/dev/layout-gen/layout-alg.md#L2391): `edge #t1-sat1,#tL does not cross edge #S,#e1` ([near-to-satellite-hoists-to-the-left-of-its-anchor-11.dsl](../layout-gen-rules/near-to-satellite-hoists-to-the-left-of-its-anchor-11.dsl))
 
 ## Rendered Diagram
 

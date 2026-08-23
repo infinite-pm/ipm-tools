@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L316-L318 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#multiple-events-lead-to-one-event-join)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L383-L385 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#multiple-events-lead-to-one-event-join)
 
 ## ipmt Content
 
@@ -24,7 +24,7 @@ e2 ::e --> e3
 
 ## Layout Validation Rules
 
-Test line: 316
+Test line: 383
 
 ✅ All 7 rules passed
 
@@ -32,9 +32,9 @@ Test line: 316
 - ✓ [Line 82](gl:docs/dev/layout-gen/layout-alg.md#L82): `type=event has width=120` ([one-event.dsl](../layout-gen-rules/one-event.dsl))
 - ✓ [Line 83](gl:docs/dev/layout-gen/layout-alg.md#L83): `type=event has min-gap-to-others>=10` ([one-event-02.dsl](../layout-gen-rules/one-event-02.dsl))
 - ✓ [Line 84](gl:docs/dev/layout-gen/layout-alg.md#L84): `type=boundary has size=40x40` ([one-event-03.dsl](../layout-gen-rules/one-event-03.dsl))
-- ✓ [Line 333](gl:docs/dev/layout-gen/layout-alg.md#L333): `#e1,#e2 have same y` ([multiple-events-lead-to-one-event-join.dsl](../layout-gen-rules/multiple-events-lead-to-one-event-join.dsl))
-- ✓ [Line 334](gl:docs/dev/layout-gen/layout-alg.md#L334): `#e3 is horizontally-centered-between #e1,#e2` ([multiple-events-lead-to-one-event-join-02.dsl](../layout-gen-rules/multiple-events-lead-to-one-event-join-02.dsl))
-- ✓ [Line 335](gl:docs/dev/layout-gen/layout-alg.md#L335): `#e3,#S,#E have same center-x` ([multiple-events-lead-to-one-event-join-03.dsl](../layout-gen-rules/multiple-events-lead-to-one-event-join-03.dsl))
+- ✓ [Line 400](gl:docs/dev/layout-gen/layout-alg.md#L400): `#e1,#e2 have same y` ([multiple-events-lead-to-one-event-join.dsl](../layout-gen-rules/multiple-events-lead-to-one-event-join.dsl))
+- ✓ [Line 401](gl:docs/dev/layout-gen/layout-alg.md#L401): `#e3 is horizontally-centered-between #e1,#e2` ([multiple-events-lead-to-one-event-join-02.dsl](../layout-gen-rules/multiple-events-lead-to-one-event-join-02.dsl))
+- ✓ [Line 402](gl:docs/dev/layout-gen/layout-alg.md#L402): `#e3,#S,#E have same center-x` ([multiple-events-lead-to-one-event-join-03.dsl](../layout-gen-rules/multiple-events-lead-to-one-event-join-03.dsl))
 
 ## Rendered Diagram
 

@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-shells.md",
-        "source_sha1": "92fea23a591155c2e4d06cc92fa88db8ca8c22c9",
+        "source_sha1": "2ae6dbe16cd2c2c36d0fc62998883c0380be7102",
         "name": "ipmt layout algorithm shells",
         "method": "parser",
         "parser_name": "ipmt-md",
@@ -68,6 +68,51 @@
                     "md": "f4d52cb56bb1f6a8572ce02e250321a749301a39"
                 },
                 "heading": "a successor's band rises beside the shell, not into it",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-covering-thing-stays-outside-the-shell-and-connects-to-the-composite-itself",
+                "line": 175,
+                "anchor": "#a-covering-thing-stays-outside-the-shell-and-connects-to-the-composite-itself",
+                "content_sha1": "59583167417964690efdd6740c01a175dc606aad",
+                "outputs": {
+                    "ipm.svg": "3e84ae58d8160bf1da7a0e65012a7148fdc9ec43",
+                    "ipmt": "59583167417964690efdd6740c01a175dc606aad",
+                    "json": "f6409a7e6c31da5cadd60a51a523cac14f4801c7",
+                    "layout.json": "efd8b8b91dbbdf4284c08578f8e2b7022881fca5",
+                    "md": "af0279a3913bd277a650bf5687d140b04625f5a6"
+                },
+                "heading": "a covering thing stays outside the shell and connects to the composite itself",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-nested-composite-shares-its-roots-shell",
+                "line": 211,
+                "anchor": "#a-nested-composite-shares-its-roots-shell",
+                "content_sha1": "b74b8f450f937ff4a26b3f28c3dd116676589d6f",
+                "outputs": {
+                    "ipm.svg": "fc4152b2b08f7481b94a48cf99af2c790462afc8",
+                    "ipmt": "b74b8f450f937ff4a26b3f28c3dd116676589d6f",
+                    "json": "e2debfddba1914f1fe744bdcd7612ba76e9b50f2",
+                    "layout.json": "31e4be3c7b5e77cdefa1104256f53cb134cfc48f",
+                    "md": "ba13fa134630786bcc23a365ed602dadb9b5efdb"
+                },
+                "heading": "a nested composite shares its root's shell",
+                "section": "Cases"
+            },
+            {
+                "destination": "two-root-composites-get-one-shell-each-and-the-spine-threads-between-them",
+                "line": 241,
+                "anchor": "#two-root-composites-get-one-shell-each-and-the-spine-threads-between-them",
+                "content_sha1": "a0b946f6e930fe5fd8c5079d3e19bc42ab7a80d8",
+                "outputs": {
+                    "ipm.svg": "8dd9de0da3762464b51b2c3fa68eb436811c7d3a",
+                    "ipmt": "a0b946f6e930fe5fd8c5079d3e19bc42ab7a80d8",
+                    "json": "e4a72eb37ea48043496a2a768929b586c29239f9",
+                    "layout.json": "9501cfac539cdcf488c949b14f9c705ae6d0c950",
+                    "md": "23eda315822c640a95ef92498c89d6097264fa23"
+                },
+                "heading": "two root composites get one shell each, and the spine threads between them",
                 "section": "Cases"
             }
         ]

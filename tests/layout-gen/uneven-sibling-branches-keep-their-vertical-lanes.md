@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L501-L506 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#uneven-sibling-branches-keep-their-vertical-lanes)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L568-L573 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#uneven-sibling-branches-keep-their-vertical-lanes)
 
 ## ipmt Content
 
@@ -27,7 +27,7 @@ e4-rightA --> e8-rightB ::e
 
 ## Layout Validation Rules
 
-Test line: 501
+Test line: 568
 
 ✅ All 10 rules passed
 
@@ -35,12 +35,12 @@ Test line: 501
 - ✓ [Line 82](gl:docs/dev/layout-gen/layout-alg.md#L82): `type=event has width=120` ([one-event.dsl](../layout-gen-rules/one-event.dsl))
 - ✓ [Line 83](gl:docs/dev/layout-gen/layout-alg.md#L83): `type=event has min-gap-to-others>=10` ([one-event-02.dsl](../layout-gen-rules/one-event-02.dsl))
 - ✓ [Line 84](gl:docs/dev/layout-gen/layout-alg.md#L84): `type=boundary has size=40x40` ([one-event-03.dsl](../layout-gen-rules/one-event-03.dsl))
-- ✓ [Line 528](gl:docs/dev/layout-gen/layout-alg.md#L528): `#S,#e1-start,#e3-middleB have same center-x` ([uneven-sibling-branches-keep-their-vertical-lanes.dsl](../layout-gen-rules/uneven-sibling-branches-keep-their-vertical-lanes.dsl))
-- ✓ [Line 529](gl:docs/dev/layout-gen/layout-alg.md#L529): `#e2-leftA,#e5-leftB,#e6-leftC,#e7-leftD have same center-x` ([uneven-sibling-branches-keep-their-vertical-lanes-02.dsl](../layout-gen-rules/uneven-sibling-branches-keep-their-vertical-lanes-02.dsl))
-- ✓ [Line 530](gl:docs/dev/layout-gen/layout-alg.md#L530): `#e4-rightA,#e8-rightB have same center-x` ([uneven-sibling-branches-keep-their-vertical-lanes-03.dsl](../layout-gen-rules/uneven-sibling-branches-keep-their-vertical-lanes-03.dsl))
-- ✓ [Line 531](gl:docs/dev/layout-gen/layout-alg.md#L531): `#e2-leftA,#e3-middleB,#e4-rightA have same y` ([uneven-sibling-branches-keep-their-vertical-lanes-04.dsl](../layout-gen-rules/uneven-sibling-branches-keep-their-vertical-lanes-04.dsl))
-- ✓ [Line 532](gl:docs/dev/layout-gen/layout-alg.md#L532): `#e2-leftA is left-of #e3-middleB with gap=80` ([uneven-sibling-branches-keep-their-vertical-lanes-05.dsl](../layout-gen-rules/uneven-sibling-branches-keep-their-vertical-lanes-05.dsl))
-- ✓ [Line 533](gl:docs/dev/layout-gen/layout-alg.md#L533): `#e3-middleB is left-of #e4-rightA with gap=80` ([uneven-sibling-branches-keep-their-vertical-lanes-06.dsl](../layout-gen-rules/uneven-sibling-branches-keep-their-vertical-lanes-06.dsl))
+- ✓ [Line 595](gl:docs/dev/layout-gen/layout-alg.md#L595): `#S,#e1-start,#e3-middleB have same center-x` ([uneven-sibling-branches-keep-their-vertical-lanes.dsl](../layout-gen-rules/uneven-sibling-branches-keep-their-vertical-lanes.dsl))
+- ✓ [Line 596](gl:docs/dev/layout-gen/layout-alg.md#L596): `#e2-leftA,#e5-leftB,#e6-leftC,#e7-leftD have same center-x` ([uneven-sibling-branches-keep-their-vertical-lanes-02.dsl](../layout-gen-rules/uneven-sibling-branches-keep-their-vertical-lanes-02.dsl))
+- ✓ [Line 597](gl:docs/dev/layout-gen/layout-alg.md#L597): `#e4-rightA,#e8-rightB have same center-x` ([uneven-sibling-branches-keep-their-vertical-lanes-03.dsl](../layout-gen-rules/uneven-sibling-branches-keep-their-vertical-lanes-03.dsl))
+- ✓ [Line 598](gl:docs/dev/layout-gen/layout-alg.md#L598): `#e2-leftA,#e3-middleB,#e4-rightA have same y` ([uneven-sibling-branches-keep-their-vertical-lanes-04.dsl](../layout-gen-rules/uneven-sibling-branches-keep-their-vertical-lanes-04.dsl))
+- ✓ [Line 599](gl:docs/dev/layout-gen/layout-alg.md#L599): `#e2-leftA is left-of #e3-middleB with gap=80` ([uneven-sibling-branches-keep-their-vertical-lanes-05.dsl](../layout-gen-rules/uneven-sibling-branches-keep-their-vertical-lanes-05.dsl))
+- ✓ [Line 600](gl:docs/dev/layout-gen/layout-alg.md#L600): `#e3-middleB is left-of #e4-rightA with gap=80` ([uneven-sibling-branches-keep-their-vertical-lanes-06.dsl](../layout-gen-rules/uneven-sibling-branches-keep-their-vertical-lanes-06.dsl))
 
 ## Rendered Diagram
 

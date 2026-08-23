@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L616-L623 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#aux-chain-gets-its-own-corridor)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L683-L690 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#aux-chain-gets-its-own-corridor)
 
 ## ipmt Content
 
@@ -29,7 +29,7 @@ c5 --> c6 ::c
 
 ## Layout Validation Rules
 
-Test line: 616
+Test line: 683
 
 ⚠️ 18/19 rules passed
 
@@ -37,21 +37,21 @@ Test line: 616
 - ✓ [Line 82](gl:docs/dev/layout-gen/layout-alg.md#L82): `type=event has width=120` ([one-event.dsl](../layout-gen-rules/one-event.dsl))
 - ✓ [Line 83](gl:docs/dev/layout-gen/layout-alg.md#L83): `type=event has min-gap-to-others>=10` ([one-event-02.dsl](../layout-gen-rules/one-event-02.dsl))
 - ✓ [Line 84](gl:docs/dev/layout-gen/layout-alg.md#L84): `type=boundary has size=40x40` ([one-event-03.dsl](../layout-gen-rules/one-event-03.dsl))
-- ✓ [Line 639](gl:docs/dev/layout-gen/layout-alg.md#L639): `each edge has max-bends=0 except #e3,#E` ([aux-chain-gets-its-own-corridor.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor.dsl))
-- ✓ [Line 640](gl:docs/dev/layout-gen/layout-alg.md#L640): `edge #e3,#E has max-bends=1` ([aux-chain-gets-its-own-corridor-02.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-02.dsl))
-- ✓ [Line 641](gl:docs/dev/layout-gen/layout-alg.md#L641): `#e1,#e2,#e3 have same y` ([aux-chain-gets-its-own-corridor-03.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-03.dsl))
-- ✓ [Line 642](gl:docs/dev/layout-gen/layout-alg.md#L642): `#e1,#e4 have same center-x` ([aux-chain-gets-its-own-corridor-04.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-04.dsl))
-- ✓ [Line 643](gl:docs/dev/layout-gen/layout-alg.md#L643): `#e2,#e5 have same center-x` ([aux-chain-gets-its-own-corridor-05.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-05.dsl))
-- ✓ [Line 644](gl:docs/dev/layout-gen/layout-alg.md#L644): `#c5,#e2 have same y` ([aux-chain-gets-its-own-corridor-06.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-06.dsl))
-- ✓ [Line 645](gl:docs/dev/layout-gen/layout-alg.md#L645): `#c5 is right-of #e2 with gap=60` ([aux-chain-gets-its-own-corridor-07.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-07.dsl))
-- ✓ [Line 646](gl:docs/dev/layout-gen/layout-alg.md#L646): `#c6 is below #c5 with gap=40` ([aux-chain-gets-its-own-corridor-08.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-08.dsl))
-- ✓ [Line 647](gl:docs/dev/layout-gen/layout-alg.md#L647): `#c5,#c6 have same center-x` ([aux-chain-gets-its-own-corridor-09.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-09.dsl))
-- ✓ [Line 648](gl:docs/dev/layout-gen/layout-alg.md#L648): `node #c5 does not straddle edge #e3,#E` ([aux-chain-gets-its-own-corridor-10.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-10.dsl))
-- ✓ [Line 649](gl:docs/dev/layout-gen/layout-alg.md#L649): `node #c6 does not straddle edge #e3,#E` ([aux-chain-gets-its-own-corridor-11.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-11.dsl))
-- ✓ [Line 650](gl:docs/dev/layout-gen/layout-alg.md#L650): `node #c5 does not straddle edge #e2,#e5` ([aux-chain-gets-its-own-corridor-12.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-12.dsl))
-- ✓ [Line 651](gl:docs/dev/layout-gen/layout-alg.md#L651): `node #c6 does not straddle edge #e2,#e5` ([aux-chain-gets-its-own-corridor-13.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-13.dsl))
-- ✓ [Line 652](gl:docs/dev/layout-gen/layout-alg.md#L652): `node #c5 does not straddle edge #e0,#e3` ([aux-chain-gets-its-own-corridor-14.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-14.dsl))
-- ✓ [Line 653](gl:docs/dev/layout-gen/layout-alg.md#L653): `node #c6 does not straddle edge #e0,#e3` ([aux-chain-gets-its-own-corridor-15.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-15.dsl))
+- ✓ [Line 706](gl:docs/dev/layout-gen/layout-alg.md#L706): `each edge has max-bends=0 except #e3,#E` ([aux-chain-gets-its-own-corridor.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor.dsl))
+- ✓ [Line 707](gl:docs/dev/layout-gen/layout-alg.md#L707): `edge #e3,#E has max-bends=1` ([aux-chain-gets-its-own-corridor-02.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-02.dsl))
+- ✓ [Line 708](gl:docs/dev/layout-gen/layout-alg.md#L708): `#e1,#e2,#e3 have same y` ([aux-chain-gets-its-own-corridor-03.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-03.dsl))
+- ✓ [Line 709](gl:docs/dev/layout-gen/layout-alg.md#L709): `#e1,#e4 have same center-x` ([aux-chain-gets-its-own-corridor-04.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-04.dsl))
+- ✓ [Line 710](gl:docs/dev/layout-gen/layout-alg.md#L710): `#e2,#e5 have same center-x` ([aux-chain-gets-its-own-corridor-05.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-05.dsl))
+- ✓ [Line 711](gl:docs/dev/layout-gen/layout-alg.md#L711): `#c5,#e2 have same y` ([aux-chain-gets-its-own-corridor-06.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-06.dsl))
+- ✓ [Line 712](gl:docs/dev/layout-gen/layout-alg.md#L712): `#c5 is right-of #e2 with gap=60` ([aux-chain-gets-its-own-corridor-07.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-07.dsl))
+- ✓ [Line 713](gl:docs/dev/layout-gen/layout-alg.md#L713): `#c6 is below #c5 with gap=40` ([aux-chain-gets-its-own-corridor-08.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-08.dsl))
+- ✓ [Line 714](gl:docs/dev/layout-gen/layout-alg.md#L714): `#c5,#c6 have same center-x` ([aux-chain-gets-its-own-corridor-09.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-09.dsl))
+- ✓ [Line 715](gl:docs/dev/layout-gen/layout-alg.md#L715): `node #c5 does not straddle edge #e3,#E` ([aux-chain-gets-its-own-corridor-10.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-10.dsl))
+- ✓ [Line 716](gl:docs/dev/layout-gen/layout-alg.md#L716): `node #c6 does not straddle edge #e3,#E` ([aux-chain-gets-its-own-corridor-11.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-11.dsl))
+- ✓ [Line 717](gl:docs/dev/layout-gen/layout-alg.md#L717): `node #c5 does not straddle edge #e2,#e5` ([aux-chain-gets-its-own-corridor-12.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-12.dsl))
+- ✓ [Line 718](gl:docs/dev/layout-gen/layout-alg.md#L718): `node #c6 does not straddle edge #e2,#e5` ([aux-chain-gets-its-own-corridor-13.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-13.dsl))
+- ✓ [Line 719](gl:docs/dev/layout-gen/layout-alg.md#L719): `node #c5 does not straddle edge #e0,#e3` ([aux-chain-gets-its-own-corridor-14.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-14.dsl))
+- ✓ [Line 720](gl:docs/dev/layout-gen/layout-alg.md#L720): `node #c6 does not straddle edge #e0,#e3` ([aux-chain-gets-its-own-corridor-15.dsl](../layout-gen-rules/aux-chain-gets-its-own-corridor-15.dsl))
 
 ## Rendered Diagram
 

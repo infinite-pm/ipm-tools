@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L189-L190 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#one-event-leads-to-multiple-events-fork)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L256-L257 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#one-event-leads-to-multiple-events-fork)
 
 ## ipmt Content
 
@@ -23,7 +23,7 @@ e1 ::e --::L--> e2 ::e, e3 ::e
 
 ## Layout Validation Rules
 
-Test line: 189
+Test line: 256
 
 ✅ All 7 rules passed
 
@@ -31,9 +31,9 @@ Test line: 189
 - ✓ [Line 82](gl:docs/dev/layout-gen/layout-alg.md#L82): `type=event has width=120` ([one-event.dsl](../layout-gen-rules/one-event.dsl))
 - ✓ [Line 83](gl:docs/dev/layout-gen/layout-alg.md#L83): `type=event has min-gap-to-others>=10` ([one-event-02.dsl](../layout-gen-rules/one-event-02.dsl))
 - ✓ [Line 84](gl:docs/dev/layout-gen/layout-alg.md#L84): `type=boundary has size=40x40` ([one-event-03.dsl](../layout-gen-rules/one-event-03.dsl))
-- ✓ [Line 207](gl:docs/dev/layout-gen/layout-alg.md#L207): `#e2,#e3 have same y` ([one-event-leads-to-multiple-events-fork.dsl](../layout-gen-rules/one-event-leads-to-multiple-events-fork.dsl))
-- ✓ [Line 208](gl:docs/dev/layout-gen/layout-alg.md#L208): `#e1 is horizontally-centered-between #e2,#e3` ([one-event-leads-to-multiple-events-fork-02.dsl](../layout-gen-rules/one-event-leads-to-multiple-events-fork-02.dsl))
-- ✓ [Line 209](gl:docs/dev/layout-gen/layout-alg.md#L209): `#e1,#S,#E have same center-x` ([one-event-leads-to-multiple-events-fork-03.dsl](../layout-gen-rules/one-event-leads-to-multiple-events-fork-03.dsl))
+- ✓ [Line 274](gl:docs/dev/layout-gen/layout-alg.md#L274): `#e2,#e3 have same y` ([one-event-leads-to-multiple-events-fork.dsl](../layout-gen-rules/one-event-leads-to-multiple-events-fork.dsl))
+- ✓ [Line 275](gl:docs/dev/layout-gen/layout-alg.md#L275): `#e1 is horizontally-centered-between #e2,#e3` ([one-event-leads-to-multiple-events-fork-02.dsl](../layout-gen-rules/one-event-leads-to-multiple-events-fork-02.dsl))
+- ✓ [Line 276](gl:docs/dev/layout-gen/layout-alg.md#L276): `#e1,#S,#E have same center-x` ([one-event-leads-to-multiple-events-fork-03.dsl](../layout-gen-rules/one-event-leads-to-multiple-events-fork-03.dsl))
 
 ## Rendered Diagram
 

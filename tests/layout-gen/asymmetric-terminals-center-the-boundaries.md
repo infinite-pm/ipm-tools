@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L271-L275 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#asymmetric-terminals-center-the-boundaries)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L338-L342 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#asymmetric-terminals-center-the-boundaries)
 
 ## ipmt Content
 
@@ -26,7 +26,7 @@ b3b --> b3c ::e
 
 ## Layout Validation Rules
 
-Test line: 271
+Test line: 338
 
 ✅ All 10 rules passed
 
@@ -34,12 +34,12 @@ Test line: 271
 - ✓ [Line 82](gl:docs/dev/layout-gen/layout-alg.md#L82): `type=event has width=120` ([one-event.dsl](../layout-gen-rules/one-event.dsl))
 - ✓ [Line 83](gl:docs/dev/layout-gen/layout-alg.md#L83): `type=event has min-gap-to-others>=10` ([one-event-02.dsl](../layout-gen-rules/one-event-02.dsl))
 - ✓ [Line 84](gl:docs/dev/layout-gen/layout-alg.md#L84): `type=boundary has size=40x40` ([one-event-03.dsl](../layout-gen-rules/one-event-03.dsl))
-- ✓ [Line 305](gl:docs/dev/layout-gen/layout-alg.md#L305): `#S,#b1,#E have same center-x` ([asymmetric-terminals-center-the-boundaries.dsl](../layout-gen-rules/asymmetric-terminals-center-the-boundaries.dsl))
-- ✓ [Line 306](gl:docs/dev/layout-gen/layout-alg.md#L306): `node #b3a keeps gap=25 from edge #b2,#E` ([asymmetric-terminals-center-the-boundaries-02.dsl](../layout-gen-rules/asymmetric-terminals-center-the-boundaries-02.dsl))
-- ✓ [Line 307](gl:docs/dev/layout-gen/layout-alg.md#L307): `edge #b2,#E has source-side=bottom` ([asymmetric-terminals-center-the-boundaries-03.dsl](../layout-gen-rules/asymmetric-terminals-center-the-boundaries-03.dsl))
-- ✓ [Line 308](gl:docs/dev/layout-gen/layout-alg.md#L308): `edge #b3c,#E has min-slope=0.25` ([asymmetric-terminals-center-the-boundaries-04.dsl](../layout-gen-rules/asymmetric-terminals-center-the-boundaries-04.dsl))
-- ✓ [Line 309](gl:docs/dev/layout-gen/layout-alg.md#L309): `each edge has max-bends=0 except #b2,#E` ([asymmetric-terminals-center-the-boundaries-05.dsl](../layout-gen-rules/asymmetric-terminals-center-the-boundaries-05.dsl))
-- ✓ [Line 310](gl:docs/dev/layout-gen/layout-alg.md#L310): `edge #b2,#E has max-bends=1` ([asymmetric-terminals-center-the-boundaries-06.dsl](../layout-gen-rules/asymmetric-terminals-center-the-boundaries-06.dsl))
+- ✓ [Line 372](gl:docs/dev/layout-gen/layout-alg.md#L372): `#S,#b1,#E have same center-x` ([asymmetric-terminals-center-the-boundaries.dsl](../layout-gen-rules/asymmetric-terminals-center-the-boundaries.dsl))
+- ✓ [Line 373](gl:docs/dev/layout-gen/layout-alg.md#L373): `node #b3a keeps gap=25 from edge #b2,#E` ([asymmetric-terminals-center-the-boundaries-02.dsl](../layout-gen-rules/asymmetric-terminals-center-the-boundaries-02.dsl))
+- ✓ [Line 374](gl:docs/dev/layout-gen/layout-alg.md#L374): `edge #b2,#E has source-side=bottom` ([asymmetric-terminals-center-the-boundaries-03.dsl](../layout-gen-rules/asymmetric-terminals-center-the-boundaries-03.dsl))
+- ✓ [Line 375](gl:docs/dev/layout-gen/layout-alg.md#L375): `edge #b3c,#E has min-slope=0.25` ([asymmetric-terminals-center-the-boundaries-04.dsl](../layout-gen-rules/asymmetric-terminals-center-the-boundaries-04.dsl))
+- ✓ [Line 376](gl:docs/dev/layout-gen/layout-alg.md#L376): `each edge has max-bends=0 except #b2,#E` ([asymmetric-terminals-center-the-boundaries-05.dsl](../layout-gen-rules/asymmetric-terminals-center-the-boundaries-05.dsl))
+- ✓ [Line 377](gl:docs/dev/layout-gen/layout-alg.md#L377): `edge #b2,#E has max-bends=1` ([asymmetric-terminals-center-the-boundaries-06.dsl](../layout-gen-rules/asymmetric-terminals-center-the-boundaries-06.dsl))
 
 ## Rendered Diagram
 

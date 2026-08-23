@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L469-L473 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#sibling-events-do-not-cross)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L536-L540 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#sibling-events-do-not-cross)
 
 ## ipmt Content
 
@@ -26,7 +26,7 @@ e2-left --> e5-leftChild ::e
 
 ## Layout Validation Rules
 
-Test line: 469
+Test line: 536
 
 ✅ All 9 rules passed
 
@@ -34,11 +34,11 @@ Test line: 469
 - ✓ [Line 82](gl:docs/dev/layout-gen/layout-alg.md#L82): `type=event has width=120` ([one-event.dsl](../layout-gen-rules/one-event.dsl))
 - ✓ [Line 83](gl:docs/dev/layout-gen/layout-alg.md#L83): `type=event has min-gap-to-others>=10` ([one-event-02.dsl](../layout-gen-rules/one-event-02.dsl))
 - ✓ [Line 84](gl:docs/dev/layout-gen/layout-alg.md#L84): `type=boundary has size=40x40` ([one-event-03.dsl](../layout-gen-rules/one-event-03.dsl))
-- ✓ [Line 491](gl:docs/dev/layout-gen/layout-alg.md#L491): `#e5-leftChild,#e4-rightChild have same y` ([sibling-events-do-not-cross.dsl](../layout-gen-rules/sibling-events-do-not-cross.dsl))
-- ✓ [Line 492](gl:docs/dev/layout-gen/layout-alg.md#L492): `#e5-leftChild is left-of #e4-rightChild with gap=60` ([sibling-events-do-not-cross-02.dsl](../layout-gen-rules/sibling-events-do-not-cross-02.dsl))
-- ✓ [Line 493](gl:docs/dev/layout-gen/layout-alg.md#L493): `edge #e2-left,#e5-leftChild has target-side=top` ([sibling-events-do-not-cross-03.dsl](../layout-gen-rules/sibling-events-do-not-cross-03.dsl))
-- ✓ [Line 494](gl:docs/dev/layout-gen/layout-alg.md#L494): `edge #e3-right,#e4-rightChild has target-side=top` ([sibling-events-do-not-cross-04.dsl](../layout-gen-rules/sibling-events-do-not-cross-04.dsl))
-- ✓ [Line 495](gl:docs/dev/layout-gen/layout-alg.md#L495): `edge #e2-left,#e5-leftChild does not cross edge #e3-right,#e4-rightChild` ([sibling-events-do-not-cross-05.dsl](../layout-gen-rules/sibling-events-do-not-cross-05.dsl))
+- ✓ [Line 558](gl:docs/dev/layout-gen/layout-alg.md#L558): `#e5-leftChild,#e4-rightChild have same y` ([sibling-events-do-not-cross.dsl](../layout-gen-rules/sibling-events-do-not-cross.dsl))
+- ✓ [Line 559](gl:docs/dev/layout-gen/layout-alg.md#L559): `#e5-leftChild is left-of #e4-rightChild with gap=60` ([sibling-events-do-not-cross-02.dsl](../layout-gen-rules/sibling-events-do-not-cross-02.dsl))
+- ✓ [Line 560](gl:docs/dev/layout-gen/layout-alg.md#L560): `edge #e2-left,#e5-leftChild has target-side=top` ([sibling-events-do-not-cross-03.dsl](../layout-gen-rules/sibling-events-do-not-cross-03.dsl))
+- ✓ [Line 561](gl:docs/dev/layout-gen/layout-alg.md#L561): `edge #e3-right,#e4-rightChild has target-side=top` ([sibling-events-do-not-cross-04.dsl](../layout-gen-rules/sibling-events-do-not-cross-04.dsl))
+- ✓ [Line 562](gl:docs/dev/layout-gen/layout-alg.md#L562): `edge #e2-left,#e5-leftChild does not cross edge #e3-right,#e4-rightChild` ([sibling-events-do-not-cross-05.dsl](../layout-gen-rules/sibling-events-do-not-cross-05.dsl))
 
 ## Rendered Diagram
 

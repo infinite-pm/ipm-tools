@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-shells.md",
-        "source_sha1": "92fea23a591155c2e4d06cc92fa88db8ca8c22c9",
+        "source_sha1": "2ae6dbe16cd2c2c36d0fc62998883c0380be7102",
         "name": "layout shells test rules",
         "method": "parser",
         "parser_name": "ipmdev-layout-rule-md",
@@ -492,6 +492,281 @@
                     "dsl": "9aafc8b15a16312fbece92909a5c340ed42faa5b"
                 },
                 "heading": "a successor's band rises beside the shell, not into it",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-covering-thing-stays-outside-the-shell-and-connects-to-the-composite-itself",
+                "line": 185,
+                "anchor": "#a-covering-thing-stays-outside-the-shell-and-connects-to-the-composite-itself",
+                "content_sha1": "4950c5ffd7f3db8793d29cf7ffb0424302ada625",
+                "outputs": {
+                    "dsl": "4950c5ffd7f3db8793d29cf7ffb0424302ada625"
+                },
+                "heading": "a covering thing stays outside the shell and connects to the composite itself",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-covering-thing-stays-outside-the-shell-and-connects-to-the-composite-itself-02",
+                "line": 186,
+                "anchor": "#a-covering-thing-stays-outside-the-shell-and-connects-to-the-composite-itself",
+                "content_sha1": "7eee37c57eacd2f819119fd7e1c9b4bbea599f58",
+                "outputs": {
+                    "dsl": "7eee37c57eacd2f819119fd7e1c9b4bbea599f58"
+                },
+                "heading": "a covering thing stays outside the shell and connects to the composite itself",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-covering-thing-stays-outside-the-shell-and-connects-to-the-composite-itself-03",
+                "line": 187,
+                "anchor": "#a-covering-thing-stays-outside-the-shell-and-connects-to-the-composite-itself",
+                "content_sha1": "5ef7e21f51151fb00c6c50beffbcb4fc366db9f7",
+                "outputs": {
+                    "dsl": "5ef7e21f51151fb00c6c50beffbcb4fc366db9f7"
+                },
+                "heading": "a covering thing stays outside the shell and connects to the composite itself",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-covering-thing-stays-outside-the-shell-and-connects-to-the-composite-itself-04",
+                "line": 188,
+                "anchor": "#a-covering-thing-stays-outside-the-shell-and-connects-to-the-composite-itself",
+                "content_sha1": "87b04bb1aef27799973b8182ebce09f21e9b0e8b",
+                "outputs": {
+                    "dsl": "87b04bb1aef27799973b8182ebce09f21e9b0e8b"
+                },
+                "heading": "a covering thing stays outside the shell and connects to the composite itself",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-covering-thing-stays-outside-the-shell-and-connects-to-the-composite-itself-05",
+                "line": 189,
+                "anchor": "#a-covering-thing-stays-outside-the-shell-and-connects-to-the-composite-itself",
+                "content_sha1": "ebc176eb4822810e7e6ac40daeb9a6a9ae84f7f2",
+                "outputs": {
+                    "dsl": "ebc176eb4822810e7e6ac40daeb9a6a9ae84f7f2"
+                },
+                "heading": "a covering thing stays outside the shell and connects to the composite itself",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-covering-thing-stays-outside-the-shell-and-connects-to-the-composite-itself-06",
+                "line": 190,
+                "anchor": "#a-covering-thing-stays-outside-the-shell-and-connects-to-the-composite-itself",
+                "content_sha1": "fa0b4a5d3b61cd3f41ac342ae58d473dc801da0e",
+                "outputs": {
+                    "dsl": "fa0b4a5d3b61cd3f41ac342ae58d473dc801da0e"
+                },
+                "heading": "a covering thing stays outside the shell and connects to the composite itself",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-covering-thing-stays-outside-the-shell-and-connects-to-the-composite-itself-07",
+                "line": 191,
+                "anchor": "#a-covering-thing-stays-outside-the-shell-and-connects-to-the-composite-itself",
+                "content_sha1": "f07d44f62a3831d230e2d78cba18461b14f36c7a",
+                "outputs": {
+                    "dsl": "f07d44f62a3831d230e2d78cba18461b14f36c7a"
+                },
+                "heading": "a covering thing stays outside the shell and connects to the composite itself",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-covering-thing-stays-outside-the-shell-and-connects-to-the-composite-itself-08",
+                "line": 192,
+                "anchor": "#a-covering-thing-stays-outside-the-shell-and-connects-to-the-composite-itself",
+                "content_sha1": "09fe74455b64278e96023ea08d84b4a39de87f18",
+                "outputs": {
+                    "dsl": "09fe74455b64278e96023ea08d84b4a39de87f18"
+                },
+                "heading": "a covering thing stays outside the shell and connects to the composite itself",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-nested-composite-shares-its-roots-shell",
+                "line": 223,
+                "anchor": "#a-nested-composite-shares-its-roots-shell",
+                "content_sha1": "3ca2ad4806b7cd9221077f106f649617783baf13",
+                "outputs": {
+                    "dsl": "3ca2ad4806b7cd9221077f106f649617783baf13"
+                },
+                "heading": "a nested composite shares its root's shell",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-nested-composite-shares-its-roots-shell-02",
+                "line": 224,
+                "anchor": "#a-nested-composite-shares-its-roots-shell",
+                "content_sha1": "cdf1dca2b6e58e120c6f2cf8140042b5371b2a33",
+                "outputs": {
+                    "dsl": "cdf1dca2b6e58e120c6f2cf8140042b5371b2a33"
+                },
+                "heading": "a nested composite shares its root's shell",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-nested-composite-shares-its-roots-shell-03",
+                "line": 225,
+                "anchor": "#a-nested-composite-shares-its-roots-shell",
+                "content_sha1": "d35f39c27eac4557785d185a16dbcd2e3ee26fb1",
+                "outputs": {
+                    "dsl": "d35f39c27eac4557785d185a16dbcd2e3ee26fb1"
+                },
+                "heading": "a nested composite shares its root's shell",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-nested-composite-shares-its-roots-shell-04",
+                "line": 226,
+                "anchor": "#a-nested-composite-shares-its-roots-shell",
+                "content_sha1": "1b70f18712c9f6889e9f1800c9881cec0689aeac",
+                "outputs": {
+                    "dsl": "1b70f18712c9f6889e9f1800c9881cec0689aeac"
+                },
+                "heading": "a nested composite shares its root's shell",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-nested-composite-shares-its-roots-shell-05",
+                "line": 227,
+                "anchor": "#a-nested-composite-shares-its-roots-shell",
+                "content_sha1": "420a016239be4a75e3deff6e77adba7792ed48f5",
+                "outputs": {
+                    "dsl": "420a016239be4a75e3deff6e77adba7792ed48f5"
+                },
+                "heading": "a nested composite shares its root's shell",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-nested-composite-shares-its-roots-shell-06",
+                "line": 228,
+                "anchor": "#a-nested-composite-shares-its-roots-shell",
+                "content_sha1": "316db58d288665b99ca306d6e2546783c2033287",
+                "outputs": {
+                    "dsl": "316db58d288665b99ca306d6e2546783c2033287"
+                },
+                "heading": "a nested composite shares its root's shell",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-nested-composite-shares-its-roots-shell-07",
+                "line": 229,
+                "anchor": "#a-nested-composite-shares-its-roots-shell",
+                "content_sha1": "4f8e45d4517d9b25a30d6ff7331df7859a9ce395",
+                "outputs": {
+                    "dsl": "4f8e45d4517d9b25a30d6ff7331df7859a9ce395"
+                },
+                "heading": "a nested composite shares its root's shell",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-nested-composite-shares-its-roots-shell-08",
+                "line": 230,
+                "anchor": "#a-nested-composite-shares-its-roots-shell",
+                "content_sha1": "9af022dc6449e12a57e262d06727e0c3f856fe6e",
+                "outputs": {
+                    "dsl": "9af022dc6449e12a57e262d06727e0c3f856fe6e"
+                },
+                "heading": "a nested composite shares its root's shell",
+                "section": "Cases"
+            },
+            {
+                "destination": "two-root-composites-get-one-shell-each-and-the-spine-threads-between-them",
+                "line": 253,
+                "anchor": "#two-root-composites-get-one-shell-each-and-the-spine-threads-between-them",
+                "content_sha1": "eb08994e6ebb655ba544c34819176cff17309402",
+                "outputs": {
+                    "dsl": "eb08994e6ebb655ba544c34819176cff17309402"
+                },
+                "heading": "two root composites get one shell each, and the spine threads between them",
+                "section": "Cases"
+            },
+            {
+                "destination": "two-root-composites-get-one-shell-each-and-the-spine-threads-between-them-02",
+                "line": 254,
+                "anchor": "#two-root-composites-get-one-shell-each-and-the-spine-threads-between-them",
+                "content_sha1": "7dd6fb9af6d0a39a4d7ec25f26dc47d8a17ed561",
+                "outputs": {
+                    "dsl": "7dd6fb9af6d0a39a4d7ec25f26dc47d8a17ed561"
+                },
+                "heading": "two root composites get one shell each, and the spine threads between them",
+                "section": "Cases"
+            },
+            {
+                "destination": "two-root-composites-get-one-shell-each-and-the-spine-threads-between-them-03",
+                "line": 255,
+                "anchor": "#two-root-composites-get-one-shell-each-and-the-spine-threads-between-them",
+                "content_sha1": "ceabb7273e2f4ec346450a7b99b19d6782fd3184",
+                "outputs": {
+                    "dsl": "ceabb7273e2f4ec346450a7b99b19d6782fd3184"
+                },
+                "heading": "two root composites get one shell each, and the spine threads between them",
+                "section": "Cases"
+            },
+            {
+                "destination": "two-root-composites-get-one-shell-each-and-the-spine-threads-between-them-04",
+                "line": 256,
+                "anchor": "#two-root-composites-get-one-shell-each-and-the-spine-threads-between-them",
+                "content_sha1": "567316099ac8541c9ccbc7bfdb32ebb1ce2215f7",
+                "outputs": {
+                    "dsl": "567316099ac8541c9ccbc7bfdb32ebb1ce2215f7"
+                },
+                "heading": "two root composites get one shell each, and the spine threads between them",
+                "section": "Cases"
+            },
+            {
+                "destination": "two-root-composites-get-one-shell-each-and-the-spine-threads-between-them-05",
+                "line": 257,
+                "anchor": "#two-root-composites-get-one-shell-each-and-the-spine-threads-between-them",
+                "content_sha1": "b5a377cabfba643122eb97b8a592dcbc32db2715",
+                "outputs": {
+                    "dsl": "b5a377cabfba643122eb97b8a592dcbc32db2715"
+                },
+                "heading": "two root composites get one shell each, and the spine threads between them",
+                "section": "Cases"
+            },
+            {
+                "destination": "two-root-composites-get-one-shell-each-and-the-spine-threads-between-them-06",
+                "line": 258,
+                "anchor": "#two-root-composites-get-one-shell-each-and-the-spine-threads-between-them",
+                "content_sha1": "6bfce86b9ab1aaa58468141093a6927c6225985e",
+                "outputs": {
+                    "dsl": "6bfce86b9ab1aaa58468141093a6927c6225985e"
+                },
+                "heading": "two root composites get one shell each, and the spine threads between them",
+                "section": "Cases"
+            },
+            {
+                "destination": "two-root-composites-get-one-shell-each-and-the-spine-threads-between-them-07",
+                "line": 259,
+                "anchor": "#two-root-composites-get-one-shell-each-and-the-spine-threads-between-them",
+                "content_sha1": "ac24941e031aad3d8aaffd260727d584c5d5ec00",
+                "outputs": {
+                    "dsl": "ac24941e031aad3d8aaffd260727d584c5d5ec00"
+                },
+                "heading": "two root composites get one shell each, and the spine threads between them",
+                "section": "Cases"
+            },
+            {
+                "destination": "two-root-composites-get-one-shell-each-and-the-spine-threads-between-them-08",
+                "line": 260,
+                "anchor": "#two-root-composites-get-one-shell-each-and-the-spine-threads-between-them",
+                "content_sha1": "8c9a281037b7038a4dfc3bb750a07e1be07efa45",
+                "outputs": {
+                    "dsl": "8c9a281037b7038a4dfc3bb750a07e1be07efa45"
+                },
+                "heading": "two root composites get one shell each, and the spine threads between them",
+                "section": "Cases"
+            },
+            {
+                "destination": "two-root-composites-get-one-shell-each-and-the-spine-threads-between-them-09",
+                "line": 261,
+                "anchor": "#two-root-composites-get-one-shell-each-and-the-spine-threads-between-them",
+                "content_sha1": "9ee2509861f04187ca3935e58f10526a1f8b5008",
+                "outputs": {
+                    "dsl": "9ee2509861f04187ca3935e58f10526a1f8b5008"
+                },
+                "heading": "two root composites get one shell each, and the spine threads between them",
                 "section": "Cases"
             }
         ]

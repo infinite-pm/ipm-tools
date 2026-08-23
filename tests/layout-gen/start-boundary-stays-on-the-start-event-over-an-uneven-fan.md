@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L539-L542 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#start-boundary-stays-on-the-start-event-over-an-uneven-fan)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L606-L609 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#start-boundary-stays-on-the-start-event-over-an-uneven-fan)
 
 ## ipmt Content
 
@@ -25,7 +25,7 @@ b3 --> c2 ::e, c3 ::e
 
 ## Layout Validation Rules
 
-Test line: 539
+Test line: 606
 
 ✅ All 9 rules passed
 
@@ -33,11 +33,11 @@ Test line: 539
 - ✓ [Line 82](gl:docs/dev/layout-gen/layout-alg.md#L82): `type=event has width=120` ([one-event.dsl](../layout-gen-rules/one-event.dsl))
 - ✓ [Line 83](gl:docs/dev/layout-gen/layout-alg.md#L83): `type=event has min-gap-to-others>=10` ([one-event-02.dsl](../layout-gen-rules/one-event-02.dsl))
 - ✓ [Line 84](gl:docs/dev/layout-gen/layout-alg.md#L84): `type=boundary has size=40x40` ([one-event-03.dsl](../layout-gen-rules/one-event-03.dsl))
-- ✓ [Line 559](gl:docs/dev/layout-gen/layout-alg.md#L559): `#S,#b1,#E have same center-x` ([start-boundary-stays-on-the-start-event-over-an-uneven-fan.dsl](../layout-gen-rules/start-boundary-stays-on-the-start-event-over-an-uneven-fan.dsl))
-- ✓ [Line 560](gl:docs/dev/layout-gen/layout-alg.md#L560): `#b1 is horizontally-centered-between #b2,#b3` ([start-boundary-stays-on-the-start-event-over-an-uneven-fan-02.dsl](../layout-gen-rules/start-boundary-stays-on-the-start-event-over-an-uneven-fan-02.dsl))
-- ✓ [Line 561](gl:docs/dev/layout-gen/layout-alg.md#L561): `#c1,#c2,#c3 have same y` ([start-boundary-stays-on-the-start-event-over-an-uneven-fan-03.dsl](../layout-gen-rules/start-boundary-stays-on-the-start-event-over-an-uneven-fan-03.dsl))
-- ✓ [Line 562](gl:docs/dev/layout-gen/layout-alg.md#L562): `#b2,#c1 have same center-x` ([start-boundary-stays-on-the-start-event-over-an-uneven-fan-04.dsl](../layout-gen-rules/start-boundary-stays-on-the-start-event-over-an-uneven-fan-04.dsl))
-- ✓ [Line 563](gl:docs/dev/layout-gen/layout-alg.md#L563): `#b3 is horizontally-centered-between #c2,#c3` ([start-boundary-stays-on-the-start-event-over-an-uneven-fan-05.dsl](../layout-gen-rules/start-boundary-stays-on-the-start-event-over-an-uneven-fan-05.dsl))
+- ✓ [Line 626](gl:docs/dev/layout-gen/layout-alg.md#L626): `#S,#b1,#E have same center-x` ([start-boundary-stays-on-the-start-event-over-an-uneven-fan.dsl](../layout-gen-rules/start-boundary-stays-on-the-start-event-over-an-uneven-fan.dsl))
+- ✓ [Line 627](gl:docs/dev/layout-gen/layout-alg.md#L627): `#b1 is horizontally-centered-between #b2,#b3` ([start-boundary-stays-on-the-start-event-over-an-uneven-fan-02.dsl](../layout-gen-rules/start-boundary-stays-on-the-start-event-over-an-uneven-fan-02.dsl))
+- ✓ [Line 628](gl:docs/dev/layout-gen/layout-alg.md#L628): `#c1,#c2,#c3 have same y` ([start-boundary-stays-on-the-start-event-over-an-uneven-fan-03.dsl](../layout-gen-rules/start-boundary-stays-on-the-start-event-over-an-uneven-fan-03.dsl))
+- ✓ [Line 629](gl:docs/dev/layout-gen/layout-alg.md#L629): `#b2,#c1 have same center-x` ([start-boundary-stays-on-the-start-event-over-an-uneven-fan-04.dsl](../layout-gen-rules/start-boundary-stays-on-the-start-event-over-an-uneven-fan-04.dsl))
+- ✓ [Line 630](gl:docs/dev/layout-gen/layout-alg.md#L630): `#b3 is horizontally-centered-between #c2,#c3` ([start-boundary-stays-on-the-start-event-over-an-uneven-fan-05.dsl](../layout-gen-rules/start-boundary-stays-on-the-start-event-over-an-uneven-fan-05.dsl))
 
 ## Rendered Diagram
 

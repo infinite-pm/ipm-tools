@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L341-L346 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#join-sharing-fork-branches-cluster-adjacent)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L408-L413 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#join-sharing-fork-branches-cluster-adjacent)
 
 ## ipmt Content
 
@@ -27,7 +27,7 @@ z --> j
 
 ## Layout Validation Rules
 
-Test line: 341
+Test line: 408
 
 ✅ All 10 rules passed
 
@@ -35,12 +35,12 @@ Test line: 341
 - ✓ [Line 82](gl:docs/dev/layout-gen/layout-alg.md#L82): `type=event has width=120` ([one-event.dsl](../layout-gen-rules/one-event.dsl))
 - ✓ [Line 83](gl:docs/dev/layout-gen/layout-alg.md#L83): `type=event has min-gap-to-others>=10` ([one-event-02.dsl](../layout-gen-rules/one-event-02.dsl))
 - ✓ [Line 84](gl:docs/dev/layout-gen/layout-alg.md#L84): `type=boundary has size=40x40` ([one-event-03.dsl](../layout-gen-rules/one-event-03.dsl))
-- ✓ [Line 361](gl:docs/dev/layout-gen/layout-alg.md#L361): `#x,#z,#y have same y` ([join-sharing-fork-branches-cluster-adjacent.dsl](../layout-gen-rules/join-sharing-fork-branches-cluster-adjacent.dsl))
-- ✓ [Line 362](gl:docs/dev/layout-gen/layout-alg.md#L362): `#z is right-of #x with gap=80` ([join-sharing-fork-branches-cluster-adjacent-02.dsl](../layout-gen-rules/join-sharing-fork-branches-cluster-adjacent-02.dsl))
-- ✓ [Line 363](gl:docs/dev/layout-gen/layout-alg.md#L363): `#y is right-of #z with gap=80` ([join-sharing-fork-branches-cluster-adjacent-03.dsl](../layout-gen-rules/join-sharing-fork-branches-cluster-adjacent-03.dsl))
-- ✓ [Line 364](gl:docs/dev/layout-gen/layout-alg.md#L364): `#j is horizontally-centered-between #x,#z` ([join-sharing-fork-branches-cluster-adjacent-04.dsl](../layout-gen-rules/join-sharing-fork-branches-cluster-adjacent-04.dsl))
-- ✓ [Line 365](gl:docs/dev/layout-gen/layout-alg.md#L365): `edge #y,#E does not cross edge #x,#j` ([join-sharing-fork-branches-cluster-adjacent-05.dsl](../layout-gen-rules/join-sharing-fork-branches-cluster-adjacent-05.dsl))
-- ✓ [Line 366](gl:docs/dev/layout-gen/layout-alg.md#L366): `edge #y,#E does not cross edge #z,#j` ([join-sharing-fork-branches-cluster-adjacent-06.dsl](../layout-gen-rules/join-sharing-fork-branches-cluster-adjacent-06.dsl))
+- ✓ [Line 428](gl:docs/dev/layout-gen/layout-alg.md#L428): `#x,#z,#y have same y` ([join-sharing-fork-branches-cluster-adjacent.dsl](../layout-gen-rules/join-sharing-fork-branches-cluster-adjacent.dsl))
+- ✓ [Line 429](gl:docs/dev/layout-gen/layout-alg.md#L429): `#z is right-of #x with gap=80` ([join-sharing-fork-branches-cluster-adjacent-02.dsl](../layout-gen-rules/join-sharing-fork-branches-cluster-adjacent-02.dsl))
+- ✓ [Line 430](gl:docs/dev/layout-gen/layout-alg.md#L430): `#y is right-of #z with gap=80` ([join-sharing-fork-branches-cluster-adjacent-03.dsl](../layout-gen-rules/join-sharing-fork-branches-cluster-adjacent-03.dsl))
+- ✓ [Line 431](gl:docs/dev/layout-gen/layout-alg.md#L431): `#j is horizontally-centered-between #x,#z` ([join-sharing-fork-branches-cluster-adjacent-04.dsl](../layout-gen-rules/join-sharing-fork-branches-cluster-adjacent-04.dsl))
+- ✓ [Line 432](gl:docs/dev/layout-gen/layout-alg.md#L432): `edge #y,#E does not cross edge #x,#j` ([join-sharing-fork-branches-cluster-adjacent-05.dsl](../layout-gen-rules/join-sharing-fork-branches-cluster-adjacent-05.dsl))
+- ✓ [Line 433](gl:docs/dev/layout-gen/layout-alg.md#L433): `edge #y,#E does not cross edge #z,#j` ([join-sharing-fork-branches-cluster-adjacent-06.dsl](../layout-gen-rules/join-sharing-fork-branches-cluster-adjacent-06.dsl))
 
 ## Rendered Diagram
 

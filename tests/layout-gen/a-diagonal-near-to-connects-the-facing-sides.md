@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3323-L3327 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-diagonal-near-to-connects-the-facing-sides)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3442-L3446 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-diagonal-near-to-connects-the-facing-sides)
 
 ## ipmt Content
 
@@ -26,14 +26,14 @@ tA --- tC
 
 ## Layout Validation Rules
 
-Test line: 3323
+Test line: 3442
 
 ✅ All 4 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 3342](gl:docs/dev/layout-gen/layout-alg.md#L3342): `edge #tA,#tC has visibility=visible` ([a-diagonal-near-to-connects-the-facing-sides.dsl](../layout-gen-rules/a-diagonal-near-to-connects-the-facing-sides.dsl))
-- ✓ [Line 3343](gl:docs/dev/layout-gen/layout-alg.md#L3343): `edge #tA,#tC has source-side=right` ([a-diagonal-near-to-connects-the-facing-sides-02.dsl](../layout-gen-rules/a-diagonal-near-to-connects-the-facing-sides-02.dsl))
-- ✓ [Line 3344](gl:docs/dev/layout-gen/layout-alg.md#L3344): `edge #tA,#tC has target-side=left` ([a-diagonal-near-to-connects-the-facing-sides-03.dsl](../layout-gen-rules/a-diagonal-near-to-connects-the-facing-sides-03.dsl))
+- ✓ [Line 3461](gl:docs/dev/layout-gen/layout-alg.md#L3461): `edge #tA,#tC has visibility=visible` ([a-diagonal-near-to-connects-the-facing-sides.dsl](../layout-gen-rules/a-diagonal-near-to-connects-the-facing-sides.dsl))
+- ✓ [Line 3462](gl:docs/dev/layout-gen/layout-alg.md#L3462): `edge #tA,#tC has source-side=right` ([a-diagonal-near-to-connects-the-facing-sides-02.dsl](../layout-gen-rules/a-diagonal-near-to-connects-the-facing-sides-02.dsl))
+- ✓ [Line 3463](gl:docs/dev/layout-gen/layout-alg.md#L3463): `edge #tA,#tC has target-side=left` ([a-diagonal-near-to-connects-the-facing-sides-03.dsl](../layout-gen-rules/a-diagonal-near-to-connects-the-facing-sides-03.dsl))
 
 ## Rendered Diagram
 

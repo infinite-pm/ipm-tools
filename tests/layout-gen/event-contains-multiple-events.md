@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L693-L695 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#event-contains-multiple-events)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L760-L762 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#event-contains-multiple-events)
 
 ## ipmt Content
 
@@ -24,7 +24,7 @@ e3 ::e --::P--> e2 ::e
 
 ## Layout Validation Rules
 
-Test line: 693
+Test line: 760
 
 ✅ All 11 rules passed
 
@@ -32,13 +32,13 @@ Test line: 693
 - ✓ [Line 82](gl:docs/dev/layout-gen/layout-alg.md#L82): `type=event has width=120` ([one-event.dsl](../layout-gen-rules/one-event.dsl))
 - ✓ [Line 83](gl:docs/dev/layout-gen/layout-alg.md#L83): `type=event has min-gap-to-others>=10` ([one-event-02.dsl](../layout-gen-rules/one-event-02.dsl))
 - ✓ [Line 84](gl:docs/dev/layout-gen/layout-alg.md#L84): `type=boundary has size=40x40` ([one-event-03.dsl](../layout-gen-rules/one-event-03.dsl))
-- ✓ [Line 709](gl:docs/dev/layout-gen/layout-alg.md#L709): `#S,#e1,#E have same center-x` ([event-contains-multiple-events.dsl](../layout-gen-rules/event-contains-multiple-events.dsl))
-- ✓ [Line 710](gl:docs/dev/layout-gen/layout-alg.md#L710): `#e2 is right-of #e1 with gap=60` ([event-contains-multiple-events-02.dsl](../layout-gen-rules/event-contains-multiple-events-02.dsl))
-- ✓ [Line 711](gl:docs/dev/layout-gen/layout-alg.md#L711): `#e3 is right-of #e2 with gap=60` ([event-contains-multiple-events-03.dsl](../layout-gen-rules/event-contains-multiple-events-03.dsl))
-- ✓ [Line 712](gl:docs/dev/layout-gen/layout-alg.md#L712): `edge #S,#e1 has type=leadsto` ([event-contains-multiple-events-04.dsl](../layout-gen-rules/event-contains-multiple-events-04.dsl))
-- ✓ [Line 713](gl:docs/dev/layout-gen/layout-alg.md#L713): `edge #e2,#e1 has type=partof` ([event-contains-multiple-events-05.dsl](../layout-gen-rules/event-contains-multiple-events-05.dsl))
-- ✓ [Line 714](gl:docs/dev/layout-gen/layout-alg.md#L714): `edge #e3,#e2 has type=partof` ([event-contains-multiple-events-06.dsl](../layout-gen-rules/event-contains-multiple-events-06.dsl))
-- ✓ [Line 715](gl:docs/dev/layout-gen/layout-alg.md#L715): `edge #e1,#E has type=leadsto` ([event-contains-multiple-events-07.dsl](../layout-gen-rules/event-contains-multiple-events-07.dsl))
+- ✓ [Line 776](gl:docs/dev/layout-gen/layout-alg.md#L776): `#S,#e1,#E have same center-x` ([event-contains-multiple-events.dsl](../layout-gen-rules/event-contains-multiple-events.dsl))
+- ✓ [Line 777](gl:docs/dev/layout-gen/layout-alg.md#L777): `#e2 is right-of #e1 with gap=60` ([event-contains-multiple-events-02.dsl](../layout-gen-rules/event-contains-multiple-events-02.dsl))
+- ✓ [Line 778](gl:docs/dev/layout-gen/layout-alg.md#L778): `#e3 is right-of #e2 with gap=60` ([event-contains-multiple-events-03.dsl](../layout-gen-rules/event-contains-multiple-events-03.dsl))
+- ✓ [Line 779](gl:docs/dev/layout-gen/layout-alg.md#L779): `edge #S,#e1 has type=leadsto` ([event-contains-multiple-events-04.dsl](../layout-gen-rules/event-contains-multiple-events-04.dsl))
+- ✓ [Line 780](gl:docs/dev/layout-gen/layout-alg.md#L780): `edge #e2,#e1 has type=partof` ([event-contains-multiple-events-05.dsl](../layout-gen-rules/event-contains-multiple-events-05.dsl))
+- ✓ [Line 781](gl:docs/dev/layout-gen/layout-alg.md#L781): `edge #e3,#e2 has type=partof` ([event-contains-multiple-events-06.dsl](../layout-gen-rules/event-contains-multiple-events-06.dsl))
+- ✓ [Line 782](gl:docs/dev/layout-gen/layout-alg.md#L782): `edge #e1,#E has type=leadsto` ([event-contains-multiple-events-07.dsl](../layout-gen-rules/event-contains-multiple-events-07.dsl))
 
 ## Rendered Diagram
 

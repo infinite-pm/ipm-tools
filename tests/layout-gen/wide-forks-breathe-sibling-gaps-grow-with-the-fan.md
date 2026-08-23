@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2519-L2520 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#wide-forks-breathe-sibling-gaps-grow-with-the-fan)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2586-L2587 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#wide-forks-breathe-sibling-gaps-grow-with-the-fan)
 
 ## ipmt Content
 
@@ -23,16 +23,16 @@ e1-hub ::e --> w1 ::e, w2 ::e, w3 ::e, w4 ::e
 
 ## Layout Validation Rules
 
-Test line: 2519
+Test line: 2586
 
 ✅ All 6 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2533](gl:docs/dev/layout-gen/layout-alg.md#L2533): `#w1,#w2,#w3,#w4 have same y` ([wide-forks-breathe-sibling-gaps-grow-with-the-fan.dsl](../layout-gen-rules/wide-forks-breathe-sibling-gaps-grow-with-the-fan.dsl))
-- ✓ [Line 2534](gl:docs/dev/layout-gen/layout-alg.md#L2534): `#w2 is right-of #w1 with gap=100` ([wide-forks-breathe-sibling-gaps-grow-with-the-fan-02.dsl](../layout-gen-rules/wide-forks-breathe-sibling-gaps-grow-with-the-fan-02.dsl))
-- ✓ [Line 2535](gl:docs/dev/layout-gen/layout-alg.md#L2535): `#w3 is right-of #w2 with gap=100` ([wide-forks-breathe-sibling-gaps-grow-with-the-fan-03.dsl](../layout-gen-rules/wide-forks-breathe-sibling-gaps-grow-with-the-fan-03.dsl))
-- ✓ [Line 2536](gl:docs/dev/layout-gen/layout-alg.md#L2536): `#w4 is right-of #w3 with gap=100` ([wide-forks-breathe-sibling-gaps-grow-with-the-fan-04.dsl](../layout-gen-rules/wide-forks-breathe-sibling-gaps-grow-with-the-fan-04.dsl))
-- ✓ [Line 2537](gl:docs/dev/layout-gen/layout-alg.md#L2537): `#e1-hub is horizontally-centered-between #w1,#w4` ([wide-forks-breathe-sibling-gaps-grow-with-the-fan-05.dsl](../layout-gen-rules/wide-forks-breathe-sibling-gaps-grow-with-the-fan-05.dsl))
+- ✓ [Line 2600](gl:docs/dev/layout-gen/layout-alg.md#L2600): `#w1,#w2,#w3,#w4 have same y` ([wide-forks-breathe-sibling-gaps-grow-with-the-fan.dsl](../layout-gen-rules/wide-forks-breathe-sibling-gaps-grow-with-the-fan.dsl))
+- ✓ [Line 2601](gl:docs/dev/layout-gen/layout-alg.md#L2601): `#w2 is right-of #w1 with gap=100` ([wide-forks-breathe-sibling-gaps-grow-with-the-fan-02.dsl](../layout-gen-rules/wide-forks-breathe-sibling-gaps-grow-with-the-fan-02.dsl))
+- ✓ [Line 2602](gl:docs/dev/layout-gen/layout-alg.md#L2602): `#w3 is right-of #w2 with gap=100` ([wide-forks-breathe-sibling-gaps-grow-with-the-fan-03.dsl](../layout-gen-rules/wide-forks-breathe-sibling-gaps-grow-with-the-fan-03.dsl))
+- ✓ [Line 2603](gl:docs/dev/layout-gen/layout-alg.md#L2603): `#w4 is right-of #w3 with gap=100` ([wide-forks-breathe-sibling-gaps-grow-with-the-fan-04.dsl](../layout-gen-rules/wide-forks-breathe-sibling-gaps-grow-with-the-fan-04.dsl))
+- ✓ [Line 2604](gl:docs/dev/layout-gen/layout-alg.md#L2604): `#e1-hub is horizontally-centered-between #w1,#w4` ([wide-forks-breathe-sibling-gaps-grow-with-the-fan-05.dsl](../layout-gen-rules/wide-forks-breathe-sibling-gaps-grow-with-the-fan-05.dsl))
 
 ## Rendered Diagram
 

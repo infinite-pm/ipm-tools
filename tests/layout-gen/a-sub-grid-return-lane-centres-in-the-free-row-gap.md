@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L951-L960 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-sub-grid-return-lane-centres-in-the-free-row-gap)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1018-L1027 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-sub-grid-return-lane-centres-in-the-free-row-gap)
 
 ## ipmt Content
 
@@ -31,7 +31,7 @@ c --> d
 
 ## Layout Validation Rules
 
-Test line: 951
+Test line: 1018
 
 ⚠️ 10/11 rules passed
 
@@ -39,13 +39,13 @@ Test line: 951
 - ✓ [Line 82](gl:docs/dev/layout-gen/layout-alg.md#L82): `type=event has width=120` ([one-event.dsl](../layout-gen-rules/one-event.dsl))
 - ✓ [Line 83](gl:docs/dev/layout-gen/layout-alg.md#L83): `type=event has min-gap-to-others>=10` ([one-event-02.dsl](../layout-gen-rules/one-event-02.dsl))
 - ✓ [Line 84](gl:docs/dev/layout-gen/layout-alg.md#L84): `type=boundary has size=40x40` ([one-event-03.dsl](../layout-gen-rules/one-event-03.dsl))
-- ✓ [Line 977](gl:docs/dev/layout-gen/layout-alg.md#L977): `#b,#c have same y` ([a-sub-grid-return-lane-centres-in-the-free-row-gap.dsl](../layout-gen-rules/a-sub-grid-return-lane-centres-in-the-free-row-gap.dsl))
-- ✓ [Line 978](gl:docs/dev/layout-gen/layout-alg.md#L978): `#a is horizontally-centered-between #b,#c` ([a-sub-grid-return-lane-centres-in-the-free-row-gap-02.dsl](../layout-gen-rules/a-sub-grid-return-lane-centres-in-the-free-row-gap-02.dsl))
-- ✓ [Line 979](gl:docs/dev/layout-gen/layout-alg.md#L979): `#a,#d have same center-x` ([a-sub-grid-return-lane-centres-in-the-free-row-gap-03.dsl](../layout-gen-rules/a-sub-grid-return-lane-centres-in-the-free-row-gap-03.dsl))
-- ✓ [Line 980](gl:docs/dev/layout-gen/layout-alg.md#L980): `each edge has max-bends=0 except #c,#e1-parent` ([a-sub-grid-return-lane-centres-in-the-free-row-gap-04.dsl](../layout-gen-rules/a-sub-grid-return-lane-centres-in-the-free-row-gap-04.dsl))
-- ✓ [Line 981](gl:docs/dev/layout-gen/layout-alg.md#L981): `edge #c,#e1-parent has max-bends=2` ([a-sub-grid-return-lane-centres-in-the-free-row-gap-05.dsl](../layout-gen-rules/a-sub-grid-return-lane-centres-in-the-free-row-gap-05.dsl))
-- ✓ [Line 982](gl:docs/dev/layout-gen/layout-alg.md#L982): `edge #c,#e1-parent has source-side=bottom` ([a-sub-grid-return-lane-centres-in-the-free-row-gap-06.dsl](../layout-gen-rules/a-sub-grid-return-lane-centres-in-the-free-row-gap-06.dsl))
-- ✓ [Line 983](gl:docs/dev/layout-gen/layout-alg.md#L983): `edge #c,#e1-parent has target-side=bottom` ([a-sub-grid-return-lane-centres-in-the-free-row-gap-07.dsl](../layout-gen-rules/a-sub-grid-return-lane-centres-in-the-free-row-gap-07.dsl))
+- ✓ [Line 1044](gl:docs/dev/layout-gen/layout-alg.md#L1044): `#b,#c have same y` ([a-sub-grid-return-lane-centres-in-the-free-row-gap.dsl](../layout-gen-rules/a-sub-grid-return-lane-centres-in-the-free-row-gap.dsl))
+- ✓ [Line 1045](gl:docs/dev/layout-gen/layout-alg.md#L1045): `#a is horizontally-centered-between #b,#c` ([a-sub-grid-return-lane-centres-in-the-free-row-gap-02.dsl](../layout-gen-rules/a-sub-grid-return-lane-centres-in-the-free-row-gap-02.dsl))
+- ✓ [Line 1046](gl:docs/dev/layout-gen/layout-alg.md#L1046): `#a,#d have same center-x` ([a-sub-grid-return-lane-centres-in-the-free-row-gap-03.dsl](../layout-gen-rules/a-sub-grid-return-lane-centres-in-the-free-row-gap-03.dsl))
+- ✓ [Line 1047](gl:docs/dev/layout-gen/layout-alg.md#L1047): `each edge has max-bends=0 except #c,#e1-parent` ([a-sub-grid-return-lane-centres-in-the-free-row-gap-04.dsl](../layout-gen-rules/a-sub-grid-return-lane-centres-in-the-free-row-gap-04.dsl))
+- ✓ [Line 1048](gl:docs/dev/layout-gen/layout-alg.md#L1048): `edge #c,#e1-parent has max-bends=2` ([a-sub-grid-return-lane-centres-in-the-free-row-gap-05.dsl](../layout-gen-rules/a-sub-grid-return-lane-centres-in-the-free-row-gap-05.dsl))
+- ✓ [Line 1049](gl:docs/dev/layout-gen/layout-alg.md#L1049): `edge #c,#e1-parent has source-side=bottom` ([a-sub-grid-return-lane-centres-in-the-free-row-gap-06.dsl](../layout-gen-rules/a-sub-grid-return-lane-centres-in-the-free-row-gap-06.dsl))
+- ✓ [Line 1050](gl:docs/dev/layout-gen/layout-alg.md#L1050): `edge #c,#e1-parent has target-side=bottom` ([a-sub-grid-return-lane-centres-in-the-free-row-gap-07.dsl](../layout-gen-rules/a-sub-grid-return-lane-centres-in-the-free-row-gap-07.dsl))
 
 ## Rendered Diagram
 

@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2127-L2130 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#concept-hierarchy-multiple-roots)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2194-L2197 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#concept-hierarchy-multiple-roots)
 
 ## ipmt Content
 
@@ -25,14 +25,14 @@ c-X --> c-Y ::c
 
 ## Layout Validation Rules
 
-Test line: 2127
+Test line: 2194
 
 ✅ All 4 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2142](gl:docs/dev/layout-gen/layout-alg.md#L2142): `#c-V,#c-W have same y` ([concept-hierarchy-multiple-roots.dsl](../layout-gen-rules/concept-hierarchy-multiple-roots.dsl))
-- ✓ [Line 2143](gl:docs/dev/layout-gen/layout-alg.md#L2143): `#c-X is below #c-V with gap=40` ([concept-hierarchy-multiple-roots-02.dsl](../layout-gen-rules/concept-hierarchy-multiple-roots-02.dsl))
-- ✓ [Line 2144](gl:docs/dev/layout-gen/layout-alg.md#L2144): `#c-Y is below #c-X with gap=40` ([concept-hierarchy-multiple-roots-03.dsl](../layout-gen-rules/concept-hierarchy-multiple-roots-03.dsl))
+- ✓ [Line 2209](gl:docs/dev/layout-gen/layout-alg.md#L2209): `#c-V,#c-W have same y` ([concept-hierarchy-multiple-roots.dsl](../layout-gen-rules/concept-hierarchy-multiple-roots.dsl))
+- ✓ [Line 2210](gl:docs/dev/layout-gen/layout-alg.md#L2210): `#c-X is below #c-V with gap=40` ([concept-hierarchy-multiple-roots-02.dsl](../layout-gen-rules/concept-hierarchy-multiple-roots-02.dsl))
+- ✓ [Line 2211](gl:docs/dev/layout-gen/layout-alg.md#L2211): `#c-Y is below #c-X with gap=40` ([concept-hierarchy-multiple-roots-03.dsl](../layout-gen-rules/concept-hierarchy-multiple-roots-03.dsl))
 
 ## Rendered Diagram
 

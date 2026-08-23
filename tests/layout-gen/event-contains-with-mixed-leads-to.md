@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L754-L756 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#event-contains-with-mixed-leads-to)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L821-L823 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#event-contains-with-mixed-leads-to)
 
 ## ipmt Content
 
@@ -24,7 +24,7 @@ e3 ::e --::P--> e1 ::e
 
 ## Layout Validation Rules
 
-Test line: 754
+Test line: 821
 
 ✅ All 7 rules passed
 
@@ -32,9 +32,9 @@ Test line: 754
 - ✓ [Line 82](gl:docs/dev/layout-gen/layout-alg.md#L82): `type=event has width=120` ([one-event.dsl](../layout-gen-rules/one-event.dsl))
 - ✓ [Line 83](gl:docs/dev/layout-gen/layout-alg.md#L83): `type=event has min-gap-to-others>=10` ([one-event-02.dsl](../layout-gen-rules/one-event-02.dsl))
 - ✓ [Line 84](gl:docs/dev/layout-gen/layout-alg.md#L84): `type=boundary has size=40x40` ([one-event-03.dsl](../layout-gen-rules/one-event-03.dsl))
-- ✓ [Line 769](gl:docs/dev/layout-gen/layout-alg.md#L769): `edge #e1,#e2 has type=leadsto` ([event-contains-with-mixed-leads-to.dsl](../layout-gen-rules/event-contains-with-mixed-leads-to.dsl))
-- ✓ [Line 770](gl:docs/dev/layout-gen/layout-alg.md#L770): `edge #e3,#e1 has type=partof` ([event-contains-with-mixed-leads-to-02.dsl](../layout-gen-rules/event-contains-with-mixed-leads-to-02.dsl))
-- ✓ [Line 771](gl:docs/dev/layout-gen/layout-alg.md#L771): `edge #e2,#E has type=leadsto` ([event-contains-with-mixed-leads-to-03.dsl](../layout-gen-rules/event-contains-with-mixed-leads-to-03.dsl))
+- ✓ [Line 836](gl:docs/dev/layout-gen/layout-alg.md#L836): `edge #e1,#e2 has type=leadsto` ([event-contains-with-mixed-leads-to.dsl](../layout-gen-rules/event-contains-with-mixed-leads-to.dsl))
+- ✓ [Line 837](gl:docs/dev/layout-gen/layout-alg.md#L837): `edge #e3,#e1 has type=partof` ([event-contains-with-mixed-leads-to-02.dsl](../layout-gen-rules/event-contains-with-mixed-leads-to-02.dsl))
+- ✓ [Line 838](gl:docs/dev/layout-gen/layout-alg.md#L838): `edge #e2,#E has type=leadsto` ([event-contains-with-mixed-leads-to-03.dsl](../layout-gen-rules/event-contains-with-mixed-leads-to-03.dsl))
 
 ## Rendered Diagram
 

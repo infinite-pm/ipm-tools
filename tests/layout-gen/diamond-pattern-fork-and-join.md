@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L397-L400 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#diamond-pattern-fork-and-join)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L464-L467 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#diamond-pattern-fork-and-join)
 
 ## ipmt Content
 
@@ -25,7 +25,7 @@ e3 --> e4
 
 ## Layout Validation Rules
 
-Test line: 397
+Test line: 464
 
 ✅ All 6 rules passed
 
@@ -33,8 +33,8 @@ Test line: 397
 - ✓ [Line 82](gl:docs/dev/layout-gen/layout-alg.md#L82): `type=event has width=120` ([one-event.dsl](../layout-gen-rules/one-event.dsl))
 - ✓ [Line 83](gl:docs/dev/layout-gen/layout-alg.md#L83): `type=event has min-gap-to-others>=10` ([one-event-02.dsl](../layout-gen-rules/one-event-02.dsl))
 - ✓ [Line 84](gl:docs/dev/layout-gen/layout-alg.md#L84): `type=boundary has size=40x40` ([one-event-03.dsl](../layout-gen-rules/one-event-03.dsl))
-- ✓ [Line 416](gl:docs/dev/layout-gen/layout-alg.md#L416): `#e2,#e3 have same y` ([diamond-pattern-fork-and-join.dsl](../layout-gen-rules/diamond-pattern-fork-and-join.dsl))
-- ✓ [Line 417](gl:docs/dev/layout-gen/layout-alg.md#L417): `#S,#e1,#e4,#E have same center-x` ([diamond-pattern-fork-and-join-02.dsl](../layout-gen-rules/diamond-pattern-fork-and-join-02.dsl))
+- ✓ [Line 483](gl:docs/dev/layout-gen/layout-alg.md#L483): `#e2,#e3 have same y` ([diamond-pattern-fork-and-join.dsl](../layout-gen-rules/diamond-pattern-fork-and-join.dsl))
+- ✓ [Line 484](gl:docs/dev/layout-gen/layout-alg.md#L484): `#S,#e1,#e4,#E have same center-x` ([diamond-pattern-fork-and-join-02.dsl](../layout-gen-rules/diamond-pattern-fork-and-join-02.dsl))
 
 ## Rendered Diagram
 

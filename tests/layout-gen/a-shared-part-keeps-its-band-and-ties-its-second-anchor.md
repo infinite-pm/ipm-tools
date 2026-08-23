@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1138-L1145 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-shared-part-keeps-its-band-and-ties-its-second-anchor)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1205-L1212 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-shared-part-keeps-its-band-and-ties-its-second-anchor)
 
 ## ipmt Content
 
@@ -29,7 +29,7 @@ tS ::t --> p1, p2
 
 ## Layout Validation Rules
 
-Test line: 1138
+Test line: 1205
 
 ✅ All 10 rules passed
 
@@ -37,12 +37,12 @@ Test line: 1138
 - ✓ [Line 82](gl:docs/dev/layout-gen/layout-alg.md#L82): `type=event has width=120` ([one-event.dsl](../layout-gen-rules/one-event.dsl))
 - ✓ [Line 83](gl:docs/dev/layout-gen/layout-alg.md#L83): `type=event has min-gap-to-others>=10` ([one-event-02.dsl](../layout-gen-rules/one-event-02.dsl))
 - ✓ [Line 84](gl:docs/dev/layout-gen/layout-alg.md#L84): `type=boundary has size=40x40` ([one-event-03.dsl](../layout-gen-rules/one-event-03.dsl))
-- ✓ [Line 1160](gl:docs/dev/layout-gen/layout-alg.md#L1160): `#cX,#tS have same center-x` ([a-shared-part-keeps-its-band-and-ties-its-second-anchor.dsl](../layout-gen-rules/a-shared-part-keeps-its-band-and-ties-its-second-anchor.dsl))
-- ✓ [Line 1161](gl:docs/dev/layout-gen/layout-alg.md#L1161): `#tS is below #cX with gap=40` ([a-shared-part-keeps-its-band-and-ties-its-second-anchor-02.dsl](../layout-gen-rules/a-shared-part-keeps-its-band-and-ties-its-second-anchor-02.dsl))
-- ✓ [Line 1162](gl:docs/dev/layout-gen/layout-alg.md#L1162): `#tS is right-of #p1 with gap=60` ([a-shared-part-keeps-its-band-and-ties-its-second-anchor-03.dsl](../layout-gen-rules/a-shared-part-keeps-its-band-and-ties-its-second-anchor-03.dsl))
-- ✓ [Line 1163](gl:docs/dev/layout-gen/layout-alg.md#L1163): `#p1 is vertically-centered-between #cX,#tS` ([a-shared-part-keeps-its-band-and-ties-its-second-anchor-04.dsl](../layout-gen-rules/a-shared-part-keeps-its-band-and-ties-its-second-anchor-04.dsl))
-- ✓ [Line 1164](gl:docs/dev/layout-gen/layout-alg.md#L1164): `edge #tS,#p2 has visibility=visible` ([a-shared-part-keeps-its-band-and-ties-its-second-anchor-05.dsl](../layout-gen-rules/a-shared-part-keeps-its-band-and-ties-its-second-anchor-05.dsl))
-- ✓ [Line 1165](gl:docs/dev/layout-gen/layout-alg.md#L1165): `edge #tS,#p2 does not cross edge #p1,#cX` ([a-shared-part-keeps-its-band-and-ties-its-second-anchor-06.dsl](../layout-gen-rules/a-shared-part-keeps-its-band-and-ties-its-second-anchor-06.dsl))
+- ✓ [Line 1227](gl:docs/dev/layout-gen/layout-alg.md#L1227): `#cX,#tS have same center-x` ([a-shared-part-keeps-its-band-and-ties-its-second-anchor.dsl](../layout-gen-rules/a-shared-part-keeps-its-band-and-ties-its-second-anchor.dsl))
+- ✓ [Line 1228](gl:docs/dev/layout-gen/layout-alg.md#L1228): `#tS is below #cX with gap=40` ([a-shared-part-keeps-its-band-and-ties-its-second-anchor-02.dsl](../layout-gen-rules/a-shared-part-keeps-its-band-and-ties-its-second-anchor-02.dsl))
+- ✓ [Line 1229](gl:docs/dev/layout-gen/layout-alg.md#L1229): `#tS is right-of #p1 with gap=60` ([a-shared-part-keeps-its-band-and-ties-its-second-anchor-03.dsl](../layout-gen-rules/a-shared-part-keeps-its-band-and-ties-its-second-anchor-03.dsl))
+- ✓ [Line 1230](gl:docs/dev/layout-gen/layout-alg.md#L1230): `#p1 is vertically-centered-between #cX,#tS` ([a-shared-part-keeps-its-band-and-ties-its-second-anchor-04.dsl](../layout-gen-rules/a-shared-part-keeps-its-band-and-ties-its-second-anchor-04.dsl))
+- ✓ [Line 1231](gl:docs/dev/layout-gen/layout-alg.md#L1231): `edge #tS,#p2 has visibility=visible` ([a-shared-part-keeps-its-band-and-ties-its-second-anchor-05.dsl](../layout-gen-rules/a-shared-part-keeps-its-band-and-ties-its-second-anchor-05.dsl))
+- ✓ [Line 1232](gl:docs/dev/layout-gen/layout-alg.md#L1232): `edge #tS,#p2 does not cross edge #p1,#cX` ([a-shared-part-keeps-its-band-and-ties-its-second-anchor-06.dsl](../layout-gen-rules/a-shared-part-keeps-its-band-and-ties-its-second-anchor-06.dsl))
 
 ## Rendered Diagram
 

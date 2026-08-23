@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L777-L778 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#event-contains-sub-events)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L844-L845 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#event-contains-sub-events)
 
 ## ipmt Content
 
@@ -23,7 +23,7 @@ e1a ::e, e1b ::e --::P--> e1 ::e
 
 ## Layout Validation Rules
 
-Test line: 777
+Test line: 844
 
 ✅ All 9 rules passed
 
@@ -31,11 +31,11 @@ Test line: 777
 - ✓ [Line 82](gl:docs/dev/layout-gen/layout-alg.md#L82): `type=event has width=120` ([one-event.dsl](../layout-gen-rules/one-event.dsl))
 - ✓ [Line 83](gl:docs/dev/layout-gen/layout-alg.md#L83): `type=event has min-gap-to-others>=10` ([one-event-02.dsl](../layout-gen-rules/one-event-02.dsl))
 - ✓ [Line 84](gl:docs/dev/layout-gen/layout-alg.md#L84): `type=boundary has size=40x40` ([one-event-03.dsl](../layout-gen-rules/one-event-03.dsl))
-- ✓ [Line 810](gl:docs/dev/layout-gen/layout-alg.md#L810): `#e1 is vertically-centered-between #e1a,#e1b` ([event-contains-sub-events.dsl](../layout-gen-rules/event-contains-sub-events.dsl))
-- ✓ [Line 811](gl:docs/dev/layout-gen/layout-alg.md#L811): `#e1a is right-of #e1 with gap=60` ([event-contains-sub-events-02.dsl](../layout-gen-rules/event-contains-sub-events-02.dsl))
-- ✓ [Line 812](gl:docs/dev/layout-gen/layout-alg.md#L812): `#e1b is below #e1a with gap=60` ([event-contains-sub-events-03.dsl](../layout-gen-rules/event-contains-sub-events-03.dsl))
-- ✓ [Line 813](gl:docs/dev/layout-gen/layout-alg.md#L813): `#e1a,#e1b have same center-x` ([event-contains-sub-events-04.dsl](../layout-gen-rules/event-contains-sub-events-04.dsl))
-- ✓ [Line 814](gl:docs/dev/layout-gen/layout-alg.md#L814): `#S,#e1,#E have same center-x` ([event-contains-sub-events-05.dsl](../layout-gen-rules/event-contains-sub-events-05.dsl))
+- ✓ [Line 877](gl:docs/dev/layout-gen/layout-alg.md#L877): `#e1 is vertically-centered-between #e1a,#e1b` ([event-contains-sub-events.dsl](../layout-gen-rules/event-contains-sub-events.dsl))
+- ✓ [Line 878](gl:docs/dev/layout-gen/layout-alg.md#L878): `#e1a is right-of #e1 with gap=60` ([event-contains-sub-events-02.dsl](../layout-gen-rules/event-contains-sub-events-02.dsl))
+- ✓ [Line 879](gl:docs/dev/layout-gen/layout-alg.md#L879): `#e1b is below #e1a with gap=60` ([event-contains-sub-events-03.dsl](../layout-gen-rules/event-contains-sub-events-03.dsl))
+- ✓ [Line 880](gl:docs/dev/layout-gen/layout-alg.md#L880): `#e1a,#e1b have same center-x` ([event-contains-sub-events-04.dsl](../layout-gen-rules/event-contains-sub-events-04.dsl))
+- ✓ [Line 881](gl:docs/dev/layout-gen/layout-alg.md#L881): `#S,#e1,#E have same center-x` ([event-contains-sub-events-05.dsl](../layout-gen-rules/event-contains-sub-events-05.dsl))
 
 ## Rendered Diagram
 

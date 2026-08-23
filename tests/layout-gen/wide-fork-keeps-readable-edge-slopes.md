@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L243-L248 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#wide-fork-keeps-readable-edge-slopes)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L310-L315 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#wide-fork-keeps-readable-edge-slopes)
 
 ## ipmt Content
 
@@ -27,7 +27,7 @@ e1-hub --> wE ::e
 
 ## Layout Validation Rules
 
-Test line: 243
+Test line: 310
 
 ✅ All 7 rules passed
 
@@ -35,9 +35,9 @@ Test line: 243
 - ✓ [Line 82](gl:docs/dev/layout-gen/layout-alg.md#L82): `type=event has width=120` ([one-event.dsl](../layout-gen-rules/one-event.dsl))
 - ✓ [Line 83](gl:docs/dev/layout-gen/layout-alg.md#L83): `type=event has min-gap-to-others>=10` ([one-event-02.dsl](../layout-gen-rules/one-event-02.dsl))
 - ✓ [Line 84](gl:docs/dev/layout-gen/layout-alg.md#L84): `type=boundary has size=40x40` ([one-event-03.dsl](../layout-gen-rules/one-event-03.dsl))
-- ✓ [Line 263](gl:docs/dev/layout-gen/layout-alg.md#L263): `#wA,#wB,#wC,#wD,#wE have same y` ([wide-fork-keeps-readable-edge-slopes.dsl](../layout-gen-rules/wide-fork-keeps-readable-edge-slopes.dsl))
-- ✓ [Line 264](gl:docs/dev/layout-gen/layout-alg.md#L264): `edge #e1-hub,#wA has min-slope=0.25` ([wide-fork-keeps-readable-edge-slopes-02.dsl](../layout-gen-rules/wide-fork-keeps-readable-edge-slopes-02.dsl))
-- ✓ [Line 265](gl:docs/dev/layout-gen/layout-alg.md#L265): `edge #e1-hub,#wE has min-slope=0.25` ([wide-fork-keeps-readable-edge-slopes-03.dsl](../layout-gen-rules/wide-fork-keeps-readable-edge-slopes-03.dsl))
+- ✓ [Line 330](gl:docs/dev/layout-gen/layout-alg.md#L330): `#wA,#wB,#wC,#wD,#wE have same y` ([wide-fork-keeps-readable-edge-slopes.dsl](../layout-gen-rules/wide-fork-keeps-readable-edge-slopes.dsl))
+- ✓ [Line 331](gl:docs/dev/layout-gen/layout-alg.md#L331): `edge #e1-hub,#wA has min-slope=0.25` ([wide-fork-keeps-readable-edge-slopes-02.dsl](../layout-gen-rules/wide-fork-keeps-readable-edge-slopes-02.dsl))
+- ✓ [Line 332](gl:docs/dev/layout-gen/layout-alg.md#L332): `edge #e1-hub,#wE has min-slope=0.25` ([wide-fork-keeps-readable-edge-slopes-03.dsl](../layout-gen-rules/wide-fork-keeps-readable-edge-slopes-03.dsl))
 
 ## Rendered Diagram
 

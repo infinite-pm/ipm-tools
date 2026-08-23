@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L215-L217 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#fork-keeps-siblings-on-one-row-with-a-tall-aux)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L282-L284 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#fork-keeps-siblings-on-one-row-with-a-tall-aux)
 
 ## ipmt Content
 
@@ -24,7 +24,7 @@ e1 --::X "used for"--> "setup tasks like config init or dependency checks" ::c
 
 ## Layout Validation Rules
 
-Test line: 215
+Test line: 282
 
 ✅ All 6 rules passed
 
@@ -32,8 +32,8 @@ Test line: 215
 - ✓ [Line 82](gl:docs/dev/layout-gen/layout-alg.md#L82): `type=event has width=120` ([one-event.dsl](../layout-gen-rules/one-event.dsl))
 - ✓ [Line 83](gl:docs/dev/layout-gen/layout-alg.md#L83): `type=event has min-gap-to-others>=10` ([one-event-02.dsl](../layout-gen-rules/one-event-02.dsl))
 - ✓ [Line 84](gl:docs/dev/layout-gen/layout-alg.md#L84): `type=boundary has size=40x40` ([one-event-03.dsl](../layout-gen-rules/one-event-03.dsl))
-- ✓ [Line 236](gl:docs/dev/layout-gen/layout-alg.md#L236): `#ea,#eb have same y` ([fork-keeps-siblings-on-one-row-with-a-tall-aux.dsl](../layout-gen-rules/fork-keeps-siblings-on-one-row-with-a-tall-aux.dsl))
-- ✓ [Line 237](gl:docs/dev/layout-gen/layout-alg.md#L237): `#ea is below #e1 with gap=80` ([fork-keeps-siblings-on-one-row-with-a-tall-aux-02.dsl](../layout-gen-rules/fork-keeps-siblings-on-one-row-with-a-tall-aux-02.dsl))
+- ✓ [Line 303](gl:docs/dev/layout-gen/layout-alg.md#L303): `#ea,#eb have same y` ([fork-keeps-siblings-on-one-row-with-a-tall-aux.dsl](../layout-gen-rules/fork-keeps-siblings-on-one-row-with-a-tall-aux.dsl))
+- ✓ [Line 304](gl:docs/dev/layout-gen/layout-alg.md#L304): `#ea is below #e1 with gap=80` ([fork-keeps-siblings-on-one-row-with-a-tall-aux-02.dsl](../layout-gen-rules/fork-keeps-siblings-on-one-row-with-a-tall-aux-02.dsl))
 
 ## Rendered Diagram
 

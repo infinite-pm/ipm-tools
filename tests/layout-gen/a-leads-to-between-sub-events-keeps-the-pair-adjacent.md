@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L721-L727 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-leads-to-between-sub-events-keeps-the-pair-adjacent)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L788-L794 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-leads-to-between-sub-events-keeps-the-pair-adjacent)
 
 ## ipmt Content
 
@@ -28,7 +28,7 @@ d ::e --::P--> e1-outer
 
 ## Layout Validation Rules
 
-Test line: 721
+Test line: 788
 
 ✅ All 9 rules passed
 
@@ -36,11 +36,11 @@ Test line: 721
 - ✓ [Line 82](gl:docs/dev/layout-gen/layout-alg.md#L82): `type=event has width=120` ([one-event.dsl](../layout-gen-rules/one-event.dsl))
 - ✓ [Line 83](gl:docs/dev/layout-gen/layout-alg.md#L83): `type=event has min-gap-to-others>=10` ([one-event-02.dsl](../layout-gen-rules/one-event-02.dsl))
 - ✓ [Line 84](gl:docs/dev/layout-gen/layout-alg.md#L84): `type=boundary has size=40x40` ([one-event-03.dsl](../layout-gen-rules/one-event-03.dsl))
-- ✓ [Line 744](gl:docs/dev/layout-gen/layout-alg.md#L744): `#a,#b,#c,#d have same center-x` ([a-leads-to-between-sub-events-keeps-the-pair-adjacent.dsl](../layout-gen-rules/a-leads-to-between-sub-events-keeps-the-pair-adjacent.dsl))
-- ✓ [Line 745](gl:docs/dev/layout-gen/layout-alg.md#L745): `#b is below #a with gap=60` ([a-leads-to-between-sub-events-keeps-the-pair-adjacent-02.dsl](../layout-gen-rules/a-leads-to-between-sub-events-keeps-the-pair-adjacent-02.dsl))
-- ✓ [Line 746](gl:docs/dev/layout-gen/layout-alg.md#L746): `edge #a,#b is vertical` ([a-leads-to-between-sub-events-keeps-the-pair-adjacent-03.dsl](../layout-gen-rules/a-leads-to-between-sub-events-keeps-the-pair-adjacent-03.dsl))
-- ✓ [Line 747](gl:docs/dev/layout-gen/layout-alg.md#L747): `#c is below #b with gap=60` ([a-leads-to-between-sub-events-keeps-the-pair-adjacent-04.dsl](../layout-gen-rules/a-leads-to-between-sub-events-keeps-the-pair-adjacent-04.dsl))
-- ✓ [Line 748](gl:docs/dev/layout-gen/layout-alg.md#L748): `#d is below #c with gap=60` ([a-leads-to-between-sub-events-keeps-the-pair-adjacent-05.dsl](../layout-gen-rules/a-leads-to-between-sub-events-keeps-the-pair-adjacent-05.dsl))
+- ✓ [Line 811](gl:docs/dev/layout-gen/layout-alg.md#L811): `#a,#b,#c,#d have same center-x` ([a-leads-to-between-sub-events-keeps-the-pair-adjacent.dsl](../layout-gen-rules/a-leads-to-between-sub-events-keeps-the-pair-adjacent.dsl))
+- ✓ [Line 812](gl:docs/dev/layout-gen/layout-alg.md#L812): `#b is below #a with gap=60` ([a-leads-to-between-sub-events-keeps-the-pair-adjacent-02.dsl](../layout-gen-rules/a-leads-to-between-sub-events-keeps-the-pair-adjacent-02.dsl))
+- ✓ [Line 813](gl:docs/dev/layout-gen/layout-alg.md#L813): `edge #a,#b is vertical` ([a-leads-to-between-sub-events-keeps-the-pair-adjacent-03.dsl](../layout-gen-rules/a-leads-to-between-sub-events-keeps-the-pair-adjacent-03.dsl))
+- ✓ [Line 814](gl:docs/dev/layout-gen/layout-alg.md#L814): `#c is below #b with gap=60` ([a-leads-to-between-sub-events-keeps-the-pair-adjacent-04.dsl](../layout-gen-rules/a-leads-to-between-sub-events-keeps-the-pair-adjacent-04.dsl))
+- ✓ [Line 815](gl:docs/dev/layout-gen/layout-alg.md#L815): `#d is below #c with gap=60` ([a-leads-to-between-sub-events-keeps-the-pair-adjacent-05.dsl](../layout-gen-rules/a-leads-to-between-sub-events-keeps-the-pair-adjacent-05.dsl))
 
 ## Rendered Diagram
 

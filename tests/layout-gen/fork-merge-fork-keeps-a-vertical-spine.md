@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L569-L582 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#fork-merge-fork-keeps-a-vertical-spine)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L636-L649 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#fork-merge-fork-keeps-a-vertical-spine)
 
 ## ipmt Content
 
@@ -35,7 +35,7 @@ f1 --> e3-end
 
 ## Layout Validation Rules
 
-Test line: 569
+Test line: 636
 
 ✅ All 12 rules passed
 
@@ -43,14 +43,14 @@ Test line: 569
 - ✓ [Line 82](gl:docs/dev/layout-gen/layout-alg.md#L82): `type=event has width=120` ([one-event.dsl](../layout-gen-rules/one-event.dsl))
 - ✓ [Line 83](gl:docs/dev/layout-gen/layout-alg.md#L83): `type=event has min-gap-to-others>=10` ([one-event-02.dsl](../layout-gen-rules/one-event-02.dsl))
 - ✓ [Line 84](gl:docs/dev/layout-gen/layout-alg.md#L84): `type=boundary has size=40x40` ([one-event-03.dsl](../layout-gen-rules/one-event-03.dsl))
-- ✓ [Line 603](gl:docs/dev/layout-gen/layout-alg.md#L603): `#S,#e1-start,#b1,#e2-merge,#e3-end,#E have same center-x` ([fork-merge-fork-keeps-a-vertical-spine.dsl](../layout-gen-rules/fork-merge-fork-keeps-a-vertical-spine.dsl))
-- ✓ [Line 604](gl:docs/dev/layout-gen/layout-alg.md#L604): `#a1,#a2,#a3 have same center-x` ([fork-merge-fork-keeps-a-vertical-spine-02.dsl](../layout-gen-rules/fork-merge-fork-keeps-a-vertical-spine-02.dsl))
-- ✓ [Line 605](gl:docs/dev/layout-gen/layout-alg.md#L605): `#c1,#c2 have same center-x` ([fork-merge-fork-keeps-a-vertical-spine-03.dsl](../layout-gen-rules/fork-merge-fork-keeps-a-vertical-spine-03.dsl))
-- ✓ [Line 606](gl:docs/dev/layout-gen/layout-alg.md#L606): `#d1,#d2,#d3 have same center-x` ([fork-merge-fork-keeps-a-vertical-spine-04.dsl](../layout-gen-rules/fork-merge-fork-keeps-a-vertical-spine-04.dsl))
-- ✓ [Line 607](gl:docs/dev/layout-gen/layout-alg.md#L607): `#a1,#b1,#c1 have same y` ([fork-merge-fork-keeps-a-vertical-spine-05.dsl](../layout-gen-rules/fork-merge-fork-keeps-a-vertical-spine-05.dsl))
-- ✓ [Line 608](gl:docs/dev/layout-gen/layout-alg.md#L608): `#a1 is left-of #b1 with gap=80` ([fork-merge-fork-keeps-a-vertical-spine-06.dsl](../layout-gen-rules/fork-merge-fork-keeps-a-vertical-spine-06.dsl))
-- ✓ [Line 609](gl:docs/dev/layout-gen/layout-alg.md#L609): `#b1 is left-of #c1 with gap=80` ([fork-merge-fork-keeps-a-vertical-spine-07.dsl](../layout-gen-rules/fork-merge-fork-keeps-a-vertical-spine-07.dsl))
-- ✓ [Line 610](gl:docs/dev/layout-gen/layout-alg.md#L610): `#d1,#f1 have same y` ([fork-merge-fork-keeps-a-vertical-spine-08.dsl](../layout-gen-rules/fork-merge-fork-keeps-a-vertical-spine-08.dsl))
+- ✓ [Line 670](gl:docs/dev/layout-gen/layout-alg.md#L670): `#S,#e1-start,#b1,#e2-merge,#e3-end,#E have same center-x` ([fork-merge-fork-keeps-a-vertical-spine.dsl](../layout-gen-rules/fork-merge-fork-keeps-a-vertical-spine.dsl))
+- ✓ [Line 671](gl:docs/dev/layout-gen/layout-alg.md#L671): `#a1,#a2,#a3 have same center-x` ([fork-merge-fork-keeps-a-vertical-spine-02.dsl](../layout-gen-rules/fork-merge-fork-keeps-a-vertical-spine-02.dsl))
+- ✓ [Line 672](gl:docs/dev/layout-gen/layout-alg.md#L672): `#c1,#c2 have same center-x` ([fork-merge-fork-keeps-a-vertical-spine-03.dsl](../layout-gen-rules/fork-merge-fork-keeps-a-vertical-spine-03.dsl))
+- ✓ [Line 673](gl:docs/dev/layout-gen/layout-alg.md#L673): `#d1,#d2,#d3 have same center-x` ([fork-merge-fork-keeps-a-vertical-spine-04.dsl](../layout-gen-rules/fork-merge-fork-keeps-a-vertical-spine-04.dsl))
+- ✓ [Line 674](gl:docs/dev/layout-gen/layout-alg.md#L674): `#a1,#b1,#c1 have same y` ([fork-merge-fork-keeps-a-vertical-spine-05.dsl](../layout-gen-rules/fork-merge-fork-keeps-a-vertical-spine-05.dsl))
+- ✓ [Line 675](gl:docs/dev/layout-gen/layout-alg.md#L675): `#a1 is left-of #b1 with gap=80` ([fork-merge-fork-keeps-a-vertical-spine-06.dsl](../layout-gen-rules/fork-merge-fork-keeps-a-vertical-spine-06.dsl))
+- ✓ [Line 676](gl:docs/dev/layout-gen/layout-alg.md#L676): `#b1 is left-of #c1 with gap=80` ([fork-merge-fork-keeps-a-vertical-spine-07.dsl](../layout-gen-rules/fork-merge-fork-keeps-a-vertical-spine-07.dsl))
+- ✓ [Line 677](gl:docs/dev/layout-gen/layout-alg.md#L677): `#d1,#f1 have same y` ([fork-merge-fork-keeps-a-vertical-spine-08.dsl](../layout-gen-rules/fork-merge-fork-keeps-a-vertical-spine-08.dsl))
 
 ## Rendered Diagram
 

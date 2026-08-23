@@ -1,0 +1,60 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "p1::a a name [with a note that the sizer ignores] ::c --- p2::a \"a name [with a note that the sizer ignores]\" ::c",
+    "positions": {
+      "nodes": {
+        "1": [
+          6,
+          12
+        ],
+        "2": [
+          64,
+          109
+        ]
+      },
+      "edges": {
+        "3": {
+          "arrow": [
+            53,
+            58
+          ],
+          "source": [
+            6,
+            12
+          ],
+          "target": [
+            64,
+            109
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "a name",
+      "alias": "p1",
+      "type": "Concept"
+    },
+    {
+      "id": 2,
+      "name": "a name [with a note that the sizer ignores]",
+      "alias": "p2",
+      "type": "Concept"
+    }
+  ],
+  "edges": [
+    {
+      "id": 3,
+      "source": 1,
+      "target": 2,
+      "dir": "DirUndir",
+      "tooltip": "",
+      "sstLinkType": "NearTo",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

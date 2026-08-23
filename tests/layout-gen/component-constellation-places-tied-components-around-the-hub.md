@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2726-L2731 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#component-constellation-places-tied-components-around-the-hub)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2793-L2798 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#component-constellation-places-tied-components-around-the-hub)
 
 ## ipmt Content
 
@@ -27,19 +27,19 @@ a2 --::X--> c1
 
 ## Layout Validation Rules
 
-Test line: 2726
+Test line: 2793
 
 ✅ All 9 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2744](gl:docs/dev/layout-gen/layout-alg.md#L2744): `#a1,#b1 have same y` ([component-constellation-places-tied-components-around-the-hub.dsl](../layout-gen-rules/component-constellation-places-tied-components-around-the-hub.dsl))
-- ✓ [Line 2745](gl:docs/dev/layout-gen/layout-alg.md#L2745): `#a1 is left-of #b1 with gap=120` ([component-constellation-places-tied-components-around-the-hub-02.dsl](../layout-gen-rules/component-constellation-places-tied-components-around-the-hub-02.dsl))
-- ✓ [Line 2746](gl:docs/dev/layout-gen/layout-alg.md#L2746): `#c1,#a2,#b2 have same y` ([component-constellation-places-tied-components-around-the-hub-03.dsl](../layout-gen-rules/component-constellation-places-tied-components-around-the-hub-03.dsl))
-- ✓ [Line 2747](gl:docs/dev/layout-gen/layout-alg.md#L2747): `#c1 is left-of #a2 with gap=120` ([component-constellation-places-tied-components-around-the-hub-04.dsl](../layout-gen-rules/component-constellation-places-tied-components-around-the-hub-04.dsl))
-- ✓ [Line 2748](gl:docs/dev/layout-gen/layout-alg.md#L2748): `edge #a1,#b1 has max-bends=0` ([component-constellation-places-tied-components-around-the-hub-05.dsl](../layout-gen-rules/component-constellation-places-tied-components-around-the-hub-05.dsl))
-- ✓ [Line 2749](gl:docs/dev/layout-gen/layout-alg.md#L2749): `edge #a2,#c1 has max-bends=0` ([component-constellation-places-tied-components-around-the-hub-06.dsl](../layout-gen-rules/component-constellation-places-tied-components-around-the-hub-06.dsl))
-- ✓ [Line 2750](gl:docs/dev/layout-gen/layout-alg.md#L2750): `edge #a2,#c1 has source-side=left` ([component-constellation-places-tied-components-around-the-hub-07.dsl](../layout-gen-rules/component-constellation-places-tied-components-around-the-hub-07.dsl))
-- ✓ [Line 2751](gl:docs/dev/layout-gen/layout-alg.md#L2751): `edge #a2,#c1 has target-side=right` ([component-constellation-places-tied-components-around-the-hub-08.dsl](../layout-gen-rules/component-constellation-places-tied-components-around-the-hub-08.dsl))
+- ✓ [Line 2811](gl:docs/dev/layout-gen/layout-alg.md#L2811): `#a1,#b1 have same y` ([component-constellation-places-tied-components-around-the-hub.dsl](../layout-gen-rules/component-constellation-places-tied-components-around-the-hub.dsl))
+- ✓ [Line 2812](gl:docs/dev/layout-gen/layout-alg.md#L2812): `#a1 is left-of #b1 with gap=120` ([component-constellation-places-tied-components-around-the-hub-02.dsl](../layout-gen-rules/component-constellation-places-tied-components-around-the-hub-02.dsl))
+- ✓ [Line 2813](gl:docs/dev/layout-gen/layout-alg.md#L2813): `#c1,#a2,#b2 have same y` ([component-constellation-places-tied-components-around-the-hub-03.dsl](../layout-gen-rules/component-constellation-places-tied-components-around-the-hub-03.dsl))
+- ✓ [Line 2814](gl:docs/dev/layout-gen/layout-alg.md#L2814): `#c1 is left-of #a2 with gap=120` ([component-constellation-places-tied-components-around-the-hub-04.dsl](../layout-gen-rules/component-constellation-places-tied-components-around-the-hub-04.dsl))
+- ✓ [Line 2815](gl:docs/dev/layout-gen/layout-alg.md#L2815): `edge #a1,#b1 has max-bends=0` ([component-constellation-places-tied-components-around-the-hub-05.dsl](../layout-gen-rules/component-constellation-places-tied-components-around-the-hub-05.dsl))
+- ✓ [Line 2816](gl:docs/dev/layout-gen/layout-alg.md#L2816): `edge #a2,#c1 has max-bends=0` ([component-constellation-places-tied-components-around-the-hub-06.dsl](../layout-gen-rules/component-constellation-places-tied-components-around-the-hub-06.dsl))
+- ✓ [Line 2817](gl:docs/dev/layout-gen/layout-alg.md#L2817): `edge #a2,#c1 has source-side=left` ([component-constellation-places-tied-components-around-the-hub-07.dsl](../layout-gen-rules/component-constellation-places-tied-components-around-the-hub-07.dsl))
+- ✓ [Line 2818](gl:docs/dev/layout-gen/layout-alg.md#L2818): `edge #a2,#c1 has target-side=right` ([component-constellation-places-tied-components-around-the-hub-08.dsl](../layout-gen-rules/component-constellation-places-tied-components-around-the-hub-08.dsl))
 
 ## Rendered Diagram
 

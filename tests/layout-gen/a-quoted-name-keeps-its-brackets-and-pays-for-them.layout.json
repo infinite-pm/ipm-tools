@@ -1,0 +1,55 @@
+{
+  "version": "26.07-v7",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "concept",
+      "label": "a name",
+      "alias": "p1",
+      "x": 40,
+      "y": 50,
+      "width": 120,
+      "height": 60
+    },
+    {
+      "id": "2",
+      "type": "concept",
+      "label": "a name [with a note that the sizer ignores]",
+      "alias": "p2",
+      "x": 260,
+      "y": 40,
+      "width": 120,
+      "height": 80
+    }
+  ],
+  "edges": [
+    {
+      "from": "1",
+      "to": "2",
+      "dir": "undir",
+      "base": "nearto",
+      "style": "nearto",
+      "route": {
+        "source": {
+          "side": "right",
+          "position": 0.5
+        },
+        "target": {
+          "side": "left",
+          "position": 0.5
+        }
+      }
+    }
+  ],
+  "meta": {
+    "bounds": {
+      "width": 420,
+      "height": 160,
+      "marginX": 40,
+      "marginY": 40
+    },
+    "constants": {
+      "gridStep": 20
+    }
+  }
+}

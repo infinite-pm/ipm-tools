@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1424-L1429 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#thing-connected-to-two-layers)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1491-L1496 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#thing-connected-to-two-layers)
 
 ## ipmt Content
 
@@ -27,25 +27,25 @@ e1-mid --> c1-note ::c
 
 ## Layout Validation Rules
 
-Test line: 1424
+Test line: 1491
 
 ✅ All 15 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 1447](gl:docs/dev/layout-gen/layout-alg.md#L1447): `each edge has max-bends=0` ([thing-connected-to-two-layers.dsl](../layout-gen-rules/thing-connected-to-two-layers.dsl))
-- ✓ [Line 1448](gl:docs/dev/layout-gen/layout-alg.md#L1448): `#e2-outer,#e1-mid,#e3-deep have same y` ([thing-connected-to-two-layers-02.dsl](../layout-gen-rules/thing-connected-to-two-layers-02.dsl))
-- ✓ [Line 1449](gl:docs/dev/layout-gen/layout-alg.md#L1449): `#t1-span,#c1-note have same y` ([thing-connected-to-two-layers-03.dsl](../layout-gen-rules/thing-connected-to-two-layers-03.dsl))
-- ✓ [Line 1450](gl:docs/dev/layout-gen/layout-alg.md#L1450): `#t1-span is below #e1-mid with gap=40` ([thing-connected-to-two-layers-04.dsl](../layout-gen-rules/thing-connected-to-two-layers-04.dsl))
-- ✓ [Line 1451](gl:docs/dev/layout-gen/layout-alg.md#L1451): `#t1-span is left-of #c1-note with gap=40` ([thing-connected-to-two-layers-05.dsl](../layout-gen-rules/thing-connected-to-two-layers-05.dsl))
-- ✓ [Line 1452](gl:docs/dev/layout-gen/layout-alg.md#L1452): `#e1-mid is horizontally-centered-between #t1-span,#c1-note` ([thing-connected-to-two-layers-06.dsl](../layout-gen-rules/thing-connected-to-two-layers-06.dsl))
-- ✓ [Line 1453](gl:docs/dev/layout-gen/layout-alg.md#L1453): `edge #t1-span,#e2-outer has visibility=visible` ([thing-connected-to-two-layers-07.dsl](../layout-gen-rules/thing-connected-to-two-layers-07.dsl))
-- ✓ [Line 1454](gl:docs/dev/layout-gen/layout-alg.md#L1454): `edge #t1-span,#e1-mid has visibility=visible` ([thing-connected-to-two-layers-08.dsl](../layout-gen-rules/thing-connected-to-two-layers-08.dsl))
-- ✓ [Line 1455](gl:docs/dev/layout-gen/layout-alg.md#L1455): `edge #t1-span,#e2-outer has source-side=top` ([thing-connected-to-two-layers-09.dsl](../layout-gen-rules/thing-connected-to-two-layers-09.dsl))
-- ✓ [Line 1456](gl:docs/dev/layout-gen/layout-alg.md#L1456): `edge #t1-span,#e1-mid has source-side=top` ([thing-connected-to-two-layers-10.dsl](../layout-gen-rules/thing-connected-to-two-layers-10.dsl))
-- ✓ [Line 1457](gl:docs/dev/layout-gen/layout-alg.md#L1457): `edge #t1-span,#e2-outer has target-side=bottom` ([thing-connected-to-two-layers-11.dsl](../layout-gen-rules/thing-connected-to-two-layers-11.dsl))
-- ✓ [Line 1458](gl:docs/dev/layout-gen/layout-alg.md#L1458): `edge #t1-span,#e1-mid has target-side=bottom` ([thing-connected-to-two-layers-12.dsl](../layout-gen-rules/thing-connected-to-two-layers-12.dsl))
-- ✓ [Line 1459](gl:docs/dev/layout-gen/layout-alg.md#L1459): `#S is above #e2-outer with gap=40` ([thing-connected-to-two-layers-13.dsl](../layout-gen-rules/thing-connected-to-two-layers-13.dsl))
-- ✓ [Line 1460](gl:docs/dev/layout-gen/layout-alg.md#L1460): `#E is below #t1-span with gap=40` ([thing-connected-to-two-layers-14.dsl](../layout-gen-rules/thing-connected-to-two-layers-14.dsl))
+- ✓ [Line 1514](gl:docs/dev/layout-gen/layout-alg.md#L1514): `each edge has max-bends=0` ([thing-connected-to-two-layers.dsl](../layout-gen-rules/thing-connected-to-two-layers.dsl))
+- ✓ [Line 1515](gl:docs/dev/layout-gen/layout-alg.md#L1515): `#e2-outer,#e1-mid,#e3-deep have same y` ([thing-connected-to-two-layers-02.dsl](../layout-gen-rules/thing-connected-to-two-layers-02.dsl))
+- ✓ [Line 1516](gl:docs/dev/layout-gen/layout-alg.md#L1516): `#t1-span,#c1-note have same y` ([thing-connected-to-two-layers-03.dsl](../layout-gen-rules/thing-connected-to-two-layers-03.dsl))
+- ✓ [Line 1517](gl:docs/dev/layout-gen/layout-alg.md#L1517): `#t1-span is below #e1-mid with gap=40` ([thing-connected-to-two-layers-04.dsl](../layout-gen-rules/thing-connected-to-two-layers-04.dsl))
+- ✓ [Line 1518](gl:docs/dev/layout-gen/layout-alg.md#L1518): `#t1-span is left-of #c1-note with gap=40` ([thing-connected-to-two-layers-05.dsl](../layout-gen-rules/thing-connected-to-two-layers-05.dsl))
+- ✓ [Line 1519](gl:docs/dev/layout-gen/layout-alg.md#L1519): `#e1-mid is horizontally-centered-between #t1-span,#c1-note` ([thing-connected-to-two-layers-06.dsl](../layout-gen-rules/thing-connected-to-two-layers-06.dsl))
+- ✓ [Line 1520](gl:docs/dev/layout-gen/layout-alg.md#L1520): `edge #t1-span,#e2-outer has visibility=visible` ([thing-connected-to-two-layers-07.dsl](../layout-gen-rules/thing-connected-to-two-layers-07.dsl))
+- ✓ [Line 1521](gl:docs/dev/layout-gen/layout-alg.md#L1521): `edge #t1-span,#e1-mid has visibility=visible` ([thing-connected-to-two-layers-08.dsl](../layout-gen-rules/thing-connected-to-two-layers-08.dsl))
+- ✓ [Line 1522](gl:docs/dev/layout-gen/layout-alg.md#L1522): `edge #t1-span,#e2-outer has source-side=top` ([thing-connected-to-two-layers-09.dsl](../layout-gen-rules/thing-connected-to-two-layers-09.dsl))
+- ✓ [Line 1523](gl:docs/dev/layout-gen/layout-alg.md#L1523): `edge #t1-span,#e1-mid has source-side=top` ([thing-connected-to-two-layers-10.dsl](../layout-gen-rules/thing-connected-to-two-layers-10.dsl))
+- ✓ [Line 1524](gl:docs/dev/layout-gen/layout-alg.md#L1524): `edge #t1-span,#e2-outer has target-side=bottom` ([thing-connected-to-two-layers-11.dsl](../layout-gen-rules/thing-connected-to-two-layers-11.dsl))
+- ✓ [Line 1525](gl:docs/dev/layout-gen/layout-alg.md#L1525): `edge #t1-span,#e1-mid has target-side=bottom` ([thing-connected-to-two-layers-12.dsl](../layout-gen-rules/thing-connected-to-two-layers-12.dsl))
+- ✓ [Line 1526](gl:docs/dev/layout-gen/layout-alg.md#L1526): `#S is above #e2-outer with gap=40` ([thing-connected-to-two-layers-13.dsl](../layout-gen-rules/thing-connected-to-two-layers-13.dsl))
+- ✓ [Line 1527](gl:docs/dev/layout-gen/layout-alg.md#L1527): `#E is below #t1-span with gap=40` ([thing-connected-to-two-layers-14.dsl](../layout-gen-rules/thing-connected-to-two-layers-14.dsl))
 
 ## Rendered Diagram
 

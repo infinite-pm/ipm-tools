@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L375-L377 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-leads-to-edge-stays-straight-past-a-thing-or-concept)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L442-L444 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-leads-to-edge-stays-straight-past-a-thing-or-concept)
 
 ## ipmt Content
 
@@ -24,7 +24,7 @@ e1, e2 <--::P-- t1 ::t
 
 ## Layout Validation Rules
 
-Test line: 375
+Test line: 442
 
 ✅ All 5 rules passed
 
@@ -32,7 +32,7 @@ Test line: 375
 - ✓ [Line 82](gl:docs/dev/layout-gen/layout-alg.md#L82): `type=event has width=120` ([one-event.dsl](../layout-gen-rules/one-event.dsl))
 - ✓ [Line 83](gl:docs/dev/layout-gen/layout-alg.md#L83): `type=event has min-gap-to-others>=10` ([one-event-02.dsl](../layout-gen-rules/one-event-02.dsl))
 - ✓ [Line 84](gl:docs/dev/layout-gen/layout-alg.md#L84): `type=boundary has size=40x40` ([one-event-03.dsl](../layout-gen-rules/one-event-03.dsl))
-- ✓ [Line 391](gl:docs/dev/layout-gen/layout-alg.md#L391): `edge #e1,#e2 is vertical` ([a-leads-to-edge-stays-straight-past-a-thing-or-concept.dsl](../layout-gen-rules/a-leads-to-edge-stays-straight-past-a-thing-or-concept.dsl))
+- ✓ [Line 458](gl:docs/dev/layout-gen/layout-alg.md#L458): `edge #e1,#e2 is vertical` ([a-leads-to-edge-stays-straight-past-a-thing-or-concept.dsl](../layout-gen-rules/a-leads-to-edge-stays-straight-past-a-thing-or-concept.dsl))
 
 ## Rendered Diagram
 

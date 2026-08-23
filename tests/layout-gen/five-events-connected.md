@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L168-L169 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#five-events-connected)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L235-L236 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#five-events-connected)
 
 ## ipmt Content
 
@@ -23,7 +23,7 @@ e1 ::e --> e2 ::e --> e3 ::e --> e4 ::e --> e5 ::e
 
 ## Layout Validation Rules
 
-Test line: 168
+Test line: 235
 
 ✅ All 5 rules passed
 
@@ -31,7 +31,7 @@ Test line: 168
 - ✓ [Line 82](gl:docs/dev/layout-gen/layout-alg.md#L82): `type=event has width=120` ([one-event.dsl](../layout-gen-rules/one-event.dsl))
 - ✓ [Line 83](gl:docs/dev/layout-gen/layout-alg.md#L83): `type=event has min-gap-to-others>=10` ([one-event-02.dsl](../layout-gen-rules/one-event-02.dsl))
 - ✓ [Line 84](gl:docs/dev/layout-gen/layout-alg.md#L84): `type=boundary has size=40x40` ([one-event-03.dsl](../layout-gen-rules/one-event-03.dsl))
-- ✓ [Line 183](gl:docs/dev/layout-gen/layout-alg.md#L183): `#S,#e1,#e2,#e3,#e4,#e5,#E have same center-x` ([five-events-connected.dsl](../layout-gen-rules/five-events-connected.dsl))
+- ✓ [Line 250](gl:docs/dev/layout-gen/layout-alg.md#L250): `#S,#e1,#e2,#e3,#e4,#e5,#E have same center-x` ([five-events-connected.dsl](../layout-gen-rules/five-events-connected.dsl))
 
 ## Rendered Diagram
 

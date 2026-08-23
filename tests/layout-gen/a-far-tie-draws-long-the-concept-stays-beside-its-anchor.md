@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2648-L2651 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-far-tie-draws-long-the-concept-stays-beside-its-anchor)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2715-L2718 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-far-tie-draws-long-the-concept-stays-beside-its-anchor)
 
 ## ipmt Content
 
@@ -25,22 +25,22 @@ e8 --::X--> c1-far
 
 ## Layout Validation Rules
 
-Test line: 2648
+Test line: 2715
 
 ⚠️ 11/12 rules passed
 
 - ✗ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` - **edge e8->c1-far has 1 bends > max-bends 0 (each-edge default; if the detour is intended, add it to `except` and pin it with `edge #e8,#c1-far has max-bends=1`)** ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2673](gl:docs/dev/layout-gen/layout-alg.md#L2673): `each edge has max-bends=0 except #e8,#c1-far` ([a-far-tie-draws-long-the-concept-stays-beside-its-anchor.dsl](../layout-gen-rules/a-far-tie-draws-long-the-concept-stays-beside-its-anchor.dsl))
-- ✓ [Line 2674](gl:docs/dev/layout-gen/layout-alg.md#L2674): `edge #e8,#c1-far has max-bends=1` ([a-far-tie-draws-long-the-concept-stays-beside-its-anchor-02.dsl](../layout-gen-rules/a-far-tie-draws-long-the-concept-stays-beside-its-anchor-02.dsl))
-- ✓ [Line 2675](gl:docs/dev/layout-gen/layout-alg.md#L2675): `edge #e8,#c1-far has source-side=right` ([a-far-tie-draws-long-the-concept-stays-beside-its-anchor-03.dsl](../layout-gen-rules/a-far-tie-draws-long-the-concept-stays-beside-its-anchor-03.dsl))
-- ✓ [Line 2676](gl:docs/dev/layout-gen/layout-alg.md#L2676): `edge #e8,#c1-far has target-side=bottom` ([a-far-tie-draws-long-the-concept-stays-beside-its-anchor-04.dsl](../layout-gen-rules/a-far-tie-draws-long-the-concept-stays-beside-its-anchor-04.dsl))
-- ✓ [Line 2677](gl:docs/dev/layout-gen/layout-alg.md#L2677): `edge #e8,#c1-far has target-position=0.5` ([a-far-tie-draws-long-the-concept-stays-beside-its-anchor-05.dsl](../layout-gen-rules/a-far-tie-draws-long-the-concept-stays-beside-its-anchor-05.dsl))
-- ✓ [Line 2678](gl:docs/dev/layout-gen/layout-alg.md#L2678): `#e1,#c1-far have same y` ([a-far-tie-draws-long-the-concept-stays-beside-its-anchor-06.dsl](../layout-gen-rules/a-far-tie-draws-long-the-concept-stays-beside-its-anchor-06.dsl))
-- ✓ [Line 2679](gl:docs/dev/layout-gen/layout-alg.md#L2679): `#c1-far is right-of #e1 with gap=60` ([a-far-tie-draws-long-the-concept-stays-beside-its-anchor-07.dsl](../layout-gen-rules/a-far-tie-draws-long-the-concept-stays-beside-its-anchor-07.dsl))
-- ✓ [Line 2680](gl:docs/dev/layout-gen/layout-alg.md#L2680): `edge #e1,#c1-far has visibility=visible` ([a-far-tie-draws-long-the-concept-stays-beside-its-anchor-08.dsl](../layout-gen-rules/a-far-tie-draws-long-the-concept-stays-beside-its-anchor-08.dsl))
-- ✓ [Line 2681](gl:docs/dev/layout-gen/layout-alg.md#L2681): `edge #e8,#c1-far has visibility=visible` ([a-far-tie-draws-long-the-concept-stays-beside-its-anchor-09.dsl](../layout-gen-rules/a-far-tie-draws-long-the-concept-stays-beside-its-anchor-09.dsl))
-- ✓ [Line 2682](gl:docs/dev/layout-gen/layout-alg.md#L2682): `node #e6 does not straddle edge #e8,#c1-far` ([a-far-tie-draws-long-the-concept-stays-beside-its-anchor-10.dsl](../layout-gen-rules/a-far-tie-draws-long-the-concept-stays-beside-its-anchor-10.dsl))
-- ✓ [Line 2683](gl:docs/dev/layout-gen/layout-alg.md#L2683): `node #e7 does not straddle edge #e8,#c1-far` ([a-far-tie-draws-long-the-concept-stays-beside-its-anchor-11.dsl](../layout-gen-rules/a-far-tie-draws-long-the-concept-stays-beside-its-anchor-11.dsl))
+- ✓ [Line 2740](gl:docs/dev/layout-gen/layout-alg.md#L2740): `each edge has max-bends=0 except #e8,#c1-far` ([a-far-tie-draws-long-the-concept-stays-beside-its-anchor.dsl](../layout-gen-rules/a-far-tie-draws-long-the-concept-stays-beside-its-anchor.dsl))
+- ✓ [Line 2741](gl:docs/dev/layout-gen/layout-alg.md#L2741): `edge #e8,#c1-far has max-bends=1` ([a-far-tie-draws-long-the-concept-stays-beside-its-anchor-02.dsl](../layout-gen-rules/a-far-tie-draws-long-the-concept-stays-beside-its-anchor-02.dsl))
+- ✓ [Line 2742](gl:docs/dev/layout-gen/layout-alg.md#L2742): `edge #e8,#c1-far has source-side=right` ([a-far-tie-draws-long-the-concept-stays-beside-its-anchor-03.dsl](../layout-gen-rules/a-far-tie-draws-long-the-concept-stays-beside-its-anchor-03.dsl))
+- ✓ [Line 2743](gl:docs/dev/layout-gen/layout-alg.md#L2743): `edge #e8,#c1-far has target-side=bottom` ([a-far-tie-draws-long-the-concept-stays-beside-its-anchor-04.dsl](../layout-gen-rules/a-far-tie-draws-long-the-concept-stays-beside-its-anchor-04.dsl))
+- ✓ [Line 2744](gl:docs/dev/layout-gen/layout-alg.md#L2744): `edge #e8,#c1-far has target-position=0.5` ([a-far-tie-draws-long-the-concept-stays-beside-its-anchor-05.dsl](../layout-gen-rules/a-far-tie-draws-long-the-concept-stays-beside-its-anchor-05.dsl))
+- ✓ [Line 2745](gl:docs/dev/layout-gen/layout-alg.md#L2745): `#e1,#c1-far have same y` ([a-far-tie-draws-long-the-concept-stays-beside-its-anchor-06.dsl](../layout-gen-rules/a-far-tie-draws-long-the-concept-stays-beside-its-anchor-06.dsl))
+- ✓ [Line 2746](gl:docs/dev/layout-gen/layout-alg.md#L2746): `#c1-far is right-of #e1 with gap=60` ([a-far-tie-draws-long-the-concept-stays-beside-its-anchor-07.dsl](../layout-gen-rules/a-far-tie-draws-long-the-concept-stays-beside-its-anchor-07.dsl))
+- ✓ [Line 2747](gl:docs/dev/layout-gen/layout-alg.md#L2747): `edge #e1,#c1-far has visibility=visible` ([a-far-tie-draws-long-the-concept-stays-beside-its-anchor-08.dsl](../layout-gen-rules/a-far-tie-draws-long-the-concept-stays-beside-its-anchor-08.dsl))
+- ✓ [Line 2748](gl:docs/dev/layout-gen/layout-alg.md#L2748): `edge #e8,#c1-far has visibility=visible` ([a-far-tie-draws-long-the-concept-stays-beside-its-anchor-09.dsl](../layout-gen-rules/a-far-tie-draws-long-the-concept-stays-beside-its-anchor-09.dsl))
+- ✓ [Line 2749](gl:docs/dev/layout-gen/layout-alg.md#L2749): `node #e6 does not straddle edge #e8,#c1-far` ([a-far-tie-draws-long-the-concept-stays-beside-its-anchor-10.dsl](../layout-gen-rules/a-far-tie-draws-long-the-concept-stays-beside-its-anchor-10.dsl))
+- ✓ [Line 2750](gl:docs/dev/layout-gen/layout-alg.md#L2750): `node #e7 does not straddle edge #e8,#c1-far` ([a-far-tie-draws-long-the-concept-stays-beside-its-anchor-11.dsl](../layout-gen-rules/a-far-tie-draws-long-the-concept-stays-beside-its-anchor-11.dsl))
 
 ## Rendered Diagram
 

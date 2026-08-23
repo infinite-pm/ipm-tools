@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2102-L2106 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#concept-hierarchy-diamond-pattern)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2169-L2173 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#concept-hierarchy-diamond-pattern)
 
 ## ipmt Content
 
@@ -26,15 +26,15 @@ c-Right --> c-Join
 
 ## Layout Validation Rules
 
-Test line: 2102
+Test line: 2169
 
 ✅ All 5 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2118](gl:docs/dev/layout-gen/layout-alg.md#L2118): `#c-Left,#c-Right have same y` ([concept-hierarchy-diamond-pattern.dsl](../layout-gen-rules/concept-hierarchy-diamond-pattern.dsl))
-- ✓ [Line 2119](gl:docs/dev/layout-gen/layout-alg.md#L2119): `#c-Join is below #c-Left with gap=40` ([concept-hierarchy-diamond-pattern-02.dsl](../layout-gen-rules/concept-hierarchy-diamond-pattern-02.dsl))
-- ✓ [Line 2120](gl:docs/dev/layout-gen/layout-alg.md#L2120): `#c-Root is above #c-Left with gap=40` ([concept-hierarchy-diamond-pattern-03.dsl](../layout-gen-rules/concept-hierarchy-diamond-pattern-03.dsl))
-- ✓ [Line 2121](gl:docs/dev/layout-gen/layout-alg.md#L2121): `#c-Root,#c-Join have same center-x` ([concept-hierarchy-diamond-pattern-04.dsl](../layout-gen-rules/concept-hierarchy-diamond-pattern-04.dsl))
+- ✓ [Line 2185](gl:docs/dev/layout-gen/layout-alg.md#L2185): `#c-Left,#c-Right have same y` ([concept-hierarchy-diamond-pattern.dsl](../layout-gen-rules/concept-hierarchy-diamond-pattern.dsl))
+- ✓ [Line 2186](gl:docs/dev/layout-gen/layout-alg.md#L2186): `#c-Join is below #c-Left with gap=40` ([concept-hierarchy-diamond-pattern-02.dsl](../layout-gen-rules/concept-hierarchy-diamond-pattern-02.dsl))
+- ✓ [Line 2187](gl:docs/dev/layout-gen/layout-alg.md#L2187): `#c-Root is above #c-Left with gap=40` ([concept-hierarchy-diamond-pattern-03.dsl](../layout-gen-rules/concept-hierarchy-diamond-pattern-03.dsl))
+- ✓ [Line 2188](gl:docs/dev/layout-gen/layout-alg.md#L2188): `#c-Root,#c-Join have same center-x` ([concept-hierarchy-diamond-pattern-04.dsl](../layout-gen-rules/concept-hierarchy-diamond-pattern-04.dsl))
 
 ## Rendered Diagram
 

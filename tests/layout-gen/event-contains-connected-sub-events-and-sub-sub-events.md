@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L852-L858 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#event-contains-connected-sub-events-and-sub-sub-events)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L919-L925 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#event-contains-connected-sub-events-and-sub-sub-events)
 
 ## ipmt Content
 
@@ -28,7 +28,7 @@ e3b --> e3c
 
 ## Layout Validation Rules
 
-Test line: 852
+Test line: 919
 
 ✅ All 9 rules passed
 
@@ -36,11 +36,11 @@ Test line: 852
 - ✓ [Line 82](gl:docs/dev/layout-gen/layout-alg.md#L82): `type=event has width=120` ([one-event.dsl](../layout-gen-rules/one-event.dsl))
 - ✓ [Line 83](gl:docs/dev/layout-gen/layout-alg.md#L83): `type=event has min-gap-to-others>=10` ([one-event-02.dsl](../layout-gen-rules/one-event-02.dsl))
 - ✓ [Line 84](gl:docs/dev/layout-gen/layout-alg.md#L84): `type=boundary has size=40x40` ([one-event-03.dsl](../layout-gen-rules/one-event-03.dsl))
-- ✓ [Line 876](gl:docs/dev/layout-gen/layout-alg.md#L876): `#e1,#e2,#e3 have same center-x` ([event-contains-connected-sub-events-and-sub-sub-events.dsl](../layout-gen-rules/event-contains-connected-sub-events-and-sub-sub-events.dsl))
-- ✓ [Line 877](gl:docs/dev/layout-gen/layout-alg.md#L877): `#e1a,#e1b,#e3a,#e3b,#e3c have same center-x` ([event-contains-connected-sub-events-and-sub-sub-events-02.dsl](../layout-gen-rules/event-contains-connected-sub-events-and-sub-sub-events-02.dsl))
-- ✓ [Line 878](gl:docs/dev/layout-gen/layout-alg.md#L878): `#e1a is right-of #e1 with gap=60` ([event-contains-connected-sub-events-and-sub-sub-events-03.dsl](../layout-gen-rules/event-contains-connected-sub-events-and-sub-sub-events-03.dsl))
-- ✓ [Line 879](gl:docs/dev/layout-gen/layout-alg.md#L879): `#e3b1 is right-of #e3c with gap=60` ([event-contains-connected-sub-events-and-sub-sub-events-04.dsl](../layout-gen-rules/event-contains-connected-sub-events-and-sub-sub-events-04.dsl))
-- ✓ [Line 880](gl:docs/dev/layout-gen/layout-alg.md#L880): `#e3c,#e3b1 have same y` ([event-contains-connected-sub-events-and-sub-sub-events-05.dsl](../layout-gen-rules/event-contains-connected-sub-events-and-sub-sub-events-05.dsl))
+- ✓ [Line 943](gl:docs/dev/layout-gen/layout-alg.md#L943): `#e1,#e2,#e3 have same center-x` ([event-contains-connected-sub-events-and-sub-sub-events.dsl](../layout-gen-rules/event-contains-connected-sub-events-and-sub-sub-events.dsl))
+- ✓ [Line 944](gl:docs/dev/layout-gen/layout-alg.md#L944): `#e1a,#e1b,#e3a,#e3b,#e3c have same center-x` ([event-contains-connected-sub-events-and-sub-sub-events-02.dsl](../layout-gen-rules/event-contains-connected-sub-events-and-sub-sub-events-02.dsl))
+- ✓ [Line 945](gl:docs/dev/layout-gen/layout-alg.md#L945): `#e1a is right-of #e1 with gap=60` ([event-contains-connected-sub-events-and-sub-sub-events-03.dsl](../layout-gen-rules/event-contains-connected-sub-events-and-sub-sub-events-03.dsl))
+- ✓ [Line 946](gl:docs/dev/layout-gen/layout-alg.md#L946): `#e3b1 is right-of #e3c with gap=60` ([event-contains-connected-sub-events-and-sub-sub-events-04.dsl](../layout-gen-rules/event-contains-connected-sub-events-and-sub-sub-events-04.dsl))
+- ✓ [Line 947](gl:docs/dev/layout-gen/layout-alg.md#L947): `#e3c,#e3b1 have same y` ([event-contains-connected-sub-events-and-sub-sub-events-05.dsl](../layout-gen-rules/event-contains-connected-sub-events-and-sub-sub-events-05.dsl))
 
 ## Rendered Diagram
 

@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L820-L823 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#event-contains-sub-events-with-mixed-connections)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L887-L890 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#event-contains-sub-events-with-mixed-connections)
 
 ## ipmt Content
 
@@ -25,7 +25,7 @@ e2a --> e2b
 
 ## Layout Validation Rules
 
-Test line: 820
+Test line: 887
 
 ✅ All 8 rules passed
 
@@ -33,10 +33,10 @@ Test line: 820
 - ✓ [Line 82](gl:docs/dev/layout-gen/layout-alg.md#L82): `type=event has width=120` ([one-event.dsl](../layout-gen-rules/one-event.dsl))
 - ✓ [Line 83](gl:docs/dev/layout-gen/layout-alg.md#L83): `type=event has min-gap-to-others>=10` ([one-event-02.dsl](../layout-gen-rules/one-event-02.dsl))
 - ✓ [Line 84](gl:docs/dev/layout-gen/layout-alg.md#L84): `type=boundary has size=40x40` ([one-event-03.dsl](../layout-gen-rules/one-event-03.dsl))
-- ✓ [Line 843](gl:docs/dev/layout-gen/layout-alg.md#L843): `#e2 is vertically-centered-between #e2a,#e2b` ([event-contains-sub-events-with-mixed-connections.dsl](../layout-gen-rules/event-contains-sub-events-with-mixed-connections.dsl))
-- ✓ [Line 844](gl:docs/dev/layout-gen/layout-alg.md#L844): `#e2a is right-of #e2 with gap=60` ([event-contains-sub-events-with-mixed-connections-02.dsl](../layout-gen-rules/event-contains-sub-events-with-mixed-connections-02.dsl))
-- ✓ [Line 845](gl:docs/dev/layout-gen/layout-alg.md#L845): `#e2a,#e2b have same center-x` ([event-contains-sub-events-with-mixed-connections-03.dsl](../layout-gen-rules/event-contains-sub-events-with-mixed-connections-03.dsl))
-- ✓ [Line 846](gl:docs/dev/layout-gen/layout-alg.md#L846): `#S,#e1,#e2,#e3,#E have same center-x` ([event-contains-sub-events-with-mixed-connections-04.dsl](../layout-gen-rules/event-contains-sub-events-with-mixed-connections-04.dsl))
+- ✓ [Line 910](gl:docs/dev/layout-gen/layout-alg.md#L910): `#e2 is vertically-centered-between #e2a,#e2b` ([event-contains-sub-events-with-mixed-connections.dsl](../layout-gen-rules/event-contains-sub-events-with-mixed-connections.dsl))
+- ✓ [Line 911](gl:docs/dev/layout-gen/layout-alg.md#L911): `#e2a is right-of #e2 with gap=60` ([event-contains-sub-events-with-mixed-connections-02.dsl](../layout-gen-rules/event-contains-sub-events-with-mixed-connections-02.dsl))
+- ✓ [Line 912](gl:docs/dev/layout-gen/layout-alg.md#L912): `#e2a,#e2b have same center-x` ([event-contains-sub-events-with-mixed-connections-03.dsl](../layout-gen-rules/event-contains-sub-events-with-mixed-connections-03.dsl))
+- ✓ [Line 913](gl:docs/dev/layout-gen/layout-alg.md#L913): `#S,#e1,#e2,#e3,#E have same center-x` ([event-contains-sub-events-with-mixed-connections-04.dsl](../layout-gen-rules/event-contains-sub-events-with-mixed-connections-04.dsl))
 
 ## Rendered Diagram
 
