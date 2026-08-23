@@ -3325,7 +3325,7 @@ node #e2a does not straddle edge #tA,#e1
 node #e2b does not straddle edge #tA,#e2a
 ```
 
-### near-to peers in a column: neighbours link, spanning ties hide
+### near-to peers in a column: neighbours link, the spanning tie bypasses
 
 ```ipmt
 e1a ::e
@@ -3392,6 +3392,111 @@ edge #e1a,#e1c has source-position=0.75
 edge #e1a,#e1c has target-side=right
 edge #e1a,#e1c has target-position=0.25
 edge #e1a,#e1c has max-bends=2
+```
+
+### a denser clique hides the tie neither end needs
+
+The paragraph above ends by saying that when NO side is clear the tie falls
+back to HIDDEN — this is the smallest diagram where that actually happens. Six
+things, all fifteen pairs near-to: every one of them is drawn except `t3 --- t4`,
+which becomes a numbered stub pair. Nothing is lost — a stub is still a
+relation the reader can follow — but the picture reads as one group of peers
+instead of a ball of wool.
+
+Six is the threshold on this shape: the same clique with five things draws all
+ten ties. And hiding one is not the engine giving up early — K6 has no planar
+drawing at all, so some crossings are arithmetic, not a placement failure: this
+case carries three in the invariant baseline, by construction.
+
+```ipmt
+t1 --- t2
+t1 --- t3
+t1 --- t4
+t1 --- t5
+t1 --- t6
+t2 --- t3
+t2 --- t4
+t2 --- t5
+t2 --- t6
+t3 --- t4
+t3 --- t5
+t3 --- t6
+t4 --- t5
+t4 --- t6
+t5 --- t6
+```
+<!-- ipm-svg id=259 hash=4d6d4df4 -->
+![](../../../_ipm/docs/dev/layout-gen/layout-alg/259.ipm.svg)
+
+Visual rules:
+- Six green things; fourteen ties drawn, one pair of numbered "?" stubs.
+
+Layout rules:
+- Exactly one tie hides, and it is one both ends can spare — every thing keeps
+  visible ties of its own.
+
+```ipmdev-layout-rule
+@scope local
+each edge has max-bends=0 except #t2,#t4 #t2,#t6 #t5,#t6
+edge #t3,#t4 has visibility=stubbed
+edge #t3,#t5 has visibility=visible
+edge #t3,#t6 has visibility=visible
+edge #t1,#t4 has visibility=visible
+edge #t4,#t5 has visibility=visible
+edge #t4,#t6 has visibility=visible
+edge #t2,#t4 has max-bends=2
+edge #t2,#t6 has max-bends=1
+edge #t5,#t6 has max-bends=2
+```
+
+### a lone tie is never the one that hides
+
+The same clique with one more thing hanging off it: `t7` is near-to `t3` and
+nothing else. That tie draws — a node's only connection is what makes it part
+of the picture at all — and the tie that hides is again one between two
+well-connected peers, here `t2 --- t6`. Which pair it is depends on the
+geometry; that it is a pair both ends can spare does not.
+
+```ipmt
+t1 --- t2
+t1 --- t3
+t1 --- t4
+t1 --- t5
+t1 --- t6
+t2 --- t3
+t2 --- t4
+t2 --- t5
+t2 --- t6
+t3 --- t4
+t3 --- t5
+t3 --- t6
+t4 --- t5
+t4 --- t6
+t5 --- t6
+t7 --- t3
+```
+<!-- ipm-svg id=25d hash=0e022ef1 -->
+![](../../../_ipm/docs/dev/layout-gen/layout-alg/25d.ipm.svg)
+
+Visual rules:
+- The lone thing sits beside its partner with a plain drawn tie.
+
+Layout rules:
+- The degree-one tie is visible; a peer-to-peer tie is the one stubbed.
+
+```ipmdev-layout-rule
+@scope local
+each edge has max-bends=0 except #t1,#t4 #t1,#t5 #t1,#t6 #t3,#t4 #t3,#t5 #t3,#t6
+edge #t7,#t3 has visibility=visible
+edge #t2,#t6 has visibility=stubbed
+#t7 has x=40
+all #t7,#t3 have same y
+edge #t1,#t4 has max-bends=1
+edge #t1,#t5 has max-bends=1
+edge #t1,#t6 has max-bends=1
+edge #t3,#t4 has max-bends=1
+edge #t3,#t5 has max-bends=2
+edge #t3,#t6 has max-bends=2
 ```
 
 ### near-to peers in a row: neighbours link, the spanning tie dips below
