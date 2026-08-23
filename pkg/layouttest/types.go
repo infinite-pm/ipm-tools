@@ -18,6 +18,12 @@ type Node struct {
 	Height int    `json:"height"`
 	Color  string `json:"color"`
 	Text   string `json:"text"`
+	// Places is how many nodes of the layout carry this same rule-name — one
+	// for an ordinary node, more when a participant is DRAWN more than once
+	// (pkg/layoutdupe) or when a shape repeats a marker (every component gets
+	// its own S and E). A selector reaches only the first of them, so this is
+	// how a rule says "this is drawn twice" or "this is drawn once".
+	Places int `json:"places,omitempty"`
 }
 
 // CenterX returns the center X coordinate of the node
@@ -53,6 +59,8 @@ func (n *Node) GetProperty(name string) string {
 		return fmt.Sprintf("%d", n.CenterX())
 	case "center-y":
 		return fmt.Sprintf("%d", n.CenterY())
+	case "places":
+		return fmt.Sprintf("%d", n.Places)
 	default:
 		return ""
 	}

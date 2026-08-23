@@ -117,6 +117,10 @@ Where the caller can place components itself (the zoom canvas anchors every
 component by node id), `GenerateWithHints` hands it each copy's intended place,
 since a copy's id is new and would otherwise have nowhere to be.
 
+Worked examples — one per decision the pass makes, small enough to read —
+are the catalogue lane [layout-alg-dupe.md](layout-alg-dupe.md)
+(`tests/layout-gen-dupe`, run by `make layout-test`).
+
 ## Post-placement passes in `pkg/layout`
 
 An edge route is only partly relative. The PORTS are box-relative — "left

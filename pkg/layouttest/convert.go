@@ -45,9 +45,17 @@ func FromLayoutGraph(graph *layout.Graph) *Layout {
 		return id
 	}
 
+	// How many boxes carry each rule-name: a participant drawn in several
+	// places has the same name in each of them.
+	places := make(map[string]int, len(nameByID))
+	for _, name := range nameByID {
+		places[name]++
+	}
+
 	for _, node := range graph.Nodes {
 		testLayout.Nodes = append(testLayout.Nodes, Node{
 			ID:     resolve(node.ID),
+			Places: places[resolve(node.ID)],
 			Type:   node.Type,
 			X:      node.X,
 			Y:      node.Y,

@@ -109,6 +109,28 @@
         }
     },
     {
+        "name": "ipmt layout algorithm duplication",
+        "destination": "layout-gen-dupe",
+        "source_files": [ "../docs/dev/layout-gen/layout-alg-dupe.md" ],
+        "method": "parser",
+        "params": {
+            "parser_name": "ipmt-md",
+            "parser_params": {
+                "filter": "valid"
+            }
+        }
+    },
+    {
+        "name": "layout duplication test rules",
+        "destination": "layout-gen-dupe-rules",
+        "source_files": [ "../docs/dev/layout-gen/layout-alg-dupe.md" ],
+        "method": "parser",
+        "params": {
+            "parser_name": "ipmdev-layout-rule-md",
+            "parser_params": {}
+        }
+    },
+    {
         "name": "ipmt examples in Markdown files",
         "destination": "ipmt/files-md",
         "sources_glob": [ "../**/*.md" ],

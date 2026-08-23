@@ -284,6 +284,11 @@ Properties define what to validate about selected nodes.
 - `y` - Vertical position (top edge)
 - `center-x` - Horizontal center position
 - `center-y` - Vertical center position
+- `places` - How many boxes of the layout carry this name: `1` for an ordinary
+  node, more when a participant is DRAWN more than once (pkg/layoutdupe) or a
+  marker repeats (every component gets its own S and E). A `#name` selector
+  reaches only the first of them, so this is how a rule says "drawn twice"
+  (`#cX has places=2`) or "drawn once" (`#eH has places=1`).
 
 ### Comparison Operators
 
@@ -1201,5 +1206,5 @@ has no vocabulary for them. Highest-leverage additions first:
 - **Arbitrary-set centroid** — the two-anchor midpoint IS expressible
   (`is vertically-centered-between`/`is horizontally-centered-between`), but there
   is no "A's centre = centroid of an arbitrary set {B,C,D,…}".
-- **Bounds + range/inequality positions** — position minimums exist (`#h1 has y>=300`, also `x`/`center-x`/`center-y`), but there is no `<=` implementation for any property, no `bounds.width/height <= N`, no `gap` ranges or open `>`/`<`, no count predicate (`>= N rows`).
+- **Bounds + range/inequality positions** — position minimums exist (`#h1 has y>=300`, also `x`/`center-x`/`center-y`), but there is no `<=` implementation for any property, no `bounds.width/height <= N`, no `gap` ranges or open `>`/`<`, and no count predicate over a SET (`>= N rows`) — the one count that exists is per-name, `places` (above).
 - **Disjunction** — no `any-of { … } { … }` for "either horizontal- or vertical-near is acceptable".

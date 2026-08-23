@@ -15,6 +15,7 @@ import (
 	"github.com/infinite-pm/ipm-tools/pkg/ipm/validate"
 	"github.com/infinite-pm/ipm-tools/pkg/layout"
 	"github.com/infinite-pm/ipm-tools/pkg/layout7"
+	"github.com/infinite-pm/ipm-tools/pkg/layoutdupe"
 	"github.com/infinite-pm/ipm-tools/pkg/layouttest"
 )
 
@@ -59,6 +60,8 @@ func main() {
 	verbose := flag.Bool("v", false, "Verbose output")
 	surveyAll := flag.Bool("all", false, "Report every failing rule for every case (no score, don't stop)")
 	flag.BoolVar(&engineShells, "shells", false, "lay the cases out with layout7 Options.Shells (composite shells as engine output; the tests/layout-gen-shells corpus)")
+	flag.IntVar(&duplicateMinNodes, "duplicate-min-nodes", 0, "with --duplicate: the diagram size below which the pass does nothing (0 = the shipped default, 16). The dupe corpus runs with 1, so its cases can stay small enough to read")
+	flag.BoolVar(&engineDuplicate, "duplicate", false, "lay the cases out with participant DUPLICATION on (pkg/layoutdupe: a thing or a concept whose users sit too far apart to read it from where they are is drawn once per cluster of them; the tests/layout-gen-dupe corpus)")
 	flag.Parse()
 
 	// Load test references
@@ -432,6 +435,18 @@ func loadIPMGraph(inputPath string) (*model.IpmGraph, error) {
 // shells corpus pins what the engine draws around an open composite.
 var engineShells bool
 
+// engineDuplicate runs every case through pkg/layoutdupe (--duplicate): the
+// dupe corpus pins WHICH nodes get drawn more than once and where the copies
+// land. A copy's node id is minted by the pass (max id + 1, in plan order), so
+// a rule addresses it as #<alias> of the original with the copy's id — the
+// case's own rules say which.
+var engineDuplicate bool
+
+// duplicateMinNodes overrides layoutdupe's size gate for the corpus (0 keeps
+// the shipped default): the policy exists because small real diagrams gain
+// nothing, but a CASE has to be small to be readable.
+var duplicateMinNodes int
+
 func runLayoutGen(inputPath, outputPath string) (*layouttest.Layout, error) {
 	// Read input
 	input, err := os.ReadFile(inputPath)
@@ -451,7 +466,18 @@ func runLayoutGen(inputPath, outputPath string) (*layouttest.Layout, error) {
 	case cli.InputTypeLayoutGraph:
 		graph = detected.LayoutGraph
 	case cli.InputTypeIPMGraph, cli.InputTypeIPMT:
-		graph, err = layout7.GenerateWithOptions(detected.IPMGraph, layout7.Options{Shells: engineShells})
+		opts := layout7.Options{Shells: engineShells}
+		if engineDuplicate {
+			res, derr := layoutdupe.GenerateWith(detected.IPMGraph, layoutdupe.Options{MinNodes: duplicateMinNodes}, func(d *model.IpmGraph) (*layout.Graph, error) {
+				return layout7.GenerateWithOptions(d, opts)
+			})
+			if derr != nil {
+				return nil, fmt.Errorf("duplicating: %w", derr)
+			}
+			graph = res.Graph
+			break
+		}
+		graph, err = layout7.GenerateWithOptions(detected.IPMGraph, opts)
 		if err != nil {
 			return nil, fmt.Errorf("generating layout: %w", err)
 		}
