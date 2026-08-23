@@ -12,7 +12,7 @@
 
 ```ipmt
 # @test-tags: simple, single-event, long-text
-e1 ::e [This is a very long label that needs more height]
+e1::a This is a very long label that needs more height ::e
 ```
 
 ## Generated Files

@@ -2,12 +2,12 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "# @test-tags: simple, single-event, long-text\ne1 ::e [This is a very long label that needs more height]",
+    "ipmt": "# @test-tags: simple, single-event, long-text\ne1::a This is a very long label that needs more height ::e",
     "positions": {
       "nodes": {
         "1": [
-          46,
-          48
+          52,
+          100
         ]
       },
       "edges": {}
@@ -16,8 +16,8 @@
   "nodes": [
     {
       "id": 1,
-      "name": "e1",
-      "alias": "",
+      "name": "This is a very long label that needs more height",
+      "alias": "e1",
       "type": "Event"
     }
   ],

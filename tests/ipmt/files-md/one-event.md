@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/dsl-reference.md#L994-L996 | [docs/dev/layout-gen/dsl-reference.md](../../../docs/dev/layout-gen/dsl-reference.md#one-event)
+**Source:** gl:docs/dev/layout-gen/dsl-reference.md#L999-L1001 | [docs/dev/layout-gen/dsl-reference.md](../../../docs/dev/layout-gen/dsl-reference.md#one-event)
 
 ## ipmt Content
 
