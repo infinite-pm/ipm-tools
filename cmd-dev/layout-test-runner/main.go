@@ -59,6 +59,7 @@ func main() {
 	testDir := flag.String("dir", "tests/layout-gen", "Test directory")
 	verbose := flag.Bool("v", false, "Verbose output")
 	surveyAll := flag.Bool("all", false, "Report every failing rule for every case (no score, don't stop)")
+	flag.BoolVar(&engineContainers, "containers", false, "lay the cases out with layout7 Options.Containers and no shells (a composite's sub-grid claims its own rows; the tests/layout-gen-containers corpus) — the mode the zoom canvas runs in")
 	flag.BoolVar(&engineShells, "shells", false, "lay the cases out with layout7 Options.Shells (composite shells as engine output; the tests/layout-gen-shells corpus)")
 	flag.IntVar(&duplicateMinNodes, "duplicate-min-nodes", 0, "with --duplicate: the diagram size below which the pass does nothing (0 = the shipped default, 16). The dupe corpus runs with 1, so its cases can stay small enough to read")
 	flag.BoolVar(&engineDuplicate, "duplicate", false, "lay the cases out with participant DUPLICATION on (pkg/layoutdupe: a thing or a concept whose users sit too far apart to read it from where they are is drawn once per cluster of them; the tests/layout-gen-dupe corpus)")
@@ -435,6 +436,12 @@ func loadIPMGraph(inputPath string) (*model.IpmGraph, error) {
 // shells corpus pins what the engine draws around an open composite.
 var engineShells bool
 
+// engineContainers runs every case with layout7 Options.Containers and no
+// shell boxes (--containers): the containers corpus pins what the grid does to
+// the rows around it, which the shells corpus always measures with a shell's
+// padding on top.
+var engineContainers bool
+
 // engineDuplicate runs every case through pkg/layoutdupe (--duplicate): the
 // dupe corpus pins WHICH nodes get drawn more than once and where the copies
 // land. A copy's node id is minted by the pass (max id + 1, in plan order), so
@@ -466,7 +473,7 @@ func runLayoutGen(inputPath, outputPath string) (*layouttest.Layout, error) {
 	case cli.InputTypeLayoutGraph:
 		graph = detected.LayoutGraph
 	case cli.InputTypeIPMGraph, cli.InputTypeIPMT:
-		opts := layout7.Options{Shells: engineShells}
+		opts := layout7.Options{Containers: engineContainers, Shells: engineShells}
 		if engineDuplicate {
 			res, derr := layoutdupe.GenerateWith(detected.IPMGraph, layoutdupe.Options{MinNodes: duplicateMinNodes}, func(d *model.IpmGraph) (*layout.Graph, error) {
 				return layout7.GenerateWithOptions(d, opts)

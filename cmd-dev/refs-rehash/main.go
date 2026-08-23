@@ -51,6 +51,7 @@ var defaultDirs = []string{
 	"tests/layout-gen-ext",
 	"tests/layout-gen-shells",
 	"tests/layout-gen-dupe",
+	"tests/layout-gen-containers",
 }
 
 // standardOutputKeys are the generated-artifact suffixes sync-test-cases

@@ -86,12 +86,14 @@ build-dev:
 layout-test:
 	@go run ./cmd-dev/layout-test-runner -v
 	@go run ./cmd-dev/layout-test-runner -v --dir tests/layout-gen-ext
+	@go run ./cmd-dev/layout-test-runner -v --containers --dir tests/layout-gen-containers
 	@go run ./cmd-dev/layout-test-runner -v --shells --dir tests/layout-gen-shells
 	@go run ./cmd-dev/layout-test-runner -v --duplicate --duplicate-min-nodes 1 --dir tests/layout-gen-dupe
 
 layout-fitness:
 	@go run ./cmd-dev/layout-test-runner
 	@go run ./cmd-dev/layout-test-runner --dir tests/layout-gen-ext
+	@go run ./cmd-dev/layout-test-runner --containers --dir tests/layout-gen-containers
 	@go run ./cmd-dev/layout-test-runner --shells --dir tests/layout-gen-shells
 	@go run ./cmd-dev/layout-test-runner --duplicate --duplicate-min-nodes 1 --dir tests/layout-gen-dupe
 

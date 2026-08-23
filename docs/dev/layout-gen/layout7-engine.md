@@ -121,6 +121,17 @@ Worked examples — one per decision the pass makes, small enough to read —
 are the catalogue lane [layout-alg-dupe.md](layout-alg-dupe.md)
 (`tests/layout-gen-dupe`, run by `make layout-test`).
 
+**The catalogue's lanes.** One per way of running the engine, each with its own
+fixture dir and runner flag, all four run by `make layout-test`:
+
+| lane | runs | shows |
+| --- | --- | --- |
+| [layout-alg.md](layout-alg.md) | default options | the grammar's geometry, events → things → concepts |
+| [layout-alg-ext.md](layout-alg-ext.md) | default options | the combinations the base cases do not reach |
+| [layout-alg-containers.md](layout-alg-containers.md) | `--containers` | a composite's sub-grid claims its own rows (what the zoom canvas runs) |
+| [layout-alg-shells.md](layout-alg-shells.md) | `--shells` | the box drawn around an open composite, on top of that |
+| [layout-alg-dupe.md](layout-alg-dupe.md) | `--duplicate` | a participant drawn where it is used |
+
 ## Post-placement passes in `pkg/layout`
 
 An edge route is only partly relative. The PORTS are box-relative — "left

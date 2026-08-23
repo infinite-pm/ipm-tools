@@ -109,6 +109,28 @@
         }
     },
     {
+        "name": "ipmt layout algorithm containers",
+        "destination": "layout-gen-containers",
+        "source_files": [ "../docs/dev/layout-gen/layout-alg-containers.md" ],
+        "method": "parser",
+        "params": {
+            "parser_name": "ipmt-md",
+            "parser_params": {
+                "filter": "valid"
+            }
+        }
+    },
+    {
+        "name": "layout containers test rules",
+        "destination": "layout-gen-containers-rules",
+        "source_files": [ "../docs/dev/layout-gen/layout-alg-containers.md" ],
+        "method": "parser",
+        "params": {
+            "parser_name": "ipmdev-layout-rule-md",
+            "parser_params": {}
+        }
+    },
+    {
         "name": "ipmt layout algorithm duplication",
         "destination": "layout-gen-dupe",
         "source_files": [ "../docs/dev/layout-gen/layout-alg-dupe.md" ],
