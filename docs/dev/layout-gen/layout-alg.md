@@ -141,6 +141,73 @@ follows the widest node in the component), so wider boxes never overlap their
 neighbours. The same rule applies to things and concepts; boundary nodes are
 fixed-size and exempt.
 
+### a bracket note is not part of the label, so it does not size the box
+
+Text in `[...]` after a name is a note for the reader of the SOURCE, not part
+of the node's name: it is stripped before the label is sized, so a node with a
+sentence of note in brackets is the same box as a node without one. Quoting the
+whole name keeps the brackets inside it — and then they do count, because they
+are the name.
+
+```ipmt
+e1 [a note the sizer must ignore] ::e --> e2 [another note] ::e
+```
+<!-- ipm-svg id=11i hash=c9ac6220 -->
+![](../../../_ipm/docs/dev/layout-gen/layout-alg/11i.ipm.svg)
+
+Layout rules:
+- Both events are base-sized, notes or not.
+
+```ipmdev-layout-rule
+@scope local
+#e1 has size=120x60
+#e2 has size=120x60
+all #e1,#e2 have same center-x
+```
+
+### a quoted name keeps its brackets, and pays for them
+
+The same text twice: `p1` lets the brackets be a note, `p2` quotes the whole
+name so they are part of it. Same characters in the source, one line of height
+apart in the picture.
+
+```ipmt
+p1::a a name [with a note that the sizer ignores] ::c --- p2::a "a name [with a note that the sizer ignores]" ::c
+```
+<!-- ipm-svg id=11r hash=ae09d141 -->
+![](../../../_ipm/docs/dev/layout-gen/layout-alg/11r.ipm.svg)
+
+Layout rules:
+- The note costs nothing; the quoted name costs a line.
+
+```ipmdev-layout-rule
+@scope local
+#p1 has height=60
+#p2 has height=80
+```
+
+### a hyphenated name wraps at its hyphens
+
+Wrapping breaks at spaces AND at hyphens, so a hyphenated identifier reaches
+the line end sooner than the same characters run together — one line taller for
+three extra characters. Worth knowing before naming things `a-b-c-d` in a
+diagram that is already tight.
+
+```ipmt
+aaaaaabbbbbbccccccdddddd ::t --- aaaaaa-bbbbbb-cccccc-dddddd ::t
+```
+<!-- ipm-svg id=11v hash=1d9726fc -->
+![](../../../_ipm/docs/dev/layout-gen/layout-alg/11v.ipm.svg)
+
+Layout rules:
+- The run-together name fits the base box; the hyphenated one needs a line more.
+
+```ipmdev-layout-rule
+@scope local
+#aaaaaabbbbbbccccccdddddd has height=60
+#aaaaaa-bbbbbb-cccccc-dddddd has height=80
+```
+
 ### two events connected
 
 ```ipmt
@@ -2938,6 +3005,58 @@ things-left canon), on its anchor event's row.
 each type=unresolved has size=120x60
 #u1 is left-of #e1 with gap=60
 all #e1,#u1 have same y
+```
+
+### a concept-primary undecided node lands on the concepts flank
+
+The other side of the same rule. `::?ce` places exactly like a real `::c` —
+right of its anchor, on its row — and the edge it carries is inferred from the
+primary too: `e1 --> u1` becomes an EXPRESSES, where the `::?te` case above
+made the same arrow a PART-OF. The two blocks differ by two letters and share
+nothing else.
+
+```ipmt
+e1 ::e --> e2 ::e
+e1 --> u1 ::?ce
+```
+<!-- ipm-svg id=1ym hash=684eea65 -->
+![](../../../_ipm/docs/dev/layout-gen/layout-alg/1ym.ipm.svg)
+
+Layout rules:
+- `u1` sits right of `e1` on its row, a concept's place.
+
+```ipmdev-layout-rule
+@scope local
+each type=unresolved has size=120x60
+#u1 is right-of #e1 with gap=60
+all #e1,#u1 have same y
+edge #e1,#u1 has type=expresses
+```
+
+### an event-primary undecided node joins the spine
+
+Swap the same two letters again — `::?et` instead of `::?te` — and the node
+stops being an aux at all: the arrow is a LEADS-TO, `u1` heads the timeline
+(the Start boundary moves onto it) and the events below shift down a row. One
+character of candidate order decides the skeleton, which is why the order is
+worth writing deliberately rather than letting the solver's default stand.
+
+```ipmt
+e1 ::e --> e2 ::e
+u1 ::?et --> e1
+```
+<!-- ipm-svg id=1yo hash=422ffc74 -->
+![](../../../_ipm/docs/dev/layout-gen/layout-alg/1yo.ipm.svg)
+
+Layout rules:
+- `u1`, `e1` and `e2` share the spine's column, `u1` first.
+
+```ipmdev-layout-rule
+@scope local
+all #u1,#e1,#e2 have same center-x
+#e1 is below #u1 with gap=60
+edge #u1,#e1 has type=leadsto
+edge #u1,#e1 is vertical
 ```
 
 ### undecided borders weight the primary candidate

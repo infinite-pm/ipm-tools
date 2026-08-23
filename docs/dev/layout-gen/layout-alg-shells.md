@@ -161,3 +161,102 @@ all #tB1,#tB2,#tB3,#tB4,#tB5 have same center-x
 all #tB3,#e2 have same y
 edge #eC,#e2 is vertical
 ```
+
+### a covering thing stays outside the shell and connects to the composite itself
+
+A thing that is part of the COMPOSITE — not of one of its members — is a
+participant of the whole event, so it sits outside the shell like any other aux
+and keeps one straight connector to `eC`'s own box. The shell is transparent
+for it: the edge crosses the border and lands on the composite, not on the
+shell. (The naive answer — attach to the box you can see — is what the retired
+frame pipeline did.)
+
+```ipmt
+# ipmt: embed=false
+a ::e --> b ::e --> c ::e
+a, b, c --::P--> eC ::e
+who ::t --::P--> eC
+```
+
+![a covering thing stays outside the shell and connects to the composite itself](../../../tests/layout-gen-shells/a-covering-thing-stays-outside-the-shell-and-connects-to-the-composite-itself.ipm.svg)
+
+```ipmdev-layout-rule
+@scope local
+#shell-eC has x=200
+#shell-eC has y=120
+#shell-eC has size=340x340
+#who is left-of #shell-eC with gap=40
+all #who,#eC have same y
+edge #who,#eC has max-bends=0
+edge #who,#eC has source-side=right
+edge #who,#eC has target-side=left
+```
+
+### a nested composite shares its root's shell
+
+Shells are drawn per ROOT composite, not per composite: `m2` is itself open and
+holds `n1 → n2`, and no shell is drawn around them — the one shell grows to
+cover everything the root contains, two levels deep. A shell inside a shell
+would read as two regions where the document has one. (The step BELOW keeps
+the usual `RowGap` from the shell; the one above sits further off — the nested
+grid's overhang pushes the shell down — so only the bottom gap is pinned here.)
+
+The size is the assertion: 520x280 is the box around {eC ∪ its members ∪ their
+members} with one pad of air. An inner shell around `m2` would move `n1`/`n2`
+and change it. (The rule DSL has no "is absent" predicate, and a rule naming a
+node that does not exist fails by design — so absence is pinned by the geometry
+the absence produces, not by naming `shell-m2`.)
+
+```ipmt
+# ipmt: embed=false
+e1 ::e --> eC ::e --> e2 ::e
+m1 ::e --> m2 ::e
+m1, m2 --::P--> eC
+n1 ::e --> n2 ::e
+n1, n2 --::P--> m2
+```
+
+![a nested composite shares its root's shell](../../../tests/layout-gen-shells/a-nested-composite-shares-its-roots-shell.ipm.svg)
+
+```ipmdev-layout-rule
+@scope local
+#shell-eC has x=40
+#shell-eC has y=300
+#shell-eC has size=520x280
+#m1 has x=240
+#m2 has y=440
+#n1 has x=420
+#n2 has y=500
+#e2 is below #shell-eC with gap=60
+```
+
+### two root composites get one shell each, and the spine threads between them
+
+The other half of the same rule: two independent composites on one chain are
+two roots, so two shells, and the step between them keeps its row gap from each
+in turn. The spine stays in one column throughout — the shells widen the
+picture to their right, they do not bend the story.
+
+```ipmt
+# ipmt: embed=false
+e1 ::e --> eA ::e --> e3 ::e --> eB ::e --> e5 ::e
+m1 ::e --> m2 ::e
+m1, m2 --::P--> eA
+n1 ::e --> n2 ::e
+n1, n2 --::P--> eB
+```
+
+![two root composites get one shell each, and the spine threads between them](../../../tests/layout-gen-shells/two-root-composites-get-one-shell-each-and-the-spine-threads-between-them.ipm.svg)
+
+```ipmdev-layout-rule
+@scope local
+#shell-eA has y=240
+#shell-eA has size=340x220
+#shell-eB has y=640
+#shell-eB has size=340x220
+#e3 is below #shell-eA with gap=60
+#shell-eB is below #e3 with gap=60
+all #e1,#eA,#e3,#eB,#e5 have same center-x
+edge #eA,#e3 is vertical
+edge #e3,#eB is vertical
+```
