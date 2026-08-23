@@ -1,0 +1,75 @@
+[
+    {
+        "source": "../../docs/dev/layout-gen/layout-alg-anchor.md",
+        "source_sha1": "f995cc32a158be0bb0ff053e11a27857c9771ea8",
+        "name": "ipmt layout algorithm anchor",
+        "method": "parser",
+        "parser_name": "ipmt-md",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmt"
+        },
+        "items": [
+            {
+                "destination": "a-component-that-grows-does-not-re-tile-the-ones-that-did-not",
+                "line": 37,
+                "anchor": "#a-component-that-grows-does-not-re-tile-the-ones-that-did-not",
+                "content_sha1": "4e09ee5bf2fabc88273af0a6dc5af55fb8a53299",
+                "outputs": {
+                    "ipm.svg": "75970c867806529aa9250e418d28322ac092988c",
+                    "ipmt": "4e09ee5bf2fabc88273af0a6dc5af55fb8a53299",
+                    "json": "abea1e771e89df16a9c58908cb48fb9c02384823",
+                    "layout.json": "f739f249394a5cf37fd00233e4cb81250b7fe21c",
+                    "md": "1b95174caae6ac61f8a17c94c31c170a1e2d43c7"
+                },
+                "heading": "a component that grows does not re-tile the ones that did not",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-component-that-grows-does-not-re-tile-the-ones-that-did-not-02",
+                "line": 56,
+                "anchor": "#a-component-that-grows-does-not-re-tile-the-ones-that-did-not",
+                "content_sha1": "09c947c636359cf664c320b132da4b86775ae0e7",
+                "outputs": {
+                    "ipm.svg": "c2c9039d99e1e59aa46687af7df0566fb4e45f27",
+                    "ipmt": "09c947c636359cf664c320b132da4b86775ae0e7",
+                    "json": "d4121e4374eeba9dece3f4aa414950702e936bb9",
+                    "layout.json": "4ff3d2d9486d061ef72b670d370eccd91a9e9bc0",
+                    "md": "2c76687cdf5487cf494aa450d8d20abcf712e16e"
+                },
+                "heading": "a component that grows does not re-tile the ones that did not",
+                "section": "Cases"
+            },
+            {
+                "destination": "anchoring-a-layout-to-itself-changes-nothing",
+                "line": 90,
+                "anchor": "#anchoring-a-layout-to-itself-changes-nothing",
+                "content_sha1": "18f9b6cc34680d70b8cfe804618891434fe6af50",
+                "outputs": {
+                    "ipm.svg": "197b6f7ad10afc5624b807d05277b7f4b05d48d6",
+                    "ipmt": "18f9b6cc34680d70b8cfe804618891434fe6af50",
+                    "json": "5021094fb34ead77d3baf8ecd6622df5f57ead1a",
+                    "layout.json": "4d766538c16f3d2a6d8392410383071970f2582d",
+                    "md": "15e8a47f7e06a1149959ed64ea323d83d55d2cd1"
+                },
+                "heading": "anchoring a layout to itself changes nothing",
+                "section": "Cases"
+            },
+            {
+                "destination": "anchoring-a-layout-to-itself-changes-nothing-02",
+                "line": 100,
+                "anchor": "#anchoring-a-layout-to-itself-changes-nothing",
+                "content_sha1": "86e9b78345b2267d6e0d8f62a4353b12010679a9",
+                "outputs": {
+                    "ipm.svg": "197b6f7ad10afc5624b807d05277b7f4b05d48d6",
+                    "ipmt": "86e9b78345b2267d6e0d8f62a4353b12010679a9",
+                    "json": "ab79d808ea332d3be27b9ac89c7d9032ab8edc24",
+                    "layout.json": "4d766538c16f3d2a6d8392410383071970f2582d",
+                    "md": "ab0351a9a07e0d4007b351b4167d9c47a581962a"
+                },
+                "heading": "anchoring a layout to itself changes nothing",
+                "section": "Cases"
+            }
+        ]
+    }
+]

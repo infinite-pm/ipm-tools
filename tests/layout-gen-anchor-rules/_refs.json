@@ -1,0 +1,202 @@
+[
+    {
+        "source": "../../docs/dev/layout-gen/layout-alg-anchor.md",
+        "source_sha1": "f995cc32a158be0bb0ff053e11a27857c9771ea8",
+        "name": "layout anchor test rules",
+        "method": "parser",
+        "parser_name": "ipmdev-layout-rule-md",
+        "parser_meta": {
+            "item_subtype": "valid",
+            "item_type": "ipmdev-layout-rule"
+        },
+        "items": [
+            {
+                "destination": "a-component-that-grows-does-not-re-tile-the-ones-that-did-not",
+                "line": 74,
+                "anchor": "#a-component-that-grows-does-not-re-tile-the-ones-that-did-not",
+                "content_sha1": "51494dc50c40e8aa325dc9e668bee6255a22f527",
+                "outputs": {
+                    "dsl": "51494dc50c40e8aa325dc9e668bee6255a22f527"
+                },
+                "heading": "a component that grows does not re-tile the ones that did not",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-component-that-grows-does-not-re-tile-the-ones-that-did-not-02",
+                "line": 75,
+                "anchor": "#a-component-that-grows-does-not-re-tile-the-ones-that-did-not",
+                "content_sha1": "e987e86d9a9e26880e235cb5bc97e26ef0627847",
+                "outputs": {
+                    "dsl": "e987e86d9a9e26880e235cb5bc97e26ef0627847"
+                },
+                "heading": "a component that grows does not re-tile the ones that did not",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-component-that-grows-does-not-re-tile-the-ones-that-did-not-03",
+                "line": 76,
+                "anchor": "#a-component-that-grows-does-not-re-tile-the-ones-that-did-not",
+                "content_sha1": "0e33bb61be54e35110aee7194c3da60eeebd389a",
+                "outputs": {
+                    "dsl": "0e33bb61be54e35110aee7194c3da60eeebd389a"
+                },
+                "heading": "a component that grows does not re-tile the ones that did not",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-component-that-grows-does-not-re-tile-the-ones-that-did-not-04",
+                "line": 77,
+                "anchor": "#a-component-that-grows-does-not-re-tile-the-ones-that-did-not",
+                "content_sha1": "b6e0883289a4dca20b486b8f5fbd94c468d9520c",
+                "outputs": {
+                    "dsl": "b6e0883289a4dca20b486b8f5fbd94c468d9520c"
+                },
+                "heading": "a component that grows does not re-tile the ones that did not",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-component-that-grows-does-not-re-tile-the-ones-that-did-not-05",
+                "line": 78,
+                "anchor": "#a-component-that-grows-does-not-re-tile-the-ones-that-did-not",
+                "content_sha1": "1c693daf56545c5ece6a1477dbe28008379ce251",
+                "outputs": {
+                    "dsl": "1c693daf56545c5ece6a1477dbe28008379ce251"
+                },
+                "heading": "a component that grows does not re-tile the ones that did not",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-component-that-grows-does-not-re-tile-the-ones-that-did-not-06",
+                "line": 79,
+                "anchor": "#a-component-that-grows-does-not-re-tile-the-ones-that-did-not",
+                "content_sha1": "1ce213706cab4ea14231a6270c1ac68956bbc58b",
+                "outputs": {
+                    "dsl": "1ce213706cab4ea14231a6270c1ac68956bbc58b"
+                },
+                "heading": "a component that grows does not re-tile the ones that did not",
+                "section": "Cases"
+            },
+            {
+                "destination": "a-component-that-grows-does-not-re-tile-the-ones-that-did-not-07",
+                "line": 80,
+                "anchor": "#a-component-that-grows-does-not-re-tile-the-ones-that-did-not",
+                "content_sha1": "229e719a58b9a71cda7f878c5af2e08cdf1d0f20",
+                "outputs": {
+                    "dsl": "229e719a58b9a71cda7f878c5af2e08cdf1d0f20"
+                },
+                "heading": "a component that grows does not re-tile the ones that did not",
+                "section": "Cases"
+            },
+            {
+                "destination": "anchoring-a-layout-to-itself-changes-nothing",
+                "line": 117,
+                "anchor": "#anchoring-a-layout-to-itself-changes-nothing",
+                "content_sha1": "c83ba06fc2adc137534962cd276742f8e815da74",
+                "outputs": {
+                    "dsl": "c83ba06fc2adc137534962cd276742f8e815da74"
+                },
+                "heading": "anchoring a layout to itself changes nothing",
+                "section": "Cases"
+            },
+            {
+                "destination": "anchoring-a-layout-to-itself-changes-nothing-02",
+                "line": 118,
+                "anchor": "#anchoring-a-layout-to-itself-changes-nothing",
+                "content_sha1": "3c0043b7660c61bca9fa66b8648f323ffc34fd26",
+                "outputs": {
+                    "dsl": "3c0043b7660c61bca9fa66b8648f323ffc34fd26"
+                },
+                "heading": "anchoring a layout to itself changes nothing",
+                "section": "Cases"
+            },
+            {
+                "destination": "anchoring-a-layout-to-itself-changes-nothing-03",
+                "line": 119,
+                "anchor": "#anchoring-a-layout-to-itself-changes-nothing",
+                "content_sha1": "8c50bc471da6e68b63fc58d45d34af0010f040ed",
+                "outputs": {
+                    "dsl": "8c50bc471da6e68b63fc58d45d34af0010f040ed"
+                },
+                "heading": "anchoring a layout to itself changes nothing",
+                "section": "Cases"
+            },
+            {
+                "destination": "anchoring-a-layout-to-itself-changes-nothing-04",
+                "line": 120,
+                "anchor": "#anchoring-a-layout-to-itself-changes-nothing",
+                "content_sha1": "52d4b5c87112e032b704f61153f5531480926cbd",
+                "outputs": {
+                    "dsl": "52d4b5c87112e032b704f61153f5531480926cbd"
+                },
+                "heading": "anchoring a layout to itself changes nothing",
+                "section": "Cases"
+            },
+            {
+                "destination": "anchoring-a-layout-to-itself-changes-nothing-05",
+                "line": 121,
+                "anchor": "#anchoring-a-layout-to-itself-changes-nothing",
+                "content_sha1": "ec5e49128967b7baee528ee0dbb4163ef9d010cb",
+                "outputs": {
+                    "dsl": "ec5e49128967b7baee528ee0dbb4163ef9d010cb"
+                },
+                "heading": "anchoring a layout to itself changes nothing",
+                "section": "Cases"
+            },
+            {
+                "destination": "anchoring-a-layout-to-itself-changes-nothing-06",
+                "line": 122,
+                "anchor": "#anchoring-a-layout-to-itself-changes-nothing",
+                "content_sha1": "48474ca4d775dd11bdd34db90440fc5868e0e617",
+                "outputs": {
+                    "dsl": "48474ca4d775dd11bdd34db90440fc5868e0e617"
+                },
+                "heading": "anchoring a layout to itself changes nothing",
+                "section": "Cases"
+            },
+            {
+                "destination": "anchoring-a-layout-to-itself-changes-nothing-07",
+                "line": 123,
+                "anchor": "#anchoring-a-layout-to-itself-changes-nothing",
+                "content_sha1": "0415543e2ccac4daa6768418421aaf18a2c02c8b",
+                "outputs": {
+                    "dsl": "0415543e2ccac4daa6768418421aaf18a2c02c8b"
+                },
+                "heading": "anchoring a layout to itself changes nothing",
+                "section": "Cases"
+            },
+            {
+                "destination": "anchoring-a-layout-to-itself-changes-nothing-08",
+                "line": 124,
+                "anchor": "#anchoring-a-layout-to-itself-changes-nothing",
+                "content_sha1": "a464584e7521f19d7e3ed0c47d93663753739045",
+                "outputs": {
+                    "dsl": "a464584e7521f19d7e3ed0c47d93663753739045"
+                },
+                "heading": "anchoring a layout to itself changes nothing",
+                "section": "Cases"
+            },
+            {
+                "destination": "anchoring-a-layout-to-itself-changes-nothing-09",
+                "line": 125,
+                "anchor": "#anchoring-a-layout-to-itself-changes-nothing",
+                "content_sha1": "c93538d2a358324afc8182da935bf3d1e7006fca",
+                "outputs": {
+                    "dsl": "c93538d2a358324afc8182da935bf3d1e7006fca"
+                },
+                "heading": "anchoring a layout to itself changes nothing",
+                "section": "Cases"
+            },
+            {
+                "destination": "anchoring-a-layout-to-itself-changes-nothing-10",
+                "line": 126,
+                "anchor": "#anchoring-a-layout-to-itself-changes-nothing",
+                "content_sha1": "7d8357e9fffcb6e21e17e7f2690f1d461197d5c9",
+                "outputs": {
+                    "dsl": "7d8357e9fffcb6e21e17e7f2690f1d461197d5c9"
+                },
+                "heading": "anchoring a layout to itself changes nothing",
+                "section": "Cases"
+            }
+        ]
+    }
+]

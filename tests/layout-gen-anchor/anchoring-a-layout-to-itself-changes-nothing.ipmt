@@ -1,0 +1,4 @@
+# ipmt: embed=false
+e1 ::e --> e2 ::e --> e3 ::e
+e2 <-- tA
+e2 --> cX ::c
