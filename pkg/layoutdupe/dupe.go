@@ -57,7 +57,11 @@ type Options struct {
 	// median is still readable.
 	MinLongPx float64
 	// MinNodes is the size below which the pass does nothing. Small diagrams
-	// gained nothing and lost area in measurement.
+	// gained nothing and lost area in measurement — and worse, a copy in a
+	// small picture reads as a fork rather than a second place: on an 18-node
+	// murder mystery the pass split a concept's own three children across two
+	// boxes, which is exactly what a reader calls weird. Everything is within
+	// reach at that size anyway.
 	MinNodes int
 	// FirstCopyID is the id the first copy takes; copies count up from it.
 	// A caller that runs the pass over SUBGRAPHS of one document — the zoom
@@ -72,7 +76,7 @@ type Options struct {
 
 // DefaultOptions are the measured starting values.
 func DefaultOptions() Options {
-	return Options{LongFactor: 2.0, MinLongPx: 320, MinNodes: 16}
+	return Options{LongFactor: 2.0, MinLongPx: 320, MinNodes: 24}
 }
 
 func (o Options) withDefaults() Options {

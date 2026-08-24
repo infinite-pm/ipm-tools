@@ -101,7 +101,7 @@ func baseOf(t model.SstLinkType) string {
 }
 
 func TestTaxonomyHubIsDrawnInSeveralPlaces(t *testing.T) {
-	doc := taxonomy(8)
+	doc := taxonomy(12)
 	res, err := GenerateWithHints(doc, Options{}, fakeLayoutHinted)
 	if err != nil {
 		t.Fatal(err)
@@ -186,7 +186,7 @@ func TestNoNodeIsLeftWithoutEdges(t *testing.T) {
 // diagram with every node an event (legal: event→event) gets none. Only the
 // kind differs, so only the kind can explain the difference.
 func TestEventsAreNeverCopied(t *testing.T) {
-	control, err := GenerateWithHints(taxonomy(9), Options{}, fakeLayoutHinted)
+	control, err := GenerateWithHints(taxonomy(12), Options{}, fakeLayoutHinted)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -194,7 +194,7 @@ func TestEventsAreNeverCopied(t *testing.T) {
 		t.Fatal("control: a concept hub reached from across the diagram must be copied")
 	}
 
-	doc := taxonomy(9)
+	doc := taxonomy(12)
 	name := map[string]string{}
 	for i := range doc.Nodes {
 		doc.Nodes[i].Type = model.Event // users, partners and hub alike
@@ -217,7 +217,7 @@ func TestEventsAreNeverCopied(t *testing.T) {
 // kindOf — so it must here too. It read as "not a participant" once, which
 // switched duplication off for every document still being edited.
 func TestUnresolvedActsAsItsPrimaryCandidate(t *testing.T) {
-	doc := taxonomy(9)
+	doc := taxonomy(12)
 	hub := &doc.Nodes[len(doc.Nodes)-1]
 	hub.Type = model.Unresolved
 	hub.Candidates = []model.NodeType{model.Concept, model.Thing}
@@ -239,7 +239,7 @@ func TestContainersAreNeverCopied(t *testing.T) {
 	g := &model.IpmGraph{Version: "test"}
 	eid := 0
 	var kids []int
-	for i := 1; i <= 20; i += 2 {
+	for i := 1; i <= 28; i += 2 {
 		// a part, and a partner beside it so the diagram has short edges too
 		g.Nodes = append(g.Nodes,
 			model.Node{ID: i, Name: fmt.Sprintf("p%d", i), Type: model.Thing},
@@ -248,7 +248,7 @@ func TestContainersAreNeverCopied(t *testing.T) {
 		g.Edges = append(g.Edges, model.Edge{ID: eid, Source: i, Target: i + 1, SstLinkType: model.NearTo})
 		kids = append(kids, i)
 	}
-	whole := 21
+	whole := 29
 	g.Nodes = append(g.Nodes, model.Node{ID: whole, Name: "the whole", Type: model.Thing})
 	for _, k := range kids { // child → parent, thing → thing
 		eid++
@@ -307,7 +307,7 @@ func TestDeterministic(t *testing.T) {
 // Small diagrams are left alone: measurement showed they gain nothing and pay
 // area for it.
 func TestSmallDiagramsAreLeftAlone(t *testing.T) {
-	doc := taxonomy(4) // 5 nodes, under MinNodes
+	doc := taxonomy(4) // 9 nodes, well under MinNodes (24)
 	res, err := GenerateWith(doc, Options{}, fakeLayout)
 	if err != nil {
 		t.Fatal(err)
@@ -370,7 +370,7 @@ func TestATangledLayoutIsNotAnImprovement(t *testing.T) {
 // and it can be, because the engine re-places everything from the new input —
 // the single-placement layout is kept and the caller is told.
 func TestAWorseLayoutIsRejected(t *testing.T) {
-	doc := taxonomy(9)
+	doc := taxonomy(12)
 	worse := func(d *model.IpmGraph) (*layout.Graph, error) {
 		g, _ := fakeLayout(d)
 		// The rewritten graph has more nodes; scatter THAT one violently.
@@ -402,7 +402,7 @@ func TestAWorseLayoutIsRejected(t *testing.T) {
 // never heard of this package still has to be able to say "one of several
 // places", and the Copies map travels only to callers who ask for it.
 func TestEveryCopyIsStampedOnTheLayout(t *testing.T) {
-	doc := taxonomy(9)
+	doc := taxonomy(12)
 	res, err := GenerateWithHints(doc, Options{}, fakeLayoutHinted)
 	if err != nil {
 		t.Fatal(err)
