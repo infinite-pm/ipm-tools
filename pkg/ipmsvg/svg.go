@@ -555,7 +555,12 @@ func drawPlaceBadges(b *strings.Builder, nodes []layout.Node) {
 			n := nodes[i]
 			label := fmt.Sprintf("%d/%d", place+1, len(idx))
 			w := 9 + 6*len(label)
-			x, y := n.X+n.Width-w+4, n.Y-3
+			// BOTTOM-right. "This participant is also over there" is one thing
+			// to a reader, and it is read in one corner: the board's own badge
+			// for the same relation across panels has always sat here, and a
+			// place badge at the top made the same number mean two things
+			// depending on which canvas you were looking at.
+			x, y := n.X+n.Width-w+4, n.Y+n.Height-12
 			fmt.Fprintf(b, "    <g class=\"copy-badge\" data-node-id=\"%s\" data-of=\"%d\">\n",
 				html.EscapeString(n.ID), len(idx))
 			fmt.Fprintf(b, "      <title>%s</title>\n",
