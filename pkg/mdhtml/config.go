@@ -32,6 +32,10 @@ type Config struct {
 	// Footer is the bottom bar (tagline + per-page "view source").
 	Footer FooterConfig `json:"footer"`
 
+	// Head is the page metadata search engines and link previews read:
+	// description, canonical URL, Open Graph / Twitter card, icons.
+	Head HeadConfig `json:"head"`
+
 	// NoTOC disables the auto-generated table of contents. Default is
 	// false → TOC is rendered after the H1 of every page that has at
 	// least one H2.
@@ -78,6 +82,10 @@ type FooterConfig struct {
 type FileMapping struct {
 	Src string `json:"src"`
 	Out string `json:"out"`
+	// Title, when set, is the page's <title> as given (title_template is not
+	// applied); Description replaces the one taken from the first paragraph.
+	Title       string `json:"title,omitempty"`
+	Description string `json:"description,omitempty"`
 }
 
 type GlobMapping struct {
@@ -121,6 +129,12 @@ type ResolvedMapping struct {
 	SrcAbs string
 	OutAbs string
 	SrcRel string
+	// OutRel is the output path relative to out_dir, slash-separated - what
+	// the page's canonical URL is built from.
+	OutRel string
+	// Title and Description are a file entry's overrides; "" for globs.
+	Title       string
+	Description string
 }
 
 // ResolveMappings expands Files + Globs into concrete file pairs.
@@ -154,7 +168,8 @@ func ResolveMappings(cfg *Config, configDir string) ([]ResolvedMapping, error) {
 			srcRel = rel
 		}
 		out = append(out, ResolvedMapping{
-			SrcAbs: srcAbs, OutAbs: outAbs, SrcRel: srcRel,
+			SrcAbs: srcAbs, OutAbs: outAbs, SrcRel: srcRel, OutRel: outRelOf(outDirAbs, outAbs),
+			Title: f.Title, Description: f.Description,
 		})
 	}
 
@@ -179,7 +194,7 @@ func ResolveMappings(cfg *Config, configDir string) ([]ResolvedMapping, error) {
 			}
 			outAbs := filepath.Join(outDirAbs, outRel)
 			out = append(out, ResolvedMapping{
-				SrcAbs: m, OutAbs: outAbs, SrcRel: rel,
+				SrcAbs: m, OutAbs: outAbs, SrcRel: rel, OutRel: outRelOf(outDirAbs, outAbs),
 			})
 		}
 	}

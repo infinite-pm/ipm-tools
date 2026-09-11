@@ -36,17 +36,28 @@ var paletteCSS = palettePrelude +
 
 // RenderResult is the per-file outcome of a render run.
 type RenderResult struct {
-	SrcAbs     string
-	OutAbs     string
-	Title      string
-	IpmtBlocks int
-	SVGEmbeds  int
+	SrcAbs string
+	OutAbs string
+	Title  string
+	// Description is the page's meta description ("" when it has none).
+	Description string
+	// AutoDescription is the first paragraph's full plain text, before any
+	// file-entry override or clipping.
+	AutoDescription string
+	IpmtBlocks      int
+	SVGEmbeds       int
 }
 
 // RenderPage produces the full HTML page for one markdown source.
 // `srcRel` is the source path relative to the config root, used in the
 // header's "View source on GitHub" link.
 func RenderPage(cfg *Config, srcAbs, outAbs, srcRel string) (*RenderResult, error) {
+	return renderPage(cfg, srcAbs, outAbs, srcRel, pageMeta{})
+}
+
+// renderPage is RenderPage with a file entry's head overrides and the page's
+// place under out_dir (see RenderMapping).
+func renderPage(cfg *Config, srcAbs, outAbs, srcRel string, meta pageMeta) (*RenderResult, error) {
 	raw, err := os.ReadFile(srcAbs)
 	if err != nil {
 		return nil, fmt.Errorf("read %s: %w", srcAbs, err)
@@ -59,7 +70,13 @@ func RenderPage(cfg *Config, srcAbs, outAbs, srcRel string) (*RenderResult, erro
 	}
 
 	title := extractTitle(text)
-	pageHTML := wrapPage(cfg, srcRel, title, body)
+	titleText := pageTitle(cfg, srcRel, title, meta.Title)
+	res.Description = meta.Description
+	if res.Description == "" {
+		res.Description = clipDescription(res.AutoDescription, descriptionMax)
+	}
+	head := headTags(cfg, srcRel, titleText, res.Description, meta.OutRel)
+	pageHTML := wrapPage(cfg, srcRel, titleText, head, body)
 
 	if err := os.MkdirAll(filepath.Dir(outAbs), 0o755); err != nil {
 		return nil, err
@@ -143,7 +160,7 @@ func renderBody(cfg *Config, text, srcAbs, outAbs string) (string, *RenderResult
 			if markerStart+1 < len(lines) {
 				if mk, ok := mdembed.ParseMarker(lines[markerStart], lines[markerStart+1]); ok {
 					if inline, ok := readInlineSVG(srcAbs, mk.ImagePath); ok {
-						svgInline = inline
+						svgInline = labelSVG(inline, mk.ImageAlt)
 						res.SVGEmbeds++
 						next = markerStart + 2
 					}
@@ -172,7 +189,7 @@ func renderBody(cfg *Config, text, srcAbs, outAbs string) (string, *RenderResult
 				if inline, ok := readInlineSVG(srcAbs, mk.ImagePath); ok {
 					res.SVGEmbeds++
 					processed = append(processed, "")
-					processed = append(processed, `<figure class="ipm-diagram">`+inline+`</figure>`)
+					processed = append(processed, `<figure class="ipm-diagram">`+labelSVG(inline, mk.ImageAlt)+`</figure>`)
 					processed = append(processed, "")
 					i += 2
 					continue
@@ -197,6 +214,7 @@ func renderBody(cfg *Config, text, srcAbs, outAbs string) (string, *RenderResult
 		goldmark.WithRendererOptions(html.WithUnsafe()),
 	)
 	doc := md.Parser().Parse(gmtext.NewReader(source))
+	res.AutoDescription = firstParagraphText(doc, source)
 
 	var buf bytes.Buffer
 	if err := md.Renderer().Render(&buf, source, doc); err != nil {
@@ -585,15 +603,9 @@ func renderMenu(menu []MenuLink) string {
 	return b.String()
 }
 
-func wrapPage(cfg *Config, srcRel, title, body string) string {
-	titleText := title
-	if cfg.TitleTemplate != "" {
-		titleText = strings.ReplaceAll(cfg.TitleTemplate, "{{title}}", title)
-		titleText = strings.ReplaceAll(titleText, "{{path}}", srcRel)
-	}
-	if titleText == "" {
-		titleText = filepath.Base(srcRel)
-	}
+// wrapPage puts the body in the page template. titleText is the finished
+// <title> (see pageTitle); head is the metadata block from headTags.
+func wrapPage(cfg *Config, srcRel, titleText, head, body string) string {
 	extra := ""
 	if cfg.ExtraCSS != "" {
 		extra = fmt.Sprintf(`<link rel="stylesheet" href="%s">`, cfg.ExtraCSS)
@@ -630,7 +642,7 @@ func wrapPage(cfg *Config, srcRel, title, body string) string {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>%s</title>
-<style>
+%s<style>
 %s
 html { font-size: 17px; }
 body {
@@ -677,7 +689,7 @@ pre.ipmt-block { position: relative; padding: 0.7em 0.9em; border-radius: 4px; o
 pre.ipmt-block:hover .ipmt-copy, .ipmt-copy:focus { opacity: 1; }
 figure.ipm-diagram { margin: 1em 0; }
 figure.ipm-diagram svg { max-width: 100%%; height: auto; }
-img { max-width: 100%%; }
+img { max-width: 100%%; height: auto; }
 table { border-collapse: collapse; margin: 1em 0; }
 th, td { border: 1px solid #d0d7de; padding: 0.4em 0.7em; text-align: left; vertical-align: top; }
 th { background: #f6f8fa; font-weight: 600; }
@@ -725,5 +737,5 @@ document.addEventListener('click', function (e) {
 </script>
 </body>
 </html>
-`, escapeHTML(titleText), paletteCSS, extra, header, body, footer)
+`, escapeHTML(titleText), head, paletteCSS, extra, header, body, footer)
 }

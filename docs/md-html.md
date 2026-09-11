@@ -80,6 +80,7 @@ Plain JSON, no special build step.
 | `no_toc` | bool | Disables the auto table of contents on every page. Default: false (TOC enabled). |
 | `header` | object | Site header block (brand + menu) — see below. |
 | `footer` | object | Site footer block (tagline + per-page view-source link) — see below. |
+| `head` | object | Page metadata for search engines and link previews (description, canonical URL, Open Graph / Twitter card, icons) — see below. |
 | `file` | array | Explicit `(src, out)` mappings. |
 | `glob` | array | Patterns; output mirrors the source tree under `out_dir` with `.md` → `.html`. |
 
@@ -102,6 +103,20 @@ Plain JSON, no special build step.
 
 The per-page source URL is composed as `{repo}/blob/{branch}/{src_rel}`, where `src_rel` is the `.md` path relative to the directory containing the config file. The link is rendered in the page **footer**.
 
+### `head`
+
+Every page gets a `<meta name="description">`: its `file` entry's `description`, else the plain text of its first paragraph (cut to 160 characters at a word boundary), else `head.description`. Everything else is emitted only when configured; all keys are optional.
+
+| Key | Meaning |
+| --- | --- |
+| `site_url` | Public URL of `out_dir`, e.g. `https://infinite.pm/intro/`. Adds `<link rel="canonical">` and `og:url`: `site_url` + the page's output path, with a trailing `index.html` dropped. |
+| `site_name` | `og:site_name`. |
+| `description` | Fallback description for a page with no first paragraph. |
+| `image`, `image_width`, `image_height` | Absolute URL (and pixel size) of the link-preview image: `og:image`, `twitter:image`, and `twitter:card` = `summary_large_image`. |
+| `icons` | Array of `{ "rel", "href", "type", "sizes" }` icon links; `rel` defaults to `icon`. A relative `href` is given against the output root and adjusted per page depth, like `header.logo`. |
+
+When `site_url`, `site_name` or `image` is set, every page also gets `og:type`, `og:title` (the page `<title>`), `og:description` and `twitter:card`.
+
 ### `file` entries
 
 ```json
@@ -111,7 +126,7 @@ The per-page source URL is composed as `{repo}/blob/{branch}/{src_rel}`, where `
 ]
 ```
 
-`src` is resolved relative to the config file's directory. `out` is resolved against `out_dir`.
+`src` is resolved relative to the config file's directory. `out` is resolved against `out_dir`. Optional `title` sets that page's `<title>` as given (`title_template` is not applied), and optional `description` replaces the one taken from its first paragraph.
 
 ### `glob` entries
 
@@ -126,10 +141,10 @@ Output paths mirror the source tree under `out_dir`, with `.md` → `.html`. `do
 ## What it does (per file)
 
 1. Reads the `.md` source.
-2. Pre-processing pass — for each ` ```ipmt ` fence: tokenize the source via `pkg/ipmtokens.Collect`, then emit a `<pre class="ipmt-block"><code class="language-ipmt">…</code></pre>` block with the same `<span class="ipm-…">` markup the VS Code preview uses. If the fence is followed by a `<!-- ipm-svg --> ![](…)` marker pair, inline the SVG content as a `<figure class="ipm-diagram">` *above* the code block. (**Inline** ipmt — `<!--ipmt-->` `code` in prose, and the `<!--ipmt:as-token:NAME-->` form — is highlighted in the post-goldmark pass, step 4. The old `cut=`/`as=`/`from=`/`pick=` attribute syntax is deliberately NOT supported: such a comment stays an invisible HTML comment.) See [`inline-ipmt-colors.md`](./inline-ipmt-colors.md) for the colors and how to apply them to arbitrary text.
+2. Pre-processing pass — for each ` ```ipmt ` fence: tokenize the source via `pkg/ipmtokens.Collect`, then emit a `<pre class="ipmt-block"><code class="language-ipmt">…</code></pre>` block with the same `<span class="ipm-…">` markup the VS Code preview uses. If the fence is followed by a `<!-- ipm-svg --> ![](…)` marker pair, inline the SVG content as a `<figure class="ipm-diagram">` *above* the code block. The image's alt text (`![Two events in a chain](…)`) becomes the inlined `<svg>`'s `role="img"` + `aria-label`, so the diagram keeps the accessible name GitHub gives the image. (**Inline** ipmt — `<!--ipmt-->` `code` in prose, and the `<!--ipmt:as-token:NAME-->` form — is highlighted in the post-goldmark pass, step 4. The old `cut=`/`as=`/`from=`/`pick=` attribute syntax is deliberately NOT supported: such a comment stays an invisible HTML comment.) See [`inline-ipmt-colors.md`](./inline-ipmt-colors.md) for the colors and how to apply them to arbitrary text.
 3. Runs the modified Markdown through [goldmark](https://github.com/yuin/goldmark) with the GFM-table extension and auto-heading-IDs enabled.
 4. Post-processing — injects the table of contents after the first `<h1>`, adds hover-revealed permalink (`#`) + back-to-top (`↑`) controls to every H2+ heading, and rewrites relative `.md` links to `.html` (`[next page](./other.md#sec)` → `<a href="./other.html#sec">`). Non-ipmt image references with relative paths are copied to the matching location under `out_dir`.
-5. Wraps the body in the page template (header + bundled CSS + body + footer + small copy-button JS) and writes to `out_dir`.
+5. Wraps the body in the page template (head metadata + header + bundled CSS + body + footer + small copy-button JS) and writes to `out_dir`.
 
 ## Per-page UX
 

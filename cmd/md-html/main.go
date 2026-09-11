@@ -9,7 +9,7 @@
 //	                  inline `<!-- ipm-svg --> ![](…)` pairs
 //	                  rewrite relative .md links to .html
 //	                  copy non-ipmt images to out_dir
-//	                  wrap with page header + palette CSS
+//	                  wrap with head metadata, page header + palette CSS
 //	            →  write
 //
 // See pkg/mdhtml for the library; this binary is just the CLI shell.
@@ -84,7 +84,7 @@ func run(configPath string, check, verbose bool) error {
 	totalBlocks := 0
 	totalSVGs := 0
 	for _, m := range mappings {
-		res, err := mdhtml.RenderPage(cfg, m.SrcAbs, m.OutAbs, m.SrcRel)
+		res, err := mdhtml.RenderMapping(cfg, m)
 		if err != nil {
 			return fmt.Errorf("render %s: %w", m.SrcRel, err)
 		}
