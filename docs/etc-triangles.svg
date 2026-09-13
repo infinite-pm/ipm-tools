@@ -25,14 +25,14 @@
     <circle cx="552.00" cy="480.00" r="225.45" fill="url(#l-glow0)"/>
     <circle cx="407.37" cy="730.50" r="225.45" fill="url(#l-glow1)"/>
     <circle cx="696.63" cy="730.50" r="225.45" fill="url(#l-glow2)"/>
-    <circle cx="552.00" cy="135.98" r="135.27" fill="url(#l-glow3)"/>
-    <circle cx="552.00" cy="209.46" r="135.27" fill="url(#l-glow4)"/>
-    <circle cx="552.00" cy="282.94" r="135.27" fill="url(#l-glow5)"/>
-    <circle cx="552.00" cy="356.42" r="135.27" fill="url(#l-glow6)"/>
-    <circle cx="260.83" cy="856.02" r="135.27" fill="url(#l-glow7)"/>
-    <circle cx="292.40" cy="762.63" r="135.27" fill="url(#l-glow8)"/>
-    <circle cx="843.17" cy="856.02" r="135.27" fill="url(#l-glow9)"/>
-    <circle cx="811.60" cy="762.63" r="135.27" fill="url(#l-glow10)"/>
+    <circle cx="552.00" cy="122.87" r="135.27" fill="url(#l-glow3)"/>
+    <circle cx="552.00" cy="179.65" r="135.27" fill="url(#l-glow4)"/>
+    <circle cx="552.00" cy="236.43" r="135.27" fill="url(#l-glow5)"/>
+    <circle cx="552.00" cy="293.21" r="135.27" fill="url(#l-glow6)"/>
+    <circle cx="201.65" cy="864.88" r="135.27" fill="url(#l-glow7)"/>
+    <circle cx="275.41" cy="822.29" r="135.27" fill="url(#l-glow8)"/>
+    <circle cx="902.35" cy="864.88" r="135.27" fill="url(#l-glow9)"/>
+    <circle cx="828.59" cy="822.29" r="135.27" fill="url(#l-glow10)"/>
     <circle cx="479.69" cy="605.25" r="135.27" fill="url(#l-glow11)"/>
     <circle cx="552.00" cy="730.50" r="135.27" fill="url(#l-glow12)"/>
     <circle cx="624.31" cy="605.25" r="135.27" fill="url(#l-glow13)"/>
@@ -43,62 +43,68 @@
       <rect x="446.09" y="568.93" width="67.20" height="72.64" rx="26.19" fill="#000000"/>
       <rect x="518.40" y="694.18" width="67.20" height="72.64" rx="26.19" fill="#000000"/>
       <rect x="590.71" y="568.93" width="67.20" height="72.64" rx="26.19" fill="#000000"/>
-      <rect x="511.05" y="99.66" width="81.90" height="75.98" rx="27.19" fill="#000000"/>
-      <rect x="518.40" y="173.14" width="67.20" height="72.64" rx="26.19" fill="#000000"/>
-      <rect x="518.40" y="246.62" width="67.20" height="72.64" rx="26.19" fill="#000000"/>
-      <rect x="518.40" y="320.10" width="67.20" height="72.64" rx="26.19" fill="#000000"/>
-      <rect x="219.88" y="819.70" width="81.90" height="75.98" rx="27.19" fill="#000000"/>
-      <rect x="258.80" y="726.31" width="67.20" height="72.64" rx="26.19" fill="#000000"/>
-      <rect x="802.22" y="819.70" width="81.90" height="75.98" rx="27.19" fill="#000000"/>
-      <rect x="778.00" y="726.31" width="67.20" height="72.64" rx="26.19" fill="#000000"/>
+      <rect x="511.05" y="86.55" width="81.90" height="75.98" rx="27.19" fill="#000000"/>
+      <rect x="518.40" y="143.33" width="67.20" height="72.64" rx="26.19" fill="#000000"/>
+      <rect x="518.40" y="200.11" width="67.20" height="72.64" rx="26.19" fill="#000000"/>
+      <rect x="518.40" y="256.89" width="67.20" height="72.64" rx="26.19" fill="#000000"/>
+      <rect x="160.70" y="828.56" width="81.90" height="75.98" rx="27.19" fill="#000000"/>
+      <rect x="241.81" y="785.97" width="67.20" height="72.64" rx="26.19" fill="#000000"/>
+      <rect x="861.40" y="828.56" width="81.90" height="75.98" rx="27.19" fill="#000000"/>
+      <rect x="794.99" y="785.97" width="67.20" height="72.64" rx="26.19" fill="#000000"/>
     </mask>
   </defs>
   <g id="l-edges" mask="url(#l-linegap)">
     <line x1="525.31" y1="526.22" x2="442.56" y2="669.55" stroke="#4d8a3a" stroke-width="5.00" opacity="1.00"/>
     <line x1="450.12" y1="730.50" x2="636.88" y2="730.50" stroke="#6c8ebf" stroke-width="5.00" stroke-dasharray="14 9" opacity="1.00"/>
     <line x1="578.69" y1="526.22" x2="661.44" y2="669.55" stroke="#6c8ebf" stroke-width="5.00" stroke-dasharray="14 9" opacity="1.00"/>
-    <path d="M 509.00 501.58 A 165.13 186.01 0.00 1 1 595.00 501.58" fill="none" stroke="#aaaaaa" stroke-width="5.50" stroke-dasharray="1 9" stroke-linecap="round" opacity="1.00"/>
-    <path d="M 509.00 488.89 A 129.86 143.77 0.00 1 1 611.32 481.12" fill="none" stroke="#6c8ebf" stroke-width="5.00" stroke-dasharray="14 9" opacity="1.00"/>
-    <path d="M 509.00 474.90 A 94.59 101.53 0.00 1 1 609.94 464.72" fill="none" stroke="#4d8a3a" stroke-width="5.00" opacity="1.00"/>
-    <path d="M 509.00 456.55 A 59.32 59.29 0.00 1 1 605.25 441.84" fill="none" stroke="#ff8000" stroke-width="5.00" opacity="1.00"/>
-    <path d="M 427.43 777.20 A 94.59 101.53 -120.00 1 1 373.28 684.86" fill="none" stroke="#aaaaaa" stroke-width="5.50" stroke-dasharray="1 9" stroke-linecap="round" opacity="1.00"/>
-    <path d="M 400.95 795.69 A 59.32 59.29 -120.00 1 1 365.57 704.98" fill="none" stroke="#4d8a3a" stroke-width="5.00" opacity="1.00"/>
-    <path d="M 730.72 684.86 A 94.59 101.53 120.00 1 1 676.57 777.20" fill="none" stroke="#aaaaaa" stroke-width="5.50" stroke-dasharray="1 9" stroke-linecap="round" opacity="1.00"/>
-    <path d="M 756.30 703.47 A 59.32 59.29 120.00 1 1 695.43 779.46" fill="none" stroke="#6c8ebf" stroke-width="5.00" stroke-dasharray="14 9" opacity="1.00"/>
+    <path d="M 509.25 503.82 A 151.85 194.41 0.00 0 1 552.00 122.87 A 121.48 156.58 0.00 0 1 598.05 424.34" fill="none" stroke="#aaaaaa" stroke-width="5.50" stroke-dasharray="1 9" stroke-linecap="round" opacity="1.00"/>
+    <path d="M 509.25 487.94 A 133.36 158.32 0.00 0 1 552.00 179.65 A 106.69 123.84 0.00 0 1 613.10 405.01" fill="none" stroke="#6c8ebf" stroke-width="5.00" stroke-dasharray="14 9" opacity="1.00"/>
+    <path d="M 509.25 472.06 A 113.97 122.28 0.00 0 1 552.00 236.43 A 91.17 91.06 0.00 0 1 612.59 395.52" fill="none" stroke="#4d8a3a" stroke-width="5.00" opacity="1.00"/>
+    <path d="M 509.25 456.18 A 93.40 86.27 0.00 0 1 552.00 293.21 A 74.72 58.03 0.00 0 1 611.69 386.15" fill="none" stroke="#ff8000" stroke-width="5.00" opacity="1.00"/>
+    <path d="M 364.15 718.22 A 85.60 148.73 -120.00 0 0 195.65 896.08 A 68.48 156.85 -120.00 0 0 424.84 833.80" fill="none" stroke="#aaaaaa" stroke-width="5.50" stroke-dasharray="1 9" stroke-linecap="round" opacity="1.00"/>
+    <path d="M 364.46 735.12 A 64.10 93.47 -120.00 0 0 269.41 853.50 A 51.28 90.76 -120.00 0 0 385.06 845.27" fill="none" stroke="#4d8a3a" stroke-width="5.00" opacity="1.00"/>
+    <path d="M 739.85 718.22 A 85.60 148.73 120.00 0 1 908.35 896.08 A 68.48 156.85 120.00 0 1 679.16 833.80" fill="none" stroke="#aaaaaa" stroke-width="5.50" stroke-dasharray="1 9" stroke-linecap="round" opacity="1.00"/>
+    <path d="M 739.54 735.12 A 64.10 93.47 120.00 0 1 834.59 853.50 A 51.28 90.76 120.00 0 1 718.94 845.27" fill="none" stroke="#6c8ebf" stroke-width="5.00" stroke-dasharray="14 9" opacity="1.00"/>
   </g>
   <g id="l-text-bg">
     <rect x="519.50" y="442.82" width="65.00" height="74.36" rx="22.31" fill="#fff2e6" stroke="#ff8000" stroke-width="2.50" opacity="1.00"/>
     <rect x="374.87" y="693.32" width="65.00" height="74.36" rx="22.31" fill="#edf3eb" stroke="#4d8a3a" stroke-width="2.50" opacity="1.00"/>
     <rect x="664.13" y="693.32" width="65.00" height="74.36" rx="22.31" fill="#f0f4f9" stroke="#6c8ebf" stroke-width="2.50" opacity="1.00"/>
+    <rect x="516.20" y="386.96" width="71.60" height="47.36" rx="14.21" fill="#fff2e6" stroke="#ff8000" stroke-width="2.50" opacity="1.00"/>
+    <rect x="401.57" y="776.18" width="71.60" height="47.36" rx="14.21" fill="#edf3eb" stroke="#4d8a3a" stroke-width="2.50" opacity="1.00"/>
+    <rect x="630.83" y="776.18" width="71.60" height="47.36" rx="14.21" fill="#f0f4f9" stroke="#6c8ebf" stroke-width="2.50" opacity="1.00"/>
   </g>
   <g id="l-arrows">
     <path d="M 434.06 684.28 L 436.70 662.71 L 451.42 671.21 Z" fill="#4d8a3a" opacity="1.00"/>
     <path d="M 653.88 730.50 L 633.88 739.00 L 633.88 722.00 Z" fill="#6c8ebf" opacity="1.00"/>
     <path d="M 669.94 684.28 L 652.58 671.21 L 667.30 662.71 Z" fill="#6c8ebf" opacity="1.00"/>
-    <path d="M 595.00 488.89 L 609.41 472.62 L 616.71 487.97 Z" fill="#6c8ebf" opacity="1.00"/>
-    <path d="M 595.00 474.90 L 606.74 456.62 L 616.31 470.67 Z" fill="#4d8a3a" opacity="1.00"/>
-    <path d="M 595.00 456.55 L 599.46 435.28 L 613.41 445.00 Z" fill="#ff8000" opacity="1.00"/>
-    <path d="M 408.57 779.46 L 407.76 801.18 L 392.38 793.96 Z" fill="#4d8a3a" opacity="1.00"/>
-    <path d="M 738.43 704.98 L 757.64 694.82 L 759.08 711.76 Z" fill="#6c8ebf" opacity="1.00"/>
+    <path d="M 598.05 415.21 L 609.85 396.95 L 619.38 411.03 Z" fill="#6c8ebf" opacity="1.00"/>
+    <path d="M 598.05 406.07 L 609.25 387.45 L 619.23 401.21 Z" fill="#4d8a3a" opacity="1.00"/>
+    <path d="M 598.05 396.94 L 608.46 377.87 L 619.01 391.20 Z" fill="#ff8000" opacity="1.00"/>
+    <path d="M 399.47 833.89 L 389.04 852.96 L 378.51 839.62 Z" fill="#4d8a3a" opacity="1.00"/>
+    <path d="M 704.53 833.89 L 725.49 839.62 L 714.96 852.96 Z" fill="#6c8ebf" opacity="1.00"/>
   </g>
   <g id="l-text">
     <text x="479.69" y="605.25" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#4d8a3a" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">C</text>
     <text x="552.00" y="730.50" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#6c8ebf" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">E</text>
     <text x="624.31" y="605.25" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#6c8ebf" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">E</text>
-    <text x="544.65" y="135.98" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#aaaaaa" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">N</text>
-    <text x="563.25" y="149.98" text-anchor="start" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="26.00" fill="#aaaaaa" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">e</text>
-    <text x="552.00" y="209.46" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#6c8ebf" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">E</text>
-    <text x="552.00" y="282.94" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#4d8a3a" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">C</text>
-    <text x="552.00" y="356.42" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#ff8000" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">L</text>
-    <text x="253.48" y="856.02" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#aaaaaa" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">N</text>
-    <text x="272.08" y="870.02" text-anchor="start" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="26.00" fill="#aaaaaa" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">t</text>
-    <text x="292.40" y="762.63" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#4d8a3a" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">C</text>
-    <text x="835.82" y="856.02" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#aaaaaa" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">N</text>
-    <text x="854.42" y="870.02" text-anchor="start" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="26.00" fill="#aaaaaa" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">c</text>
-    <text x="811.60" y="762.63" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#6c8ebf" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">E</text>
+    <text x="544.65" y="122.87" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#aaaaaa" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">N</text>
+    <text x="563.25" y="136.87" text-anchor="start" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="26.00" fill="#aaaaaa" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">e</text>
+    <text x="552.00" y="179.65" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#6c8ebf" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">E</text>
+    <text x="552.00" y="236.43" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#4d8a3a" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">C</text>
+    <text x="552.00" y="293.21" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#ff8000" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">L</text>
+    <text x="194.30" y="864.88" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#aaaaaa" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">N</text>
+    <text x="212.90" y="878.88" text-anchor="start" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="26.00" fill="#aaaaaa" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">t</text>
+    <text x="275.41" y="822.29" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#4d8a3a" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">C</text>
+    <text x="895.00" y="864.88" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#aaaaaa" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">N</text>
+    <text x="913.60" y="878.88" text-anchor="start" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="26.00" fill="#aaaaaa" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">c</text>
+    <text x="828.59" y="822.29" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#6c8ebf" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">E</text>
     <text x="552.00" y="480.00" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="60.00" fill="#ff8000" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">e</text>
     <text x="407.37" y="730.50" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="60.00" fill="#4d8a3a" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">t</text>
     <text x="696.63" y="730.50" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="60.00" fill="#6c8ebf" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">c</text>
+    <text x="552.00" y="410.64" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="48.00" fill="#ff8000" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">e2</text>
+    <text x="437.37" y="799.86" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="48.00" fill="#4d8a3a" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">t2</text>
+    <text x="666.63" y="799.86" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="48.00" fill="#6c8ebf" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">c2</text>
   </g>
 </svg>
   <rect x="16" y="16" width="1114" height="1020" rx="10" fill="none" stroke="#cccccc" stroke-width="4"/>
@@ -127,14 +133,14 @@
     <circle cx="552.00" cy="480.00" r="225.45" fill="url(#r-glow0)"/>
     <circle cx="407.37" cy="730.50" r="225.45" fill="url(#r-glow1)"/>
     <circle cx="696.63" cy="730.50" r="225.45" fill="url(#r-glow2)"/>
-    <circle cx="552.00" cy="135.98" r="135.27" fill="url(#r-glow3)"/>
-    <circle cx="552.00" cy="209.46" r="135.27" fill="url(#r-glow4)"/>
-    <circle cx="552.00" cy="282.94" r="135.27" fill="url(#r-glow5)"/>
-    <circle cx="552.00" cy="356.42" r="135.27" fill="url(#r-glow6)"/>
-    <circle cx="260.83" cy="856.02" r="135.27" fill="url(#r-glow7)"/>
-    <circle cx="292.40" cy="762.63" r="135.27" fill="url(#r-glow8)"/>
-    <circle cx="843.17" cy="856.02" r="135.27" fill="url(#r-glow9)"/>
-    <circle cx="811.60" cy="762.63" r="135.27" fill="url(#r-glow10)"/>
+    <circle cx="552.00" cy="122.87" r="135.27" fill="url(#r-glow3)"/>
+    <circle cx="552.00" cy="179.65" r="135.27" fill="url(#r-glow4)"/>
+    <circle cx="552.00" cy="236.43" r="135.27" fill="url(#r-glow5)"/>
+    <circle cx="552.00" cy="293.21" r="135.27" fill="url(#r-glow6)"/>
+    <circle cx="201.65" cy="864.88" r="135.27" fill="url(#r-glow7)"/>
+    <circle cx="275.41" cy="822.29" r="135.27" fill="url(#r-glow8)"/>
+    <circle cx="902.35" cy="864.88" r="135.27" fill="url(#r-glow9)"/>
+    <circle cx="828.59" cy="822.29" r="135.27" fill="url(#r-glow10)"/>
     <circle cx="479.69" cy="605.25" r="135.27" fill="url(#r-glow11)"/>
     <circle cx="552.00" cy="730.50" r="135.27" fill="url(#r-glow12)"/>
     <circle cx="624.31" cy="605.25" r="135.27" fill="url(#r-glow13)"/>
@@ -145,43 +151,46 @@
       <rect x="421.19" y="568.93" width="117.00" height="75.98" rx="27.19" fill="#000000"/>
       <rect x="493.50" y="694.18" width="117.00" height="75.98" rx="27.19" fill="#000000"/>
       <rect x="565.81" y="568.93" width="117.00" height="75.98" rx="27.19" fill="#000000"/>
-      <rect x="511.05" y="99.66" width="81.90" height="75.98" rx="27.19" fill="#000000"/>
-      <rect x="493.50" y="173.14" width="117.00" height="75.98" rx="27.19" fill="#000000"/>
-      <rect x="493.50" y="246.62" width="117.00" height="75.98" rx="27.19" fill="#000000"/>
-      <rect x="518.40" y="320.10" width="67.20" height="72.64" rx="26.19" fill="#000000"/>
-      <rect x="219.88" y="819.70" width="81.90" height="75.98" rx="27.19" fill="#000000"/>
-      <rect x="233.90" y="726.31" width="117.00" height="75.98" rx="27.19" fill="#000000"/>
-      <rect x="802.22" y="819.70" width="81.90" height="75.98" rx="27.19" fill="#000000"/>
-      <rect x="753.10" y="726.31" width="117.00" height="75.98" rx="27.19" fill="#000000"/>
+      <rect x="511.05" y="86.55" width="81.90" height="75.98" rx="27.19" fill="#000000"/>
+      <rect x="493.50" y="143.33" width="117.00" height="75.98" rx="27.19" fill="#000000"/>
+      <rect x="493.50" y="200.11" width="117.00" height="75.98" rx="27.19" fill="#000000"/>
+      <rect x="518.40" y="256.89" width="67.20" height="72.64" rx="26.19" fill="#000000"/>
+      <rect x="160.70" y="828.56" width="81.90" height="75.98" rx="27.19" fill="#000000"/>
+      <rect x="216.91" y="785.97" width="117.00" height="75.98" rx="27.19" fill="#000000"/>
+      <rect x="861.40" y="828.56" width="81.90" height="75.98" rx="27.19" fill="#000000"/>
+      <rect x="770.09" y="785.97" width="117.00" height="75.98" rx="27.19" fill="#000000"/>
     </mask>
   </defs>
   <g id="r-edges" mask="url(#r-linegap)">
     <line x1="434.06" y1="684.28" x2="516.81" y2="540.95" stroke="#4d8a3a" stroke-width="5.00" opacity="1.00"/>
     <line x1="450.12" y1="730.50" x2="636.88" y2="730.50" stroke="#6c8ebf" stroke-width="5.00" stroke-dasharray="14 9" opacity="1.00"/>
     <line x1="578.69" y1="526.22" x2="661.44" y2="669.55" stroke="#6c8ebf" stroke-width="5.00" stroke-dasharray="14 9" opacity="1.00"/>
-    <path d="M 509.00 501.58 A 165.13 186.01 0.00 1 1 595.00 501.58" fill="none" stroke="#aaaaaa" stroke-width="5.50" stroke-dasharray="1 9" stroke-linecap="round" opacity="1.00"/>
-    <path d="M 509.00 488.89 A 129.86 143.77 0.00 1 1 611.32 481.12" fill="none" stroke="#6c8ebf" stroke-width="5.00" stroke-dasharray="14 9" opacity="1.00"/>
-    <path d="M 494.06 464.72 A 94.59 101.53 0.00 1 1 595.00 474.90" fill="none" stroke="#4d8a3a" stroke-width="5.00" opacity="1.00"/>
-    <path d="M 509.00 456.55 A 59.32 59.29 0.00 1 1 605.25 441.84" fill="none" stroke="#ff8000" stroke-width="5.00" opacity="1.00"/>
-    <path d="M 427.43 777.20 A 94.59 101.53 -120.00 1 1 373.28 684.86" fill="none" stroke="#aaaaaa" stroke-width="5.50" stroke-dasharray="1 9" stroke-linecap="round" opacity="1.00"/>
-    <path d="M 408.57 779.46 A 59.32 59.29 -120.00 1 1 347.70 703.47" fill="none" stroke="#4d8a3a" stroke-width="5.00" opacity="1.00"/>
-    <path d="M 730.72 684.86 A 94.59 101.53 120.00 1 1 676.57 777.20" fill="none" stroke="#aaaaaa" stroke-width="5.50" stroke-dasharray="1 9" stroke-linecap="round" opacity="1.00"/>
-    <path d="M 756.30 703.47 A 59.32 59.29 120.00 1 1 695.43 779.46" fill="none" stroke="#6c8ebf" stroke-width="5.00" stroke-dasharray="14 9" opacity="1.00"/>
+    <path d="M 509.25 503.82 A 151.85 194.41 0.00 0 1 552.00 122.87 A 121.48 156.58 0.00 0 1 598.05 424.34" fill="none" stroke="#aaaaaa" stroke-width="5.50" stroke-dasharray="1 9" stroke-linecap="round" opacity="1.00"/>
+    <path d="M 509.25 487.94 A 133.36 158.32 0.00 0 1 552.00 179.65 A 106.69 123.84 0.00 0 1 613.10 405.01" fill="none" stroke="#6c8ebf" stroke-width="5.00" stroke-dasharray="14 9" opacity="1.00"/>
+    <path d="M 493.33 463.54 A 113.97 122.28 0.00 0 1 552.00 236.43 A 91.17 91.06 0.00 0 1 598.05 406.07" fill="none" stroke="#4d8a3a" stroke-width="5.00" opacity="1.00"/>
+    <path d="M 509.25 456.18 A 93.40 86.27 0.00 0 1 552.00 293.21 A 74.72 58.03 0.00 0 1 611.69 386.15" fill="none" stroke="#ff8000" stroke-width="5.00" opacity="1.00"/>
+    <path d="M 364.15 718.22 A 85.60 148.73 -120.00 0 0 195.65 896.08 A 68.48 156.85 -120.00 0 0 424.84 833.80" fill="none" stroke="#aaaaaa" stroke-width="5.50" stroke-dasharray="1 9" stroke-linecap="round" opacity="1.00"/>
+    <path d="M 346.44 739.05 A 64.10 93.47 -120.00 0 0 269.41 853.50 A 51.28 90.76 -120.00 0 0 399.47 833.89" fill="none" stroke="#4d8a3a" stroke-width="5.00" opacity="1.00"/>
+    <path d="M 739.85 718.22 A 85.60 148.73 120.00 0 1 908.35 896.08 A 68.48 156.85 120.00 0 1 679.16 833.80" fill="none" stroke="#aaaaaa" stroke-width="5.50" stroke-dasharray="1 9" stroke-linecap="round" opacity="1.00"/>
+    <path d="M 739.54 735.12 A 64.10 93.47 120.00 0 1 834.59 853.50 A 51.28 90.76 120.00 0 1 718.94 845.27" fill="none" stroke="#6c8ebf" stroke-width="5.00" stroke-dasharray="14 9" opacity="1.00"/>
   </g>
   <g id="r-text-bg">
     <rect x="519.50" y="442.82" width="65.00" height="74.36" rx="22.31" fill="#fff2e6" stroke="#ff8000" stroke-width="2.50" opacity="1.00"/>
     <rect x="374.87" y="693.32" width="65.00" height="74.36" rx="22.31" fill="#edf3eb" stroke="#4d8a3a" stroke-width="2.50" opacity="1.00"/>
     <rect x="664.13" y="693.32" width="65.00" height="74.36" rx="22.31" fill="#f0f4f9" stroke="#6c8ebf" stroke-width="2.50" opacity="1.00"/>
+    <rect x="516.20" y="386.96" width="71.60" height="47.36" rx="14.21" fill="#fff2e6" stroke="#ff8000" stroke-width="2.50" opacity="1.00"/>
+    <rect x="401.57" y="776.18" width="71.60" height="47.36" rx="14.21" fill="#edf3eb" stroke="#4d8a3a" stroke-width="2.50" opacity="1.00"/>
+    <rect x="630.83" y="776.18" width="71.60" height="47.36" rx="14.21" fill="#f0f4f9" stroke="#6c8ebf" stroke-width="2.50" opacity="1.00"/>
   </g>
   <g id="r-arrows">
     <path d="M 525.31 526.22 L 522.67 547.79 L 507.95 539.29 Z" fill="#4d8a3a" opacity="1.00"/>
     <path d="M 653.88 730.50 L 633.88 739.00 L 633.88 722.00 Z" fill="#6c8ebf" opacity="1.00"/>
     <path d="M 669.94 684.28 L 652.58 671.21 L 667.30 662.71 Z" fill="#6c8ebf" opacity="1.00"/>
-    <path d="M 595.00 488.89 L 609.41 472.62 L 616.71 487.97 Z" fill="#6c8ebf" opacity="1.00"/>
-    <path d="M 509.00 474.90 L 487.69 470.67 L 497.26 456.62 Z" fill="#4d8a3a" opacity="1.00"/>
-    <path d="M 595.00 456.55 L 599.46 435.28 L 613.41 445.00 Z" fill="#ff8000" opacity="1.00"/>
-    <path d="M 365.57 704.98 L 344.92 711.76 L 346.36 694.82 Z" fill="#4d8a3a" opacity="1.00"/>
-    <path d="M 738.43 704.98 L 757.64 694.82 L 759.08 711.76 Z" fill="#6c8ebf" opacity="1.00"/>
+    <path d="M 598.05 415.21 L 609.85 396.95 L 619.38 411.03 Z" fill="#6c8ebf" opacity="1.00"/>
+    <path d="M 509.25 472.06 L 487.61 470.12 L 495.63 455.13 Z" fill="#4d8a3a" opacity="1.00"/>
+    <path d="M 598.05 396.94 L 608.46 377.87 L 619.01 391.20 Z" fill="#ff8000" opacity="1.00"/>
+    <path d="M 364.46 735.12 L 346.72 747.69 L 343.10 731.08 Z" fill="#4d8a3a" opacity="1.00"/>
+    <path d="M 704.53 833.89 L 725.49 839.62 L 714.96 852.96 Z" fill="#6c8ebf" opacity="1.00"/>
   </g>
   <g id="r-text">
     <text x="454.79" y="605.25" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#4d8a3a" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">P</text>
@@ -190,24 +199,27 @@
     <text x="545.70" y="744.50" text-anchor="start" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="26.00" fill="#6c8ebf" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">(+E)</text>
     <text x="599.41" y="605.25" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#6c8ebf" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">X</text>
     <text x="618.01" y="619.25" text-anchor="start" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="26.00" fill="#6c8ebf" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">(+E)</text>
-    <text x="544.65" y="135.98" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#aaaaaa" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">N</text>
-    <text x="563.25" y="149.98" text-anchor="start" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="26.00" fill="#aaaaaa" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">e</text>
-    <text x="527.10" y="209.46" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#6c8ebf" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">X</text>
-    <text x="545.70" y="223.46" text-anchor="start" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="26.00" fill="#6c8ebf" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">(+E)</text>
-    <text x="527.10" y="282.94" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#4d8a3a" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">P</text>
-    <text x="545.70" y="296.94" text-anchor="start" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="26.00" fill="#4d8a3a" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">(-C)</text>
-    <text x="552.00" y="356.42" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#ff8000" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">L</text>
-    <text x="253.48" y="856.02" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#aaaaaa" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">N</text>
-    <text x="272.08" y="870.02" text-anchor="start" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="26.00" fill="#aaaaaa" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">t</text>
-    <text x="267.50" y="762.63" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#4d8a3a" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">P</text>
-    <text x="286.10" y="776.63" text-anchor="start" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="26.00" fill="#4d8a3a" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">(-C)</text>
-    <text x="835.82" y="856.02" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#aaaaaa" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">N</text>
-    <text x="854.42" y="870.02" text-anchor="start" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="26.00" fill="#aaaaaa" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">c</text>
-    <text x="786.70" y="762.63" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#6c8ebf" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">X</text>
-    <text x="805.30" y="776.63" text-anchor="start" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="26.00" fill="#6c8ebf" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">(+E)</text>
+    <text x="544.65" y="122.87" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#aaaaaa" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">N</text>
+    <text x="563.25" y="136.87" text-anchor="start" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="26.00" fill="#aaaaaa" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">e</text>
+    <text x="527.10" y="179.65" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#6c8ebf" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">X</text>
+    <text x="545.70" y="193.65" text-anchor="start" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="26.00" fill="#6c8ebf" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">(+E)</text>
+    <text x="527.10" y="236.43" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#4d8a3a" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">P</text>
+    <text x="545.70" y="250.43" text-anchor="start" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="26.00" fill="#4d8a3a" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">(-C)</text>
+    <text x="552.00" y="293.21" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#ff8000" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">L</text>
+    <text x="194.30" y="864.88" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#aaaaaa" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">N</text>
+    <text x="212.90" y="878.88" text-anchor="start" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="26.00" fill="#aaaaaa" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">t</text>
+    <text x="250.51" y="822.29" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#4d8a3a" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">P</text>
+    <text x="269.11" y="836.29" text-anchor="start" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="26.00" fill="#4d8a3a" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">(-C)</text>
+    <text x="895.00" y="864.88" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#aaaaaa" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">N</text>
+    <text x="913.60" y="878.88" text-anchor="start" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="26.00" fill="#aaaaaa" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">c</text>
+    <text x="803.69" y="822.29" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="52.00" fill="#6c8ebf" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">X</text>
+    <text x="822.29" y="836.29" text-anchor="start" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="26.00" fill="#6c8ebf" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">(+E)</text>
     <text x="552.00" y="480.00" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="60.00" fill="#ff8000" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">e</text>
     <text x="407.37" y="730.50" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="60.00" fill="#4d8a3a" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">t</text>
     <text x="696.63" y="730.50" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="60.00" fill="#6c8ebf" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">c</text>
+    <text x="552.00" y="410.64" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="48.00" fill="#ff8000" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">e2</text>
+    <text x="437.37" y="799.86" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="48.00" fill="#4d8a3a" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">t2</text>
+    <text x="666.63" y="799.86" text-anchor="middle" dominant-baseline="central" font-family="Helvetica,Arial,sans-serif" font-weight="bold" font-size="48.00" fill="#6c8ebf" stroke="#ffffff" stroke-width="4.00" stroke-linejoin="round" paint-order="stroke" opacity="1.00">c2</text>
   </g>
 </svg>
   <rect x="1174" y="16" width="1114" height="1020" rx="10" fill="none" stroke="#cccccc" stroke-width="4"/>
