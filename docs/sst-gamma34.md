@@ -66,7 +66,12 @@ On the right is the same diagram with ipm modifications:
 - “expressed by,” marked as **E**, is renamed to **X**
 - “contains” (C) is replaced by “part of” (P), with the opposite direction
 
-![etc-triangles.svg](etc-triangles.svg)
+![SST etc-LCEN triangle on the left, ipm etc-LPXN triangle on the right](etc-triangles.svg)
+
+Both panels draw a same-kind relation to a *second* node of that kind (`e` and `e2`,
+`t` and `t2`, `c` and `c2`) rather than as a loop back to the corner itself: an event
+that leads to an event leads to a *different* event, and nothing in ipm points at
+itself. Only the labels and the `C`/`P` arrow direction differ between the panels.
 
 The `X` (`+E`) edge `thing --> concept` admits two natural English
 glosses for the same arrow:
