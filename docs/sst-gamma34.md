@@ -36,9 +36,16 @@ readings:
 
 | S\T |        e       |    t   |    c   |
 |:---:|:--------------:|:------:|:------:|
-|**e**| ±L, ±C, ±E, Nₑ |   +C   |   +E   |
-|**t**|       -C       | ±C, Nₜ |   +E   |
+|**e**| ±L, ±C, ±E, N_e |   +C   |   +E   |
+|**t**|       -C       | ±C, N_t |   +E   |
 |**c**|       -E       |   -E   | ±E, N_c |
+
+This is Burgess's own skeleton matrix: [Agent Semantics, Semantic Spacetime,
+and Graphical Reasoning](https://arxiv.org/abs/2506.07756), §4.1 "Matrices for
+γ(3,4) skeleton", equation 21. The published
+[IPM vs default SST](https://infinite.pm/intro/docs/ipm-vs-sst.html) page
+carries the same matrix with the `(-C)` / `(+E)` labels on the triangles
+decoded.
 
 **Legend:**
 - S — source (rows/down)
@@ -46,7 +53,7 @@ readings:
 - e = event (orange)
 - t = thing (green)
 - c = concept (blue)
-- Nₑ, Nₜ, N_c = NEAR relations (gray dotted, no arrow)
+- N_e, N_t, N_c = NEAR relations (gray dotted, no arrow)
 - C = CONTAINS (green, one arrow)
 - L = LEADS-TO (orange, one arrow)
 - E = EXPRESSES (blue dashed, one arrow)
