@@ -17,6 +17,43 @@ e1 --> e2 --> e3
 <!-- ipm-svg id=100 hash=03ec3dda -->
 ![](../../../_ipm/docs/ipmt-ex/mark-ex/examples/100.ipm.svg)
 
+Alice appears in all three frames, which looks like repetition until you read what
+Mark says about it:
+
+> Alice is not a statue, frozen in time. The Alice in the first event is not the same
+> Alice as in the second event. She (the state of Alice) has moved on. The concept of
+> Alice is the same in each frame, but it's not the concept of Alice that feels or speaks.
+
+In ipm that comes out as one `Alice` thing - a worldline, not three copies - taking part in
+every frame. The state that moved on hangs on the frames: `e1 --> discouraged ::c`, because
+`Alice --> discouraged ::c` would make her discouraged in every frame she appears in.
+
+The invariance Mark points at is the **thing node itself**. It needs no "concept of Alice"
+beside it - a concept only one thing ever expresses carries no story, which is his own
+objection to proper-name nodes. What a concept adds is what she is *like*: `human ::c`, which
+everything else that is one expresses too. And it cannot feel or speak, because a concept never
+leads to an event nor takes part in one.
+
+```ipmt
+# Alice's story, with the participants and what each frame expresses
+e1::a Alice feels discouraged ::e
+  --> e2::a Alice turns to the Mock Turtle ::e
+  --> e3::a Alice and the Mock Turtle talk ::e
+
+# one worldline through the frames, not one Alice per frame
+Alice --> e1, e2, e3
+the Mock Turtle --> e2, e3
+
+# what each frame is about: a property of the frame, not of Alice
+e1 --> discouraged ::c
+e3 --> talking ::c
+
+# what she is like - a property others share, not who she is
+Alice --> human ::c
+```
+<!-- ipm-svg id=105 hash=1208a877 -->
+![Alice's three frames with their participants: Alice in all three, the Mock Turtle in the last two, the frames expressing discouraged and talking, and Alice expressing human](../../../_ipm/docs/ipmt-ex/mark-ex/examples/105.ipm.svg)
+
 ```ipmt
 # Company founding
 X --> X founded company Y ::e fe::a
