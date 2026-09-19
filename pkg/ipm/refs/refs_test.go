@@ -51,3 +51,9 @@ func TestRoundTripAndRekey(t *testing.T) {
 func writeFile(path, content string) error {
 	return os.WriteFile(path, []byte(content), 0o644)
 }
+
+func TestNilRefsRecordNothing(t *testing.T) {
+	var r *Refs
+	r.Node(1, Ref{Kind: KindSource, At: "x"}) // must not panic: an optional side-car
+	r.Edge(1, Ref{Kind: KindSource, At: "x"})
+}

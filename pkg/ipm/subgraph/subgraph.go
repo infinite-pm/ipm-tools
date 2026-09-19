@@ -229,6 +229,13 @@ func FileSpace(n ipmgraph.Node) bool {
 // substring), re-id'd into a fresh valid graph. A curated "concept neighbourhood"
 // tutorial view is cut with it. Empty when no seed matches.
 func Neighborhood(g *ipmgraph.Graph, seed string, depth int) *ipmgraph.Graph {
+	return NeighborhoodPiece(g, seed, depth).Graph
+}
+
+// NeighborhoodPiece is Neighborhood with the map back — what a side-car
+// needs to carry the whole's refs onto the view (refs.Rekey). An empty piece
+// has an empty graph and empty maps.
+func NeighborhoodPiece(g *ipmgraph.Graph, seed string, depth int) *Piece {
 	var seeds []int
 	for _, n := range g.Nodes {
 		if n.Name == seed {
@@ -243,7 +250,7 @@ func Neighborhood(g *ipmgraph.Graph, seed string, depth int) *ipmgraph.Graph {
 		}
 	}
 	if len(seeds) == 0 {
-		return ipmgraph.New().Graph()
+		return &Piece{Graph: ipmgraph.New().Graph(), ToOrig: map[int]int{}, ToNew: map[int]int{}}
 	}
-	return Cut(g, seeds, Options{Depth: depth}).Graph
+	return Cut(g, seeds, Options{Depth: depth})
 }

@@ -90,6 +90,15 @@ func TestNeighborhoodByName(t *testing.T) {
 	if got := Neighborhood(b.Graph(), "does-not-exist", 1); len(got.Nodes) != 0 {
 		t.Errorf("no seed → empty graph, got %d nodes", len(got.Nodes))
 	}
+	// The piece keeps the map back, so a side-car can follow the view's ids
+	// to the whole's; an empty piece has empty maps rather than nil ones.
+	piece := NeighborhoodPiece(b.Graph(), "Reconciliation", 1)
+	if piece.ToOrig[piece.Seeds[0]] != c {
+		t.Errorf("seed maps back to %d, want %d", piece.ToOrig[piece.Seeds[0]], c)
+	}
+	if empty := NeighborhoodPiece(b.Graph(), "does-not-exist", 1); empty.ToOrig == nil || len(empty.Graph.Nodes) != 0 {
+		t.Error("an empty piece must carry empty maps and an empty graph")
+	}
 	if got := Neighborhood(b.Graph(), "reconcil", 0); len(got.Nodes) != 2 {
 		t.Errorf("substring seed matches Reconciliation and reconcile #1: got %d", len(got.Nodes))
 	}

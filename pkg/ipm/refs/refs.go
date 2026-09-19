@@ -103,17 +103,18 @@ func New(tool string, args []string, inputs ...string) *Refs {
 	return r
 }
 
-// Node records a ref for a node.
+// Node records a ref for a node. A nil *Refs records nothing, so a builder
+// that takes an optional side-car needs no branch.
 func (r *Refs) Node(id int, ref Ref) {
-	if id == 0 {
+	if r == nil || id == 0 {
 		return
 	}
 	r.Nodes[id] = append(r.Nodes[id], ref)
 }
 
-// Edge records a ref for an edge.
+// Edge records a ref for an edge. Nil-safe, as Node is.
 func (r *Refs) Edge(id int, ref Ref) {
-	if id == 0 {
+	if r == nil || id == 0 {
 		return
 	}
 	r.Edges[id] = append(r.Edges[id], ref)
