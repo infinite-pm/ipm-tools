@@ -23,6 +23,7 @@ func main() {
 
 	flag.StringVar(&inPath, "in", "-", "input file: .ipmt, .ipm.json (IPM graph), or .layout.json (use - for stdin)")
 	flag.StringVar(&outPath, "out", "-", "output SVG file (use - for stdout)")
+	nodeIDs := flag.Bool("node-ids", false, "wrap every node in <g class=\"node-group\" data-node-id=\"…\"> carrying its layout id, as the canvas does; for pages that light nodes by id")
 	version := cli.VersionFlag(flag.CommandLine, "ipmsvg-gen")
 	flag.Usage = func() {
 		fmt.Fprintln(os.Stderr, "Usage: ipmsvg-gen [--in <file.ipmt|file.ipm.json|file.layout.json|->] [--out <diagram.ipm.svg>|-]")
@@ -47,14 +48,15 @@ func main() {
 		os.Exit(2)
 	}
 
+	gen := &ipmsvg.Generator{NodeIDs: *nodeIDs}
 	var svg []byte
 	switch detected.Type {
 	case cli.InputTypeLayoutGraph:
 		// Direct rendering from layout
-		svg, err = ipmsvg.Render(detected.LayoutGraph)
+		svg, err = gen.Generate(detected.LayoutGraph)
 	case cli.InputTypeIPMGraph, cli.InputTypeIPMT:
 		// Run layout internally
-		svg, err = ipmsvg.GenerateFromIPM(detected.IPMGraph)
+		svg, err = gen.GenerateFromIPM(detected.IPMGraph)
 	default:
 		// Defensive guard: cli.DetectInput only returns the three concrete types
 		// above on a nil error, so this is unreachable today. It exists so a future

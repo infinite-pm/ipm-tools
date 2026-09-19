@@ -29,7 +29,13 @@ import (
 // hidden as class "edge-full" for hover reveal). The flat SVG and the
 // canvas agree on what is hidden — classify once, consume everywhere.
 type Generator struct {
-	// Future: font family, stroke widths, color overrides
+	// NodeIDs wraps every node — container shell and body alike — in
+	// <g class="node-group" data-node-id="…"> carrying the layout node's id,
+	// the same carrier the interactive canvas gives its nodes. Off by default
+	// so nothing re-renders differently until asked; a host page that lays
+	// pictures into text and lights nodes by id (docs-explained) turns it on
+	// instead of joining rects to the layout by coordinates.
+	NodeIDs bool
 }
 
 // NewGenerator creates a new SVG generator.
@@ -77,6 +83,9 @@ func (g *Generator) Generate(graph *layout.Graph) ([]byte, error) {
 		}
 		style := containerStyleFor(n)
 		radius := 10
+		if g.NodeIDs {
+			fmt.Fprintf(&b, "    <g class=\"node-group\" data-node-id=\"%s\">\n", html.EscapeString(n.ID))
+		}
 		fmt.Fprintf(&b, "    <rect x=\"%d\" y=\"%d\" width=\"%d\" height=\"%d\" rx=\"%d\" ry=\"%d\" fill=\"%s\" stroke=\"%s\" stroke-width=\"2\" stroke-dasharray=\"8 4\" opacity=\"0.6\"/>\n", n.X, n.Y, n.Width, n.Height, radius, radius, style.Fill, style.Stroke)
 
 		// Container shell label (e.g. e2/e4) shown near top-center.
@@ -85,6 +94,9 @@ func (g *Generator) Generate(graph *layout.Graph) ([]byte, error) {
 		if label != "" {
 			fmt.Fprintf(&b, "    <text x=\"%d\" y=\"%d\" text-anchor=\"middle\" dominant-baseline=\"middle\" font-family=\"Helvetica,Inter,Segoe UI,Arial\" font-size=\"14\" font-weight=\"bold\" fill=\"%s\">%s</text>\n",
 				n.X+n.Width/2, n.Y+16, style.Stroke, html.EscapeString(label))
+		}
+		if g.NodeIDs {
+			b.WriteString("    </g>\n")
 		}
 	}
 	b.WriteString("  </g>\n")
@@ -473,9 +485,17 @@ func (g *Generator) Generate(graph *layout.Graph) ([]byte, error) {
 		}
 
 		// Wrap rect + text in <g> with <title> so browser tooltip triggers
-		// anywhere on the node body, not just on the text.
+		// anywhere on the node body, not just on the text; with NodeIDs the
+		// same group carries the id.
+		wrapped := n.Tooltip != "" || g.NodeIDs
+		if wrapped {
+			if g.NodeIDs {
+				fmt.Fprintf(&b, "    <g class=\"node-group\" data-node-id=\"%s\">\n", html.EscapeString(n.ID))
+			} else {
+				fmt.Fprintf(&b, "    <g>\n")
+			}
+		}
 		if n.Tooltip != "" {
-			fmt.Fprintf(&b, "    <g>\n")
 			fmt.Fprintf(&b, "      <title>%s</title>\n", html.EscapeString(n.Tooltip))
 		}
 
@@ -506,7 +526,7 @@ func (g *Generator) Generate(graph *layout.Graph) ([]byte, error) {
 			drawCandidateSwatches(&b, n)
 		}
 
-		if n.Tooltip != "" {
+		if wrapped {
 			fmt.Fprintf(&b, "    </g>\n")
 		}
 	}
@@ -667,16 +687,21 @@ func Render(graph *layout.Graph) ([]byte, error) {
 // GenerateFromIPM generates SVG from IPM model by running layout internally.
 // Convenience wrapper that composes layout generation with SVG rendering.
 func GenerateFromIPM(doc *model.IpmGraph) ([]byte, error) {
-	res, err := layoutdupe.Generate(doc, layoutdupe.Options{})
-	if err != nil {
-		return nil, fmt.Errorf("layout generation: %w", err)
-	}
-	layoutGraph := res.Graph
 	gen, err := NewGenerator()
 	if err != nil {
 		return nil, err
 	}
-	return gen.Generate(layoutGraph)
+	return gen.GenerateFromIPM(doc)
+}
+
+// GenerateFromIPM lays the model out and renders it with this generator's
+// settings.
+func (g *Generator) GenerateFromIPM(doc *model.IpmGraph) ([]byte, error) {
+	res, err := layoutdupe.Generate(doc, layoutdupe.Options{})
+	if err != nil {
+		return nil, fmt.Errorf("layout generation: %w", err)
+	}
+	return g.Generate(res.Graph)
 }
 
 func writeArrowHead(b *strings.Builder, tipX, tipY, ux, uy float64, stroke string, width int) {

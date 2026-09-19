@@ -181,3 +181,49 @@ func TestGenerateBadgesEveryPlaceOfACopiedNode(t *testing.T) {
 		t.Fatalf("a single-placement diagram must carry no badges: %s", svg)
 	}
 }
+
+func TestGenerateNodeIDsWrapEveryNodeLikeTheCanvas(t *testing.T) {
+	graph := &layout.Graph{
+		Nodes: []layout.Node{
+			{ID: "1", Type: "event", Label: "e1", X: 40, Y: 120, Width: 120, Height: 60, Tooltip: "the first"},
+			{ID: "2", Type: "concept", Label: "cX", X: 280, Y: 120, Width: 120, Height: 60},
+			{ID: "7", Type: "thing", Label: "tA", X: 20, Y: 20, Width: 500, Height: 400,
+				Container: &layout.Container{ChildNodeIDs: []string{"1", "2"}}},
+		},
+		Meta: layout.Meta{Bounds: layout.Bounds{Width: 560, Height: 460}},
+	}
+
+	// Off by default: nothing carries an id, the tooltip wrapper is bare.
+	svg, err := Render(graph)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if strings.Contains(string(svg), "node-group") {
+		t.Fatalf("ids must be opt-in: %s", svg)
+	}
+	if !strings.Contains(string(svg), "    <g>\n      <title>the first</title>") {
+		t.Fatalf("tooltip wrapper changed: %s", svg)
+	}
+
+	gen := &Generator{NodeIDs: true}
+	svg, err = gen.Generate(graph)
+	if err != nil {
+		t.Fatal(err)
+	}
+	out := string(svg)
+	for _, want := range []string{
+		`<g class="node-group" data-node-id="1">` + "\n      <title>the first</title>", // one wrapper carries both
+		`<g class="node-group" data-node-id="2">`,
+		`<g class="node-group" data-node-id="7">`, // the container shell too
+	} {
+		if !strings.Contains(out, want) {
+			t.Fatalf("missing %q in: %s", want, out)
+		}
+	}
+	if got := strings.Count(out, "node-group"); got != 3 {
+		t.Fatalf("want one group per node, got %d: %s", got, out)
+	}
+	if strings.Count(out, "<g") != strings.Count(out, "</g>") {
+		t.Fatalf("unbalanced groups: %s", out)
+	}
+}

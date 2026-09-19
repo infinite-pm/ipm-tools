@@ -71,6 +71,11 @@ go run ./cmd/layout-gen --in story.ipm.json \
 ### Flags
 - `--in <file|->` - Input file (`.ipmt`, `.ipm.json`, or `.layout.json`), or `-` for stdin
 - `--out <file|->` - Output SVG file, or `-` for stdout
+- `--node-ids` - Wrap every node (container shells too) in
+  `<g class="node-group" data-node-id="…">` carrying its layout id — the carrier the
+  interactive canvas gives its nodes. Off by default; a page that lays the picture into
+  text and lights nodes by id turns it on (edges carry `data-edge-from`/`data-edge-to`
+  always).
 
 ### Use Cases
 - **Quick preview:** Direct from `.ipmt` text without intermediate steps
