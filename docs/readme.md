@@ -29,6 +29,9 @@
 - [`md-html.md`](md-html.md) — Markdown tree → self-contained static HTML site
   (config-driven; inlines the SVGs `md-embed` produced).
 - [`ipm-rpc.md`](ipm-rpc.md) — the language server for the VS Code extension.
+- [`graph-ops.md`](graph-ops.md) — the Go base for graph programs: the model and
+  Builder (`pkg/ipm/graph`), the cut (`pkg/ipm/subgraph`), the refs side-car
+  (`pkg/ipm/refs`) and how they chain.
 
 ## Developer guide
 
