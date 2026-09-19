@@ -66,26 +66,29 @@ func (b *Builder) Node(t NodeType, name, alias, tooltip string) int {
 	return id
 }
 
-// Edge adds a directed edge with the given SST link type. A second edge between
-// an already-linked pair is dropped: the four relations are mutually exclusive
-// per pair, and the drop keeps every emitted graph valid under ipm-validate.
-func (b *Builder) Edge(source, target int, link Link, tooltip string) {
+// Edge adds a directed edge with the given SST link type and returns its id.
+// A second edge between an already-linked pair is dropped and 0 is returned:
+// the four relations are mutually exclusive per pair, and the drop keeps every
+// emitted graph valid under ipm-validate.
+func (b *Builder) Edge(source, target int, link Link, tooltip string) int {
 	key := [2]int{source, target}
 	if key[0] > key[1] {
 		key[0], key[1] = key[1], key[0]
 	}
 	if b.pairs[key] {
-		return
+		return 0
 	}
 	b.pairs[key] = true
 	dir := model.DirFwd
 	if link == NearTo {
 		dir = model.DirUndir // near-to is undirected
 	}
+	id := b.id()
 	b.g.Edges = append(b.g.Edges, Edge{
-		ID: b.id(), Source: source, Target: target,
+		ID: id, Source: source, Target: target,
 		Dir: dir, Tooltip: tooltip, SstLinkType: link, SemOrigin: model.SemExplicit,
 	})
+	return id
 }
 
 // Graph returns the accumulated graph.
