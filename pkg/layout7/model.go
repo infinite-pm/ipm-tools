@@ -34,11 +34,14 @@ const (
 // stage; everything before works with relative structure only (the spec's
 // "positions are the LAST step").
 type node struct {
-	idx   int // index into graph.nodes — the engine-wide handle
-	id    int // parser node ID (emitted as the output node ID)
-	name  string
-	alias string
-	kind  Kind
+	idx  int // index into graph.nodes — the engine-wide handle
+	id   int // parser node ID (emitted as the output node ID)
+	name string
+	// labelOriginal is the name as written when name dropped a kind tag
+	// (model.DisplayName); equal to name otherwise.
+	labelOriginal string
+	alias         string
+	kind          Kind
 	// emitType/emitCandidates preserve the input typing for output
 	// ("unresolved" nodes keep their candidates).
 	emitType       model.NodeType
@@ -196,10 +199,15 @@ func normalize(doc *model.IpmGraph) (*graph, error) {
 		if err != nil {
 			return nil, err
 		}
+		// The layout draws the name a reader sees: a kind tag ("controller
+		// (c)", model.KindTag — the fence's workaround for one word being two
+		// kinds) is dropped here, once, for the label, the box and every
+		// picture downstream; the tagged name survives as LabelOriginal.
 		n := &node{
 			idx:            len(g.nodes),
 			id:             mn.ID,
-			name:           mn.Name,
+			name:           model.DisplayName(mn.Name),
+			labelOriginal:  mn.Name,
 			alias:          mn.Alias,
 			kind:           k,
 			emitType:       mn.Type,
@@ -207,7 +215,7 @@ func normalize(doc *model.IpmGraph) (*graph, error) {
 			tooltip:        mn.Tooltip,
 			comp:           -1,
 		}
-		n.w, n.h = computeSize(mn.Name) // v7P8
+		n.w, n.h = computeSize(n.name) // v7P8
 		byID[mn.ID] = n.idx
 		g.nodes = append(g.nodes, n)
 	}

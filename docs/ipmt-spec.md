@@ -153,6 +153,28 @@ n1 ::?et --> e9 ::e
 See [ipmt-unresolved.md](ipmt-unresolved.md) for how unresolved nodes render and
 how the node-kind solver resolves them.
 
+### One word, two kinds: the kind tag
+
+A node's identity is its canonical name alone, so `controller ::t` and `controller ::c`
+in one fence are ONE node (the first kind wins). When the same word is genuinely two
+things — the controller that runs, and *controller* as a concept it expresses — write
+the second with a **kind tag**: a space and the kind letter in parentheses at the end of
+the name, `(t)`, `(e)` or `(c)`.
+
+```ipmt
+controller ::t --> controller (c) ::c
+resource ::t --> resource (c) ::c
+controller, resource --> controller tracks resources ::e
+```
+
+The tag is for the fence only. The layout drops it from the label (the picture and the
+canvas show `controller` twice, in two colours, which is how a reader tells the kinds
+apart), keeps the tagged name as `label-original`, and a union keys the node by kind and
+the untagged name — so `controller (c)` written by hand and the concept `controller` a
+tool extracted are one node. `f(x)` and `a (x)` are not tags: only a space followed by one
+of the three letters in parentheses is. This is the working convention while identity
+by (kind, name) stays an open proposal for the language.
+
 ### Node tooltip
 
 To specify tooltip text, use the `::tip` marker:

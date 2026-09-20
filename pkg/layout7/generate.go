@@ -165,10 +165,15 @@ func (g *graph) emit(routes []routed) *layout.Graph {
 		if p, ok := parentOf[strconv.Itoa(n.id)]; ok {
 			parents = []string{p}
 		}
+		labelOriginal := ""
+		if n.labelOriginal != "" && n.labelOriginal != n.name {
+			labelOriginal = n.labelOriginal
+		}
 		out.Nodes = append(out.Nodes, layout.Node{
 			ID:            strconv.Itoa(n.id),
 			Type:          t,
 			Label:         n.name,
+			LabelOriginal: labelOriginal,
 			Alias:         n.alias,
 			Tooltip:       n.tooltip,
 			X:             n.x,
