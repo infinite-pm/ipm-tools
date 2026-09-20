@@ -1619,17 +1619,28 @@ func (g *graph) subGridRowMetrics(parent int, sp *skeletonPlan, gp *groupsPlan) 
 // Options.Containers reserves against it, and over-reserving only widens the
 // band that keeps a shell exclusive.
 func (g *graph) subGridExtent(ev int, sp *skeletonPlan, gp *groupsPlan) int {
+	return g.subGridExtentWithin(ev, sp, gp, map[int]bool{})
+}
+
+// subGridExtentWithin is subGridExtent with the composites already on the
+// path: an event part of two composites that are part of each other (a
+// union that merged one event into two sections, lifted) would otherwise
+// recurse forever, and an engine must not take a server down over a bad
+// input — the nested span is simply not counted the second time round.
+func (g *graph) subGridExtentWithin(ev int, sp *skeletonPlan, gp *groupsPlan, onPath map[int]bool) int {
 	rows := sp.subRows[ev]
-	if len(rows) == 0 {
+	if len(rows) == 0 || onPath[ev] {
 		return 0
 	}
+	onPath[ev] = true
+	defer delete(onPath, ev)
 	_, rowGapAt := g.subGridRowMetrics(ev, sp, gp)
 	total := 0
 	for ri, row := range rows {
 		h := 0
 		for _, s := range row {
 			eh := g.nodes[s].h
-			if nested := g.subGridExtent(s, sp, gp); nested > eh {
+			if nested := g.subGridExtentWithin(s, sp, gp, onPath); nested > eh {
 				eh = nested
 			}
 			if eh > h {
