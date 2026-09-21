@@ -31,6 +31,7 @@
 0 4 0 0 tests/layout-gen/diamond-pattern-with-aux-on-every-event.ipmt
 0 1 0 0 tests/layout-gen/event-contains-connected-sub-events-and-sub-sub-events.ipmt
 0 0 1 0 tests/layout-gen/same-side-entries-keep-their-approach-order.ipmt
+0 1 0 0 tests/layout-gen/sibling-composites-keep-their-own-grids-apart.ipmt
 0 1 0 0 tests/layout-gen/start-events-with-side-aux-stay-one-gap-apart.ipmt
 0 2 0 0 tests/layout-gen/tall-concept-in-one-column-does-not-inflate-another.ipmt
 0 2 0 0 tests/layout-gen/thing-parts-keep-their-own-concepts-above-the-join.ipmt

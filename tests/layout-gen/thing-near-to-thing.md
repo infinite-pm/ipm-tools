@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2267-L2268 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#thing-near-to-thing)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2307-L2308 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#thing-near-to-thing)
 
 ## ipmt Content
 
@@ -23,13 +23,13 @@ tA --- tB
 
 ## Layout Validation Rules
 
-Test line: 2267
+Test line: 2307
 
 ✅ All 3 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2284](gl:docs/dev/layout-gen/layout-alg.md#L2284): `#tA,#tB have same y` ([thing-near-to-thing.dsl](../layout-gen-rules/thing-near-to-thing.dsl))
-- ✓ [Line 2285](gl:docs/dev/layout-gen/layout-alg.md#L2285): `#tB is right-of #tA with gap=100` ([thing-near-to-thing-02.dsl](../layout-gen-rules/thing-near-to-thing-02.dsl))
+- ✓ [Line 2324](gl:docs/dev/layout-gen/layout-alg.md#L2324): `#tA,#tB have same y` ([thing-near-to-thing.dsl](../layout-gen-rules/thing-near-to-thing.dsl))
+- ✓ [Line 2325](gl:docs/dev/layout-gen/layout-alg.md#L2325): `#tB is right-of #tA with gap=100` ([thing-near-to-thing-02.dsl](../layout-gen-rules/thing-near-to-thing-02.dsl))
 
 ## Rendered Diagram
 

@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg-dupe.md#L192-L200 | [docs/dev/layout-gen/layout-alg-dupe.md](../../docs/dev/layout-gen/layout-alg-dupe.md#a-shorter-picture-that-would-tangle-is-refused)
+**Source:** gl:docs/dev/layout-gen/layout-alg-dupe.md#L197-L205 | [docs/dev/layout-gen/layout-alg-dupe.md](../../docs/dev/layout-gen/layout-alg-dupe.md#a-shorter-picture-that-would-tangle-is-refused)
 
 ## ipmt Content
 

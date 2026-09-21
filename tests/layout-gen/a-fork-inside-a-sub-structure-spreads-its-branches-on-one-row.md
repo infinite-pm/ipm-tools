@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L975-L981 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1015-L1021 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row)
 
 ## ipmt Content
 
@@ -28,7 +28,7 @@ a --> c
 
 ## Layout Validation Rules
 
-Test line: 975
+Test line: 1015
 
 ⚠️ 13/14 rules passed
 
@@ -36,16 +36,16 @@ Test line: 975
 - ✓ [Line 82](gl:docs/dev/layout-gen/layout-alg.md#L82): `type=event has width=120` ([one-event.dsl](../layout-gen-rules/one-event.dsl))
 - ✓ [Line 83](gl:docs/dev/layout-gen/layout-alg.md#L83): `type=event has min-gap-to-others>=10` ([one-event-02.dsl](../layout-gen-rules/one-event-02.dsl))
 - ✓ [Line 84](gl:docs/dev/layout-gen/layout-alg.md#L84): `type=boundary has size=40x40` ([one-event-03.dsl](../layout-gen-rules/one-event-03.dsl))
-- ✓ [Line 1003](gl:docs/dev/layout-gen/layout-alg.md#L1003): `each edge has max-bends=0 except #c,#e1-parent` ([a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row.dsl](../layout-gen-rules/a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row.dsl))
-- ✓ [Line 1004](gl:docs/dev/layout-gen/layout-alg.md#L1004): `edge #c,#e1-parent has max-bends=2` ([a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-02.dsl](../layout-gen-rules/a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-02.dsl))
-- ✓ [Line 1005](gl:docs/dev/layout-gen/layout-alg.md#L1005): `edge #c,#e1-parent has source-side=bottom` ([a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-03.dsl](../layout-gen-rules/a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-03.dsl))
-- ✓ [Line 1006](gl:docs/dev/layout-gen/layout-alg.md#L1006): `edge #c,#e1-parent has target-side=bottom` ([a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-04.dsl](../layout-gen-rules/a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-04.dsl))
-- ✓ [Line 1007](gl:docs/dev/layout-gen/layout-alg.md#L1007): `#b,#c have same y` ([a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-05.dsl](../layout-gen-rules/a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-05.dsl))
-- ✓ [Line 1008](gl:docs/dev/layout-gen/layout-alg.md#L1008): `#c is right-of #b with gap=60` ([a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-06.dsl](../layout-gen-rules/a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-06.dsl))
-- ✓ [Line 1009](gl:docs/dev/layout-gen/layout-alg.md#L1009): `#a is horizontally-centered-between #b,#c` ([a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-07.dsl](../layout-gen-rules/a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-07.dsl))
-- ✓ [Line 1010](gl:docs/dev/layout-gen/layout-alg.md#L1010): `#b is below #a with gap=60` ([a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-08.dsl](../layout-gen-rules/a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-08.dsl))
-- ✓ [Line 1011](gl:docs/dev/layout-gen/layout-alg.md#L1011): `edge #a,#b has visibility=visible` ([a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-09.dsl](../layout-gen-rules/a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-09.dsl))
-- ✓ [Line 1012](gl:docs/dev/layout-gen/layout-alg.md#L1012): `edge #a,#c has visibility=visible` ([a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-10.dsl](../layout-gen-rules/a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-10.dsl))
+- ✓ [Line 1043](gl:docs/dev/layout-gen/layout-alg.md#L1043): `each edge has max-bends=0 except #c,#e1-parent` ([a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row.dsl](../layout-gen-rules/a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row.dsl))
+- ✓ [Line 1044](gl:docs/dev/layout-gen/layout-alg.md#L1044): `edge #c,#e1-parent has max-bends=2` ([a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-02.dsl](../layout-gen-rules/a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-02.dsl))
+- ✓ [Line 1045](gl:docs/dev/layout-gen/layout-alg.md#L1045): `edge #c,#e1-parent has source-side=bottom` ([a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-03.dsl](../layout-gen-rules/a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-03.dsl))
+- ✓ [Line 1046](gl:docs/dev/layout-gen/layout-alg.md#L1046): `edge #c,#e1-parent has target-side=bottom` ([a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-04.dsl](../layout-gen-rules/a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-04.dsl))
+- ✓ [Line 1047](gl:docs/dev/layout-gen/layout-alg.md#L1047): `#b,#c have same y` ([a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-05.dsl](../layout-gen-rules/a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-05.dsl))
+- ✓ [Line 1048](gl:docs/dev/layout-gen/layout-alg.md#L1048): `#c is right-of #b with gap=60` ([a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-06.dsl](../layout-gen-rules/a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-06.dsl))
+- ✓ [Line 1049](gl:docs/dev/layout-gen/layout-alg.md#L1049): `#a is horizontally-centered-between #b,#c` ([a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-07.dsl](../layout-gen-rules/a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-07.dsl))
+- ✓ [Line 1050](gl:docs/dev/layout-gen/layout-alg.md#L1050): `#b is below #a with gap=60` ([a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-08.dsl](../layout-gen-rules/a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-08.dsl))
+- ✓ [Line 1051](gl:docs/dev/layout-gen/layout-alg.md#L1051): `edge #a,#b has visibility=visible` ([a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-09.dsl](../layout-gen-rules/a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-09.dsl))
+- ✓ [Line 1052](gl:docs/dev/layout-gen/layout-alg.md#L1052): `edge #a,#c has visibility=visible` ([a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-10.dsl](../layout-gen-rules/a-fork-inside-a-sub-structure-spreads-its-branches-on-one-row-10.dsl))
 
 ## Rendered Diagram
 

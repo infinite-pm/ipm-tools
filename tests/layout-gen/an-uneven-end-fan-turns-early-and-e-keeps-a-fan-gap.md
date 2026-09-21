@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2508-L2512 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2548-L2552 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap)
 
 ## ipmt Content
 
@@ -26,21 +26,21 @@ y --> y2 ::e
 
 ## Layout Validation Rules
 
-Test line: 2508
+Test line: 2548
 
 ✅ All 11 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2535](gl:docs/dev/layout-gen/layout-alg.md#L2535): `#x,#y,#z have same y` ([an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap.dsl](../layout-gen-rules/an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap.dsl))
-- ✓ [Line 2536](gl:docs/dev/layout-gen/layout-alg.md#L2536): `#E is below #y2 with gap=60` ([an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-02.dsl](../layout-gen-rules/an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-02.dsl))
-- ✓ [Line 2537](gl:docs/dev/layout-gen/layout-alg.md#L2537): `edge #y2,#E is vertical` ([an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-03.dsl](../layout-gen-rules/an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-03.dsl))
-- ✓ [Line 2538](gl:docs/dev/layout-gen/layout-alg.md#L2538): `each edge has max-bends=0 except #x,#E #z,#E` ([an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-04.dsl](../layout-gen-rules/an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-04.dsl))
-- ✓ [Line 2539](gl:docs/dev/layout-gen/layout-alg.md#L2539): `edge #x,#E has max-bends=1` ([an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-05.dsl](../layout-gen-rules/an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-05.dsl))
-- ✓ [Line 2540](gl:docs/dev/layout-gen/layout-alg.md#L2540): `edge #z,#E has max-bends=1` ([an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-06.dsl](../layout-gen-rules/an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-06.dsl))
-- ✓ [Line 2541](gl:docs/dev/layout-gen/layout-alg.md#L2541): `edge #x,#E has min-corner-angle=110` ([an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-07.dsl](../layout-gen-rules/an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-07.dsl))
-- ✓ [Line 2542](gl:docs/dev/layout-gen/layout-alg.md#L2542): `edge #z,#E has min-corner-angle=110` ([an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-08.dsl](../layout-gen-rules/an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-08.dsl))
-- ✓ [Line 2543](gl:docs/dev/layout-gen/layout-alg.md#L2543): `edge #x,#E does not cross edge #y,#y2` ([an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-09.dsl](../layout-gen-rules/an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-09.dsl))
-- ✓ [Line 2544](gl:docs/dev/layout-gen/layout-alg.md#L2544): `edge #z,#E does not cross edge #y,#y2` ([an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-10.dsl](../layout-gen-rules/an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-10.dsl))
+- ✓ [Line 2575](gl:docs/dev/layout-gen/layout-alg.md#L2575): `#x,#y,#z have same y` ([an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap.dsl](../layout-gen-rules/an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap.dsl))
+- ✓ [Line 2576](gl:docs/dev/layout-gen/layout-alg.md#L2576): `#E is below #y2 with gap=60` ([an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-02.dsl](../layout-gen-rules/an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-02.dsl))
+- ✓ [Line 2577](gl:docs/dev/layout-gen/layout-alg.md#L2577): `edge #y2,#E is vertical` ([an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-03.dsl](../layout-gen-rules/an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-03.dsl))
+- ✓ [Line 2578](gl:docs/dev/layout-gen/layout-alg.md#L2578): `each edge has max-bends=0 except #x,#E #z,#E` ([an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-04.dsl](../layout-gen-rules/an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-04.dsl))
+- ✓ [Line 2579](gl:docs/dev/layout-gen/layout-alg.md#L2579): `edge #x,#E has max-bends=1` ([an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-05.dsl](../layout-gen-rules/an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-05.dsl))
+- ✓ [Line 2580](gl:docs/dev/layout-gen/layout-alg.md#L2580): `edge #z,#E has max-bends=1` ([an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-06.dsl](../layout-gen-rules/an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-06.dsl))
+- ✓ [Line 2581](gl:docs/dev/layout-gen/layout-alg.md#L2581): `edge #x,#E has min-corner-angle=110` ([an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-07.dsl](../layout-gen-rules/an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-07.dsl))
+- ✓ [Line 2582](gl:docs/dev/layout-gen/layout-alg.md#L2582): `edge #z,#E has min-corner-angle=110` ([an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-08.dsl](../layout-gen-rules/an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-08.dsl))
+- ✓ [Line 2583](gl:docs/dev/layout-gen/layout-alg.md#L2583): `edge #x,#E does not cross edge #y,#y2` ([an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-09.dsl](../layout-gen-rules/an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-09.dsl))
+- ✓ [Line 2584](gl:docs/dev/layout-gen/layout-alg.md#L2584): `edge #z,#E does not cross edge #y,#y2` ([an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-10.dsl](../layout-gen-rules/an-uneven-end-fan-turns-early-and-e-keeps-a-fan-gap-10.dsl))
 
 ## Rendered Diagram
 

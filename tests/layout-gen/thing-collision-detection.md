@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3113-L3114 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#thing-collision-detection)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3153-L3154 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#thing-collision-detection)
 
 ## ipmt Content
 
@@ -23,7 +23,7 @@ B, C <-- A
 
 ## Layout Validation Rules
 
-Test line: 3113
+Test line: 3153
 
 ✅ All 1 rules passed
 

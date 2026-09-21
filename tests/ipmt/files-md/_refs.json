@@ -788,7 +788,7 @@
     },
     {
         "source": "../../../docs/ipmt-ex/mark-ex/examples.md",
-        "source_sha1": "fe3c1500117a57b933b6dc1f53533cca7eca166b",
+        "source_sha1": "826c93458ba7e145288c939b9fa613d275665ebe",
         "name": "ipmt examples in Markdown files",
         "method": "parser",
         "parser_name": "ipmt-md",
@@ -813,21 +813,33 @@
             },
             {
                 "destination": "marks-25-08-24-medium-post-02",
-                "line": 21,
+                "line": 38,
+                "anchor": "#marks-25-08-24-medium-post",
+                "content_sha1": "98853e02d30e03704cb3d8457cef7cbfb5f362e5",
+                "outputs": {
+                    "ipm.svg": "9f15e9bfb822f4b02f590425535b0ac993fcf121",
+                    "ipmt": "98853e02d30e03704cb3d8457cef7cbfb5f362e5",
+                    "json": "c86d08c2d834c20fc2ffbb66f92f2d35cf5f6b86",
+                    "layout.json": "6beaf89e5c6fbea12eaf8da0da66dceb6c2bbe2a",
+                    "md": "a6ee1afc9da1014f77cf7616fe437f534ba72030"
+                },
+                "section": "Mark's 25-08-24 medium post"
+            },
+            {
+                "destination": "marks-25-08-24-medium-post-03",
+                "line": 58,
                 "anchor": "#marks-25-08-24-medium-post",
                 "content_sha1": "76bd6fb699a4b5a86a26934af2b551d1647b30e8",
                 "outputs": {
-                    "ipm.svg": "9f15e9bfb822f4b02f590425535b0ac993fcf121",
                     "ipmt": "76bd6fb699a4b5a86a26934af2b551d1647b30e8",
                     "json": "9e73e59a6c8a88aa1a82c1fa1781c54bee70e1c3",
-                    "layout.json": "6beaf89e5c6fbea12eaf8da0da66dceb6c2bbe2a",
-                    "md": "8b1b5d75e8447d1190bd0670356967ebc19bd917"
+                    "md": "8e8b562b095069974d23fbd9dfcc3609acebd02b"
                 },
                 "section": "Mark's 25-08-24 medium post"
             },
             {
                 "destination": "murder-mystery-june-2025",
-                "line": 38,
+                "line": 75,
                 "anchor": "#murder-mystery-june-2025",
                 "content_sha1": "a726cc3559ef0211b78b7f4d9d1d9e05aee77d1b",
                 "outputs": {
@@ -835,13 +847,13 @@
                     "ipmt": "a726cc3559ef0211b78b7f4d9d1d9e05aee77d1b",
                     "json": "911d066a5e9e763265a1ed1b9c0126f1ac5a4de4",
                     "layout.json": "285ecddaddc4cbfca182d4f1e68618e46dc0f490",
-                    "md": "c3a01254a1da503917828cf84e6f91fe7342cb90"
+                    "md": "43776a2a8ff801cccd2a1e43b0fe6b3c4cef029f"
                 },
                 "section": "Murder Mystery, June 2025"
             },
             {
                 "destination": "ownership-june-2025",
-                "line": 89,
+                "line": 126,
                 "anchor": "#ownership-june-2025",
                 "content_sha1": "eec0e43b8b984de973571e9fb1e5b386ee8148b4",
                 "outputs": {
@@ -849,7 +861,7 @@
                     "ipmt": "eec0e43b8b984de973571e9fb1e5b386ee8148b4",
                     "json": "2e8eb3a9cc72900e71f902a9c4119cff57ddb12b",
                     "layout.json": "5daacd26567236e290ca655922f380b4985c0b33",
-                    "md": "aa22defe9d8661084d68fbc23c629a0d553c5058"
+                    "md": "85f0b330cd7952abec019bf78c20318366ed1e34"
                 },
                 "section": "Ownership, June 2025"
             }

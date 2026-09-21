@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/ipmt-ex/mark-ex/examples.md#L89-L91 | [docs/ipmt-ex/mark-ex/examples.md](../../../docs/ipmt-ex/mark-ex/examples.md#ownership-june-2025)
+**Source:** gl:docs/ipmt-ex/mark-ex/examples.md#L126-L128 | [docs/ipmt-ex/mark-ex/examples.md](../../../docs/ipmt-ex/mark-ex/examples.md#ownership-june-2025)
 
 ## ipmt Content
 

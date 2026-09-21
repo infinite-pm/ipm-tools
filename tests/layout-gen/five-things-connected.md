@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1723-L1724 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#five-things-connected)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1763-L1764 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#five-things-connected)
 
 ## ipmt Content
 
@@ -23,23 +23,23 @@ t1-aaaa --> t1-aaa --> t1-aa --> t1-a --> t1
 
 ## Layout Validation Rules
 
-Test line: 1723
+Test line: 1763
 
 ✅ All 13 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 1737](gl:docs/dev/layout-gen/layout-alg.md#L1737): `edge #t1-aaaa,#t1-aaa has type=partof` ([five-things-connected.dsl](../layout-gen-rules/five-things-connected.dsl))
-- ✓ [Line 1738](gl:docs/dev/layout-gen/layout-alg.md#L1738): `edge #t1-aaa,#t1-aa has type=partof` ([five-things-connected-02.dsl](../layout-gen-rules/five-things-connected-02.dsl))
-- ✓ [Line 1739](gl:docs/dev/layout-gen/layout-alg.md#L1739): `edge #t1-aa,#t1-a has type=partof` ([five-things-connected-03.dsl](../layout-gen-rules/five-things-connected-03.dsl))
-- ✓ [Line 1740](gl:docs/dev/layout-gen/layout-alg.md#L1740): `edge #t1-a,#t1 has type=partof` ([five-things-connected-04.dsl](../layout-gen-rules/five-things-connected-04.dsl))
-- ✓ [Line 1741](gl:docs/dev/layout-gen/layout-alg.md#L1741): `#t1-a is above #t1 with gap=40` ([five-things-connected-05.dsl](../layout-gen-rules/five-things-connected-05.dsl))
-- ✓ [Line 1742](gl:docs/dev/layout-gen/layout-alg.md#L1742): `#t1-a,#t1 have same center-x` ([five-things-connected-06.dsl](../layout-gen-rules/five-things-connected-06.dsl))
-- ✓ [Line 1743](gl:docs/dev/layout-gen/layout-alg.md#L1743): `#t1-aa is above #t1-a with gap=40` ([five-things-connected-07.dsl](../layout-gen-rules/five-things-connected-07.dsl))
-- ✓ [Line 1744](gl:docs/dev/layout-gen/layout-alg.md#L1744): `#t1-aa,#t1-a have same center-x` ([five-things-connected-08.dsl](../layout-gen-rules/five-things-connected-08.dsl))
-- ✓ [Line 1745](gl:docs/dev/layout-gen/layout-alg.md#L1745): `#t1-aaa is above #t1-aa with gap=40` ([five-things-connected-09.dsl](../layout-gen-rules/five-things-connected-09.dsl))
-- ✓ [Line 1746](gl:docs/dev/layout-gen/layout-alg.md#L1746): `#t1-aaa,#t1-aa have same center-x` ([five-things-connected-10.dsl](../layout-gen-rules/five-things-connected-10.dsl))
-- ✓ [Line 1747](gl:docs/dev/layout-gen/layout-alg.md#L1747): `#t1-aaaa is above #t1-aaa with gap=40` ([five-things-connected-11.dsl](../layout-gen-rules/five-things-connected-11.dsl))
-- ✓ [Line 1748](gl:docs/dev/layout-gen/layout-alg.md#L1748): `#t1-aaaa,#t1-aaa have same center-x` ([five-things-connected-12.dsl](../layout-gen-rules/five-things-connected-12.dsl))
+- ✓ [Line 1777](gl:docs/dev/layout-gen/layout-alg.md#L1777): `edge #t1-aaaa,#t1-aaa has type=partof` ([five-things-connected.dsl](../layout-gen-rules/five-things-connected.dsl))
+- ✓ [Line 1778](gl:docs/dev/layout-gen/layout-alg.md#L1778): `edge #t1-aaa,#t1-aa has type=partof` ([five-things-connected-02.dsl](../layout-gen-rules/five-things-connected-02.dsl))
+- ✓ [Line 1779](gl:docs/dev/layout-gen/layout-alg.md#L1779): `edge #t1-aa,#t1-a has type=partof` ([five-things-connected-03.dsl](../layout-gen-rules/five-things-connected-03.dsl))
+- ✓ [Line 1780](gl:docs/dev/layout-gen/layout-alg.md#L1780): `edge #t1-a,#t1 has type=partof` ([five-things-connected-04.dsl](../layout-gen-rules/five-things-connected-04.dsl))
+- ✓ [Line 1781](gl:docs/dev/layout-gen/layout-alg.md#L1781): `#t1-a is above #t1 with gap=40` ([five-things-connected-05.dsl](../layout-gen-rules/five-things-connected-05.dsl))
+- ✓ [Line 1782](gl:docs/dev/layout-gen/layout-alg.md#L1782): `#t1-a,#t1 have same center-x` ([five-things-connected-06.dsl](../layout-gen-rules/five-things-connected-06.dsl))
+- ✓ [Line 1783](gl:docs/dev/layout-gen/layout-alg.md#L1783): `#t1-aa is above #t1-a with gap=40` ([five-things-connected-07.dsl](../layout-gen-rules/five-things-connected-07.dsl))
+- ✓ [Line 1784](gl:docs/dev/layout-gen/layout-alg.md#L1784): `#t1-aa,#t1-a have same center-x` ([five-things-connected-08.dsl](../layout-gen-rules/five-things-connected-08.dsl))
+- ✓ [Line 1785](gl:docs/dev/layout-gen/layout-alg.md#L1785): `#t1-aaa is above #t1-aa with gap=40` ([five-things-connected-09.dsl](../layout-gen-rules/five-things-connected-09.dsl))
+- ✓ [Line 1786](gl:docs/dev/layout-gen/layout-alg.md#L1786): `#t1-aaa,#t1-aa have same center-x` ([five-things-connected-10.dsl](../layout-gen-rules/five-things-connected-10.dsl))
+- ✓ [Line 1787](gl:docs/dev/layout-gen/layout-alg.md#L1787): `#t1-aaaa is above #t1-aaa with gap=40` ([five-things-connected-11.dsl](../layout-gen-rules/five-things-connected-11.dsl))
+- ✓ [Line 1788](gl:docs/dev/layout-gen/layout-alg.md#L1788): `#t1-aaaa,#t1-aaa have same center-x` ([five-things-connected-12.dsl](../layout-gen-rules/five-things-connected-12.dsl))
 
 ## Rendered Diagram
 

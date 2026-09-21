@@ -1,0 +1,192 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "# Company founding\nX --\u003e X founded company Y ::e fe::a\nY --\u003e fe\nX --\u003e person ::c\nY --\u003e company ::c\nfe --\u003e Founding is when someone establishes the legal registration of a company ::c",
+    "positions": {
+      "nodes": {
+        "1": [
+          19,
+          20
+        ],
+        "2": [
+          25,
+          44
+        ],
+        "3": [
+          55,
+          56
+        ],
+        "4": [
+          70,
+          76
+        ],
+        "5": [
+          87,
+          94
+        ],
+        "6": [
+          106,
+          178
+        ]
+      },
+      "edges": {
+        "10": {
+          "arrow": [
+            82,
+            87
+          ],
+          "source": [
+            81,
+            82
+          ],
+          "target": [
+            87,
+            94
+          ]
+        },
+        "11": {
+          "arrow": [
+            101,
+            106
+          ],
+          "source": [
+            99,
+            101
+          ],
+          "target": [
+            106,
+            178
+          ]
+        },
+        "7": {
+          "arrow": [
+            20,
+            25
+          ],
+          "source": [
+            19,
+            20
+          ],
+          "target": [
+            25,
+            44
+          ]
+        },
+        "8": {
+          "arrow": [
+            56,
+            61
+          ],
+          "source": [
+            55,
+            56
+          ],
+          "target": [
+            61,
+            63
+          ]
+        },
+        "9": {
+          "arrow": [
+            65,
+            70
+          ],
+          "source": [
+            64,
+            65
+          ],
+          "target": [
+            70,
+            76
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "X",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "X founded company Y",
+      "alias": "fe",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "Y",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 4,
+      "name": "person",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 5,
+      "name": "company",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 6,
+      "name": "Founding is when someone establishes the legal registration of a company",
+      "alias": "",
+      "type": "Concept"
+    }
+  ],
+  "edges": [
+    {
+      "id": 7,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 8,
+      "source": 3,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 9,
+      "source": 1,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 10,
+      "source": 3,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 11,
+      "source": 2,
+      "target": 6,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

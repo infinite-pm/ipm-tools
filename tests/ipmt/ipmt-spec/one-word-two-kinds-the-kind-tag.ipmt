@@ -1,0 +1,3 @@
+controller ::t --> controller (c) ::c
+resource ::t --> resource (c) ::c
+controller, resource --> controller tracks resources ::e

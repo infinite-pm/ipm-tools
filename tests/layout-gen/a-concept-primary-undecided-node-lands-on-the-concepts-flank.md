@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3019-L3021 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-concept-primary-undecided-node-lands-on-the-concepts-flank)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3059-L3061 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-concept-primary-undecided-node-lands-on-the-concepts-flank)
 
 ## ipmt Content
 
@@ -24,15 +24,15 @@ e1 --> u1 ::?ce
 
 ## Layout Validation Rules
 
-Test line: 3019
+Test line: 3059
 
 ✅ All 5 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 3030](gl:docs/dev/layout-gen/layout-alg.md#L3030): `type=unresolved has size=120x60` ([a-concept-primary-undecided-node-lands-on-the-concepts-flank.dsl](../layout-gen-rules/a-concept-primary-undecided-node-lands-on-the-concepts-flank.dsl))
-- ✓ [Line 3031](gl:docs/dev/layout-gen/layout-alg.md#L3031): `#u1 is right-of #e1 with gap=60` ([a-concept-primary-undecided-node-lands-on-the-concepts-flank-02.dsl](../layout-gen-rules/a-concept-primary-undecided-node-lands-on-the-concepts-flank-02.dsl))
-- ✓ [Line 3032](gl:docs/dev/layout-gen/layout-alg.md#L3032): `#e1,#u1 have same y` ([a-concept-primary-undecided-node-lands-on-the-concepts-flank-03.dsl](../layout-gen-rules/a-concept-primary-undecided-node-lands-on-the-concepts-flank-03.dsl))
-- ✓ [Line 3033](gl:docs/dev/layout-gen/layout-alg.md#L3033): `edge #e1,#u1 has type=expresses` ([a-concept-primary-undecided-node-lands-on-the-concepts-flank-04.dsl](../layout-gen-rules/a-concept-primary-undecided-node-lands-on-the-concepts-flank-04.dsl))
+- ✓ [Line 3070](gl:docs/dev/layout-gen/layout-alg.md#L3070): `type=unresolved has size=120x60` ([a-concept-primary-undecided-node-lands-on-the-concepts-flank.dsl](../layout-gen-rules/a-concept-primary-undecided-node-lands-on-the-concepts-flank.dsl))
+- ✓ [Line 3071](gl:docs/dev/layout-gen/layout-alg.md#L3071): `#u1 is right-of #e1 with gap=60` ([a-concept-primary-undecided-node-lands-on-the-concepts-flank-02.dsl](../layout-gen-rules/a-concept-primary-undecided-node-lands-on-the-concepts-flank-02.dsl))
+- ✓ [Line 3072](gl:docs/dev/layout-gen/layout-alg.md#L3072): `#e1,#u1 have same y` ([a-concept-primary-undecided-node-lands-on-the-concepts-flank-03.dsl](../layout-gen-rules/a-concept-primary-undecided-node-lands-on-the-concepts-flank-03.dsl))
+- ✓ [Line 3073](gl:docs/dev/layout-gen/layout-alg.md#L3073): `edge #e1,#u1 has type=expresses` ([a-concept-primary-undecided-node-lands-on-the-concepts-flank-04.dsl](../layout-gen-rules/a-concept-primary-undecided-node-lands-on-the-concepts-flank-04.dsl))
 
 ## Rendered Diagram
 

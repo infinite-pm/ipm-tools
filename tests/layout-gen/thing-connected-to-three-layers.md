@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1533-L1539 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#thing-connected-to-three-layers)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1573-L1579 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#thing-connected-to-three-layers)
 
 ## ipmt Content
 
@@ -28,22 +28,22 @@ tW --> m3
 
 ## Layout Validation Rules
 
-Test line: 1533
+Test line: 1573
 
 ⚠️ 11/12 rules passed
 
 - ✗ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` - **edge tW->m1 has 1 bends > max-bends 0 (each-edge default; if the detour is intended, add it to `except` and pin it with `edge #tW,#m1 has max-bends=1`)** ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 1553](gl:docs/dev/layout-gen/layout-alg.md#L1553): `each edge has max-bends=0 except #tW,#m1` ([thing-connected-to-three-layers.dsl](../layout-gen-rules/thing-connected-to-three-layers.dsl))
-- ✓ [Line 1554](gl:docs/dev/layout-gen/layout-alg.md#L1554): `edge #tW,#m1 has max-bends=1` ([thing-connected-to-three-layers-02.dsl](../layout-gen-rules/thing-connected-to-three-layers-02.dsl))
-- ✓ [Line 1555](gl:docs/dev/layout-gen/layout-alg.md#L1555): `#m1,#m2,#m3,#m4 have same y` ([thing-connected-to-three-layers-03.dsl](../layout-gen-rules/thing-connected-to-three-layers-03.dsl))
-- ✓ [Line 1556](gl:docs/dev/layout-gen/layout-alg.md#L1556): `#tW,#m3 have same center-x` ([thing-connected-to-three-layers-04.dsl](../layout-gen-rules/thing-connected-to-three-layers-04.dsl))
-- ✓ [Line 1557](gl:docs/dev/layout-gen/layout-alg.md#L1557): `#tW is below #m3 with gap=40` ([thing-connected-to-three-layers-05.dsl](../layout-gen-rules/thing-connected-to-three-layers-05.dsl))
-- ✓ [Line 1558](gl:docs/dev/layout-gen/layout-alg.md#L1558): `edge #tW,#m1 has visibility=visible` ([thing-connected-to-three-layers-06.dsl](../layout-gen-rules/thing-connected-to-three-layers-06.dsl))
-- ✓ [Line 1559](gl:docs/dev/layout-gen/layout-alg.md#L1559): `edge #tW,#m2 has target-side=bottom` ([thing-connected-to-three-layers-07.dsl](../layout-gen-rules/thing-connected-to-three-layers-07.dsl))
-- ✓ [Line 1560](gl:docs/dev/layout-gen/layout-alg.md#L1560): `edge #tW,#m3 has target-side=bottom` ([thing-connected-to-three-layers-08.dsl](../layout-gen-rules/thing-connected-to-three-layers-08.dsl))
-- ✓ [Line 1561](gl:docs/dev/layout-gen/layout-alg.md#L1561): `edge #tW,#m2 has visibility=visible` ([thing-connected-to-three-layers-09.dsl](../layout-gen-rules/thing-connected-to-three-layers-09.dsl))
-- ✓ [Line 1562](gl:docs/dev/layout-gen/layout-alg.md#L1562): `#S is above #m1 with gap=40` ([thing-connected-to-three-layers-10.dsl](../layout-gen-rules/thing-connected-to-three-layers-10.dsl))
-- ✓ [Line 1563](gl:docs/dev/layout-gen/layout-alg.md#L1563): `#E is below #tW with gap=40` ([thing-connected-to-three-layers-11.dsl](../layout-gen-rules/thing-connected-to-three-layers-11.dsl))
+- ✓ [Line 1593](gl:docs/dev/layout-gen/layout-alg.md#L1593): `each edge has max-bends=0 except #tW,#m1` ([thing-connected-to-three-layers.dsl](../layout-gen-rules/thing-connected-to-three-layers.dsl))
+- ✓ [Line 1594](gl:docs/dev/layout-gen/layout-alg.md#L1594): `edge #tW,#m1 has max-bends=1` ([thing-connected-to-three-layers-02.dsl](../layout-gen-rules/thing-connected-to-three-layers-02.dsl))
+- ✓ [Line 1595](gl:docs/dev/layout-gen/layout-alg.md#L1595): `#m1,#m2,#m3,#m4 have same y` ([thing-connected-to-three-layers-03.dsl](../layout-gen-rules/thing-connected-to-three-layers-03.dsl))
+- ✓ [Line 1596](gl:docs/dev/layout-gen/layout-alg.md#L1596): `#tW,#m3 have same center-x` ([thing-connected-to-three-layers-04.dsl](../layout-gen-rules/thing-connected-to-three-layers-04.dsl))
+- ✓ [Line 1597](gl:docs/dev/layout-gen/layout-alg.md#L1597): `#tW is below #m3 with gap=40` ([thing-connected-to-three-layers-05.dsl](../layout-gen-rules/thing-connected-to-three-layers-05.dsl))
+- ✓ [Line 1598](gl:docs/dev/layout-gen/layout-alg.md#L1598): `edge #tW,#m1 has visibility=visible` ([thing-connected-to-three-layers-06.dsl](../layout-gen-rules/thing-connected-to-three-layers-06.dsl))
+- ✓ [Line 1599](gl:docs/dev/layout-gen/layout-alg.md#L1599): `edge #tW,#m2 has target-side=bottom` ([thing-connected-to-three-layers-07.dsl](../layout-gen-rules/thing-connected-to-three-layers-07.dsl))
+- ✓ [Line 1600](gl:docs/dev/layout-gen/layout-alg.md#L1600): `edge #tW,#m3 has target-side=bottom` ([thing-connected-to-three-layers-08.dsl](../layout-gen-rules/thing-connected-to-three-layers-08.dsl))
+- ✓ [Line 1601](gl:docs/dev/layout-gen/layout-alg.md#L1601): `edge #tW,#m2 has visibility=visible` ([thing-connected-to-three-layers-09.dsl](../layout-gen-rules/thing-connected-to-three-layers-09.dsl))
+- ✓ [Line 1602](gl:docs/dev/layout-gen/layout-alg.md#L1602): `#S is above #m1 with gap=40` ([thing-connected-to-three-layers-10.dsl](../layout-gen-rules/thing-connected-to-three-layers-10.dsl))
+- ✓ [Line 1603](gl:docs/dev/layout-gen/layout-alg.md#L1603): `#E is below #tW with gap=40` ([thing-connected-to-three-layers-11.dsl](../layout-gen-rules/thing-connected-to-three-layers-11.dsl))
 
 ## Rendered Diagram
 

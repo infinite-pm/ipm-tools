@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/ipmt-ex/mark-ex/examples.md#L38-L77 | [docs/ipmt-ex/mark-ex/examples.md](../../../docs/ipmt-ex/mark-ex/examples.md#murder-mystery-june-2025)
+**Source:** gl:docs/ipmt-ex/mark-ex/examples.md#L75-L114 | [docs/ipmt-ex/mark-ex/examples.md](../../../docs/ipmt-ex/mark-ex/examples.md#murder-mystery-june-2025)
 
 ## ipmt Content
 

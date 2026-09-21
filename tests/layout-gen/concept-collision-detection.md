@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3098-L3099 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#concept-collision-detection)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3138-L3139 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#concept-collision-detection)
 
 ## ipmt Content
 
@@ -23,7 +23,7 @@ tSource --> c-X ::c, c-Y ::c, c-Z ::c
 
 ## Layout Validation Rules
 
-Test line: 3098
+Test line: 3138
 
 ✅ All 1 rules passed
 

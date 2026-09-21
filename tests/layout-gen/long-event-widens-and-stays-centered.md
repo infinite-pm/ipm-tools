@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3165-L3166 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#long-event-widens-and-stays-centered)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3205-L3206 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#long-event-widens-and-stays-centered)
 
 ## ipmt Content
 
@@ -23,14 +23,14 @@ e1-short ::e --::L--> A target event with a deliberately long label that wraps o
 
 ## Layout Validation Rules
 
-Test line: 3165
+Test line: 3205
 
 ✅ All 4 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 3177](gl:docs/dev/layout-gen/layout-alg.md#L3177): `type=event text-len>=190 has width>=240` ([long-event-widens-and-stays-centered.dsl](../layout-gen-rules/long-event-widens-and-stays-centered.dsl))
-- ✓ [Line 3178](gl:docs/dev/layout-gen/layout-alg.md#L3178): `type=event text-len<190 has width=120` ([long-event-widens-and-stays-centered-02.dsl](../layout-gen-rules/long-event-widens-and-stays-centered-02.dsl))
-- ✓ [Line 3179](gl:docs/dev/layout-gen/layout-alg.md#L3179): `each $a(type=event) ~L~ $b(type=event) has $a,$b same center-x` ([long-event-widens-and-stays-centered-03.dsl](../layout-gen-rules/long-event-widens-and-stays-centered-03.dsl))
+- ✓ [Line 3217](gl:docs/dev/layout-gen/layout-alg.md#L3217): `type=event text-len>=190 has width>=240` ([long-event-widens-and-stays-centered.dsl](../layout-gen-rules/long-event-widens-and-stays-centered.dsl))
+- ✓ [Line 3218](gl:docs/dev/layout-gen/layout-alg.md#L3218): `type=event text-len<190 has width=120` ([long-event-widens-and-stays-centered-02.dsl](../layout-gen-rules/long-event-widens-and-stays-centered-02.dsl))
+- ✓ [Line 3219](gl:docs/dev/layout-gen/layout-alg.md#L3219): `each $a(type=event) ~L~ $b(type=event) has $a,$b same center-x` ([long-event-widens-and-stays-centered-03.dsl](../layout-gen-rules/long-event-widens-and-stays-centered-03.dsl))
 
 ## Rendered Diagram
 

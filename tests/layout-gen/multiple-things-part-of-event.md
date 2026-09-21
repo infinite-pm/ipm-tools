@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1997-L1999 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#multiple-things-part-of-event)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2037-L2039 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#multiple-things-part-of-event)
 
 ## ipmt Content
 
@@ -24,16 +24,16 @@ tB --> e1
 
 ## Layout Validation Rules
 
-Test line: 1997
+Test line: 2037
 
 ✅ All 6 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2009](gl:docs/dev/layout-gen/layout-alg.md#L2009): `#tA is left-of #e1 with gap=60` ([multiple-things-part-of-event.dsl](../layout-gen-rules/multiple-things-part-of-event.dsl))
-- ✓ [Line 2010](gl:docs/dev/layout-gen/layout-alg.md#L2010): `#tB is left-of #e1 with gap=60` ([multiple-things-part-of-event-02.dsl](../layout-gen-rules/multiple-things-part-of-event-02.dsl))
-- ✓ [Line 2011](gl:docs/dev/layout-gen/layout-alg.md#L2011): `#tA,#tB have same center-x` ([multiple-things-part-of-event-03.dsl](../layout-gen-rules/multiple-things-part-of-event-03.dsl))
-- ✓ [Line 2012](gl:docs/dev/layout-gen/layout-alg.md#L2012): `#tB is below #tA with gap=40` ([multiple-things-part-of-event-04.dsl](../layout-gen-rules/multiple-things-part-of-event-04.dsl))
-- ✓ [Line 2013](gl:docs/dev/layout-gen/layout-alg.md#L2013): `#e1 is vertically-centered-between #tA,#tB` ([multiple-things-part-of-event-05.dsl](../layout-gen-rules/multiple-things-part-of-event-05.dsl))
+- ✓ [Line 2049](gl:docs/dev/layout-gen/layout-alg.md#L2049): `#tA is left-of #e1 with gap=60` ([multiple-things-part-of-event.dsl](../layout-gen-rules/multiple-things-part-of-event.dsl))
+- ✓ [Line 2050](gl:docs/dev/layout-gen/layout-alg.md#L2050): `#tB is left-of #e1 with gap=60` ([multiple-things-part-of-event-02.dsl](../layout-gen-rules/multiple-things-part-of-event-02.dsl))
+- ✓ [Line 2051](gl:docs/dev/layout-gen/layout-alg.md#L2051): `#tA,#tB have same center-x` ([multiple-things-part-of-event-03.dsl](../layout-gen-rules/multiple-things-part-of-event-03.dsl))
+- ✓ [Line 2052](gl:docs/dev/layout-gen/layout-alg.md#L2052): `#tB is below #tA with gap=40` ([multiple-things-part-of-event-04.dsl](../layout-gen-rules/multiple-things-part-of-event-04.dsl))
+- ✓ [Line 2053](gl:docs/dev/layout-gen/layout-alg.md#L2053): `#e1 is vertically-centered-between #tA,#tB` ([multiple-things-part-of-event-05.dsl](../layout-gen-rules/multiple-things-part-of-event-05.dsl))
 
 ## Rendered Diagram
 

@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1248-L1251 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#one-concept-on-the-inner-layer)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1288-L1291 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#one-concept-on-the-inner-layer)
 
 ## ipmt Content
 
@@ -25,18 +25,18 @@ e1-mid --> c1-note ::c
 
 ## Layout Validation Rules
 
-Test line: 1248
+Test line: 1288
 
 ✅ All 8 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 1265](gl:docs/dev/layout-gen/layout-alg.md#L1265): `#e2-outer,#e1-mid,#e3-deep have same y` ([one-concept-on-the-inner-layer.dsl](../layout-gen-rules/one-concept-on-the-inner-layer.dsl))
-- ✓ [Line 1266](gl:docs/dev/layout-gen/layout-alg.md#L1266): `#c1-note,#e1-mid have same center-x` ([one-concept-on-the-inner-layer-02.dsl](../layout-gen-rules/one-concept-on-the-inner-layer-02.dsl))
-- ✓ [Line 1267](gl:docs/dev/layout-gen/layout-alg.md#L1267): `#c1-note is below #e1-mid with gap=40` ([one-concept-on-the-inner-layer-03.dsl](../layout-gen-rules/one-concept-on-the-inner-layer-03.dsl))
-- ✓ [Line 1268](gl:docs/dev/layout-gen/layout-alg.md#L1268): `#e3-deep is right-of #e1-mid with gap=60` ([one-concept-on-the-inner-layer-04.dsl](../layout-gen-rules/one-concept-on-the-inner-layer-04.dsl))
-- ✓ [Line 1269](gl:docs/dev/layout-gen/layout-alg.md#L1269): `node #c1-note does not straddle edge #e3-deep,#e1-mid` ([one-concept-on-the-inner-layer-05.dsl](../layout-gen-rules/one-concept-on-the-inner-layer-05.dsl))
-- ✓ [Line 1270](gl:docs/dev/layout-gen/layout-alg.md#L1270): `node #c1-note does not straddle edge #e1-mid,#e2-outer` ([one-concept-on-the-inner-layer-06.dsl](../layout-gen-rules/one-concept-on-the-inner-layer-06.dsl))
-- ✓ [Line 1271](gl:docs/dev/layout-gen/layout-alg.md#L1271): `#E is below #c1-note with gap=40` ([one-concept-on-the-inner-layer-07.dsl](../layout-gen-rules/one-concept-on-the-inner-layer-07.dsl))
+- ✓ [Line 1305](gl:docs/dev/layout-gen/layout-alg.md#L1305): `#e2-outer,#e1-mid,#e3-deep have same y` ([one-concept-on-the-inner-layer.dsl](../layout-gen-rules/one-concept-on-the-inner-layer.dsl))
+- ✓ [Line 1306](gl:docs/dev/layout-gen/layout-alg.md#L1306): `#c1-note,#e1-mid have same center-x` ([one-concept-on-the-inner-layer-02.dsl](../layout-gen-rules/one-concept-on-the-inner-layer-02.dsl))
+- ✓ [Line 1307](gl:docs/dev/layout-gen/layout-alg.md#L1307): `#c1-note is below #e1-mid with gap=40` ([one-concept-on-the-inner-layer-03.dsl](../layout-gen-rules/one-concept-on-the-inner-layer-03.dsl))
+- ✓ [Line 1308](gl:docs/dev/layout-gen/layout-alg.md#L1308): `#e3-deep is right-of #e1-mid with gap=60` ([one-concept-on-the-inner-layer-04.dsl](../layout-gen-rules/one-concept-on-the-inner-layer-04.dsl))
+- ✓ [Line 1309](gl:docs/dev/layout-gen/layout-alg.md#L1309): `node #c1-note does not straddle edge #e3-deep,#e1-mid` ([one-concept-on-the-inner-layer-05.dsl](../layout-gen-rules/one-concept-on-the-inner-layer-05.dsl))
+- ✓ [Line 1310](gl:docs/dev/layout-gen/layout-alg.md#L1310): `node #c1-note does not straddle edge #e1-mid,#e2-outer` ([one-concept-on-the-inner-layer-06.dsl](../layout-gen-rules/one-concept-on-the-inner-layer-06.dsl))
+- ✓ [Line 1311](gl:docs/dev/layout-gen/layout-alg.md#L1311): `#E is below #c1-note with gap=40` ([one-concept-on-the-inner-layer-07.dsl](../layout-gen-rules/one-concept-on-the-inner-layer-07.dsl))
 
 ## Rendered Diagram
 

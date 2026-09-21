@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/ipmt-spec.md#L577-L578 | [docs/ipmt-spec.md](../../../docs/ipmt-spec.md#multiple-types)
+**Source:** gl:docs/ipmt-spec.md#L599-L600 | [docs/ipmt-spec.md](../../../docs/ipmt-spec.md#multiple-types)
 
 ## ipmt Content
 

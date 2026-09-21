@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3331-L3341 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3371-L3381 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses)
 
 ## ipmt Content
 
@@ -32,28 +32,28 @@ e1a --- e1c
 
 ## Layout Validation Rules
 
-Test line: 3331
+Test line: 3371
 
 ⚠️ 17/18 rules passed
 
 - ✗ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` - **edge e1a->e1c has 2 bends > max-bends 0 (each-edge default; if the detour is intended, add it to `except` and pin it with `edge #e1a,#e1c has max-bends=2`)** ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 3378](gl:docs/dev/layout-gen/layout-alg.md#L3378): `#e1a,#e1b,#e1c have same center-x` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses.dsl))
-- ✓ [Line 3379](gl:docs/dev/layout-gen/layout-alg.md#L3379): `#e1 is left-of #e1a with gap=60` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-02.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-02.dsl))
-- ✓ [Line 3380](gl:docs/dev/layout-gen/layout-alg.md#L3380): `edge #e1a,#e1b is vertical` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-03.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-03.dsl))
-- ✓ [Line 3381](gl:docs/dev/layout-gen/layout-alg.md#L3381): `edge #e1a,#e1b has visibility=visible` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-04.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-04.dsl))
-- ✓ [Line 3382](gl:docs/dev/layout-gen/layout-alg.md#L3382): `edge #e1a,#e1b has source-position=0.5` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-05.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-05.dsl))
-- ✓ [Line 3383](gl:docs/dev/layout-gen/layout-alg.md#L3383): `edge #e1a,#e1b has target-position=0.5` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-06.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-06.dsl))
-- ✓ [Line 3384](gl:docs/dev/layout-gen/layout-alg.md#L3384): `edge #e1b,#e1c is vertical` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-07.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-07.dsl))
-- ✓ [Line 3385](gl:docs/dev/layout-gen/layout-alg.md#L3385): `edge #e1b,#e1c has visibility=visible` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-08.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-08.dsl))
-- ✓ [Line 3386](gl:docs/dev/layout-gen/layout-alg.md#L3386): `edge #e1b,#e1c has source-position=0.5` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-09.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-09.dsl))
-- ✓ [Line 3387](gl:docs/dev/layout-gen/layout-alg.md#L3387): `edge #e1b,#e1c has target-position=0.5` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-10.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-10.dsl))
-- ✓ [Line 3388](gl:docs/dev/layout-gen/layout-alg.md#L3388): `each edge has max-bends=0 except #e1a,#e1c` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-11.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-11.dsl))
-- ✓ [Line 3389](gl:docs/dev/layout-gen/layout-alg.md#L3389): `edge #e1a,#e1c has visibility=visible` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-12.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-12.dsl))
-- ✓ [Line 3390](gl:docs/dev/layout-gen/layout-alg.md#L3390): `edge #e1a,#e1c has source-side=right` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-13.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-13.dsl))
-- ✓ [Line 3391](gl:docs/dev/layout-gen/layout-alg.md#L3391): `edge #e1a,#e1c has source-position=0.75` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-14.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-14.dsl))
-- ✓ [Line 3392](gl:docs/dev/layout-gen/layout-alg.md#L3392): `edge #e1a,#e1c has target-side=right` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-15.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-15.dsl))
-- ✓ [Line 3393](gl:docs/dev/layout-gen/layout-alg.md#L3393): `edge #e1a,#e1c has target-position=0.25` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-16.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-16.dsl))
-- ✓ [Line 3394](gl:docs/dev/layout-gen/layout-alg.md#L3394): `edge #e1a,#e1c has max-bends=2` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-17.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-17.dsl))
+- ✓ [Line 3418](gl:docs/dev/layout-gen/layout-alg.md#L3418): `#e1a,#e1b,#e1c have same center-x` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses.dsl))
+- ✓ [Line 3419](gl:docs/dev/layout-gen/layout-alg.md#L3419): `#e1 is left-of #e1a with gap=60` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-02.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-02.dsl))
+- ✓ [Line 3420](gl:docs/dev/layout-gen/layout-alg.md#L3420): `edge #e1a,#e1b is vertical` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-03.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-03.dsl))
+- ✓ [Line 3421](gl:docs/dev/layout-gen/layout-alg.md#L3421): `edge #e1a,#e1b has visibility=visible` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-04.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-04.dsl))
+- ✓ [Line 3422](gl:docs/dev/layout-gen/layout-alg.md#L3422): `edge #e1a,#e1b has source-position=0.5` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-05.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-05.dsl))
+- ✓ [Line 3423](gl:docs/dev/layout-gen/layout-alg.md#L3423): `edge #e1a,#e1b has target-position=0.5` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-06.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-06.dsl))
+- ✓ [Line 3424](gl:docs/dev/layout-gen/layout-alg.md#L3424): `edge #e1b,#e1c is vertical` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-07.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-07.dsl))
+- ✓ [Line 3425](gl:docs/dev/layout-gen/layout-alg.md#L3425): `edge #e1b,#e1c has visibility=visible` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-08.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-08.dsl))
+- ✓ [Line 3426](gl:docs/dev/layout-gen/layout-alg.md#L3426): `edge #e1b,#e1c has source-position=0.5` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-09.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-09.dsl))
+- ✓ [Line 3427](gl:docs/dev/layout-gen/layout-alg.md#L3427): `edge #e1b,#e1c has target-position=0.5` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-10.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-10.dsl))
+- ✓ [Line 3428](gl:docs/dev/layout-gen/layout-alg.md#L3428): `each edge has max-bends=0 except #e1a,#e1c` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-11.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-11.dsl))
+- ✓ [Line 3429](gl:docs/dev/layout-gen/layout-alg.md#L3429): `edge #e1a,#e1c has visibility=visible` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-12.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-12.dsl))
+- ✓ [Line 3430](gl:docs/dev/layout-gen/layout-alg.md#L3430): `edge #e1a,#e1c has source-side=right` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-13.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-13.dsl))
+- ✓ [Line 3431](gl:docs/dev/layout-gen/layout-alg.md#L3431): `edge #e1a,#e1c has source-position=0.75` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-14.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-14.dsl))
+- ✓ [Line 3432](gl:docs/dev/layout-gen/layout-alg.md#L3432): `edge #e1a,#e1c has target-side=right` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-15.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-15.dsl))
+- ✓ [Line 3433](gl:docs/dev/layout-gen/layout-alg.md#L3433): `edge #e1a,#e1c has target-position=0.25` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-16.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-16.dsl))
+- ✓ [Line 3434](gl:docs/dev/layout-gen/layout-alg.md#L3434): `edge #e1a,#e1c has max-bends=2` ([near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-17.dsl](../layout-gen-rules/near-to-peers-in-a-column-neighbours-link-the-spanning-tie-bypasses-17.dsl))
 
 ## Rendered Diagram
 

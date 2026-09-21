@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg-dupe.md#L109-L112 | [docs/dev/layout-gen/layout-alg-dupe.md](../../docs/dev/layout-gen/layout-alg-dupe.md#an-event-is-never-drawn-twice)
+**Source:** gl:docs/dev/layout-gen/layout-alg-dupe.md#L114-L117 | [docs/dev/layout-gen/layout-alg-dupe.md](../../docs/dev/layout-gen/layout-alg-dupe.md#an-event-is-never-drawn-twice)
 
 ## ipmt Content
 

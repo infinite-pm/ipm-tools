@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg-dupe.md#L51-L54 | [docs/dev/layout-gen/layout-alg-dupe.md](../../docs/dev/layout-gen/layout-alg-dupe.md#a-concept-many-events-express-is-drawn-beside-each-group)
+**Source:** gl:docs/dev/layout-gen/layout-alg-dupe.md#L55-L58 | [docs/dev/layout-gen/layout-alg-dupe.md](../../docs/dev/layout-gen/layout-alg-dupe.md#a-concept-many-events-express-is-drawn-beside-each-group)
 
 ## ipmt Content
 

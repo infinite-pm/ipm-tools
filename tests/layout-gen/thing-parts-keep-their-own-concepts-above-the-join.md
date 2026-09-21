@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1838-L1842 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#thing-parts-keep-their-own-concepts-above-the-join)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1878-L1882 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#thing-parts-keep-their-own-concepts-above-the-join)
 
 ## ipmt Content
 
@@ -26,20 +26,20 @@ tC --> cZ ::c
 
 ## Layout Validation Rules
 
-Test line: 1838
+Test line: 1878
 
 ✅ All 10 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 1860](gl:docs/dev/layout-gen/layout-alg.md#L1860): `#cX,#cY,#cZ have same y` ([thing-parts-keep-their-own-concepts-above-the-join.dsl](../layout-gen-rules/thing-parts-keep-their-own-concepts-above-the-join.dsl))
-- ✓ [Line 1861](gl:docs/dev/layout-gen/layout-alg.md#L1861): `#tA,#tB,#tC have same y` ([thing-parts-keep-their-own-concepts-above-the-join-02.dsl](../layout-gen-rules/thing-parts-keep-their-own-concepts-above-the-join-02.dsl))
-- ✓ [Line 1862](gl:docs/dev/layout-gen/layout-alg.md#L1862): `#tA,#cX have same center-x` ([thing-parts-keep-their-own-concepts-above-the-join-03.dsl](../layout-gen-rules/thing-parts-keep-their-own-concepts-above-the-join-03.dsl))
-- ✓ [Line 1863](gl:docs/dev/layout-gen/layout-alg.md#L1863): `#tB,#cY have same center-x` ([thing-parts-keep-their-own-concepts-above-the-join-04.dsl](../layout-gen-rules/thing-parts-keep-their-own-concepts-above-the-join-04.dsl))
-- ✓ [Line 1864](gl:docs/dev/layout-gen/layout-alg.md#L1864): `#tC,#cZ have same center-x` ([thing-parts-keep-their-own-concepts-above-the-join-05.dsl](../layout-gen-rules/thing-parts-keep-their-own-concepts-above-the-join-05.dsl))
-- ✓ [Line 1865](gl:docs/dev/layout-gen/layout-alg.md#L1865): `#cX is above #tA with gap=40` ([thing-parts-keep-their-own-concepts-above-the-join-06.dsl](../layout-gen-rules/thing-parts-keep-their-own-concepts-above-the-join-06.dsl))
-- ✓ [Line 1866](gl:docs/dev/layout-gen/layout-alg.md#L1866): `#tD is below #tB with gap=40` ([thing-parts-keep-their-own-concepts-above-the-join-07.dsl](../layout-gen-rules/thing-parts-keep-their-own-concepts-above-the-join-07.dsl))
-- ✓ [Line 1867](gl:docs/dev/layout-gen/layout-alg.md#L1867): `#tB,#tD have same center-x` ([thing-parts-keep-their-own-concepts-above-the-join-08.dsl](../layout-gen-rules/thing-parts-keep-their-own-concepts-above-the-join-08.dsl))
-- ✓ [Line 1868](gl:docs/dev/layout-gen/layout-alg.md#L1868): `edge #tB,#tD is vertical` ([thing-parts-keep-their-own-concepts-above-the-join-09.dsl](../layout-gen-rules/thing-parts-keep-their-own-concepts-above-the-join-09.dsl))
+- ✓ [Line 1900](gl:docs/dev/layout-gen/layout-alg.md#L1900): `#cX,#cY,#cZ have same y` ([thing-parts-keep-their-own-concepts-above-the-join.dsl](../layout-gen-rules/thing-parts-keep-their-own-concepts-above-the-join.dsl))
+- ✓ [Line 1901](gl:docs/dev/layout-gen/layout-alg.md#L1901): `#tA,#tB,#tC have same y` ([thing-parts-keep-their-own-concepts-above-the-join-02.dsl](../layout-gen-rules/thing-parts-keep-their-own-concepts-above-the-join-02.dsl))
+- ✓ [Line 1902](gl:docs/dev/layout-gen/layout-alg.md#L1902): `#tA,#cX have same center-x` ([thing-parts-keep-their-own-concepts-above-the-join-03.dsl](../layout-gen-rules/thing-parts-keep-their-own-concepts-above-the-join-03.dsl))
+- ✓ [Line 1903](gl:docs/dev/layout-gen/layout-alg.md#L1903): `#tB,#cY have same center-x` ([thing-parts-keep-their-own-concepts-above-the-join-04.dsl](../layout-gen-rules/thing-parts-keep-their-own-concepts-above-the-join-04.dsl))
+- ✓ [Line 1904](gl:docs/dev/layout-gen/layout-alg.md#L1904): `#tC,#cZ have same center-x` ([thing-parts-keep-their-own-concepts-above-the-join-05.dsl](../layout-gen-rules/thing-parts-keep-their-own-concepts-above-the-join-05.dsl))
+- ✓ [Line 1905](gl:docs/dev/layout-gen/layout-alg.md#L1905): `#cX is above #tA with gap=40` ([thing-parts-keep-their-own-concepts-above-the-join-06.dsl](../layout-gen-rules/thing-parts-keep-their-own-concepts-above-the-join-06.dsl))
+- ✓ [Line 1906](gl:docs/dev/layout-gen/layout-alg.md#L1906): `#tD is below #tB with gap=40` ([thing-parts-keep-their-own-concepts-above-the-join-07.dsl](../layout-gen-rules/thing-parts-keep-their-own-concepts-above-the-join-07.dsl))
+- ✓ [Line 1907](gl:docs/dev/layout-gen/layout-alg.md#L1907): `#tB,#tD have same center-x` ([thing-parts-keep-their-own-concepts-above-the-join-08.dsl](../layout-gen-rules/thing-parts-keep-their-own-concepts-above-the-join-08.dsl))
+- ✓ [Line 1908](gl:docs/dev/layout-gen/layout-alg.md#L1908): `edge #tB,#tD is vertical` ([thing-parts-keep-their-own-concepts-above-the-join-09.dsl](../layout-gen-rules/thing-parts-keep-their-own-concepts-above-the-join-09.dsl))
 
 ## Rendered Diagram
 

@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1140-L1144 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-composites-successor-sits-under-the-composite-its-part-beside-it)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1180-L1184 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-composites-successor-sits-under-the-composite-its-part-beside-it)
 
 ## ipmt Content
 
@@ -26,7 +26,7 @@ e2 --> e3 ::e
 
 ## Layout Validation Rules
 
-Test line: 1140
+Test line: 1180
 
 ✅ All 13 rules passed
 
@@ -34,15 +34,15 @@ Test line: 1140
 - ✓ [Line 82](gl:docs/dev/layout-gen/layout-alg.md#L82): `type=event has width=120` ([one-event.dsl](../layout-gen-rules/one-event.dsl))
 - ✓ [Line 83](gl:docs/dev/layout-gen/layout-alg.md#L83): `type=event has min-gap-to-others>=10` ([one-event-02.dsl](../layout-gen-rules/one-event-02.dsl))
 - ✓ [Line 84](gl:docs/dev/layout-gen/layout-alg.md#L84): `type=boundary has size=40x40` ([one-event-03.dsl](../layout-gen-rules/one-event-03.dsl))
-- ✓ [Line 1160](gl:docs/dev/layout-gen/layout-alg.md#L1160): `#e1a is right-of #e1 with gap=60` ([a-composites-successor-sits-under-the-composite-its-part-beside-it.dsl](../layout-gen-rules/a-composites-successor-sits-under-the-composite-its-part-beside-it.dsl))
-- ✓ [Line 1161](gl:docs/dev/layout-gen/layout-alg.md#L1161): `#e1,#e1a have same y` ([a-composites-successor-sits-under-the-composite-its-part-beside-it-02.dsl](../layout-gen-rules/a-composites-successor-sits-under-the-composite-its-part-beside-it-02.dsl))
-- ✓ [Line 1162](gl:docs/dev/layout-gen/layout-alg.md#L1162): `#S,#e1,#e2,#e3,#E have same center-x` ([a-composites-successor-sits-under-the-composite-its-part-beside-it-03.dsl](../layout-gen-rules/a-composites-successor-sits-under-the-composite-its-part-beside-it-03.dsl))
-- ✓ [Line 1163](gl:docs/dev/layout-gen/layout-alg.md#L1163): `#e2 is below #e1 with gap=60` ([a-composites-successor-sits-under-the-composite-its-part-beside-it-04.dsl](../layout-gen-rules/a-composites-successor-sits-under-the-composite-its-part-beside-it-04.dsl))
-- ✓ [Line 1164](gl:docs/dev/layout-gen/layout-alg.md#L1164): `#e3 is below #e2 with gap=60` ([a-composites-successor-sits-under-the-composite-its-part-beside-it-05.dsl](../layout-gen-rules/a-composites-successor-sits-under-the-composite-its-part-beside-it-05.dsl))
-- ✓ [Line 1165](gl:docs/dev/layout-gen/layout-alg.md#L1165): `edge #e1,#e2 is vertical` ([a-composites-successor-sits-under-the-composite-its-part-beside-it-06.dsl](../layout-gen-rules/a-composites-successor-sits-under-the-composite-its-part-beside-it-06.dsl))
-- ✓ [Line 1166](gl:docs/dev/layout-gen/layout-alg.md#L1166): `edge #e2,#e3 is vertical` ([a-composites-successor-sits-under-the-composite-its-part-beside-it-07.dsl](../layout-gen-rules/a-composites-successor-sits-under-the-composite-its-part-beside-it-07.dsl))
-- ✓ [Line 1167](gl:docs/dev/layout-gen/layout-alg.md#L1167): `#S is above #e1 with gap=40` ([a-composites-successor-sits-under-the-composite-its-part-beside-it-08.dsl](../layout-gen-rules/a-composites-successor-sits-under-the-composite-its-part-beside-it-08.dsl))
-- ✓ [Line 1168](gl:docs/dev/layout-gen/layout-alg.md#L1168): `#E is below #e3 with gap=40` ([a-composites-successor-sits-under-the-composite-its-part-beside-it-09.dsl](../layout-gen-rules/a-composites-successor-sits-under-the-composite-its-part-beside-it-09.dsl))
+- ✓ [Line 1200](gl:docs/dev/layout-gen/layout-alg.md#L1200): `#e1a is right-of #e1 with gap=60` ([a-composites-successor-sits-under-the-composite-its-part-beside-it.dsl](../layout-gen-rules/a-composites-successor-sits-under-the-composite-its-part-beside-it.dsl))
+- ✓ [Line 1201](gl:docs/dev/layout-gen/layout-alg.md#L1201): `#e1,#e1a have same y` ([a-composites-successor-sits-under-the-composite-its-part-beside-it-02.dsl](../layout-gen-rules/a-composites-successor-sits-under-the-composite-its-part-beside-it-02.dsl))
+- ✓ [Line 1202](gl:docs/dev/layout-gen/layout-alg.md#L1202): `#S,#e1,#e2,#e3,#E have same center-x` ([a-composites-successor-sits-under-the-composite-its-part-beside-it-03.dsl](../layout-gen-rules/a-composites-successor-sits-under-the-composite-its-part-beside-it-03.dsl))
+- ✓ [Line 1203](gl:docs/dev/layout-gen/layout-alg.md#L1203): `#e2 is below #e1 with gap=60` ([a-composites-successor-sits-under-the-composite-its-part-beside-it-04.dsl](../layout-gen-rules/a-composites-successor-sits-under-the-composite-its-part-beside-it-04.dsl))
+- ✓ [Line 1204](gl:docs/dev/layout-gen/layout-alg.md#L1204): `#e3 is below #e2 with gap=60` ([a-composites-successor-sits-under-the-composite-its-part-beside-it-05.dsl](../layout-gen-rules/a-composites-successor-sits-under-the-composite-its-part-beside-it-05.dsl))
+- ✓ [Line 1205](gl:docs/dev/layout-gen/layout-alg.md#L1205): `edge #e1,#e2 is vertical` ([a-composites-successor-sits-under-the-composite-its-part-beside-it-06.dsl](../layout-gen-rules/a-composites-successor-sits-under-the-composite-its-part-beside-it-06.dsl))
+- ✓ [Line 1206](gl:docs/dev/layout-gen/layout-alg.md#L1206): `edge #e2,#e3 is vertical` ([a-composites-successor-sits-under-the-composite-its-part-beside-it-07.dsl](../layout-gen-rules/a-composites-successor-sits-under-the-composite-its-part-beside-it-07.dsl))
+- ✓ [Line 1207](gl:docs/dev/layout-gen/layout-alg.md#L1207): `#S is above #e1 with gap=40` ([a-composites-successor-sits-under-the-composite-its-part-beside-it-08.dsl](../layout-gen-rules/a-composites-successor-sits-under-the-composite-its-part-beside-it-08.dsl))
+- ✓ [Line 1208](gl:docs/dev/layout-gen/layout-alg.md#L1208): `#E is below #e3 with gap=40` ([a-composites-successor-sits-under-the-composite-its-part-beside-it-09.dsl](../layout-gen-rules/a-composites-successor-sits-under-the-composite-its-part-beside-it-09.dsl))
 
 ## Rendered Diagram
 

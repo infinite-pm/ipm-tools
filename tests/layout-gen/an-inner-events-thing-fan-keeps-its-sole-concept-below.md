@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1306-L1310 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#an-inner-events-thing-fan-keeps-its-sole-concept-below)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1346-L1350 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#an-inner-events-thing-fan-keeps-its-sole-concept-below)
 
 ## ipmt Content
 
@@ -26,17 +26,17 @@ e1a --> c1-note ::c
 
 ## Layout Validation Rules
 
-Test line: 1306
+Test line: 1346
 
 ✅ All 7 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 1323](gl:docs/dev/layout-gen/layout-alg.md#L1323): `#w1,#w2 have same center-x` ([an-inner-events-thing-fan-keeps-its-sole-concept-below.dsl](../layout-gen-rules/an-inner-events-thing-fan-keeps-its-sole-concept-below.dsl))
-- ✓ [Line 1324](gl:docs/dev/layout-gen/layout-alg.md#L1324): `#w1 is right-of #e1a with gap=60` ([an-inner-events-thing-fan-keeps-its-sole-concept-below-02.dsl](../layout-gen-rules/an-inner-events-thing-fan-keeps-its-sole-concept-below-02.dsl))
-- ✓ [Line 1325](gl:docs/dev/layout-gen/layout-alg.md#L1325): `#w2 is below #w1 with gap=40` ([an-inner-events-thing-fan-keeps-its-sole-concept-below-03.dsl](../layout-gen-rules/an-inner-events-thing-fan-keeps-its-sole-concept-below-03.dsl))
-- ✓ [Line 1326](gl:docs/dev/layout-gen/layout-alg.md#L1326): `#e1a is vertically-centered-between #w1,#w2` ([an-inner-events-thing-fan-keeps-its-sole-concept-below-04.dsl](../layout-gen-rules/an-inner-events-thing-fan-keeps-its-sole-concept-below-04.dsl))
-- ✓ [Line 1327](gl:docs/dev/layout-gen/layout-alg.md#L1327): `#e1a,#c1-note have same center-x` ([an-inner-events-thing-fan-keeps-its-sole-concept-below-05.dsl](../layout-gen-rules/an-inner-events-thing-fan-keeps-its-sole-concept-below-05.dsl))
-- ✓ [Line 1328](gl:docs/dev/layout-gen/layout-alg.md#L1328): `#c1-note is below #e1a with gap=40` ([an-inner-events-thing-fan-keeps-its-sole-concept-below-06.dsl](../layout-gen-rules/an-inner-events-thing-fan-keeps-its-sole-concept-below-06.dsl))
+- ✓ [Line 1363](gl:docs/dev/layout-gen/layout-alg.md#L1363): `#w1,#w2 have same center-x` ([an-inner-events-thing-fan-keeps-its-sole-concept-below.dsl](../layout-gen-rules/an-inner-events-thing-fan-keeps-its-sole-concept-below.dsl))
+- ✓ [Line 1364](gl:docs/dev/layout-gen/layout-alg.md#L1364): `#w1 is right-of #e1a with gap=60` ([an-inner-events-thing-fan-keeps-its-sole-concept-below-02.dsl](../layout-gen-rules/an-inner-events-thing-fan-keeps-its-sole-concept-below-02.dsl))
+- ✓ [Line 1365](gl:docs/dev/layout-gen/layout-alg.md#L1365): `#w2 is below #w1 with gap=40` ([an-inner-events-thing-fan-keeps-its-sole-concept-below-03.dsl](../layout-gen-rules/an-inner-events-thing-fan-keeps-its-sole-concept-below-03.dsl))
+- ✓ [Line 1366](gl:docs/dev/layout-gen/layout-alg.md#L1366): `#e1a is vertically-centered-between #w1,#w2` ([an-inner-events-thing-fan-keeps-its-sole-concept-below-04.dsl](../layout-gen-rules/an-inner-events-thing-fan-keeps-its-sole-concept-below-04.dsl))
+- ✓ [Line 1367](gl:docs/dev/layout-gen/layout-alg.md#L1367): `#e1a,#c1-note have same center-x` ([an-inner-events-thing-fan-keeps-its-sole-concept-below-05.dsl](../layout-gen-rules/an-inner-events-thing-fan-keeps-its-sole-concept-below-05.dsl))
+- ✓ [Line 1368](gl:docs/dev/layout-gen/layout-alg.md#L1368): `#c1-note is below #e1a with gap=40` ([an-inner-events-thing-fan-keeps-its-sole-concept-below-06.dsl](../layout-gen-rules/an-inner-events-thing-fan-keeps-its-sole-concept-below-06.dsl))
 
 ## Rendered Diagram
 

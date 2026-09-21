@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2658-L2675 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-stranded-leaf-concept-comes-back-to-its-owner)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2698-L2715 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-stranded-leaf-concept-comes-back-to-its-owner)
 
 ## ipmt Content
 
@@ -39,25 +39,25 @@ e1e --> e1b --> e1c
 
 ## Layout Validation Rules
 
-Test line: 2658
+Test line: 2698
 
 ✅ All 15 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2696](gl:docs/dev/layout-gen/layout-alg.md#L2696): `each edge has max-bends=0 except #tA,#tB #tD,#e1b #tH,#e1e #tF,#e1e` ([a-stranded-leaf-concept-comes-back-to-its-owner.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner.dsl))
-- ✓ [Line 2697](gl:docs/dev/layout-gen/layout-alg.md#L2697): `edge #tA,#tB has max-bends=2` ([a-stranded-leaf-concept-comes-back-to-its-owner-02.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner-02.dsl))
-- ✓ [Line 2698](gl:docs/dev/layout-gen/layout-alg.md#L2698): `edge #tD,#e1b has max-bends=2` ([a-stranded-leaf-concept-comes-back-to-its-owner-03.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner-03.dsl))
-- ✓ [Line 2699](gl:docs/dev/layout-gen/layout-alg.md#L2699): `edge #tH,#e1e has max-bends=2` ([a-stranded-leaf-concept-comes-back-to-its-owner-04.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner-04.dsl))
-- ✓ [Line 2700](gl:docs/dev/layout-gen/layout-alg.md#L2700): `edge #tF,#e1e has max-bends=2` ([a-stranded-leaf-concept-comes-back-to-its-owner-05.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner-05.dsl))
-- ✓ [Line 2701](gl:docs/dev/layout-gen/layout-alg.md#L2701): `edge #tD,#cX has max-bends=0` ([a-stranded-leaf-concept-comes-back-to-its-owner-06.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner-06.dsl))
-- ✓ [Line 2702](gl:docs/dev/layout-gen/layout-alg.md#L2702): `edge #tD,#cX has visibility=visible` ([a-stranded-leaf-concept-comes-back-to-its-owner-07.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner-07.dsl))
-- ✓ [Line 2703](gl:docs/dev/layout-gen/layout-alg.md#L2703): `edge #tD,#cX has source-side=bottom` ([a-stranded-leaf-concept-comes-back-to-its-owner-08.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner-08.dsl))
-- ✓ [Line 2704](gl:docs/dev/layout-gen/layout-alg.md#L2704): `edge #tD,#cX has target-side=top` ([a-stranded-leaf-concept-comes-back-to-its-owner-09.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner-09.dsl))
-- ✓ [Line 2705](gl:docs/dev/layout-gen/layout-alg.md#L2705): `#tD,#cX have same center-x` ([a-stranded-leaf-concept-comes-back-to-its-owner-10.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner-10.dsl))
-- ✓ [Line 2706](gl:docs/dev/layout-gen/layout-alg.md#L2706): `#cX is below #tD with gap=40` ([a-stranded-leaf-concept-comes-back-to-its-owner-11.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner-11.dsl))
-- ✓ [Line 2707](gl:docs/dev/layout-gen/layout-alg.md#L2707): `#tB is below #tH with gap=40` ([a-stranded-leaf-concept-comes-back-to-its-owner-12.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner-12.dsl))
-- ✓ [Line 2708](gl:docs/dev/layout-gen/layout-alg.md#L2708): `edge #tH,#e1d has max-bends=0` ([a-stranded-leaf-concept-comes-back-to-its-owner-13.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner-13.dsl))
-- ✓ [Line 2709](gl:docs/dev/layout-gen/layout-alg.md#L2709): `#tH is right-of #e1d with gap=60` ([a-stranded-leaf-concept-comes-back-to-its-owner-14.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner-14.dsl))
+- ✓ [Line 2736](gl:docs/dev/layout-gen/layout-alg.md#L2736): `each edge has max-bends=0 except #tA,#tB #tD,#e1b #tH,#e1e #tF,#e1e` ([a-stranded-leaf-concept-comes-back-to-its-owner.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner.dsl))
+- ✓ [Line 2737](gl:docs/dev/layout-gen/layout-alg.md#L2737): `edge #tA,#tB has max-bends=2` ([a-stranded-leaf-concept-comes-back-to-its-owner-02.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner-02.dsl))
+- ✓ [Line 2738](gl:docs/dev/layout-gen/layout-alg.md#L2738): `edge #tD,#e1b has max-bends=2` ([a-stranded-leaf-concept-comes-back-to-its-owner-03.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner-03.dsl))
+- ✓ [Line 2739](gl:docs/dev/layout-gen/layout-alg.md#L2739): `edge #tH,#e1e has max-bends=2` ([a-stranded-leaf-concept-comes-back-to-its-owner-04.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner-04.dsl))
+- ✓ [Line 2740](gl:docs/dev/layout-gen/layout-alg.md#L2740): `edge #tF,#e1e has max-bends=2` ([a-stranded-leaf-concept-comes-back-to-its-owner-05.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner-05.dsl))
+- ✓ [Line 2741](gl:docs/dev/layout-gen/layout-alg.md#L2741): `edge #tD,#cX has max-bends=0` ([a-stranded-leaf-concept-comes-back-to-its-owner-06.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner-06.dsl))
+- ✓ [Line 2742](gl:docs/dev/layout-gen/layout-alg.md#L2742): `edge #tD,#cX has visibility=visible` ([a-stranded-leaf-concept-comes-back-to-its-owner-07.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner-07.dsl))
+- ✓ [Line 2743](gl:docs/dev/layout-gen/layout-alg.md#L2743): `edge #tD,#cX has source-side=bottom` ([a-stranded-leaf-concept-comes-back-to-its-owner-08.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner-08.dsl))
+- ✓ [Line 2744](gl:docs/dev/layout-gen/layout-alg.md#L2744): `edge #tD,#cX has target-side=top` ([a-stranded-leaf-concept-comes-back-to-its-owner-09.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner-09.dsl))
+- ✓ [Line 2745](gl:docs/dev/layout-gen/layout-alg.md#L2745): `#tD,#cX have same center-x` ([a-stranded-leaf-concept-comes-back-to-its-owner-10.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner-10.dsl))
+- ✓ [Line 2746](gl:docs/dev/layout-gen/layout-alg.md#L2746): `#cX is below #tD with gap=40` ([a-stranded-leaf-concept-comes-back-to-its-owner-11.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner-11.dsl))
+- ✓ [Line 2747](gl:docs/dev/layout-gen/layout-alg.md#L2747): `#tB is below #tH with gap=40` ([a-stranded-leaf-concept-comes-back-to-its-owner-12.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner-12.dsl))
+- ✓ [Line 2748](gl:docs/dev/layout-gen/layout-alg.md#L2748): `edge #tH,#e1d has max-bends=0` ([a-stranded-leaf-concept-comes-back-to-its-owner-13.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner-13.dsl))
+- ✓ [Line 2749](gl:docs/dev/layout-gen/layout-alg.md#L2749): `#tH is right-of #e1d with gap=60` ([a-stranded-leaf-concept-comes-back-to-its-owner-14.dsl](../layout-gen-rules/a-stranded-leaf-concept-comes-back-to-its-owner-14.dsl))
 
 ## Rendered Diagram
 

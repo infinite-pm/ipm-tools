@@ -2,103 +2,181 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "# Company founding\nX --\u003e X founded company Y ::e fe::a\nY --\u003e fe\nX --\u003e person ::c\nY --\u003e company ::c\nfe --\u003e Founding is when someone establishes the legal registration of a company ::c",
+    "ipmt": "# Alice's story, with the participants and what each frame expresses\ne1::a Alice feels discouraged ::e\n  --\u003e e2::a Alice turns to the Mock Turtle ::e\n  --\u003e e3::a Alice and the Mock Turtle talk ::e\n\n# one worldline through the frames, not one Alice per frame\nAlice --\u003e e1, e2, e3\nthe Mock Turtle --\u003e e2, e3\n\n# what each frame is about: a property of the frame, not of Alice\ne1 --\u003e discouraged ::c\ne3 --\u003e talking ::c\n\n# what she is like - a property others share, not who she is\nAlice --\u003e human ::c",
     "positions": {
       "nodes": {
         "1": [
-          19,
-          20
+          75,
+          98
         ],
         "2": [
-          25,
-          44
+          115,
+          145
         ],
         "3": [
-          55,
-          56
+          162,
+          192
         ],
         "4": [
-          70,
-          76
+          258,
+          263
         ],
         "5": [
-          87,
-          94
+          279,
+          294
         ],
         "6": [
-          106,
-          178
+          380,
+          391
+        ],
+        "7": [
+          403,
+          410
+        ],
+        "8": [
+          487,
+          492
         ]
       },
       "edges": {
         "10": {
           "arrow": [
-            82,
-            87
+            152,
+            156
           ],
           "source": [
-            81,
-            82
+            115,
+            145
           ],
           "target": [
-            87,
-            94
+            162,
+            192
           ]
         },
         "11": {
           "arrow": [
-            101,
-            106
+            263,
+            268
           ],
           "source": [
-            99,
-            101
+            258,
+            263
           ],
           "target": [
-            106,
-            178
+            268,
+            270
           ]
         },
-        "7": {
+        "12": {
           "arrow": [
-            20,
-            25
+            263,
+            268
           ],
           "source": [
-            19,
-            20
+            258,
+            263
           ],
           "target": [
-            25,
-            44
+            272,
+            274
           ]
         },
-        "8": {
+        "13": {
           "arrow": [
-            56,
-            61
+            263,
+            268
           ],
           "source": [
-            55,
-            56
+            258,
+            263
           ],
           "target": [
-            61,
-            63
+            276,
+            278
+          ]
+        },
+        "14": {
+          "arrow": [
+            294,
+            299
+          ],
+          "source": [
+            279,
+            294
+          ],
+          "target": [
+            299,
+            301
+          ]
+        },
+        "15": {
+          "arrow": [
+            294,
+            299
+          ],
+          "source": [
+            279,
+            294
+          ],
+          "target": [
+            303,
+            305
+          ]
+        },
+        "16": {
+          "arrow": [
+            375,
+            380
+          ],
+          "source": [
+            373,
+            375
+          ],
+          "target": [
+            380,
+            391
+          ]
+        },
+        "17": {
+          "arrow": [
+            398,
+            403
+          ],
+          "source": [
+            396,
+            398
+          ],
+          "target": [
+            403,
+            410
+          ]
+        },
+        "18": {
+          "arrow": [
+            482,
+            487
+          ],
+          "source": [
+            477,
+            482
+          ],
+          "target": [
+            487,
+            492
           ]
         },
         "9": {
           "arrow": [
-            65,
-            70
+            105,
+            109
           ],
           "source": [
-            64,
-            65
+            75,
+            98
           ],
           "target": [
-            70,
-            76
+            115,
+            145
           ]
         }
       }
@@ -107,82 +185,139 @@
   "nodes": [
     {
       "id": 1,
-      "name": "X",
-      "alias": "",
-      "type": "Thing"
+      "name": "Alice feels discouraged",
+      "alias": "e1",
+      "type": "Event"
     },
     {
       "id": 2,
-      "name": "X founded company Y",
-      "alias": "fe",
+      "name": "Alice turns to the Mock Turtle",
+      "alias": "e2",
       "type": "Event"
     },
     {
       "id": 3,
-      "name": "Y",
+      "name": "Alice and the Mock Turtle talk",
+      "alias": "e3",
+      "type": "Event"
+    },
+    {
+      "id": 4,
+      "name": "Alice",
       "alias": "",
       "type": "Thing"
     },
     {
-      "id": 4,
-      "name": "person",
-      "alias": "",
-      "type": "Concept"
-    },
-    {
       "id": 5,
-      "name": "company",
+      "name": "the Mock Turtle",
       "alias": "",
-      "type": "Concept"
+      "type": "Thing"
     },
     {
       "id": 6,
-      "name": "Founding is when someone establishes the legal registration of a company",
+      "name": "discouraged",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 7,
+      "name": "talking",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 8,
+      "name": "human",
       "alias": "",
       "type": "Concept"
     }
   ],
   "edges": [
     {
-      "id": 7,
-      "source": 1,
-      "target": 2,
-      "dir": "DirFwd",
-      "tooltip": "",
-      "sstLinkType": "PartOf",
-      "semOrigin": "SemInferred"
-    },
-    {
-      "id": 8,
-      "source": 3,
-      "target": 2,
-      "dir": "DirFwd",
-      "tooltip": "",
-      "sstLinkType": "PartOf",
-      "semOrigin": "SemInferred"
-    },
-    {
       "id": 9,
       "source": 1,
-      "target": 4,
+      "target": 2,
       "dir": "DirFwd",
       "tooltip": "",
-      "sstLinkType": "Expresses",
+      "sstLinkType": "LeadsTo",
       "semOrigin": "SemInferred"
     },
     {
       "id": 10,
-      "source": 3,
-      "target": 5,
+      "source": 2,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 11,
+      "source": 4,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 12,
+      "source": 4,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 13,
+      "source": 4,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 14,
+      "source": 5,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 15,
+      "source": 5,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 16,
+      "source": 1,
+      "target": 6,
       "dir": "DirFwd",
       "tooltip": "",
       "sstLinkType": "Expresses",
       "semOrigin": "SemInferred"
     },
     {
-      "id": 11,
-      "source": 2,
-      "target": 6,
+      "id": 17,
+      "source": 3,
+      "target": 7,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 18,
+      "source": 4,
+      "target": 8,
       "dir": "DirFwd",
       "tooltip": "",
       "sstLinkType": "Expresses",

@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3461-L3477 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-lone-tie-is-never-the-one-that-hides)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3501-L3517 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-lone-tie-is-never-the-one-that-hides)
 
 ## ipmt Content
 
@@ -38,22 +38,22 @@ t7 --- t3
 
 ## Layout Validation Rules
 
-Test line: 3461
+Test line: 3501
 
 ⚠️ 11/12 rules passed
 
 - ✗ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` - **edge t1->t4 has 1 bends > max-bends 0 (each-edge default; if the detour is intended, add it to `except` and pin it with `edge #t1,#t4 has max-bends=1`)** ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 3489](gl:docs/dev/layout-gen/layout-alg.md#L3489): `each edge has max-bends=0 except #t1,#t4 #t1,#t5 #t1,#t6 #t3,#t4 #t3,#t5 #t3,#t6` ([a-lone-tie-is-never-the-one-that-hides.dsl](../layout-gen-rules/a-lone-tie-is-never-the-one-that-hides.dsl))
-- ✓ [Line 3490](gl:docs/dev/layout-gen/layout-alg.md#L3490): `edge #t7,#t3 has visibility=visible` ([a-lone-tie-is-never-the-one-that-hides-02.dsl](../layout-gen-rules/a-lone-tie-is-never-the-one-that-hides-02.dsl))
-- ✓ [Line 3491](gl:docs/dev/layout-gen/layout-alg.md#L3491): `edge #t2,#t6 has visibility=stubbed` ([a-lone-tie-is-never-the-one-that-hides-03.dsl](../layout-gen-rules/a-lone-tie-is-never-the-one-that-hides-03.dsl))
-- ✓ [Line 3492](gl:docs/dev/layout-gen/layout-alg.md#L3492): `#t7 has x=40` ([a-lone-tie-is-never-the-one-that-hides-04.dsl](../layout-gen-rules/a-lone-tie-is-never-the-one-that-hides-04.dsl))
-- ✓ [Line 3493](gl:docs/dev/layout-gen/layout-alg.md#L3493): `#t7,#t3 have same y` ([a-lone-tie-is-never-the-one-that-hides-05.dsl](../layout-gen-rules/a-lone-tie-is-never-the-one-that-hides-05.dsl))
-- ✓ [Line 3494](gl:docs/dev/layout-gen/layout-alg.md#L3494): `edge #t1,#t4 has max-bends=1` ([a-lone-tie-is-never-the-one-that-hides-06.dsl](../layout-gen-rules/a-lone-tie-is-never-the-one-that-hides-06.dsl))
-- ✓ [Line 3495](gl:docs/dev/layout-gen/layout-alg.md#L3495): `edge #t1,#t5 has max-bends=1` ([a-lone-tie-is-never-the-one-that-hides-07.dsl](../layout-gen-rules/a-lone-tie-is-never-the-one-that-hides-07.dsl))
-- ✓ [Line 3496](gl:docs/dev/layout-gen/layout-alg.md#L3496): `edge #t1,#t6 has max-bends=1` ([a-lone-tie-is-never-the-one-that-hides-08.dsl](../layout-gen-rules/a-lone-tie-is-never-the-one-that-hides-08.dsl))
-- ✓ [Line 3497](gl:docs/dev/layout-gen/layout-alg.md#L3497): `edge #t3,#t4 has max-bends=1` ([a-lone-tie-is-never-the-one-that-hides-09.dsl](../layout-gen-rules/a-lone-tie-is-never-the-one-that-hides-09.dsl))
-- ✓ [Line 3498](gl:docs/dev/layout-gen/layout-alg.md#L3498): `edge #t3,#t5 has max-bends=2` ([a-lone-tie-is-never-the-one-that-hides-10.dsl](../layout-gen-rules/a-lone-tie-is-never-the-one-that-hides-10.dsl))
-- ✓ [Line 3499](gl:docs/dev/layout-gen/layout-alg.md#L3499): `edge #t3,#t6 has max-bends=2` ([a-lone-tie-is-never-the-one-that-hides-11.dsl](../layout-gen-rules/a-lone-tie-is-never-the-one-that-hides-11.dsl))
+- ✓ [Line 3529](gl:docs/dev/layout-gen/layout-alg.md#L3529): `each edge has max-bends=0 except #t1,#t4 #t1,#t5 #t1,#t6 #t3,#t4 #t3,#t5 #t3,#t6` ([a-lone-tie-is-never-the-one-that-hides.dsl](../layout-gen-rules/a-lone-tie-is-never-the-one-that-hides.dsl))
+- ✓ [Line 3530](gl:docs/dev/layout-gen/layout-alg.md#L3530): `edge #t7,#t3 has visibility=visible` ([a-lone-tie-is-never-the-one-that-hides-02.dsl](../layout-gen-rules/a-lone-tie-is-never-the-one-that-hides-02.dsl))
+- ✓ [Line 3531](gl:docs/dev/layout-gen/layout-alg.md#L3531): `edge #t2,#t6 has visibility=stubbed` ([a-lone-tie-is-never-the-one-that-hides-03.dsl](../layout-gen-rules/a-lone-tie-is-never-the-one-that-hides-03.dsl))
+- ✓ [Line 3532](gl:docs/dev/layout-gen/layout-alg.md#L3532): `#t7 has x=40` ([a-lone-tie-is-never-the-one-that-hides-04.dsl](../layout-gen-rules/a-lone-tie-is-never-the-one-that-hides-04.dsl))
+- ✓ [Line 3533](gl:docs/dev/layout-gen/layout-alg.md#L3533): `#t7,#t3 have same y` ([a-lone-tie-is-never-the-one-that-hides-05.dsl](../layout-gen-rules/a-lone-tie-is-never-the-one-that-hides-05.dsl))
+- ✓ [Line 3534](gl:docs/dev/layout-gen/layout-alg.md#L3534): `edge #t1,#t4 has max-bends=1` ([a-lone-tie-is-never-the-one-that-hides-06.dsl](../layout-gen-rules/a-lone-tie-is-never-the-one-that-hides-06.dsl))
+- ✓ [Line 3535](gl:docs/dev/layout-gen/layout-alg.md#L3535): `edge #t1,#t5 has max-bends=1` ([a-lone-tie-is-never-the-one-that-hides-07.dsl](../layout-gen-rules/a-lone-tie-is-never-the-one-that-hides-07.dsl))
+- ✓ [Line 3536](gl:docs/dev/layout-gen/layout-alg.md#L3536): `edge #t1,#t6 has max-bends=1` ([a-lone-tie-is-never-the-one-that-hides-08.dsl](../layout-gen-rules/a-lone-tie-is-never-the-one-that-hides-08.dsl))
+- ✓ [Line 3537](gl:docs/dev/layout-gen/layout-alg.md#L3537): `edge #t3,#t4 has max-bends=1` ([a-lone-tie-is-never-the-one-that-hides-09.dsl](../layout-gen-rules/a-lone-tie-is-never-the-one-that-hides-09.dsl))
+- ✓ [Line 3538](gl:docs/dev/layout-gen/layout-alg.md#L3538): `edge #t3,#t5 has max-bends=2` ([a-lone-tie-is-never-the-one-that-hides-10.dsl](../layout-gen-rules/a-lone-tie-is-never-the-one-that-hides-10.dsl))
+- ✓ [Line 3539](gl:docs/dev/layout-gen/layout-alg.md#L3539): `edge #t3,#t6 has max-bends=2` ([a-lone-tie-is-never-the-one-that-hides-11.dsl](../layout-gen-rules/a-lone-tie-is-never-the-one-that-hides-11.dsl))
 
 ## Rendered Diagram
 

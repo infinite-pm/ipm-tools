@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3296-L3302 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#shared-thing-anchors-to-its-deepest-composite)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3336-L3342 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#shared-thing-anchors-to-its-deepest-composite)
 
 ## ipmt Content
 
@@ -28,20 +28,20 @@ tA --> e2a
 
 ## Layout Validation Rules
 
-Test line: 3296
+Test line: 3336
 
 ⚠️ 9/10 rules passed
 
 - ✗ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` - **edge tA->e1 has 1 bends > max-bends 0 (each-edge default; if the detour is intended, add it to `except` and pin it with `edge #tA,#e1 has max-bends=1`)** ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 3317](gl:docs/dev/layout-gen/layout-alg.md#L3317): `each edge has max-bends=0 except #tA,#e1` ([shared-thing-anchors-to-its-deepest-composite.dsl](../layout-gen-rules/shared-thing-anchors-to-its-deepest-composite.dsl))
-- ✓ [Line 3318](gl:docs/dev/layout-gen/layout-alg.md#L3318): `edge #tA,#e1 has max-bends=1` ([shared-thing-anchors-to-its-deepest-composite-02.dsl](../layout-gen-rules/shared-thing-anchors-to-its-deepest-composite-02.dsl))
-- ✓ [Line 3319](gl:docs/dev/layout-gen/layout-alg.md#L3319): `edge #tA,#e1 has visibility=visible` ([shared-thing-anchors-to-its-deepest-composite-03.dsl](../layout-gen-rules/shared-thing-anchors-to-its-deepest-composite-03.dsl))
-- ✓ [Line 3320](gl:docs/dev/layout-gen/layout-alg.md#L3320): `edge #tA,#e1 has target-side=right` ([shared-thing-anchors-to-its-deepest-composite-04.dsl](../layout-gen-rules/shared-thing-anchors-to-its-deepest-composite-04.dsl))
-- ✓ [Line 3321](gl:docs/dev/layout-gen/layout-alg.md#L3321): `edge #tA,#e2a has visibility=visible` ([shared-thing-anchors-to-its-deepest-composite-05.dsl](../layout-gen-rules/shared-thing-anchors-to-its-deepest-composite-05.dsl))
-- ✓ [Line 3322](gl:docs/dev/layout-gen/layout-alg.md#L3322): `#tA,#e2a have same y` ([shared-thing-anchors-to-its-deepest-composite-06.dsl](../layout-gen-rules/shared-thing-anchors-to-its-deepest-composite-06.dsl))
-- ✓ [Line 3323](gl:docs/dev/layout-gen/layout-alg.md#L3323): `#tA is right-of #e2a with gap=60` ([shared-thing-anchors-to-its-deepest-composite-07.dsl](../layout-gen-rules/shared-thing-anchors-to-its-deepest-composite-07.dsl))
-- ✓ [Line 3324](gl:docs/dev/layout-gen/layout-alg.md#L3324): `node #e2a does not straddle edge #tA,#e1` ([shared-thing-anchors-to-its-deepest-composite-08.dsl](../layout-gen-rules/shared-thing-anchors-to-its-deepest-composite-08.dsl))
-- ✓ [Line 3325](gl:docs/dev/layout-gen/layout-alg.md#L3325): `node #e2b does not straddle edge #tA,#e2a` ([shared-thing-anchors-to-its-deepest-composite-09.dsl](../layout-gen-rules/shared-thing-anchors-to-its-deepest-composite-09.dsl))
+- ✓ [Line 3357](gl:docs/dev/layout-gen/layout-alg.md#L3357): `each edge has max-bends=0 except #tA,#e1` ([shared-thing-anchors-to-its-deepest-composite.dsl](../layout-gen-rules/shared-thing-anchors-to-its-deepest-composite.dsl))
+- ✓ [Line 3358](gl:docs/dev/layout-gen/layout-alg.md#L3358): `edge #tA,#e1 has max-bends=1` ([shared-thing-anchors-to-its-deepest-composite-02.dsl](../layout-gen-rules/shared-thing-anchors-to-its-deepest-composite-02.dsl))
+- ✓ [Line 3359](gl:docs/dev/layout-gen/layout-alg.md#L3359): `edge #tA,#e1 has visibility=visible` ([shared-thing-anchors-to-its-deepest-composite-03.dsl](../layout-gen-rules/shared-thing-anchors-to-its-deepest-composite-03.dsl))
+- ✓ [Line 3360](gl:docs/dev/layout-gen/layout-alg.md#L3360): `edge #tA,#e1 has target-side=right` ([shared-thing-anchors-to-its-deepest-composite-04.dsl](../layout-gen-rules/shared-thing-anchors-to-its-deepest-composite-04.dsl))
+- ✓ [Line 3361](gl:docs/dev/layout-gen/layout-alg.md#L3361): `edge #tA,#e2a has visibility=visible` ([shared-thing-anchors-to-its-deepest-composite-05.dsl](../layout-gen-rules/shared-thing-anchors-to-its-deepest-composite-05.dsl))
+- ✓ [Line 3362](gl:docs/dev/layout-gen/layout-alg.md#L3362): `#tA,#e2a have same y` ([shared-thing-anchors-to-its-deepest-composite-06.dsl](../layout-gen-rules/shared-thing-anchors-to-its-deepest-composite-06.dsl))
+- ✓ [Line 3363](gl:docs/dev/layout-gen/layout-alg.md#L3363): `#tA is right-of #e2a with gap=60` ([shared-thing-anchors-to-its-deepest-composite-07.dsl](../layout-gen-rules/shared-thing-anchors-to-its-deepest-composite-07.dsl))
+- ✓ [Line 3364](gl:docs/dev/layout-gen/layout-alg.md#L3364): `node #e2a does not straddle edge #tA,#e1` ([shared-thing-anchors-to-its-deepest-composite-08.dsl](../layout-gen-rules/shared-thing-anchors-to-its-deepest-composite-08.dsl))
+- ✓ [Line 3365](gl:docs/dev/layout-gen/layout-alg.md#L3365): `node #e2b does not straddle edge #tA,#e2a` ([shared-thing-anchors-to-its-deepest-composite-09.dsl](../layout-gen-rules/shared-thing-anchors-to-its-deepest-composite-09.dsl))
 
 ## Rendered Diagram
 

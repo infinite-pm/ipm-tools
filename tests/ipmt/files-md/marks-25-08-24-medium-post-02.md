@@ -6,17 +6,26 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/ipmt-ex/mark-ex/examples.md#L21-L27 | [docs/ipmt-ex/mark-ex/examples.md](../../../docs/ipmt-ex/mark-ex/examples.md#marks-25-08-24-medium-post)
+**Source:** gl:docs/ipmt-ex/mark-ex/examples.md#L38-L53 | [docs/ipmt-ex/mark-ex/examples.md](../../../docs/ipmt-ex/mark-ex/examples.md#marks-25-08-24-medium-post)
 
 ## ipmt Content
 
 ```ipmt
-# Company founding
-X --> X founded company Y ::e fe::a
-Y --> fe
-X --> person ::c
-Y --> company ::c
-fe --> Founding is when someone establishes the legal registration of a company ::c
+# Alice's story, with the participants and what each frame expresses
+e1::a Alice feels discouraged ::e
+  --> e2::a Alice turns to the Mock Turtle ::e
+  --> e3::a Alice and the Mock Turtle talk ::e
+
+# one worldline through the frames, not one Alice per frame
+Alice --> e1, e2, e3
+the Mock Turtle --> e2, e3
+
+# what each frame is about: a property of the frame, not of Alice
+e1 --> discouraged ::c
+e3 --> talking ::c
+
+# what she is like - a property others share, not who she is
+Alice --> human ::c
 ```
 
 ## Generated Files

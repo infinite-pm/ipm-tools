@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg-dupe.md#L163-L166 | [docs/dev/layout-gen/layout-alg-dupe.md](../../docs/dev/layout-gen/layout-alg-dupe.md#nothing-is-copied-when-nothing-is-far)
+**Source:** gl:docs/dev/layout-gen/layout-alg-dupe.md#L168-L171 | [docs/dev/layout-gen/layout-alg-dupe.md](../../docs/dev/layout-gen/layout-alg-dupe.md#nothing-is-copied-when-nothing-is-far)
 
 ## ipmt Content
 

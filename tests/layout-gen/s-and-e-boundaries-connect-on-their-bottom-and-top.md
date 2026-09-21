@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3185-L3189 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#s-and-e-boundaries-connect-on-their-bottom-and-top)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3225-L3229 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#s-and-e-boundaries-connect-on-their-bottom-and-top)
 
 ## ipmt Content
 
@@ -26,24 +26,24 @@ e4 ::e --::X--> c1-shared
 
 ## Layout Validation Rules
 
-Test line: 3185
+Test line: 3225
 
 ✅ All 14 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 3216](gl:docs/dev/layout-gen/layout-alg.md#L3216): `edge #S,#e1 has source-side=bottom` ([s-and-e-boundaries-connect-on-their-bottom-and-top.dsl](../layout-gen-rules/s-and-e-boundaries-connect-on-their-bottom-and-top.dsl))
-- ✓ [Line 3217](gl:docs/dev/layout-gen/layout-alg.md#L3217): `edge #S,#e3 has source-side=bottom` ([s-and-e-boundaries-connect-on-their-bottom-and-top-02.dsl](../layout-gen-rules/s-and-e-boundaries-connect-on-their-bottom-and-top-02.dsl))
-- ✓ [Line 3218](gl:docs/dev/layout-gen/layout-alg.md#L3218): `edge #e3,#E has target-side=top` ([s-and-e-boundaries-connect-on-their-bottom-and-top-03.dsl](../layout-gen-rules/s-and-e-boundaries-connect-on-their-bottom-and-top-03.dsl))
-- ✓ [Line 3219](gl:docs/dev/layout-gen/layout-alg.md#L3219): `type=event has min-gap-to-others>=10` ([s-and-e-boundaries-connect-on-their-bottom-and-top-04.dsl](../layout-gen-rules/s-and-e-boundaries-connect-on-their-bottom-and-top-04.dsl))
-- ✓ [Line 3220](gl:docs/dev/layout-gen/layout-alg.md#L3220): `edge #e1,#c1-shared is horizontal` ([s-and-e-boundaries-connect-on-their-bottom-and-top-05.dsl](../layout-gen-rules/s-and-e-boundaries-connect-on-their-bottom-and-top-05.dsl))
-- ✓ [Line 3221](gl:docs/dev/layout-gen/layout-alg.md#L3221): `edge #e2,#c1-shared is horizontal` ([s-and-e-boundaries-connect-on-their-bottom-and-top-06.dsl](../layout-gen-rules/s-and-e-boundaries-connect-on-their-bottom-and-top-06.dsl))
-- ✓ [Line 3222](gl:docs/dev/layout-gen/layout-alg.md#L3222): `each edge has max-bends=0` ([s-and-e-boundaries-connect-on-their-bottom-and-top-07.dsl](../layout-gen-rules/s-and-e-boundaries-connect-on-their-bottom-and-top-07.dsl))
-- ✓ [Line 3223](gl:docs/dev/layout-gen/layout-alg.md#L3223): `edge #e3,#c1-shared is vertical` ([s-and-e-boundaries-connect-on-their-bottom-and-top-08.dsl](../layout-gen-rules/s-and-e-boundaries-connect-on-their-bottom-and-top-08.dsl))
-- ✓ [Line 3224](gl:docs/dev/layout-gen/layout-alg.md#L3224): `edge #e3,#c1-shared has source-side=top` ([s-and-e-boundaries-connect-on-their-bottom-and-top-09.dsl](../layout-gen-rules/s-and-e-boundaries-connect-on-their-bottom-and-top-09.dsl))
-- ✓ [Line 3225](gl:docs/dev/layout-gen/layout-alg.md#L3225): `edge #e3,#c1-shared has target-side=bottom` ([s-and-e-boundaries-connect-on-their-bottom-and-top-10.dsl](../layout-gen-rules/s-and-e-boundaries-connect-on-their-bottom-and-top-10.dsl))
-- ✓ [Line 3226](gl:docs/dev/layout-gen/layout-alg.md#L3226): `edge #e4,#c1-shared has source-side=left` ([s-and-e-boundaries-connect-on-their-bottom-and-top-11.dsl](../layout-gen-rules/s-and-e-boundaries-connect-on-their-bottom-and-top-11.dsl))
-- ✓ [Line 3227](gl:docs/dev/layout-gen/layout-alg.md#L3227): `edge #e4,#c1-shared has target-side=right` ([s-and-e-boundaries-connect-on-their-bottom-and-top-12.dsl](../layout-gen-rules/s-and-e-boundaries-connect-on-their-bottom-and-top-12.dsl))
-- ✓ [Line 3228](gl:docs/dev/layout-gen/layout-alg.md#L3228): `edge #e4,#c1-shared does not cross edge #e3,#c1-shared` ([s-and-e-boundaries-connect-on-their-bottom-and-top-13.dsl](../layout-gen-rules/s-and-e-boundaries-connect-on-their-bottom-and-top-13.dsl))
+- ✓ [Line 3256](gl:docs/dev/layout-gen/layout-alg.md#L3256): `edge #S,#e1 has source-side=bottom` ([s-and-e-boundaries-connect-on-their-bottom-and-top.dsl](../layout-gen-rules/s-and-e-boundaries-connect-on-their-bottom-and-top.dsl))
+- ✓ [Line 3257](gl:docs/dev/layout-gen/layout-alg.md#L3257): `edge #S,#e3 has source-side=bottom` ([s-and-e-boundaries-connect-on-their-bottom-and-top-02.dsl](../layout-gen-rules/s-and-e-boundaries-connect-on-their-bottom-and-top-02.dsl))
+- ✓ [Line 3258](gl:docs/dev/layout-gen/layout-alg.md#L3258): `edge #e3,#E has target-side=top` ([s-and-e-boundaries-connect-on-their-bottom-and-top-03.dsl](../layout-gen-rules/s-and-e-boundaries-connect-on-their-bottom-and-top-03.dsl))
+- ✓ [Line 3259](gl:docs/dev/layout-gen/layout-alg.md#L3259): `type=event has min-gap-to-others>=10` ([s-and-e-boundaries-connect-on-their-bottom-and-top-04.dsl](../layout-gen-rules/s-and-e-boundaries-connect-on-their-bottom-and-top-04.dsl))
+- ✓ [Line 3260](gl:docs/dev/layout-gen/layout-alg.md#L3260): `edge #e1,#c1-shared is horizontal` ([s-and-e-boundaries-connect-on-their-bottom-and-top-05.dsl](../layout-gen-rules/s-and-e-boundaries-connect-on-their-bottom-and-top-05.dsl))
+- ✓ [Line 3261](gl:docs/dev/layout-gen/layout-alg.md#L3261): `edge #e2,#c1-shared is horizontal` ([s-and-e-boundaries-connect-on-their-bottom-and-top-06.dsl](../layout-gen-rules/s-and-e-boundaries-connect-on-their-bottom-and-top-06.dsl))
+- ✓ [Line 3262](gl:docs/dev/layout-gen/layout-alg.md#L3262): `each edge has max-bends=0` ([s-and-e-boundaries-connect-on-their-bottom-and-top-07.dsl](../layout-gen-rules/s-and-e-boundaries-connect-on-their-bottom-and-top-07.dsl))
+- ✓ [Line 3263](gl:docs/dev/layout-gen/layout-alg.md#L3263): `edge #e3,#c1-shared is vertical` ([s-and-e-boundaries-connect-on-their-bottom-and-top-08.dsl](../layout-gen-rules/s-and-e-boundaries-connect-on-their-bottom-and-top-08.dsl))
+- ✓ [Line 3264](gl:docs/dev/layout-gen/layout-alg.md#L3264): `edge #e3,#c1-shared has source-side=top` ([s-and-e-boundaries-connect-on-their-bottom-and-top-09.dsl](../layout-gen-rules/s-and-e-boundaries-connect-on-their-bottom-and-top-09.dsl))
+- ✓ [Line 3265](gl:docs/dev/layout-gen/layout-alg.md#L3265): `edge #e3,#c1-shared has target-side=bottom` ([s-and-e-boundaries-connect-on-their-bottom-and-top-10.dsl](../layout-gen-rules/s-and-e-boundaries-connect-on-their-bottom-and-top-10.dsl))
+- ✓ [Line 3266](gl:docs/dev/layout-gen/layout-alg.md#L3266): `edge #e4,#c1-shared has source-side=left` ([s-and-e-boundaries-connect-on-their-bottom-and-top-11.dsl](../layout-gen-rules/s-and-e-boundaries-connect-on-their-bottom-and-top-11.dsl))
+- ✓ [Line 3267](gl:docs/dev/layout-gen/layout-alg.md#L3267): `edge #e4,#c1-shared has target-side=right` ([s-and-e-boundaries-connect-on-their-bottom-and-top-12.dsl](../layout-gen-rules/s-and-e-boundaries-connect-on-their-bottom-and-top-12.dsl))
+- ✓ [Line 3268](gl:docs/dev/layout-gen/layout-alg.md#L3268): `edge #e4,#c1-shared does not cross edge #e3,#c1-shared` ([s-and-e-boundaries-connect-on-their-bottom-and-top-13.dsl](../layout-gen-rules/s-and-e-boundaries-connect-on-their-bottom-and-top-13.dsl))
 
 ## Rendered Diagram
 

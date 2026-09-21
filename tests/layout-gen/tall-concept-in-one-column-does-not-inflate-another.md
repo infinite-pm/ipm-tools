@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2217-L2222 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#tall-concept-in-one-column-does-not-inflate-another)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L2257-L2262 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#tall-concept-in-one-column-does-not-inflate-another)
 
 ## ipmt Content
 
@@ -27,15 +27,15 @@ cSmall --> cLeaf ::c
 
 ## Layout Validation Rules
 
-Test line: 2217
+Test line: 2257
 
 ✅ All 5 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 2232](gl:docs/dev/layout-gen/layout-alg.md#L2232): `type=concept text-len>72 has height>=140` ([tall-concept-in-one-column-does-not-inflate-another.dsl](../layout-gen-rules/tall-concept-in-one-column-does-not-inflate-another.dsl))
-- ✓ [Line 2233](gl:docs/dev/layout-gen/layout-alg.md#L2233): `#tl is below #cA with gap=40` ([tall-concept-in-one-column-does-not-inflate-another-02.dsl](../layout-gen-rules/tall-concept-in-one-column-does-not-inflate-another-02.dsl))
-- ✓ [Line 2234](gl:docs/dev/layout-gen/layout-alg.md#L2234): `#cLeaf is below #cSmall with gap=40` ([tall-concept-in-one-column-does-not-inflate-another-03.dsl](../layout-gen-rules/tall-concept-in-one-column-does-not-inflate-another-03.dsl))
-- ✓ [Line 2235](gl:docs/dev/layout-gen/layout-alg.md#L2235): `#cB,#cSmall,#cLeaf have same center-x` ([tall-concept-in-one-column-does-not-inflate-another-04.dsl](../layout-gen-rules/tall-concept-in-one-column-does-not-inflate-another-04.dsl))
+- ✓ [Line 2272](gl:docs/dev/layout-gen/layout-alg.md#L2272): `type=concept text-len>72 has height>=140` ([tall-concept-in-one-column-does-not-inflate-another.dsl](../layout-gen-rules/tall-concept-in-one-column-does-not-inflate-another.dsl))
+- ✓ [Line 2273](gl:docs/dev/layout-gen/layout-alg.md#L2273): `#tl is below #cA with gap=40` ([tall-concept-in-one-column-does-not-inflate-another-02.dsl](../layout-gen-rules/tall-concept-in-one-column-does-not-inflate-another-02.dsl))
+- ✓ [Line 2274](gl:docs/dev/layout-gen/layout-alg.md#L2274): `#cLeaf is below #cSmall with gap=40` ([tall-concept-in-one-column-does-not-inflate-another-03.dsl](../layout-gen-rules/tall-concept-in-one-column-does-not-inflate-another-03.dsl))
+- ✓ [Line 2275](gl:docs/dev/layout-gen/layout-alg.md#L2275): `#cB,#cSmall,#cLeaf have same center-x` ([tall-concept-in-one-column-does-not-inflate-another-04.dsl](../layout-gen-rules/tall-concept-in-one-column-does-not-inflate-another-04.dsl))
 
 ## Rendered Diagram
 

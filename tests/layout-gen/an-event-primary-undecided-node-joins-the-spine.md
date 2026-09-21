@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3045-L3047 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#an-event-primary-undecided-node-joins-the-spine)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3085-L3087 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#an-event-primary-undecided-node-joins-the-spine)
 
 ## ipmt Content
 
@@ -24,15 +24,15 @@ u1 ::?et --> e1
 
 ## Layout Validation Rules
 
-Test line: 3045
+Test line: 3085
 
 ✅ All 5 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 3056](gl:docs/dev/layout-gen/layout-alg.md#L3056): `#u1,#e1,#e2 have same center-x` ([an-event-primary-undecided-node-joins-the-spine.dsl](../layout-gen-rules/an-event-primary-undecided-node-joins-the-spine.dsl))
-- ✓ [Line 3057](gl:docs/dev/layout-gen/layout-alg.md#L3057): `#e1 is below #u1 with gap=60` ([an-event-primary-undecided-node-joins-the-spine-02.dsl](../layout-gen-rules/an-event-primary-undecided-node-joins-the-spine-02.dsl))
-- ✓ [Line 3058](gl:docs/dev/layout-gen/layout-alg.md#L3058): `edge #u1,#e1 has type=leadsto` ([an-event-primary-undecided-node-joins-the-spine-03.dsl](../layout-gen-rules/an-event-primary-undecided-node-joins-the-spine-03.dsl))
-- ✓ [Line 3059](gl:docs/dev/layout-gen/layout-alg.md#L3059): `edge #u1,#e1 is vertical` ([an-event-primary-undecided-node-joins-the-spine-04.dsl](../layout-gen-rules/an-event-primary-undecided-node-joins-the-spine-04.dsl))
+- ✓ [Line 3096](gl:docs/dev/layout-gen/layout-alg.md#L3096): `#u1,#e1,#e2 have same center-x` ([an-event-primary-undecided-node-joins-the-spine.dsl](../layout-gen-rules/an-event-primary-undecided-node-joins-the-spine.dsl))
+- ✓ [Line 3097](gl:docs/dev/layout-gen/layout-alg.md#L3097): `#e1 is below #u1 with gap=60` ([an-event-primary-undecided-node-joins-the-spine-02.dsl](../layout-gen-rules/an-event-primary-undecided-node-joins-the-spine-02.dsl))
+- ✓ [Line 3098](gl:docs/dev/layout-gen/layout-alg.md#L3098): `edge #u1,#e1 has type=leadsto` ([an-event-primary-undecided-node-joins-the-spine-03.dsl](../layout-gen-rules/an-event-primary-undecided-node-joins-the-spine-03.dsl))
+- ✓ [Line 3099](gl:docs/dev/layout-gen/layout-alg.md#L3099): `edge #u1,#e1 is vertical` ([an-event-primary-undecided-node-joins-the-spine-04.dsl](../layout-gen-rules/an-event-primary-undecided-node-joins-the-spine-04.dsl))
 
 ## Rendered Diagram
 

@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1334-L1344 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-stack-members-own-concept-steps-outward-under-the-shared-one)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1374-L1384 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-stack-members-own-concept-steps-outward-under-the-shared-one)
 
 ## ipmt Content
 
@@ -32,16 +32,16 @@ t1-shared --> e2
 
 ## Layout Validation Rules
 
-Test line: 1334
+Test line: 1374
 
 ✅ All 6 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 1362](gl:docs/dev/layout-gen/layout-alg.md#L1362): `#tA,#tB,#t1-shared have same center-x` ([a-stack-members-own-concept-steps-outward-under-the-shared-one.dsl](../layout-gen-rules/a-stack-members-own-concept-steps-outward-under-the-shared-one.dsl))
-- ✓ [Line 1363](gl:docs/dev/layout-gen/layout-alg.md#L1363): `#cX,#cY have same center-x` ([a-stack-members-own-concept-steps-outward-under-the-shared-one-02.dsl](../layout-gen-rules/a-stack-members-own-concept-steps-outward-under-the-shared-one-02.dsl))
-- ✓ [Line 1364](gl:docs/dev/layout-gen/layout-alg.md#L1364): `#cY is below #cX with gap=40` ([a-stack-members-own-concept-steps-outward-under-the-shared-one-03.dsl](../layout-gen-rules/a-stack-members-own-concept-steps-outward-under-the-shared-one-03.dsl))
-- ✓ [Line 1365](gl:docs/dev/layout-gen/layout-alg.md#L1365): `#tB is vertically-centered-between #cX,#cY` ([a-stack-members-own-concept-steps-outward-under-the-shared-one-04.dsl](../layout-gen-rules/a-stack-members-own-concept-steps-outward-under-the-shared-one-04.dsl))
-- ✓ [Line 1366](gl:docs/dev/layout-gen/layout-alg.md#L1366): `edge #tB,#cY has visibility=visible` ([a-stack-members-own-concept-steps-outward-under-the-shared-one-05.dsl](../layout-gen-rules/a-stack-members-own-concept-steps-outward-under-the-shared-one-05.dsl))
+- ✓ [Line 1402](gl:docs/dev/layout-gen/layout-alg.md#L1402): `#tA,#tB,#t1-shared have same center-x` ([a-stack-members-own-concept-steps-outward-under-the-shared-one.dsl](../layout-gen-rules/a-stack-members-own-concept-steps-outward-under-the-shared-one.dsl))
+- ✓ [Line 1403](gl:docs/dev/layout-gen/layout-alg.md#L1403): `#cX,#cY have same center-x` ([a-stack-members-own-concept-steps-outward-under-the-shared-one-02.dsl](../layout-gen-rules/a-stack-members-own-concept-steps-outward-under-the-shared-one-02.dsl))
+- ✓ [Line 1404](gl:docs/dev/layout-gen/layout-alg.md#L1404): `#cY is below #cX with gap=40` ([a-stack-members-own-concept-steps-outward-under-the-shared-one-03.dsl](../layout-gen-rules/a-stack-members-own-concept-steps-outward-under-the-shared-one-03.dsl))
+- ✓ [Line 1405](gl:docs/dev/layout-gen/layout-alg.md#L1405): `#tB is vertically-centered-between #cX,#cY` ([a-stack-members-own-concept-steps-outward-under-the-shared-one-04.dsl](../layout-gen-rules/a-stack-members-own-concept-steps-outward-under-the-shared-one-04.dsl))
+- ✓ [Line 1406](gl:docs/dev/layout-gen/layout-alg.md#L1406): `edge #tB,#cY has visibility=visible` ([a-stack-members-own-concept-steps-outward-under-the-shared-one-05.dsl](../layout-gen-rules/a-stack-members-own-concept-steps-outward-under-the-shared-one-05.dsl))
 
 ## Rendered Diagram
 

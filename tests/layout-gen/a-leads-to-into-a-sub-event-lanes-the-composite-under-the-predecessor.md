@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1174-L1177 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1214-L1217 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor)
 
 ## ipmt Content
 
@@ -25,7 +25,7 @@ cook --> serve ::e
 
 ## Layout Validation Rules
 
-Test line: 1174
+Test line: 1214
 
 ✅ All 14 rules passed
 
@@ -33,16 +33,16 @@ Test line: 1174
 - ✓ [Line 82](gl:docs/dev/layout-gen/layout-alg.md#L82): `type=event has width=120` ([one-event.dsl](../layout-gen-rules/one-event.dsl))
 - ✓ [Line 83](gl:docs/dev/layout-gen/layout-alg.md#L83): `type=event has min-gap-to-others>=10` ([one-event-02.dsl](../layout-gen-rules/one-event-02.dsl))
 - ✓ [Line 84](gl:docs/dev/layout-gen/layout-alg.md#L84): `type=boundary has size=40x40` ([one-event-03.dsl](../layout-gen-rules/one-event-03.dsl))
-- ✓ [Line 1190](gl:docs/dev/layout-gen/layout-alg.md#L1190): `#prep,#chop have same center-x` ([a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor.dsl](../layout-gen-rules/a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor.dsl))
-- ✓ [Line 1191](gl:docs/dev/layout-gen/layout-alg.md#L1191): `#chop is below #prep with gap=60` ([a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-02.dsl](../layout-gen-rules/a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-02.dsl))
-- ✓ [Line 1192](gl:docs/dev/layout-gen/layout-alg.md#L1192): `edge #prep,#chop is vertical` ([a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-03.dsl](../layout-gen-rules/a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-03.dsl))
-- ✓ [Line 1193](gl:docs/dev/layout-gen/layout-alg.md#L1193): `#chop is right-of #cook with gap=60` ([a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-04.dsl](../layout-gen-rules/a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-04.dsl))
-- ✓ [Line 1194](gl:docs/dev/layout-gen/layout-alg.md#L1194): `#cook,#serve have same center-x` ([a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-05.dsl](../layout-gen-rules/a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-05.dsl))
-- ✓ [Line 1195](gl:docs/dev/layout-gen/layout-alg.md#L1195): `#serve is below #cook with gap=60` ([a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-06.dsl](../layout-gen-rules/a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-06.dsl))
-- ✓ [Line 1196](gl:docs/dev/layout-gen/layout-alg.md#L1196): `edge #cook,#serve is vertical` ([a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-07.dsl](../layout-gen-rules/a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-07.dsl))
-- ✓ [Line 1197](gl:docs/dev/layout-gen/layout-alg.md#L1197): `#S,#prep have same center-x` ([a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-08.dsl](../layout-gen-rules/a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-08.dsl))
-- ✓ [Line 1198](gl:docs/dev/layout-gen/layout-alg.md#L1198): `#S is above #prep with gap=40` ([a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-09.dsl](../layout-gen-rules/a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-09.dsl))
-- ✓ [Line 1199](gl:docs/dev/layout-gen/layout-alg.md#L1199): `#E is below #serve with gap=60` ([a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-10.dsl](../layout-gen-rules/a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-10.dsl))
+- ✓ [Line 1230](gl:docs/dev/layout-gen/layout-alg.md#L1230): `#prep,#chop have same center-x` ([a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor.dsl](../layout-gen-rules/a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor.dsl))
+- ✓ [Line 1231](gl:docs/dev/layout-gen/layout-alg.md#L1231): `#chop is below #prep with gap=60` ([a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-02.dsl](../layout-gen-rules/a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-02.dsl))
+- ✓ [Line 1232](gl:docs/dev/layout-gen/layout-alg.md#L1232): `edge #prep,#chop is vertical` ([a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-03.dsl](../layout-gen-rules/a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-03.dsl))
+- ✓ [Line 1233](gl:docs/dev/layout-gen/layout-alg.md#L1233): `#chop is right-of #cook with gap=60` ([a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-04.dsl](../layout-gen-rules/a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-04.dsl))
+- ✓ [Line 1234](gl:docs/dev/layout-gen/layout-alg.md#L1234): `#cook,#serve have same center-x` ([a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-05.dsl](../layout-gen-rules/a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-05.dsl))
+- ✓ [Line 1235](gl:docs/dev/layout-gen/layout-alg.md#L1235): `#serve is below #cook with gap=60` ([a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-06.dsl](../layout-gen-rules/a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-06.dsl))
+- ✓ [Line 1236](gl:docs/dev/layout-gen/layout-alg.md#L1236): `edge #cook,#serve is vertical` ([a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-07.dsl](../layout-gen-rules/a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-07.dsl))
+- ✓ [Line 1237](gl:docs/dev/layout-gen/layout-alg.md#L1237): `#S,#prep have same center-x` ([a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-08.dsl](../layout-gen-rules/a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-08.dsl))
+- ✓ [Line 1238](gl:docs/dev/layout-gen/layout-alg.md#L1238): `#S is above #prep with gap=40` ([a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-09.dsl](../layout-gen-rules/a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-09.dsl))
+- ✓ [Line 1239](gl:docs/dev/layout-gen/layout-alg.md#L1239): `#E is below #serve with gap=60` ([a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-10.dsl](../layout-gen-rules/a-leads-to-into-a-sub-event-lanes-the-composite-under-the-predecessor-10.dsl))
 
 ## Rendered Diagram
 

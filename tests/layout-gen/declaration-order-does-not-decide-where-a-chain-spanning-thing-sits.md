@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1629-L1634 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#declaration-order-does-not-decide-where-a-chain-spanning-thing-sits)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L1669-L1674 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#declaration-order-does-not-decide-where-a-chain-spanning-thing-sits)
 
 ## ipmt Content
 
@@ -27,25 +27,25 @@ tP --> e3, e2, e1
 
 ## Layout Validation Rules
 
-Test line: 1629
+Test line: 1669
 
 ✅ All 15 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 1640](gl:docs/dev/layout-gen/layout-alg.md#L1640): `each edge has max-bends=0` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits.dsl))
-- ✓ [Line 1641](gl:docs/dev/layout-gen/layout-alg.md#L1641): `#tP is left-of #e1 with gap=60` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-02.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-02.dsl))
-- ✓ [Line 1642](gl:docs/dev/layout-gen/layout-alg.md#L1642): `#tP,#e1 have same y` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-03.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-03.dsl))
-- ✓ [Line 1643](gl:docs/dev/layout-gen/layout-alg.md#L1643): `edge #tP,#e1 has source-side=right` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-04.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-04.dsl))
-- ✓ [Line 1644](gl:docs/dev/layout-gen/layout-alg.md#L1644): `edge #tP,#e2 has source-side=right` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-05.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-05.dsl))
-- ✓ [Line 1645](gl:docs/dev/layout-gen/layout-alg.md#L1645): `edge #tP,#e3 has source-side=right` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-06.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-06.dsl))
-- ✓ [Line 1646](gl:docs/dev/layout-gen/layout-alg.md#L1646): `edge #tP,#e1 has target-side=left` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-07.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-07.dsl))
-- ✓ [Line 1647](gl:docs/dev/layout-gen/layout-alg.md#L1647): `edge #tP,#e2 has target-side=left` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-08.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-08.dsl))
-- ✓ [Line 1648](gl:docs/dev/layout-gen/layout-alg.md#L1648): `edge #tP,#e3 has target-side=left` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-09.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-09.dsl))
-- ✓ [Line 1649](gl:docs/dev/layout-gen/layout-alg.md#L1649): `edge #tP,#e1 has source-position=0.5` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-10.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-10.dsl))
-- ✓ [Line 1650](gl:docs/dev/layout-gen/layout-alg.md#L1650): `edge #tP,#e3 has source-position=0.75` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-11.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-11.dsl))
-- ✓ [Line 1651](gl:docs/dev/layout-gen/layout-alg.md#L1651): `edge #tP,#e1 does not cross edge #tP,#e2` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-12.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-12.dsl))
-- ✓ [Line 1652](gl:docs/dev/layout-gen/layout-alg.md#L1652): `edge #tP,#e2 does not cross edge #tP,#e3` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-13.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-13.dsl))
-- ✓ [Line 1653](gl:docs/dev/layout-gen/layout-alg.md#L1653): `edge #tP,#e1 does not cross edge #tP,#e3` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-14.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-14.dsl))
+- ✓ [Line 1680](gl:docs/dev/layout-gen/layout-alg.md#L1680): `each edge has max-bends=0` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits.dsl))
+- ✓ [Line 1681](gl:docs/dev/layout-gen/layout-alg.md#L1681): `#tP is left-of #e1 with gap=60` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-02.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-02.dsl))
+- ✓ [Line 1682](gl:docs/dev/layout-gen/layout-alg.md#L1682): `#tP,#e1 have same y` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-03.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-03.dsl))
+- ✓ [Line 1683](gl:docs/dev/layout-gen/layout-alg.md#L1683): `edge #tP,#e1 has source-side=right` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-04.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-04.dsl))
+- ✓ [Line 1684](gl:docs/dev/layout-gen/layout-alg.md#L1684): `edge #tP,#e2 has source-side=right` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-05.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-05.dsl))
+- ✓ [Line 1685](gl:docs/dev/layout-gen/layout-alg.md#L1685): `edge #tP,#e3 has source-side=right` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-06.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-06.dsl))
+- ✓ [Line 1686](gl:docs/dev/layout-gen/layout-alg.md#L1686): `edge #tP,#e1 has target-side=left` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-07.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-07.dsl))
+- ✓ [Line 1687](gl:docs/dev/layout-gen/layout-alg.md#L1687): `edge #tP,#e2 has target-side=left` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-08.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-08.dsl))
+- ✓ [Line 1688](gl:docs/dev/layout-gen/layout-alg.md#L1688): `edge #tP,#e3 has target-side=left` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-09.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-09.dsl))
+- ✓ [Line 1689](gl:docs/dev/layout-gen/layout-alg.md#L1689): `edge #tP,#e1 has source-position=0.5` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-10.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-10.dsl))
+- ✓ [Line 1690](gl:docs/dev/layout-gen/layout-alg.md#L1690): `edge #tP,#e3 has source-position=0.75` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-11.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-11.dsl))
+- ✓ [Line 1691](gl:docs/dev/layout-gen/layout-alg.md#L1691): `edge #tP,#e1 does not cross edge #tP,#e2` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-12.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-12.dsl))
+- ✓ [Line 1692](gl:docs/dev/layout-gen/layout-alg.md#L1692): `edge #tP,#e2 does not cross edge #tP,#e3` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-13.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-13.dsl))
+- ✓ [Line 1693](gl:docs/dev/layout-gen/layout-alg.md#L1693): `edge #tP,#e1 does not cross edge #tP,#e3` ([declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-14.dsl](../layout-gen-rules/declaration-order-does-not-decide-where-a-chain-spanning-thing-sits-14.dsl))
 
 ## Rendered Diagram
 

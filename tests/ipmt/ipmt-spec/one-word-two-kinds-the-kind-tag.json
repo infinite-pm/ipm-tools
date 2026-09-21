@@ -1,0 +1,159 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "controller ::t --\u003e controller (c) ::c\nresource ::t --\u003e resource (c) ::c\ncontroller, resource --\u003e controller tracks resources ::e",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          10
+        ],
+        "2": [
+          19,
+          33
+        ],
+        "3": [
+          38,
+          46
+        ],
+        "4": [
+          55,
+          67
+        ],
+        "5": [
+          97,
+          124
+        ]
+      },
+      "edges": {
+        "6": {
+          "arrow": [
+            14,
+            19
+          ],
+          "source": [
+            0,
+            10
+          ],
+          "target": [
+            19,
+            33
+          ]
+        },
+        "7": {
+          "arrow": [
+            50,
+            55
+          ],
+          "source": [
+            38,
+            46
+          ],
+          "target": [
+            55,
+            67
+          ]
+        },
+        "8": {
+          "arrow": [
+            92,
+            97
+          ],
+          "source": [
+            72,
+            82
+          ],
+          "target": [
+            97,
+            124
+          ]
+        },
+        "9": {
+          "arrow": [
+            92,
+            97
+          ],
+          "source": [
+            84,
+            92
+          ],
+          "target": [
+            97,
+            124
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "controller",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 2,
+      "name": "controller (c)",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 3,
+      "name": "resource",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 4,
+      "name": "resource (c)",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 5,
+      "name": "controller tracks resources",
+      "alias": "",
+      "type": "Event"
+    }
+  ],
+  "edges": [
+    {
+      "id": 6,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 7,
+      "source": 3,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 8,
+      "source": 1,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 9,
+      "source": 3,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

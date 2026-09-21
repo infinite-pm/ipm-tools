@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3574-L3583 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops)
+**Source:** gl:docs/dev/layout-gen/layout-alg.md#L3614-L3623 | [docs/dev/layout-gen/layout-alg.md](../../docs/dev/layout-gen/layout-alg.md#a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops)
 
 ## ipmt Content
 
@@ -31,24 +31,24 @@ tA --> cI ::c
 
 ## Layout Validation Rules
 
-Test line: 3574
+Test line: 3614
 
 ✅ All 14 rules passed
 
 - ✓ [Line 53](gl:docs/dev/layout-gen/layout-alg.md#L53): `each edge has max-bends=0` ([edges-run-straight-by-default.dsl](../layout-gen-rules/edges-run-straight-by-default.dsl))
-- ✓ [Line 3604](gl:docs/dev/layout-gen/layout-alg.md#L3604): `edge #tA,#cA has target-side=top` ([a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops.dsl](../layout-gen-rules/a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops.dsl))
-- ✓ [Line 3605](gl:docs/dev/layout-gen/layout-alg.md#L3605): `edge #tA,#cC has target-side=top` ([a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-02.dsl](../layout-gen-rules/a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-02.dsl))
-- ✓ [Line 3606](gl:docs/dev/layout-gen/layout-alg.md#L3606): `edge #tA,#cE has target-side=top` ([a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-03.dsl](../layout-gen-rules/a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-03.dsl))
-- ✓ [Line 3607](gl:docs/dev/layout-gen/layout-alg.md#L3607): `edge #tA,#cG has target-side=top` ([a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-04.dsl](../layout-gen-rules/a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-04.dsl))
-- ✓ [Line 3608](gl:docs/dev/layout-gen/layout-alg.md#L3608): `edge #tA,#cI has target-side=top` ([a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-05.dsl](../layout-gen-rules/a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-05.dsl))
-- ✓ [Line 3609](gl:docs/dev/layout-gen/layout-alg.md#L3609): `edge #tA,#cA has source-side=left` ([a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-06.dsl](../layout-gen-rules/a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-06.dsl))
-- ✓ [Line 3610](gl:docs/dev/layout-gen/layout-alg.md#L3610): `edge #tA,#cA has source-position=0.25` ([a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-07.dsl](../layout-gen-rules/a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-07.dsl))
-- ✓ [Line 3611](gl:docs/dev/layout-gen/layout-alg.md#L3611): `edge #tA,#cC has source-side=left` ([a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-08.dsl](../layout-gen-rules/a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-08.dsl))
-- ✓ [Line 3612](gl:docs/dev/layout-gen/layout-alg.md#L3612): `edge #tA,#cC has source-position=0.75` ([a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-09.dsl](../layout-gen-rules/a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-09.dsl))
-- ✓ [Line 3613](gl:docs/dev/layout-gen/layout-alg.md#L3613): `edge #tA,#cI has source-side=right` ([a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-10.dsl](../layout-gen-rules/a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-10.dsl))
-- ✓ [Line 3614](gl:docs/dev/layout-gen/layout-alg.md#L3614): `edge #tA,#cI has source-position=0.25` ([a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-11.dsl](../layout-gen-rules/a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-11.dsl))
-- ✓ [Line 3615](gl:docs/dev/layout-gen/layout-alg.md#L3615): `edge #tA,#cG has source-side=right` ([a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-12.dsl](../layout-gen-rules/a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-12.dsl))
-- ✓ [Line 3616](gl:docs/dev/layout-gen/layout-alg.md#L3616): `edge #tA,#cG has source-position=0.75` ([a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-13.dsl](../layout-gen-rules/a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-13.dsl))
+- ✓ [Line 3644](gl:docs/dev/layout-gen/layout-alg.md#L3644): `edge #tA,#cA has target-side=top` ([a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops.dsl](../layout-gen-rules/a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops.dsl))
+- ✓ [Line 3645](gl:docs/dev/layout-gen/layout-alg.md#L3645): `edge #tA,#cC has target-side=top` ([a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-02.dsl](../layout-gen-rules/a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-02.dsl))
+- ✓ [Line 3646](gl:docs/dev/layout-gen/layout-alg.md#L3646): `edge #tA,#cE has target-side=top` ([a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-03.dsl](../layout-gen-rules/a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-03.dsl))
+- ✓ [Line 3647](gl:docs/dev/layout-gen/layout-alg.md#L3647): `edge #tA,#cG has target-side=top` ([a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-04.dsl](../layout-gen-rules/a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-04.dsl))
+- ✓ [Line 3648](gl:docs/dev/layout-gen/layout-alg.md#L3648): `edge #tA,#cI has target-side=top` ([a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-05.dsl](../layout-gen-rules/a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-05.dsl))
+- ✓ [Line 3649](gl:docs/dev/layout-gen/layout-alg.md#L3649): `edge #tA,#cA has source-side=left` ([a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-06.dsl](../layout-gen-rules/a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-06.dsl))
+- ✓ [Line 3650](gl:docs/dev/layout-gen/layout-alg.md#L3650): `edge #tA,#cA has source-position=0.25` ([a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-07.dsl](../layout-gen-rules/a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-07.dsl))
+- ✓ [Line 3651](gl:docs/dev/layout-gen/layout-alg.md#L3651): `edge #tA,#cC has source-side=left` ([a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-08.dsl](../layout-gen-rules/a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-08.dsl))
+- ✓ [Line 3652](gl:docs/dev/layout-gen/layout-alg.md#L3652): `edge #tA,#cC has source-position=0.75` ([a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-09.dsl](../layout-gen-rules/a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-09.dsl))
+- ✓ [Line 3653](gl:docs/dev/layout-gen/layout-alg.md#L3653): `edge #tA,#cI has source-side=right` ([a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-10.dsl](../layout-gen-rules/a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-10.dsl))
+- ✓ [Line 3654](gl:docs/dev/layout-gen/layout-alg.md#L3654): `edge #tA,#cI has source-position=0.25` ([a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-11.dsl](../layout-gen-rules/a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-11.dsl))
+- ✓ [Line 3655](gl:docs/dev/layout-gen/layout-alg.md#L3655): `edge #tA,#cG has source-side=right` ([a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-12.dsl](../layout-gen-rules/a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-12.dsl))
+- ✓ [Line 3656](gl:docs/dev/layout-gen/layout-alg.md#L3656): `edge #tA,#cG has source-position=0.75` ([a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-13.dsl](../layout-gen-rules/a-wide-expresses-fan-orders-its-sides-and-lands-on-the-rows-tops-13.dsl))
 
 ## Rendered Diagram
 
