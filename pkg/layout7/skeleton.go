@@ -621,10 +621,18 @@ func (g *graph) forkOffsets(ev int, kids []int, span func(int) (int, int)) []int
 // its right (v7P3: part-of indents right), nested recursively — the widest
 // rank row decides (a fork row is as wide as its branches side by side).
 func (g *graph) subColumnWidth(ev int, sp *skeletonPlan, gp *groupsPlan) int {
+	return g.subColumnWidthWithin(ev, sp, gp, map[int]bool{})
+}
+
+// subColumnWidthWithin is subColumnWidth with the composites already on the
+// path — the guard subGridShape keeps, for the same bad input.
+func (g *graph) subColumnWidthWithin(ev int, sp *skeletonPlan, gp *groupsPlan, onPath map[int]bool) int {
 	rows := sp.subRows[ev]
-	if len(rows) == 0 {
+	if len(rows) == 0 || onPath[ev] {
 		return 0
 	}
+	onPath[ev] = true
+	defer delete(onPath, ev)
 	w := 0
 	for _, row := range rows {
 		rw := 0
@@ -632,7 +640,7 @@ func (g *graph) subColumnWidth(ev int, sp *skeletonPlan, gp *groupsPlan) int {
 			if i > 0 {
 				rw += ColGap + gp.leftExt[s]
 			}
-			rw += g.nodes[s].w + gp.rightExt[s] + g.subColumnWidth(s, sp, gp)
+			rw += g.nodes[s].w + gp.rightExt[s] + g.subColumnWidthWithin(s, sp, gp, onPath)
 		}
 		if rw > w {
 			w = rw

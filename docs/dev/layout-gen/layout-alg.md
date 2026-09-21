@@ -969,6 +969,46 @@ Vertical positioning rules for sub-events:
 - Sub-events from different parents (e1a/e1b vs e3a/e3b/e3c) do NOT share Y coordinates.
 - Each parent's sub-events form their own vertical group positioned near that parent.
 
+### sibling composites keep their own grids apart
+
+```ipmt
+e1a ::e, e1b ::e --::P--> e1 ::e
+e1a1 ::e --> e1a2 ::e
+e1a1, e1a2 --::P--> e1a
+e1b1 ::e --> e1b2 ::e
+e1b1, e1b2 --::P--> e1b
+```
+<!-- ipm-svg id=1e2 hash=c9247da0 -->
+![](../../../_ipm/docs/dev/layout-gen/layout-alg/1e2.ipm.svg)
+
+'e1' has two parts, 'e1a' and 'e1b', and each of them is a composite with a
+two-step chain of its own. 'e1''s grid is a plain column, 'e1a' over 'e1b';
+each member's grid centres on its member (v7P3), so 'e1a''s grid hangs one
+row below 'e1a' and 'e1b''s rises one row above 'e1b'. The gap between two
+rows of a grid therefore fits what the rows' nested grids reach into it —
+the upper grid's hang plus the lower grid's rise, one row gap apart (v7P8:
+gaps are minimums) — so 'e1b1' sits one row gap under 'e1a2'. The rows
+used to stand one row gap apart by their BOXES alone, and the two nested
+grids landed on the same cells: 'e1a2' drawn on top of 'e1b1'. The
+growth is counted only where a nested grid shares a column with what it
+faces — a nested grid hanging beside a member's box leaves the next member
+where it was (the grid in "sub-event phases fork inside the composite"
+hangs level with 'e1b').
+
+```ipmdev-layout-rule
+@scope local
+all #e1a,#e1b have same center-x
+all #e1a1,#e1a2,#e1b1,#e1b2 have same center-x
+#e1a2 is below #e1a1 with gap=60
+#e1b1 is below #e1a2 with gap=60
+#e1b2 is below #e1b1 with gap=60
+#e1a1 is right-of #e1a with gap=60
+#e1a is vertically-centered-between #e1a1,#e1a2
+#e1b is vertically-centered-between #e1b1,#e1b2
+#e1 is vertically-centered-between #e1a,#e1b
+all #S,#e1,#E have same center-x
+```
+
 ### a fork inside a sub-structure spreads its branches on one row
 
 ```ipmt

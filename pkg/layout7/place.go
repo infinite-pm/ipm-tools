@@ -1563,23 +1563,62 @@ func (g *graph) place(m *membership, gp *groupsPlan, sp *skeletonPlan) {
 }
 
 // subGridRowMetrics returns a composite's sub-grid row heights and the gap
-// ABOVE each row (rowGapAt[0] is unused). One formula, two consumers: the
-// placement in place() and the container reservation in subGridExtent.
+// ABOVE each row (rowGapAt[0] is unused). One formula (subGridShape), two
+// consumers: the placement in place() and the container reservation in
+// subGridExtent.
+func (g *graph) subGridRowMetrics(parent int, sp *skeletonPlan, gp *groupsPlan) (rowH, rowGapAt []int) {
+	rowH, rowGapAt, _, _ = g.subGridShape(parent, sp, gp, map[int]bool{})
+	return rowH, rowGapAt
+}
+
+// subGridShape is a composite's sub-grid as placeSubs lays it out, nested
+// grids included: the row heights, the gap above each row, and how far the
+// whole grid reaches ABOVE the composite's top (up) and BELOW its bottom
+// (down) — zero on a side where it stays inside the box.
 //
 // The gaps GROW for the rows' band hangs (v7P8: gaps are minimums; 'user'
 // cascaded past a packed column because wr's stack reached into cwr's row
 // band): the gap under a row fits what hangs BELOW its members plus what
-// rises ABOVE the next row's, one clearance apart.
-func (g *graph) subGridRowMetrics(parent int, sp *skeletonPlan, gp *groupsPlan) (rowH, rowGapAt []int) {
-	rows := sp.subRows[parent]
+// rises ABOVE the next row's, one clearance apart. They grow the same way
+// for the members' own grids (v7P3: a member's grid centres on the member,
+// so it hangs below it and rises above it): two sibling composites one row
+// gap apart by their boxes put their grids on the same cells. That growth
+// counts only where a grid shares a column with what it faces — a grid
+// hanging beside the next member's box leaves it level.
+//
+// onPath holds the composites already on the recursion path: an event part
+// of two composites that are part of each other (a union that merged one
+// event into two sections, lifted) would otherwise recurse forever, and an
+// engine must not take a server down over a bad input — the nested grid is
+// simply not counted the second time round.
+func (g *graph) subGridShape(ev int, sp *skeletonPlan, gp *groupsPlan, onPath map[int]bool) (rowH, rowGapAt []int, up, down int) {
+	rows := sp.subRows[ev]
+	if len(rows) == 0 || onPath[ev] {
+		return nil, nil, 0, 0
+	}
+	onPath[ev] = true
+	defer delete(onPath, ev)
 	rowH = make([]int, len(rows))
 	rowGapAt = make([]int, len(rows))
+	// a member's own grid: its reach above/below the member, and its
+	// columns relative to ev's left edge
+	type nest struct{ up, down, x0, x1 int }
+	nested := map[int]nest{}
+	slot := g.subSlotX(ev, sp, gp)
 	for ri, row := range rows {
 		for _, s := range row {
 			if g.nodes[s].h > rowH[ri] {
 				rowH[ri] = g.nodes[s].h
 			}
+			if _, _, u, d := g.subGridShape(s, sp, gp, onPath); u > 0 || d > 0 {
+				x0, x1 := g.subGridColumnRel(s, sp, gp)
+				nested[s] = nest{u, d, slot[s] + x0, slot[s] + x1}
+			}
 		}
+	}
+	type reach struct {
+		x0, x1, over int
+		grid         bool
 	}
 	for ri := 1; ri < len(rows); ri++ {
 		below, above := 0, 0
@@ -1597,6 +1636,38 @@ func (g *graph) subGridRowMetrics(parent int, sp *skeletonPlan, gp *groupsPlan) 
 		if need := below + StackGap + above; need > RowGap {
 			rowGapAt[ri] = (need + GridStep - 1) / GridStep * GridStep
 		}
+		// the members' own grids against what they face across the gap:
+		// the upper row's hang (from the row's bottom) and the lower row's
+		// rise (from its top), a box counting with its side bands and aux
+		// hang; box against box is the rule just above
+		var hangs, rises []reach
+		for _, s := range rows[ri-1] {
+			sn := g.nodes[s]
+			hangs = append(hangs, reach{slot[s] - gp.leftExt[s], slot[s] + sn.w + gp.rightExt[s], gp.belowExt[s] + sn.h - rowH[ri-1], false})
+			if n, ok := nested[s]; ok {
+				hangs = append(hangs, reach{n.x0, n.x1, sn.h + n.down - rowH[ri-1], true})
+			}
+		}
+		for _, s := range rows[ri] {
+			sn := g.nodes[s]
+			rises = append(rises, reach{slot[s] - gp.leftExt[s], slot[s] + sn.w + gp.rightExt[s], gp.aboveExt[s], false})
+			if n, ok := nested[s]; ok {
+				rises = append(rises, reach{n.x0, n.x1, n.up, true})
+			}
+		}
+		for _, a := range hangs {
+			for _, b := range rises {
+				if !a.grid && !b.grid {
+					continue
+				}
+				if a.x0 >= b.x1 || b.x0 >= a.x1 {
+					continue
+				}
+				if need := gridUp(maxInt(a.over, 0) + RowGap + maxInt(b.over, 0)); need > rowGapAt[ri] {
+					rowGapAt[ri] = need
+				}
+			}
+		}
 		// demand-pass growth below a member (v7P8 §4): a stranded sole leaf
 		// posted it so the next row's part-of diagonal drops under the
 		// leaf's near-anchor wedge (swap of clothing closer to swapT)
@@ -1606,53 +1677,48 @@ func (g *graph) subGridRowMetrics(parent int, sp *skeletonPlan, gp *groupsPlan) 
 			}
 		}
 	}
-	return rowH, rowGapAt
-}
-
-// subGridExtent is the total vertical span a composite's sub-grid occupies,
-// nested grids included — a member's effective height is the taller of its
-// own box and the grid hanging off it. Zero for a leaf event.
-//
-// place() centres the grid on the composite (sy = pn.y + pn.h/2 - total/2)
-// using the members' plain box heights, so this is an UPPER bound on the real
-// span: a nested grid may pack tighter than its own extent, never wider.
-// Options.Containers reserves against it, and over-reserving only widens the
-// band that keeps a shell exclusive.
-func (g *graph) subGridExtent(ev int, sp *skeletonPlan, gp *groupsPlan) int {
-	return g.subGridExtentWithin(ev, sp, gp, map[int]bool{})
-}
-
-// subGridExtentWithin is subGridExtent with the composites already on the
-// path: an event part of two composites that are part of each other (a
-// union that merged one event into two sections, lifted) would otherwise
-// recurse forever, and an engine must not take a server down over a bad
-// input — the nested span is simply not counted the second time round.
-func (g *graph) subGridExtentWithin(ev int, sp *skeletonPlan, gp *groupsPlan, onPath map[int]bool) int {
-	rows := sp.subRows[ev]
-	if len(rows) == 0 || onPath[ev] {
-		return 0
-	}
-	onPath[ev] = true
-	defer delete(onPath, ev)
-	_, rowGapAt := g.subGridRowMetrics(ev, sp, gp)
+	// where placeSubs puts each row (the grid's middle on ev's centre, by
+	// the plain row heights) and how far each member's own grid reaches
+	// from there
 	total := 0
-	for ri, row := range rows {
-		h := 0
-		for _, s := range row {
-			eh := g.nodes[s].h
-			if nested := g.subGridExtentWithin(s, sp, gp, onPath); nested > eh {
-				eh = nested
-			}
-			if eh > h {
-				h = eh
-			}
-		}
+	for ri := range rows {
 		if ri > 0 {
 			total += rowGapAt[ri]
 		}
-		total += h
+		total += rowH[ri]
 	}
-	return total
+	h := g.nodes[ev].h
+	top, bot := 0, h
+	y := h/2 - total/2
+	for ri, row := range rows {
+		if ri > 0 {
+			y += rowGapAt[ri]
+		}
+		for _, s := range row {
+			n := nested[s]
+			top = minInt(top, y-n.up)
+			bot = maxInt(bot, y+g.nodes[s].h+n.down)
+		}
+		y += rowH[ri]
+	}
+	return rowH, rowGapAt, -top, bot - h
+}
+
+// subGridExtent is the vertical span a composite's sub-grid occupies, nested
+// grids included, as if it were centred on the composite: the box plus twice
+// the grid's larger reach past it (subGridShape). Zero for a leaf event.
+//
+// place() centres the grid on the composite by the members' plain box
+// heights, so a nested grid can make one side reach further than the other;
+// taking the larger reach both ways keeps this an UPPER bound for the
+// callers that halve it. Options.Containers reserves against it, and
+// over-reserving only widens the band that keeps a shell exclusive.
+func (g *graph) subGridExtent(ev int, sp *skeletonPlan, gp *groupsPlan) int {
+	if len(sp.subRows[ev]) == 0 {
+		return 0
+	}
+	_, _, up, down := g.subGridShape(ev, sp, gp, map[int]bool{})
+	return g.nodes[ev].h + 2*maxInt(up, down)
 }
 
 // subGridRise is how far a composite's sub-grid reaches above (and below) its
@@ -1672,12 +1738,19 @@ func (g *graph) subGridRise(ev int, sp *skeletonPlan, gp *groupsPlan) int {
 // column gap right of the composite (and its right band) to the grid's
 // widest row — subSlotX's arithmetic, as a span.
 func (g *graph) subGridColumn(ev int, sp *skeletonPlan, gp *groupsPlan) (int, int) {
+	x0, x1 := g.subGridColumnRel(ev, sp, gp)
+	return g.nodes[ev].x + x0, g.nodes[ev].x + x1
+}
+
+// subGridColumnRel is subGridColumn relative to the composite's left edge —
+// the span before the composite has an x (subGridShape, planning a grid
+// inside a grid).
+func (g *graph) subGridColumnRel(ev int, sp *skeletonPlan, gp *groupsPlan) (int, int) {
 	en := g.nodes[ev]
-	slot := g.subSlotX(ev, sp, gp)
-	x0, x1 := en.x+en.w+ColGap, en.x+en.w+g.subColumnWidth(ev, sp, gp)
-	for s, dx := range slot {
-		x0 = minInt(x0, en.x+dx)
-		x1 = maxInt(x1, en.x+dx+g.nodes[s].w)
+	x0, x1 := en.w+ColGap, en.w+g.subColumnWidth(ev, sp, gp)
+	for s, dx := range g.subSlotX(ev, sp, gp) {
+		x0 = minInt(x0, dx)
+		x1 = maxInt(x1, dx+g.nodes[s].w)
 	}
 	return x0, x1
 }
