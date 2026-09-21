@@ -191,12 +191,21 @@ func vcsRevision() string {
 	if !ok {
 		return ""
 	}
+	rev, dirty := "", false
 	for _, s := range info.Settings {
-		if s.Key == "vcs.revision" {
-			return s.Value
+		switch s.Key {
+		case "vcs.revision":
+			rev = s.Value
+		case "vcs.modified":
+			dirty = s.Value == "true"
 		}
 	}
-	return ""
+	// built from a tree with changes the commit does not hold: the record
+	// says so, or it names a revision the graph was not made by
+	if rev != "" && dirty {
+		rev += "+dirty"
+	}
+	return rev
 }
 
 func itoa(i int) string {
