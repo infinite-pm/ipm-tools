@@ -25,7 +25,7 @@ type Check interface {
 //	IPMV2.1  PartOf is a DAG
 //	IPMV2.2  LeadsTo is a DAG
 //	IPMV2.6  Happens-before (LeadsTo + PartOf composition) is acyclic
-//	IPMV2.7  Sibling sub-events should have declared leads-to order
+//	IPMV2.7  A parent's sub-events read as a sequence or as a set, not half of each
 //	IPMV2.8  Leads-to edge crossing into a container the predecessor is outside of
 //	IPMV2.9  Leads-to must connect whole (outermost) events, not a part-of sub-part
 //	IPMV4.5.3 Stranded thing

@@ -7,6 +7,21 @@ extension keeps its own changelog in
 
 ## 0.4.3 — unreleased
 
+- `ipm-validate` IPMV2.7 reads a PARENT, not a pair of siblings. A parent
+  event whose sub-events are all ordered by leads-to (a sequence) and one
+  whose sub-events are not ordered at all (a set) are both whole statements
+  and both silent; the warning now fires once per parent that is half of
+  each, naming the sub-events left outside the order. A loose sub-event that
+  carries a near-to to a sibling is declared parallel and is not named — one
+  edge per loose part, where the per-pair rule cost n(n-1)/2 near-to edges
+  for n parallel parts, a web of dotted lines telling a reader nothing the
+  containing box had not already said. Every graph the old reading accepted
+  is still accepted (a hand-written `a --- b` still exempts its pair), so
+  nothing that passed starts failing; what changed is the message and the
+  `suggest:` line. The code stays `IPMV2.7` — see
+  [`docs/ipm-validator-rules.md`](docs/ipm-validator-rules.md) §3, and
+  [`docs/how-to-model.md`](docs/how-to-model.md) for when a near-to earns its
+  place at all.
 - Layout: a thing that is part-of MORE chain events than the other things in
   its band takes the flank OPPOSITE them. Two things stacked in one band that
   both tie further down the spine could not both draw clean from one side —

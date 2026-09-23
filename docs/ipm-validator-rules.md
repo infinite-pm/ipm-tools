@@ -144,27 +144,61 @@ node set involved.
 
 ## 3. Temporal order
 
-### IPMV2.7 — Sibling sub-events should be ordered (warning)
-When two or more events are direct sub-events of the same
-parent event (`a1 --::P--> a`, `a2 --::P--> a`), the graph
-should declare a leads-to ordering between them, unless they
-are explicitly marked parallel.
+### IPMV2.7 — A parent's sub-events: a sequence or a set (warning)
+The direct sub-events of one parent event (`a1 --::P--> a`,
+`a2 --::P--> a`) should read as one kind of thing:
+
+- a **sequence** — every part takes part in a leads-to order
+  with a sibling; or
+- a **set** — no part does.
+
+Both are whole statements, and both are silent. Part-of without
+leads-to already says *"these are the parts; their order is not
+stated"*.
+
+What the rule flags is the **mixture**: a parent where some
+parts are ordered and some stand outside the order, so a reader
+cannot tell whether the loose parts run in parallel or whether
+nobody ever wrote their order down. One finding **per parent**,
+naming its loose parts:
+
+```
+warning: IPMV2.7: sub-event "test-loop" of "workflow-001" has no
+declared leads-to order, while the other sub-events are ordered
+```
+
+A part counts as **ordered** when any of these joins it to a
+sibling:
+
+- A direct or transitive leads-to path (in either direction).
+- A shared leads-to predecessor (fan-out partial order:
+  `p --> a1, a2`).
+- A shared leads-to successor (fan-in convergence).
+
+**Declaring a loose part parallel.** A loose part that carries a
+NearTo to a sibling (`a3 --- a1`) is declared deliberately
+parallel: it is not named, and a mixed parent whose loose parts
+each carry one is silent. That is **one edge per loose part, not
+one per pair** — and a parent whose parts are *all* parallel
+needs no near-to at all, because containment already draws them
+side by side inside one box. A near-to is for a tie the
+structure cannot carry; see
+[how-to-model.md](how-to-model.md#when-a-near-to-earns-its-place).
 
 The rule is **recursive** — it applies at every level of
-containment. Sub-sub-events must also be ordered among
-themselves.
+containment. Sub-sub-events are read the same way.
 
-A pair is considered ordered if any of these hold:
-
-- A direct or transitive leads-to path connects them (in
-  either direction).
-- They share a common leads-to predecessor (fan-out partial
-  order: `p --> a1, a2`).
-- They share a common leads-to successor (fan-in convergence).
-- An explicit NearTo edge between them marks them as parallel.
-
-Otherwise the validator warns and suggests adding a leads-to
-or an explicit `---` near-to.
+**What changed in 0.4.3.** The code is published, so it keeps
+its number; its reading changed. Before, the check ran per
+**pair**: every pair of siblings without a declared order
+warned, and a NearTo on that pair exempted it. A producer with
+n genuinely parallel parts therefore had to emit n(n-1)/2
+near-to edges to satisfy the check, and a reader then saw a web
+of dotted lines that said nothing the containing box did not.
+The per-parent reading accepts everything the pair reading
+accepted — a hand-written `a1 --- a2` still exempts — so no
+graph that passed starts failing; it simply stops asking for
+the edges.
 
 ### IPMV2.8 — Leads-to crossing into a container (warning)
 A `LeadsTo` edge `A → B` should not "dip into" a container event

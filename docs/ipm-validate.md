@@ -23,11 +23,12 @@ summary:
   part-of-event edge when a sub-thing already participates.
 - Acyclicity (errors): PartOf is a DAG, LeadsTo is a DAG,
   happens-before (the composition of the two) is acyclic.
-- Temporal / shape (warnings): sibling sub-events of the same
-  parent should declare a leads-to ordering; a leads-to edge
-  should not dip into a container that the predecessor is
-  unrelated to; leads-to connects WHOLE (outermost) events, not
-  a part-of sub-part (IPMV2.9).
+- Temporal / shape (warnings): a parent's sub-events should read
+  as a sequence (all ordered by leads-to) or as a set (none
+  ordered), not half of each (IPMV2.7); a leads-to edge should
+  not dip into a container that the predecessor is unrelated to;
+  leads-to connects WHOLE (outermost) events, not a part-of
+  sub-part (IPMV2.9).
 - Hygiene (info): stranded thing, stranded event.
 - Undecided kinds (IPMV1.5): Unresolved (grey) node kinds are
   flagged as a warning by default, promoted to an error under
@@ -71,8 +72,8 @@ or you can force it with a flag.
 By default, findings print to stderr in compiler format:
 
 ```
-demo.md:42:17: warning: IPMV2.7: sibling sub-events "edit-loop" and "compile-loop" of "workflow-001" have no declared leads-to order
-  suggest: add "edit-loop" --> "compile-loop" (or reverse), or mark them parallel with "edit-loop" --- "compile-loop"
+demo.md:42:17: warning: IPMV2.7: sub-event "test-loop" of "workflow-001" has no declared leads-to order, while the other sub-events are ordered
+  suggest: add "test-loop" --> "edit-loop" (or reverse), or declare it parallel with one near-to "test-loop" --- "edit-loop"
 ```
 
 With `--json`, findings emit as a JSON array suitable for

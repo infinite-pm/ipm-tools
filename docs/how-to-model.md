@@ -157,6 +157,50 @@ service-container --> microservice ::c
 - Use aliases (`id::a`) for frequently referenced nodes to keep diagrams readable.
 - Use comments (`#`) to organize sections of a diagram.
 
+#### When a near-to earns its place
+A near-to (`---`, N) is for a tie the structure cannot carry. It earns its ink
+when it joins two nodes the picture does not **already** join — it is not a
+second way to say what containment and flow have said.
+
+**event ↔ event.** Draw one only when all of these hold:
+
+1. No LeadsTo, PartOf or Expresses edge joins the two directly.
+2. They are **not parts of one parent**. A shared parent already draws them
+   inside one box, side by side, which is exactly what "near" would have said;
+   and the top level of a diagram counts as a parent.
+3. Neither is a part-of ancestor of the other — that pair is already joined,
+   through the containment chain.
+4. The words on the edge are **news**: a fact the reader cannot read off the
+   structure — the same version of the same object, the request that caused
+   this write, the documented step this moment was observed as. "Independent",
+   "parallel", "the order is not known" are not news; they are the absence of a
+   leads-to, said twice.
+
+Rule of thumb: an event↔event near-to is worth its ink when it **crosses**
+something — two containers, two sources of evidence, the documentation and the
+run, two moments far apart in time. Inside one box, the box is the statement.
+`ipm-validate` reads it the same way: IPMV2.7 takes a parent's sub-events as a
+sequence or as a set, and an all-parallel parent needs no near-to at all — see
+[ipm-validator-rules.md §3](ipm-validator-rules.md#3-temporal-order).
+
+**thing ↔ thing.** Same first test, but the sibling clause does not apply, and
+do not drop one lightly: a thing↔thing near-to also **places**. Layout treats
+it as a same-tie that orders and wraps things, and a thing whose only
+connection is that tie is placed by it. Two things that are parts of one event
+may well be near each other — as long as the edge makes an identity claim the
+part-of does not ("the same object, one copy of it"; "the same file, two
+versions"), not "both are used here".
+
+**concept ↔ concept.** Concepts have no containment to speak through, so a
+concept map is near-to nearly all the way down and little of it is redundant.
+Two tests remain: do not draw one where an Expresses already runs between the
+two concepts, and do not draw the transitive closure of a similarity chain —
+`cA --- cB --- cC` does not need `cA --- cC`.
+
+**Across kinds there is no near-to.** IPMV1.3 accepts it only between
+same-type nodes. Say that tie with what the format has — a shared concept via
+Expresses, or PartOf — and never retype a node just to make a near-to legal.
+
 #### Shared hierarchies across diagrams
 When a set of diagrams describes the same system (e.g. the meta-ipm diagrams for ipm-tools),
 establish shared things and concepts that recur across diagrams:

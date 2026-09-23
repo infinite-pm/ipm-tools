@@ -20,6 +20,8 @@ Some prose.
 workflow-1::a Workflow ::e
 edit-run-1::a Edit run ::e --::P--> workflow-1
 compile-run-1::a Compile run ::e --::P--> workflow-1
+test-run-1::a Test run ::e --::P--> workflow-1
+edit-run-1 --> compile-run-1
 ` + "```" + `
 
 More prose.
@@ -29,12 +31,12 @@ More prose.
 		t.Fatalf("unexpected error: %v", err)
 	}
 	if len(fs) == 0 {
-		t.Fatal("expected at least one IPMV2.7 finding for unordered siblings")
+		t.Fatal("expected at least one IPMV2.7 finding for the mixed parent")
 	}
-	// The first finding's line should be >= 7 (the first content line of the block).
-	// Header is line 1, blank 2, prose 3, blank 4, fence 5, workflow-1 6, edit-run-1 7.
-	// edit-run-1 is the source of the part-of edge between edit-run-1 and compile-run-1
-	// where the sibling pair is rooted, so anchor line is the line of edit-run-1 (7).
+	// The finding's line should be >= 5 (the fence line). Header is line 1,
+	// blank 2, prose 3, blank 4, fence 5, workflow-1 6, edit-run-1 7,
+	// compile-run-1 8, test-run-1 9. test-run-1 is the sub-event left out of
+	// the parent's order, so the finding anchors on its line (9).
 	for _, f := range fs {
 		if f.Line < 5 {
 			t.Errorf("finding line %d should reference markdown line (>= 5, the fence line), got: %v", f.Line, f)
@@ -104,6 +106,8 @@ func TestValidateMarkdown_MultipleBlocks(t *testing.T) {
 		"workflow-A::a A ::e\n" +
 		"e1::a E1 ::e --::P--> workflow-A\n" +
 		"e2::a E2 ::e --::P--> workflow-A\n" +
+		"e3::a E3 ::e --::P--> workflow-A\n" +
+		"e1 --> e2\n" + // e3 is left out of the order: the parent is mixed
 		"```\n\n" +
 		"```ipmt\n" +
 		"workflow-B::a B ::e\n" +
@@ -115,7 +119,7 @@ func TestValidateMarkdown_MultipleBlocks(t *testing.T) {
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
-	// Expect exactly one IPMV2.7 finding from block A (siblings e1, e2).
+	// Expect exactly one IPMV2.7 finding from block A (e3 outside the order).
 	// Block B has the ordering declared.
 	got := 0
 	for _, f := range fs {
