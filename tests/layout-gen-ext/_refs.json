@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-ext.md",
-        "source_sha1": "e2d5628e2f41d5a7fa0275ad36038c142a7b5cf8",
+        "source_sha1": "42b009e4d9a522771551e33bafc8c74515c3f326",
         "name": "ipmt layout algorithm extensions",
         "method": "parser",
         "parser_name": "ipmt-md",
@@ -532,6 +532,21 @@
                     "md": "3862ff9cd2e21e5ea0f6ceca6adc58f188f5cb4b"
                 },
                 "heading": "a concept fan stays whole beside a successor's grid",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-nested-composites-row-takes-its-fans-concept-and-hangs-a-members-whole-below",
+                "line": 1465,
+                "anchor": "#a-nested-composites-row-takes-its-fans-concept-and-hangs-a-members-whole-below",
+                "content_sha1": "3c899fedab9e5368ed4ec569451bd5c8eb12b0e9",
+                "outputs": {
+                    "ipm.svg": "8f49897b6b0dc96ea5aece49f57491d0a7f96772",
+                    "ipmt": "3c899fedab9e5368ed4ec569451bd5c8eb12b0e9",
+                    "json": "b1a8157b2ee76462598339b6635995e0a52ee542",
+                    "layout.json": "02bde40349ad5cd41795708678628e1045f558e1",
+                    "md": "c01f799a1629eed1d5423321bede43ad55c60b4b"
+                },
+                "heading": "a nested composite's row takes its fan's concept and hangs a member's whole below",
                 "section": "v7 acceptance targets"
             }
         ]

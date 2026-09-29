@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/how-to-model.md#L170-L172 | [docs/how-to-model.md](../../../docs/how-to-model.md#shared-hierarchies-across-diagrams)
+**Source:** gl:docs/how-to-model.md#L214-L216 | [docs/how-to-model.md](../../../docs/how-to-model.md#shared-hierarchies-across-diagrams)
 
 ## ipmt Content
 

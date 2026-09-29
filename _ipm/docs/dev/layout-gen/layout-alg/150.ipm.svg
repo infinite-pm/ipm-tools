@@ -24,6 +24,7 @@
     <path d="M 276.25 275.00 L 267.25 270.50 L 272.20 269.60 L 274.45 265.10 Z" fill="#ff8000" stroke="#ff8000" stroke-width="3" stroke-miterlimit="10"/>
     </g>
     <g class="edge" data-edge-idx="2" data-edge-base="expresses" data-edge-from="1" data-edge-to="4">
+      <title>used for</title>
     <line x1="255.00" y1="170.00" x2="298.25" y2="170.00" stroke="#6c8ebf" stroke-width="3" stroke-dasharray="9 6" />
     <path d="M 305.00 170.00 L 296.00 174.50 L 298.25 170.00 L 296.00 165.50 Z" fill="#6c8ebf" stroke="#6c8ebf" stroke-width="3" stroke-miterlimit="10"/>
     </g>

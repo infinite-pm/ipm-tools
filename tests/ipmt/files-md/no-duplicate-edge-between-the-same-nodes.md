@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/how-to-model.md#L212-L214 | [docs/how-to-model.md](../../../docs/how-to-model.md#no-duplicate-edge-between-the-same-nodes)
+**Source:** gl:docs/how-to-model.md#L256-L258 | [docs/how-to-model.md](../../../docs/how-to-model.md#no-duplicate-edge-between-the-same-nodes)
 
 ## ipmt Content
 

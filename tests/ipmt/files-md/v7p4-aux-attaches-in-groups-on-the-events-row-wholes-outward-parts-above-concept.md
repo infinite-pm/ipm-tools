@@ -6,7 +6,7 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-principles.md#L520-L526 | [docs/dev/layout-gen/layout-principles.md](../../../docs/dev/layout-gen/layout-principles.md#v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concepts-down)
+**Source:** gl:docs/dev/layout-gen/layout-principles.md#L524-L530 | [docs/dev/layout-gen/layout-principles.md](../../../docs/dev/layout-gen/layout-principles.md#v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concepts-down)
 
 ## ipmt Content
 

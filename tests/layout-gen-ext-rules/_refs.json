@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-ext.md",
-        "source_sha1": "e2d5628e2f41d5a7fa0275ad36038c142a7b5cf8",
+        "source_sha1": "42b009e4d9a522771551e33bafc8c74515c3f326",
         "name": "layout ext test rules",
         "method": "parser",
         "parser_name": "ipmdev-layout-rule-md",
@@ -3439,6 +3439,116 @@
                     "dsl": "a10857956ff8d5c624e7f921690e805d680bb501"
                 },
                 "heading": "a concept fan stays whole beside a successor's grid",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-nested-composites-row-takes-its-fans-concept-and-hangs-a-members-whole-below",
+                "line": 1476,
+                "anchor": "#a-nested-composites-row-takes-its-fans-concept-and-hangs-a-members-whole-below",
+                "content_sha1": "ca8978ade09463c473adaa41aa1dc3633e83ab25",
+                "outputs": {
+                    "dsl": "ca8978ade09463c473adaa41aa1dc3633e83ab25"
+                },
+                "heading": "a nested composite's row takes its fan's concept and hangs a member's whole below",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-nested-composites-row-takes-its-fans-concept-and-hangs-a-members-whole-below-02",
+                "line": 1477,
+                "anchor": "#a-nested-composites-row-takes-its-fans-concept-and-hangs-a-members-whole-below",
+                "content_sha1": "2c1bf527b555b3cd82e892973785e971e031cec2",
+                "outputs": {
+                    "dsl": "2c1bf527b555b3cd82e892973785e971e031cec2"
+                },
+                "heading": "a nested composite's row takes its fan's concept and hangs a member's whole below",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-nested-composites-row-takes-its-fans-concept-and-hangs-a-members-whole-below-03",
+                "line": 1478,
+                "anchor": "#a-nested-composites-row-takes-its-fans-concept-and-hangs-a-members-whole-below",
+                "content_sha1": "8e06666ebb3a6b38a52383c5cbda16feb0e0c154",
+                "outputs": {
+                    "dsl": "8e06666ebb3a6b38a52383c5cbda16feb0e0c154"
+                },
+                "heading": "a nested composite's row takes its fan's concept and hangs a member's whole below",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-nested-composites-row-takes-its-fans-concept-and-hangs-a-members-whole-below-04",
+                "line": 1479,
+                "anchor": "#a-nested-composites-row-takes-its-fans-concept-and-hangs-a-members-whole-below",
+                "content_sha1": "26f52dba44c08bba63347a3253c7b3ee76faf8c6",
+                "outputs": {
+                    "dsl": "26f52dba44c08bba63347a3253c7b3ee76faf8c6"
+                },
+                "heading": "a nested composite's row takes its fan's concept and hangs a member's whole below",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-nested-composites-row-takes-its-fans-concept-and-hangs-a-members-whole-below-05",
+                "line": 1480,
+                "anchor": "#a-nested-composites-row-takes-its-fans-concept-and-hangs-a-members-whole-below",
+                "content_sha1": "7ecba7692395f83816320eb7214a5ae1288e3002",
+                "outputs": {
+                    "dsl": "7ecba7692395f83816320eb7214a5ae1288e3002"
+                },
+                "heading": "a nested composite's row takes its fan's concept and hangs a member's whole below",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-nested-composites-row-takes-its-fans-concept-and-hangs-a-members-whole-below-06",
+                "line": 1481,
+                "anchor": "#a-nested-composites-row-takes-its-fans-concept-and-hangs-a-members-whole-below",
+                "content_sha1": "8479f821706bbdbadad00b13ff1c8538628a60e4",
+                "outputs": {
+                    "dsl": "8479f821706bbdbadad00b13ff1c8538628a60e4"
+                },
+                "heading": "a nested composite's row takes its fan's concept and hangs a member's whole below",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-nested-composites-row-takes-its-fans-concept-and-hangs-a-members-whole-below-07",
+                "line": 1482,
+                "anchor": "#a-nested-composites-row-takes-its-fans-concept-and-hangs-a-members-whole-below",
+                "content_sha1": "26c55d34c94bb0660fd561e5e253b99b3de49f17",
+                "outputs": {
+                    "dsl": "26c55d34c94bb0660fd561e5e253b99b3de49f17"
+                },
+                "heading": "a nested composite's row takes its fan's concept and hangs a member's whole below",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-nested-composites-row-takes-its-fans-concept-and-hangs-a-members-whole-below-08",
+                "line": 1483,
+                "anchor": "#a-nested-composites-row-takes-its-fans-concept-and-hangs-a-members-whole-below",
+                "content_sha1": "054d4c6016a9de358562a0727d8b76d231734a6d",
+                "outputs": {
+                    "dsl": "054d4c6016a9de358562a0727d8b76d231734a6d"
+                },
+                "heading": "a nested composite's row takes its fan's concept and hangs a member's whole below",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-nested-composites-row-takes-its-fans-concept-and-hangs-a-members-whole-below-09",
+                "line": 1484,
+                "anchor": "#a-nested-composites-row-takes-its-fans-concept-and-hangs-a-members-whole-below",
+                "content_sha1": "c4c735d621e4391f8dedb9e86598f557548520d0",
+                "outputs": {
+                    "dsl": "c4c735d621e4391f8dedb9e86598f557548520d0"
+                },
+                "heading": "a nested composite's row takes its fan's concept and hangs a member's whole below",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-nested-composites-row-takes-its-fans-concept-and-hangs-a-members-whole-below-10",
+                "line": 1485,
+                "anchor": "#a-nested-composites-row-takes-its-fans-concept-and-hangs-a-members-whole-below",
+                "content_sha1": "90b6daa2756c26b8e950075b17a27bf7ec92867d",
+                "outputs": {
+                    "dsl": "90b6daa2756c26b8e950075b17a27bf7ec92867d"
+                },
+                "heading": "a nested composite's row takes its fan's concept and hangs a member's whole below",
                 "section": "v7 acceptance targets"
             }
         ]
