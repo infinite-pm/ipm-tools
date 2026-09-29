@@ -431,7 +431,7 @@ mirrors horizontally):
 And the group's SUBGROUP ORDERING: within a group, THINGS place first and
 CONCEPTS last (the aux echo of the events→things→concepts layering) —
 except a thing FAN (two or more) plus a SOLE leaf concept, which never
-share the band: stacked with the fan the concept reads as one more
+share a side band: stacked with the fan the concept reads as one more
 part-of member, so it drops BELOW the event, x-centred at the stack
 rhythm, and the band centres on the fan alone. The
 below-drop yields when the spot below is a SIBLING's — a stack
@@ -496,7 +496,11 @@ GENERATION: a ROW centred on the owner, things first, concepts last,
 each on its own short connector from the owner's bottom fan (a column
 would read as layers and push the lower connectors around the upper
 boxes; the diagonal returns only when the composite flows downward and
-below is a flow corridor). And a PURE
+below is a flow corridor). A thing fan's sole leaf concept joins that row
+too, last — the row IS the spot below the event, where the concept would
+otherwise drop. A row member's siblings hold both its flanks, so its own
+next generation — its wholes, then its concepts — hangs one row BELOW it,
+centred on its centre line, never outward on the row. And a PURE
 structure (a component with no events, v7P1) lays out as LAYERED
 GENERATIONS, the aux echo of the skeleton: part-of ascends — a part one
 row above its whole — expresses descends, siblings sit side by side in

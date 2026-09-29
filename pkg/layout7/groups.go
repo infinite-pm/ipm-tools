@@ -708,7 +708,8 @@ func (g *graph) buildGroups(m *membership) *groupsPlan {
 	}
 
 	// orient expands one member's substructure (v7P4's grammar), outward on
-	// `side` (-1 left, +1 right). Concept fans stack BESIDE their expresser
+	// `side` (-1 left, +1 right; 0 down, for a member lying in a ROW below
+	// its event). Concept fans stack BESIDE their expresser
 	// (band-style — edges reach each member's facing side without cutting
 	// the stack, v7P9); chains step diagonally. A member whose subtree is
 	// EXCLUSIVE (self-contained, no other event touches it — the zoom
@@ -732,6 +733,40 @@ func (g *graph) buildGroups(m *membership) *groupsPlan {
 			if e.structural && e.rel == RelPartOf && g.nodes[e.to].kind != KindEvent && !placed[e.to] {
 				wholes = append(wholes, e.to)
 			}
+		}
+		if side == 0 {
+			// A member of a row below its event has SIBLINGS on both
+			// flanks — outward on the row is a sibling's spot. Its next
+			// generation hangs one row BELOW it instead, the layered
+			// grammar (a whole one row below its part, an expressed concept
+			// one row below its expresser): wholes then concepts, side by
+			// side, centred on the member's centre line.
+			var concepts []int
+			for _, e := range g.out[member] {
+				if e.structural && e.rel == RelExpresses && g.nodes[e.to].kind == KindConcept && !placed[e.to] {
+					concepts = append(concepts, e.to)
+				}
+			}
+			if ao := g.anchorOrder(concepts); ao != nil {
+				concepts = ao
+			}
+			kids := append(g.affinityOrder(wholes), concepts...)
+			total := 0
+			for i, k := range kids {
+				if i > 0 {
+					total += StackGap
+				}
+				total += g.nodes[k].w
+			}
+			x := memberCenterX - total/2
+			for _, k := range kids {
+				place(event, k, x, mp.dy+g.nodes[member].h+StackGap)
+				x += g.nodes[k].w + StackGap
+			}
+			for _, k := range kids {
+				orient(event, k, 0)
+			}
+			wholes = nil // placed; the parts below still apply
 		}
 		if len(wholes) > 0 {
 			wholes = g.affinityOrder(wholes)
@@ -926,9 +961,20 @@ func (g *graph) buildGroups(m *membership) *groupsPlan {
 			// thing FAN (two or more) plus a SOLE leaf concept do NOT
 			// share the band — stacked with the fan the concept reads as
 			// one more part-of member; it drops BELOW the event,
-			// x-centred, and the band centres on the fan alone.
+			// x-centred, and the band centres on the fan alone. Not when
+			// the band itself is the row below the event (hint -2 without
+			// downward flow): that row IS the spot below, and the concept
+			// takes its place in it, concepts last.
+			flowsDown := false
+			for _, fe := range g.out[ev] {
+				if fe.rel == RelLeadsTo && g.nodes[fe.to].kind == KindEvent {
+					flowsDown = true
+					break
+				}
+			}
+			belowRow := hint == -2 && !flowsDown
 			var below []int
-			if len(roots) >= 2 && len(cRoots) == 1 {
+			if len(roots) >= 2 && len(cRoots) == 1 && !belowRow {
 				leaf := true
 				for _, oe := range g.out[cRoots[0]] {
 					if g.isPlacing(oe) {
@@ -960,14 +1006,7 @@ func (g *graph) buildGroups(m *membership) *groupsPlan {
 				// If the composite itself flows downward, below is a flow
 				// corridor too — then the band keeps v7P4's down-and-
 				// outward diagonal on the left flank.
-				flowsDown := false
-				for _, fe := range g.out[ev] {
-					if fe.rel == RelLeadsTo && g.nodes[fe.to].kind == KindEvent {
-						flowsDown = true
-						break
-					}
-				}
-				if !flowsDown {
+				if belowRow {
 					// The below-centred band is ONE GENERATION: it lies in a
 					// ROW under its owner (same-level
 					// concepts share the horizontal), side by side and
@@ -983,8 +1022,10 @@ func (g *graph) buildGroups(m *membership) *groupsPlan {
 					x := g.nodes[ev].w/2 - total/2
 					for _, n := range band {
 						place(ev, n, x, evH+StackGap)
-						orient(ev, n, side)
 						x += g.nodes[n].w + StackGap
+					}
+					for _, n := range band { // the whole row first: a child steps clear of every sibling
+						orient(ev, n, 0)
 					}
 					continue
 				}

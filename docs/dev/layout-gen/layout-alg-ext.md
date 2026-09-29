@@ -1447,3 +1447,40 @@ all #cA1,#cA2,#cA3,#cA4,#cA5 have same center-x
 #m1 is below #cA5 with gap=60
 edge #e1,#eC is vertical
 ```
+
+### a nested composite's row takes its fan's concept and hangs a member's whole below
+
+v7P4: `e1a` is a sub-event with a sub-event of its own, so both sides of its
+row are part-of corridors and its band drops BELOW it as one generation row.
+Its two things form a fan and it expresses one leaf concept — the pair a side
+band splits, sending the concept below the event. Here the row IS the spot
+below: the split sent `cX` to a loop the row never ran, so it was never
+placed and landed at the canvas origin, on `S`. The concept joins the row,
+last. `tW` is the whole of the row member `tB`; outward on the row is a
+sibling's spot, so it stepped past `tA` and ended below-left, reading as
+`tA`'s. A row member's next generation hangs one row below it, on its centre
+line.
+
+```ipmt
+e1a ::e --::P--> e1 ::e
+e1a1 ::e --::P--> e1a
+tA ::t, tB ::t --> e1a
+e1a --> cX ::c
+tB --> tW ::t
+```
+<!-- ipm-svg id=1m0 hash=6cbf319a -->
+![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1m0.ipm.svg)
+
+```ipmdev-layout-rule
+@scope local
+each edge has max-bends=0
+all #e1,#e1a,#e1a1 have same y
+all #tA,#tB,#cX have same y
+#tA is below #e1a with gap=40
+#tA is left-of #tB with gap=40
+#tB is left-of #cX with gap=40
+#e1a is horizontally-centered-between #tA,#cX
+all #tB,#tW have same center-x
+#tW is below #tB with gap=40
+#E is below #tW with gap=40
+```
