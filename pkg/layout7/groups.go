@@ -46,6 +46,10 @@ type groupsPlan struct {
 	// bracket recentres above.
 	divertedLeaf map[int]bool
 
+	// rowLeaf marks stack members whose sole leaf concept sits outward on
+	// the member's own row — the pattern the stack's tail follows.
+	rowLeaf map[int]bool
+
 	// extents in px beyond the event's own box, per event node idx
 	leftExt, rightExt, aboveExt, belowExt map[int]int
 }
@@ -57,6 +61,7 @@ func newGroupsPlan() *groupsPlan {
 		treeSpan:     map[int][2]int{},
 		treeOf:       map[int]int{},
 		divertedLeaf: map[int]bool{},
+		rowLeaf:      map[int]bool{},
 		leftExt:      map[int]int{},
 		rightExt:     map[int]int{},
 		aboveExt:     map[int]int{},
@@ -326,28 +331,28 @@ func (g *graph) buildGroups(m *membership) *groupsPlan {
 	}
 
 	placed := map[int]bool{}
+	// clearAt: no already-placed aux box of the frame within 10px of n at
+	// (dx, dy).
+	clearAt := func(event, n, dx, dy int) bool {
+		for j, rp := range p.rel {
+			if j == n || rp.event != event {
+				continue
+			}
+			jb := g.nodes[j]
+			if dx < rp.dx+jb.w+10 && rp.dx < dx+g.nodes[n].w+10 &&
+				dy < rp.dy+jb.h+10 && rp.dy < dy+g.nodes[n].h+10 {
+				return false
+			}
+		}
+		return true
+	}
 	// place registers a node's offset relative to its event. Aux never
 	// overlaps aux (v7P8's minimums): a placement landing on an
 	// already-placed box in the same frame steps DOWN until clear —
 	// sibling subtrees meeting in one column stay separated, and the
 	// structural router bows their edges around (v7P9).
 	place := func(event, n, dx, dy int) {
-		for guard := 0; guard < 64; guard++ {
-			clear := true
-			for j, rp := range p.rel {
-				if j == n || rp.event != event {
-					continue
-				}
-				jb := g.nodes[j]
-				if dx < rp.dx+jb.w+10 && rp.dx < dx+g.nodes[n].w+10 &&
-					dy < rp.dy+jb.h+10 && rp.dy < dy+g.nodes[n].h+10 {
-					clear = false
-					break
-				}
-			}
-			if clear {
-				break
-			}
+		for guard := 0; guard < 64 && !clearAt(event, n, dx, dy); guard++ {
 			dy += GridStep
 		}
 		p.rel[n] = relPos{event: event, dx: dx, dy: dy}
@@ -880,6 +885,28 @@ func (g *graph) buildGroups(m *membership) *groupsPlan {
 					}
 				}
 			}
+			if leaf && side != 0 && len(g.out[c])+len(g.in[c]) == 1 {
+				// ... and the LAST member of a stack follows the pattern
+				// its siblings already set: when one of them has its leaf
+				// concept outward on its own row (below it was the next
+				// sibling), the tail's leaf takes that pattern too — a drop
+				// below would add a row under the whole stack for one
+				// leaf. With no such sibling the drop below stands.
+				prev := map[int]int{}
+				for a, b := range p.stackNext {
+					prev[b] = a
+				}
+				pattern := false
+				for s, ok := prev[member]; ok && !pattern; s, ok = prev[s] {
+					pattern = p.rowLeaf[s]
+				}
+				ocx := memberCenterX + side*colStep(g.nodes[member].w, g.nodes[c].w)
+				rowDy := mp.dy + (g.nodes[member].h-g.nodes[c].h)/2
+				if pattern && clearAt(event, c, ocx-g.nodes[c].w/2, rowDy) {
+					cx, dy = ocx, rowDy
+					p.rowLeaf[member] = true
+				}
+			}
 			if !leaf {
 				cx = memberCenterX + side*colStep(g.nodes[member].w, g.nodes[c].w)
 				if diverted {
@@ -905,8 +932,22 @@ func (g *graph) buildGroups(m *membership) *groupsPlan {
 					}
 					if found {
 						dy = bottom + StackGap
+						p.divertedLeaf[c] = true
+					} else if rowDy := mp.dy + (g.nodes[member].h-g.nodes[c].h)/2; len(g.out[c])+len(g.in[c]) == 1 &&
+						clearAt(event, c, cx-g.nodes[c].w/2, rowDy) {
+						// No column to join: the diagonal would sit on the
+						// NEXT sibling's row — beside a stranger at column
+						// rhythm (v7P8's paired read moves a one-edge leaf up
+						// to its owner's row anyway), and on the spot that
+						// sibling's own outward whole claims. It takes its
+						// owner's row, outward, directly. A shared concept
+						// keeps the diagonal: its other user's tie decides
+						// where it reads best, and the force never moves it.
+						dy = rowDy
+						p.rowLeaf[member] = true
+					} else {
+						p.divertedLeaf[c] = true
 					}
-					p.divertedLeaf[c] = true
 				}
 			}
 			place(event, c, cx-g.nodes[c].w/2, dy)

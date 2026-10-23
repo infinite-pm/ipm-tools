@@ -1484,3 +1484,62 @@ all #tB,#tW have same center-x
 #tW is below #tB with gap=40
 #E is below #tW with gap=40
 ```
+
+### a stack member's whole keeps its row when a sibling's concept has no column
+
+v7P4: `tA` and `tB` stack in `e1`'s band. `tA`'s sole concept cannot drop
+below it — that spot is `tB`'s — so it is diverted outward. With no concept
+column to join, the down-and-outward diagonal put `cA` on `tB`'s row, the spot
+`tB`'s own whole claims: `tW` stepped down past it, off its part's row, and
+the paired-read force then moved `cA` up to its owner's row anyway, leaving
+the gap it had taken. The diverted concept takes its owner's row directly,
+and the whole goes outward on its own row.
+
+```ipmt
+e1 ::e
+tA ::t, tB ::t --> e1
+tA --> cA ::c
+tB --> tW ::t
+```
+<!-- ipm-svg id=1n0 hash=c7c02a70 -->
+![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1n0.ipm.svg)
+
+```ipmdev-layout-rule
+@scope local
+each edge has max-bends=0
+#tB is below #tA with gap=40
+all #tA,#cA have same y
+all #tB,#tW have same y
+#cA is left-of #tA with gap=60
+#tW is left-of #tB with gap=60
+```
+
+### a stack's last leaf follows its siblings' row pattern
+
+v7P4: `tA` and `tB` stack in `e1`'s band, each with a sole leaf concept.
+`cA` cannot drop below `tA` — that spot is `tB`'s — so it sits outward on
+`tA`'s row. `cB` could drop below `tB`, but that adds a row under the whole
+stack for one leaf and breaks the pattern its sibling set: it sits outward
+on `tB`'s row too, and `E` rises by that row. A stack whose other members
+have no concept keeps the drop below (see "a stranded leaf concept comes
+back to its owner").
+
+```ipmt
+e1 ::e
+tA ::t, tB ::t --> e1
+tA --> cA ::c
+tB --> cB ::c
+```
+<!-- ipm-svg id=1o0 hash=a0f4a7f9 -->
+![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1o0.ipm.svg)
+
+```ipmdev-layout-rule
+@scope local
+each edge has max-bends=0
+#tB is below #tA with gap=40
+all #tA,#cA have same y
+all #tB,#cB have same y
+#cA is left-of #tA with gap=60
+#cB is left-of #tB with gap=60
+#E is below #tB with gap=40
+```

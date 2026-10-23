@@ -437,7 +437,14 @@ rhythm, and the band centres on the fan alone. The
 below-drop yields when the spot below is a SIBLING's — a stack
 member's own leaf concept takes the down-and-outward diagonal into the
 concept column instead of stepping past the stack and reading as one
-more stack member. And a leaf NEVER strands: when
+more stack member. With no column to join it takes its owner's row,
+outward: the diagonal would land on the NEXT sibling's row — beside a
+stranger (v7P8's paired read), and on the spot that sibling's own
+outward whole claims. The stack's LAST member then follows the pattern
+its siblings set: once one of them has its leaf outward on its own row,
+the tail's sole leaf goes there too — a drop below would add a row under
+the whole stack for one leaf; with no such sibling the drop below
+stands. And a leaf NEVER strands: when
 the no-overlap floors (or the band's offset spot itself) leave a sole
 leaf concept more than a row pitch below its owner, it relocates to the
 nearest free spot around the owner — below-centred, below-outward,
