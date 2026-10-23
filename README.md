@@ -2,7 +2,7 @@
 
 Tooling for [**infinite.pm**](https://infinite.pm) — Infinite Process Modeling
 (**ipm** / **IPM**), an experiment in applying Mark Burgess's
-[Semantic Spacetime γ(3,4)](https://semantic.st/) to everyday modeling and
+[Semantic Spacetime γ(3,4)](https://arxiv.org/abs/2506.07756) to everyday modeling and
 software engineering.
 
 This repository holds the command-line tools and Go libraries that parse,

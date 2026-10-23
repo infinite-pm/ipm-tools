@@ -11,6 +11,6 @@ agents, principally:
 - Other AI coding agents used along the way.
 
 The modeling foundation builds on Mark Burgess's
-[Semantic Spacetime γ(3,4)](https://semantic.st/).
+[Semantic Spacetime γ(3,4)](https://arxiv.org/abs/2506.07756).
 
 Contributions are welcome.
