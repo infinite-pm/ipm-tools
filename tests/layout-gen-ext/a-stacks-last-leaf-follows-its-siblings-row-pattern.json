@@ -1,0 +1,159 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "e1 ::e\ntA ::t, tB ::t --\u003e e1\ntA --\u003e cA ::c\ntB --\u003e cB ::c",
+    "positions": {
+      "nodes": {
+        "1": [
+          0,
+          2
+        ],
+        "2": [
+          7,
+          9
+        ],
+        "3": [
+          15,
+          17
+        ],
+        "4": [
+          36,
+          38
+        ],
+        "5": [
+          50,
+          52
+        ]
+      },
+      "edges": {
+        "6": {
+          "arrow": [
+            21,
+            26
+          ],
+          "source": [
+            7,
+            9
+          ],
+          "target": [
+            26,
+            28
+          ]
+        },
+        "7": {
+          "arrow": [
+            21,
+            26
+          ],
+          "source": [
+            15,
+            17
+          ],
+          "target": [
+            26,
+            28
+          ]
+        },
+        "8": {
+          "arrow": [
+            31,
+            36
+          ],
+          "source": [
+            29,
+            31
+          ],
+          "target": [
+            36,
+            38
+          ]
+        },
+        "9": {
+          "arrow": [
+            45,
+            50
+          ],
+          "source": [
+            43,
+            45
+          ],
+          "target": [
+            50,
+            52
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "e1",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "tA",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 3,
+      "name": "tB",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 4,
+      "name": "cA",
+      "alias": "",
+      "type": "Concept"
+    },
+    {
+      "id": 5,
+      "name": "cB",
+      "alias": "",
+      "type": "Concept"
+    }
+  ],
+  "edges": [
+    {
+      "id": 6,
+      "source": 2,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 7,
+      "source": 3,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 8,
+      "source": 2,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 9,
+      "source": 3,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "Expresses",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

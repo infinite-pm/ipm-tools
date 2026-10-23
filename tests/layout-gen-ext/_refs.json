@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-ext.md",
-        "source_sha1": "42b009e4d9a522771551e33bafc8c74515c3f326",
+        "source_sha1": "54daddbd97f3b3804b04f3117bcdad39bf1270b4",
         "name": "ipmt layout algorithm extensions",
         "method": "parser",
         "parser_name": "ipmt-md",
@@ -547,6 +547,36 @@
                     "md": "c01f799a1629eed1d5423321bede43ad55c60b4b"
                 },
                 "heading": "a nested composite's row takes its fan's concept and hangs a member's whole below",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-stack-members-whole-keeps-its-row-when-a-siblings-concept-has-no-column",
+                "line": 1499,
+                "anchor": "#a-stack-members-whole-keeps-its-row-when-a-siblings-concept-has-no-column",
+                "content_sha1": "4452c8cc81dd4360b0c81bb04f63a780826935c6",
+                "outputs": {
+                    "ipm.svg": "86d400aa830a349d9b7c2c4358e5dee1f6cd552d",
+                    "ipmt": "4452c8cc81dd4360b0c81bb04f63a780826935c6",
+                    "json": "d678953015c69403a697a10aea1c15901c612cd2",
+                    "layout.json": "ae36248e24dbeff469b9c51387474f7bcfbf6a19",
+                    "md": "0fb9898d012b11353ad25540978cfe3204b2aa7f"
+                },
+                "heading": "a stack member's whole keeps its row when a sibling's concept has no column",
+                "section": "v7 acceptance targets"
+            },
+            {
+                "destination": "a-stacks-last-leaf-follows-its-siblings-row-pattern",
+                "line": 1528,
+                "anchor": "#a-stacks-last-leaf-follows-its-siblings-row-pattern",
+                "content_sha1": "ebe147d22708df00fa706415dd16efd673dc3b81",
+                "outputs": {
+                    "ipm.svg": "77f09df70ee262440f5584216c07e7200080772e",
+                    "ipmt": "ebe147d22708df00fa706415dd16efd673dc3b81",
+                    "json": "ec7a2d55fc8d1f8c6c038d61e489acbf161c20e5",
+                    "layout.json": "dcd835aabddb34e067d31ad232f26099ff1a08c5",
+                    "md": "4c1b84b41551880829455e5fdc96104f2340e3aa"
+                },
+                "heading": "a stack's last leaf follows its siblings' row pattern",
                 "section": "v7 acceptance targets"
             }
         ]
