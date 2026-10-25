@@ -255,6 +255,17 @@ A `::t` node with no edges in or out.
 ### IPMV4.5.4 — Stranded event (info)
 An `::e` node with no edges in or out.
 
+### IPMV4.6 — Comma inside an unquoted aliased label (warning)
+In an edge line a comma separates targets. A label written as
+`x::a it creates, links and closes items ::e` therefore parses as
+two nodes: `it creates` (aliased `x`, no kind marker) and
+`links and closes items ::e`, which usually leaves stranded nodes.
+The check flags an aliased node whose unquoted label is directly
+followed by a comma, when the next target does not declare its own
+alias. The suggestion is to quote the whole label:
+`x::a "it creates, links and closes items" ::e`. A quoted label and
+a normal comma-separated target list do not warn.
+
 ## 5. Cross-graph scope — out of scope
 
 Validations that span multiple parsed graphs (e.g. ipmt blocks
@@ -300,6 +311,7 @@ The severity profile is fixed in code:
 | IPMV2.9 | warning | temporal-order |
 | IPMV4.5.3 | info | hygiene |
 | IPMV4.5.4 | info | hygiene |
+| IPMV4.6 | warning | hygiene |
 
 ## 8. References
 

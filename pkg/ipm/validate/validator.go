@@ -30,6 +30,7 @@ type Check interface {
 //	IPMV2.9  Leads-to must connect whole (outermost) events, not a part-of sub-part
 //	IPMV4.5.3 Stranded thing
 //	IPMV4.5.4 Stranded event
+//	IPMV4.6  Comma inside an unquoted aliased label splits it into several nodes
 //
 // Order is fixed for deterministic output before per-finding sorting.
 func AllChecks() []Check {
@@ -51,6 +52,7 @@ func AllChecks() []Check {
 		// Hygiene (info).
 		StrandedThingCheck{},
 		StrandedEventCheck{},
+		AliasLabelCommaCheck{},
 		// Undecided kinds (warning by default; error under the publish gate —
 		// see AllChecksWith).
 		UndecidedKindCheck{},

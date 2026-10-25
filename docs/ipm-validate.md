@@ -30,6 +30,8 @@ summary:
   leads-to connects WHOLE (outermost) events, not a part-of
   sub-part (IPMV2.9).
 - Hygiene (info): stranded thing, stranded event.
+- Label commas (IPMV4.6, warning): a comma inside an unquoted aliased
+  label splits it into several nodes; quote the label.
 - Undecided kinds (IPMV1.5): Unresolved (grey) node kinds are
   flagged as a warning by default, promoted to an error under
   `--strict-undecided` (the publish gate).
