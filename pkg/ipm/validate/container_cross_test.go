@@ -1,6 +1,7 @@
 package validate
 
 import (
+	"strings"
 	"testing"
 
 	"github.com/infinite-pm/ipm-tools/pkg/ipm/model"
@@ -27,6 +28,48 @@ func TestLeadsToContainerCross_FlagsObserverFindingAsymmetry(t *testing.T) {
 	}
 	if fs[0].Code != "IPMV2.8" {
 		t.Errorf("expected IPMV2.8, got %s", fs[0].Code)
+	}
+}
+
+// Leaves under two sub-stages of one stage: the finding must say that the
+// sibling order belongs on the sub-stages, not on the leaves inside them.
+func TestLeadsToContainerCross_SubStageLeafSuggestsSubStageOrder(t *testing.T) {
+	g := graphWith(
+		[]model.Node{
+			eventNode(1, "leaf-a"),
+			eventNode(2, "leaf-b"),
+			eventNode(3, "sub-1"),
+			eventNode(4, "sub-2"),
+			eventNode(5, "stage"),
+		},
+		[]model.Edge{
+			edge(6, 1, 2, model.LeadsTo),
+			edge(7, 1, 3, model.PartOf),
+			edge(8, 2, 4, model.PartOf),
+			edge(9, 3, 5, model.PartOf),
+			edge(10, 4, 5, model.PartOf),
+		},
+	)
+	fs := LeadsToContainerCrossCheck{}.Run(g)
+	if len(fs) != 1 {
+		t.Fatalf("expected one warning, got %v", fs)
+	}
+	for _, want := range []string{"sub-stage", "sub-2", "not on the leaf"} {
+		if !strings.Contains(fs[0].Suggest, want) {
+			t.Errorf("suggest %q should contain %q", fs[0].Suggest, want)
+		}
+	}
+}
+
+// A flat container keeps the original wording.
+func TestLeadsToContainerCross_FlatContainerKeepsWording(t *testing.T) {
+	g := graphWith(
+		[]model.Node{eventNode(1, "a"), eventNode(2, "b"), eventNode(3, "P")},
+		[]model.Edge{edge(4, 1, 2, model.LeadsTo), edge(5, 2, 3, model.PartOf)},
+	)
+	fs := LeadsToContainerCrossCheck{}.Run(g)
+	if len(fs) != 1 || strings.Contains(fs[0].Suggest, "sub-stage") {
+		t.Fatalf("flat container should keep the old suggestion, got %v", fs)
 	}
 }
 

@@ -94,6 +94,23 @@ func (LeadsToContainerCrossCheck) Run(g *model.IpmGraph) []Finding {
 		}
 		src := nodeByID(g, e.Source)
 		tgt := nodeByID(g, e.Target)
+		suggest := fmt.Sprintf(
+			"either add a leads-to from %q to the container, or move the cascade endpoint outside it",
+			nodeLabel(src),
+		)
+		// An orphan container that is itself part-of another event is a
+		// sub-stage: the target is a leaf inside it. The sibling order
+		// belongs on the sub-stages, not on the leaves.
+		for _, c := range orphans {
+			if len(partOfParents[c]) == 0 {
+				continue
+			}
+			suggest += fmt.Sprintf(
+				"; %q is a leaf under sub-stage %q, so put the sibling order on the sub-stages (the parts of the stage), not on the leaf events inside them",
+				nodeLabel(tgt), nodeLabel(nodeByID(g, c)),
+			)
+			break
+		}
 		line, col := edgeLoc(g, e)
 		nodeIDs := append([]int{e.Source, e.Target}, orphans...)
 		out = append(out, Finding{
@@ -103,10 +120,7 @@ func (LeadsToContainerCrossCheck) Run(g *model.IpmGraph) []Finding {
 				"leads-to %q → %q reaches into container(s) %v that %q is outside of (not part-of, no leads-to path)",
 				nodeLabel(src), nodeLabel(tgt), names, nodeLabel(src),
 			),
-			Suggest: fmt.Sprintf(
-				"either add a leads-to from %q to the container, or move the cascade endpoint outside it",
-				nodeLabel(src),
-			),
+			Suggest: suggest,
 			Line:    line,
 			Column:  col,
 			EdgeID:  e.ID,

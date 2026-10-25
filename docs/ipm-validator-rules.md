@@ -214,6 +214,14 @@ Otherwise the cascade implicitly reaches into a container without
 explanation; the cleaner model is to leads-to `P` directly (or to
 move the endpoint outside `P`).
 
+For a stage with sub-stages, the usual cause is ordering the leaf
+events inside two sibling sub-stages (`leaf-a → leaf-b` where
+`leaf-a` is in `sub-1` and `leaf-b` in `sub-2`, both part-of the
+stage). The fix is to put the sibling order on the sub-stages
+(`sub-1 → sub-2`, the parts of the stage), not on the leaf events
+inside them. When the flagged container is itself part-of another
+event, the suggestion says so.
+
 Motivating case: an observer/observation asymmetry where
 `probe-health-9 → stalled-9` with `stalled-9 --::P--> task-007`
 puts the observation inside task-007 even though the observer is
