@@ -19,6 +19,23 @@ func effEdgeType(n model.Node) model.NodeType {
 	return n.Type
 }
 
+// specEvent builds the SpecHook payload for one spec occurrence.
+func specEvent(spec NodeSpec, ll LogicalLine, nd model.Node, aliasRef bool) SpecEvent {
+	raw := func(s [2]int) [2]int {
+		if s[0] < 0 || s[1] <= s[0] || s[1]-1 >= len(ll.M2R) {
+			return [2]int{-1, -1}
+		}
+		return [2]int{ll.M2R[s[0]], ll.M2R[s[1]-1] + 1}
+	}
+	return SpecEvent{
+		Spec:         spec,
+		Node:         nd,
+		NameRaw:      raw([2]int{spec.NameStart, spec.NameEnd}),
+		AliasMarkRaw: raw(spec.AliasMark),
+		AliasRef:     aliasRef,
+	}
+}
+
 // Parse parses ipmt source into an IpmGraph.
 // It returns an error (possibly *ParseError with source positions) on failure.
 func Parse(input []byte, opt Options) (*model.IpmGraph, error) {
@@ -184,6 +201,9 @@ func Parse(input []byte, opt Options) (*model.IpmGraph, error) {
 		}
 		if bestIdx >= 0 {
 			nd := &nodes[bestIdx]
+			if opt.SpecHook != nil {
+				opt.SpecHook(specEvent(spec, ll, *nd, nd.Name != spec.Name && spec.Alias == "" && nd.Alias == spec.Name))
+			}
 			return nd.ID, effEdgeType(*nd)
 		}
 		// Create new node
@@ -198,6 +218,9 @@ func Parse(input []byte, opt Options) (*model.IpmGraph, error) {
 		}
 		newIdx := len(nodes)
 		nodes = append(nodes, nd)
+		if opt.SpecHook != nil {
+			opt.SpecHook(specEvent(spec, ll, nd, false))
+		}
 		if nd.Name != "" {
 			register(nameIdx, nd.Name, newIdx)
 		}
@@ -345,7 +368,7 @@ func Parse(input []byte, opt Options) (*model.IpmGraph, error) {
 			if text == "" {
 				continue
 			}
-			specs, err := parseNodeSpecs(text, strings.Index(ll.Text, text))
+			specs, err := parseNodeSpecs(text, strings.Index(ll.Text, text), opt.DefaultNodeType)
 			if err != nil {
 				return nil, err
 			}
@@ -375,7 +398,7 @@ func Parse(input []byte, opt Options) (*model.IpmGraph, error) {
 			if strings.TrimSpace(text) == "" {
 				continue
 			}
-			specs, err := parseNodeSpecs(text, seg.start)
+			specs, err := parseNodeSpecs(text, seg.start, opt.DefaultNodeType)
 			if err != nil {
 				return nil, err
 			}

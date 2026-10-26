@@ -7,6 +7,12 @@ extension keeps its own changelog in
 
 ## 0.4.3 — unreleased
 
+- `ipmt-migrate` gets `-flip` (adds `::t` to unmarked things and removes `::e` from
+  events, proven by old file under the old default == new file under the event default)
+  and `-check-manifest`; the new `ipmt-markers.manifest` lists the docs and fixtures
+  that keep explicit markers, and `TestRepoManifest` fails if one loses them. The
+  parser default is not changed yet.
+
 - `ipm-validate` IPMV2.7 reads a PARENT, not a pair of siblings. A parent
   event whose sub-events are all ordered by leads-to (a sequence) and one
   whose sub-events are not ordered at all (a set) are both whole statements

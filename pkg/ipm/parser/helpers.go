@@ -11,6 +11,28 @@ import (
 // Options holds optional settings for the parser.
 type Options struct {
 	Filename string
+	// DefaultNodeType is the kind of a node spec without a kind marker. The
+	// zero value means model.Thing (the current grammar); model.Event makes a
+	// bare spec an event. Explicit markers and ::?et always win.
+	DefaultNodeType model.NodeType
+	// SpecHook, when set, is called for every node spec the parser resolves
+	// (see SpecEvent). Used by cmd-dev/ipmt-migrate; nil for every other caller.
+	SpecHook func(SpecEvent)
+}
+
+// SpecEvent describes one resolved node spec occurrence, with raw byte
+// offsets into the parsed input.
+type SpecEvent struct {
+	Spec NodeSpec
+	// Node is the node the spec resolved to (its kind is the first one seen).
+	Node model.Node
+	// NameRaw, AliasMarkRaw: raw [start,end) of the name and of the ::a marker
+	// ({-1,-1} when absent or empty).
+	NameRaw      [2]int
+	AliasMarkRaw [2]int
+	// AliasRef is true when the spec is a bare reference to an alias defined
+	// earlier (the name is the node's alias, not its name).
+	AliasRef bool
 }
 
 // ParseIPMTBytes parses IPMT source bytes using the same options as the CLI.

@@ -47,7 +47,8 @@
 - [`dev-tools/`](dev-tools/) — notes on the `cmd-dev/` utilities, including
   [`layout-audit`](dev-tools/layout-audit.md) (what an engine change moved, ranked),
   [`layout-timeline`](dev-tools/layout-timeline.md) (when each diagram moved, week by week),
-  [`ipmt-name-merge`](dev-tools/ipmt-name-merge.md) (puts a 2025-era engine's node names back)
+  [`ipmt-name-merge`](dev-tools/ipmt-name-merge.md) (puts a 2025-era engine's node names back),
+  [`ipmt-migrate`](dev-tools/ipmt-migrate.md) (adds an explicit `::t` to every unmarked thing; `-flip` also removes `::e` outside the marker manifest),
   and [`states-corpus`](dev-tools/states-corpus.md) (the demo recorder's typed
   diagram states, captured as a layout corpus).
 

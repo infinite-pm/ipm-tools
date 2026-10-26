@@ -68,7 +68,7 @@ func splitByCommaOutsideQuotes(text string) []string {
 
 // parseNodeSpecs splits segment text by commas (outside quotes) and parses each part.
 // segStart/segEnd are absolute positions in the logical line.
-func parseNodeSpecs(text string, segStart int) ([]NodeSpec, error) {
+func parseNodeSpecs(text string, segStart int, def model.NodeType) ([]NodeSpec, error) {
 	parts := splitByCommaOutsideQuotes(text)
 	var specs []NodeSpec
 	cursor := 0
@@ -78,7 +78,7 @@ func parseNodeSpecs(text string, segStart int) ([]NodeSpec, error) {
 			cursor += len(part) + 1 // +1 for comma
 			continue
 		}
-		spec, err := parseOneNodeSpec(pt)
+		spec, err := parseOneNodeSpec(pt, def)
 		if err != nil {
 			return nil, err
 		}
@@ -152,9 +152,12 @@ type parsedNode struct {
 
 // parseOneNodeSpec parses a single node part like "alias::a Name ::e \"tip\"::tip".
 // Canonical order: [alias::a] name [::type] ["tooltip"::tip]
-func parseOneNodeSpec(pt string) (parsedNode, error) {
+func parseOneNodeSpec(pt string, def model.NodeType) (parsedNode, error) {
 	var result parsedNode
 	result.Type = model.Thing
+	if def == model.Event {
+		result.Type = model.Event
+	}
 	rest := pt
 
 	// 1. Try to extract alias::a at the beginning (outside any quotes)
