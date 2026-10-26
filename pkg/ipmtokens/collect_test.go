@@ -380,3 +380,19 @@ func TestCollect_markerInsideQuotedTitleIsNotAMarker(t *testing.T) {
 		t.Errorf("want exactly one kind marker `::c`; got %v", markerTexts)
 	}
 }
+
+// TestCollect_thingMarkerAfterQuotedTitleIsThingMarker: `"x" ::t --> "y" ::t`
+// must paint both `::t` as thing markers (the green t-marker class), not
+// as the string or event color of the quoted title before them.
+func TestCollect_thingMarkerAfterQuotedTitleIsThingMarker(t *testing.T) {
+	src := "\"the IO stream\" ::t --> \"my-hub\" ::t\n"
+	var got []string
+	for _, tk := range Collect(src, src, 0) {
+		if tokenText(src, tk) == "::t" {
+			got = append(got, ClassSuffix(TypeName(tk.Type), tk.Mods))
+		}
+	}
+	if len(got) != 2 || got[0] != "t-marker" || got[1] != "t-marker" {
+		t.Errorf("want two t-marker tokens; got %v\nall: %v", got, dumpClasses(src, Collect(src, src, 0)))
+	}
+}

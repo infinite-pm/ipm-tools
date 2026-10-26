@@ -381,6 +381,32 @@ func TestSemanticTokens_markdownInjection_offsetsLines(t *testing.T) {
 	}
 }
 
+// A `::t` after a quoted title must come out as a thing marker (type
+// ipmThing=1, marker modifier) in both .ipmt and a markdown fence.
+func TestSemanticTokens_thingMarkerAfterQuotedTitle(t *testing.T) {
+	line := "\"the IO stream\" ::t --> \"my-hub\" ::t\n"
+	// Earlier mentions without a marker (default kind) must not recolor the
+	// later marker.
+	pre := "\"the IO stream\" --> x\n\"my-hub\" --> x\n"
+	for lang, body := range map[string]string{"ipmt": line, "markdown": "x\n\n```ipmt\n" + line + "```\n", "ipmt-pre": pre + line} {
+		if lang == "ipmt-pre" {
+			lang = "ipmt"
+		}
+		n := 0
+		for _, tk := range runSemanticTokens(t, lang, body) {
+			if tk.Length == 3 && tk.Mods&ipmtokens.ModMarker != 0 {
+				n++
+				if tk.Type != 1 {
+					t.Errorf("%s: ::t marker at col %d has type %d, want 1 (ipmThing)", lang, tk.StartCol, tk.Type)
+				}
+			}
+		}
+		if n != 2 {
+			t.Errorf("%s: want 2 ::t marker tokens, got %d: %+v", lang, n, runSemanticTokens(t, lang, body))
+		}
+	}
+}
+
 func TestSemanticTokens_emptyDocumentReturnsEmpty(t *testing.T) {
 	got := runSemanticTokens(t, "ipmt", "")
 	if len(got) != 0 {
