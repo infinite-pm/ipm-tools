@@ -12,11 +12,11 @@
 
 ```ipmt
 # Engineer participates in events (thing --> event, part-of)
-Jane --> Commit ::e
-Jane --> Incident ::e
+Jane ::t --> Commit ::e
+Jane ::t --> Incident ::e
 
 # Engineer classified by role
-Jane --> SRE ::c
+Jane ::t --> SRE ::c
 ```
 
 ## Generated Files

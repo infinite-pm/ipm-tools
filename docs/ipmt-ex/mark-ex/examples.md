@@ -41,28 +41,28 @@ e1::a Alice feels discouraged ::e
   --> e3::a Alice and the Mock Turtle talk ::e
 
 # one worldline through the frames, not one Alice per frame
-Alice --> e1, e2, e3
-the Mock Turtle --> e2, e3
+Alice ::t --> e1, e2, e3
+the Mock Turtle ::t --> e2, e3
 
 # what each frame is about: a property of the frame, not of Alice
 e1 --> discouraged ::c
 e3 --> talking ::c
 
 # what she is like - a property others share, not who she is
-Alice --> human ::c
+Alice ::t --> human ::c
 ```
-<!-- ipm-svg id=105 hash=1208a877 -->
+<!-- ipm-svg id=105 hash=c76a75fd -->
 ![Alice's three frames with their participants: Alice in all three, the Mock Turtle in the last two, the frames expressing discouraged and talking, and Alice expressing human](../../../_ipm/docs/ipmt-ex/mark-ex/examples/105.ipm.svg)
 
 ```ipmt
 # Company founding
-X --> X founded company Y ::e fe::a
-Y --> fe
-X --> person ::c
-Y --> company ::c
+X ::t --> X founded company Y ::e fe::a
+Y ::t --> fe
+X ::t --> person ::c
+Y ::t --> company ::c
 fe --> Founding is when someone establishes the legal registration of a company ::c
 ```
-<!-- ipm-svg id=110 hash=861c98d1 -->
+<!-- ipm-svg id=110 hash=cbed0904 -->
 ![](../../../_ipm/docs/ipmt-ex/mark-ex/examples/110.ipm.svg)
 
 ## Murder Mystery, June 2025
@@ -107,12 +107,12 @@ library-ppms --> refusal-mspp
 # change: change involves/contains to part-of
 # change: hide explicit Professor Plum --> skip murder-e
 # change: hide explicit Miss Scarlet --> skip murder-e
-Professor Plum --> library-ppms
-Professor Plum --> refusal-mspp
-Miss Scarlet --> library-ppms
-Miss Scarlet --> refusal-mspp
+Professor Plum ::t --> library-ppms
+Professor Plum ::t --> refusal-mspp
+Miss Scarlet ::t --> library-ppms
+Miss Scarlet ::t --> refusal-mspp
 ```
-<!-- ipm-svg id=120 hash=8954d74f -->
+<!-- ipm-svg id=120 hash=98cd652e -->
 ![](../../../_ipm/docs/ipmt-ex/mark-ex/examples/120.ipm.svg)
 
 
@@ -123,8 +123,8 @@ Miss Scarlet --> refusal-mspp
 Source: Figure 3 of  Agent Semantics, Semantic Spacetime, and Graphical Reasoning ([researchgate.net link](https://www.researchgate.net/publication/392507642)) paper by Mark Burgess.
 
 ```ipmt
-guitar, castle, goldfish --> mark's things
-mark's things --> mark in role of owner(id) ::c <-- mark person
+guitar ::t, castle ::t, goldfish ::t --> mark's things ::t
+mark's things ::t --> mark in role of owner(id) ::c <-- mark person ::t
 ```
-<!-- ipm-svg id=130 hash=3c3c19fb -->
+<!-- ipm-svg id=130 hash=a3d16ddd -->
 ![](../../../_ipm/docs/ipmt-ex/mark-ex/examples/130.ipm.svg)

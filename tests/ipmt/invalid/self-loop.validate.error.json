@@ -9,7 +9,7 @@
       "message": "self-loop on node \"tA\" (source == target)",
       "suggest": "remove the edge or split the node into two distinct nodes",
       "line": 1,
-      "column": 3,
+      "column": 7,
       "nodeIds": [
         1
       ],

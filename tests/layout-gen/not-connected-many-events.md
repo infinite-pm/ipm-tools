@@ -11,9 +11,9 @@
 ## ipmt Content
 
 ```ipmt
-e1a ::e --> e1b ::e --> e1c ::e
-e2a ::e --> e2b ::e --> e2c ::e --> e2d ::e
-e3a ::e --> e3b ::e --> e3c ::e --> e3d ::e --> e3e ::e
+e1a --> e1b --> e1c
+e2a --> e2b --> e2c --> e2d
+e3a --> e3b --> e3c --> e3d --> e3e
 ```
 
 ## Generated Files

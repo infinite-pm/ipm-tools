@@ -11,8 +11,8 @@
 ## ipmt Content
 
 ```ipmt
-A --> cX ::c
-cX <-- B
+A ::t --> cX ::c
+cX <-- B ::t
 ```
 
 ## Generated Files

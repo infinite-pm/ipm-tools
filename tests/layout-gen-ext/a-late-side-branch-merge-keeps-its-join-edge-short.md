@@ -11,41 +11,41 @@
 ## ipmt Content
 
 ```ipmt
-e1 ::e
-  --> e8 ::e
-  --> e3 ::e
-  --> e4 ::e
+e1
+  --> e8
+  --> e3
+  --> e4
 
-e5 ::e
-  --> e6 ::e
-  --> e7 ::e
+e5
+  --> e6
+  --> e7
 
-e5 ::e,
-  e6 ::e,
-  e7 ::e
-  --::P--> e2 ::e
+e5,
+  e6,
+  e7
+  --::P--> e2
 
 e2
-  --::P--> e8 ::e
+  --::P--> e8
 
-e1 <-- tA --> cA ::c
-e2 <-- tB --> tC
-e5 <-- tD --> tB, tE
-e7 <-- tF --> tG
-e3 <-- tH --> tI
-e4 ::e <-- tJ --> tK
+e1 <-- tA ::t --> cA ::c
+e2 <-- tB ::t --> tC ::t
+e5 <-- tD ::t --> tB ::t, tE ::t
+e7 <-- tF ::t --> tG ::t
+e3 <-- tH ::t --> tI ::t
+e4 <-- tJ ::t --> tK ::t
 
-e9 ::e
-  --> e10 ::e
+e9
+  --> e10
 
-e9 <-- tL --> tC
-e10 <-- tM --> tN
+e9 <-- tL ::t --> tC ::t
+e10 <-- tM ::t --> tN ::t
 
 e4, e10
-  --> e11 ::e <-- tM, tB
+  --> e11 <-- tM ::t, tB ::t
 
 e11
-  --> e12 ::e <-- tH
+  --> e12 <-- tH ::t
 ```
 
 ## Generated Files

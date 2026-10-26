@@ -11,11 +11,11 @@
 ## ipmt Content
 
 ```ipmt
-e1-hub ::e --> wA ::e
-e1-hub --> wB ::e
-e1-hub --> wC ::e
-e1-hub --> wD ::e
-e1-hub --> wE ::e
+e1-hub --> wA
+e1-hub --> wB
+e1-hub --> wC
+e1-hub --> wD
+e1-hub --> wE
 ```
 
 ## Generated Files

@@ -11,11 +11,11 @@
 ## ipmt Content
 
 ```ipmt
-get the party started ::e
-  --then--> murder-e::a ::e Professor Plum murders Miss Scarlet in the library with the bread knife because she refused to marry him
-  --then--> investigation begins ::e
+get the party started
+  --then--> murder-e::a Professor Plum murders Miss Scarlet in the library with the bread knife because she refused to marry him
+  --then--> investigation begins
 
-murder-e <--::P involves-- library-ppms::a ::e Professor Plum & Miss Scarlet in the library
+murder-e <--::P involves-- library-ppms::a Professor Plum & Miss Scarlet in the library
 
 murder-e
   --> In the library ::c
@@ -24,12 +24,12 @@ murder-e
 # "In the library" is the concept (::c); "library" is the abstract concept it expresses
 In the library --"involves"--> library ::c
 
-murder-e <--::P contains-- refusal-mspp::a ::e Miss Scarlet refuses to marry Professor Plum
-  <--::P-- refusal-m::a ::e refusal marriage
+murder-e <--::P contains-- refusal-mspp::a Miss Scarlet refuses to marry Professor Plum
+  <--::P-- refusal-m::a refusal marriage
   --> marriage ::c
 refusal-m --> refusal ::c
 
-murder-e <--::P contains-- ppmms::a ::e Professor Plum murders Miss Scarlet
+murder-e <--::P contains-- ppmms::a Professor Plum murders Miss Scarlet
 
 ppmms --"example of"--> murder-sk::a ::c murder by subtle knife
   --"example of"--> use-sk::a ::c use of subtle knife
@@ -45,8 +45,8 @@ sk --"used for"--> cutting bread ::c
 # leads-to ordering across the three sub-events of the murder
 library-ppms --> refusal-mspp --> ppmms
 
-Professor Plum --> murder-e
-Miss Scarlet --> murder-e
+Professor Plum ::t --> murder-e
+Miss Scarlet ::t --> murder-e
 ```
 
 ## Generated Files

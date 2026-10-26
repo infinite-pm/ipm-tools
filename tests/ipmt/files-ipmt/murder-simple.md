@@ -20,20 +20,20 @@
 # - things: t1, t2
 # - concepts: c1, c2, c3, c4
 
-e1 ::e
-  --then--> e2 ::e
-  --then--> e3 ::e
+e1
+  --then--> e2
+  --then--> e3
 
-e2 <--::P contains-- e2a1 ::e
+e2 <--::P contains-- e2a1
   --> c1 ::c
 
-e2 <--::P contains-- e2a2 ::e
+e2 <--::P contains-- e2a2
   --> c2 ::c
 
-e2 <--::P contains-- e2a3 ::e
+e2 <--::P contains-- e2a3
   --> c3 ::c
 
-e2a3 <--::P contains-- e2a3b1 ::e
+e2a3 <--::P contains-- e2a3b1
 e2a3b1 --> c4 ::c
 
 # Visible inner event order inside e2.
@@ -42,9 +42,9 @@ e2a1 --> e2a2 --> e2a3
 t1 ::t
 t2 ::t
 
-t1 --> e2a1, e2a3
+t1 ::t --> e2a1, e2a3
 # lifted equals `t2 --> e2a1, e2a2, e2a3, e2a3b1` and `t2 --> e2a1, e2a2, e2a3b1` 
-t2 --> e2
+t2 ::t --> e2
 ```
 
 ## Generated Files

@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-anchor.md",
-        "source_sha1": "f995cc32a158be0bb0ff053e11a27857c9771ea8",
+        "source_sha1": "3d6e40f1cf390cd86320856d4b80e791eece3bb8",
         "name": "ipmt layout algorithm anchor",
         "method": "parser",
         "parser_name": "ipmt-md",
@@ -14,13 +14,13 @@
                 "destination": "a-component-that-grows-does-not-re-tile-the-ones-that-did-not",
                 "line": 37,
                 "anchor": "#a-component-that-grows-does-not-re-tile-the-ones-that-did-not",
-                "content_sha1": "4e09ee5bf2fabc88273af0a6dc5af55fb8a53299",
+                "content_sha1": "7e3ea409291a06ac886b5ebcf3bf20a96f5d26d4",
                 "outputs": {
                     "ipm.svg": "75970c867806529aa9250e418d28322ac092988c",
-                    "ipmt": "4e09ee5bf2fabc88273af0a6dc5af55fb8a53299",
-                    "json": "abea1e771e89df16a9c58908cb48fb9c02384823",
+                    "ipmt": "7e3ea409291a06ac886b5ebcf3bf20a96f5d26d4",
+                    "json": "0cbef4db2d45cd31a2eeb7cf9b4cd881c2114922",
                     "layout.json": "f739f249394a5cf37fd00233e4cb81250b7fe21c",
-                    "md": "1b95174caae6ac61f8a17c94c31c170a1e2d43c7"
+                    "md": "73f5951763b41b4863d23d834b8206363a77204f"
                 },
                 "heading": "a component that grows does not re-tile the ones that did not",
                 "section": "Cases"
@@ -29,13 +29,13 @@
                 "destination": "a-component-that-grows-does-not-re-tile-the-ones-that-did-not-02",
                 "line": 56,
                 "anchor": "#a-component-that-grows-does-not-re-tile-the-ones-that-did-not",
-                "content_sha1": "09c947c636359cf664c320b132da4b86775ae0e7",
+                "content_sha1": "be00e2a38abbc07589917969ad7056bfbbb16855",
                 "outputs": {
                     "ipm.svg": "c2c9039d99e1e59aa46687af7df0566fb4e45f27",
-                    "ipmt": "09c947c636359cf664c320b132da4b86775ae0e7",
-                    "json": "d4121e4374eeba9dece3f4aa414950702e936bb9",
+                    "ipmt": "be00e2a38abbc07589917969ad7056bfbbb16855",
+                    "json": "b925eaf94a4d5cb0f02a89c9e5ae4aab0f5118db",
                     "layout.json": "4ff3d2d9486d061ef72b670d370eccd91a9e9bc0",
-                    "md": "2c76687cdf5487cf494aa450d8d20abcf712e16e"
+                    "md": "6b3743d10382c5fcbb241dcb5d946330e8f2df49"
                 },
                 "heading": "a component that grows does not re-tile the ones that did not",
                 "section": "Cases"
@@ -44,13 +44,13 @@
                 "destination": "anchoring-a-layout-to-itself-changes-nothing",
                 "line": 90,
                 "anchor": "#anchoring-a-layout-to-itself-changes-nothing",
-                "content_sha1": "18f9b6cc34680d70b8cfe804618891434fe6af50",
+                "content_sha1": "036171a0b615655b28c9e75491575345f25902b3",
                 "outputs": {
                     "ipm.svg": "197b6f7ad10afc5624b807d05277b7f4b05d48d6",
-                    "ipmt": "18f9b6cc34680d70b8cfe804618891434fe6af50",
-                    "json": "5021094fb34ead77d3baf8ecd6622df5f57ead1a",
+                    "ipmt": "036171a0b615655b28c9e75491575345f25902b3",
+                    "json": "b3d1b171134d4d66fce8b2f6532a9f3d0c016254",
                     "layout.json": "4d766538c16f3d2a6d8392410383071970f2582d",
-                    "md": "15e8a47f7e06a1149959ed64ea323d83d55d2cd1"
+                    "md": "56c9068d4978d0e9fc53dae894a75c7359197dd7"
                 },
                 "heading": "anchoring a layout to itself changes nothing",
                 "section": "Cases"
@@ -59,13 +59,13 @@
                 "destination": "anchoring-a-layout-to-itself-changes-nothing-02",
                 "line": 100,
                 "anchor": "#anchoring-a-layout-to-itself-changes-nothing",
-                "content_sha1": "86e9b78345b2267d6e0d8f62a4353b12010679a9",
+                "content_sha1": "71f1acd0e16df20f18e6e01bc08884c5a6ebb82c",
                 "outputs": {
                     "ipm.svg": "197b6f7ad10afc5624b807d05277b7f4b05d48d6",
-                    "ipmt": "86e9b78345b2267d6e0d8f62a4353b12010679a9",
-                    "json": "ab79d808ea332d3be27b9ac89c7d9032ab8edc24",
+                    "ipmt": "71f1acd0e16df20f18e6e01bc08884c5a6ebb82c",
+                    "json": "4a63da0be28df989dbec4a566c5b5c574540b014",
                     "layout.json": "4d766538c16f3d2a6d8392410383071970f2582d",
-                    "md": "ab0351a9a07e0d4007b351b4167d9c47a581962a"
+                    "md": "45fdfa78bd3c8ce6c79f0631bd23f12cfc37a6fa"
                 },
                 "heading": "anchoring a layout to itself changes nothing",
                 "section": "Cases"

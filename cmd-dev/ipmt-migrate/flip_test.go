@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"strings"
 	"testing"
@@ -15,7 +16,7 @@ import (
 // default equals new text under the event default.
 func flipProof(t *testing.T, in, out string) {
 	t.Helper()
-	orig, err := parser.Parse([]byte(in), parser.Options{})
+	orig, err := parser.Parse([]byte(in), parser.Options{DefaultNodeType: model.Thing})
 	if err != nil {
 		t.Fatalf("original does not parse: %v", err)
 	}
@@ -165,6 +166,31 @@ func flipRepo(t *testing.T, manifest string) string {
 
 const keepManifest = "rule\tthing\nfile\tkept.md\te=1 t=1\tteaching\n"
 
+// A tracked symlink to a flipped file must not make the tool process the target twice
+// (the second pass would read flipped text with the old default and add ::t to events).
+func TestCLIFlipSkipsTrackedSymlinks(t *testing.T) {
+	dir := gitRepo(t, map[string]string{
+		"a.ipmt":                "Book --> read ::e\n",
+		"ipmt-markers.manifest": "rule\tthing\n",
+	}, "a.ipmt", "ipmt-markers.manifest")
+	if err := os.Symlink("a.ipmt", filepath.Join(dir, "link.ipmt")); err != nil {
+		t.Fatal(err)
+	}
+	if b, err := exec.Command("git", "-C", dir, "add", "link.ipmt").CombinedOutput(); err != nil {
+		t.Fatalf("git add: %v %s", err, b)
+	}
+	var out, errb bytes.Buffer
+	if code := run([]string{"-flip", "-write", "-root", dir}, &out, &errb); code != 0 {
+		t.Fatalf("exit %d: %s %s", code, out.String(), errb.String())
+	}
+	if b, _ := os.ReadFile(filepath.Join(dir, "a.ipmt")); string(b) != "Book ::t --> read\n" {
+		t.Fatalf("flipped not exactly once: %q", b)
+	}
+	if !strings.Contains(out.String(), "TOTAL (write) files=1 changed=1 ") {
+		t.Fatalf("file not counted once:\n%s", out.String())
+	}
+}
+
 func TestCLIFlipDryRunAndWrite(t *testing.T) {
 	dir := flipRepo(t, keepManifest)
 	var out, errb bytes.Buffer
@@ -256,6 +282,163 @@ func TestCLIFlipFailKeepsRule(t *testing.T) {
 	mb, _ := os.ReadFile(filepath.Join(dir, "ipmt-markers.manifest"))
 	if !strings.HasPrefix(string(mb), "rule\tthing\n") {
 		t.Fatalf("rule changed on failure: %q", mb)
+	}
+}
+
+// The invalid lane: text that must not parse. The proof is the equal error message
+// under the old default (thing) and the new one (event).
+func TestFlipInvalidSameError(t *testing.T) {
+	in := "A --> B\nB --> C\nA --> B\n"
+	r := FlipFile("dup.ipmt-invalid", []byte(in), Keep{})
+	if len(r.Fences) != 1 || r.Fences[0].Status != StatusOK {
+		t.Fatalf("fences %+v", r.Fences)
+	}
+	want := "A ::t --> B ::t\nB ::t --> C ::t\nA ::t --> B ::t\n"
+	if string(r.Out) != want || r.Marked != 6 {
+		t.Fatalf("out %q marked %d", r.Out, r.Marked)
+	}
+	for _, d := range []model.NodeType{model.Thing, model.Event} {
+		src := in
+		if d == model.Event {
+			src = string(r.Out)
+		}
+		if _, err := parser.Parse([]byte(src), parser.Options{DefaultNodeType: d}); err == nil || !strings.Contains(err.Error(), "duplicate edge") {
+			t.Fatalf("default %v: error %v", d, err)
+		}
+	}
+}
+
+// The conflict case: the explicit ::t added to both things keeps the old PartOf
+// reading, so the message stays the same and the flip is proven.
+func TestFlipInvalidConflictStaysSame(t *testing.T) {
+	in := "tA --> tB\ntA --::N-- tB\n"
+	r := FlipFile("n.ipmt-invalid", []byte(in), Keep{})
+	want := "tA ::t --> tB ::t\ntA ::t --::N-- tB ::t\n"
+	if len(r.Fences) != 1 || r.Fences[0].Status != StatusOK || string(r.Out) != want {
+		t.Fatalf("fences %+v out %q", r.Fences, r.Out)
+	}
+}
+
+// A changed message, or a flipped text that parses, is listed as FAIL with both
+// messages and the text stays unchanged (the owner rewrites the fixture by hand).
+// The flip itself almost never changes a message, so the damage is simulated.
+func TestFlipInvalidMessageChangesIsFail(t *testing.T) {
+	defer func() { corrupt = nil }()
+	in := "A --> B\nB --> C\nA --> B\n"
+	corrupt = func(string) string { return "a, b --> c, d\n" }
+	r := FlipFile("n.ipmt-invalid", []byte(in), Keep{})
+	if len(r.Fences) != 1 || r.Fences[0].Status != StatusFail || string(r.Out) != in {
+		t.Fatalf("fences %+v out %q", r.Fences, r.Out)
+	}
+	if !strings.Contains(r.Fences[0].Detail, "duplicate edge") || !strings.Contains(r.Fences[0].Detail, "multiple sources") {
+		t.Fatalf("detail lacks both messages: %s", r.Fences[0].Detail)
+	}
+	corrupt = func(string) string { return "A --> B\n" }
+	r = FlipFile("n.ipmt-invalid", []byte(in), Keep{})
+	if len(r.Fences) != 1 || r.Fences[0].Status != StatusFail || string(r.Out) != in {
+		t.Fatalf("parsing flipped text: fences %+v out %q", r.Fences, r.Out)
+	}
+}
+
+// Text that parses but the validator rejects (self-loop): the proof is the equal
+// validator error findings.
+func TestFlipInvalidValidatorLane(t *testing.T) {
+	in := "tA --> tA\ne1 ::e --> e1 ::e\n"
+	r := FlipFile("s.ipmt-invalid", []byte(in), Keep{})
+	want := "tA ::t --> tA ::t\ne1 --> e1\n"
+	if len(r.Fences) != 1 || r.Fences[0].Status != StatusOK || string(r.Out) != want {
+		t.Fatalf("fences %+v out %q", r.Fences, r.Out)
+	}
+}
+
+func TestFlipInvalidFenceInMarkdown(t *testing.T) {
+	in := "# T\n\n```ipmt\nBook --> read ::e\n```\n\ntext\n\n```ipmt-invalid\nA --> B\nB --> C\nA --> B\n```\n"
+	r := FlipFile("d.md", []byte(in), Keep{})
+	want := "# T\n\n```ipmt\nBook ::t --> read\n```\n\ntext\n\n```ipmt-invalid\nA ::t --> B ::t\nB ::t --> C ::t\nA ::t --> B ::t\n```\n"
+	if string(r.Out) != want || len(r.Fences) != 2 {
+		t.Fatalf("out %q fences %+v", r.Out, r.Fences)
+	}
+}
+
+// An invalid fence that parses, or one that fails before any spec is resolved, is
+// listed and left unchanged, never a crash.
+func TestFlipInvalidNoHookAndParsing(t *testing.T) {
+	in := md("x\n")
+	in = strings.Replace(in, "```ipmt", "```ipmt-invalid", 1)
+	r := FlipFile("p.md", []byte(in), Keep{})
+	if string(r.Out) != in || len(r.Fences) != 1 || r.Fences[0].Status != StatusFail {
+		t.Fatalf("parsing invalid: %+v %q", r.Fences, r.Out)
+	}
+	bad := "bad ::e ::c\n"
+	r = FlipFile("b.ipmt-invalid", []byte(bad), Keep{})
+	if string(r.Out) != bad || len(r.Fences) != 1 || r.Fences[0].Status != StatusUnparsable {
+		t.Fatalf("no hook: %+v %q", r.Fences, r.Out)
+	}
+}
+
+func TestCLIFlipPicksInvalidFiles(t *testing.T) {
+	dir := gitRepo(t, map[string]string{
+		"i.ipmt-invalid":        "A --> B\nB --> C\nA --> B\n",
+		"ipmt-markers.manifest": "rule\tthing\n",
+	}, "i.ipmt-invalid")
+	var out, errb bytes.Buffer
+	if code := run([]string{"-flip", "-write", "-root", dir}, &out, &errb); code != 0 {
+		t.Fatalf("exit %d: %s %s", code, out.String(), errb.String())
+	}
+	if b, _ := os.ReadFile(filepath.Join(dir, "i.ipmt-invalid")); string(b) != "A ::t --> B ::t\nB ::t --> C ::t\nA ::t --> B ::t\n" {
+		t.Fatalf("not flipped: %q", b)
+	}
+}
+
+// -invalid-only: the invalid lane only; valid fences and .ipmt files stay as they are
+// (already flipped), the manifest rule is neither checked nor rewritten.
+func TestFlipInvalidOnly(t *testing.T) {
+	validFence := "```ipmt\nBook --> read\n```\n"
+	invFence := "```ipmt-invalid\nA --> B\nB --> C\nA --> B\n```\n"
+	mdIn := "# T\n\n" + validFence + "\ntext\n\n" + invFence
+	mdWant := "# T\n\n" + validFence + "\ntext\n\n" +
+		"```ipmt-invalid\nA ::t --> B ::t\nB ::t --> C ::t\nA ::t --> B ::t\n```\n"
+	manifest := "rule\tevent\n"
+	dir := gitRepo(t, map[string]string{
+		"d.md":                  mdIn,
+		"v.ipmt":                "Book --> read\n",
+		"i.ipmt-invalid":        "A --> B\nB --> C\nA --> B\n",
+		"ipmt-markers.manifest": manifest,
+	}, "d.md", "v.ipmt", "i.ipmt-invalid")
+	var out, errb bytes.Buffer
+
+	if code := run([]string{"-flip", "-invalid-only", "-root", dir}, &out, &errb); code != 0 {
+		t.Fatalf("dry exit %d: %s %s", code, out.String(), errb.String())
+	}
+	if strings.Contains(out.String(), "already flipped") || !strings.Contains(out.String(), "skipped=2") {
+		t.Fatalf("report:\n%s", out.String())
+	}
+	if b, _ := os.ReadFile(filepath.Join(dir, "d.md")); string(b) != mdIn {
+		t.Fatalf("dry run wrote %q", b)
+	}
+
+	out.Reset()
+	if code := run([]string{"-flip", "-invalid-only", "-write", "-root", dir}, &out, &errb); code != 0 {
+		t.Fatalf("write exit %d: %s %s", code, out.String(), errb.String())
+	}
+	if b, _ := os.ReadFile(filepath.Join(dir, "d.md")); string(b) != mdWant {
+		t.Fatalf("d.md: %q want %q", b, mdWant)
+	}
+	if b, _ := os.ReadFile(filepath.Join(dir, "v.ipmt")); string(b) != "Book --> read\n" {
+		t.Fatalf("valid .ipmt changed: %q", b)
+	}
+	if b, _ := os.ReadFile(filepath.Join(dir, "i.ipmt-invalid")); string(b) != "A ::t --> B ::t\nB ::t --> C ::t\nA ::t --> B ::t\n" {
+		t.Fatalf("invalid file: %q", b)
+	}
+	if b, _ := os.ReadFile(filepath.Join(dir, "ipmt-markers.manifest")); string(b) != manifest {
+		t.Fatalf("manifest changed: %q", b)
+	}
+}
+
+func TestCLIInvalidOnlyNeedsFlip(t *testing.T) {
+	var out, errb bytes.Buffer
+	if code := run([]string{"-invalid-only", "-root", "."}, &out, &errb); code != 2 || !strings.Contains(errb.String(), "-flip") {
+		t.Fatalf("exit %d: %s", code, errb.String())
 	}
 }
 

@@ -11,22 +11,22 @@
 ## ipmt Content
 
 ```ipmt
-e1 ::e
-tA --> e1
-tB, tC, tD --> e1a ::e --::P--> e1
-tA --- tB
+e1
+tA ::t --> e1
+tB ::t, tC ::t, tD ::t --> e1a --::P--> e1
+tA ::t --- tB ::t
 
-e1b ::e --::P--> e1
-tE, tF --> e1b
-tD --> e1b
-tD --> cX ::c
-e1c ::e --::P--> e1
-tG, tF --> e1c
-tA --- tF
+e1b --::P--> e1
+tE ::t, tF ::t --> e1b
+tD ::t --> e1b
+tD ::t --> cX ::c
+e1c --::P--> e1
+tG ::t, tF ::t --> e1c
+tA ::t --- tF ::t
 
-tH, tB --> e1d ::e --::P--> e1
+tH ::t, tB ::t --> e1d --::P--> e1
 e1d --> e1a
-tH, tF --> e1e ::e --::P--> e1
+tH ::t, tF ::t --> e1e --::P--> e1
 e1e --> e1b --> e1c
 ```
 

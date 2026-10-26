@@ -11,7 +11,7 @@
 ## ipmt Content
 
 ```ipmt
-n1 --"line with a \"quote\" and a \\ backslash"--> n2
+n1 ::t --"line with a \"quote\" and a \\ backslash"--> n2 ::t
 ```
 
 ## Generated Files

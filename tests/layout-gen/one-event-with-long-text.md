@@ -11,7 +11,7 @@
 ## ipmt Content
 
 ```ipmt
-This event happen when many things are involved and the description is long. ::e
+This event happen when many things are involved and the description is long.
 ```
 
 ## Generated Files

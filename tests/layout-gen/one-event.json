@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "e1 ::e",
+    "ipmt": "e1",
     "positions": {
       "nodes": {
         "1": [

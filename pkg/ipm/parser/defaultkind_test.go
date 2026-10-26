@@ -6,8 +6,8 @@ import (
 	"github.com/infinite-pm/ipm-tools/pkg/ipm/model"
 )
 
-// TestDefaultNodeType: the zero Options value keeps a bare node spec a thing;
-// DefaultNodeType=Event makes it an event; explicit markers always win.
+// TestDefaultNodeType: the zero Options value makes a bare node spec an event;
+// DefaultNodeType=Thing selects the old rule; explicit markers always win.
 func TestDefaultNodeType(t *testing.T) {
 	cases := []struct {
 		name string
@@ -15,13 +15,14 @@ func TestDefaultNodeType(t *testing.T) {
 		opt  Options
 		want model.NodeType
 	}{
-		{"zero value is thing", "book\n", Options{}, model.Thing},
+		{"zero value is event", "book\n", Options{}, model.Event},
 		{"explicit thing option", "book\n", Options{DefaultNodeType: model.Thing}, model.Thing},
 		{"event option", "book\n", Options{DefaultNodeType: model.Event}, model.Event},
 		{"event option, marker ::t wins", "book ::t\n", Options{DefaultNodeType: model.Event}, model.Thing},
 		{"event option, marker ::c wins", "book ::c\n", Options{DefaultNodeType: model.Event}, model.Concept},
 		{"event option, marker ::e", "book ::e\n", Options{DefaultNodeType: model.Event}, model.Event},
-		{"zero value, marker ::e wins", "book ::e\n", Options{}, model.Event},
+		{"zero value, marker ::t wins", "book ::t\n", Options{}, model.Thing},
+		{"thing option, marker ::e wins", "book ::e\n", Options{DefaultNodeType: model.Thing}, model.Event},
 		{"event option, undecided stays", "book ::?et\n", Options{DefaultNodeType: model.Event}, model.Unresolved},
 	}
 	for _, c := range cases {

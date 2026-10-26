@@ -10,11 +10,11 @@ c-X ::c --::N-->
 
 ## Multiline with comma expansion
 ```ipmt
-e1 --> c-X ::c,
+e1 ::t --> c-X ::c,
   c-Y ::c,
   c-Z ::c
 ```
-<!-- ipm-svg id=110 hash=b1451ce0 -->
+<!-- ipm-svg id=110 hash=9df0a07a -->
 ![](../../_ipm/docs/ipmt-ex/ipmt-examples/110.ipm.svg)
 
 ## Tooltip with newline
@@ -38,9 +38,9 @@ e1 ::e --::L--> e2 ::e
 ### links-reverse-comma
 
 ```ipmt
-B, C <-- A
+B ::t, C ::t <-- A ::t
 ```
-<!-- ipm-svg id=140 hash=0f3fe06a -->
+<!-- ipm-svg id=140 hash=a236e633 -->
 ![](../../_ipm/docs/ipmt-ex/ipmt-examples/140.ipm.svg)
 
 ### links-explicit-n-multiline
@@ -97,53 +97,53 @@ cA ::c --::X--> cB ::c
 ### links-chained-multiline
 
 ```ipmt
-tA --> tAp1
-  --> tAp1sX
+tA ::t --> tAp1 ::t
+  --> tAp1sX ::t
 ```
-<!-- ipm-svg id=1b0 hash=5ed0ae81 -->
+<!-- ipm-svg id=1b0 hash=dc6377bf -->
 ![](../../_ipm/docs/ipmt-ex/ipmt-examples/1b0.ipm.svg)
 
 ### links-many-edges
 
 ```ipmt
-A --> B
-A --> C
-A --> D
+A ::t --> B ::t
+A ::t --> C ::t
+A ::t --> D ::t
 ```
-<!-- ipm-svg id=1c0 hash=7b6265d8 -->
+<!-- ipm-svg id=1c0 hash=50b8b08c -->
 ![](../../_ipm/docs/ipmt-ex/ipmt-examples/1c0.ipm.svg)
 
 ### links-reverse-arrow
 
 ```ipmt
-e1 <-- tB
+e1 ::t <-- tB ::t
 ```
-<!-- ipm-svg id=1d0 hash=af255152 -->
+<!-- ipm-svg id=1d0 hash=c376706d -->
 ![](../../_ipm/docs/ipmt-ex/ipmt-examples/1d0.ipm.svg)
 
 ### nodes-alias-before
 
 ```ipmt
 EA::a Event A ::e
-Agent 2 --> EA
+Agent 2 ::t --> EA
 ```
-<!-- ipm-svg id=1e0 hash=06ed013b -->
+<!-- ipm-svg id=1e0 hash=9499fb62 -->
 ![](../../_ipm/docs/ipmt-ex/ipmt-examples/1e0.ipm.svg)
 
 ### links-undirected
 
 ```ipmt
-A --- B
+A ::t --- B ::t
 ```
-<!-- ipm-svg id=1f0 hash=e2fa6153 -->
+<!-- ipm-svg id=1f0 hash=c1758b4e -->
 ![](../../_ipm/docs/ipmt-ex/ipmt-examples/1f0.ipm.svg)
 
 ### links-self-loop
 
 ```ipmt
-A --> A
+A ::t --> A ::t
 ```
-<!-- ipm-svg id=1g0 hash=3ec3d8a7 -->
+<!-- ipm-svg id=1g0 hash=50fe31de -->
 ![](../../_ipm/docs/ipmt-ex/ipmt-examples/1g0.ipm.svg)
 
 ### links-edge-tooltip-comma
@@ -157,11 +157,11 @@ cA ::c --"cA described by cB and cC"--> cB ::c, cC ::c
 ### links-compact-arrows
 
 ```ipmt
-A-->B--"text"-->C
-F<--G
-H --- I
+A ::t -->B ::t --"text"-->C ::t
+F ::t <--G ::t
+H ::t --- I ::t
 ```
-<!-- ipm-svg id=1i0 hash=0092ce5d -->
+<!-- ipm-svg id=1i0 hash=bfa9c256 -->
 ![](../../_ipm/docs/ipmt-ex/ipmt-examples/1i0.ipm.svg)
 
 ### links-explicit-e-comma
@@ -175,27 +175,27 @@ tA ::t --::X--> c-X ::c, c-Y ::c
 ### minimal
 
 ```ipmt
-Agent 1 --> Event A ::e EA::a
-Agent 2 --> EA
-Artifact X --> EA
+Agent 1 ::t --> Event A ::e EA::a
+Agent 2 ::t --> EA
+Artifact X ::t --> EA
 ```
-<!-- ipm-svg id=1k0 hash=75235f62 -->
+<!-- ipm-svg id=1k0 hash=547494e6 -->
 ![](../../_ipm/docs/ipmt-ex/ipmt-examples/1k0.ipm.svg)
 
 ### links-explicit-n
 
 ```ipmt
-tB --::N--> tC
+tB ::t --::N--> tC ::t
 ```
-<!-- ipm-svg id=1l0 hash=a217f673 -->
+<!-- ipm-svg id=1l0 hash=ffb0da17 -->
 ![](../../_ipm/docs/ipmt-ex/ipmt-examples/1l0.ipm.svg)
 
 ### links-chained
 
 ```ipmt
-A --> B --> C
+A ::t --> B ::t --> C ::t
 ```
-<!-- ipm-svg id=1m0 hash=1c2e4177 -->
+<!-- ipm-svg id=1m0 hash=be3aa9a0 -->
 ![](../../_ipm/docs/ipmt-ex/ipmt-examples/1m0.ipm.svg)
 
 ### links-explicit-p-comma
@@ -209,9 +209,9 @@ tAp1 ::t, tAp2 ::t --::P--> tA ::t
 ### nodes-long-name
 
 ```ipmt
-Thing A part 1.
+Thing A part 1. ::t
 ```
-<!-- ipm-svg id=1o0 hash=8340996b -->
+<!-- ipm-svg id=1o0 hash=e2bd877e -->
 ![](../../_ipm/docs/ipmt-ex/ipmt-examples/1o0.ipm.svg)
 
 ### nodes-tooltip-escaped
@@ -251,43 +251,43 @@ e1 ::e --::L-->
 ### links-edge-tooltip-escaped
 
 ```ipmt
-n1 --"line with a \"quote\" and a \\ backslash"--> n2
+n1 ::t --"line with a \"quote\" and a \\ backslash"--> n2 ::t
 ```
-<!-- ipm-svg id=1t0 hash=3518d8fc -->
+<!-- ipm-svg id=1t0 hash=7af3bced -->
 ![](../../_ipm/docs/ipmt-ex/ipmt-examples/1t0.ipm.svg)
 
 ### links-inline-hash
 
 ```ipmt
-Agent #1 --> Event #1 ::e
+Agent #1 ::t --> Event #1 ::e
 ```
-<!-- ipm-svg id=1u0 hash=48ffa113 -->
+<!-- ipm-svg id=1u0 hash=69af1778 -->
 ![](../../_ipm/docs/ipmt-ex/ipmt-examples/1u0.ipm.svg)
 
 ### complex 1
 
 ```ipmt
 e1 ::e --> e2 ::e --> e3 ::e
-tA, tB, tC, tD, tE --> e2
+tA ::t, tB ::t, tC ::t, tD ::t, tE ::t --> e2
 e2 --> c1 ::c, c2 ::c, c3 ::c, c4 ::c, c5 ::c, c6 ::c, c7 ::c, c8 ::c
-t1, t2 --> e1
-tz, ty --> e3
-tA --> tA2 --> tA3
-tz --> tz2 --> tz3 --> tz4
+t1 ::t, t2 ::t --> e1
+tz ::t, ty ::t --> e3
+tA ::t --> tA2 ::t --> tA3 ::t
+tz ::t --> tz2 ::t --> tz3 ::t --> tz4 ::t
 ```
-<!-- ipm-svg id=1v0 hash=16df0e7e -->
+<!-- ipm-svg id=1v0 hash=ec2536ac -->
 ![](../../_ipm/docs/ipmt-ex/ipmt-examples/1v0.ipm.svg)
 
 ### complex 2
 
 ```ipmt
 e1 ::e --> e2 ::e --> e3 ::e
-tA --> e2
+tA ::t --> e2
 
-tB --> e2
-tB --> Cr ::c --> Cs ::c --> Ct ::c
+tB ::t --> e2
+tB ::t --> Cr ::c --> Cs ::c --> Ct ::c
 ```
-<!-- ipm-svg id=1w0 hash=f81eb212 -->
+<!-- ipm-svg id=1w0 hash=6c1e0305 -->
 ![](../../_ipm/docs/ipmt-ex/ipmt-examples/1w0.ipm.svg)
 
 

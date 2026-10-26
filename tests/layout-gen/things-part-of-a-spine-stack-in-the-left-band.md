@@ -11,11 +11,11 @@
 ## ipmt Content
 
 ```ipmt
-A --> J ::e
-I ::e --> J
-K ::e --> I
-C --> D --> K
-L --::P--> I
+A ::t --> J
+I --> J
+K --> I
+C ::t --> D ::t --> K
+L ::t --::P--> I
 ```
 
 ## Generated Files

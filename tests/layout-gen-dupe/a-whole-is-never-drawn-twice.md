@@ -12,10 +12,10 @@
 
 ```ipmt
 # ipmt: embed=false
-e1 ::e --> e2 ::e --> e3 ::e --> e4 ::e --> e5 ::e --> e6 ::e
-tW --::P--> e1, e3, e5
-t1 --::P--> tW
-t2 --::P--> tW
+e1 --> e2 --> e3 --> e4 --> e5 --> e6
+tW ::t --::P--> e1, e3, e5
+t1 ::t --::P--> tW ::t
+t2 ::t --::P--> tW ::t
 ```
 
 ## Generated Files

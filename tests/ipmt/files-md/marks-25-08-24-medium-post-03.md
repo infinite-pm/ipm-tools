@@ -12,10 +12,10 @@
 
 ```ipmt
 # Company founding
-X --> X founded company Y ::e fe::a
-Y --> fe
-X --> person ::c
-Y --> company ::c
+X ::t --> X founded company Y ::e fe::a
+Y ::t --> fe
+X ::t --> person ::c
+Y ::t --> company ::c
 fe --> Founding is when someone establishes the legal registration of a company ::c
 ```
 
@@ -23,7 +23,13 @@ fe --> Founding is when someone establishes the legal registration of a company 
 
 - [marks-25-08-24-medium-post-03.ipmt](marks-25-08-24-medium-post-03.ipmt) - ipmt input
 - [marks-25-08-24-medium-post-03.json](marks-25-08-24-medium-post-03.json) - Parsed structure
+- [marks-25-08-24-medium-post-03.layout.json](marks-25-08-24-medium-post-03.layout.json) - Layout coordinates
+- [marks-25-08-24-medium-post-03.ipm.svg](marks-25-08-24-medium-post-03.ipm.svg) - Rendered diagram
+
+## Rendered Diagram
+
+![marks-25-08-24-medium-post-03](marks-25-08-24-medium-post-03.ipm.svg)
 
 This test case was automatically generated from the specification document.
 
-The ipmt code block was extracted using [sync-test-cases](../../../docs/dev/testing.md) and saved to [marks-25-08-24-medium-post-03.ipmt](marks-25-08-24-medium-post-03.ipmt), then parsed into the [JSON structure](marks-25-08-24-medium-post-03.json).
+The ipmt code block was extracted using [sync-test-cases](../../../docs/dev/testing.md) and saved to [marks-25-08-24-medium-post-03.ipmt](marks-25-08-24-medium-post-03.ipmt), then parsed into the [JSON structure](marks-25-08-24-medium-post-03.json) and laid out into [layout coordinates](marks-25-08-24-medium-post-03.layout.json). The [SVG diagram](marks-25-08-24-medium-post-03.ipm.svg) was rendered using [ipmsvg-gen](../../../docs/ipmsvg-gen.md).

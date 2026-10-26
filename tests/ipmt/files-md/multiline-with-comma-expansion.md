@@ -11,7 +11,7 @@
 ## ipmt Content
 
 ```ipmt
-e1 --> c-X ::c,
+e1 ::t --> c-X ::c,
   c-Y ::c,
   c-Z ::c
 ```

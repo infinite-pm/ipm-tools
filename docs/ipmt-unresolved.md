@@ -30,9 +30,10 @@ space-separated **metadata** tokens:
 - `ipmt unresolved defaults` (or just `ipmt defaults`) — also apply **role-based
   defaults** so the block fully resolves: each still-grey node is decided to its
   preferred kind — an Expresses TARGET becomes a **Concept** (the one positive
-  concept signal), everything else becomes a **Thing**. Event is never a default;
-  it is only ever FORCED by a leads-to edge. So `server --::X--> reliability`
-  becomes `tXc`, and a bare node becomes a Thing.
+  concept signal), everything else becomes a **Thing**. Event is never chosen by
+  this pass; it is only ever FORCED by a leads-to edge. So `server --::X--> reliability`
+  becomes `tXc`, and an undecided node becomes a Thing. This pass is not the parser
+  default: an unmarked node is an event, and the pass decides only `::?` nodes.
 
 The space form is deliberate: the first token stays `ipmt`, so GitHub, the VS
 Code grammar (widened to allow trailing metadata), and the markdown preview all

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="200" height="240" viewBox="0 0 200 240">
-  <!-- ipm-svg meta: generated-by=md-embed@dev hash=3518d8fc source-file=docs/ipmt-ex/ipmt-examples.md source-id=1t0 -->
+  <!-- ipm-svg meta: generated-by=md-embed@dev hash=7af3bced source-file=docs/ipmt-ex/ipmt-examples.md source-id=1t0 -->
 
   <defs>
   </defs>
@@ -12,6 +12,7 @@
   </g>
   <g id="edges">
     <g class="edge" data-edge-idx="0" data-edge-base="partof" data-edge-from="1" data-edge-to="2">
+      <title>line with a &#34;quote&#34; and a \ backslash</title>
     <line x1="100.00" y1="105.00" x2="100.00" y2="128.25" stroke="#82b366" stroke-width="3" />
     <path d="M 100.00 135.00 L 95.50 126.00 L 100.00 128.25 L 104.50 126.00 Z" fill="#82b366" stroke="#82b366" stroke-width="3" stroke-miterlimit="10"/>
     </g>

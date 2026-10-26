@@ -11,7 +11,7 @@
 ## ipmt Content
 
 ```ipmt
-artifact X --created-by--> eBuild ::e
+artifact X ::t --created-by--> eBuild ::e
 ```
 
 ## Generated Files

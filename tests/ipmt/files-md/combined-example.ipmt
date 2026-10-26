@@ -2,11 +2,11 @@
 Commit ::e --> Build ::e --> Deploy ::e
 
 # Participants (thing --> event, part-of)
-Jane, repo-main --> Commit
-CI-runner --> Build
-service-container, deploy-config --> Deploy
+Jane ::t, repo-main ::t --> Commit
+CI-runner ::t --> Build
+service-container ::t, deploy-config ::t --> Deploy
 
 # Semantic tags
-Jane --> SRE ::c
+Jane ::t --> SRE ::c
 Deploy --> production ::c
-service-container --> microservice ::c
+service-container ::t --> microservice ::c

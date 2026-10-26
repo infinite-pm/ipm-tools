@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "# Real-world example: a production deployment incident.\n#\n# Main timeline:\n#   deploy started → deploy goes wrong → service restored\n#\n# \"deploy goes wrong\" is a composite event containing sub-events:\n#   migration runs → app starts crashing → rollback executed\n#\n# Things: people involved (Alice the DBA, Bob the SRE)\n# Concepts: technical artifacts (PostgreSQL, schema lock, connection pool)\n\ndeploy started ::e\n  --then--\u003e deploy-e::a deploy goes wrong ::e\n  --then--\u003e service restored ::e\n\ndeploy-e \u003c--::P contains-- migration-e::a migration runs ::e\n  --\u003e PostgreSQL ::c\n\ndeploy-e \u003c--::P contains-- crash-e::a app starts crashing ::e\n  --\u003e connection pool ::c\n\ndeploy-e \u003c--::P contains-- rollback-e::a rollback executed ::e\n  --\u003e schema lock ::c\n\n# Order of sub-events inside the composite event.\nmigration-e --\u003e crash-e --\u003e rollback-e\n\nAlice ::t\nBob ::t\n\nAlice --\u003e migration-e, crash-e\nBob --\u003e crash-e, rollback-e\n",
+    "ipmt": "# Real-world example: a production deployment incident.\n#\n# Main timeline:\n#   deploy started → deploy goes wrong → service restored\n#\n# \"deploy goes wrong\" is a composite event containing sub-events:\n#   migration runs → app starts crashing → rollback executed\n#\n# Things: people involved (Alice the DBA, Bob the SRE)\n# Concepts: technical artifacts (PostgreSQL, schema lock, connection pool)\n\ndeploy started\n  --then--\u003e deploy-e::a deploy goes wrong\n  --then--\u003e service restored\n\ndeploy-e \u003c--::P contains-- migration-e::a migration runs\n  --\u003e PostgreSQL ::c\n\ndeploy-e \u003c--::P contains-- crash-e::a app starts crashing\n  --\u003e connection pool ::c\n\ndeploy-e \u003c--::P contains-- rollback-e::a rollback executed\n  --\u003e schema lock ::c\n\n# Order of sub-events inside the composite event.\nmigration-e --\u003e crash-e --\u003e rollback-e\n\nAlice ::t\nBob ::t\n\nAlice ::t --\u003e migration-e, crash-e\nBob ::t --\u003e crash-e, rollback-e\n",
     "positions": {
       "nodes": {
         "1": [
@@ -10,241 +10,241 @@
           417
         ],
         "10": [
-          850,
-          855
+          826,
+          831
         ],
         "11": [
-          860,
-          863
+          836,
+          839
         ],
         "2": [
-          446,
-          463
+          442,
+          459
         ],
         "3": [
-          480,
-          496
+          472,
+          488
         ],
         "4": [
-          544,
-          558
+          532,
+          546
         ],
         "5": [
-          569,
-          579
+          553,
+          563
         ],
         "6": [
-          623,
-          642
+          607,
+          626
         ],
         "7": [
-          653,
-          668
+          633,
+          648
         ],
         "8": [
-          715,
-          732
+          695,
+          712
         ],
         "9": [
-          743,
-          754
+          719,
+          730
         ]
       },
       "edges": {
         "12": {
           "arrow": [
-            424,
-            434
+            420,
+            430
           ],
           "source": [
             403,
             417
           ],
           "target": [
-            446,
-            463
+            442,
+            459
           ]
         },
         "13": {
           "arrow": [
-            470,
-            480
+            462,
+            472
           ],
           "source": [
-            446,
-            463
+            442,
+            459
           ],
           "target": [
-            480,
-            496
+            472,
+            488
           ]
         },
         "14": {
           "arrow": [
-            511,
-            528
+            499,
+            516
           ],
           "source": [
-            544,
-            558
+            532,
+            546
           ],
           "target": [
-            502,
-            510
+            490,
+            498
           ]
         },
         "15": {
           "arrow": [
-            565,
-            569
+            549,
+            553
           ],
           "source": [
-            544,
-            558
+            532,
+            546
           ],
           "target": [
-            569,
-            579
+            553,
+            563
           ]
         },
         "16": {
           "arrow": [
-            594,
-            611
+            578,
+            595
           ],
           "source": [
-            623,
-            642
+            607,
+            626
           ],
           "target": [
-            585,
-            593
+            569,
+            577
           ]
         },
         "17": {
           "arrow": [
-            649,
-            653
+            629,
+            633
           ],
           "source": [
-            623,
-            642
+            607,
+            626
           ],
           "target": [
-            653,
-            668
+            633,
+            648
           ]
         },
         "18": {
           "arrow": [
-            683,
-            700
+            663,
+            680
           ],
           "source": [
-            715,
-            732
+            695,
+            712
           ],
           "target": [
-            674,
-            682
+            654,
+            662
           ]
         },
         "19": {
           "arrow": [
-            739,
-            743
+            715,
+            719
           ],
           "source": [
-            715,
-            732
+            695,
+            712
           ],
           "target": [
-            743,
-            754
+            719,
+            730
           ]
         },
         "20": {
           "arrow": [
-            821,
-            826
+            797,
+            802
           ],
           "source": [
-            810,
-            821
+            786,
+            797
           ],
           "target": [
-            826,
-            833
+            802,
+            809
           ]
         },
         "21": {
           "arrow": [
-            833,
-            838
+            809,
+            814
           ],
           "source": [
-            826,
-            833
+            802,
+            809
           ],
           "target": [
-            838,
-            848
+            814,
+            824
           ]
         },
         "22": {
           "arrow": [
-            874,
-            879
+            854,
+            859
           ],
           "source": [
-            869,
-            874
+            845,
+            850
           ],
           "target": [
-            879,
-            890
+            859,
+            870
           ]
         },
         "23": {
           "arrow": [
-            874,
-            879
+            854,
+            859
           ],
           "source": [
-            869,
-            874
+            845,
+            850
+          ],
+          "target": [
+            872,
+            879
+          ]
+        },
+        "24": {
+          "arrow": [
+            887,
+            892
+          ],
+          "source": [
+            880,
+            883
           ],
           "target": [
             892,
             899
           ]
         },
-        "24": {
-          "arrow": [
-            903,
-            908
-          ],
-          "source": [
-            900,
-            903
-          ],
-          "target": [
-            908,
-            915
-          ]
-        },
         "25": {
           "arrow": [
-            903,
-            908
+            887,
+            892
           ],
           "source": [
-            900,
-            903
+            880,
+            883
           ],
           "target": [
-            917,
-            927
+            901,
+            911
           ]
         }
       }

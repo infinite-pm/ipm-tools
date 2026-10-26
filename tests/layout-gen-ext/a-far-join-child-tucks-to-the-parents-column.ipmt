@@ -1,7 +1,7 @@
-e1 ::e --> e2 ::e --> e3 ::e --> e4 ::e
-tA --> e1
-tB --> e4
-tA --> cX ::c
-tB --> cY ::c
+e1 --> e2 --> e3 --> e4
+tA ::t --> e1
+tB ::t --> e4
+tA ::t --> cX ::c
+tB ::t --> cY ::c
 cX --> cZ ::c
 cY --> cZ ::c

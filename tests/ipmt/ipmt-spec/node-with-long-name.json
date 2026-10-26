@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "Thing A part 1.",
+    "ipmt": "Thing A part 1. ::t",
     "positions": {
       "nodes": {
         "1": [

@@ -12,8 +12,9 @@ import (
 type Options struct {
 	Filename string
 	// DefaultNodeType is the kind of a node spec without a kind marker. The
-	// zero value means model.Thing (the current grammar); model.Event makes a
-	// bare spec an event. Explicit markers and ::?et always win.
+	// zero value means model.Event; model.Thing selects the old grammar (a bare
+	// spec is a thing), kept until the last repo is migrated. Explicit markers
+	// and ::?et always win.
 	DefaultNodeType model.NodeType
 	// SpecHook, when set, is called for every node spec the parser resolves
 	// (see SpecEvent). Used by cmd-dev/ipmt-migrate; nil for every other caller.

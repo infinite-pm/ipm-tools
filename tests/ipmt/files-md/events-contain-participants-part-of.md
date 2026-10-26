@@ -11,9 +11,9 @@
 ## ipmt Content
 
 ```ipmt
-service-container --> Deploy ::e
-deploy-config --> Deploy
-on-call-engineer --> Alert ::e
+service-container ::t --> Deploy ::e
+deploy-config ::t --> Deploy
+on-call-engineer ::t --> Alert ::e
 ```
 
 ## Generated Files

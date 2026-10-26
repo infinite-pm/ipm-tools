@@ -11,18 +11,18 @@
 ## ipmt Content
 
 ```ipmt
-e1-start ::e --> a1 ::e
-e1-start --> b1 ::e
-e1-start --> c1 ::e
-a1 --> a2 ::e --> a3 ::e
-c1 --> c2 ::e
-a3 --> e2-merge ::e
+e1-start --> a1
+e1-start --> b1
+e1-start --> c1
+a1 --> a2 --> a3
+c1 --> c2
+a3 --> e2-merge
 b1 --> e2-merge
 c2 --> e2-merge
-e2-merge --> d1 ::e
-e2-merge --> f1 ::e
-d1 --> d2 ::e --> d3 ::e
-d3 --> e3-end ::e
+e2-merge --> d1
+e2-merge --> f1
+d1 --> d2 --> d3
+d3 --> e3-end
 f1 --> e3-end
 ```
 

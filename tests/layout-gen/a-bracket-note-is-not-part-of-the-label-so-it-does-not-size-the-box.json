@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "e1 [a note the sizer must ignore] ::e --\u003e e2 [another note] ::e",
+    "ipmt": "e1 [a note the sizer must ignore] --\u003e e2 [another note]",
     "positions": {
       "nodes": {
         "1": [
@@ -10,23 +10,23 @@
           2
         ],
         "2": [
-          42,
-          44
+          38,
+          40
         ]
       },
       "edges": {
         "3": {
           "arrow": [
-            37,
-            42
+            33,
+            38
           ],
           "source": [
             0,
             2
           ],
           "target": [
-            42,
-            44
+            38,
+            40
           ]
         }
       }

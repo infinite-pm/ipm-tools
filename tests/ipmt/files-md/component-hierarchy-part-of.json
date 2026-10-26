@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "deployment-pod --\u003e microservice-A\nsource-file-X --\u003e microservice-A",
+    "ipmt": "deployment-pod ::t --\u003e microservice-A ::t\nsource-file-X ::t --\u003e microservice-A ::t",
     "positions": {
       "nodes": {
         "1": [
@@ -10,41 +10,41 @@
           14
         ],
         "2": [
-          19,
-          33
+          23,
+          37
         ],
         "3": [
-          34,
-          47
+          42,
+          55
         ]
       },
       "edges": {
         "4": {
           "arrow": [
-            14,
-            19
+            18,
+            23
           ],
           "source": [
             0,
             14
           ],
           "target": [
-            19,
-            33
+            23,
+            37
           ]
         },
         "5": {
           "arrow": [
-            47,
-            52
+            59,
+            64
           ],
           "source": [
-            34,
-            47
+            42,
+            55
           ],
           "target": [
-            52,
-            66
+            64,
+            78
           ]
         }
       }

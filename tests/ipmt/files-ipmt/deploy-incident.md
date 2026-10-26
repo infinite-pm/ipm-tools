@@ -22,17 +22,17 @@
 # Things: people involved (Alice the DBA, Bob the SRE)
 # Concepts: technical artifacts (PostgreSQL, schema lock, connection pool)
 
-deploy started ::e
-  --then--> deploy-e::a deploy goes wrong ::e
-  --then--> service restored ::e
+deploy started
+  --then--> deploy-e::a deploy goes wrong
+  --then--> service restored
 
-deploy-e <--::P contains-- migration-e::a migration runs ::e
+deploy-e <--::P contains-- migration-e::a migration runs
   --> PostgreSQL ::c
 
-deploy-e <--::P contains-- crash-e::a app starts crashing ::e
+deploy-e <--::P contains-- crash-e::a app starts crashing
   --> connection pool ::c
 
-deploy-e <--::P contains-- rollback-e::a rollback executed ::e
+deploy-e <--::P contains-- rollback-e::a rollback executed
   --> schema lock ::c
 
 # Order of sub-events inside the composite event.
@@ -41,8 +41,8 @@ migration-e --> crash-e --> rollback-e
 Alice ::t
 Bob ::t
 
-Alice --> migration-e, crash-e
-Bob --> crash-e, rollback-e
+Alice ::t --> migration-e, crash-e
+Bob ::t --> crash-e, rollback-e
 ```
 
 ## Generated Files

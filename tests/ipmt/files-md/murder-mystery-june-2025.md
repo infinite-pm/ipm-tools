@@ -46,10 +46,10 @@ library-ppms --> refusal-mspp
 # change: change involves/contains to part-of
 # change: hide explicit Professor Plum --> skip murder-e
 # change: hide explicit Miss Scarlet --> skip murder-e
-Professor Plum --> library-ppms
-Professor Plum --> refusal-mspp
-Miss Scarlet --> library-ppms
-Miss Scarlet --> refusal-mspp
+Professor Plum ::t --> library-ppms
+Professor Plum ::t --> refusal-mspp
+Miss Scarlet ::t --> library-ppms
+Miss Scarlet ::t --> refusal-mspp
 ```
 
 ## Generated Files

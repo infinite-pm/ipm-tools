@@ -11,9 +11,9 @@
 ## ipmt Content
 
 ```ipmt
-prep ::e --> chop ::e
-chop --::P--> cook ::e
-cook --> serve ::e
+prep --> chop
+chop --::P--> cook
+cook --> serve
 ```
 
 ## Generated Files

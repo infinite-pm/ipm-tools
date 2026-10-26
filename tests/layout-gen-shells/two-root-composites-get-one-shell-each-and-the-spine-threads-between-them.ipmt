@@ -1,6 +1,6 @@
 # ipmt: embed=false
-e1 ::e --> eA ::e --> e3 ::e --> eB ::e --> e5 ::e
-m1 ::e --> m2 ::e
+e1 --> eA --> e3 --> eB --> e5
+m1 --> m2
 m1, m2 --::P--> eA
-n1 ::e --> n2 ::e
+n1 --> n2
 n1, n2 --::P--> eB

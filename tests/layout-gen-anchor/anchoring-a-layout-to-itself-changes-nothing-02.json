@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "# ipmt: embed=false\n# the reference, once more, as the state\ne1 ::e --\u003e e2 ::e --\u003e e3 ::e\ne2 \u003c-- tA\ne2 --\u003e cX ::c",
+    "ipmt": "# ipmt: embed=false\n# the reference, once more, as the state\ne1 --\u003e e2 --\u003e e3\ne2 \u003c-- tA ::t\ne2 --\u003e cX ::c",
     "positions": {
       "nodes": {
         "1": [
@@ -10,77 +10,77 @@
           63
         ],
         "2": [
-          72,
-          74
+          68,
+          70
         ],
         "3": [
-          83,
-          85
+          75,
+          77
         ],
         "4": [
-          97,
-          99
+          85,
+          87
         ],
         "5": [
-          107,
-          109
+          99,
+          101
         ]
       },
       "edges": {
         "6": {
           "arrow": [
-            67,
-            72
+            63,
+            68
           ],
           "source": [
             61,
             63
           ],
           "target": [
-            72,
-            74
+            68,
+            70
           ]
         },
         "7": {
           "arrow": [
-            78,
-            83
+            70,
+            75
           ],
           "source": [
-            72,
-            74
+            68,
+            70
           ],
           "target": [
-            83,
-            85
+            75,
+            77
           ]
         },
         "8": {
           "arrow": [
-            92,
-            97
+            80,
+            85
           ],
           "source": [
-            97,
-            99
+            85,
+            87
           ],
           "target": [
-            90,
-            92
+            78,
+            80
           ]
         },
         "9": {
           "arrow": [
-            102,
-            107
+            94,
+            99
           ],
           "source": [
-            100,
-            102
+            92,
+            94
           ],
           "target": [
-            107,
-            109
+            99,
+            101
           ]
         }
       }

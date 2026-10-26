@@ -1,0 +1,15 @@
+# the migration of one repo
+run migrate
+list tracked files
+parse diagram
+insert the marker
+check the graph
+write the file
+print the report
+the tool ::t --> run migrate
+the repo ::t --> list tracked files
+run migrate --> list tracked files --> parse diagram --> insert the marker --> check the graph --> write the file
+check the graph --> print the report
+the tool ::t --> check the graph
+the diagram ::t --> parse diagram
+the report ::t --> print the report

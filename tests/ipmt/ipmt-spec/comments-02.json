@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "   # This is also a comment\nAgent A\n  # And this is a comment in between\n  --\u003e E1::a Event 1 ::e",
+    "ipmt": "   # This is also a comment\nAgent A ::t\n  # And this is a comment in between\n  --\u003e E1::a Event 1 ::e",
     "positions": {
       "nodes": {
         "1": [
@@ -10,23 +10,23 @@
           35
         ],
         "2": [
-          85,
-          92
+          89,
+          96
         ]
       },
       "edges": {
         "3": {
           "arrow": [
-            75,
-            79
+            79,
+            83
           ],
           "source": [
             28,
             35
           ],
           "target": [
-            85,
-            92
+            89,
+            96
           ]
         }
       }

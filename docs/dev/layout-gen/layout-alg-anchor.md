@@ -35,10 +35,10 @@ Four independent little stories. The reference tiles them two by two: `a` and
 
 ```ipmt
 # ipmt: embed=false
-a1 ::e --> a2 ::e
-b1 ::e --> b2 ::e
-c1 ::e --> c2 ::e
-d1 ::e --> d2 ::e
+a1 --> a2
+b1 --> b2
+c1 --> c2
+d1 --> d2
 ```
 
 Now `c` gains a step — one click's worth of change in a canvas. Laid out by the
@@ -54,10 +54,10 @@ they had, `d` keeps the second row, and the component that actually changed —
 
 ```ipmt
 # ipmt: embed=false
-a1 ::e --> a2 ::e
-b1 ::e --> b2 ::e
-c1 ::e --> c2 ::e --> c3 ::e
-d1 ::e --> d2 ::e
+a1 --> a2
+b1 --> b2
+c1 --> c2 --> c3
+d1 --> d2
 ```
 
 ![a component that grows does not re-tile the ones that did not](../../../tests/layout-gen-anchor/a-component-that-grows-does-not-re-tile-the-ones-that-did-not-02.ipm.svg)
@@ -88,8 +88,8 @@ An anchor that pulled would show up here as drift.
 
 ```ipmt
 # ipmt: embed=false
-e1 ::e --> e2 ::e --> e3 ::e
-e2 <-- tA
+e1 --> e2 --> e3
+e2 <-- tA ::t
 e2 --> cX ::c
 ```
 
@@ -99,8 +99,8 @@ fixtures rather than deduplicating them into one:
 ```ipmt
 # ipmt: embed=false
 # the reference, once more, as the state
-e1 ::e --> e2 ::e --> e3 ::e
-e2 <-- tA
+e1 --> e2 --> e3
+e2 <-- tA ::t
 e2 --> cX ::c
 ```
 

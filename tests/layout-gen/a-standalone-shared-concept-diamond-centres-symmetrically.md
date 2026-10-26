@@ -11,8 +11,8 @@
 ## ipmt Content
 
 ```ipmt
-tL --> cS ::c, cL ::c
-tR --> cS, cR ::c
+tL ::t --> cS ::c, cL ::c
+tR ::t --> cS, cR ::c
 cL ::c, cR ::c --> cB ::c
 ```
 

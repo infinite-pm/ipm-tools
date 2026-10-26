@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "# Two-containers example.\n#\n# Two independent composite events (e2, e4), each holding a different\n# group of children. Demonstrates that clicking inside e2 and clicking\n# inside e4 lead to DIFFERENT level3 states.\n#\n# Sequence: e1 → [e2] → e3 → [e4] → e5\n#\n# e2 children: e2a1 (→ t1), e2a2; both → c1 (full coverage → c1 attaches to e2 shell)\n# e4 children: e4a1 (→ c3), e4a2, e4a3 (→ c5); only e4a1,e4a2 → t2\n#   (partial coverage → t2 stays connected to individual events, not the shell)\n#\n# Thing hierarchy: t1 → t1a → t1b → t1c  (3 levels deep)\n# Concept hierarchy: c1 → c1a, c1b  (one concept with two sub-concepts)\n\ne1 ::e\n  --then--\u003e e2 ::e\n  --then--\u003e e3 ::e\n  --then--\u003e e4 ::e\n  --then--\u003e e5 ::e\n\ne2 \u003c--::P contains-- e2a1 ::e\nt1 ::t --\u003e e2a1\n\ne2 \u003c--::P contains-- e2a2 ::e\ne2a1, e2a2 --\u003e c1 ::c\n\ne2a1 --\u003e e2a2\n\n# Thing hierarchy: t1 → t1a → t1b → t1c\nt1 --\u003e t1a ::t\nt1a --\u003e t1b ::t\nt1b --\u003e t1c ::t\n\n# Concept hierarchy: c1 has two sub-concepts\nc1 --\u003e c1a ::c\nc1 --\u003e c1b ::c\n\ne4 \u003c--::P contains-- e4a1 ::e\ne4a1 --\u003e c3 ::c\n\ne4 \u003c--::P contains-- e4a2 ::e\n\ne4 \u003c--::P contains-- e4a3 ::e\ne4a3 --\u003e c5 ::c\n\nt2 ::t --\u003e e4a1, e4a2\n\ne4a1 --\u003e e4a2 --\u003e e4a3\n\n# e5 is a plain leaf event — it has a concept but no children,\n# so it gets no level2/level3 and is not clickable in zoomIn.\ne5 --\u003e c6 ::c\n",
+    "ipmt": "# Two-containers example.\n#\n# Two independent composite events (e2, e4), each holding a different\n# group of children. Demonstrates that clicking inside e2 and clicking\n# inside e4 lead to DIFFERENT level3 states.\n#\n# Sequence: e1 → [e2] → e3 → [e4] → e5\n#\n# e2 children: e2a1 (→ t1), e2a2; both → c1 (full coverage → c1 attaches to e2 shell)\n# e4 children: e4a1 (→ c3), e4a2, e4a3 (→ c5); only e4a1,e4a2 → t2\n#   (partial coverage → t2 stays connected to individual events, not the shell)\n#\n# Thing hierarchy: t1 → t1a → t1b → t1c  (3 levels deep)\n# Concept hierarchy: c1 → c1a, c1b  (one concept with two sub-concepts)\n\ne1\n  --then--\u003e e2\n  --then--\u003e e3\n  --then--\u003e e4\n  --then--\u003e e5\n\ne2 \u003c--::P contains-- e2a1\nt1 ::t --\u003e e2a1\n\ne2 \u003c--::P contains-- e2a2\ne2a1, e2a2 --\u003e c1 ::c\n\ne2a1 --\u003e e2a2\n\n# Thing hierarchy: t1 → t1a → t1b → t1c\nt1 ::t --\u003e t1a ::t\nt1a ::t --\u003e t1b ::t\nt1b ::t --\u003e t1c ::t\n\n# Concept hierarchy: c1 has two sub-concepts\nc1 --\u003e c1a ::c\nc1 --\u003e c1b ::c\n\ne4 \u003c--::P contains-- e4a1\ne4a1 --\u003e c3 ::c\n\ne4 \u003c--::P contains-- e4a2\n\ne4 \u003c--::P contains-- e4a3\ne4a3 --\u003e c5 ::c\n\nt2 ::t --\u003e e4a1, e4a2\n\ne4a1 --\u003e e4a2 --\u003e e4a3\n\n# e5 is a plain leaf event — it has a concept but no children,\n# so it gets no level2/level3 and is not clickable in zoomIn.\ne5 --\u003e c6 ::c\n",
     "positions": {
       "nodes": {
         "1": [
@@ -10,435 +10,435 @@
           654
         ],
         "10": [
-          904,
-          907
+          880,
+          883
         ],
         "11": [
+          900,
+          903
+        ],
+        "12": [
           920,
           923
         ],
-        "12": [
-          936,
-          939
-        ],
         "13": [
-          997,
-          1000
+          981,
+          984
         ],
         "14": [
-          1012,
-          1015
+          996,
+          999
         ],
         "15": [
-          1042,
-          1046
+          1026,
+          1030
         ],
         "16": [
-          1060,
-          1062
+          1040,
+          1042
         ],
         "17": [
-          1089,
-          1093
+          1069,
+          1073
         ],
         "18": [
-          1120,
-          1124
+          1096,
+          1100
         ],
         "19": [
-          1138,
-          1140
+          1110,
+          1112
         ],
         "2": [
-          671,
-          673
+          667,
+          669
         ],
         "20": [
-          1146,
-          1148
+          1118,
+          1120
         ],
         "21": [
-          1327,
-          1329
+          1299,
+          1301
         ],
         "3": [
-          690,
-          692
+          682,
+          684
         ],
         "4": [
-          709,
-          711
+          697,
+          699
         ],
         "5": [
-          728,
-          730
+          712,
+          714
         ],
         "6": [
-          757,
-          761
+          737,
+          741
         ],
         "7": [
-          766,
-          768
+          742,
+          744
         ],
         "8": [
-          804,
-          808
+          780,
+          784
         ],
         "9": [
-          828,
-          830
+          800,
+          802
         ]
       },
       "edges": {
         "22": {
           "arrow": [
-            661,
-            671
+            657,
+            667
           ],
           "source": [
             652,
             654
           ],
           "target": [
-            671,
-            673
+            667,
+            669
           ]
         },
         "23": {
           "arrow": [
-            680,
-            690
+            672,
+            682
           ],
           "source": [
-            671,
-            673
+            667,
+            669
           ],
           "target": [
-            690,
-            692
+            682,
+            684
           ]
         },
         "24": {
           "arrow": [
-            699,
-            709
+            687,
+            697
           ],
           "source": [
-            690,
-            692
+            682,
+            684
           ],
           "target": [
-            709,
-            711
+            697,
+            699
           ]
         },
         "25": {
           "arrow": [
-            718,
-            728
+            702,
+            712
           ],
           "source": [
-            709,
-            711
+            697,
+            699
           ],
           "target": [
-            728,
-            730
+            712,
+            714
           ]
         },
         "26": {
           "arrow": [
-            739,
-            756
+            719,
+            736
           ],
           "source": [
-            757,
-            761
+            737,
+            741
           ],
           "target": [
-            736,
-            738
+            716,
+            718
           ]
         },
         "27": {
           "arrow": [
-            772,
-            777
+            748,
+            753
           ],
           "source": [
-            766,
-            768
+            742,
+            744
           ],
           "target": [
-            777,
-            781
+            753,
+            757
           ]
         },
         "28": {
           "arrow": [
-            786,
-            803
+            762,
+            779
           ],
           "source": [
-            804,
-            808
+            780,
+            784
           ],
           "target": [
-            783,
-            785
+            759,
+            761
           ]
         },
         "29": {
           "arrow": [
-            823,
-            828
+            795,
+            800
           ],
           "source": [
-            813,
-            817
+            785,
+            789
           ],
           "target": [
-            828,
-            830
+            800,
+            802
           ]
         },
         "30": {
           "arrow": [
-            823,
-            828
+            795,
+            800
           ],
           "source": [
-            819,
-            823
+            791,
+            795
           ],
           "target": [
-            828,
-            830
+            800,
+            802
           ]
         },
         "31": {
           "arrow": [
-            840,
-            845
+            812,
+            817
           ],
           "source": [
-            836,
-            840
+            808,
+            812
           ],
           "target": [
-            845,
-            849
+            817,
+            821
           ]
         },
         "32": {
           "arrow": [
-            899,
-            904
+            875,
+            880
           ],
           "source": [
-            897,
-            899
+            869,
+            871
           ],
           "target": [
-            904,
-            907
+            880,
+            883
           ]
         },
         "33": {
+          "arrow": [
+            895,
+            900
+          ],
+          "source": [
+            888,
+            891
+          ],
+          "target": [
+            900,
+            903
+          ]
+        },
+        "34": {
           "arrow": [
             915,
             920
           ],
           "source": [
-            912,
-            915
+            908,
+            911
           ],
           "target": [
             920,
             923
           ]
         },
-        "34": {
-          "arrow": [
-            931,
-            936
-          ],
-          "source": [
-            928,
-            931
-          ],
-          "target": [
-            936,
-            939
-          ]
-        },
         "35": {
           "arrow": [
-            992,
-            997
+            976,
+            981
           ],
           "source": [
-            990,
-            992
+            974,
+            976
           ],
           "target": [
-            997,
-            1000
+            981,
+            984
           ]
         },
         "36": {
           "arrow": [
-            1007,
-            1012
+            991,
+            996
           ],
           "source": [
-            1005,
-            1007
+            989,
+            991
           ],
           "target": [
-            1012,
-            1015
+            996,
+            999
           ]
         },
         "37": {
           "arrow": [
-            1024,
-            1041
+            1008,
+            1025
           ],
           "source": [
-            1042,
-            1046
+            1026,
+            1030
           ],
           "target": [
-            1021,
-            1023
+            1005,
+            1007
           ]
         },
         "38": {
           "arrow": [
-            1055,
-            1060
+            1035,
+            1040
           ],
           "source": [
-            1051,
-            1055
+            1031,
+            1035
           ],
           "target": [
-            1060,
-            1062
+            1040,
+            1042
           ]
         },
         "39": {
           "arrow": [
-            1071,
-            1088
+            1051,
+            1068
           ],
           "source": [
-            1089,
-            1093
+            1069,
+            1073
           ],
           "target": [
-            1068,
-            1070
+            1048,
+            1050
           ]
         },
         "40": {
           "arrow": [
-            1102,
-            1119
+            1078,
+            1095
           ],
           "source": [
-            1120,
-            1124
+            1096,
+            1100
           ],
           "target": [
-            1099,
-            1101
+            1075,
+            1077
           ]
         },
         "41": {
           "arrow": [
-            1133,
-            1138
+            1105,
+            1110
           ],
           "source": [
-            1129,
-            1133
+            1101,
+            1105
           ],
           "target": [
-            1138,
-            1140
+            1110,
+            1112
           ]
         },
         "42": {
           "arrow": [
-            1152,
-            1157
+            1124,
+            1129
           ],
           "source": [
-            1146,
-            1148
+            1118,
+            1120
           ],
           "target": [
-            1157,
-            1161
+            1129,
+            1133
           ]
         },
         "43": {
           "arrow": [
-            1152,
-            1157
+            1124,
+            1129
           ],
           "source": [
-            1146,
-            1148
+            1118,
+            1120
           ],
           "target": [
-            1163,
-            1167
+            1135,
+            1139
           ]
         },
         "44": {
           "arrow": [
-            1173,
-            1178
+            1145,
+            1150
           ],
           "source": [
-            1169,
-            1173
+            1141,
+            1145
           ],
           "target": [
-            1178,
-            1182
+            1150,
+            1154
           ]
         },
         "45": {
           "arrow": [
-            1182,
-            1187
+            1154,
+            1159
           ],
           "source": [
-            1178,
-            1182
+            1150,
+            1154
           ],
           "target": [
-            1187,
-            1191
+            1159,
+            1163
           ]
         },
         "46": {
           "arrow": [
-            1322,
-            1327
+            1294,
+            1299
           ],
           "source": [
-            1320,
-            1322
+            1292,
+            1294
           ],
           "target": [
-            1327,
-            1329
+            1299,
+            1301
           ]
         }
       }

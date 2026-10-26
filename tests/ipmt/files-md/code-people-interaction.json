@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "# Engineer participates in events (thing --\u003e event, part-of)\nJane --\u003e Commit ::e\nJane --\u003e Incident ::e\n\n# Engineer classified by role\nJane --\u003e SRE ::c",
+    "ipmt": "# Engineer participates in events (thing --\u003e event, part-of)\nJane ::t --\u003e Commit ::e\nJane ::t --\u003e Incident ::e\n\n# Engineer classified by role\nJane ::t --\u003e SRE ::c",
     "positions": {
       "nodes": {
         "1": [
@@ -10,59 +10,59 @@
           65
         ],
         "2": [
-          70,
-          76
+          74,
+          80
         ],
         "3": [
-          90,
-          98
+          98,
+          106
         ],
         "4": [
-          143,
-          146
+          155,
+          158
         ]
       },
       "edges": {
         "5": {
           "arrow": [
-            65,
-            70
+            69,
+            74
           ],
           "source": [
             61,
             65
           ],
           "target": [
-            70,
-            76
+            74,
+            80
           ]
         },
         "6": {
           "arrow": [
-            85,
-            90
+            93,
+            98
           ],
           "source": [
-            81,
-            85
+            85,
+            89
           ],
           "target": [
-            90,
-            98
+            98,
+            106
           ]
         },
         "7": {
           "arrow": [
-            138,
-            143
+            150,
+            155
           ],
           "source": [
-            134,
-            138
+            142,
+            146
           ],
           "target": [
-            143,
-            146
+            155,
+            158
           ]
         }
       }

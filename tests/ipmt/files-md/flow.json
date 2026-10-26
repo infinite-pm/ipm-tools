@@ -1,0 +1,380 @@
+{
+  "version": "25.09",
+  "src": {
+    "type": "ipmt",
+    "ipmt": "# the migration of one repo\nrun migrate\nlist tracked files\nparse diagram\ninsert the marker\ncheck the graph\nwrite the file\nprint the report\nthe tool ::t --\u003e run migrate\nthe repo ::t --\u003e list tracked files\nrun migrate --\u003e list tracked files --\u003e parse diagram --\u003e insert the marker --\u003e check the graph --\u003e write the file\ncheck the graph --\u003e print the report\nthe tool ::t --\u003e check the graph\nthe diagram ::t --\u003e parse diagram\nthe report ::t --\u003e print the report",
+    "positions": {
+      "nodes": {
+        "1": [
+          28,
+          39
+        ],
+        "10": [
+          388,
+          399
+        ],
+        "11": [
+          422,
+          432
+        ],
+        "2": [
+          40,
+          58
+        ],
+        "3": [
+          59,
+          72
+        ],
+        "4": [
+          73,
+          90
+        ],
+        "5": [
+          91,
+          106
+        ],
+        "6": [
+          107,
+          121
+        ],
+        "7": [
+          122,
+          138
+        ],
+        "8": [
+          139,
+          147
+        ],
+        "9": [
+          168,
+          176
+        ]
+      },
+      "edges": {
+        "12": {
+          "arrow": [
+            151,
+            156
+          ],
+          "source": [
+            139,
+            147
+          ],
+          "target": [
+            156,
+            167
+          ]
+        },
+        "13": {
+          "arrow": [
+            180,
+            185
+          ],
+          "source": [
+            168,
+            176
+          ],
+          "target": [
+            185,
+            203
+          ]
+        },
+        "14": {
+          "arrow": [
+            215,
+            220
+          ],
+          "source": [
+            204,
+            215
+          ],
+          "target": [
+            220,
+            238
+          ]
+        },
+        "15": {
+          "arrow": [
+            238,
+            243
+          ],
+          "source": [
+            220,
+            238
+          ],
+          "target": [
+            243,
+            256
+          ]
+        },
+        "16": {
+          "arrow": [
+            256,
+            261
+          ],
+          "source": [
+            243,
+            256
+          ],
+          "target": [
+            261,
+            278
+          ]
+        },
+        "17": {
+          "arrow": [
+            278,
+            283
+          ],
+          "source": [
+            261,
+            278
+          ],
+          "target": [
+            283,
+            298
+          ]
+        },
+        "18": {
+          "arrow": [
+            298,
+            303
+          ],
+          "source": [
+            283,
+            298
+          ],
+          "target": [
+            303,
+            317
+          ]
+        },
+        "19": {
+          "arrow": [
+            333,
+            338
+          ],
+          "source": [
+            318,
+            333
+          ],
+          "target": [
+            338,
+            354
+          ]
+        },
+        "20": {
+          "arrow": [
+            367,
+            372
+          ],
+          "source": [
+            355,
+            363
+          ],
+          "target": [
+            372,
+            387
+          ]
+        },
+        "21": {
+          "arrow": [
+            403,
+            408
+          ],
+          "source": [
+            388,
+            399
+          ],
+          "target": [
+            408,
+            421
+          ]
+        },
+        "22": {
+          "arrow": [
+            436,
+            441
+          ],
+          "source": [
+            422,
+            432
+          ],
+          "target": [
+            441,
+            457
+          ]
+        }
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "name": "run migrate",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 2,
+      "name": "list tracked files",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 3,
+      "name": "parse diagram",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 4,
+      "name": "insert the marker",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 5,
+      "name": "check the graph",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 6,
+      "name": "write the file",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 7,
+      "name": "print the report",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 8,
+      "name": "the tool",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 9,
+      "name": "the repo",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 10,
+      "name": "the diagram",
+      "alias": "",
+      "type": "Thing"
+    },
+    {
+      "id": 11,
+      "name": "the report",
+      "alias": "",
+      "type": "Thing"
+    }
+  ],
+  "edges": [
+    {
+      "id": 12,
+      "source": 8,
+      "target": 1,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 13,
+      "source": 9,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 14,
+      "source": 1,
+      "target": 2,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 15,
+      "source": 2,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 16,
+      "source": 3,
+      "target": 4,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 17,
+      "source": 4,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 18,
+      "source": 5,
+      "target": 6,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 19,
+      "source": 5,
+      "target": 7,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 20,
+      "source": 8,
+      "target": 5,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 21,
+      "source": 10,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 22,
+      "source": 11,
+      "target": 7,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "PartOf",
+      "semOrigin": "SemInferred"
+    }
+  ]
+}

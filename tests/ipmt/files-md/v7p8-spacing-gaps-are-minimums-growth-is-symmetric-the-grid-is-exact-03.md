@@ -6,14 +6,17 @@
 
 > **⚠️ Warning:** This file is auto-generated. Manual changes will be lost when tests are regenerated.
 
-**Source:** gl:docs/dev/layout-gen/layout-principles.md#L875-L878 | [docs/dev/layout-gen/layout-principles.md](../../../docs/dev/layout-gen/layout-principles.md#v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact)
+**Source:** gl:docs/dev/layout-gen/layout-principles.md#L879-L885 | [docs/dev/layout-gen/layout-principles.md](../../../docs/dev/layout-gen/layout-principles.md#v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact)
 
 ## ipmt Content
 
 ```ipmt
-a1 ::e --> a2 ::e
-b1 ::e --> b2 ::e
-a1 --- b1
+w --> y1
+w --> y2
+w --> y3
+w --> y4
+w --> y5
+w --> y6
 ```
 
 ## Generated Files

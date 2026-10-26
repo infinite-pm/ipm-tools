@@ -11,10 +11,10 @@
 ## ipmt Content
 
 ```ipmt
-e1-mid ::e --::P--> e2-outer ::e
-e3-deep ::e --::P--> e1-mid
+e1-mid --::P--> e2-outer
+e3-deep --::P--> e1-mid
 t1-span ::t --> e2-outer
-t1-span --> e1-mid
+t1-span ::t --> e1-mid
 e1-mid --> c1-note ::c
 ```
 

@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "This event happen when many things are involved and the description is long. ::e",
+    "ipmt": "This event happen when many things are involved and the description is long.",
     "positions": {
       "nodes": {
         "1": [

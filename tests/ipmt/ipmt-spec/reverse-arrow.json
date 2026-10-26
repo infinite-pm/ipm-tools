@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "e1 \u003c-- tB",
+    "ipmt": "e1 ::t \u003c-- tB ::t",
     "positions": {
       "nodes": {
         "1": [
@@ -10,19 +10,19 @@
           2
         ],
         "2": [
-          7,
-          9
+          11,
+          13
         ]
       },
       "edges": {
         "3": {
           "arrow": [
-            2,
-            7
+            6,
+            11
           ],
           "source": [
-            7,
-            9
+            11,
+            13
           ],
           "target": [
             0,

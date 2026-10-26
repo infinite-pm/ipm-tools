@@ -11,9 +11,9 @@
 ## ipmt Content
 
 ```ipmt
-e1-top ::e
-r1 ::e --::P--> e1-top
-r2 ::e --::P--> e1-top
+e1-top
+r1 --::P--> e1-top
+r2 --::P--> e1-top
 r1 --> r2
 r1 --> cM ::c
 r1 --> cR ::c

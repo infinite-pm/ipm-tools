@@ -11,10 +11,10 @@
 ## ipmt Content
 
 ```ipmt
-e1-start ::e --> e2-left ::e
-e1-start --> e3-right ::e
-e3-right --> e4-rightChild ::e
-e2-left --> e5-leftChild ::e
+e1-start --> e2-left
+e1-start --> e3-right
+e3-right --> e4-rightChild
+e2-left --> e5-leftChild
 ```
 
 ## Generated Files

@@ -11,9 +11,9 @@
 ## ipmt Content
 
 ```ipmt
-e1-hub ::e --> L ::e
-e1-hub --> R ::e
-L --> e2-sink ::e
+e1-hub --> L
+e1-hub --> R
+L --> e2-sink
 R --> e2-sink
 L --> cL1 ::c
 L --> cL2 ::c

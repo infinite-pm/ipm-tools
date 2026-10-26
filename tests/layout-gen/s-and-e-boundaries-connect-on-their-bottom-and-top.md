@@ -11,10 +11,10 @@
 ## ipmt Content
 
 ```ipmt
-e1 ::e --::X--> c1-shared ::c
-e2 ::e --::X--> c1-shared
-e3 ::e --::X--> c1-shared
-e4 ::e --::X--> c1-shared
+e1 --::X--> c1-shared ::c
+e2 --::X--> c1-shared
+e3 --::X--> c1-shared
+e4 --::X--> c1-shared
 ```
 
 ## Generated Files

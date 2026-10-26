@@ -11,10 +11,10 @@
 ## ipmt Content
 
 ```ipmt
-P ::e
-p1 ::e --::P--> P
-p2 ::e --::P--> P
-p3 ::e --::P--> P
+P
+p1 --::P--> P
+p2 --::P--> P
+p3 --::P--> P
 p1 --> p2 --> p3
 p1 --> cX ::c
 tS ::t --> p1, p2

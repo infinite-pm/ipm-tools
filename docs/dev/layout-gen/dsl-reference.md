@@ -92,9 +92,9 @@ Define tags in ipmt test blocks:
 
 ```ipmt
 # @test-tags: simple, single-event, long-text
-e1::a This is a very long label that needs more height ::e
+e1::a This is a very long label that needs more height
 ```
-<!-- ipm-svg id=100 hash=1a8b0dbb -->
+<!-- ipm-svg id=100 hash=f6aad7a0 -->
 ![](../../../_ipm/docs/dev/layout-gen/dsl-reference/100.ipm.svg)
 
 Multiple `@test-tags` lines accumulate tags.

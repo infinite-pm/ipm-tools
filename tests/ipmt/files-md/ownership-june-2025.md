@@ -11,8 +11,8 @@
 ## ipmt Content
 
 ```ipmt
-guitar, castle, goldfish --> mark's things
-mark's things --> mark in role of owner(id) ::c <-- mark person
+guitar ::t, castle ::t, goldfish ::t --> mark's things ::t
+mark's things ::t --> mark in role of owner(id) ::c <-- mark person ::t
 ```
 
 ## Generated Files

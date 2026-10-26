@@ -30,6 +30,7 @@ help:
 	@echo "  sync-test-cases  - Verify and update generated fixture coverage"
 	@echo "  gen-test-md      - Generate per-case .md files from sources.json"
 	@echo "  gen-invalid-sidecars - Regenerate ipmt-invalid corpus rejection sidecars"
+	@echo "  regen-fixtures   - Print the ordered plan to regenerate every fixture (regen-fixtures-run runs it)"
 	@echo "  refs-rehash      - Refresh _refs.json outputs hashes after regenerating fixtures"
 	@echo "  update-test-docs - Generate test documentation in temp/test-docs"
 
@@ -194,6 +195,14 @@ layout-timeline-build:
 # the sources it was generated from.
 sync-test-cases:
 	go run ./cmd-dev/sync-test-cases --rm-extra
+
+# Print the ordered fixture regeneration plan (runs nothing), or run it and
+# report what changed. See docs/dev-tools/regen-fixtures.md.
+regen-fixtures:
+	@go run ./cmd-dev/regen-fixtures
+
+regen-fixtures-run:
+	@go run ./cmd-dev/regen-fixtures -run
 
 gen-test-md:
 	@go run ./cmd-dev/gen-test-md --sources-config tests/sources.json

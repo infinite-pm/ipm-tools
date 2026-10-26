@@ -11,10 +11,10 @@
 ## ipmt Content
 
 ```ipmt
-s ::e --> x ::e
-s --> y ::e
-s --> z ::e
-x --> j ::e
+s --> x
+s --> y
+s --> z
+x --> j
 z --> j
 ```
 

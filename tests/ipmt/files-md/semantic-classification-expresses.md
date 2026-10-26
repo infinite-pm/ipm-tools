@@ -11,8 +11,8 @@
 ## ipmt Content
 
 ```ipmt
-microservice-A --> billing ::c
-deployment-pod --> kubernetes-workload ::c
+microservice-A ::t --> billing ::c
+deployment-pod ::t --> kubernetes-workload ::c
 Deploy ::e --> production ::c
 Alert ::e --> high-severity ::c
 ```

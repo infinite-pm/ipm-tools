@@ -11,17 +11,17 @@ mechanics: `ipmdev-layout-rule` blocks are extracted by
 ## Event lines
 
 ```ipmt
-e1 ::e --> e2 ::e --> e3 ::e
-e4a ::e --> e4b ::e
-e4a, e4b --::P--> e4 ::e
-e4Cx ::e --> e4Cy ::e --> e4Cz ::e
+e1 --> e2 --> e3
+e4a --> e4b
+e4a, e4b --::P--> e4
+e4Cx --> e4Cy --> e4Cz
 e4Cx, e4Cy, e4Cz --::P--> e4a
-e3, e4 --> e5 ::e
+e3, e4 --> e5
 
-e5a ::e --> e5b ::e
+e5a --> e5b
 e5a, e5b --::P--> e5
 ```
-<!-- ipm-svg id=100 hash=7e3f7dc0 -->
+<!-- ipm-svg id=100 hash=e46c0edd -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/100.ipm.svg)
 
 A multi-level composition: a main chain, composite events with their own
@@ -44,21 +44,21 @@ three disconnected components placed left to right, each keeping its own
 S/E spine, while all the per-component behaviours hold simultaneously.
 
 ```ipmt
-e1-start ::e --> e2-leftA ::e
-e1-start --> e3-midB ::e
-e1-start --> e4-rightA ::e
-e2-leftA --> e5-leftB ::e --> e6-leftC ::e
-e4-rightA --> e7-rightB ::e
-e3-midB --> A deliberately very long event label that wraps onto many many lines so that the aspect ratio width rule grows this event to two hundred and forty pixels wide while every branch lane stays vertical and centered wide::a ::e
+e1-start --> e2-leftA
+e1-start --> e3-midB
+e1-start --> e4-rightA
+e2-leftA --> e5-leftB --> e6-leftC
+e4-rightA --> e7-rightB
+e3-midB --> A deliberately very long event label that wraps onto many many lines so that the aspect ratio width rule grows this event to two hundred and forty pixels wide while every branch lane stays vertical and centered wide::a
 
-y1 ::e --> y2 ::e
-y1 <--::P-- y1a ::e, y1b ::e
+y1 --> y2
+y1 <--::P-- y1a, y1b
 y1a --> y1b
-y1b <--::P-- y1b1 ::e
+y1b <--::P-- y1b1
 
-z1 ::e --> z2 ::e --> z3 ::e
+z1 --> z2 --> z3
 ```
-<!-- ipm-svg id=110 hash=c76797f8 -->
+<!-- ipm-svg id=110 hash=9c55bb10 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/110.ipm.svg)
 
 Layout rules:
@@ -98,9 +98,9 @@ centered") applies to **all node kinds**, not only events.
 ### long thing widens and stays centered
 
 ```ipmt
-tShort --> A deliberately very long label that wraps onto many many lines so that the aspect ratio width rule grows the width of this node to two hundred and forty pixels while the column stays centered on one line wideT::a ::t
+tShort ::t --> A deliberately very long label that wraps onto many many lines so that the aspect ratio width rule grows the width of this node to two hundred and forty pixels while the column stays centered on one line wideT::a ::t
 ```
-<!-- ipm-svg id=120 hash=75d03b5e -->
+<!-- ipm-svg id=120 hash=a5bb3096 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/120.ipm.svg)
 
 The part-of column keeps one centre line: the short part sits directly above the
@@ -133,16 +133,16 @@ all #cShort,#wideC have same center-x
 ### diamond branches stay compact with outer concepts
 
 ```ipmt
-e1-hub ::e --> L ::e
-e1-hub --> R ::e
-L --> e2-sink ::e
+e1-hub --> L
+e1-hub --> R
+L --> e2-sink
 R --> e2-sink
 L --> cL1 ::c
 L --> cL2 ::c
 R --> cR1 ::c
 R --> cR2 ::c
 ```
-<!-- ipm-svg id=15i hash=6e68f64c -->
+<!-- ipm-svg id=15i hash=c461c36d -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/15i.ipm.svg)
 
 Each branch of the diamond expresses two concepts. Off-spine events get ALL
@@ -169,11 +169,11 @@ fork edges nearly twice as long as the outgoing ones).
 ### nested composite's concept takes the left flank
 
 ```ipmt
-e1a ::e --::P--> e1 ::e
-e1a1 ::e --::P--> e1a
+e1a --::P--> e1
+e1a1 --::P--> e1a
 e1a --> cX ::c
 ```
-<!-- ipm-svg id=15r hash=e3f00c43 -->
+<!-- ipm-svg id=15r hash=24dc1d20 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/15r.ipm.svg)
 
 'e1a' is e1's child AND owns its own sub-event. Its sub-event column
@@ -209,16 +209,16 @@ when one of its parents re-centers. Reduced from a corpus example where
 ```ipmt
 tA ::t --> cX ::c
 tB ::t --> cX
-tB --> cY ::c
-e1 ::e --> e2 ::e
+tB ::t --> cY ::c
+e1 --> e2
 e2 --> cZ ::c
-tA --> e1
-tB --> e1
-tB --> e2
+tA ::t --> e1
+tB ::t --> e1
+tB ::t --> e2
 t1-shared ::t --> e1
-t1-shared --> e2
+t1-shared ::t --> e2
 ```
-<!-- ipm-svg id=160 hash=0ee53695 -->
+<!-- ipm-svg id=160 hash=1ebd570c -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/160.ipm.svg)
 
 Every shared node here follows anchor-and-tie (v7P1/P7: nothing
@@ -254,12 +254,12 @@ the widest node, so a 240px-wide thing beside the spine still keeps every gap �
 width AND height are respected by the neighbours, and no edge cuts through it.
 
 ```ipmt
-A deliberately very long label that wraps onto many many lines so that the aspect ratio width rule grows the width of this node to two hundred and forty pixels while the column stays centered on one line wideH::a ::t --> e1 ::e
+A deliberately very long label that wraps onto many many lines so that the aspect ratio width rule grows the width of this node to two hundred and forty pixels while the column stays centered on one line wideH::a ::t --> e1
 tB ::t --> e1
-e1 --> e2 ::e
+e1 --> e2
 e1 --> cX ::c
 ```
-<!-- ipm-svg id=170 hash=917b76f5 -->
+<!-- ipm-svg id=170 hash=e2cfada0 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/170.ipm.svg)
 
 The wide node initially widens every column step ("column spacing follows the
@@ -327,43 +327,43 @@ discoverable as a numbered stub. The same rule stubs `tB → e2`, a long part-of
 edge that crossed the `e5 → e6` event edge.
 
 ```ipmt
-e1 ::e
-  --> e8 ::e
-  --> e3 ::e
-  --> e4 ::e
+e1
+  --> e8
+  --> e3
+  --> e4
 
-e5 ::e
-  --> e6 ::e
-  --> e7 ::e
+e5
+  --> e6
+  --> e7
 
-e5 ::e,
-  e6 ::e,
-  e7 ::e
-  --::P--> e2 ::e
+e5,
+  e6,
+  e7
+  --::P--> e2
 
 e2
-  --::P--> e8 ::e
+  --::P--> e8
 
-e1 <-- tA --> cA ::c
-e2 <-- tB --> tC
-e5 <-- tD --> tB, tE
-e7 <-- tF --> tG
-e3 <-- tH --> tI
-e4 ::e <-- tJ --> tK
+e1 <-- tA ::t --> cA ::c
+e2 <-- tB ::t --> tC ::t
+e5 <-- tD ::t --> tB ::t, tE ::t
+e7 <-- tF ::t --> tG ::t
+e3 <-- tH ::t --> tI ::t
+e4 <-- tJ ::t --> tK ::t
 
-e9 ::e
-  --> e10 ::e
+e9
+  --> e10
 
-e9 <-- tL --> tC
-e10 <-- tM --> tN
+e9 <-- tL ::t --> tC ::t
+e10 <-- tM ::t --> tN ::t
 
 e4, e10
-  --> e11 ::e <-- tM, tB
+  --> e11 <-- tM ::t, tB ::t
 
 e11
-  --> e12 ::e <-- tH
+  --> e12 <-- tH ::t
 ```
-<!-- ipm-svg id=180 hash=92671cd3 -->
+<!-- ipm-svg id=180 hash=057f549d -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/180.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -396,14 +396,14 @@ vertical"), `tA → e1` is the plain band line, and `tA → e3` rides a
 2-bend lane under the row, in full.
 
 ```ipmt
-tA --> e1 ::e
-tA --> e2 ::e
-tA --> e3 ::e
+tA ::t --> e1
+tA ::t --> e2
+tA ::t --> e3
 e1 --> cA ::c
 e2 --> cB ::c
 e3 --> cC ::c
 ```
-<!-- ipm-svg id=190 hash=0c9f1b79 -->
+<!-- ipm-svg id=190 hash=346483af -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/190.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -452,15 +452,15 @@ put. Nodes with NO aligned band edge keep the vertical unification
 ('thing connected to two layers' still leaves the top).
 
 ```ipmt
-e1 ::e
-  --> e2 ::e
-  --> e3 ::e
+e1
+  --> e2
+  --> e3
 
-tP --> e1, e2, e3
-tA --> e1, e2
-tB --> e2, e3
+tP ::t --> e1, e2, e3
+tA ::t --> e1, e2
+tB ::t --> e2, e3
 ```
-<!-- ipm-svg id=19i hash=a6942e84 -->
+<!-- ipm-svg id=19i hash=0fea412e -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/19i.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -523,16 +523,16 @@ keep the balanced left/right split — this rule only fires where the fan and th
 concept would otherwise fight for one column.
 
 ```ipmt
-e1 ::e
-e1a ::e --::P--> e1
+e1
+e1a --::P--> e1
 e1a --> cX ::c
 
 w1 ::t, w2 ::t --> e1a
-w1, w2 --> cY ::c
+w1 ::t, w2 ::t --> cY ::c
 
 d1 ::t, d2 ::t --> e1a
 ```
-<!-- ipm-svg id=1a0 hash=d788ddeb -->
+<!-- ipm-svg id=1a0 hash=28c18563 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1a0.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -579,15 +579,15 @@ straight (the skeleton never yields, space does — exactly the space
 asked for, on the side that asked).
 
 ```ipmt
-s ::e --> x ::e
-s --> m ::e
-s --> z ::e
-x --> j ::e
+s --> x
+s --> m
+s --> z
+x --> j
 m --> j
 z --> j
 A ::t --> m
 ```
-<!-- ipm-svg id=1b0 hash=bdd04099 -->
+<!-- ipm-svg id=1b0 hash=02bd5fdc -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1b0.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -625,11 +625,11 @@ concept still clusters when a sibling tie declares the affinity — see the
 sibling-tie case below.)
 
 ```ipmt
-A --> e1 ::e
-A --> B1, B2, B3
-B1, B3 --> cS ::c
+A ::t --> e1
+A ::t --> B1 ::t, B2 ::t, B3 ::t
+B1 ::t, B3 ::t --> cS ::c
 ```
-<!-- ipm-svg id=1c0 hash=eca65b15 -->
+<!-- ipm-svg id=1c0 hash=9307c53e -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1c0.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -657,11 +657,11 @@ affinity), the loose `B2` steps outside, and the tie draws as a short
 horizontal between the neighbours.
 
 ```ipmt
-A --> e1 ::e
-A --> B1, B2, B3
-B1 --- B3
+A ::t --> e1
+A ::t --> B1 ::t, B2 ::t, B3 ::t
+B1 ::t --- B3 ::t
 ```
-<!-- ipm-svg id=1d0 hash=2146b759 -->
+<!-- ipm-svg id=1d0 hash=1b3043bc -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1d0.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -687,14 +687,14 @@ The e1–e2 row gap grows to host
 the tower — space yields, the skeleton does not (v7P6/P8).
 
 ```ipmt
-e1 ::e --> e2 ::e
+e1 --> e2
 W1 ::t --> e1
 V ::t --> e2
-W2 ::t --> V
-T ::t --> W1
-T --> W2
+W2 ::t --> V ::t
+T ::t --> W1 ::t
+T ::t --> W2 ::t
 ```
-<!-- ipm-svg id=1e0 hash=52772761 -->
+<!-- ipm-svg id=1e0 hash=85d17f4c -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1e0.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -719,12 +719,12 @@ closest approach with `e1`: cX lands on e1's row, adjacent to BOTH its
 users, `e1 → cX` a short drawn tie.
 
 ```ipmt
-e1 ::e --> e2 ::e
+e1 --> e2
 e1 --> cX ::c
 V ::t --> e2
-V --> cX
+V ::t --> cX
 ```
-<!-- ipm-svg id=1f0 hash=472a18bf -->
+<!-- ipm-svg id=1f0 hash=060c9450 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1f0.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -755,9 +755,9 @@ internal offset survives (per-node stepping used to shear single members
 out of the group).
 
 ```ipmt
-e1-top ::e
-r1 ::e --::P--> e1-top
-r2 ::e --::P--> e1-top
+e1-top
+r1 --::P--> e1-top
+r2 --::P--> e1-top
 r1 --> r2
 r1 --> cM ::c
 r1 --> cR ::c
@@ -769,7 +769,7 @@ kA --> kA2 ::c
 kB --> kC ::c
 kB --> kB1 ::c
 ```
-<!-- ipm-svg id=1fi hash=9fbefd0a -->
+<!-- ipm-svg id=1fi hash=0327a30e -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1fi.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -795,18 +795,18 @@ angle, trading at worst a crossing for a cheaper graze and never
 introducing a box hit).
 
 ```ipmt
-e1 ::e --> e2 ::e
+e1 --> e2
 A ::t --> e1
-e3 ::e --> e4 ::e
+e3 --> e4
 B ::t --> e3
-A --- B
+A ::t --- B ::t
 e2 --::X--> e4
 e1 --- e3
-A, B --> cX ::c
+A ::t, B ::t --> cX ::c
 e2, e4 --> cY ::c
-C --> e2, e4
+C ::t --> e2, e4
 ```
-<!-- ipm-svg id=1fr hash=cd8e0906 -->
+<!-- ipm-svg id=1fr hash=2a879674 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1fr.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -831,14 +831,14 @@ never the flow, would be the hide victim. The tie DRAWS: the single-crossing
 budget is kind-aware, so the near-to × leads-to crossing stays within it.
 
 ```ipmt
-s ::e --> x ::e
-s --> m ::e
-s --> z ::e
+s --> x
+s --> m
+s --> z
 P ::t --> x
 Q ::t --> z
-P --- Q
+P ::t --- Q ::t
 ```
-<!-- ipm-svg id=1g0 hash=cd732253 -->
+<!-- ipm-svg id=1g0 hash=94758c13 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1g0.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -869,13 +869,13 @@ bottom, and the near-to stand-off of 100, visibly MORE than an attached
 column's 60 because near-to is adjacency, not attachment.)
 
 ```ipmt
-e1 ::e --> e2 ::e
+e1 --> e2
 A ::t --> e1
-A --- B ::t
-A --- C ::t
-A --- D ::t
+A ::t --- B ::t
+A ::t --- C ::t
+A ::t --- D ::t
 ```
-<!-- ipm-svg id=1h0 hash=27481fb6 -->
+<!-- ipm-svg id=1h0 hash=a30cdbe2 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1h0.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -906,14 +906,14 @@ slid diagonals — never a zero-leg side dogleg hugging the
 corner (v7P9's minimum dogleg leg applies to structurals too).
 
 ```ipmt
-tA --> cA ::c --> cB ::c --> cL ::c
+tA ::t --> cA ::c --> cB ::c --> cL ::c
 cL --> cJ ::c
 cL --- cP ::c
 
-tB --> cD ::c --> cR ::c --> cJ ::c
+tB ::t --> cD ::c --> cR ::c --> cJ ::c
 cR --- cQ ::c
 ```
-<!-- ipm-svg id=1h9 hash=7c465068 -->
+<!-- ipm-svg id=1h9 hash=8eb2084d -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1h9.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -946,15 +946,15 @@ which parent won the election is a coin flip symmetry must not
 depend on).
 
 ```ipmt
-e1 ::e
-tA --> e1
-tB --> e1
-tA --> cX ::c
-tB --> cY ::c
+e1
+tA ::t --> e1
+tB ::t --> e1
+tA ::t --> cX ::c
+tB ::t --> cY ::c
 cX --> cZ ::c
 cY --> cZ ::c
 ```
-<!-- ipm-svg id=1hd hash=0a9e7149 -->
+<!-- ipm-svg id=1hd hash=386c064d -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1hd.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -984,20 +984,20 @@ the source's BOTTOM, onto the target's TOP, one short clean diagonal
 crossing nothing.
 
 ```ipmt
-e1 ::e
-e1a ::e
-  --> e1b ::e
-  --> e1c ::e
+e1
+e1a
+  --> e1b
+  --> e1c
 e1a --::P--> e1
 e1b --::P--> e1
 e1c --::P--> e1
-e1b1 ::e --::P--> e1b
-e1b2 ::e --::P--> e1b
-e1b3 ::e --::P--> e1b
+e1b1 --::P--> e1b
+e1b2 --::P--> e1b
+e1b3 --::P--> e1b
 e1b1 --> e1b2 --> e1b3
 e1b --> cX ::c
 ```
-<!-- ipm-svg id=1hf hash=d67dc7ef -->
+<!-- ipm-svg id=1hf hash=94fbef27 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1hf.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -1021,12 +1021,12 @@ allowed to steal the pick (a rescue never adds more than one bend).
 One crossing on a direct shape reads better than bending around.
 
 ```ipmt
-e1 ::e
+e1
 e1 --> cX ::c
 
-e1a ::e
-  --> e1b ::e
-  --> e1c ::e
+e1a
+  --> e1b
+  --> e1c
 
 e1a --::P--> e1
 e1b --::P--> e1
@@ -1036,7 +1036,7 @@ e1a --> cY ::c
 e1c --> cY ::c
 e1b --> cZ ::c
 ```
-<!-- ipm-svg id=1hg hash=78c1c4b8 -->
+<!-- ipm-svg id=1hg hash=690a6bc0 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1hg.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -1064,11 +1064,11 @@ when the owner-row spot is taken the concept slides outward to the
 near-to stand-off — distance encodes relation strength.
 
 ```ipmt
-tA --> cX ::c
-e1 ::e
-tA, tB --> e1
+tA ::t --> cX ::c
+e1
+tA ::t, tB ::t --> e1
 ```
-<!-- ipm-svg id=1hh hash=09f3500e -->
+<!-- ipm-svg id=1hh hash=c7b68134 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1hh.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -1091,17 +1091,17 @@ crosses it; sorted by the last bend the horizontal arrival slots
 above the from-below diagonal and nothing crosses.
 
 ```ipmt
-e1 ::e --> e2 ::e --> e3 ::e
-tA, tB --> e1
-tC --> e1
-tD --> e2
-tE --> e3
-tB, tD --> e3
-tD --> tC
-tC --> tF
-tD --> tG
+e1 --> e2 --> e3
+tA ::t, tB ::t --> e1
+tC ::t --> e1
+tD ::t --> e2
+tE ::t --> e3
+tB ::t, tD ::t --> e3
+tD ::t --> tC ::t
+tC ::t --> tF ::t
+tD ::t --> tG ::t
 ```
-<!-- ipm-svg id=1ih hash=4719e29f -->
+<!-- ipm-svg id=1ih hash=2b3e5255 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1ih.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -1124,15 +1124,15 @@ shared-child fixture above) keeps its full pitch — there the parents'
 rows are close and the child needs the room.
 
 ```ipmt
-e1 ::e --> e2 ::e --> e3 ::e --> e4 ::e
-tA --> e1
-tB --> e4
-tA --> cX ::c
-tB --> cY ::c
+e1 --> e2 --> e3 --> e4
+tA ::t --> e1
+tB ::t --> e4
+tA ::t --> cX ::c
+tB ::t --> cY ::c
 cX --> cZ ::c
 cY --> cZ ::c
 ```
-<!-- ipm-svg id=1jh hash=02705fb1 -->
+<!-- ipm-svg id=1jh hash=3b31490f -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1jh.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -1181,12 +1181,12 @@ layer outward symmetric about it, and each satellite's concepts hang
 below its own row.
 
 ```ipmt
-MJ::a Michal Jurosz --> life::a mj's life stories ::e
-MJ --- mj41, mj41.cz
-mj41 --> nick name ::c
-mj41.cz --> URL ::c, web page ::c, internet server ::c
+MJ::a Michal Jurosz ::t --> life::a mj's life stories
+MJ --- mj41 ::t, mj41.cz ::t
+mj41 ::t --> nick name ::c
+mj41.cz ::t --> URL ::c, web page ::c, internet server ::c
 ```
-<!-- ipm-svg id=1kh hash=237724cb -->
+<!-- ipm-svg id=1kh hash=3822b1b1 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1kh.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -1204,11 +1204,11 @@ edge #life,#E has max-bends=0
 ### up to three components share one row
 
 ```ipmt
-tA --> e1 ::e
-tA --> e2 ::e
-tB --> cX ::c
+tA ::t --> e1
+tA ::t --> e2
+tB ::t --> cX ::c
 ```
-<!-- ipm-svg id=1hi hash=6626dfc7 -->
+<!-- ipm-svg id=1hi hash=8ce45259 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1hi.ipm.svg)
 
 Three components (a tied pair of timelines plus an untied pure one) sit
@@ -1241,14 +1241,14 @@ beside `h2`. (kubernetes: kubectl → interact-via-CLI → Kubernetes stood
 4650px apart with both ties hidden as too long.)
 
 ```ipmt
-h1 ::e --> h2 ::e --> h3 ::e
-p ::e --::X--> h1
-q ::e --::X--> h3
-r2 ::e --::X--> r1 ::e
-r3 ::e --::X--> r2
+h1 --> h2 --> h3
+p --::X--> h1
+q --::X--> h3
+r2 --::X--> r1
+r3 --::X--> r2
 r1 --::X--> h2
 ```
-<!-- ipm-svg id=1hr hash=d5e9745d -->
+<!-- ipm-svg id=1hr hash=9524b128 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1hr.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -1277,17 +1277,17 @@ component gap off `a3`, `d1` off `c2`. (kubernetes root: `nodes` near-to
 a V between them; brains: every tie drawn where 488 had been hidden.)
 
 ```ipmt
-h1 ::e --> h2 ::e
-h2 --> h3 ::e
-s1 ::e --::X--> h2
-s2 ::e --::X--> h2
-a1 ::e --> a2 ::e
-a2 --> a3 ::e
-b1 ::e --::N-- a3
-c1 ::e --> c2 ::e
-d1 ::e --::N-- c2
+h1 --> h2
+h2 --> h3
+s1 --::X--> h2
+s2 --::X--> h2
+a1 --> a2
+a2 --> a3
+b1 --::N-- a3
+c1 --> c2
+d1 --::N-- c2
 ```
-<!-- ipm-svg id=1hv hash=595ded10 -->
+<!-- ipm-svg id=1hv hash=8aaae471 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1hv.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -1310,16 +1310,16 @@ equal tiles 3+5. Eight tiles take the 4×2 step and land 4+4, evenly
 filled in reading order.
 
 ```ipmt
-a1 ::e
-b1 ::e
-c1 ::e
-d1 ::e
-f1 ::e
-g1 ::e
-h1 ::e
-i1 ::e
+a1
+b1
+c1
+d1
+f1
+g1
+h1
+i1
 ```
-<!-- ipm-svg id=1i0 hash=773b07f2 -->
+<!-- ipm-svg id=1i0 hash=0cc6bc08 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1i0.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -1358,14 +1358,14 @@ themselves are ordered (`m1 --> m2 --> m3 --> m4`), as CFEngine's are, so
 no IPMV2.7 noise obscures the two warnings under test.
 
 ```ipmt
-m1 ::e --> m2 ::e --> m3 ::e --> m4 ::e
-m1, m2, m3, m4 --::P--> eC ::e
-x1 ::e --> m1
-x2 ::e --> m2
-x3 ::e --> m3
-x4 ::e --> m4
+m1 --> m2 --> m3 --> m4
+m1, m2, m3, m4 --::P--> eC
+x1 --> m1
+x2 --> m2
+x3 --> m3
+x4 --> m4
 ```
-<!-- ipm-svg id=1j0 hash=e77bf3f9 -->
+<!-- ipm-svg id=1j0 hash=e1c37ae3 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1j0.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -1396,16 +1396,16 @@ scale — the document itself is a corpus outlier
 (`docs/dev-tools/layout-timeline.md`, "outliers"), this is its rule.
 
 ```ipmt
-p1 ::e --> p2 ::e
-a1 ::e --> a2 ::e --> a3 ::e --> a4 ::e
+p1 --> p2
+a1 --> a2 --> a3 --> a4
 a1, a2, a3, a4 --::P--> p1
-b1 ::e --> b2 ::e --> b3 ::e --> b4 ::e
+b1 --> b2 --> b3 --> b4
 b1, b2, b3, b4 --::P--> p2
-p1 <-- tA, tB
-p2 <-- tC
-a2 <-- tD
+p1 <-- tA ::t, tB ::t
+p2 <-- tC ::t
+a2 <-- tD ::t
 ```
-<!-- ipm-svg id=1k0 hash=a230c480 -->
+<!-- ipm-svg id=1k0 hash=a3f6e295 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1k0.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -1430,12 +1430,12 @@ alone on the left). A member of a fan is never a sole leaf; the fan stays
 whole, and the grid keeps its row gap below the fan.
 
 ```ipmt
-e1 ::e --> eC ::e --> e2 ::e
+e1 --> eC --> e2
 e1 --> cA1 ::c, cA2 ::c, cA3 ::c, cA4 ::c, cA5 ::c
-m1 ::e --> m2 ::e
+m1 --> m2
 m1, m2 --::P--> eC
 ```
-<!-- ipm-svg id=1l0 hash=0a1a9422 -->
+<!-- ipm-svg id=1l0 hash=a751fba7 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1l0.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -1462,13 +1462,13 @@ sibling's spot, so it stepped past `tA` and ended below-left, reading as
 line.
 
 ```ipmt
-e1a ::e --::P--> e1 ::e
-e1a1 ::e --::P--> e1a
+e1a --::P--> e1
+e1a1 --::P--> e1a
 tA ::t, tB ::t --> e1a
 e1a --> cX ::c
-tB --> tW ::t
+tB ::t --> tW ::t
 ```
-<!-- ipm-svg id=1m0 hash=6cbf319a -->
+<!-- ipm-svg id=1m0 hash=15efeadd -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1m0.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -1496,12 +1496,12 @@ the gap it had taken. The diverted concept takes its owner's row directly,
 and the whole goes outward on its own row.
 
 ```ipmt
-e1 ::e
+e1
 tA ::t, tB ::t --> e1
-tA --> cA ::c
-tB --> tW ::t
+tA ::t --> cA ::c
+tB ::t --> tW ::t
 ```
-<!-- ipm-svg id=1n0 hash=c7c02a70 -->
+<!-- ipm-svg id=1n0 hash=c567771a -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1n0.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -1525,12 +1525,12 @@ have no concept keeps the drop below (see "a stranded leaf concept comes
 back to its owner").
 
 ```ipmt
-e1 ::e
+e1
 tA ::t, tB ::t --> e1
-tA --> cA ::c
-tB --> cB ::c
+tA ::t --> cA ::c
+tB ::t --> cB ::c
 ```
-<!-- ipm-svg id=1o0 hash=a0f4a7f9 -->
+<!-- ipm-svg id=1o0 hash=2a264857 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg-ext/1o0.ipm.svg)
 
 ```ipmdev-layout-rule

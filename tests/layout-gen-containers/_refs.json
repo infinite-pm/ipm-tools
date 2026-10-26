@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-containers.md",
-        "source_sha1": "b9f17dd0c78b13f8b008552bbb19da49f1873d47",
+        "source_sha1": "9dd50a9212c67b360250c925cdc8cc27c6371522",
         "name": "ipmt layout algorithm containers",
         "method": "parser",
         "parser_name": "ipmt-md",
@@ -14,13 +14,13 @@
                 "destination": "the-successor-waits-for-the-whole-sub-grid-not-for-the-composites-box",
                 "line": 35,
                 "anchor": "#the-successor-waits-for-the-whole-sub-grid-not-for-the-composites-box",
-                "content_sha1": "89fec0038130d02f4ff9350fa7cd5a77be853e3c",
+                "content_sha1": "1122ace42505be9a3bddde96b55217c077517dd7",
                 "outputs": {
                     "ipm.svg": "72eb504315c11e410db03406735214973efa4984",
-                    "ipmt": "89fec0038130d02f4ff9350fa7cd5a77be853e3c",
-                    "json": "9c8b803ec538f7b168b60b0f1015b387edc6092e",
+                    "ipmt": "1122ace42505be9a3bddde96b55217c077517dd7",
+                    "json": "e81cba4a53153d348fafb9f142264193e9ea115e",
                     "layout.json": "b6d87990d89688bd3b2d0eb91c1f0e95d721f1d7",
-                    "md": "02317f64dd1155edc46c30e8f4024458be91d3e6"
+                    "md": "21bcc31693b582a6a3507551a94af973f6419724"
                 },
                 "heading": "the successor waits for the whole sub-grid, not for the composite's box",
                 "section": "Cases"
@@ -29,13 +29,13 @@
                 "destination": "a-deeper-grid-pushes-the-spine-further-row-for-row",
                 "line": 71,
                 "anchor": "#a-deeper-grid-pushes-the-spine-further-row-for-row",
-                "content_sha1": "9208653d329dbcb29503e66b0fbe70b3cd526317",
+                "content_sha1": "2550fd7936a725929eb912acf2cfd8d760bc9dcd",
                 "outputs": {
                     "ipm.svg": "7ae8865e99e728ca4030441d7763a321cf631859",
-                    "ipmt": "9208653d329dbcb29503e66b0fbe70b3cd526317",
-                    "json": "050f6801736c6a7cb56760cbbeaf6cf169bfcff4",
+                    "ipmt": "2550fd7936a725929eb912acf2cfd8d760bc9dcd",
+                    "json": "51d67dfaede894ac9cb2870c0f2766b9ddd7078e",
                     "layout.json": "4ed4ee4ab6bcc112ea5ba7894140a9352bc72905",
-                    "md": "876a651ac39c4171b1c70331c604adfeb03fb88a"
+                    "md": "1352e4899b1e0845ca561388d719af02fb2a5ccf"
                 },
                 "heading": "a deeper grid pushes the spine further, row for row",
                 "section": "Cases"

@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "\"Agent #1\" --\u003e \"Event #1\" ::e",
+    "ipmt": "\"Agent #1\" ::t --\u003e \"Event #1\" ::e",
     "positions": {
       "nodes": {
         "1": [
@@ -10,23 +10,23 @@
           10
         ],
         "2": [
-          15,
-          25
+          19,
+          29
         ]
       },
       "edges": {
         "3": {
           "arrow": [
-            10,
-            15
+            14,
+            19
           ],
           "source": [
             0,
             10
           ],
           "target": [
-            15,
-            25
+            19,
+            29
           ]
         }
       }

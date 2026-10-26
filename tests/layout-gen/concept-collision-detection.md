@@ -11,7 +11,7 @@
 ## ipmt Content
 
 ```ipmt
-tSource --> c-X ::c, c-Y ::c, c-Z ::c
+tSource ::t --> c-X ::c, c-Y ::c, c-Z ::c
 ```
 
 ## Generated Files

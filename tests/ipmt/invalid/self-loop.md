@@ -11,7 +11,7 @@
 ## ipmt Content
 
 ```ipmt-invalid
-tA --> tA
+tA ::t --> tA ::t
 e1 ::e --> e1 ::e
 Cx ::c --> Cx ::c
 ```

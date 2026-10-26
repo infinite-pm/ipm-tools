@@ -12,13 +12,13 @@
 
 ```ipmt
 # ipmt: embed=false
-e1 ::e --> e2 ::e --> e3 ::e --> e4 ::e --> e5 ::e
-e1 <-- t1
-e2 <-- t2
-e3 <-- t3
-e4 <-- t4
-e5 <-- t5
-t1, t2, t3, t4, t5 --::X--> cX ::c
+e1 --> e2 --> e3 --> e4 --> e5
+e1 <-- t1 ::t
+e2 <-- t2 ::t
+e3 <-- t3 ::t
+e4 <-- t4 ::t
+e5 <-- t5 ::t
+t1 ::t, t2 ::t, t3 ::t, t4 ::t, t5 ::t --::X--> cX ::c
 ```
 
 ## Generated Files

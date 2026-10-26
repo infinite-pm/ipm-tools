@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "# semantically invalid (not enforced)\ne1 ::e --\u003e e2 ::e\ne1 \u003c-- tA\ntA --\u003e e2",
+    "ipmt": "# semantically invalid (not enforced)\ne1 ::e --\u003e e2 ::e\ne1 \u003c-- tA ::t\ntA ::t --\u003e e2",
     "positions": {
       "nodes": {
         "1": [
@@ -49,16 +49,16 @@
         },
         "6": {
           "arrow": [
-            68,
-            73
+            76,
+            81
           ],
           "source": [
-            66,
-            68
+            70,
+            72
           ],
           "target": [
-            73,
-            75
+            81,
+            83
           ]
         }
       }

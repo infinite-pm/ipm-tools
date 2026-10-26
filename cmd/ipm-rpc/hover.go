@@ -64,8 +64,8 @@ func (s *server) hover(ctx context.Context, params *lsp.HoverParams) (*lsp.Hover
 // token. Curated by hand; deliberately short — gopls-quality docs with
 // links / examples are a follow-up.
 var hoverDocs = map[string]string{
-	"::e":      "**Event marker** (`::e`)\n\nDeclares the node as an **event** — a transient happening at the model's timescale.\nRendered as an orange node.",
-	"::t":      "**Thing marker** (`::t`)\n\nDeclares the node as a **thing** — a persistent participant.\nRendered as a green node. `::t` is rarely needed explicitly: bare nodes default to things.",
+	"::e":      "**Event marker** (`::e`)\n\nDeclares the node as an **event** — a transient happening at the model's timescale.\nRendered as an orange node. The marker is optional: an unmarked node is an event.",
+	"::t":      "**Thing marker** (`::t`)\n\nDeclares the node as a **thing** — a persistent participant.\nRendered as a green node. A thing needs the explicit `::t` marker: an unmarked node is an event, not a thing.",
 	"::c":      "**Concept marker** (`::c`)\n\nDeclares the node as a **concept** — an invariant property that events or things can express.\nRendered as a blue node.",
 	"::a":      "**Alias marker** (`::a`)\n\nAttaches a short stable identifier to the node. Use `name::a Long node title ::e` to declare; later references can use `name` alone.",
 	"::tip":    "**Tooltip marker** (`::tip`)\n\nAttaches an explanatory tooltip to the preceding node — shown when the reader hovers the rendered diagram.",

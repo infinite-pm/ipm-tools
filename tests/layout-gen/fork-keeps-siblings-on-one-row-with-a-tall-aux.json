@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "e1 ::e --::L--\u003e ea ::e, eb ::e\ne1 --::X \"used for\"--\u003e \"setup tasks like config init or dependency checks\" ::c",
+    "ipmt": "e1 --::L--\u003e ea, eb\ne1 --::X \"used for\"--\u003e \"setup tasks like config init or dependency checks\" ::c",
     "positions": {
       "nodes": {
         "1": [
@@ -10,23 +10,37 @@
           2
         ],
         "2": [
+          12,
+          14
+        ],
+        "3": [
           16,
           18
         ],
-        "3": [
-          24,
-          26
-        ],
         "4": [
-          54,
-          105
+          42,
+          93
         ]
       },
       "edges": {
         "5": {
           "arrow": [
-            6,
-            16
+            2,
+            12
+          ],
+          "source": [
+            0,
+            2
+          ],
+          "target": [
+            12,
+            14
+          ]
+        },
+        "6": {
+          "arrow": [
+            2,
+            12
           ],
           "source": [
             0,
@@ -37,32 +51,18 @@
             18
           ]
         },
-        "6": {
-          "arrow": [
-            6,
-            16
-          ],
-          "source": [
-            0,
-            2
-          ],
-          "target": [
-            24,
-            26
-          ]
-        },
         "7": {
           "arrow": [
-            33,
-            54
+            21,
+            42
           ],
           "source": [
-            31,
-            33
+            19,
+            21
           ],
           "target": [
-            54,
-            105
+            42,
+            93
           ]
         }
       }

@@ -1,6 +1,6 @@
-tA --> tB
-tB --> tC
-tD, tE --> tF
-tA --> tF
-tG, tH, tI --> cX ::c
-tD, tE --> cX
+tA ::t --> tB ::t
+tB ::t --> tC ::t
+tD ::t, tE ::t --> tF ::t
+tA ::t --> tF ::t
+tG ::t, tH ::t, tI ::t --> cX ::c
+tD ::t, tE ::t --> cX

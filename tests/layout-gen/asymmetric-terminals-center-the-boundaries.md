@@ -11,10 +11,10 @@
 ## ipmt Content
 
 ```ipmt
-b1 ::e --> b2 ::e, b3 ::e
-b3 --> b3a ::e
-b3 --> b3b ::e
-b3b --> b3c ::e
+b1 --> b2, b3
+b3 --> b3a
+b3 --> b3b
+b3b --> b3c
 ```
 
 ## Generated Files

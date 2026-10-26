@@ -12,7 +12,7 @@
 
 ```ipmt
 EA::a Event A ::e
-Agent 2 --> EA
+Agent 2 ::t --> EA
 ```
 
 ## Generated Files

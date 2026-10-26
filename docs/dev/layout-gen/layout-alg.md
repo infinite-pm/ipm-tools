@@ -58,9 +58,9 @@ each edge has max-bends=0
 ### one event
 
 ```ipmt
-e1 ::e
+e1
 ```
-<!-- ipm-svg id=100 hash=02e562ff -->
+<!-- ipm-svg id=100 hash=8b5cc4df -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/100.ipm.svg)
 
 Visual rules:
@@ -106,9 +106,9 @@ edge #e1,@E has type=leadsto
 ### one event with long text
 
 ```ipmt
-This event happen when many things are involved and the description is long. ::e
+This event happen when many things are involved and the description is long.
 ```
-<!-- ipm-svg id=110 hash=92f72df9 -->
+<!-- ipm-svg id=110 hash=2ce1ad66 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/110.ipm.svg)
 
 Layout local rules:
@@ -150,9 +150,9 @@ whole name keeps the brackets inside it — and then they do count, because they
 are the name.
 
 ```ipmt
-e1 [a note the sizer must ignore] ::e --> e2 [another note] ::e
+e1 [a note the sizer must ignore] --> e2 [another note]
 ```
-<!-- ipm-svg id=11i hash=c9ac6220 -->
+<!-- ipm-svg id=11i hash=bb8e34e7 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/11i.ipm.svg)
 
 Layout rules:
@@ -211,9 +211,9 @@ Layout rules:
 ### two events connected
 
 ```ipmt
-e1 ::e --> e2 ::e
+e1 --> e2
 ```
-<!-- ipm-svg id=120 hash=633ee46f -->
+<!-- ipm-svg id=120 hash=999e4703 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/120.ipm.svg)
 
 Visual rules:
@@ -232,9 +232,9 @@ all #S,#e1,#e2,#E have same center-x
 ### five events connected
 
 ```ipmt
-e1 ::e --> e2 ::e --> e3 ::e --> e4 ::e --> e5 ::e
+e1 --> e2 --> e3 --> e4 --> e5
 ```
-<!-- ipm-svg id=130 hash=951953f0 -->
+<!-- ipm-svg id=130 hash=f010c196 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/130.ipm.svg)
 
 Visual rules:
@@ -253,9 +253,9 @@ all #S,#e1,#e2,#e3,#e4,#e5,#E have same center-x
 ### one event leads to multiple events (fork)
 
 ```ipmt
-e1 ::e --::L--> e2 ::e, e3 ::e
+e1 --::L--> e2, e3
 ```
-<!-- ipm-svg id=140 hash=800ed73c -->
+<!-- ipm-svg id=140 hash=ff4191b2 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/140.ipm.svg)
 
 Layout rules:
@@ -279,10 +279,10 @@ all #e1,#S,#E have same center-x
 ### fork keeps siblings on one row with a tall aux
 
 ```ipmt
-e1 ::e --::L--> ea ::e, eb ::e
+e1 --::L--> ea, eb
 e1 --::X "used for"--> "setup tasks like config init or dependency checks" ::c
 ```
-<!-- ipm-svg id=150 hash=a72056da -->
+<!-- ipm-svg id=150 hash=f8188337 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/150.ipm.svg)
 
 'e1' both forks to two end events and expresses a tall concept. The aux makes the
@@ -307,13 +307,13 @@ all #ea,#eb have same y
 ### wide fork keeps readable edge slopes
 
 ```ipmt
-e1-hub ::e --> wA ::e
-e1-hub --> wB ::e
-e1-hub --> wC ::e
-e1-hub --> wD ::e
-e1-hub --> wE ::e
+e1-hub --> wA
+e1-hub --> wB
+e1-hub --> wC
+e1-hub --> wD
+e1-hub --> wE
 ```
-<!-- ipm-svg id=15i hash=50aae36c -->
+<!-- ipm-svg id=15i hash=7cb9aac4 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/15i.ipm.svg)
 
 A wide fork's outer edges run dominantly sideways; left unchecked the fan
@@ -335,12 +335,12 @@ edge #e1-hub,#wE has min-slope=0.25
 ### asymmetric terminals center the boundaries
 
 ```ipmt
-b1 ::e --> b2 ::e, b3 ::e
-b3 --> b3a ::e
-b3 --> b3b ::e
-b3b --> b3c ::e
+b1 --> b2, b3
+b3 --> b3a
+b3 --> b3b
+b3b --> b3c
 ```
-<!-- ipm-svg id=15r hash=76dc938f -->
+<!-- ipm-svg id=15r hash=27815757 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/15r.ipm.svg)
 
 The three terminal events ('b2', 'b3a', 'b3c') end at different depths and
@@ -380,10 +380,10 @@ edge #b2,@E has max-bends=1
 ### multiple events lead to one event (join)
 
 ```ipmt
-e1 ::e --> e3 ::e
-e2 ::e --> e3
+e1 --> e3
+e2 --> e3
 ```
-<!-- ipm-svg id=160 hash=021ca8a3 -->
+<!-- ipm-svg id=160 hash=cfe9d17d -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/160.ipm.svg)
 
 Layout rules:
@@ -405,13 +405,13 @@ all #e3,#S,#E have same center-x
 ### join-sharing fork branches cluster adjacent
 
 ```ipmt
-s ::e --> x ::e
-s --> y ::e
-s --> z ::e
-x --> j ::e
+s --> x
+s --> y
+s --> z
+x --> j
 z --> j
 ```
-<!-- ipm-svg id=16e hash=4eb37dec -->
+<!-- ipm-svg id=16e hash=7184b86a -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/16e.ipm.svg)
 
 `x` and `z` join into `j`, `y` does not — so the row is `x, z, y`: the
@@ -439,10 +439,10 @@ gap (80, "wide forks breathe"), not the base 60 column gap.
 ### a leads-to edge stays straight past a thing or concept
 
 ```ipmt
-e1 ::e --> e2 ::e
+e1 --> e2
 e1, e2 <--::P-- t1 ::t
 ```
-<!-- ipm-svg id=16s hash=934033bb -->
+<!-- ipm-svg id=16s hash=a288e86b -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/16s.ipm.svg)
 
 A leads-to (flow) edge is NEVER bent because of a thing or concept (move
@@ -461,11 +461,11 @@ edge #e1,#e2 is vertical
 ### diamond pattern (fork and join)
 
 ```ipmt
-e1 ::e --> e2 ::e, e3 ::e
-e2 --> e4 ::e
+e1 --> e2, e3
+e2 --> e4
 e3 --> e4
 ```
-<!-- ipm-svg id=170 hash=baa9afee -->
+<!-- ipm-svg id=170 hash=2faca89c -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/170.ipm.svg)
 
 Layout rules:
@@ -487,9 +487,9 @@ all #S,#e1,#e4,#E have same center-x
 ### diamond pattern with aux on every event
 
 ```ipmt
-e1 ::e --> e2 ::e, e3a ::e
-e3a --> e3b ::e
-e2 --> e4 ::e
+e1 --> e2, e3a
+e3a --> e3b
+e2 --> e4
 e3b --> e4
 t1 ::t --> e1
 e1 --> c1 ::c
@@ -502,7 +502,7 @@ e3b --> c3b ::c
 t4 ::t --> e4
 e4 --> c4 ::c
 ```
-<!-- ipm-svg id=17i hash=fafc6c63 -->
+<!-- ipm-svg id=17i hash=e5530716 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/17i.ipm.svg)
 
 The diamond with an UNEVEN right branch (e3a → e3b) and one thing plus one
@@ -533,12 +533,12 @@ all #t3b,#c3b have same center-x
 ### sibling events do not cross
 
 ```ipmt
-e1-start ::e --> e2-left ::e
-e1-start --> e3-right ::e
-e3-right --> e4-rightChild ::e
-e2-left --> e5-leftChild ::e
+e1-start --> e2-left
+e1-start --> e3-right
+e3-right --> e4-rightChild
+e2-left --> e5-leftChild
 ```
-<!-- ipm-svg id=180 hash=1e044628 -->
+<!-- ipm-svg id=180 hash=b5db4d9f -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/180.ipm.svg)
 
 Two siblings ('e2-left', 'e3-right') fan out from 'e1-start'; each leads to one child.
@@ -565,13 +565,13 @@ edge #e2-left,#e5-leftChild does not cross edge #e3-right,#e4-rightChild
 ### uneven sibling branches keep their vertical lanes
 
 ```ipmt
-e1-start ::e --> e2-leftA ::e
-e1-start --> e3-middleB ::e
-e1-start --> e4-rightA ::e
-e2-leftA --> e5-leftB ::e --> e6-leftC ::e --> e7-leftD ::e
-e4-rightA --> e8-rightB ::e
+e1-start --> e2-leftA
+e1-start --> e3-middleB
+e1-start --> e4-rightA
+e2-leftA --> e5-leftB --> e6-leftC --> e7-leftD
+e4-rightA --> e8-rightB
 ``` 
-<!-- ipm-svg id=18i hash=54a94140 -->
+<!-- ipm-svg id=18i hash=bcebe3f9 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/18i.ipm.svg)
 
 Three branches fork from 'e1-start' with **different lengths** (4, 1, and 2 events).
@@ -603,11 +603,11 @@ all #e2-leftA,#e3-middleB,#e4-rightA have same y
 ### start boundary stays on the start event over an uneven fan
 
 ```ipmt
-b1 ::e --> b2 ::e, b3 ::e
-b2 --> c1 ::e
-b3 --> c2 ::e, c3 ::e
+b1 --> b2, b3
+b2 --> c1
+b3 --> c2, c3
 ```
-<!-- ipm-svg id=18m hash=b3985b26 -->
+<!-- ipm-svg id=18m hash=95d1ccba -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/18m.ipm.svg)
 
 The end fan is wider on the right (b3 has two children), but the single
@@ -633,21 +633,21 @@ all #b2,#c1 have same center-x
 ### fork merge fork keeps a vertical spine
 
 ```ipmt
-e1-start ::e --> a1 ::e
-e1-start --> b1 ::e
-e1-start --> c1 ::e
-a1 --> a2 ::e --> a3 ::e
-c1 --> c2 ::e
-a3 --> e2-merge ::e
+e1-start --> a1
+e1-start --> b1
+e1-start --> c1
+a1 --> a2 --> a3
+c1 --> c2
+a3 --> e2-merge
 b1 --> e2-merge
 c2 --> e2-merge
-e2-merge --> d1 ::e
-e2-merge --> f1 ::e
-d1 --> d2 ::e --> d3 ::e
-d3 --> e3-end ::e
+e2-merge --> d1
+e2-merge --> f1
+d1 --> d2 --> d3
+d3 --> e3-end
 f1 --> e3-end
 ```
-<!-- ipm-svg id=18r hash=ad8f159a -->
+<!-- ipm-svg id=18r hash=83363bff -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/18r.ipm.svg)
 
 'e1-start' forks into three branches of different lengths (a: 3 events, b: 1,
@@ -680,15 +680,15 @@ all #d1,#f1 have same y
 ### aux chain gets its own corridor
 
 ```ipmt
-e0 ::e --> e1 ::e
-e0 --> e2 ::e
-e0 --> e3 ::e
-e1 --> e4 ::e
-e2 --> e5 ::e
+e0 --> e1
+e0 --> e2
+e0 --> e3
+e1 --> e4
+e2 --> e5
 e2 --> c5 ::c
 c5 --> c6 ::c
 ```
-<!-- ipm-svg id=18v hash=66de09da -->
+<!-- ipm-svg id=18v hash=742b77ce -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/18v.ipm.svg)
 
 The interior fork branch 'e2' owns a concept chain (c5 → c6) while its row
@@ -723,9 +723,9 @@ node #c6 does not straddle edge #e0,#e3
 ### event contains event
 
 ```ipmt
-e2 ::e --::P--> e1 ::e
+e2 --::P--> e1
 ```
-<!-- ipm-svg id=190 hash=ea3c120f -->
+<!-- ipm-svg id=190 hash=1abe878b -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/190.ipm.svg)
 
 Visual rules:
@@ -757,10 +757,10 @@ all #e1,#e2 have same center-y
 ### event contains multiple events
 
 ```ipmt
-e2 ::e --::P--> e1 ::e
-e3 ::e --::P--> e2 ::e
+e2 --::P--> e1
+e3 --::P--> e2
 ```
-<!-- ipm-svg id=1a0 hash=5300af51 -->
+<!-- ipm-svg id=1a0 hash=8213ccb1 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1a0.ipm.svg)
 
 When multiple events are connected via contains:
@@ -785,14 +785,14 @@ edge #e1,@E has type=leadsto
 ### a leads-to between sub-events keeps the pair adjacent
 
 ```ipmt
-e1-outer ::e
-b ::e --::P--> e1-outer
-a ::e --::P--> e1-outer
+e1-outer
+b --::P--> e1-outer
+a --::P--> e1-outer
 a --> b
-c ::e --::P--> e1-outer
-d ::e --::P--> e1-outer
+c --::P--> e1-outer
+d --::P--> e1-outer
 ```
-<!-- ipm-svg id=1ai hash=feb1043b -->
+<!-- ipm-svg id=1ai hash=60291353 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1ai.ipm.svg)
 
 Four sub-events of one composite, where only ONE pair has a declared
@@ -818,10 +818,10 @@ edge #a,#b is vertical
 ### event contains with mixed leads-to
 
 ```ipmt
-e1 ::e --> e2 ::e
-e3 ::e --::P--> e1 ::e
+e1 --> e2
+e3 --::P--> e1
 ```
-<!-- ipm-svg id=1b0 hash=4ef7b498 -->
+<!-- ipm-svg id=1b0 hash=cce9a73a -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1b0.ipm.svg)
 
 When contains is mixed with leads-to:
@@ -841,9 +841,9 @@ edge #e2,@E has type=leadsto
 ### event contains sub-events
 
 ```ipmt
-e1a ::e, e1b ::e --::P--> e1 ::e
+e1a, e1b --::P--> e1
 ```
-<!-- ipm-svg id=1c0 hash=677b5cff -->
+<!-- ipm-svg id=1c0 hash=b67db5ce -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1c0.ipm.svg)
 
 - Event 'e1' contains sub-events: 'e1a' and 'e1b' (requires 1 or more sub-events for this layout).
@@ -884,11 +884,11 @@ all #S,#e1,#E have same center-x
 ### event contains sub-events with mixed connections
 
 ```ipmt
-e1 ::e --> e2 ::e --> e3 ::e
-e2 <--::P-- e2a ::e, e2b ::e
+e1 --> e2 --> e3
+e2 <--::P-- e2a, e2b
 e2a --> e2b
 ```
-<!-- ipm-svg id=1d0 hash=9dc4c211 -->
+<!-- ipm-svg id=1d0 hash=a0bea607 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1d0.ipm.svg)
 
 When a main event in the temporal flow contains sub-events:
@@ -916,14 +916,14 @@ all #S,#e1,#e2,#e3,#E have same center-x
 ### event contains connected sub-events and sub-sub-events
 
 ```ipmt
-e1 ::e <--::P-- e1a ::e, e1b ::e
-e1 --> e2 ::e --> e3 ::e
-e3 <--::P-- e3a ::e, e3b ::e, e3c ::e
-e3c <--::P-- e3b1 ::e
+e1 <--::P-- e1a, e1b
+e1 --> e2 --> e3
+e3 <--::P-- e3a, e3b, e3c
+e3c <--::P-- e3b1
 e1a --> e1b
 e3b --> e3c
 ```
-<!-- ipm-svg id=1e0 hash=32421400 -->
+<!-- ipm-svg id=1e0 hash=0f5315bc -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1e0.ipm.svg)
 
 Multi-spine layout for complex containment hierarchies:
@@ -972,13 +972,13 @@ Vertical positioning rules for sub-events:
 ### sibling composites keep their own grids apart
 
 ```ipmt
-e1a ::e, e1b ::e --::P--> e1 ::e
-e1a1 ::e --> e1a2 ::e
+e1a, e1b --::P--> e1
+e1a1 --> e1a2
 e1a1, e1a2 --::P--> e1a
-e1b1 ::e --> e1b2 ::e
+e1b1 --> e1b2
 e1b1, e1b2 --::P--> e1b
 ```
-<!-- ipm-svg id=1e2 hash=c9247da0 -->
+<!-- ipm-svg id=1e2 hash=a90badc2 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1e2.ipm.svg)
 
 'e1' has two parts, 'e1a' and 'e1b', and each of them is a composite with a
@@ -1012,14 +1012,14 @@ all #S,#e1,#E have same center-x
 ### a fork inside a sub-structure spreads its branches on one row
 
 ```ipmt
-e1-parent ::e
-a ::e --::P--> e1-parent
-b ::e --::P--> e1-parent
-c ::e --::P--> e1-parent
+e1-parent
+a --::P--> e1-parent
+b --::P--> e1-parent
+c --::P--> e1-parent
 a --> b
 a --> c
 ```
-<!-- ipm-svg id=1e4 hash=3e69e033 -->
+<!-- ipm-svg id=1e4 hash=86cfb69a -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1e4.ipm.svg)
 
 The sub-structure is a SKELETON recursively (v7P3): rank rows over the
@@ -1055,17 +1055,17 @@ edge #a,#c has visibility=visible
 ### a sub-grid return lane centres in the free row gap
 
 ```ipmt
-e1-parent ::e
-a ::e --::P--> e1-parent
-b ::e --::P--> e1-parent
-c ::e --::P--> e1-parent
-d ::e --::P--> e1-parent
+e1-parent
+a --::P--> e1-parent
+b --::P--> e1-parent
+c --::P--> e1-parent
+d --::P--> e1-parent
 a --> b
 a --> c
 b --> d
 c --> d
 ```
-<!-- ipm-svg id=1e5 hash=cdb91491 -->
+<!-- ipm-svg id=1e5 hash=1afd0cde -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1e5.ipm.svg)
 
 A full diamond (fork AND join) inside the composite. The later
@@ -1093,17 +1093,17 @@ edge #c,#e1-parent has target-side=bottom
 ### a sub-structure diamond forks and rejoins
 
 ```ipmt
-e1-parent ::e
-a ::e --::P--> e1-parent
-b ::e --::P--> e1-parent
-c ::e --::P--> e1-parent
-d ::e --::P--> e1-parent
+e1-parent
+a --::P--> e1-parent
+b --::P--> e1-parent
+c --::P--> e1-parent
+d --::P--> e1-parent
 a --> b
 a --> c
 b --> d
 c --> d
 ```
-<!-- ipm-svg id=1e6 hash=cdb91491 -->
+<!-- ipm-svg id=1e6 hash=1afd0cde -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1e6.ipm.svg)
 
 Fork AND join: 'b' and 'c' share the branch row, 'd' rejoins one row
@@ -1132,20 +1132,20 @@ edge #c,#d has visibility=visible
 ### sub-event phases fork inside the composite
 
 ```ipmt
-e1 ::e
-tA --> e1
-e1a ::e --::P--> e1
-e1b ::e --::P--> e1
-e1c ::e --::P--> e1
-e1d ::e --::P--> e1
+e1
+tA ::t --> e1
+e1a --::P--> e1
+e1b --::P--> e1
+e1c --::P--> e1
+e1d --::P--> e1
 e1a --> e1b
 e1b --> e1c
 e1b --> e1d
-e1a1 ::e --::P--> e1a
-e1a2 ::e --::P--> e1a
+e1a1 --::P--> e1a
+e1a2 --::P--> e1a
 e1a1 --> e1a2
 ```
-<!-- ipm-svg id=1e7 hash=b56d3cc7 -->
+<!-- ipm-svg id=1e7 hash=84a92752 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1e7.ipm.svg)
 
 Four sub-event phases part-of one composite event, 'e1b' forking into
@@ -1177,12 +1177,12 @@ edge #e1b,#e1d has visibility=visible
 ### a composite's successor sits under the composite, its part beside it
 
 ```ipmt
-e1 ::e
-e1a ::e --::P--> e1
-e1 --> e2 ::e
-e2 --> e3 ::e
+e1
+e1a --::P--> e1
+e1 --> e2
+e2 --> e3
 ```
-<!-- ipm-svg id=1e8 hash=8daeb12d -->
+<!-- ipm-svg id=1e8 hash=64bebd71 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1e8.ipm.svg)
 
 'e1' is a composite with one part, 'e1a', and leads to 'e2', which leads to
@@ -1211,11 +1211,11 @@ edge #e2,#e3 is vertical
 ### a leads-to into a sub-event lanes the composite under the predecessor
 
 ```ipmt
-prep ::e --> chop ::e
-chop --::P--> cook ::e
-cook --> serve ::e
+prep --> chop
+chop --::P--> cook
+cook --> serve
 ```
-<!-- ipm-svg id=1f8 hash=d4299763 -->
+<!-- ipm-svg id=1f8 hash=7067fa1c -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1f8.ipm.svg)
 
 'prep' leads to 'chop', a part of 'cook'; 'cook' leads to 'serve'. One story,
@@ -1242,15 +1242,15 @@ all #S,#prep have same center-x
 ### a shared part keeps its band and ties its second anchor
 
 ```ipmt
-P ::e
-p1 ::e --::P--> P
-p2 ::e --::P--> P
-p3 ::e --::P--> P
+P
+p1 --::P--> P
+p2 --::P--> P
+p3 --::P--> P
 p1 --> p2 --> p3
 p1 --> cX ::c
 tS ::t --> p1, p2
 ```
-<!-- ipm-svg id=1e9 hash=43e0e656 -->
+<!-- ipm-svg id=1e9 hash=e0a514ef -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1e9.ipm.svg)
 
 'tS' is part of BOTH p1 and p2. It does NOT hover centred between them:
@@ -1285,11 +1285,11 @@ vertical room grows elastically only between the rows that actually collide.
 ### one concept on the inner layer
 
 ```ipmt
-e1-mid ::e --::P--> e2-outer ::e
-e3-deep ::e --::P--> e1-mid
+e1-mid --::P--> e2-outer
+e3-deep --::P--> e1-mid
 e1-mid --> c1-note ::c
 ```
-<!-- ipm-svg id=1ei hash=36d3ab65 -->
+<!-- ipm-svg id=1ei hash=de1cca29 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1ei.ipm.svg)
 
 'e1-mid' is layer 2 (right of the spine) and owns layer 3 ('e3-deep'). A
@@ -1314,12 +1314,12 @@ node #c1-note does not straddle edge #e1-mid,#e2-outer
 ### two concepts on the inner layer
 
 ```ipmt
-e1-mid ::e --::P--> e2-outer ::e
-e3-deep ::e --::P--> e1-mid
+e1-mid --::P--> e2-outer
+e3-deep --::P--> e1-mid
 e1-mid --> c1-noteA ::c
 e1-mid --> c2-noteB ::c
 ```
-<!-- ipm-svg id=1er hash=a216e155 -->
+<!-- ipm-svg id=1er hash=f1578872 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1er.ipm.svg)
 
 Several concepts of one composite owner are ONE GENERATION: they drop
@@ -1343,12 +1343,12 @@ all #c1-noteA,#c2-noteB have same y
 ### an inner event's thing fan keeps its sole concept below
 
 ```ipmt
-e1 ::e
-e1a ::e --::P--> e1
+e1
+e1a --::P--> e1
 w1 ::t, w2 ::t --> e1a
 e1a --> c1-note ::c
 ```
-<!-- ipm-svg id=1et hash=7fb8c94f -->
+<!-- ipm-svg id=1et hash=cd809c6f -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1et.ipm.svg)
 
 An inner event whose forced side already hosts a part-of THING-FAN (two or
@@ -1373,16 +1373,16 @@ all #e1a,#c1-note have same center-x
 ```ipmt
 tA ::t --> cX ::c
 tB ::t --> cX
-tB --> cY ::c
-e1 ::e --> e2 ::e
+tB ::t --> cY ::c
+e1 --> e2
 e2 --> cZ ::c
-tA --> e1
-tB --> e1
-tB --> e2
+tA ::t --> e1
+tB ::t --> e1
+tB ::t --> e2
 t1-shared ::t --> e1
-t1-shared --> e2
+t1-shared ::t --> e2
 ```
-<!-- ipm-svg id=1eu hash=0ee53695 -->
+<!-- ipm-svg id=1eu hash=1ebd570c -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1eu.ipm.svg)
 
 'tA', 'tB' and 't1-shared' stack in e1's thing band; 'cX'
@@ -1409,17 +1409,17 @@ edge #tB,#cY has visibility=visible
 ### a concept at every layer
 
 ```ipmt
-l2 ::e --::P--> l1 ::e
-l3 ::e --::P--> l2
-l4 ::e --::P--> l3
-l5 ::e --::P--> l4
+l2 --::P--> l1
+l3 --::P--> l2
+l4 --::P--> l3
+l5 --::P--> l4
 l1 --> c1 ::c
 l2 --> c2 ::c
 l3 --> c3 ::c
 l4 --> c4 ::c
 l5 --> c5 ::c
 ```
-<!-- ipm-svg id=1ev hash=2126db11 -->
+<!-- ipm-svg id=1ev hash=b4d0c7de -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1ev.ipm.svg)
 
 None of these layers is a fork (each has exactly one child), so **all five
@@ -1462,22 +1462,22 @@ concept; things spanning two layers anchor on their deepest layer's row
 (v7P7), their shallower connectors drawing as ties.
 
 ```ipmt
-e1 ::e --> e2 ::e --> e3 ::e
-e1, e2, e3 --::P--> e0 ::e
+e1 --> e2 --> e3
+e1, e2, e3 --::P--> e0
 tA ::t --> e1
 tB ::t --> e3
 
-e2a ::e --::P--> e2
-e2b ::e --::P--> e2
-e2c ::e --::P--> e2
+e2a --::P--> e2
+e2b --::P--> e2
+e2c --::P--> e2
 e2a --> e2b --> e2c
 e2 --> cS ::c
 
 tP ::t --> e0, cH ::c
-tA --> e2a
-tB --> e2c
+tA ::t --> e2a
+tB ::t --> e2c
 ```
-<!-- ipm-svg id=1ex hash=73ba9673 -->
+<!-- ipm-svg id=1ex hash=c09861c8 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1ex.ipm.svg)
 
 The third layer (e2a..e2c) costs only HORIZONTAL space: the sub-events
@@ -1528,13 +1528,13 @@ node #cS does not straddle edge #e2a,#e2
 ### thing connected to two layers
 
 ```ipmt
-e1-mid ::e --::P--> e2-outer ::e
-e3-deep ::e --::P--> e1-mid
+e1-mid --::P--> e2-outer
+e3-deep --::P--> e1-mid
 t1-span ::t --> e2-outer
-t1-span --> e1-mid
+t1-span ::t --> e1-mid
 e1-mid --> c1-note ::c
 ```
-<!-- ipm-svg id=1ey hash=ce834b66 -->
+<!-- ipm-svg id=1ey hash=33284fae -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1ey.ipm.svg)
 
 't1-span' participates in BOTH layer 1 and layer 2. It does NOT rise centred
@@ -1570,14 +1570,14 @@ edge #t1-span,#e1-mid has target-side=bottom
 ### thing connected to three layers
 
 ```ipmt
-m2 ::e --::P--> m1 ::e
-m3 ::e --::P--> m2
-m4 ::e --::P--> m3
+m2 --::P--> m1
+m3 --::P--> m2
+m4 --::P--> m3
 tW ::t --> m1
-tW --> m2
-tW --> m3
+tW ::t --> m2
+tW ::t --> m3
 ```
-<!-- ipm-svg id=1ez hash=7df2cfaa -->
+<!-- ipm-svg id=1ez hash=4cbba7bc -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1ez.ipm.svg)
 
 The same anchor-and-tie holds for ANY number of anchors: 'tW' anchors its
@@ -1606,13 +1606,13 @@ edge #tW,#m2 has visibility=visible
 ### a band member's ties fan from its facing side
 
 ```ipmt
-e1 ::e
-  --> e2 ::e
-  --> e3 ::e
+e1
+  --> e2
+  --> e3
 
-tP --> e1, e2, e3
+tP ::t --> e1, e2, e3
 ```
-<!-- ipm-svg id=1fz hash=377a4a24 -->
+<!-- ipm-svg id=1fz hash=2267ab66 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1fz.ipm.svg)
 
 `tP` is part-of every event of one chain: it anchors at `e1` (its first
@@ -1666,13 +1666,13 @@ leave `tP`'s facing side in approach order down it, the on-row edge on the
 midline, and land on the events' facing sides.
 
 ```ipmt
-e1 ::e
-  --> e2 ::e
-  --> e3 ::e
+e1
+  --> e2
+  --> e3
 
-tP --> e3, e2, e1
+tP ::t --> e3, e2, e1
 ```
-<!-- ipm-svg id=1gz hash=1277ceb4 -->
+<!-- ipm-svg id=1gz hash=ae6bfac5 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1gz.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -1698,9 +1698,9 @@ edge #tP,#e1 does not cross edge #tP,#e3
 ### one thing
 
 ```ipmt
-t1
+t1 ::t
 ```
-<!-- ipm-svg id=1f0 hash=628b49d9 -->
+<!-- ipm-svg id=1f0 hash=93548e3a -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1f0.ipm.svg)
 
 Visual rules:
@@ -1720,9 +1720,9 @@ each type=thing has size=120x60
 ### one thing with long text
 
 ```ipmt
-This thing is very important and has a long description text. It can be so so very very so long.
+This thing is very important and has a long description text. It can be so so very very so long. ::t
 ```
-<!-- ipm-svg id=1g0 hash=e8703b73 -->
+<!-- ipm-svg id=1g0 hash=0f8fbe98 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1g0.ipm.svg)
 
 Layout rules:
@@ -1737,9 +1737,9 @@ each type=thing text-len>72 has height>=140
 ### two things connected
 
 ```ipmt
-t1pA --> t1
+t1pA ::t --> t1 ::t
 ```
-<!-- ipm-svg id=1h0 hash=b8ef4ff5 -->
+<!-- ipm-svg id=1h0 hash=a8d909dd -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1h0.ipm.svg)
 
 Visual rules:
@@ -1760,9 +1760,9 @@ all #t1pA,#t1 have same center-x
 ### five things connected
 
 ```ipmt
-t1-aaaa --> t1-aaa --> t1-aa --> t1-a --> t1
+t1-aaaa ::t --> t1-aaa ::t --> t1-aa ::t --> t1-a ::t --> t1 ::t
 ```
-<!-- ipm-svg id=1i0 hash=10faff4c -->
+<!-- ipm-svg id=1i0 hash=7daee90d -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1i0.ipm.svg)
 
 Layout rules:
@@ -1791,12 +1791,12 @@ all #t1-aaaa,#t1-aaa have same center-x
 ### thing hierarchy diamond pattern
 
 ```ipmt
-tA --> tB
-tA --> tC
-tB --> tD
-tC --> tD
+tA ::t --> tB ::t
+tA ::t --> tC ::t
+tB ::t --> tD ::t
+tC ::t --> tD ::t
 ```
-<!-- ipm-svg id=1j0 hash=910e1693 -->
+<!-- ipm-svg id=1j0 hash=17f78c4f -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1j0.ipm.svg)
 
 Layout rules:
@@ -1816,11 +1816,11 @@ all #tA,#tD have same center-x
 ### thing hierarchy multiple roots
 
 ```ipmt
-tV --> tX
-tW --> tX
-tX --> tY
+tV ::t --> tX ::t
+tW ::t --> tX ::t
+tX ::t --> tY ::t
 ```
-<!-- ipm-svg id=1k0 hash=75f247cd -->
+<!-- ipm-svg id=1k0 hash=cde948c0 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1k0.ipm.svg)
 
 Layout rules:
@@ -1839,12 +1839,12 @@ all #tV,#tW have same y
 ### thing hierarchy sibling near-to clustering
 
 ```ipmt
-tRoot --> tB
-tRoot --> tC
-tRoot --> tD
-tB --- tD
+tRoot ::t --> tB ::t
+tRoot ::t --> tC ::t
+tRoot ::t --> tD ::t
+tB ::t --- tD ::t
 ```
-<!-- ipm-svg id=1l0 hash=c69a0dde -->
+<!-- ipm-svg id=1l0 hash=6c1e1f5c -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1l0.ipm.svg)
 
 Layout rules:
@@ -1875,12 +1875,12 @@ edge #tRoot,#tC does not cross edge #tB,#tD
 ### thing parts keep their own concepts above the join
 
 ```ipmt
-tA, tB, tC --> tD
-tA --> cX ::c
-tB --> cY ::c
-tC --> cZ ::c
+tA ::t, tB ::t, tC ::t --> tD ::t
+tA ::t --> cX ::c
+tB ::t --> cY ::c
+tC ::t --> cZ ::c
 ```
-<!-- ipm-svg id=1l9 hash=82e26f16 -->
+<!-- ipm-svg id=1l9 hash=cfa85add -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1l9.ipm.svg)
 
 Three thing parts join into one whole, and each part expresses its OWN
@@ -1911,15 +1911,15 @@ edge #tB,#tD is vertical
 ### a thing hierarchy and its concepts join the event chain
 
 ```ipmt
-e1 ::e --> e2 ::e
+e1 --> e2
 tA ::t --> e1
 tD ::t --> e2
-tB ::t --> tA
-tC ::t --> tA
-tD --> cX ::c
+tB ::t --> tA ::t
+tC ::t --> tA ::t
+tD ::t --> cX ::c
 cY ::c --> cX
 ```
-<!-- ipm-svg id=1lb hash=fdd0fea8 -->
+<!-- ipm-svg id=1lb hash=3f03a727 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1lb.ipm.svg)
 
 The integration of the three kinds around one chain: 'tA' participates
@@ -1955,14 +1955,14 @@ edge #cY,#cX has visibility=visible
 ### a part of two wholes stays on the root row
 
 ```ipmt
-tA --> tB
-tB --> tC
-tD, tE --> tF
-tA --> tF
-tG, tH, tI --> cX ::c
-tD, tE --> cX
+tA ::t --> tB ::t
+tB ::t --> tC ::t
+tD ::t, tE ::t --> tF ::t
+tA ::t --> tF ::t
+tG ::t, tH ::t, tI ::t --> cX ::c
+tD ::t, tE ::t --> cX
 ```
-<!-- ipm-svg id=1ld hash=f2601a99 -->
+<!-- ipm-svg id=1ld hash=48f7b495 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1ld.ipm.svg)
 
 'tA' is a part of TWO wholes ('tB' and 'tF'), so
@@ -2009,9 +2009,9 @@ all #cA,#cB have same y
 ### thing part of event
 
 ```ipmt
-tA --> e1 ::e
+tA ::t --> e1
 ```
-<!-- ipm-svg id=1m0 hash=59a7de16 -->
+<!-- ipm-svg id=1m0 hash=41f9dbcf -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1m0.ipm.svg)
 
 Visual rules:
@@ -2034,10 +2034,10 @@ all #tA,#e1 have same y
 ### multiple things part of event
 
 ```ipmt
-tA --> e1 ::e
-tB --> e1
+tA ::t --> e1
+tB ::t --> e1
 ```
-<!-- ipm-svg id=1mi hash=1aa57408 -->
+<!-- ipm-svg id=1mi hash=aac30d51 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1mi.ipm.svg)
 
 Multiple things part-of one event form ONE left-band stack on a shared
@@ -2056,11 +2056,11 @@ all #tA,#tB have same center-x
 ### things part of an inner event stack in one centred column
 
 ```ipmt
-e1 ::e
-e1a ::e --::P--> e1
+e1
+e1a --::P--> e1
 w1 ::t, w2 ::t, w3 ::t --> e1a
 ```
-<!-- ipm-svg id=1mr hash=f2b7489d -->
+<!-- ipm-svg id=1mr hash=dbbb91a7 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1mr.ipm.svg)
 
 The two-side balance of an on-spine event (see "thing side placement balancing"
@@ -2087,9 +2087,9 @@ all #e1a,#w2 have same y
 ### thing created by event
 
 ```ipmt
-tA --"created-by"--> e1 ::e
+tA ::t --"created-by"--> e1
 ```
-<!-- ipm-svg id=1n0 hash=f6a41aae -->
+<!-- ipm-svg id=1n0 hash=63958eb1 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1n0.ipm.svg)
 
 > Node names are selected by `#name`, which can't contain spaces — rule ids
@@ -2114,10 +2114,10 @@ all #tA,#e1 have same y
 ### multiple things created by event
 
 ```ipmt
-tA --"created-by"--> e1 ::e
-tB --"created-by"--> e1
+tA ::t --"created-by"--> e1
+tB ::t --"created-by"--> e1
 ```
-<!-- ipm-svg id=1ni hash=4c818127 -->
+<!-- ipm-svg id=1ni hash=2571aeb1 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1ni.ipm.svg)
 
 Multiple created-by things stack in the left band exactly like part-of
@@ -2142,13 +2142,13 @@ in the left band of the event or thing it is part-of; a "created-by" label
 reads as an ordinary part-of edge and changes nothing about the side.
 
 ```ipmt
-A --> J ::e
-I ::e --> J
-K ::e --> I
-C --> D --> K
-L --::P--> I
+A ::t --> J
+I --> J
+K --> I
+C ::t --> D ::t --> K
+L ::t --::P--> I
 ```
-<!-- ipm-svg id=1o0 hash=3b07683c -->
+<!-- ipm-svg id=1o0 hash=149d2428 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1o0.ipm.svg)
 
 The event spine runs `K → I → J` (topological order). Each thing takes the left
@@ -2304,9 +2304,9 @@ all #c-X,#c-Y have same y
 ### thing near to thing
 
 ```ipmt
-tA --- tB
+tA ::t --- tB ::t
 ```
-<!-- ipm-svg id=1u0 hash=3fbc9a37 -->
+<!-- ipm-svg id=1u0 hash=b91f4e93 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1u0.ipm.svg)
 
 Visual rules:
@@ -2328,9 +2328,9 @@ all #tA,#tB have same y
 ### event near to event
 
 ```ipmt
-e1 ::e --- e2 ::e
+e1 --- e2
 ```
-<!-- ipm-svg id=1v0 hash=51e8a120 -->
+<!-- ipm-svg id=1v0 hash=df91ce93 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1v0.ipm.svg)
 
 Visual rules:
@@ -2360,14 +2360,14 @@ edge #e1,#e2 is horizontal
 ### near-to sibling components stack in one column
 
 ```ipmt
-e1 ::e --> e2 ::e
-t1-anchor --> e1
+e1 --> e2
+t1-anchor ::t --> e1
 g1a ::t --> g1b ::t
 g2a ::t --> g2b ::t
-g1a --- t1-anchor
-g2a --- t1-anchor
+g1a ::t --- t1-anchor ::t
+g2a ::t --- t1-anchor ::t
 ```
-<!-- ipm-svg id=1vi hash=04e79d84 -->
+<!-- ipm-svg id=1vi hash=0f7211f3 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1vi.ipm.svg)
 
 Several components that near-to link to the SAME anchor node are a sibling
@@ -2396,13 +2396,13 @@ edge #g2a,#t1-anchor has visibility=visible
 ### near-to satellite hoists to the left of its anchor
 
 ```ipmt
-e1 ::e --> e2 ::e
+e1 --> e2
 tL ::t --> e1
 tR ::t --> e1
 t1-sat1 ::t --> t2-sat2 ::t
-t1-sat1 --- tL
+t1-sat1 ::t --- tL ::t
 ```
-<!-- ipm-svg id=1vr hash=191b628f -->
+<!-- ipm-svg id=1vr hash=49f2e74f -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1vr.ipm.svg)
 
 'tL' and 'tR' stack in the event's LEFT band (things left, concepts right —
@@ -2436,11 +2436,11 @@ edge #t1-sat1,#tL does not cross edge #S,#e1
 ### not connected events
 
 ```ipmt
-e1 ::e
-e2 ::e
-e3 ::e
+e1
+e2
+e3
 ```
-<!-- ipm-svg id=1w0 hash=34951d1d -->
+<!-- ipm-svg id=1w0 hash=86364be4 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1w0.ipm.svg)
 
 Layout rules:
@@ -2460,11 +2460,11 @@ all #e1,#e2,#e3 have same y
 ### not connected things
 
 ```ipmt
-A --> B
-C <-- D
-E --> F
+A ::t --> B ::t
+C ::t <-- D ::t
+E ::t --> F ::t
 ```
-<!-- ipm-svg id=1x0 hash=a83412cb -->
+<!-- ipm-svg id=1x0 hash=4aa0d859 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1x0.ipm.svg)
 
 Layout rules:
@@ -2491,11 +2491,11 @@ all #E,#F have same center-x
 ### not connected many events
 
 ```ipmt
-e1a ::e --> e1b ::e --> e1c ::e
-e2a ::e --> e2b ::e --> e2c ::e --> e2d ::e
-e3a ::e --> e3b ::e --> e3c ::e --> e3d ::e --> e3e ::e
+e1a --> e1b --> e1c
+e2a --> e2b --> e2c --> e2d
+e3a --> e3b --> e3c --> e3d --> e3e
 ```
-<!-- ipm-svg id=1y0 hash=9d15f74d -->
+<!-- ipm-svg id=1y0 hash=5a77b40d -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1y0.ipm.svg)
 
 Layout rules:
@@ -2514,16 +2514,16 @@ all #e3a,#e3b,#e3c,#e3d,#e3e have same center-x
 ### start events with side aux stay one gap apart
 
 ```ipmt
-e1 ::e
-e2 ::e
-e3 ::e
+e1
+e2
+e3
 e1 --> e3
 e2 --> e3
 e1 --::X--> cX ::c
 e3 --::X--> cY ::c
 e3 <--::P-- tA ::t
 ```
-<!-- ipm-svg id=1y9 hash=ee1b6e62 -->
+<!-- ipm-svg id=1y9 hash=ba216602 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1y9.ipm.svg)
 
 Two start events joining at one target, the left one carrying an exclusive
@@ -2545,12 +2545,12 @@ all #e1,#e2 have same y
 ### an uneven end fan turns early and E keeps a fan gap
 
 ```ipmt
-s ::e --> x ::e
-s --> y ::e
-s --> z ::e
-y --> y2 ::e
+s --> x
+s --> y
+s --> z
+y --> y2
 ```
-<!-- ipm-svg id=1z9 hash=c0667cf9 -->
+<!-- ipm-svg id=1z9 hash=7d387b59 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1z9.ipm.svg)
 
 The middle branch runs one event deeper, so the end events (`x`, `y2`, `z`)
@@ -2587,13 +2587,13 @@ edge #z,#E does not cross edge #y,#y2
 ### a wide start fan grows its vertical gap
 
 ```ipmt
-e1 ::e --> j ::e
-e2 ::e --> j
-e3 ::e --> j
-e4 ::e --> j
-e5 ::e --> j
+e1 --> j
+e2 --> j
+e3 --> j
+e4 --> j
+e5 --> j
 ```
-<!-- ipm-svg id=1ya hash=123424bc -->
+<!-- ipm-svg id=1ya hash=47eb3396 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1ya.ipm.svg)
 
 Five start events join at 'j', so the implicit 'S' fans DOWN to all five —
@@ -2623,9 +2623,9 @@ all #j,#S,#E have same center-x
 ### wide forks breathe — sibling gaps grow with the fan
 
 ```ipmt
-e1-hub ::e --> w1 ::e, w2 ::e, w3 ::e, w4 ::e
+e1-hub --> w1, w2, w3, w4
 ```
-<!-- ipm-svg id=1yb hash=d448eb0c -->
+<!-- ipm-svg id=1yb hash=38eef6ce -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1yb.ipm.svg)
 
 A fork's siblings keep the standard gap when there are two of them, but a
@@ -2647,17 +2647,17 @@ all #w1,#w2,#w3,#w4 have same y
 ### same-side entries keep their approach order
 
 ```ipmt
-e1::a a first event with a long label ::e --> e2::a a second mid event ::e --> e3::a a third event with the longest label ::e
-tA, tB --> e1
-tC::a the first band thing --> e1
-tD --> e2
-tE::a a last band item --> e3
-tB, tD --> e3
-tD --- tC
-tC --> tF
-tD --> tG::a the second whole
+e1::a a first event with a long label --> e2::a a second mid event --> e3::a a third event with the longest label
+tA ::t, tB ::t --> e1
+tC::a the first band thing ::t --> e1
+tD ::t --> e2
+tE::a a last band item ::t --> e3
+tB ::t, tD ::t --> e3
+tD ::t --- tC
+tC --> tF ::t
+tD ::t --> tG::a the second whole ::t
 ```
-<!-- ipm-svg id=1zb hash=4ba5392f -->
+<!-- ipm-svg id=1zb hash=5d7d4acf -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1zb.ipm.svg)
 
 Three part-of edges reach 'e3' from its left: the band member
@@ -2695,25 +2695,25 @@ edge #tB,#e3 does not cross edge #tD,#e3
 ### a stranded leaf concept comes back to its owner
 
 ```ipmt
-e1 ::e
-tA --> e1
-tB, tC, tD --> e1a ::e --::P--> e1
-tA --- tB
+e1
+tA ::t --> e1
+tB ::t, tC ::t, tD ::t --> e1a --::P--> e1
+tA ::t --- tB ::t
 
-e1b ::e --::P--> e1
-tE, tF --> e1b
-tD --> e1b
-tD --> cX ::c
-e1c ::e --::P--> e1
-tG, tF --> e1c
-tA --- tF
+e1b --::P--> e1
+tE ::t, tF ::t --> e1b
+tD ::t --> e1b
+tD ::t --> cX ::c
+e1c --::P--> e1
+tG ::t, tF ::t --> e1c
+tA ::t --- tF ::t
 
-tH, tB --> e1d ::e --::P--> e1
+tH ::t, tB ::t --> e1d --::P--> e1
 e1d --> e1a
-tH, tF --> e1e ::e --::P--> e1
+tH ::t, tF ::t --> e1e --::P--> e1
 e1e --> e1b --> e1c
 ```
-<!-- ipm-svg id=20b hash=43a4bc86 -->
+<!-- ipm-svg id=20b hash=ec5ec641 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/20b.ipm.svg)
 
 No aux node strays from what it is connected to ("there is no reason
@@ -2752,11 +2752,11 @@ edge #tH,#e1d has max-bends=0
 ### a far tie draws long; the concept stays beside its anchor
 
 ```ipmt
-e1 ::e --> e2 ::e --> e3 ::e --> e4 ::e --> e5 ::e --> e6 ::e --> e7 ::e --> e8 ::e
+e1 --> e2 --> e3 --> e4 --> e5 --> e6 --> e7 --> e8
 e1 --::X--> c1-far ::c
 e8 --::X--> c1-far
 ```
-<!-- ipm-svg id=1yc hash=9bbf0c06 -->
+<!-- ipm-svg id=1yc hash=19649113 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1yc.ipm.svg)
 
 'c1-far' is expressed by the chain's first AND last event, seven rows
@@ -2793,13 +2793,13 @@ node #e7 does not straddle edge #e8,#c1-far
 ### a far-shared concept anchors to its first usage
 
 ```ipmt
-e1 ::e --> e2 ::e --> e3 ::e --> e4 ::e
+e1 --> e2 --> e3 --> e4
 tA ::t --> e1
 tB ::t --> e4
-tA --::X--> c1-shared ::c
-tB --::X--> c1-shared
+tA ::t --::X--> c1-shared ::c
+tB ::t --::X--> c1-shared
 ```
-<!-- ipm-svg id=1zc hash=8ec6cf70 -->
+<!-- ipm-svg id=1zc hash=d7f2d3c3 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1zc.ipm.svg)
 
 'c1-shared' is expressed by two things whose events sit THREE rows apart.
@@ -2830,13 +2830,13 @@ edge #tA,#c1-shared is vertical
 ### component constellation places tied components around the hub
 
 ```ipmt
-a1 ::e --> a2 ::e
-b1 ::e --> b2 ::e
-c1 ::e --> c2 ::e
+a1 --> a2
+b1 --> b2
+c1 --> c2
 a1 --::X--> b1
 a2 --::X--> c1
 ```
-<!-- ipm-svg id=1yd hash=d0ae8f09 -->
+<!-- ipm-svg id=1yd hash=3f6b51a1 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1yd.ipm.svg)
 
 Three components tied by cross-component eXe edges. The most-connected
@@ -2861,12 +2861,12 @@ edge #a2,#c1 has target-side=right
 ### tied components ring the hub on every side (onion)
 
 ```ipmt
-a1 ::e --> a2 ::e
-b1 ::e --> b2 ::e
-c1 ::e --> c2 ::e
-d1 ::e --> d2 ::e
-e1 ::e --> e2 ::e
-f1 ::e --> f2 ::e
+a1 --> a2
+b1 --> b2
+c1 --> c2
+d1 --> d2
+e1 --> e2
+f1 --> f2
 a1 --::X--> b1
 a2 --::X--> b2
 a1 --::X--> c1
@@ -2874,7 +2874,7 @@ a2 --::X--> d1
 a1 --::X--> e1
 a2 --::X--> f1
 ```
-<!-- ipm-svg id=1yf hash=a6c206c9 -->
+<!-- ipm-svg id=1yf hash=56f364c1 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1yf.ipm.svg)
 
 The hub A has five tied components. They tile a GRID around it — two rows
@@ -2920,15 +2920,15 @@ edge #a1,#a2 is vertical
 ### single-node ties ring their core graph
 
 ```ipmt
-a1 ::e --> a2 ::e --> a3 ::e
-t1 ::e
-t2 ::e
-t3 ::e
+a1 --> a2 --> a3
+t1
+t2
+t3
 a1 --::X--> t1
 a3 --::X--> t2
 a2 --::X--> t3
 ```
-<!-- ipm-svg id=1yg hash=db411e43 -->
+<!-- ipm-svg id=1yg hash=caadf3e8 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1yg.ipm.svg)
 
 't1', 't2', 't3' are SINGLE-NODE components, each tied to the multi-node 'a'
@@ -2955,17 +2955,17 @@ all #t1,#t3 have same center-x
 ### a satellite wraps its own rows, not the whole flank
 
 ```ipmt
-tA --> tB
-tC, tA --> e1 ::e
-tD --> e1
+tA ::t --> tB ::t
+tC ::t, tA ::t --> e1
+tD ::t --> e1
 e1 --> cX ::c
-tD --- tE
-tF --- tA
-tG --> tA
-tH --> tA
-tG --> cY ::c
+tD ::t --- tE ::t
+tF ::t --- tA ::t
+tG ::t --> tA ::t
+tH ::t --> tA ::t
+tG ::t --> cY ::c
 ```
-<!-- ipm-svg id=1zg hash=8e023cff -->
+<!-- ipm-svg id=1zg hash=473693c4 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1zg.ipm.svg)
 
 Two near-to satellites join e1's left band: 'tF' beside
@@ -3028,10 +3028,10 @@ all #c2-mid,#cX have same y
 ### unresolved node lays out as its primary candidate
 
 ```ipmt
-e1 ::e --> e2 ::e
+e1 --> e2
 u1 ::?te --> e1
 ```
-<!-- ipm-svg id=1yi hash=c2e0e14b -->
+<!-- ipm-svg id=1yi hash=83ece011 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1yi.ipm.svg)
 
 A node whose kind is undecided (`::?te` — candidates most-likely-first) keeps
@@ -3056,10 +3056,10 @@ made the same arrow a PART-OF. The two blocks differ by two letters and share
 nothing else.
 
 ```ipmt
-e1 ::e --> e2 ::e
+e1 --> e2
 e1 --> u1 ::?ce
 ```
-<!-- ipm-svg id=1ym hash=684eea65 -->
+<!-- ipm-svg id=1ym hash=c8392082 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1ym.ipm.svg)
 
 Layout rules:
@@ -3082,10 +3082,10 @@ character of candidate order decides the skeleton, which is why the order is
 worth writing deliberately rather than letting the solver's default stand.
 
 ```ipmt
-e1 ::e --> e2 ::e
+e1 --> e2
 u1 ::?et --> e1
 ```
-<!-- ipm-svg id=1yo hash=422ffc74 -->
+<!-- ipm-svg id=1yo hash=7d9078b4 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1yo.ipm.svg)
 
 Layout rules:
@@ -3135,9 +3135,9 @@ descend), evenly spread and centred under it.
 
 Example:
 ```ipmt
-tSource --> c-X ::c, c-Y ::c, c-Z ::c
+tSource ::t --> c-X ::c, c-Y ::c, c-Z ::c
 ```
-<!-- ipm-svg id=1z0 hash=bc269dba -->
+<!-- ipm-svg id=1z0 hash=60bb3244 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/1z0.ipm.svg)
 - The three concepts share one row below `tSource` (same y), fanning
   left-to-right with the row centred on the source.
@@ -3150,9 +3150,9 @@ ROW below it, side by side.
 
 Example:
 ```ipmt
-B, C <-- A
+B ::t, C ::t <-- A ::t
 ```
-<!-- ipm-svg id=200 hash=0f3fe06a -->
+<!-- ipm-svg id=200 hash=a236e633 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/200.ipm.svg)
 - `B` and `C` sit on one row below `A` (same y), side by side.
 
@@ -3166,10 +3166,10 @@ top border (shown here).
 
 Example:
 ```ipmt
-A --> cX ::c
-cX <-- B
+A ::t --> cX ::c
+cX <-- B ::t
 ```
-<!-- ipm-svg id=210 hash=f94d545c -->
+<!-- ipm-svg id=210 hash=31a9e3cb -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/210.ipm.svg)
 - The shared concept centres below its two users.
 - The PAIR of arrivals spreads at the QUARTERS of cX's top —
@@ -3202,9 +3202,9 @@ a Go unit test; these additionally pin the behaviour against real fixtures.
 ### long event widens and stays centered
 
 ```ipmt
-e1-short ::e --::L--> A target event with a deliberately long label that wraps onto many many lines so that the aspect ratio rule grows its width to two hundred and forty pixels and we can verify the short source event still shares the same vertical center line as this widened target ::e
+e1-short --::L--> A target event with a deliberately long label that wraps onto many many lines so that the aspect ratio rule grows its width to two hundred and forty pixels and we can verify the short source event still shares the same vertical center line as this widened target
 ```
-<!-- ipm-svg id=220 hash=20c70feb -->
+<!-- ipm-svg id=220 hash=eb56e112 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/220.ipm.svg)
 
 The target's height would exceed three times the base width, so the aspect-ratio
@@ -3222,12 +3222,12 @@ each $a(type=event) ~L~ $b(type=event) has $a,$b same center-x
 ### S and E boundaries connect on their bottom and top
 
 ```ipmt
-e1 ::e --::X--> c1-shared ::c
-e2 ::e --::X--> c1-shared
-e3 ::e --::X--> c1-shared
-e4 ::e --::X--> c1-shared
+e1 --::X--> c1-shared ::c
+e2 --::X--> c1-shared
+e3 --::X--> c1-shared
+e4 --::X--> c1-shared
 ```
-<!-- ipm-svg id=230 hash=659320b4 -->
+<!-- ipm-svg id=230 hash=1ff5ab10 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/230.ipm.svg)
 
 Four parallel events express one shared concept. Under the ANCHOR-AND-TIE
@@ -3271,9 +3271,9 @@ edge #e4,#c1-shared does not cross edge #e3,#c1-shared
 ### a two-concept fan mirrors exactly about its parent
 
 ```ipmt
-tA --> cX ::c --> cY ::c, cZ ::c
+tA ::t --> cX ::c --> cY ::c, cZ ::c
 ```
-<!-- ipm-svg id=239 hash=15e29317 -->
+<!-- ipm-svg id=239 hash=967c204a -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/239.ipm.svg)
 
 A pair of sole leaf concepts sits one box-plus-gap apart — an ODD
@@ -3307,11 +3307,11 @@ near-horizontal line onto a top border reads wrong however open the
 border is, while a steeper V-fork keeps its 1/4 … 1/2 … 1/4 slots).
 
 ```ipmt
-tL --> cS ::c, cL ::c
-tR --> cS, cR ::c
+tL ::t --> cS ::c, cL ::c
+tR ::t --> cS, cR ::c
 cL ::c, cR ::c --> cB ::c
 ```
-<!-- ipm-svg id=23i hash=474f4d0c -->
+<!-- ipm-svg id=23i hash=c1c7a35e -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/23i.ipm.svg)
 
 ```ipmdev-layout-rule
@@ -3333,14 +3333,14 @@ edge #cR,#cB has target-position=0.25
 ### shared thing anchors to its deepest composite
 
 ```ipmt
-e1 ::e --::L--> e2 ::e --::L--> e3 ::e
-e2a ::e --::P--> e2
-e2b ::e --::P--> e2
+e1 --::L--> e2 --::L--> e3
+e2a --::P--> e2
+e2b --::P--> e2
 e2a --::L--> e2b
 tA ::t --> e1
-tA --> e2a
+tA ::t --> e2a
 ```
-<!-- ipm-svg id=240 hash=62a4263d -->
+<!-- ipm-svg id=240 hash=c2648870 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/240.ipm.svg)
 
 The thing 'tA' is part-of both the outer event 'e1' and the inner composite
@@ -3368,10 +3368,10 @@ node #e2b does not straddle edge #tA,#e2a
 ### near-to peers in a column: neighbours link, the spanning tie bypasses
 
 ```ipmt
-e1a ::e
-e1b ::e
-e1c ::e
-e1 ::e
+e1a
+e1b
+e1c
+e1
 e1a --::P--> e1
 e1b --::P--> e1
 e1c --::P--> e1
@@ -3379,7 +3379,7 @@ e1a --- e1b
 e1b --- e1c
 e1a --- e1c
 ```
-<!-- ipm-svg id=250 hash=ebabca8d -->
+<!-- ipm-svg id=250 hash=e6bb6e9d -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/250.ipm.svg)
 
 Three peer sub-events are part-of one composite, so they stack in a
@@ -3449,23 +3449,23 @@ drawing at all, so some crossings are arithmetic, not a placement failure: this
 case carries three in the invariant baseline, by construction.
 
 ```ipmt
-t1 --- t2
-t1 --- t3
-t1 --- t4
-t1 --- t5
-t1 --- t6
-t2 --- t3
-t2 --- t4
-t2 --- t5
-t2 --- t6
-t3 --- t4
-t3 --- t5
-t3 --- t6
-t4 --- t5
-t4 --- t6
-t5 --- t6
+t1 ::t --- t2 ::t
+t1 ::t --- t3 ::t
+t1 ::t --- t4 ::t
+t1 ::t --- t5 ::t
+t1 ::t --- t6 ::t
+t2 ::t --- t3 ::t
+t2 ::t --- t4 ::t
+t2 ::t --- t5 ::t
+t2 ::t --- t6 ::t
+t3 ::t --- t4 ::t
+t3 ::t --- t5 ::t
+t3 ::t --- t6 ::t
+t4 ::t --- t5 ::t
+t4 ::t --- t6 ::t
+t5 ::t --- t6 ::t
 ```
-<!-- ipm-svg id=259 hash=4d6d4df4 -->
+<!-- ipm-svg id=259 hash=1993a1d4 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/259.ipm.svg)
 
 Visual rules:
@@ -3498,24 +3498,24 @@ well-connected peers, here `t2 --- t6`. Which pair it is depends on the
 geometry; that it is a pair both ends can spare does not.
 
 ```ipmt
-t1 --- t2
-t1 --- t3
-t1 --- t4
-t1 --- t5
-t1 --- t6
-t2 --- t3
-t2 --- t4
-t2 --- t5
-t2 --- t6
-t3 --- t4
-t3 --- t5
-t3 --- t6
-t4 --- t5
-t4 --- t6
-t5 --- t6
-t7 --- t3
+t1 ::t --- t2 ::t
+t1 ::t --- t3 ::t
+t1 ::t --- t4 ::t
+t1 ::t --- t5 ::t
+t1 ::t --- t6 ::t
+t2 ::t --- t3 ::t
+t2 ::t --- t4 ::t
+t2 ::t --- t5 ::t
+t2 ::t --- t6 ::t
+t3 ::t --- t4 ::t
+t3 ::t --- t5 ::t
+t3 ::t --- t6 ::t
+t4 ::t --- t5 ::t
+t4 ::t --- t6 ::t
+t5 ::t --- t6 ::t
+t7 ::t --- t3 ::t
 ```
-<!-- ipm-svg id=25d hash=0e022ef1 -->
+<!-- ipm-svg id=25d hash=14ef8bf4 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/25d.ipm.svg)
 
 Visual rules:
@@ -3542,13 +3542,13 @@ edge #t3,#t6 has max-bends=2
 ### near-to peers in a row: neighbours link, the spanning tie dips below
 
 ```ipmt
-tRoot --> tB, tC, tD, tE
-tB --- tC
-tC --- tD
-tD --- tE
-tB --- tE
+tRoot ::t --> tB ::t, tC ::t, tD ::t, tE ::t
+tB ::t --- tC ::t
+tC ::t --- tD ::t
+tD ::t --- tE ::t
+tB ::t --- tE ::t
 ```
-<!-- ipm-svg id=25i hash=da3b00b5 -->
+<!-- ipm-svg id=25i hash=e90a6101 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/25i.ipm.svg)
 
 The ROW mirror of the column case above ("the similar can be
@@ -3584,12 +3584,12 @@ edge #tB,#tE has target-position=0.25
 ### a diagonal near-to connects the facing sides
 
 ```ipmt
-e1 ::e
-tA, tB --> e1
-tC, tD, tE --> e1a ::e --::P--> e1
-tA --- tC
+e1
+tA ::t, tB ::t --> e1
+tC ::t, tD ::t, tE ::t --> e1a --::P--> e1
+tA ::t --- tC ::t
 ```
-<!-- ipm-svg id=25r hash=5b8840e1 -->
+<!-- ipm-svg id=25r hash=b2dca7c3 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/25r.ipm.svg)
 
 The flank bypass of the two cases above needs SUBSTANTIAL alignment — the
@@ -3611,17 +3611,17 @@ edge #tA,#tC has target-side=left
 ### a wide expresses fan orders its sides and lands on the row's tops
 
 ```ipmt
-tA --> cA ::c
-tA --> cB ::c
-tA --> cC ::c
-tA --> cD ::c
-tA --> cE ::c
-tA --> cF ::c
-tA --> cG ::c
-tA --> cH ::c
-tA --> cI ::c
+tA ::t --> cA ::c
+tA ::t --> cB ::c
+tA ::t --> cC ::c
+tA ::t --> cD ::c
+tA ::t --> cE ::c
+tA ::t --> cF ::c
+tA ::t --> cG ::c
+tA ::t --> cH ::c
+tA ::t --> cI ::c
 ```
-<!-- ipm-svg id=260 hash=5beadce0 -->
+<!-- ipm-svg id=260 hash=7856bfba -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-alg/260.ipm.svg)
 
 A thing that expresses many concepts lays the concepts out in a

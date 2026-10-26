@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "tAp1 --\"tAp1 is part of tA\"--\u003e tA\ntAp1 --\"e1 updates existing tAp1\"--\u003e e1\ntC --e-creates-t--\u003e e2",
+    "ipmt": "tAp1 ::t --\"tAp1 is part of tA\"--\u003e tA ::t\ntAp1 ::t --\"e1 updates existing tAp1\"--\u003e e1 ::t\ntC ::t --e-creates-t--\u003e e2 ::t",
     "positions": {
       "nodes": {
         "1": [
@@ -10,63 +10,63 @@
           4
         ],
         "2": [
-          31,
-          33
+          35,
+          37
         ],
         "3": [
-          71,
-          73
+          83,
+          85
         ],
         "4": [
-          74,
-          76
+          90,
+          92
         ],
         "5": [
-          94,
-          96
+          114,
+          116
         ]
       },
       "edges": {
         "6": {
           "arrow": [
-            4,
-            31
+            8,
+            35
           ],
           "source": [
             0,
             4
           ],
           "target": [
-            31,
-            33
+            35,
+            37
           ]
         },
         "7": {
           "arrow": [
-            38,
-            71
+            50,
+            83
           ],
           "source": [
-            34,
-            38
+            42,
+            46
           ],
           "target": [
-            71,
-            73
+            83,
+            85
           ]
         },
         "8": {
           "arrow": [
-            76,
-            94
+            96,
+            114
           ],
           "source": [
-            74,
-            76
+            90,
+            92
           ],
           "target": [
-            94,
-            96
+            114,
+            116
           ]
         }
       }

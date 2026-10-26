@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "# Company founding\nX --\u003e X founded company Y ::e fe::a\nY --\u003e fe\nX --\u003e person ::c\nY --\u003e company ::c\nfe --\u003e Founding is when someone establishes the legal registration of a company ::c",
+    "ipmt": "# Company founding\nX ::t --\u003e X founded company Y ::e fe::a\nY ::t --\u003e fe\nX ::t --\u003e person ::c\nY ::t --\u003e company ::c\nfe --\u003e Founding is when someone establishes the legal registration of a company ::c",
     "positions": {
       "nodes": {
         "1": [
@@ -10,95 +10,95 @@
           20
         ],
         "2": [
-          25,
-          44
+          29,
+          48
         ],
         "3": [
-          55,
-          56
+          59,
+          60
         ],
         "4": [
-          70,
-          76
+          82,
+          88
         ],
         "5": [
-          87,
-          94
+          103,
+          110
         ],
         "6": [
-          106,
-          178
+          122,
+          194
         ]
       },
       "edges": {
         "10": {
           "arrow": [
-            82,
-            87
+            98,
+            103
           ],
           "source": [
-            81,
-            82
+            93,
+            94
           ],
           "target": [
-            87,
-            94
+            103,
+            110
           ]
         },
         "11": {
           "arrow": [
-            101,
-            106
+            117,
+            122
           ],
           "source": [
-            99,
-            101
+            115,
+            117
           ],
           "target": [
-            106,
-            178
+            122,
+            194
           ]
         },
         "7": {
           "arrow": [
-            20,
-            25
+            24,
+            29
           ],
           "source": [
             19,
             20
           ],
           "target": [
-            25,
-            44
+            29,
+            48
           ]
         },
         "8": {
           "arrow": [
-            56,
-            61
+            64,
+            69
           ],
           "source": [
-            55,
-            56
+            59,
+            60
           ],
           "target": [
-            61,
-            63
+            69,
+            71
           ]
         },
         "9": {
           "arrow": [
-            65,
-            70
+            77,
+            82
           ],
           "source": [
-            64,
-            65
+            72,
+            73
           ],
           "target": [
-            70,
-            76
+            82,
+            88
           ]
         }
       }

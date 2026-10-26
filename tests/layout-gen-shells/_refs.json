@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-shells.md",
-        "source_sha1": "2ae6dbe16cd2c2c36d0fc62998883c0380be7102",
+        "source_sha1": "e3d08dc14998da0edb698a221018c2195ce547fb",
         "name": "ipmt layout algorithm shells",
         "method": "parser",
         "parser_name": "ipmt-md",
@@ -14,13 +14,13 @@
                 "destination": "a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air",
                 "line": 37,
                 "anchor": "#a-shell-wraps-the-composite-and-its-members-with-one-pad-of-air",
-                "content_sha1": "c1bb8d7138b0a9b0edb25cfeb38cb7dbd76c0287",
+                "content_sha1": "ac983055bfaccaf8b835c068c6173d126ce3ae0d",
                 "outputs": {
                     "ipm.svg": "a03fac9301404e8707cccee1c662ae185ef433f4",
-                    "ipmt": "c1bb8d7138b0a9b0edb25cfeb38cb7dbd76c0287",
-                    "json": "22b858740412b14651d11b07c3dde979ff506bf6",
+                    "ipmt": "ac983055bfaccaf8b835c068c6173d126ce3ae0d",
+                    "json": "be51e5fa9b41b21c8e4ade0739eea3315ca0f8d2",
                     "layout.json": "9ad19b267ae03bed0797eda6c7f664c3950cf449",
-                    "md": "ffe787eb0bf8e7c41099264093544c165e4c361e"
+                    "md": "79829841d8878f84a70b76f22c11b11210e2fb71"
                 },
                 "heading": "a shell wraps the composite and its members with one pad of air",
                 "section": "Cases"
@@ -29,13 +29,13 @@
                 "destination": "the-spine-keeps-its-row-gap-from-a-shell-hangs-included",
                 "line": 75,
                 "anchor": "#the-spine-keeps-its-row-gap-from-a-shell-hangs-included",
-                "content_sha1": "91bde0b98d38430babf5054705a4bc41cf1d4d48",
+                "content_sha1": "bc6f6e52abe67cf0a51b1f9b617b4d513f020eb8",
                 "outputs": {
                     "ipm.svg": "545bd766096567cc797b0074aba6dfc328c7ed9b",
-                    "ipmt": "91bde0b98d38430babf5054705a4bc41cf1d4d48",
-                    "json": "c768f0ddefe082990ece53e523d2c3b4ca2227d8",
+                    "ipmt": "bc6f6e52abe67cf0a51b1f9b617b4d513f020eb8",
+                    "json": "592985154580e3b71af84bdee6351e79d580d70c",
                     "layout.json": "a9ca55a697bd356a103030f791304c52ff8d55be",
-                    "md": "438d639b28cbfe3aa4c7793b8e74ef660cb88e34"
+                    "md": "dd60d8b879967ead16708583b8f0a94834bfc039"
                 },
                 "heading": "the spine keeps its row gap from a shell, hangs included",
                 "section": "Cases"
@@ -44,13 +44,13 @@
                 "destination": "a-members-satellites-sit-outside-the-shell-their-edges-cross-it",
                 "line": 105,
                 "anchor": "#a-members-satellites-sit-outside-the-shell-their-edges-cross-it",
-                "content_sha1": "369378f18000bdc9ba9f51660ae17561785dc73e",
+                "content_sha1": "12eb41e3daa0b47bb339244e00cb42ea3e73e968",
                 "outputs": {
                     "ipm.svg": "589030b6327df3f4262793ee84a2ea3882b55176",
-                    "ipmt": "369378f18000bdc9ba9f51660ae17561785dc73e",
-                    "json": "63d3955745e14d7caa02ea997cf88851bd9fdd44",
+                    "ipmt": "12eb41e3daa0b47bb339244e00cb42ea3e73e968",
+                    "json": "15eb5504bc4660a509092609a3c5d93de75a41e5",
                     "layout.json": "aef128d4064f0607c491533ac04259712c399509",
-                    "md": "f5ab915c802dd9c8b9cdf4b5b29a166a534c3207"
+                    "md": "5fbe40e1e203d46db64a57a1d6f54e56c9b456e4"
                 },
                 "heading": "a member's satellites sit outside the shell, their edges cross it",
                 "section": "Cases"
@@ -59,13 +59,13 @@
                 "destination": "a-successors-band-rises-beside-the-shell-not-into-it",
                 "line": 142,
                 "anchor": "#a-successors-band-rises-beside-the-shell-not-into-it",
-                "content_sha1": "bb238234f96c023041aeeb2cdb7a61ed7f8935db",
+                "content_sha1": "0b894f756e6c8ab14b642404269b686dd3567477",
                 "outputs": {
                     "ipm.svg": "3d3049f622634c9dced69e23e04bf3c32ddd2cc5",
-                    "ipmt": "bb238234f96c023041aeeb2cdb7a61ed7f8935db",
-                    "json": "1bade4b43c0ad379bab29ff88cc45dddbd747a56",
+                    "ipmt": "0b894f756e6c8ab14b642404269b686dd3567477",
+                    "json": "e23ead4cd2c41f014ee661465daf86e35424d43c",
                     "layout.json": "d44b1a1cac4fa673e51b1b8b199deb1093ad22a6",
-                    "md": "f4d52cb56bb1f6a8572ce02e250321a749301a39"
+                    "md": "39b88103c70e6fafb54cd65bf5f9ac23de384b48"
                 },
                 "heading": "a successor's band rises beside the shell, not into it",
                 "section": "Cases"
@@ -74,13 +74,13 @@
                 "destination": "a-covering-thing-stays-outside-the-shell-and-connects-to-the-composite-itself",
                 "line": 175,
                 "anchor": "#a-covering-thing-stays-outside-the-shell-and-connects-to-the-composite-itself",
-                "content_sha1": "59583167417964690efdd6740c01a175dc606aad",
+                "content_sha1": "20d259246ee123d8245f74a48ee89d350fccce2b",
                 "outputs": {
                     "ipm.svg": "3e84ae58d8160bf1da7a0e65012a7148fdc9ec43",
-                    "ipmt": "59583167417964690efdd6740c01a175dc606aad",
-                    "json": "f6409a7e6c31da5cadd60a51a523cac14f4801c7",
+                    "ipmt": "20d259246ee123d8245f74a48ee89d350fccce2b",
+                    "json": "22a81fbcbbe0f71a457bc681b652c7013d558950",
                     "layout.json": "efd8b8b91dbbdf4284c08578f8e2b7022881fca5",
-                    "md": "af0279a3913bd277a650bf5687d140b04625f5a6"
+                    "md": "d61d5aacfb72776b7e1c25de5e15f705511b633f"
                 },
                 "heading": "a covering thing stays outside the shell and connects to the composite itself",
                 "section": "Cases"
@@ -89,13 +89,13 @@
                 "destination": "a-nested-composite-shares-its-roots-shell",
                 "line": 211,
                 "anchor": "#a-nested-composite-shares-its-roots-shell",
-                "content_sha1": "b74b8f450f937ff4a26b3f28c3dd116676589d6f",
+                "content_sha1": "2faf29ac36e2795fc78469bc197ac5d3b701aac1",
                 "outputs": {
                     "ipm.svg": "fc4152b2b08f7481b94a48cf99af2c790462afc8",
-                    "ipmt": "b74b8f450f937ff4a26b3f28c3dd116676589d6f",
-                    "json": "e2debfddba1914f1fe744bdcd7612ba76e9b50f2",
+                    "ipmt": "2faf29ac36e2795fc78469bc197ac5d3b701aac1",
+                    "json": "67bf37bd9b5eb9e75711ae52e4e53889aa538281",
                     "layout.json": "31e4be3c7b5e77cdefa1104256f53cb134cfc48f",
-                    "md": "ba13fa134630786bcc23a365ed602dadb9b5efdb"
+                    "md": "b401dd175fc595dcc3477cafc6acc200f9766f19"
                 },
                 "heading": "a nested composite shares its root's shell",
                 "section": "Cases"
@@ -104,13 +104,13 @@
                 "destination": "two-root-composites-get-one-shell-each-and-the-spine-threads-between-them",
                 "line": 241,
                 "anchor": "#two-root-composites-get-one-shell-each-and-the-spine-threads-between-them",
-                "content_sha1": "a0b946f6e930fe5fd8c5079d3e19bc42ab7a80d8",
+                "content_sha1": "338e978595397340cad2d3d0fd657c6017eeee54",
                 "outputs": {
                     "ipm.svg": "8dd9de0da3762464b51b2c3fa68eb436811c7d3a",
-                    "ipmt": "a0b946f6e930fe5fd8c5079d3e19bc42ab7a80d8",
-                    "json": "e4a72eb37ea48043496a2a768929b586c29239f9",
+                    "ipmt": "338e978595397340cad2d3d0fd657c6017eeee54",
+                    "json": "c4bed2578dfb25cdb18e7f790ad56ceca0a762d6",
                     "layout.json": "9501cfac539cdcf488c949b14f9c705ae6d0c950",
-                    "md": "23eda315822c640a95ef92498c89d6097264fa23"
+                    "md": "307a1a2c1083a57193ffd90c3041a272e1e259cc"
                 },
                 "heading": "two root composites get one shell each, and the spine threads between them",
                 "section": "Cases"

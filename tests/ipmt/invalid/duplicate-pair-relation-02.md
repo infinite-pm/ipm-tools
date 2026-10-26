@@ -12,8 +12,8 @@
 
 ```ipmt-invalid
 # mixing different base types
-tA --> tB
-tA --::N-- tB
+tA ::t --> tB ::t
+tA ::t --::N-- tB ::t
 ```
 
 ## Generated Files

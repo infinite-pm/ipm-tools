@@ -71,7 +71,7 @@ e2 --::X--> e4
 e1 --- e3
 A, B --> cX ::c
 e2, e4 --> cY ::c
-C --> e2, e4
+C ::t --> e2, e4
 `)
 	g.resolveMembership()
 	c1, c2 := g.byName(t, "e1").comp, g.byName(t, "e3").comp

@@ -11,7 +11,7 @@
 ## ipmt Content
 
 ```ipmt
-Agent A --> E1::a Event 1 ::e   # leads-to inferred from event
+Agent A ::t --> E1::a Event 1 ::e   # leads-to inferred from event
 ```
 
 ## Generated Files

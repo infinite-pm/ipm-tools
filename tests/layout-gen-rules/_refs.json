@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg.md",
-        "source_sha1": "9c9d982fbbf61556cbd1debb539eebb19b946c9c",
+        "source_sha1": "629b799814e5b19276fcde4c62ea1fad817af699",
         "name": "layout test rules",
         "method": "parser",
         "parser_name": "ipmdev-layout-rule-md",

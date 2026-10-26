@@ -11,7 +11,7 @@
 ## ipmt Content
 
 ```ipmt
-e1-short ::e --::L--> A target event with a deliberately long label that wraps onto many many lines so that the aspect ratio rule grows its width to two hundred and forty pixels and we can verify the short source event still shares the same vertical center line as this widened target ::e
+e1-short --::L--> A target event with a deliberately long label that wraps onto many many lines so that the aspect ratio rule grows its width to two hundred and forty pixels and we can verify the short source event still shares the same vertical center line as this widened target
 ```
 
 ## Generated Files

@@ -12,9 +12,9 @@
 
 ```ipmt
 # This is a comment
-Agent A --> E1::a Event 1 ::e
+Agent A ::t --> E1::a Event 1 ::e
 # Another comment
-Agent B --> E1
+Agent B ::t --> E1
 ```
 
 ## Generated Files

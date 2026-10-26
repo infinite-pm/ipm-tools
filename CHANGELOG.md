@@ -7,11 +7,22 @@ extension keeps its own changelog in
 
 ## 0.4.3 — unreleased
 
+- `ipmt-migrate -root` skips tracked symlinks, so a link to a flipped file no longer gets `::t` added to its events on a second pass.
+- New dev command `regen-fixtures` (`make regen-fixtures`, `make regen-fixtures-run`):
+  regenerates every test fixture in the right order after a grammar change and then
+  reports which changed files were expected, which were already stale before the
+  change (those are restored), which are new or deleted, and which docs only got
+  new `md-embed` hash markers.
+
 - `ipmt-migrate` gets `-flip` (adds `::t` to unmarked things and removes `::e` from
   events, proven by old file under the old default == new file under the event default)
   and `-check-manifest`; the new `ipmt-markers.manifest` lists the docs and fixtures
-  that keep explicit markers, and `TestRepoManifest` fails if one loses them. The
-  parser default is not changed yet.
+  that keep explicit markers, and `TestRepoManifest` fails if one loses them.
+
+- The default node type of `ipmt` is now event. An unmarked node is an event; a thing
+  needs `::t`, a concept `::c`. The repo's fixtures and docs were migrated with
+  `ipmt-migrate -flip`, so no diagram changed meaning. `Options.DefaultNodeType`
+  (`model.Thing`) selects the old grammar during the transition.
 
 - `ipm-validate` IPMV2.7 reads a PARENT, not a pair of siblings. A parent
   event whose sub-events are all ordered by leads-to (a sequence) and one

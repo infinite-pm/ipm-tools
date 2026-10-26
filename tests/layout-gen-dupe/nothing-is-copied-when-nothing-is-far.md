@@ -12,7 +12,7 @@
 
 ```ipmt
 # ipmt: embed=false
-e1 ::e --> e2 ::e
+e1 --> e2
 e1, e2 --::X--> cX ::c
 ```
 

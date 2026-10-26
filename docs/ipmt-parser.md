@@ -40,7 +40,7 @@ code: `<--::P "tip"--` / `<--::P contains--`.
 Comma-separated node lists expand to multiple edges (e.g., `A, B --> C` creates `A --> C` and `B --> C`). Ambiguous patterns (mixing multiple sources and multiple targets) are rejected.
 
 ### Node Annotations
-- Types: `::e` (Event), `::c` (Concept), `::t` (Thing, default), and the undecided
+- Types: `::e` (Event, default), `::c` (Concept), `::t` (Thing), and the undecided
   marker `::?<letters>` (`::?et`, `::?ec`, `::?tc`, `::?etc`) → `Unresolved` plus a
   `candidates` list, primary first (see [ipmt-unresolved.md](ipmt-unresolved.md))
 - Alias: `alias::a` placed before the node name (e.g., `E1::a Event 1 ::e`)

@@ -11,7 +11,7 @@
 ## ipmt Content
 
 ```ipmt
-e1 ::e --::L--> e2 ::e, e3 ::e
+e1 --::L--> e2, e3
 ```
 
 ## Generated Files

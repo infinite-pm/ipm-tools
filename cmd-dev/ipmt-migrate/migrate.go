@@ -59,7 +59,7 @@ func migrateDiagram(src string) (out string, f FenceResult) {
 			unplaceable++
 		}
 	}
-	orig, err := parser.Parse([]byte(src), parser.Options{SpecHook: hook})
+	orig, err := parser.Parse([]byte(src), parser.Options{DefaultNodeType: model.Thing, SpecHook: hook})
 	f.Status = StatusOK
 	if err != nil {
 		f.Status = StatusUnparsable
@@ -90,7 +90,7 @@ func migrateDiagram(src string) (out string, f FenceResult) {
 	if corrupt != nil {
 		out = corrupt(out)
 	}
-	cur, err := parser.Parse([]byte(out), parser.Options{})
+	cur, err := parser.Parse([]byte(out), parser.Options{DefaultNodeType: model.Thing})
 	if err != nil {
 		f.Status, f.Detail = StatusFail, "migrated text does not parse: "+err.Error()
 		return src, f
@@ -226,7 +226,7 @@ func containsAny(s string, words []string) bool {
 // hasExplicitThing reports whether a diagram carries an explicit ::t.
 func hasExplicitThing(src string) bool {
 	found := false
-	_, err := parser.Parse([]byte(src), parser.Options{SpecHook: func(e parser.SpecEvent) {
+	_, err := parser.Parse([]byte(src), parser.Options{DefaultNodeType: model.Thing, SpecHook: func(e parser.SpecEvent) {
 		if e.Spec.KindMarker[0] >= 0 && e.Spec.Type == model.Thing {
 			found = true
 		}

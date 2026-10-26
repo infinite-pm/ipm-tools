@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "artifact X --created-by--\u003e eBuild ::e",
+    "ipmt": "artifact X ::t --created-by--\u003e eBuild ::e",
     "positions": {
       "nodes": {
         "1": [
@@ -10,23 +10,23 @@
           10
         ],
         "2": [
-          27,
-          33
+          31,
+          37
         ]
       },
       "edges": {
         "3": {
           "arrow": [
-            10,
-            27
+            14,
+            31
           ],
           "source": [
             0,
             10
           ],
           "target": [
-            27,
-            33
+            31,
+            37
           ]
         }
       }

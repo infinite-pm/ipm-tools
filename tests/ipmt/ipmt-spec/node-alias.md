@@ -11,7 +11,7 @@
 ## ipmt Content
 
 ```ipmt
-tAp1::a Thing A part 1.
+tAp1::a Thing A part 1. ::t
 ```
 
 ## Generated Files

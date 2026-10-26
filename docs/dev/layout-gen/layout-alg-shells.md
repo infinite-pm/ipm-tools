@@ -35,10 +35,10 @@ the right is the grid's) keep a `ColGap` from the shell, outside it.
 
 ```ipmt
 # ipmt: embed=false
-e1 ::e --> eC ::e --> e2 ::e
-m1 ::e --> m2 ::e
+e1 --> eC --> e2
+m1 --> m2
 m1, m2 --::P--> eC
-eC <-- tA
+eC <-- tA ::t
 eC --> cX ::c
 ```
 
@@ -73,9 +73,9 @@ read as the composite's content). The shell's rise is known from the plan when
 
 ```ipmt
 # ipmt: embed=false
-e1 ::e --> eC ::e --> e2 ::e
+e1 --> eC --> e2
 e1 --> cA1 ::c, cA2 ::c, cA3 ::c
-m1 ::e --> m2 ::e
+m1 --> m2
 m1, m2 --::P--> eC
 ```
 
@@ -103,10 +103,10 @@ its right side in row order.
 
 ```ipmt
 # ipmt: embed=false
-e1 ::e --> eC ::e --> e2 ::e
-m1 ::e --> m2 ::e --> m3 ::e
+e1 --> eC --> e2
+m1 --> m2 --> m3
 m1, m2, m3 --::P--> eC
-m2 <-- tX
+m2 <-- tX ::t
 m3 --> cY ::c
 ```
 
@@ -140,10 +140,10 @@ the grid's side) would push `e2` down by its rise instead.
 
 ```ipmt
 # ipmt: embed=false
-e1 ::e --> eC ::e --> e2 ::e
-m1 ::e --> m2 ::e
+e1 --> eC --> e2
+m1 --> m2
 m1, m2 --::P--> eC
-e2 <-- tB1, tB2, tB3, tB4, tB5
+e2 <-- tB1 ::t, tB2 ::t, tB3 ::t, tB4 ::t, tB5 ::t
 ```
 
 ![a successor's band rises beside the shell, not into it](../../../tests/layout-gen-shells/a-successors-band-rises-beside-the-shell-not-into-it.ipm.svg)
@@ -173,8 +173,8 @@ frame pipeline did.)
 
 ```ipmt
 # ipmt: embed=false
-a ::e --> b ::e --> c ::e
-a, b, c --::P--> eC ::e
+a --> b --> c
+a, b, c --::P--> eC
 who ::t --::P--> eC
 ```
 
@@ -209,10 +209,10 @@ the absence produces, not by naming `shell-m2`.)
 
 ```ipmt
 # ipmt: embed=false
-e1 ::e --> eC ::e --> e2 ::e
-m1 ::e --> m2 ::e
+e1 --> eC --> e2
+m1 --> m2
 m1, m2 --::P--> eC
-n1 ::e --> n2 ::e
+n1 --> n2
 n1, n2 --::P--> m2
 ```
 
@@ -239,10 +239,10 @@ picture to their right, they do not bend the story.
 
 ```ipmt
 # ipmt: embed=false
-e1 ::e --> eA ::e --> e3 ::e --> eB ::e --> e5 ::e
-m1 ::e --> m2 ::e
+e1 --> eA --> e3 --> eB --> e5
+m1 --> m2
 m1, m2 --::P--> eA
-n1 ::e --> n2 ::e
+n1 --> n2
 n1, n2 --::P--> eB
 ```
 

@@ -21,11 +21,11 @@ func md(body string) string {
 // in under the current grammar and under DefaultNodeType=event.
 func proof(t *testing.T, in, out string) {
 	t.Helper()
-	orig, err := parser.Parse([]byte(in), parser.Options{})
+	orig, err := parser.Parse([]byte(in), parser.Options{DefaultNodeType: model.Thing})
 	if err != nil {
 		t.Fatalf("original does not parse: %v", err)
 	}
-	cur, err := parser.Parse([]byte(out), parser.Options{})
+	cur, err := parser.Parse([]byte(out), parser.Options{DefaultNodeType: model.Thing})
 	if err != nil {
 		t.Fatalf("migrated does not parse (current grammar): %v", err)
 	}

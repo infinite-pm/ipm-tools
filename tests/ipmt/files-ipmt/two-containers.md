@@ -26,35 +26,35 @@
 # Thing hierarchy: t1 → t1a → t1b → t1c  (3 levels deep)
 # Concept hierarchy: c1 → c1a, c1b  (one concept with two sub-concepts)
 
-e1 ::e
-  --then--> e2 ::e
-  --then--> e3 ::e
-  --then--> e4 ::e
-  --then--> e5 ::e
+e1
+  --then--> e2
+  --then--> e3
+  --then--> e4
+  --then--> e5
 
-e2 <--::P contains-- e2a1 ::e
+e2 <--::P contains-- e2a1
 t1 ::t --> e2a1
 
-e2 <--::P contains-- e2a2 ::e
+e2 <--::P contains-- e2a2
 e2a1, e2a2 --> c1 ::c
 
 e2a1 --> e2a2
 
 # Thing hierarchy: t1 → t1a → t1b → t1c
-t1 --> t1a ::t
-t1a --> t1b ::t
-t1b --> t1c ::t
+t1 ::t --> t1a ::t
+t1a ::t --> t1b ::t
+t1b ::t --> t1c ::t
 
 # Concept hierarchy: c1 has two sub-concepts
 c1 --> c1a ::c
 c1 --> c1b ::c
 
-e4 <--::P contains-- e4a1 ::e
+e4 <--::P contains-- e4a1
 e4a1 --> c3 ::c
 
-e4 <--::P contains-- e4a2 ::e
+e4 <--::P contains-- e4a2
 
-e4 <--::P contains-- e4a3 ::e
+e4 <--::P contains-- e4a3
 e4a3 --> c5 ::c
 
 t2 ::t --> e4a1, e4a2

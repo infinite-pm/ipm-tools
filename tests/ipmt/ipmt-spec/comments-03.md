@@ -11,7 +11,7 @@
 ## ipmt Content
 
 ```ipmt
-Agent #1 --> Event #1 ::e
+Agent #1 ::t --> Event #1 ::e
 ```
 
 ## Generated Files

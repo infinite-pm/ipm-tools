@@ -1,7 +1,7 @@
 [
     {
         "source": "../../../docs/ipmt-spec.md",
-        "source_sha1": "b26526fcc80f3a3d1617526adc311505414a8550",
+        "source_sha1": "110979e2e366aab948ca292ed74f6d6aa4a0d90d",
         "name": "ipmt specification - invalid cases",
         "method": "parser",
         "parser_name": "ipmt-invalid-md",
@@ -12,132 +12,132 @@
         "items": [
             {
                 "destination": "multiple-types",
-                "line": 599,
+                "line": 600,
                 "anchor": "#multiple-types",
                 "content_sha1": "5fe936ef9ef8f3893bed8c19c4d82799e4ff020b",
                 "outputs": {
                     "ipmt-invalid": "5fe936ef9ef8f3893bed8c19c4d82799e4ff020b",
-                    "md": "0925a948fe063bd0ab6e0744edb1037b46e0cdaf"
+                    "md": "14eeabc5b28ee1d860e114ac9c5eb508913d69bf"
                 },
                 "heading": "Multiple types",
                 "section": "Invalid syntax"
             },
             {
                 "destination": "multiple-types-02",
-                "line": 603,
+                "line": 604,
                 "anchor": "#multiple-types",
                 "content_sha1": "199c50c1a0b57d46b853e16bab3659b276c86087",
                 "outputs": {
                     "ipmt-invalid": "199c50c1a0b57d46b853e16bab3659b276c86087",
-                    "md": "84b7986454a294ea5f06dea6d21e44cea96de0e9"
+                    "md": "f4c5422fc3551a243ccea73139adce9ef8af188e"
                 },
                 "heading": "Multiple types",
                 "section": "Invalid syntax"
             },
             {
                 "destination": "sequence-of-nodes-without-commas",
-                "line": 615,
+                "line": 616,
                 "anchor": "#sequence-of-nodes-without-commas",
                 "content_sha1": "74c42d11f87476e9b6d58b1cb8766458c410224c",
                 "outputs": {
                     "ipmt-invalid": "74c42d11f87476e9b6d58b1cb8766458c410224c",
-                    "md": "690115841f9785feb45de32d2c5ec3ac15f5a529"
+                    "md": "e840a96d9559c0c8a398b6217a4e760dff7d6f23"
                 },
                 "heading": "Sequence of nodes without commas",
                 "section": "Invalid syntax"
             },
             {
                 "destination": "ambiguous-separator-use",
-                "line": 628,
+                "line": 629,
                 "anchor": "#ambiguous-separator-use",
                 "content_sha1": "611ed1dbfe49c8187a51b3d8d852577fb3c856d0",
                 "outputs": {
                     "ipmt-invalid": "611ed1dbfe49c8187a51b3d8d852577fb3c856d0",
-                    "md": "17cd157506a04eecac992080ced11b690b65037d"
+                    "md": "9340edfee4b0c787c5cdd3a8a0b23fb3c793dcf3"
                 },
                 "heading": "Ambiguous separator use",
                 "section": "Invalid syntax"
             },
             {
                 "destination": "unterminated-tooltip",
-                "line": 646,
+                "line": 647,
                 "anchor": "#unterminated-tooltip",
                 "content_sha1": "5ca6fb87a9d7a9eb5675ee55aba18715282d2440",
                 "outputs": {
                     "ipmt-invalid": "5ca6fb87a9d7a9eb5675ee55aba18715282d2440",
-                    "md": "b7cbb35e50194e120b20089c650ebc53d0a64100"
+                    "md": "bf9f066a78091f33abcba910bbf4c909ff74338c"
                 },
                 "heading": "Unterminated tooltip",
                 "section": "Invalid syntax"
             },
             {
                 "destination": "unescaped-quotes-inside-tooltip",
-                "line": 651,
+                "line": 652,
                 "anchor": "#unescaped-quotes-inside-tooltip",
                 "content_sha1": "12c8a17283c9105d364337cbdcc26c311ebcde5a",
                 "outputs": {
                     "ipmt-invalid": "12c8a17283c9105d364337cbdcc26c311ebcde5a",
-                    "md": "0b8fce2d3a444072c2ca916ce0f794656f074861"
+                    "md": "80697560b4583b9c730a32b85cb850522531f14c"
                 },
                 "heading": "Unescaped quotes inside tooltip",
                 "section": "Invalid syntax"
             },
             {
                 "destination": "multiple-sources-and-multiple-targets-combined",
-                "line": 657,
+                "line": 658,
                 "anchor": "#multiple-sources-and-multiple-targets-combined",
                 "content_sha1": "bbf0c7e7c23b0833e3d08f7f206e03b222be9651",
                 "outputs": {
                     "ipmt-invalid": "bbf0c7e7c23b0833e3d08f7f206e03b222be9651",
-                    "md": "12222261812bd606eaef0b8345a0c5354ed129db"
+                    "md": "4c6ace8d872e42dd37f94921fcb3953b5bf70f51"
                 },
                 "heading": "Multiple sources and multiple targets combined",
                 "section": "Invalid syntax"
             },
             {
                 "destination": "self-loop",
-                "line": 669,
+                "line": 670,
                 "anchor": "#self-loop",
-                "content_sha1": "c62d6c9f310e5871ad3881fde07dab416c811ab7",
+                "content_sha1": "2d88ff41373b2884fee7c9e8c60d74d5b56c1852",
                 "outputs": {
-                    "ipmt-invalid": "c62d6c9f310e5871ad3881fde07dab416c811ab7",
-                    "md": "0fa913e9e791cefe37c567bb668584060264f461"
+                    "ipmt-invalid": "2d88ff41373b2884fee7c9e8c60d74d5b56c1852",
+                    "md": "d42198b8a22cd4360d84e198b00adc2e3f758fc8"
                 },
                 "heading": "Self-loop",
                 "section": "Invalid semantics"
             },
             {
                 "destination": "duplicate-arrows",
-                "line": 697,
+                "line": 698,
                 "anchor": "#duplicate-arrows",
-                "content_sha1": "872d48fa9bb391acb01bc7f58a6e3d7d720700dd",
+                "content_sha1": "1b89b08cbff087bf5434df7d3ff0b5636e7780ea",
                 "outputs": {
-                    "ipmt-invalid": "872d48fa9bb391acb01bc7f58a6e3d7d720700dd",
-                    "md": "700b78d7d8971e97ece9308ed976a4779a9e48f1"
+                    "ipmt-invalid": "1b89b08cbff087bf5434df7d3ff0b5636e7780ea",
+                    "md": "68e66e7fdb780128cb8f428ff1cff6367277f5d4"
                 },
                 "heading": "Duplicate arrows",
                 "section": "Invalid semantics"
             },
             {
                 "destination": "duplicate-pair-relation",
-                "line": 708,
+                "line": 709,
                 "anchor": "#duplicate-pair-relation",
                 "content_sha1": "bb09497dda474264cf917847ce7152fb35ba664c",
                 "outputs": {
                     "ipmt-invalid": "bb09497dda474264cf917847ce7152fb35ba664c",
-                    "md": "a07a222deeba522606eb62323fb7f505c255e0e9"
+                    "md": "2d052edfa31536475d5bc2f988f42610fdd62179"
                 },
                 "heading": "Duplicate pair relation",
                 "section": "Invalid semantics"
             },
             {
                 "destination": "duplicate-pair-relation-02",
-                "line": 714,
+                "line": 715,
                 "anchor": "#duplicate-pair-relation",
-                "content_sha1": "846d1aa4fc8325bfbced72c941f637bf5967b66f",
+                "content_sha1": "756c9243fed668e11025b9837497ce06a09a0bb4",
                 "outputs": {
-                    "ipmt-invalid": "846d1aa4fc8325bfbced72c941f637bf5967b66f",
-                    "md": "bde7dc8a633f5f9b2735c02fd655ddc849d9af2c"
+                    "ipmt-invalid": "756c9243fed668e11025b9837497ce06a09a0bb4",
+                    "md": "25e378b81e3bed87da10e31e45c7669d9694f186"
                 },
                 "heading": "Duplicate pair relation",
                 "section": "Invalid semantics"

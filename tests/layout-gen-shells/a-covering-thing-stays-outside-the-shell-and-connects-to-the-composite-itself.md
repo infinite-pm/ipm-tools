@@ -12,8 +12,8 @@
 
 ```ipmt
 # ipmt: embed=false
-a ::e --> b ::e --> c ::e
-a, b, c --::P--> eC ::e
+a --> b --> c
+a, b, c --::P--> eC
 who ::t --::P--> eC
 ```
 

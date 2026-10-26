@@ -411,11 +411,11 @@ func TestSemanticTokens_arrowsByRelation(t *testing.T) {
 		// event --> event = leads-to
 		{"A ::e --> B ::e\n", ipmtokens.ModLeadsTo, "leadsTo"},
 		// thing --> event = part-of (containment)
-		{"A --> B ::e\n", ipmtokens.ModPartOf, "partOf"},
+		{"A ::t --> B ::e\n", ipmtokens.ModPartOf, "partOf"},
 		// thing --> concept = expresses
-		{"A --> B ::c\n", ipmtokens.ModExpresses, "expresses"},
+		{"A ::t --> B ::c\n", ipmtokens.ModExpresses, "expresses"},
 		// thing --- thing = near-to (undirected)
-		{"A --- B\n", ipmtokens.ModNearTo, "nearTo"},
+		{"A ::t --- B ::t\n", ipmtokens.ModNearTo, "nearTo"},
 	}
 	for _, c := range cases {
 		t.Run(c.label, func(t *testing.T) {

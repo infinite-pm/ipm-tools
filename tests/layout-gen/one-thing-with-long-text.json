@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "This thing is very important and has a long description text. It can be so so very very so long.",
+    "ipmt": "This thing is very important and has a long description text. It can be so so very very so long. ::t",
     "positions": {
       "nodes": {
         "1": [

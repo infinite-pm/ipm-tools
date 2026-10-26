@@ -1,7 +1,7 @@
 [
     {
         "source": "../../docs/dev/layout-gen/layout-alg-dupe.md",
-        "source_sha1": "7666359bfedebd99f46d7e3ecee04eab7c641de5",
+        "source_sha1": "cc1bcb4928209979af102d925f805a9bd50def1c",
         "name": "layout duplication test rules",
         "method": "parser",
         "parser_name": "ipmdev-layout-rule-md",

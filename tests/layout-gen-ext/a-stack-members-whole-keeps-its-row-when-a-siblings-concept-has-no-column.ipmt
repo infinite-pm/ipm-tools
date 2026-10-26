@@ -1,4 +1,4 @@
-e1 ::e
+e1
 tA ::t, tB ::t --> e1
-tA --> cA ::c
-tB --> tW ::t
+tA ::t --> cA ::c
+tB ::t --> tW ::t

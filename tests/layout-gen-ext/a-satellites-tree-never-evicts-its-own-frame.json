@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "MJ::a Michal Jurosz --\u003e life::a mj's life stories ::e\nMJ --- mj41, mj41.cz\nmj41 --\u003e nick name ::c\nmj41.cz --\u003e URL ::c, web page ::c, internet server ::c",
+    "ipmt": "MJ::a Michal Jurosz ::t --\u003e life::a mj's life stories\nMJ --- mj41 ::t, mj41.cz ::t\nmj41 ::t --\u003e nick name ::c\nmj41.cz ::t --\u003e URL ::c, web page ::c, internet server ::c",
     "positions": {
       "nodes": {
         "1": [
@@ -10,32 +10,32 @@
           19
         ],
         "2": [
-          32,
-          49
+          36,
+          53
         ],
         "3": [
           61,
           65
         ],
         "4": [
-          67,
-          74
+          71,
+          78
         ],
         "5": [
-          84,
-          93
+          96,
+          105
         ],
         "6": [
-          110,
-          113
+          126,
+          129
         ],
         "7": [
-          119,
-          127
+          135,
+          143
         ],
         "8": [
-          133,
-          148
+          149,
+          164
         ]
       },
       "edges": {
@@ -63,78 +63,78 @@
             56
           ],
           "target": [
-            67,
-            74
+            71,
+            78
           ]
         },
         "12": {
           "arrow": [
-            79,
-            84
+            91,
+            96
           ],
           "source": [
-            75,
-            79
+            83,
+            87
           ],
           "target": [
-            84,
-            93
+            96,
+            105
           ]
         },
         "13": {
           "arrow": [
-            105,
-            110
+            121,
+            126
           ],
           "source": [
-            98,
-            105
+            110,
+            117
           ],
           "target": [
-            110,
-            113
+            126,
+            129
           ]
         },
         "14": {
           "arrow": [
-            105,
-            110
+            121,
+            126
           ],
           "source": [
-            98,
-            105
+            110,
+            117
           ],
           "target": [
-            119,
-            127
+            135,
+            143
           ]
         },
         "15": {
           "arrow": [
-            105,
-            110
+            121,
+            126
           ],
           "source": [
-            98,
-            105
+            110,
+            117
           ],
           "target": [
-            133,
-            148
+            149,
+            164
           ]
         },
         "9": {
           "arrow": [
-            19,
-            24
+            23,
+            28
           ],
           "source": [
             6,
             19
           ],
           "target": [
-            32,
-            49
+            36,
+            53
           ]
         }
       }

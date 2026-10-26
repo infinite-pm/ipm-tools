@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "# Alice's story, with the participants and what each frame expresses\ne1::a Alice feels discouraged ::e\n  --\u003e e2::a Alice turns to the Mock Turtle ::e\n  --\u003e e3::a Alice and the Mock Turtle talk ::e\n\n# one worldline through the frames, not one Alice per frame\nAlice --\u003e e1, e2, e3\nthe Mock Turtle --\u003e e2, e3\n\n# what each frame is about: a property of the frame, not of Alice\ne1 --\u003e discouraged ::c\ne3 --\u003e talking ::c\n\n# what she is like - a property others share, not who she is\nAlice --\u003e human ::c",
+    "ipmt": "# Alice's story, with the participants and what each frame expresses\ne1::a Alice feels discouraged ::e\n  --\u003e e2::a Alice turns to the Mock Turtle ::e\n  --\u003e e3::a Alice and the Mock Turtle talk ::e\n\n# one worldline through the frames, not one Alice per frame\nAlice ::t --\u003e e1, e2, e3\nthe Mock Turtle ::t --\u003e e2, e3\n\n# what each frame is about: a property of the frame, not of Alice\ne1 --\u003e discouraged ::c\ne3 --\u003e talking ::c\n\n# what she is like - a property others share, not who she is\nAlice ::t --\u003e human ::c",
     "positions": {
       "nodes": {
         "1": [
@@ -22,20 +22,20 @@
           263
         ],
         "5": [
-          279,
-          294
+          283,
+          298
         ],
         "6": [
-          380,
-          391
+          388,
+          399
         ],
         "7": [
-          403,
-          410
+          411,
+          418
         ],
         "8": [
-          487,
-          492
+          499,
+          504
         ]
       },
       "edges": {
@@ -55,22 +55,8 @@
         },
         "11": {
           "arrow": [
-            263,
-            268
-          ],
-          "source": [
-            258,
-            263
-          ],
-          "target": [
-            268,
-            270
-          ]
-        },
-        "12": {
-          "arrow": [
-            263,
-            268
+            267,
+            272
           ],
           "source": [
             258,
@@ -81,10 +67,10 @@
             274
           ]
         },
-        "13": {
+        "12": {
           "arrow": [
-            263,
-            268
+            267,
+            272
           ],
           "source": [
             258,
@@ -95,74 +81,88 @@
             278
           ]
         },
-        "14": {
+        "13": {
           "arrow": [
-            294,
-            299
+            267,
+            272
           ],
           "source": [
-            279,
-            294
+            258,
+            263
           ],
           "target": [
-            299,
-            301
+            280,
+            282
+          ]
+        },
+        "14": {
+          "arrow": [
+            302,
+            307
+          ],
+          "source": [
+            283,
+            298
+          ],
+          "target": [
+            307,
+            309
           ]
         },
         "15": {
           "arrow": [
-            294,
-            299
+            302,
+            307
           ],
           "source": [
-            279,
-            294
+            283,
+            298
           ],
           "target": [
-            303,
-            305
+            311,
+            313
           ]
         },
         "16": {
           "arrow": [
-            375,
-            380
+            383,
+            388
           ],
           "source": [
-            373,
-            375
+            381,
+            383
           ],
           "target": [
-            380,
-            391
+            388,
+            399
           ]
         },
         "17": {
           "arrow": [
-            398,
-            403
+            406,
+            411
           ],
           "source": [
-            396,
-            398
+            404,
+            406
           ],
           "target": [
-            403,
-            410
+            411,
+            418
           ]
         },
         "18": {
           "arrow": [
-            482,
-            487
+            494,
+            499
           ],
           "source": [
-            477,
-            482
+            485,
+            490
           ],
           "target": [
-            487,
-            492
+            499,
+            504
           ]
         },
         "9": {

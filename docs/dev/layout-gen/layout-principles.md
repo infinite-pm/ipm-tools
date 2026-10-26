@@ -89,11 +89,11 @@ by its placing connectivity, without S/E.
 **Covers:**
 
 ```ipmt
-e1 ::e --> e2 ::e
+e1 --> e2
 A ::t --> e1
-e3 ::e --> e4 ::e
+e3 --> e4
 ```
-<!-- ipm-svg id=100 hash=b4ab4afd -->
+<!-- ipm-svg id=100 hash=656e392e -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-principles/100.ipm.svg)
 
 Two components: `{S, e1, e2, A, E}` and `{S, e3, e4, E}`. `A` joins e1's
@@ -103,18 +103,18 @@ share nothing, so they separate.
 **Does not cover:**
 
 ```ipmt
-e1 ::e --> e2 ::e
+e1 --> e2
 A ::t --> e1
-e3 ::e --> e4 ::e
+e3 --> e4
 B ::t --> e3
-A --- B
+A ::t --- B ::t
 e2 --::X--> e4
 e1 --- e3
-A, B --> cX ::c
+A ::t, B ::t --> cX ::c
 e2, e4 --> cY ::c
-C --> e2, e4
+C ::t --> e2, e4
 ```
-<!-- ipm-svg id=110 hash=cd8e0906 -->
+<!-- ipm-svg id=110 hash=2a879674 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-principles/110.ipm.svg)
 
 Still TWO components. None of the cross-links merges the two event chains:
@@ -207,13 +207,13 @@ order.
 **Covers:**
 
 ```ipmt
-a1 ::e --> a2 ::e
-b1 ::e --> b2 ::e
-c1 ::e
+a1 --> a2
+b1 --> b2
+c1
 a1 --::X--> c1
 b1 --::X--> c1
 ```
-<!-- ipm-svg id=120 hash=83969c98 -->
+<!-- ipm-svg id=120 hash=f7592334 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-principles/120.ipm.svg)
 
 `c1` has TWO cross-component connections; the a and b chains have one each.
@@ -226,13 +226,13 @@ order at every equal step).
 **Covers (sides):**
 
 ```ipmt
-a1 ::e --> a2 ::e
-b1 ::e
-c1 ::e
+a1 --> a2
+b1
+c1
 a1 --::X--> b1
 a2 --::X--> c1
 ```
-<!-- ipm-svg id=130 hash=37549acf -->
+<!-- ipm-svg id=130 hash=9ef1ecf2 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-principles/130.ipm.svg)
 
 The a chain is the most central (two connections); b and c take its LEFT
@@ -299,13 +299,13 @@ rules.)
 **Covers:**
 
 ```ipmt
-e1 ::e --> e2 ::e
-e2b ::e --::P--> e2
-e2a ::e --::P--> e2
+e1 --> e2
+e2b --::P--> e2
+e2a --::P--> e2
 e2a --> e2b
-e2c ::e --::P--> e2
+e2c --::P--> e2
 ```
-<!-- ipm-svg id=140 hash=ecf14ae7 -->
+<!-- ipm-svg id=140 hash=9b8d5a39 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-principles/140.ipm.svg)
 
 `e1` sits above `e2`, their edge one vertical line, S above and E below.
@@ -321,13 +321,13 @@ partial-order state — the column must still lay out sensibly.)
 **Covers (fork order):**
 
 ```ipmt
-s ::e --> x ::e
-s --> y ::e
-s --> z ::e
-x --> j ::e
+s --> x
+s --> y
+s --> z
+x --> j
 z --> j
 ```
-<!-- ipm-svg id=150 hash=4eb37dec -->
+<!-- ipm-svg id=150 hash=7184b86a -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-principles/150.ipm.svg)
 
 `x` and `z` join into `j`, `y` does not — so the row is `x, z, y`: the
@@ -340,14 +340,14 @@ crossing. In plain declaration order (`x, y, z`) `j` would land under `y`
 **Does not cover:**
 
 ```ipmt
-s ::e --> x1 ::e
-s --> x2 ::e
-s --> x3 ::e
-s --> x4 ::e
-s --> x5 ::e
-s --> x6 ::e
+s --> x1
+s --> x2
+s --> x3
+s --> x4
+s --> x5
+s --> x6
 ```
-<!-- ipm-svg id=160 hash=24d07bbb -->
+<!-- ipm-svg id=160 hash=0fc9abab -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-principles/160.ipm.svg)
 
 A wide fan widens its gaps and drops its row — v7P3 says so, but by HOW
@@ -528,14 +528,14 @@ concepts keep the level layout.
 **Covers:**
 
 ```ipmt
-e1 ::e --> e2 ::e
+e1 --> e2
 w ::t --> e1
-p ::t --> w
-p --> e2
-p --> cX ::c
-q ::t --> p
+p ::t --> w ::t
+p ::t --> e2
+p ::t --> cX ::c
+q ::t --> p ::t
 ```
-<!-- ipm-svg id=170 hash=a35efb07 -->
+<!-- ipm-svg id=170 hash=4caa2b1c -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-principles/170.ipm.svg)
 
 One group `{w, p, cX, q}`. Its members with event connectors are `w` (to
@@ -549,11 +549,11 @@ Placement order inside the group: things first (`w`, `q`), then concepts
 **Covers (sibling ordering):**
 
 ```ipmt
-A --> e1 ::e
-A --> B1, B2, B3
-B1, B3 --> cS ::c
+A ::t --> e1
+A ::t --> B1 ::t, B2 ::t, B3 ::t
+B1 ::t, B3 ::t --> cS ::c
 ```
-<!-- ipm-svg id=180 hash=eca65b15 -->
+<!-- ipm-svg id=180 hash=9307c53e -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-principles/180.ipm.svg)
 
 `A` fully owns this hierarchy, so it renders as layered generations:
@@ -567,11 +567,11 @@ the stack members instead.)
 **Does not cover:**
 
 ```ipmt
-A --> e1 ::e
-A --> B1, B2
-B1 --- B2
+A ::t --> e1
+A ::t --> B1 ::t, B2 ::t
+B1 ::t --- B2 ::t
 ```
-<!-- ipm-svg id=190 hash=b8563d4f -->
+<!-- ipm-svg id=190 hash=b69335e7 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-principles/190.ipm.svg)
 
 The `B1 --- B2` near-to is a same-kind TIE (`tNt`), not a placing relation:
@@ -607,11 +607,11 @@ placement hints; they never move nodes inside a component.
 **Covers:**
 
 ```ipmt
-e1 ::e --> e2 ::e
+e1 --> e2
 A ::t --> e1
-A --- B ::t
+A ::t --- B ::t
 ```
-<!-- ipm-svg id=1a0 hash=38d06a71 -->
+<!-- ipm-svg id=1a0 hash=3e31ab29 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-principles/1a0.ipm.svg)
 
 `B` has no placing relation — only the tie to `A`. The tie places it: `B`
@@ -622,11 +622,11 @@ component would be placed outside `B`, not between `B` and `A`.
 **Covers (sibling ordering):**
 
 ```ipmt
-A --> e1 ::e
-A --> B1, B2, B3
-B1 --- B3
+A ::t --> e1
+A ::t --> B1 ::t, B2 ::t, B3 ::t
+B1 ::t --- B3 ::t
 ```
-<!-- ipm-svg id=1b0 hash=2146b759 -->
+<!-- ipm-svg id=1b0 hash=1b3043bc -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-principles/1b0.ipm.svg)
 
 `B1`, `B2`, `B3` are all placed by their part-of into `A`; the tie
@@ -638,13 +638,13 @@ neighbours. (This answers v7P4's does-not-cover.)
 **Does not cover:**
 
 ```ipmt
-e1 ::e --> e2 ::e
+e1 --> e2
 A ::t --> e1
-A --- B ::t
-A --- C ::t
-A --- D ::t
+A ::t --- B ::t
+A ::t --- C ::t
+A ::t --- D ::t
 ```
-<!-- ipm-svg id=1c0 hash=27481fb6 -->
+<!-- ipm-svg id=1c0 hash=a30cdbe2 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-principles/1c0.ipm.svg)
 
 All of `B`, `C`, `D` land in the outermost layer near `A` — but their
@@ -670,15 +670,15 @@ compacts, but the aux still stays beside its anchor.
 **Covers:**
 
 ```ipmt
-s ::e --> x ::e
-s --> m ::e
-s --> z ::e
-x --> j ::e
+s --> x
+s --> m
+s --> z
+x --> j
 m --> j
 z --> j
 A ::t --> m
 ```
-<!-- ipm-svg id=1d0 hash=bdd04099 -->
+<!-- ipm-svg id=1d0 hash=02bd5fdc -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-principles/1d0.ipm.svg)
 
 `A` is part-of the MIDDLE branch `m` — both its natural side spots are
@@ -711,14 +711,14 @@ Cross-component edges never pull (v7P1).
 **Covers:**
 
 ```ipmt
-e1 ::e --> e2 ::e
+e1 --> e2
 W1 ::t --> e1
 V ::t --> e2
-W2 ::t --> V
-T ::t --> W1
-T --> W2
+W2 ::t --> V ::t
+T ::t --> W1 ::t
+T ::t --> W2 ::t
 ```
-<!-- ipm-svg id=1e0 hash=52772761 -->
+<!-- ipm-svg id=1e0 hash=85d17f4c -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-principles/1e0.ipm.svg)
 
 `T` is part-of both `W1` (depth 1: directly on e1) and `W2` (depth 2:
@@ -854,11 +854,11 @@ minimal example each; every value is a MINIMUM — growth only adds):
 The attached-column rhythm on one minimal graph:
 
 ```ipmt
-e1 ::e
+e1
 tD ::t --> e1
-tD --> cX ::c
+tD ::t --> cX ::c
 ```
-<!-- ipm-svg id=1ei hash=6f7ad46d -->
+<!-- ipm-svg id=1ei hash=9825ee1b -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-principles/1ei.ipm.svg)
 
 near-to adjacency:
@@ -872,25 +872,25 @@ tA ::t --- tB ::t
 and the component gap, two event stories side by side:
 
 ```ipmt
-a1 ::e --> a2 ::e
-b1 ::e --> b2 ::e
+a1 --> a2
+b1 --> b2
 a1 --- b1
 ```
-<!-- ipm-svg id=1ev hash=53f12b34 -->
+<!-- ipm-svg id=1ev hash=5f0de35a -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-principles/1ev.ipm.svg)
 
 
 **Covers:**
 
 ```ipmt
-w ::e --> y1 ::e
-w --> y2 ::e
-w --> y3 ::e
-w --> y4 ::e
-w --> y5 ::e
-w --> y6 ::e
+w --> y1
+w --> y2
+w --> y3
+w --> y4
+w --> y5
+w --> y6
 ```
-<!-- ipm-svg id=1f0 hash=008dd88f -->
+<!-- ipm-svg id=1f0 hash=7d388054 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-principles/1f0.ipm.svg)
 
 A six-branch fan cannot keep the base pitch AND a readable fan angle from
@@ -1143,14 +1143,14 @@ unneeded.
 **Covers:**
 
 ```ipmt
-s ::e --> x ::e
-s --> m ::e
-s --> z ::e
+s --> x
+s --> m
+s --> z
 P ::t --> x
 Q ::t --> z
-P --- Q
+P ::t --- Q ::t
 ```
-<!-- ipm-svg id=1g0 hash=cd732253 -->
+<!-- ipm-svg id=1g0 hash=94758c13 -->
 ![](../../../_ipm/docs/dev/layout-gen/layout-principles/1g0.ipm.svg)
 
 `P` and `Q` sit on the fan's outer flanks; their tie must traverse the

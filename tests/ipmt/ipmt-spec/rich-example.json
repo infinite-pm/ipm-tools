@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "Maghull --\"Maghull is near UK\"-- UK\nMaghull --\"Town where Mark was born\"--\u003e BR::a Born ::e\nMark --\u003e BR\nMark --\u003e Enjoy ::e\nBR --\u003e Enjoy\nSB::a school bookshop, books --\u003e Enjoy\nSB --\u003e Banbury --\u003e UK",
+    "ipmt": "Maghull ::t --\"Maghull is near UK\"-- UK ::t\nMaghull ::t --\"Town where Mark was born\"--\u003e BR::a Born ::e\nMark ::t --\u003e BR\nMark ::t --\u003e Enjoy ::e\nBR --\u003e Enjoy\nSB::a school bookshop ::t, books ::t --\u003e Enjoy\nSB --\u003e Banbury ::t --\u003e UK ::t",
     "positions": {
       "nodes": {
         "1": [
@@ -10,159 +10,159 @@
           7
         ],
         "2": [
-          33,
-          35
+          37,
+          39
         ],
         "3": [
-          82,
-          86
+          94,
+          98
         ],
         "4": [
-          91,
-          95
+          103,
+          107
         ],
         "5": [
-          112,
-          117
+          132,
+          137
         ],
         "6": [
-          141,
-          156
+          161,
+          176
         ],
         "7": [
-          158,
-          163
+          182,
+          187
         ],
         "8": [
-          181,
-          188
+          209,
+          216
         ]
       },
       "edges": {
         "10": {
           "arrow": [
-            43,
-            76
+            55,
+            88
           ],
           "source": [
-            36,
-            43
+            44,
+            51
           ],
           "target": [
-            82,
-            86
+            94,
+            98
           ]
         },
         "11": {
           "arrow": [
-            95,
-            100
-          ],
-          "source": [
-            91,
-            95
-          ],
-          "target": [
-            100,
-            102
-          ]
-        },
-        "12": {
-          "arrow": [
-            107,
-            112
+            111,
+            116
           ],
           "source": [
             103,
             107
           ],
           "target": [
-            112,
-            117
+            116,
+            118
+          ]
+        },
+        "12": {
+          "arrow": [
+            127,
+            132
+          ],
+          "source": [
+            119,
+            123
+          ],
+          "target": [
+            132,
+            137
           ]
         },
         "13": {
           "arrow": [
-            124,
-            129
+            144,
+            149
           ],
           "source": [
-            122,
-            124
+            142,
+            144
           ],
           "target": [
-            129,
-            134
+            149,
+            154
           ]
         },
         "14": {
           "arrow": [
-            163,
-            168
+            191,
+            196
           ],
           "source": [
-            141,
-            156
+            161,
+            176
           ],
           "target": [
-            168,
-            173
+            196,
+            201
           ]
         },
         "15": {
           "arrow": [
-            163,
-            168
+            191,
+            196
           ],
           "source": [
-            158,
-            163
+            182,
+            187
           ],
           "target": [
-            168,
-            173
+            196,
+            201
           ]
         },
         "16": {
           "arrow": [
-            176,
-            181
+            204,
+            209
           ],
           "source": [
-            174,
-            176
+            202,
+            204
           ],
           "target": [
-            181,
-            188
+            209,
+            216
           ]
         },
         "17": {
           "arrow": [
-            188,
-            193
+            220,
+            225
           ],
           "source": [
-            181,
-            188
+            209,
+            216
           ],
           "target": [
-            193,
-            195
+            225,
+            227
           ]
         },
         "9": {
           "arrow": [
-            7,
-            33
+            11,
+            37
           ],
           "source": [
             0,
             7
           ],
           "target": [
-            33,
-            35
+            37,
+            39
           ]
         }
       }

@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "guitar, castle, goldfish --\u003e mark's things\nmark's things --\u003e mark in role of owner(id) ::c \u003c-- mark person",
+    "ipmt": "guitar ::t, castle ::t, goldfish ::t --\u003e mark's things ::t\nmark's things ::t --\u003e mark in role of owner(id) ::c \u003c-- mark person ::t",
     "positions": {
       "nodes": {
         "1": [
@@ -10,95 +10,95 @@
           6
         ],
         "2": [
-          8,
-          14
+          12,
+          18
         ],
         "3": [
-          16,
-          24
+          24,
+          32
         ],
         "4": [
-          29,
-          42
+          41,
+          54
         ],
         "5": [
-          61,
-          86
+          81,
+          106
         ],
         "6": [
-          95,
-          106
+          115,
+          126
         ]
       },
       "edges": {
         "10": {
           "arrow": [
-            56,
-            61
+            76,
+            81
           ],
           "source": [
-            43,
-            56
+            59,
+            72
           ],
           "target": [
-            61,
-            86
+            81,
+            106
           ]
         },
         "11": {
           "arrow": [
-            90,
-            95
+            110,
+            115
           ],
           "source": [
-            95,
-            106
+            115,
+            126
           ],
           "target": [
-            61,
-            86
+            81,
+            106
           ]
         },
         "7": {
           "arrow": [
-            24,
-            29
+            36,
+            41
           ],
           "source": [
             0,
             6
           ],
           "target": [
-            29,
-            42
+            41,
+            54
           ]
         },
         "8": {
           "arrow": [
-            24,
-            29
+            36,
+            41
           ],
           "source": [
-            8,
-            14
+            12,
+            18
           ],
           "target": [
-            29,
-            42
+            41,
+            54
           ]
         },
         "9": {
           "arrow": [
-            24,
-            29
+            36,
+            41
           ],
           "source": [
-            16,
-            24
+            24,
+            32
           ],
           "target": [
-            29,
-            42
+            41,
+            54
           ]
         }
       }

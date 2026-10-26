@@ -11,17 +11,17 @@
 ## ipmt Content
 
 ```ipmt
-e1 ::e
-tA --> e1
-e1a ::e --::P--> e1
-e1b ::e --::P--> e1
-e1c ::e --::P--> e1
-e1d ::e --::P--> e1
+e1
+tA ::t --> e1
+e1a --::P--> e1
+e1b --::P--> e1
+e1c --::P--> e1
+e1d --::P--> e1
 e1a --> e1b
 e1b --> e1c
 e1b --> e1d
-e1a1 ::e --::P--> e1a
-e1a2 ::e --::P--> e1a
+e1a1 --::P--> e1a
+e1a2 --::P--> e1a
 e1a1 --> e1a2
 ```
 

@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "e1-start ::e --\u003e e2-leftA ::e\ne1-start --\u003e e3-midB ::e\ne1-start --\u003e e4-rightA ::e\ne2-leftA --\u003e e5-leftB ::e --\u003e e6-leftC ::e\ne4-rightA --\u003e e7-rightB ::e\ne3-midB --\u003e A deliberately very long event label that wraps onto many many lines so that the aspect ratio width rule grows this event to two hundred and forty pixels wide while every branch lane stays vertical and centered wide::a ::e\n\ny1 ::e --\u003e y2 ::e\ny1 \u003c--::P-- y1a ::e, y1b ::e\ny1a --\u003e y1b\ny1b \u003c--::P-- y1b1 ::e\n\nz1 ::e --\u003e z2 ::e --\u003e z3 ::e",
+    "ipmt": "e1-start --\u003e e2-leftA\ne1-start --\u003e e3-midB\ne1-start --\u003e e4-rightA\ne2-leftA --\u003e e5-leftB --\u003e e6-leftC\ne4-rightA --\u003e e7-rightB\ne3-midB --\u003e A deliberately very long event label that wraps onto many many lines so that the aspect ratio width rule grows this event to two hundred and forty pixels wide while every branch lane stays vertical and centered wide::a\n\ny1 --\u003e y2\ny1 \u003c--::P-- y1a, y1b\ny1a --\u003e y1b\ny1b \u003c--::P-- y1b1\n\nz1 --\u003e z2 --\u003e z3",
     "positions": {
       "nodes": {
         "1": [
@@ -10,261 +10,261 @@
           8
         ],
         "10": [
-          400,
-          402
+          364,
+          366
         ],
         "11": [
-          419,
-          422
+          379,
+          382
         ],
         "12": [
-          428,
-          431
+          384,
+          387
         ],
         "13": [
-          461,
-          465
+          413,
+          417
         ],
         "14": [
-          471,
-          473
+          419,
+          421
         ],
         "15": [
-          482,
-          484
+          426,
+          428
         ],
         "16": [
-          493,
-          495
+          433,
+          435
         ],
         "2": [
-          17,
-          25
+          13,
+          21
         ],
         "3": [
-          43,
-          50
+          35,
+          42
         ],
         "4": [
-          68,
-          77
+          56,
+          65
         ],
         "5": [
-          95,
-          103
+          79,
+          87
         ],
         "6": [
-          112,
-          120
+          92,
+          100
         ],
         "7": [
-          139,
-          148
+          115,
+          124
         ],
         "8": [
-          165,
-          375
+          137,
+          347
         ],
         "9": [
-          389,
-          391
+          357,
+          359
         ]
       },
       "edges": {
         "17": {
           "arrow": [
-            12,
-            17
+            8,
+            13
           ],
           "source": [
             0,
             8
           ],
           "target": [
-            17,
-            25
+            13,
+            21
           ]
         },
         "18": {
           "arrow": [
-            38,
-            43
+            30,
+            35
           ],
           "source": [
-            30,
-            38
+            22,
+            30
           ],
           "target": [
-            43,
-            50
+            35,
+            42
           ]
         },
         "19": {
           "arrow": [
-            63,
-            68
+            51,
+            56
           ],
           "source": [
-            55,
-            63
+            43,
+            51
           ],
           "target": [
-            68,
-            77
+            56,
+            65
           ]
         },
         "20": {
           "arrow": [
-            90,
-            95
+            74,
+            79
           ],
           "source": [
-            82,
-            90
+            66,
+            74
           ],
           "target": [
-            95,
-            103
+            79,
+            87
           ]
         },
         "21": {
           "arrow": [
-            107,
-            112
+            87,
+            92
           ],
           "source": [
-            95,
-            103
+            79,
+            87
           ],
           "target": [
-            112,
-            120
+            92,
+            100
           ]
         },
         "22": {
           "arrow": [
-            134,
-            139
+            110,
+            115
           ],
           "source": [
-            125,
-            134
+            101,
+            110
           ],
           "target": [
-            139,
-            148
+            115,
+            124
           ]
         },
         "23": {
           "arrow": [
-            160,
-            165
+            132,
+            137
           ],
           "source": [
-            153,
-            160
+            125,
+            132
           ],
           "target": [
-            165,
-            375
+            137,
+            347
           ]
         },
         "24": {
           "arrow": [
-            395,
-            400
+            359,
+            364
           ],
           "source": [
-            389,
-            391
+            357,
+            359
           ],
           "target": [
-            400,
-            402
+            364,
+            366
           ]
         },
         "25": {
           "arrow": [
-            410,
-            418
+            370,
+            378
           ],
           "source": [
-            419,
-            422
+            379,
+            382
           ],
           "target": [
-            407,
-            409
+            367,
+            369
           ]
         },
         "26": {
           "arrow": [
-            410,
-            418
+            370,
+            378
           ],
           "source": [
-            428,
-            431
+            384,
+            387
           ],
           "target": [
-            407,
-            409
+            367,
+            369
           ]
         },
         "27": {
           "arrow": [
-            439,
-            444
+            391,
+            396
           ],
           "source": [
-            436,
-            439
+            388,
+            391
           ],
           "target": [
-            444,
-            447
+            396,
+            399
           ]
         },
         "28": {
           "arrow": [
-            452,
-            460
+            404,
+            412
           ],
           "source": [
-            461,
-            465
+            413,
+            417
           ],
           "target": [
-            448,
-            451
+            400,
+            403
           ]
         },
         "29": {
           "arrow": [
-            477,
-            482
+            421,
+            426
           ],
           "source": [
-            471,
-            473
+            419,
+            421
           ],
           "target": [
-            482,
-            484
+            426,
+            428
           ]
         },
         "30": {
           "arrow": [
-            488,
-            493
+            428,
+            433
           ],
           "source": [
-            482,
-            484
+            426,
+            428
           ],
           "target": [
-            493,
-            495
+            433,
+            435
           ]
         }
       }

@@ -11,12 +11,12 @@
 ## ipmt Content
 
 ```ipmt
-e1 ::e
+e1
 e1 --> cX ::c
 
-e1a ::e
-  --> e1b ::e
-  --> e1c ::e
+e1a
+  --> e1b
+  --> e1c
 
 e1a --::P--> e1
 e1b --::P--> e1

@@ -7,12 +7,12 @@ Experiments with the [Semantic Spacetime knowledge representation](https://mark-
 Example of the ipmt text representation of the Hokus1 diagram:
 ```ipmt
 e1 ::e --> e2::a Spacetime Event 2. ::e
-tA --> tAp1::a Thing A part 1. --> e1
-tB --> e1
-e2 <-- tC
-tB --- tC
+tA ::t --> tAp1::a Thing A part 1. ::t --> e1
+tB ::t --> e1
+e2 <-- tC ::t
+tB ::t --- tC ::t
 e1, tAp1 --> c-V ::c
-tC --> c-X ::c --> c-Y ::c
+tC ::t --> c-X ::c --> c-Y ::c
 c-Z ::c --- c-X
 ```
 
@@ -35,15 +35,15 @@ below define the language itself.
 Lines starting with `#` are comments and ignored.
 ```ipmt
 # This is a comment
-Agent A --> E1::a Event 1 ::e
+Agent A ::t --> E1::a Event 1 ::e
 # Another comment
-Agent B --> E1
+Agent B ::t --> E1
 ```
 
 A comment can start with whitespaces before `#`:
 ```ipmt
    # This is also a comment
-Agent A
+Agent A ::t
   # And this is a comment in between
   --> E1::a Event 1 ::e
 ```
@@ -51,22 +51,22 @@ Agent A
 A `#` glued to a non-space character is *not* a comment, so it stays part of
 the name:
 ```ipmt
-Agent #1 --> Event #1 ::e
+Agent #1 ::t --> Event #1 ::e
 ```
 is valid and means:
 ```ipmt
-"Agent #1" --> "Event #1" ::e
+"Agent #1" ::t --> "Event #1" ::e
 ```
 
 A `#` that is *surrounded by whitespace* (preceded by a space or tab, and
 followed by a space or end of line) starts a *trailing comment* — everything
 from that `#` to the end of the line is ignored:
 ```ipmt
-Agent A --> E1::a Event 1 ::e   # leads-to inferred from event
+Agent A ::t --> E1::a Event 1 ::e   # leads-to inferred from event
 ```
 means:
 ```ipmt
-Agent A --> E1::a Event 1 ::e
+Agent A ::t --> E1::a Event 1 ::e
 ```
 
 To keep a whitespace-surrounded `#` literal, quote the name:
@@ -97,7 +97,7 @@ stripped:
 
 To specify a node just write the whole text:
 ```ipmt
-Thing A part 1.
+Thing A part 1. ::t
 ```
 or with the explicit `::t` marker:
 ```ipmt
@@ -111,12 +111,12 @@ Note that [double quotes and escapes](#double-quotes-and-escapes) can be used to
 
 Canonical form: place the identifier followed by the `::a` marker before the node name:
 ```ipmt
-tAp1::a Thing A part 1.
+tAp1::a Thing A part 1. ::t
 ```
 
 Current tools also accept a legacy trailing-alias form:
 ```ipmt
-Thing A part 1. tAp1::a
+Thing A part 1. ::t tAp1::a
 ```
 
 Alias
@@ -130,7 +130,7 @@ See [Identifiers](#identifiers) below for the full pattern.
 
 ### Node type
 
-To specify type, use `::e` for event, `::c` for concept, `::t` for thing (default):
+The default node type is event. To specify type, use `::e` for event, `::c` for concept, `::t` for thing:
 
 ```ipmt
 Event 1 ::e
@@ -138,7 +138,8 @@ Concept X ::c
 Thing A ::t
 ```
 
-Note: `::t` is optional because thing is the default type. Uppercase markers
+Note: `::e` is optional because event is the default type: an unmarked node is an
+event, and a thing needs `::t`. Uppercase markers
 (`::E`, `::C`, `::T`) are rejected.
 
 A fourth marker leaves the kind UNDECIDED: `::?` followed by two or three
@@ -164,7 +165,7 @@ the name, `(t)`, `(e)` or `(c)`.
 ```ipmt
 controller ::t --> controller (c) ::c
 resource ::t --> resource (c) ::c
-controller, resource --> controller tracks resources ::e
+controller ::t, resource ::t --> controller tracks resources ::e
 ```
 
 The tag is for the fence only. The layout drops it from the label (the picture and the
@@ -214,7 +215,7 @@ Means:
 ### Simple arrow
 
 ```ipmt
-tA --> tAp1
+tA ::t --> tAp1 ::t
 ```
 
 Arrow semantics are inferred from the type of the source node (s-type) and the type of the target node (t-type).
@@ -286,7 +287,7 @@ Notes:
 ### Reverse arrow
 
 ```ipmt
-e1 <-- tB
+e1 ::t <-- tB ::t
 ```
 Produces a single edge `tB --> e1` (logical direction reversed). The arrow span still records `<--` for reconstruction.
 
@@ -317,9 +318,9 @@ Here "e1 leads to e2" is the tooltip text of the edge.
 
 Other examples:
 ```ipmt
-tAp1 --"tAp1 is part of tA"--> tA
-tAp1 --"e1 updates existing tAp1"--> e1
-tC --e-creates-t--> e2
+tAp1 ::t --"tAp1 is part of tA"--> tA ::t
+tAp1 ::t --"e1 updates existing tAp1"--> e1 ::t
+tC ::t --e-creates-t--> e2 ::t
 ```
 
 Note that whitespace around the tooltip text is allowed:
@@ -336,7 +337,7 @@ e1 ::e --leadsto--> e2 ::e
 ```
 or
 ```ipmt
-artifact X --created-by--> eBuild ::e
+artifact X ::t --created-by--> eBuild ::e
 ```
 
 If the tooltip text contains spaces or characters like `::`, `,`, `-->`, it must be enclosed in double quotes.
@@ -369,29 +370,29 @@ e1 ::e --::N "near"-- e2 ::e
 
 Arrows can be chained to create multiple edges in one line:
 ```ipmt
-tA --> tAp1 --> tAp1sX
+tA ::t --> tAp1 ::t --> tAp1sX ::t
 ```
 is equivalent to:
 ```ipmt
-tA --> tAp1
-tAp1 --> tAp1sX
+tA ::t --> tAp1 ::t
+tAp1 ::t --> tAp1sX ::t
 ```
 
 Also can be mixed with various arrow types:
 ```ipmt
-tA <-- tB --> e1 ::e --- e2 ::e
+tA ::t <-- tB ::t --> e1 ::e --- e2 ::e
 ```
 is equivalent to:
 ```ipmt
-tB --> tA
-tB --> e1 ::e
+tB ::t --> tA ::t
+tB ::t --> e1 ::e
 e1 --- e2 ::e
 ```
 
 With edge tooltips and near link:
 ```ipmt
-tB --"tB is part of tA"--> tA
-tB --e1-hosts-tB--> e1 ::e --"e1 near to e2"-- e2 ::e
+tB ::t --"tB is part of tA"--> tA ::t
+tB ::t --e1-hosts-tB--> e1 ::e --"e1 near to e2"-- e2 ::e
 ```
 
 ## Double quotes and escapes
@@ -528,11 +529,11 @@ e1 ::e --> c-Z
 
 Or
 ```ipmt
-tA, e1 ::e --> c-X ::c
+tA ::t, e1 ::e --> c-X ::c
 ```
 expands to:
 ```ipmt
-tA --> c-X ::c
+tA ::t --> c-X ::c
 e1 ::e --> c-X
 ```
 
@@ -630,15 +631,15 @@ A --> B, C --> D
 
 Use either
 ```ipmt
-A --> B
-C --> D
+A ::t --> B ::t
+C ::t --> D ::t
 ```
 or
 ```ipmt
-A --> B
-A --> C
-B --> D
-C --> D
+A ::t --> B ::t
+A ::t --> C ::t
+B ::t --> D ::t
+C ::t --> D ::t
 ```
 
 ### Unterminated tooltip
@@ -666,7 +667,7 @@ Not allowed: mix of multiple sources and multiple targets in one segment.
 A node cannot link to itself.
 Invalid syntax:
 ```ipmt-invalid
-tA --> tA
+tA ::t --> tA ::t
 e1 ::e --> e1 ::e
 Cx ::c --> Cx ::c
 ```
@@ -684,8 +685,8 @@ Modeling violation (not currently rejected):
 ```ipmt
 # semantically invalid (not enforced)
 e1 ::e --> e2 ::e
-e1 <-- tA
-tA --> e2
+e1 <-- tA ::t
+tA ::t --> e2
 ```
 
 ### Duplicate arrows
@@ -694,9 +695,9 @@ Two arrows between the same source and target are not allowed.
 
 Invalid syntax duplicate arrows from A to B:
 ```ipmt-invalid
-A --> B
-B --> C
-A --> B
+A ::t --> B ::t
+B ::t --> C ::t
+A ::t --> B ::t
 ```
 
 ### Duplicate pair relation
@@ -712,28 +713,28 @@ e1 --::P--> e2
 
 ```ipmt-invalid
 # mixing different base types
-tA --> tB
-tA --::N-- tB
+tA ::t --> tB ::t
+tA ::t --::N-- tB ::t
 ```
 
 ## Examples
 
 ### Minimal example
 ```ipmt
-Agent 1 --> EA::a Event A ::e
-Agent 2 --> EA
-Artifact X --> EA
+Agent 1 ::t --> EA::a Event A ::e
+Agent 2 ::t --> EA
+Artifact X ::t --> EA
 ```
 
 ### Rich example
 ```ipmt
-Maghull --"Maghull is near UK"-- UK
-Maghull --"Town where Mark was born"--> BR::a Born ::e
-Mark --> BR
-Mark --> Enjoy ::e
+Maghull ::t --"Maghull is near UK"-- UK ::t
+Maghull ::t --"Town where Mark was born"--> BR::a Born ::e
+Mark ::t --> BR
+Mark ::t --> Enjoy ::e
 BR --> Enjoy
-SB::a school bookshop, books --> Enjoy
-SB --> Banbury --> UK
+SB::a school bookshop ::t, books ::t --> Enjoy
+SB --> Banbury ::t --> UK ::t
 ```
 
 ## Related

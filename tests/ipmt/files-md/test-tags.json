@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "# @test-tags: simple, single-event, long-text\ne1::a This is a very long label that needs more height ::e",
+    "ipmt": "# @test-tags: simple, single-event, long-text\ne1::a This is a very long label that needs more height",
     "positions": {
       "nodes": {
         "1": [

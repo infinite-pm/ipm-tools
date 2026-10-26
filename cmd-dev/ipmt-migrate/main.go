@@ -33,10 +33,15 @@ func run(args []string, stdout, stderr io.Writer) int {
 	fs.Bool("dry-run", true, "print the report, write nothing (the default)")
 	prose := fs.Bool("prose", false, "read-only prose report instead of a migration")
 	flip := fs.Bool("flip", false, "add ::t to things and remove ::e from events outside the manifest places")
+	invalidOnly := fs.Bool("invalid-only", false, "with -flip: only the invalid lane (.ipmt-invalid files, ```ipmt-invalid fences); the manifest rule is not checked or rewritten")
 	draft := fs.Bool("manifest-draft", false, "read-only: print a draft ipmt-markers.manifest from the prose report")
 	checkManifest := fs.Bool("check-manifest", false, "check the manifest places against the files")
 	manifestFile := fs.String("manifest", "", "manifest file (default ROOT/ipmt-markers.manifest)")
 	if err := fs.Parse(args); err != nil {
+		return 2
+	}
+	if *invalidOnly && !*flip {
+		fmt.Fprintln(stderr, "ipmt-migrate: -invalid-only works only with -flip")
 		return 2
 	}
 	if *draft && (*prose || *flip || *write || *checkManifest) {
@@ -83,12 +88,21 @@ func run(args []string, stdout, stderr io.Writer) int {
 			fmt.Fprintf(stderr, "ipmt-migrate: %s is not a git repository (git ls-files failed: %v)\n", *root, err)
 			return 2
 		}
+		seen := map[string]bool{}
 		for _, rel := range strings.Split(string(out), "\x00") {
-			if strings.HasSuffix(rel, ".md") || strings.HasSuffix(rel, ".ipmt") {
+			if strings.HasSuffix(rel, ".md") || strings.HasSuffix(rel, ".ipmt") || (*flip && isInvalidFile(rel)) {
 				p := filepath.Join(*root, rel)
-				if st, err := os.Stat(p); err == nil && st.Mode().IsRegular() {
-					files = append(files, input{rel, p})
+				// A tracked symlink is skipped: its target is listed on its own,
+				// and a second pass would read already-flipped text.
+				if st, err := os.Lstat(p); err != nil || !st.Mode().IsRegular() {
+					continue
 				}
+				real, err := filepath.EvalSymlinks(p) // guard: a symlinked directory in the path
+				if err != nil || seen[real] {
+					continue
+				}
+				seen[real] = true
+				files = append(files, input{rel, p})
 			}
 		}
 	}
@@ -108,7 +122,7 @@ func run(args []string, stdout, stderr io.Writer) int {
 		if mf == "" && *root != "" {
 			mf = filepath.Join(*root, "ipmt-markers.manifest")
 		}
-		return runFlip(files2(files, func(i input) (string, string) { return i.show, i.path }), mf, *write, stdout, stderr)
+		return runFlip(files2(files, func(i input) (string, string) { return i.show, i.path }), mf, *write, *invalidOnly, stdout, stderr)
 	}
 	if *prose {
 		return runProse(files2(files, func(i input) (string, string) { return i.show, i.path }), stdout, stderr)

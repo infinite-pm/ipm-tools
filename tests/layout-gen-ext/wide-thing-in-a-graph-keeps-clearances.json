@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "A deliberately very long label that wraps onto many many lines so that the aspect ratio width rule grows the width of this node to two hundred and forty pixels while the column stays centered on one line wideH::a ::t --\u003e e1 ::e\ntB ::t --\u003e e1\ne1 --\u003e e2 ::e\ne1 --\u003e cX ::c",
+    "ipmt": "A deliberately very long label that wraps onto many many lines so that the aspect ratio width rule grows the width of this node to two hundred and forty pixels while the column stays centered on one line wideH::a ::t --\u003e e1\ntB ::t --\u003e e1\ne1 --\u003e e2\ne1 --\u003e cX ::c",
     "positions": {
       "nodes": {
         "1": [
@@ -14,16 +14,16 @@
           223
         ],
         "3": [
-          228,
-          230
+          224,
+          226
         ],
         "4": [
-          249,
-          251
+          245,
+          247
         ],
         "5": [
-          263,
-          265
+          255,
+          257
         ]
       },
       "edges": {
@@ -43,44 +43,44 @@
         },
         "7": {
           "arrow": [
-            234,
-            239
+            230,
+            235
           ],
           "source": [
-            228,
-            230
+            224,
+            226
           ],
           "target": [
-            239,
-            241
+            235,
+            237
           ]
         },
         "8": {
           "arrow": [
-            244,
-            249
+            240,
+            245
           ],
           "source": [
-            242,
-            244
+            238,
+            240
           ],
           "target": [
-            249,
-            251
+            245,
+            247
           ]
         },
         "9": {
           "arrow": [
-            258,
-            263
+            250,
+            255
           ],
           "source": [
-            256,
-            258
+            248,
+            250
           ],
           "target": [
-            263,
-            265
+            255,
+            257
           ]
         }
       }

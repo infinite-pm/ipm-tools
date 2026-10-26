@@ -53,7 +53,7 @@ is beside `e1` and beside `e4`, and no edge is long any more (the longest falls
 
 ```ipmt
 # ipmt: embed=false
-e1 ::e --> e2 ::e --> e3 ::e --> e4 ::e --> e5 ::e --> e6 ::e
+e1 --> e2 --> e3 --> e4 --> e5 --> e6
 e1, e2, e3, e4, e5, e6 --::X--> cX ::c
 ```
 
@@ -83,8 +83,8 @@ already owns.
 
 ```ipmt
 # ipmt: embed=false
-e1 ::e --> e2 ::e --> e3 ::e --> e4 ::e --> e5 ::e --> e6 ::e
-tW --::P--> e1, e3, e5
+e1 --> e2 --> e3 --> e4 --> e5 --> e6
+tW ::t --::P--> e1, e3, e5
 ```
 
 ![a thing many events use is drawn beside each group](../../../tests/layout-gen-dupe/a-thing-many-events-use-is-drawn-beside-each-group.ipm.svg)
@@ -112,8 +112,8 @@ would read as a fork in the story that is not there.
 
 ```ipmt
 # ipmt: embed=false
-e1 ::e --> e2 ::e --> e3 ::e --> e4 ::e --> e5 ::e --> e6 ::e
-e1, e2, e3, e4, e5, e6 --::X--> eH ::e
+e1 --> e2 --> e3 --> e4 --> e5 --> e6
+e1, e2, e3, e4, e5, e6 --::X--> eH
 ```
 
 ![an event is never drawn twice](../../../tests/layout-gen-dupe/an-event-is-never-drawn-twice.ipm.svg)
@@ -137,10 +137,10 @@ container forks the tree, so `tW` stays in one place and the chain comes to it.
 
 ```ipmt
 # ipmt: embed=false
-e1 ::e --> e2 ::e --> e3 ::e --> e4 ::e --> e5 ::e --> e6 ::e
-tW --::P--> e1, e3, e5
-t1 --::P--> tW
-t2 --::P--> tW
+e1 --> e2 --> e3 --> e4 --> e5 --> e6
+tW ::t --::P--> e1, e3, e5
+t1 ::t --::P--> tW ::t
+t2 ::t --::P--> tW ::t
 ```
 
 ![a whole is never drawn twice](../../../tests/layout-gen-dupe/a-whole-is-never-drawn-twice.ipm.svg)
@@ -166,7 +166,7 @@ common case, and the reason it can be left on.
 
 ```ipmt
 # ipmt: embed=false
-e1 ::e --> e2 ::e
+e1 --> e2
 e1, e2 --::X--> cX ::c
 ```
 
@@ -195,13 +195,13 @@ ratchet gates on.
 
 ```ipmt
 # ipmt: embed=false
-e1 ::e --> e2 ::e --> e3 ::e --> e4 ::e --> e5 ::e
-e1 <-- t1
-e2 <-- t2
-e3 <-- t3
-e4 <-- t4
-e5 <-- t5
-t1, t2, t3, t4, t5 --::X--> cX ::c
+e1 --> e2 --> e3 --> e4 --> e5
+e1 <-- t1 ::t
+e2 <-- t2 ::t
+e3 <-- t3 ::t
+e4 <-- t4 ::t
+e5 <-- t5 ::t
+t1 ::t, t2 ::t, t3 ::t, t4 ::t, t5 ::t --::X--> cX ::c
 ```
 
 ![a shorter picture that would tangle is refused](../../../tests/layout-gen-dupe/a-shorter-picture-that-would-tangle-is-refused.ipm.svg)

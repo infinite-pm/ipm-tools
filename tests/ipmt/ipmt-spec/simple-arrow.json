@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "tA --\u003e tAp1",
+    "ipmt": "tA ::t --\u003e tAp1 ::t",
     "positions": {
       "nodes": {
         "1": [
@@ -10,23 +10,23 @@
           2
         ],
         "2": [
-          7,
-          11
+          11,
+          15
         ]
       },
       "edges": {
         "3": {
           "arrow": [
-            2,
-            7
+            6,
+            11
           ],
           "source": [
             0,
             2
           ],
           "target": [
-            7,
-            11
+            11,
+            15
           ]
         }
       }

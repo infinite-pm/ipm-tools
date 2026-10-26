@@ -159,6 +159,21 @@ func TestHover_nonASCIIPrefix(t *testing.T) {
 	}
 }
 
+func TestHoverDocsDefaultKind(t *testing.T) {
+	thing := hoverDocs["::t"]
+	for _, bad := range []string{"default to things", "rarely needed"} {
+		if strings.Contains(thing, bad) {
+			t.Errorf("::t hover still says %q:\n%s", bad, thing)
+		}
+	}
+	if !strings.Contains(thing, "unmarked") || !strings.Contains(thing, "`::t`") {
+		t.Errorf("::t hover must say a thing needs the explicit marker (unmarked); got:\n%s", thing)
+	}
+	if ev := hoverDocs["::e"]; !strings.Contains(ev, "unmarked") {
+		t.Errorf("::e hover must say an unmarked node is an event; got:\n%s", ev)
+	}
+}
+
 func TestHover_unknownDocumentReturnsNil(t *testing.T) {
 	srv := newCmdTestServer(t)
 	h, err := srv.hover(t.Context(), &lsp.HoverParams{

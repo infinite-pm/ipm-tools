@@ -11,7 +11,7 @@
 ## ipmt Content
 
 ```ipmt
-tB --- tC
+tB ::t --- tC ::t
 ```
 
 ## Generated Files

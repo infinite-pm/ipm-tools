@@ -13,14 +13,20 @@
 ```ipmt
 controller ::t --> controller (c) ::c
 resource ::t --> resource (c) ::c
-controller, resource --> controller tracks resources ::e
+controller ::t, resource ::t --> controller tracks resources ::e
 ```
 
 ## Generated Files
 
 - [one-word-two-kinds-the-kind-tag.ipmt](one-word-two-kinds-the-kind-tag.ipmt) - ipmt input
 - [one-word-two-kinds-the-kind-tag.json](one-word-two-kinds-the-kind-tag.json) - Parsed structure
+- [one-word-two-kinds-the-kind-tag.layout.json](one-word-two-kinds-the-kind-tag.layout.json) - Layout coordinates
+- [one-word-two-kinds-the-kind-tag.ipm.svg](one-word-two-kinds-the-kind-tag.ipm.svg) - Rendered diagram
+
+## Rendered Diagram
+
+![one-word-two-kinds-the-kind-tag](one-word-two-kinds-the-kind-tag.ipm.svg)
 
 This test case was automatically generated from the specification document.
 
-The ipmt code block was extracted using [sync-test-cases](../../../docs/dev/testing.md) and saved to [one-word-two-kinds-the-kind-tag.ipmt](one-word-two-kinds-the-kind-tag.ipmt), then parsed into the [JSON structure](one-word-two-kinds-the-kind-tag.json).
+The ipmt code block was extracted using [sync-test-cases](../../../docs/dev/testing.md) and saved to [one-word-two-kinds-the-kind-tag.ipmt](one-word-two-kinds-the-kind-tag.ipmt), then parsed into the [JSON structure](one-word-two-kinds-the-kind-tag.json) and laid out into [layout coordinates](one-word-two-kinds-the-kind-tag.layout.json). The [SVG diagram](one-word-two-kinds-the-kind-tag.ipm.svg) was rendered using [ipmsvg-gen](../../../docs/ipmsvg-gen.md).

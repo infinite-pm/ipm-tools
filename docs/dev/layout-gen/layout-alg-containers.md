@@ -33,8 +33,8 @@ row gap under the LAST member.
 
 ```ipmt
 # ipmt: embed=false
-e1 ::e --> e2 ::e --> e3 ::e
-e2 <--::P-- e2a ::e, e2b ::e
+e1 --> e2 --> e3
+e2 <--::P-- e2a, e2b
 e2a --> e2b
 ```
 
@@ -69,8 +69,8 @@ the spine steps around it: `e2` centres on the grid, `e3` waits below all of it.
 
 ```ipmt
 # ipmt: embed=false
-e1 ::e --> e2 ::e --> e3 ::e
-e2 <--::P-- e2a ::e, e2b ::e, e2c ::e
+e1 --> e2 --> e3
+e2 <--::P-- e2a, e2b, e2c
 e2a --> e2b --> e2c
 ```
 

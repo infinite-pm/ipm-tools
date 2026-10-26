@@ -11,7 +11,7 @@
 ## ipmt Content
 
 ```ipmt
-tShort --> A deliberately very long label that wraps onto many many lines so that the aspect ratio width rule grows the width of this node to two hundred and forty pixels while the column stays centered on one line wideT::a ::t
+tShort ::t --> A deliberately very long label that wraps onto many many lines so that the aspect ratio width rule grows the width of this node to two hundred and forty pixels while the column stays centered on one line wideT::a ::t
 ```
 
 ## Generated Files

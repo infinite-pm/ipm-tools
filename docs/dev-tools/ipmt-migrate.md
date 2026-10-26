@@ -1,8 +1,8 @@
 # ipmt-migrate
 
 `gl:cmd-dev/ipmt-migrate` adds an explicit `::t` to every unmarked thing in ipmt
-text and changes nothing else. It is step one of making the default node kind an
-event: once every thing carries `::t`, the parser default can flip without any
+text and changes nothing else. It is step one of making event the default node kind
+(the parser default is now event on this branch): once every thing carries `::t`, the parser default can flip without any
 diagram changing meaning.
 
 ## Usage
@@ -17,6 +17,7 @@ go run ./cmd-dev/ipmt-migrate -write a.md b.ipmt                     # explicit 
 - `-root DIR` takes the files from `git ls-files -z` of that repo: tracked files only,
   so untracked and ignored files (such as `temp/`) are skipped. `DIR` that is not a git
   repository, no input at all, or an unreadable file is an error with exit status 2.
+  Tracked symlinks are skipped (the target is listed on its own), so no file is processed twice.
 - Files are `*.ipmt` (the whole file is one diagram) and `*.md` (every ` ```ipmt ` fence,
   found with `markdown.ScanIPMTBlocks`: wrapper fences such as a ` ````md ` example are
   literal text and are left alone). A file keeps its own line endings, CRLF included.
@@ -32,6 +33,21 @@ tooltip string: `book "tip" ::tip` becomes `book ::t "tip" ::tip`.
 Left alone: a spec with a marker (`::t`, `::e`, `::c`), an undecided `::?et` spec, a bare
 mention of an event or a concept (the first kind wins), and a bare reference to an alias
 defined earlier.
+
+## Known limit: fixtures in code
+
+The migration reads `.ipmt` and `.md` files only. It does NOT rewrite ipmt text inside
+Go string literals, testdata of other formats or `.txt` fixtures. After the event-default
+change, an unmarked quoted thing there (for example `a --> "the phone"` in a test fixture)
+reads as an event, and the test that parses it can go red.
+
+Before a flip, grep the repo's Go tests and fixtures for ipmt text:
+
+```bash
+git grep -nE '"[^"]+" *--[a-z0-9:_ -]*>'
+```
+
+Mark the things found by hand with `::t`, then run the repo's full tests with the new tools.
 
 ## The proof
 
@@ -109,16 +125,50 @@ never from a regex; CRLF stays). A fence or file the manifest keeps gets step A 
 its explicit `::e`, but an unmarked thing in it still gets `::t`, because after the flip an
 unmarked name would turn into an event.
 
-The proof, per fence: the original parsed with the current default (thing) equals the
+The proof, per fence: the original parsed with the old default (thing, kept in the tool on purpose via `Options.DefaultNodeType`) equals the
 flipped text parsed with `parser.Options{DefaultNodeType: model.Event}` (same node ids,
 names, aliases, types, tooltips, edges). A failed proof is not written, is listed as `FAIL`,
 and the exit status is 1. Text that does not parse today is left alone and listed as
 unparsable.
 
+### The invalid lane
+
+`-flip` also takes the negative examples: `.ipmt-invalid` files (selected by `-root`) and
+`ipmt-invalid` fences in `.md` files. They do not parse into a graph, so there is nothing to
+compare with `sameGraph`. The edits are the same as above. The proof is the rejection: the old
+text under the thing default and the flipped text under the event default must be rejected
+with the same message. The message is the parser error text or, for text that parses and is
+rejected by the validator (self-loop), the validator's error findings (code and message);
+positions are not compared. Because the parser stops at its first error, only the specs
+resolved before it are edited; later text is never read by either default.
+
+- the proof holds: the file or fence is flipped, status ok;
+- `FAIL`: the old text is not rejected at all, or the flipped text is accepted, or the
+  message changes (both messages are printed). The text stays unchanged and the exit status is
+  1. The owner reviews the case and rewrites the fixture by hand, so that the error is the
+  intended one;
+- unparsable, left unchanged: the parse fails before any node spec is resolved (a syntax error
+  on the first line of a fence), so there is nothing to mark. Such a fence has no unmarked
+  node the parser read; it is listed, never silent.
+
 `rule event` in the manifest means the repo is flipped: `-flip` prints `already flipped`,
 changes nothing and exits 0, so it never adds a `::t` twice. `-flip -write` sets the rule
 line to `event` only when no fence failed. Without a manifest (`-manifest FILE`, or
 `-root DIR` with `DIR/ipmt-markers.manifest`) `-flip` refuses with exit 2.
+
+### `-invalid-only`
+
+```bash
+go run ./cmd-dev/ipmt-migrate -flip -invalid-only -root DIR [-write]
+```
+
+For a repo whose valid places were already flipped (manifest `rule event`) while the invalid
+lane still has the old meaning. Only `.ipmt-invalid` files and `ipmt-invalid` fences are
+processed; `.ipmt` files and `ipmt` fences are left untouched and counted as `skipped` (a file
+with both kinds, such as a spec with a valid and an invalid fence, would otherwise get `::t`
+on its already flipped valid fences). The manifest rule is neither checked as "already
+flipped" (so the run happens with `rule event`) nor rewritten by `-write`. Without `-flip` the
+flag is a usage error (exit 2). The report has an extra line `invalid-only: skipped=N ...`.
 
 Report: `file: fences=N things-marked=N events-unmarked=N`, then
 `TOTAL (dry-run|write) files= changed= fences= things-marked= events-unmarked= kept= unparsable= fail=`.
@@ -128,21 +178,23 @@ Report: `file: fences=N things-marked=N events-unmarked=N`, then
 
 ```ipmt
 # the migration of one repo
-run migrate ::e
-list tracked files ::e
-parse diagram ::e
-insert the marker ::e
-check the graph ::e
-write the file ::e
-print the report ::e
-the tool --> run migrate
-the repo --> list tracked files
+run migrate
+list tracked files
+parse diagram
+insert the marker
+check the graph
+write the file
+print the report
+the tool ::t --> run migrate
+the repo ::t --> list tracked files
 run migrate --> list tracked files --> parse diagram --> insert the marker --> check the graph --> write the file
 check the graph --> print the report
-the tool --> check the graph
-the diagram --> parse diagram
-the report --> print the report
+the tool ::t --> check the graph
+the diagram ::t --> parse diagram
+the report ::t --> print the report
 ```
+<!-- ipm-svg id=100 hash=cffe9a18 -->
+![](../../_ipm/docs/dev-tools/ipmt-migrate/100.ipm.svg)
 
 Each diagram goes through parse, insert, check; only a diagram whose check passes is
 written, and the report lists the rest.

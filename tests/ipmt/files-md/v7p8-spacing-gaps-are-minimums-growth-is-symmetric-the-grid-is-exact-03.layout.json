@@ -4,8 +4,8 @@
     {
       "id": "1",
       "type": "event",
-      "label": "a1",
-      "x": 40,
+      "label": "w",
+      "x": 690,
       "y": 120,
       "width": 120,
       "height": 60
@@ -13,63 +13,72 @@
     {
       "id": "2",
       "type": "event",
-      "label": "a2",
+      "label": "y1",
       "x": 40,
-      "y": 240,
+      "y": 360,
       "width": 120,
       "height": 60
     },
     {
       "id": "3",
       "type": "event",
-      "label": "b1",
-      "x": 280,
-      "y": 120,
+      "label": "y2",
+      "x": 300,
+      "y": 360,
       "width": 120,
       "height": 60
     },
     {
       "id": "4",
       "type": "event",
-      "label": "b2",
-      "x": 280,
-      "y": 240,
+      "label": "y3",
+      "x": 560,
+      "y": 360,
       "width": 120,
       "height": 60
     },
     {
       "id": "5",
-      "type": "boundary",
-      "label": "S",
-      "x": 80,
-      "y": 40,
-      "width": 40,
-      "height": 40
+      "type": "event",
+      "label": "y4",
+      "x": 820,
+      "y": 360,
+      "width": 120,
+      "height": 60
     },
     {
       "id": "6",
-      "type": "boundary",
-      "label": "E",
-      "x": 80,
-      "y": 340,
-      "width": 40,
-      "height": 40
+      "type": "event",
+      "label": "y5",
+      "x": 1080,
+      "y": 360,
+      "width": 120,
+      "height": 60
     },
     {
       "id": "7",
-      "type": "boundary",
-      "label": "S",
-      "x": 320,
-      "y": 40,
-      "width": 40,
-      "height": 40
+      "type": "event",
+      "label": "y6",
+      "x": 1340,
+      "y": 360,
+      "width": 120,
+      "height": 60
     },
     {
       "id": "8",
       "type": "boundary",
+      "label": "S",
+      "x": 730,
+      "y": 40,
+      "width": 40,
+      "height": 40
+    },
+    {
+      "id": "9",
+      "type": "boundary",
       "label": "E",
-      "x": 320,
-      "y": 340,
+      "x": 730,
+      "y": 600,
       "width": 40,
       "height": 40
     }
@@ -84,24 +93,7 @@
       "route": {
         "source": {
           "side": "bottom",
-          "position": 0.5
-        },
-        "target": {
-          "side": "top",
-          "position": 0.5
-        }
-      }
-    },
-    {
-      "from": "3",
-      "to": "4",
-      "dir": "fwd",
-      "base": "leadsto",
-      "style": "leadsto",
-      "route": {
-        "source": {
-          "side": "bottom",
-          "position": 0.5
+          "position": 0.14285714285714285
         },
         "target": {
           "side": "top",
@@ -112,22 +104,90 @@
     {
       "from": "1",
       "to": "3",
-      "dir": "undir",
-      "base": "nearto",
-      "style": "nearto",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
       "route": {
         "source": {
-          "side": "right",
-          "position": 0.5
+          "side": "bottom",
+          "position": 0.2857142857142857
         },
         "target": {
-          "side": "left",
+          "side": "top",
           "position": 0.5
         }
       }
     },
     {
-      "from": "5",
+      "from": "1",
+      "to": "4",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.42857142857142855
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "1",
+      "to": "5",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5714285714285714
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "1",
+      "to": "6",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.7142857142857143
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "1",
+      "to": "7",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.8571428571428571
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5
+        }
+      }
+    },
+    {
+      "from": "8",
       "to": "1",
       "dir": "fwd",
       "base": "leadsto",
@@ -145,7 +205,7 @@
     },
     {
       "from": "2",
-      "to": "6",
+      "to": "9",
       "dir": "fwd",
       "base": "leadsto",
       "style": "leadsto",
@@ -156,13 +216,13 @@
         },
         "target": {
           "side": "top",
-          "position": 0.5
+          "position": 0.14285714285714285
         }
       }
     },
     {
-      "from": "7",
-      "to": "3",
+      "from": "3",
+      "to": "9",
       "dir": "fwd",
       "base": "leadsto",
       "style": "leadsto",
@@ -173,13 +233,13 @@
         },
         "target": {
           "side": "top",
-          "position": 0.5
+          "position": 0.2857142857142857
         }
       }
     },
     {
       "from": "4",
-      "to": "8",
+      "to": "9",
       "dir": "fwd",
       "base": "leadsto",
       "style": "leadsto",
@@ -190,15 +250,66 @@
         },
         "target": {
           "side": "top",
+          "position": 0.42857142857142855
+        }
+      }
+    },
+    {
+      "from": "5",
+      "to": "9",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
           "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.5714285714285714
+        }
+      }
+    },
+    {
+      "from": "6",
+      "to": "9",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.7142857142857143
+        }
+      }
+    },
+    {
+      "from": "7",
+      "to": "9",
+      "dir": "fwd",
+      "base": "leadsto",
+      "style": "leadsto",
+      "route": {
+        "source": {
+          "side": "bottom",
+          "position": 0.5
+        },
+        "target": {
+          "side": "top",
+          "position": 0.8571428571428571
         }
       }
     }
   ],
   "meta": {
     "bounds": {
-      "width": 440,
-      "height": 420,
+      "width": 1500,
+      "height": 680,
       "marginX": 40,
       "marginY": 40
     },

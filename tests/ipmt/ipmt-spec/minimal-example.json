@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "Agent 1 --\u003e EA::a Event A ::e\nAgent 2 --\u003e EA\nArtifact X --\u003e EA",
+    "ipmt": "Agent 1 ::t --\u003e EA::a Event A ::e\nAgent 2 ::t --\u003e EA\nArtifact X ::t --\u003e EA",
     "positions": {
       "nodes": {
         "1": [
@@ -10,59 +10,59 @@
           7
         ],
         "2": [
-          18,
-          25
+          22,
+          29
         ],
         "3": [
-          30,
-          37
+          34,
+          41
         ],
         "4": [
-          45,
-          55
+          53,
+          63
         ]
       },
       "edges": {
         "5": {
           "arrow": [
-            7,
-            12
+            11,
+            16
           ],
           "source": [
             0,
             7
           ],
           "target": [
-            18,
-            25
+            22,
+            29
           ]
         },
         "6": {
           "arrow": [
-            37,
-            42
+            45,
+            50
           ],
           "source": [
-            30,
-            37
+            34,
+            41
           ],
           "target": [
-            42,
-            44
+            50,
+            52
           ]
         },
         "7": {
           "arrow": [
-            55,
-            60
+            67,
+            72
           ],
           "source": [
-            45,
-            55
+            53,
+            63
           ],
           "target": [
-            60,
-            62
+            72,
+            74
           ]
         }
       }

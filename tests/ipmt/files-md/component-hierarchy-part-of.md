@@ -11,8 +11,8 @@
 ## ipmt Content
 
 ```ipmt
-deployment-pod --> microservice-A
-source-file-X --> microservice-A
+deployment-pod ::t --> microservice-A ::t
+source-file-X ::t --> microservice-A ::t
 ```
 
 ## Generated Files

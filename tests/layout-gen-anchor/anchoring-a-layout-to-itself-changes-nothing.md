@@ -12,8 +12,8 @@
 
 ```ipmt
 # ipmt: embed=false
-e1 ::e --> e2 ::e --> e3 ::e
-e2 <-- tA
+e1 --> e2 --> e3
+e2 <-- tA ::t
 e2 --> cX ::c
 ```
 

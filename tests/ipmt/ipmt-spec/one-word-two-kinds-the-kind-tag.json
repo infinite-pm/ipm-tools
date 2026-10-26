@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "controller ::t --\u003e controller (c) ::c\nresource ::t --\u003e resource (c) ::c\ncontroller, resource --\u003e controller tracks resources ::e",
+    "ipmt": "controller ::t --\u003e controller (c) ::c\nresource ::t --\u003e resource (c) ::c\ncontroller ::t, resource ::t --\u003e controller tracks resources ::e",
     "positions": {
       "nodes": {
         "1": [
@@ -22,8 +22,8 @@
           67
         ],
         "5": [
-          97,
-          124
+          105,
+          132
         ]
       },
       "edges": {
@@ -57,30 +57,30 @@
         },
         "8": {
           "arrow": [
-            92,
-            97
+            100,
+            105
           ],
           "source": [
             72,
             82
           ],
           "target": [
-            97,
-            124
+            105,
+            132
           ]
         },
         "9": {
           "arrow": [
-            92,
-            97
+            100,
+            105
           ],
           "source": [
-            84,
-            92
+            88,
+            96
           ],
           "target": [
-            97,
-            124
+            105,
+            132
           ]
         }
       }

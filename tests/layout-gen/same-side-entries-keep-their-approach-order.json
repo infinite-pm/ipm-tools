@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "e1::a a first event with a long label ::e --\u003e e2::a a second mid event ::e --\u003e e3::a a third event with the longest label ::e\ntA, tB --\u003e e1\ntC::a the first band thing --\u003e e1\ntD --\u003e e2\ntE::a a last band item --\u003e e3\ntB, tD --\u003e e3\ntD --- tC\ntC --\u003e tF\ntD --\u003e tG::a the second whole",
+    "ipmt": "e1::a a first event with a long label --\u003e e2::a a second mid event --\u003e e3::a a third event with the longest label\ntA ::t, tB ::t --\u003e e1\ntC::a the first band thing ::t --\u003e e1\ntD ::t --\u003e e2\ntE::a a last band item ::t --\u003e e3\ntB ::t, tD ::t --\u003e e3\ntD ::t --- tC\ntC --\u003e tF ::t\ntD ::t --\u003e tG::a the second whole ::t",
     "positions": {
       "nodes": {
         "1": [
@@ -10,97 +10,97 @@
           37
         ],
         "10": [
-          261,
-          277
+          289,
+          305
         ],
         "2": [
-          52,
-          70
+          48,
+          66
         ],
         "3": [
-          85,
-          121
+          77,
+          113
         ],
         "4": [
-          126,
-          128
+          114,
+          116
         ],
         "5": [
-          130,
-          132
+          122,
+          124
         ],
         "6": [
-          146,
-          166
+          142,
+          162
         ],
         "7": [
           174,
           176
         ],
         "8": [
-          190,
-          206
+          194,
+          210
         ],
         "9": [
-          245,
-          247
+          265,
+          267
         ]
       },
       "edges": {
         "11": {
           "arrow": [
-            41,
-            46
+            37,
+            42
           ],
           "source": [
             6,
             37
           ],
           "target": [
-            52,
-            70
+            48,
+            66
           ]
         },
         "12": {
           "arrow": [
-            74,
-            79
+            66,
+            71
           ],
           "source": [
-            52,
-            70
+            48,
+            66
           ],
           "target": [
-            85,
-            121
+            77,
+            113
           ]
         },
         "13": {
           "arrow": [
-            132,
-            137
+            128,
+            133
           ],
           "source": [
-            126,
-            128
+            114,
+            116
           ],
           "target": [
-            137,
-            139
+            133,
+            135
           ]
         },
         "14": {
           "arrow": [
-            132,
-            137
+            128,
+            133
           ],
           "source": [
-            130,
-            132
+            122,
+            124
           ],
           "target": [
-            137,
-            139
+            133,
+            135
           ]
         },
         "15": {
@@ -109,8 +109,8 @@
             171
           ],
           "source": [
-            146,
-            166
+            142,
+            162
           ],
           "target": [
             171,
@@ -119,100 +119,100 @@
         },
         "16": {
           "arrow": [
-            176,
-            181
+            180,
+            185
           ],
           "source": [
             174,
             176
           ],
           "target": [
-            181,
-            183
+            185,
+            187
           ]
         },
         "17": {
           "arrow": [
-            206,
-            211
+            214,
+            219
           ],
           "source": [
-            190,
-            206
+            194,
+            210
           ],
           "target": [
-            211,
-            213
+            219,
+            221
           ]
         },
         "18": {
           "arrow": [
-            220,
-            225
+            236,
+            241
           ],
           "source": [
-            214,
-            216
+            222,
+            224
           ],
           "target": [
-            225,
-            227
+            241,
+            243
           ]
         },
         "19": {
           "arrow": [
-            220,
-            225
+            236,
+            241
           ],
           "source": [
-            218,
-            220
+            230,
+            232
           ],
           "target": [
-            225,
-            227
+            241,
+            243
           ]
         },
         "20": {
-          "arrow": [
-            230,
-            235
-          ],
-          "source": [
-            228,
-            230
-          ],
-          "target": [
-            235,
-            237
-          ]
-        },
-        "21": {
-          "arrow": [
-            240,
-            245
-          ],
-          "source": [
-            238,
-            240
-          ],
-          "target": [
-            245,
-            247
-          ]
-        },
-        "22": {
           "arrow": [
             250,
             255
           ],
           "source": [
-            248,
-            250
+            244,
+            246
           ],
           "target": [
-            261,
-            277
+            255,
+            257
+          ]
+        },
+        "21": {
+          "arrow": [
+            260,
+            265
+          ],
+          "source": [
+            258,
+            260
+          ],
+          "target": [
+            265,
+            267
+          ]
+        },
+        "22": {
+          "arrow": [
+            278,
+            283
+          ],
+          "source": [
+            272,
+            274
+          ],
+          "target": [
+            289,
+            305
           ]
         }
       }

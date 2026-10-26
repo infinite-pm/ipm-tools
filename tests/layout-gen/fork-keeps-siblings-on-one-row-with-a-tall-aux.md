@@ -11,7 +11,7 @@
 ## ipmt Content
 
 ```ipmt
-e1 ::e --::L--> ea ::e, eb ::e
+e1 --::L--> ea, eb
 e1 --::X "used for"--> "setup tasks like config init or dependency checks" ::c
 ```
 

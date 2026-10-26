@@ -11,7 +11,7 @@
 ## ipmt Content
 
 ```ipmt
-e1 [a note the sizer must ignore] ::e --> e2 [another note] ::e
+e1 [a note the sizer must ignore] --> e2 [another note]
 ```
 
 ## Generated Files

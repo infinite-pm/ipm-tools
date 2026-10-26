@@ -2,67 +2,121 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "a1 ::e --\u003e a2 ::e\nb1 ::e --\u003e b2 ::e\na1 --- b1",
+    "ipmt": "w --\u003e y1\nw --\u003e y2\nw --\u003e y3\nw --\u003e y4\nw --\u003e y5\nw --\u003e y6",
     "positions": {
       "nodes": {
         "1": [
           0,
-          2
+          1
         ],
         "2": [
-          11,
-          13
+          6,
+          8
         ],
         "3": [
-          18,
-          20
+          15,
+          17
         ],
         "4": [
-          29,
-          31
+          24,
+          26
+        ],
+        "5": [
+          33,
+          35
+        ],
+        "6": [
+          42,
+          44
+        ],
+        "7": [
+          51,
+          53
         ]
       },
       "edges": {
-        "5": {
+        "10": {
           "arrow": [
-            6,
-            11
-          ],
-          "source": [
-            0,
-            2
-          ],
-          "target": [
-            11,
-            13
-          ]
-        },
-        "6": {
-          "arrow": [
-            24,
-            29
+            19,
+            24
           ],
           "source": [
             18,
-            20
+            19
           ],
           "target": [
-            29,
-            31
+            24,
+            26
           ]
         },
-        "7": {
+        "11": {
           "arrow": [
-            38,
-            43
+            28,
+            33
+          ],
+          "source": [
+            27,
+            28
+          ],
+          "target": [
+            33,
+            35
+          ]
+        },
+        "12": {
+          "arrow": [
+            37,
+            42
           ],
           "source": [
             36,
-            38
+            37
           ],
           "target": [
-            43,
-            45
+            42,
+            44
+          ]
+        },
+        "13": {
+          "arrow": [
+            46,
+            51
+          ],
+          "source": [
+            45,
+            46
+          ],
+          "target": [
+            51,
+            53
+          ]
+        },
+        "8": {
+          "arrow": [
+            1,
+            6
+          ],
+          "source": [
+            0,
+            1
+          ],
+          "target": [
+            6,
+            8
+          ]
+        },
+        "9": {
+          "arrow": [
+            10,
+            15
+          ],
+          "source": [
+            9,
+            10
+          ],
+          "target": [
+            15,
+            17
           ]
         }
       }
@@ -71,32 +125,50 @@
   "nodes": [
     {
       "id": 1,
-      "name": "a1",
+      "name": "w",
       "alias": "",
       "type": "Event"
     },
     {
       "id": 2,
-      "name": "a2",
+      "name": "y1",
       "alias": "",
       "type": "Event"
     },
     {
       "id": 3,
-      "name": "b1",
+      "name": "y2",
       "alias": "",
       "type": "Event"
     },
     {
       "id": 4,
-      "name": "b2",
+      "name": "y3",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 5,
+      "name": "y4",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 6,
+      "name": "y5",
+      "alias": "",
+      "type": "Event"
+    },
+    {
+      "id": 7,
+      "name": "y6",
       "alias": "",
       "type": "Event"
     }
   ],
   "edges": [
     {
-      "id": 5,
+      "id": 8,
       "source": 1,
       "target": 2,
       "dir": "DirFwd",
@@ -105,8 +177,17 @@
       "semOrigin": "SemInferred"
     },
     {
-      "id": 6,
-      "source": 3,
+      "id": 9,
+      "source": 1,
+      "target": 3,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 10,
+      "source": 1,
       "target": 4,
       "dir": "DirFwd",
       "tooltip": "",
@@ -114,12 +195,30 @@
       "semOrigin": "SemInferred"
     },
     {
-      "id": 7,
+      "id": 11,
       "source": 1,
-      "target": 3,
-      "dir": "DirUndir",
+      "target": 5,
+      "dir": "DirFwd",
       "tooltip": "",
-      "sstLinkType": "NearTo",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 12,
+      "source": 1,
+      "target": 6,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
+      "semOrigin": "SemInferred"
+    },
+    {
+      "id": 13,
+      "source": 1,
+      "target": 7,
+      "dir": "DirFwd",
+      "tooltip": "",
+      "sstLinkType": "LeadsTo",
       "semOrigin": "SemInferred"
     }
   ]

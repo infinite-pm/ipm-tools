@@ -17,15 +17,15 @@ e1::a Alice feels discouraged ::e
   --> e3::a Alice and the Mock Turtle talk ::e
 
 # one worldline through the frames, not one Alice per frame
-Alice --> e1, e2, e3
-the Mock Turtle --> e2, e3
+Alice ::t --> e1, e2, e3
+the Mock Turtle ::t --> e2, e3
 
 # what each frame is about: a property of the frame, not of Alice
 e1 --> discouraged ::c
 e3 --> talking ::c
 
 # what she is like - a property others share, not who she is
-Alice --> human ::c
+Alice ::t --> human ::c
 ```
 
 ## Generated Files

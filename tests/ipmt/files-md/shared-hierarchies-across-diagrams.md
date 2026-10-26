@@ -11,8 +11,8 @@
 ## ipmt Content
 
 ```ipmt
-ipmt Text --> input ::c
-Layout JSON --> output ::c
+ipmt Text ::t --> input ::c
+Layout JSON ::t --> output ::c
 ```
 
 ## Generated Files

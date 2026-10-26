@@ -154,9 +154,9 @@ type parsedNode struct {
 // Canonical order: [alias::a] name [::type] ["tooltip"::tip]
 func parseOneNodeSpec(pt string, def model.NodeType) (parsedNode, error) {
 	var result parsedNode
-	result.Type = model.Thing
-	if def == model.Event {
-		result.Type = model.Event
+	result.Type = model.Event
+	if def == model.Thing {
+		result.Type = model.Thing
 	}
 	rest := pt
 
@@ -350,8 +350,8 @@ func parseOneNodeSpec(pt string, def model.NodeType) (parsedNode, error) {
 	result.ptAliasName = noSpan
 	result.ptTipString = noSpan
 
-	// Kind marker: only present for an explicit ::e/::t/::c (a default Thing
-	// has none, so findAnnotation returns -1 and we leave it absent).
+	// Kind marker: only present for an explicit ::e/::t/::c (a node of the
+	// default kind has none, so findAnnotation returns -1 and we leave it absent).
 	kindTag := map[model.NodeType]string{
 		model.Event:   "::e",
 		model.Concept: "::c",

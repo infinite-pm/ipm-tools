@@ -12,7 +12,7 @@
 
 ```ipmt
 # This is also a comment
-Agent A
+Agent A ::t
   # And this is a comment in between
   --> E1::a Event 1 ::e
 ```

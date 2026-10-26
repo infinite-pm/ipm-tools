@@ -11,10 +11,10 @@
 ## ipmt Content
 
 ```ipmt
-e1-parent ::e
-a ::e --::P--> e1-parent
-b ::e --::P--> e1-parent
-c ::e --::P--> e1-parent
+e1-parent
+a --::P--> e1-parent
+b --::P--> e1-parent
+c --::P--> e1-parent
 a --> b
 a --> c
 ```

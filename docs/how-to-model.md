@@ -14,8 +14,8 @@ This document provides guidance for implementing the Gamma(3,4) Semantic Spaceti
 ### 1. Core Modeling Concepts in SST
 
 - **Node Types**:
-  - `event` (**e**, `::e`): A transient activity, such as a commit, build, deploy, test run, API call.
-  - `thing` (**t**, `::t` or default): A persistent object or component, such as a service, container, file, repo, or engineer.
+  - `event` (**e**, `::e` or default): A transient activity, such as a commit, build, deploy, test run, API call.
+  - `thing` (**t**, `::t`): A persistent object or component, such as a service, container, file, repo, or engineer.
   - `concept` (**c**, `::c`): An abstract tag or classification, e.g., "microservice", "bug", "CI pipeline", "state=green".
 
 - **Edge Types** (Gamma(3,4)) and ipmt syntax:
@@ -57,24 +57,24 @@ does not. See [ipm-modeling-tips.md](ipm-modeling-tips.md) §A.2 and
 [ipmt-spec.md](ipmt-spec.md#arrow-symbols-glossary) row 5.
 
 ```ipmt
-service-container --> Deploy ::e
-deploy-config --> Deploy
-on-call-engineer --> Alert ::e
+service-container ::t --> Deploy ::e
+deploy-config ::t --> Deploy
+on-call-engineer ::t --> Alert ::e
 ```
-<!-- ipm-svg id=110 hash=6d33bae6 -->
+<!-- ipm-svg id=110 hash=ce082b7e -->
 ![](../_ipm/docs/how-to-model/110.ipm.svg)
 
-Here `Deploy` and `Alert` are events; `service-container`, `deploy-config`, `on-call-engineer` are things (default type).
+Here `Deploy` and `Alert` are events; `service-container`, `deploy-config`, `on-call-engineer` are things (marked `::t`).
 The `-->` from thing to event is inferred as Part-Of (-C); the event "contains" the thing read from the event's perspective.
 
 #### Component Hierarchy (Part-Of)
 Model static structure using thing→thing Part-Of edges (child first):
 
 ```ipmt
-deployment-pod --> microservice-A
-source-file-X --> microservice-A
+deployment-pod ::t --> microservice-A ::t
+source-file-X ::t --> microservice-A ::t
 ```
-<!-- ipm-svg id=120 hash=42d5d6ca -->
+<!-- ipm-svg id=120 hash=7e1d564a -->
 ![](../_ipm/docs/how-to-model/120.ipm.svg)
 
 Thing→thing `-->` is inferred as Part-Of (-C). The arrow goes from the contained sub-thing to its container.
@@ -83,12 +83,12 @@ Thing→thing `-->` is inferred as Part-Of (-C). The arrow goes from the contain
 Tag things and events with concepts:
 
 ```ipmt
-microservice-A --> billing ::c
-deployment-pod --> kubernetes-workload ::c
+microservice-A ::t --> billing ::c
+deployment-pod ::t --> kubernetes-workload ::c
 Deploy ::e --> production ::c
 Alert ::e --> high-severity ::c
 ```
-<!-- ipm-svg id=130 hash=6f2c4c02 -->
+<!-- ipm-svg id=130 hash=a1f2a76b -->
 ![](../_ipm/docs/how-to-model/130.ipm.svg)
 
 Any `-->` to a concept (`::c`) is inferred as Expresses.
@@ -96,13 +96,13 @@ Any `-->` to a concept (`::c`) is inferred as Expresses.
 #### Code + People Interaction
 ```ipmt
 # Engineer participates in events (thing --> event, part-of)
-Jane --> Commit ::e
-Jane --> Incident ::e
+Jane ::t --> Commit ::e
+Jane ::t --> Incident ::e
 
 # Engineer classified by role
-Jane --> SRE ::c
+Jane ::t --> SRE ::c
 ```
-<!-- ipm-svg id=140 hash=0e60ecaa -->
+<!-- ipm-svg id=140 hash=0e629b30 -->
 ![](../_ipm/docs/how-to-model/140.ipm.svg)
 
 #### Combined Example
@@ -111,16 +111,16 @@ Jane --> SRE ::c
 Commit ::e --> Build ::e --> Deploy ::e
 
 # Participants (thing --> event, part-of)
-Jane, repo-main --> Commit
-CI-runner --> Build
-service-container, deploy-config --> Deploy
+Jane ::t, repo-main ::t --> Commit
+CI-runner ::t --> Build
+service-container ::t, deploy-config ::t --> Deploy
 
 # Semantic tags
-Jane --> SRE ::c
+Jane ::t --> SRE ::c
 Deploy --> production ::c
-service-container --> microservice ::c
+service-container ::t --> microservice ::c
 ```
-<!-- ipm-svg id=150 hash=9ec8e97e -->
+<!-- ipm-svg id=150 hash=11c99b31 -->
 ![](../_ipm/docs/how-to-model/150.ipm.svg)
 
 ---
@@ -211,10 +211,10 @@ establish shared things and concepts that recur across diagrams:
 - **Input/output classification**: Attach `input ::c` or `output ::c` to data things to mark their role:
 
 ```ipmt
-ipmt Text --> input ::c
-Layout JSON --> output ::c
+ipmt Text ::t --> input ::c
+Layout JSON ::t --> output ::c
 ```
-<!-- ipm-svg id=160 hash=a35bbe6f -->
+<!-- ipm-svg id=160 hash=87658110 -->
 ![](../_ipm/docs/how-to-model/160.ipm.svg)
 
 This makes data flow direction explicit in every diagram. (The fence must sit at
@@ -253,16 +253,16 @@ tA --- tB
 When a thing participates in multiple events, each thing→event edge is a separate pair
 and therefore valid:
 ```ipmt
-container --> Deploy ::e
-container --> Build ::e
+container ::t --> Deploy ::e
+container ::t --> Build ::e
 ```
-<!-- ipm-svg id=170 hash=e0884591 -->
+<!-- ipm-svg id=170 hash=4d198dd7 -->
 ![](../_ipm/docs/how-to-model/170.ipm.svg)
 
 See [ipmt spec: Duplicate pair relation](ipmt-spec.md#duplicate-pair-relation) for the full rule.
 
 #### ipmt syntax tips
-- Node type is inferred as `thing` by default — only mark events (`::e`) and concepts (`::c`).
+- An unmarked node is an event — mark things (`::t`) and concepts (`::c`).
 - Use commas for fan-out: `container, config, logs --> Deploy ::e` (participants
   point AT the event — the reverse would be the rejected `event --> thing`).
 - Chain arrows for sequences: `e1 ::e --> e2 ::e --> e3 ::e`.

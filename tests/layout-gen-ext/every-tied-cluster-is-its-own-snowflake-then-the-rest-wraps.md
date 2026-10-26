@@ -11,15 +11,15 @@
 ## ipmt Content
 
 ```ipmt
-h1 ::e --> h2 ::e
-h2 --> h3 ::e
-s1 ::e --::X--> h2
-s2 ::e --::X--> h2
-a1 ::e --> a2 ::e
-a2 --> a3 ::e
-b1 ::e --::N-- a3
-c1 ::e --> c2 ::e
-d1 ::e --::N-- c2
+h1 --> h2
+h2 --> h3
+s1 --::X--> h2
+s2 --::X--> h2
+a1 --> a2
+a2 --> a3
+b1 --::N-- a3
+c1 --> c2
+d1 --::N-- c2
 ```
 
 ## Generated Files

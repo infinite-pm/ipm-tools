@@ -11,9 +11,9 @@
 ## ipmt Content
 
 ```ipmt-invalid
-A --> B
-B --> C
-A --> B
+A ::t --> B ::t
+B ::t --> C ::t
+A ::t --> B ::t
 ```
 
 ## Generated Files

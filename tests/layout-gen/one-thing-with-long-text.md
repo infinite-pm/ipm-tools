@@ -11,7 +11,7 @@
 ## ipmt Content
 
 ```ipmt
-This thing is very important and has a long description text. It can be so so very very so long.
+This thing is very important and has a long description text. It can be so so very very so long. ::t
 ```
 
 ## Generated Files

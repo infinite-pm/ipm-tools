@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "tB --\"tB is part of tA\"--\u003e tA\ntB --e1-hosts-tB--\u003e e1 ::e --\"e1 near to e2\"-- e2 ::e",
+    "ipmt": "tB ::t --\"tB is part of tA\"--\u003e tA ::t\ntB ::t --e1-hosts-tB--\u003e e1 ::e --\"e1 near to e2\"-- e2 ::e",
     "positions": {
       "nodes": {
         "1": [
@@ -10,59 +10,59 @@
           2
         ],
         "2": [
-          27,
-          29
+          31,
+          33
         ],
         "3": [
-          50,
-          52
+          62,
+          64
         ],
         "4": [
-          77,
-          79
+          89,
+          91
         ]
       },
       "edges": {
         "5": {
           "arrow": [
-            2,
-            27
+            6,
+            31
           ],
           "source": [
             0,
             2
           ],
           "target": [
-            27,
-            29
+            31,
+            33
           ]
         },
         "6": {
           "arrow": [
-            32,
-            50
+            44,
+            62
           ],
           "source": [
-            30,
-            32
+            38,
+            40
           ],
           "target": [
-            50,
-            52
+            62,
+            64
           ]
         },
         "7": {
           "arrow": [
-            56,
-            77
+            68,
+            89
           ],
           "source": [
-            50,
-            52
+            62,
+            64
           ],
           "target": [
-            77,
-            79
+            89,
+            91
           ]
         }
       }

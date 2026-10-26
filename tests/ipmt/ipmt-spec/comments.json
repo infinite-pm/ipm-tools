@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "# This is a comment\nAgent A --\u003e E1::a Event 1 ::e\n# Another comment\nAgent B --\u003e E1",
+    "ipmt": "# This is a comment\nAgent A ::t --\u003e E1::a Event 1 ::e\n# Another comment\nAgent B ::t --\u003e E1",
     "positions": {
       "nodes": {
         "1": [
@@ -10,41 +10,41 @@
           27
         ],
         "2": [
-          38,
-          45
+          42,
+          49
         ],
         "3": [
-          68,
-          75
+          72,
+          79
         ]
       },
       "edges": {
         "4": {
           "arrow": [
-            27,
-            32
+            31,
+            36
           ],
           "source": [
             20,
             27
           ],
           "target": [
-            38,
-            45
+            42,
+            49
           ]
         },
         "5": {
           "arrow": [
-            75,
-            80
+            83,
+            88
           ],
           "source": [
-            68,
-            75
+            72,
+            79
           ],
           "target": [
-            80,
-            82
+            88,
+            90
           ]
         }
       }

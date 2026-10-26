@@ -11,16 +11,16 @@
 ## ipmt Content
 
 ```ipmt
-e1 ::e
-e1a ::e
-  --> e1b ::e
-  --> e1c ::e
+e1
+e1a
+  --> e1b
+  --> e1c
 e1a --::P--> e1
 e1b --::P--> e1
 e1c --::P--> e1
-e1b1 ::e --::P--> e1b
-e1b2 ::e --::P--> e1b
-e1b3 ::e --::P--> e1b
+e1b1 --::P--> e1b
+e1b2 --::P--> e1b
+e1b3 --::P--> e1b
 e1b1 --> e1b2 --> e1b3
 e1b --> cX ::c
 ```

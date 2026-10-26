@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "get the party started ::e\n  --then--\u003e murder-e::a Professor Plum murders Miss Scarlet in the library with the bread knife because she refused to marry him ::e\n  --then--\u003e investigation begins ::e\n\n\n# fix: subtle knife ::t -\u003e ::c\nmurder-e --\"example of\"--\u003e murder-sk::a murder by subtle knife ::c\n  --\"example of\"--\u003e use-sk::a use of subtle knife ::c\n  --\"involves\"--\u003e sk::a subtle knife ::c\n  --\"kind of\"--\u003e knife ::c\n\nmurder-sk --\"answers question\"--\u003e what action ::c\nmurder-sk --\"involves\"--\u003e murder ::c\nuse-sk --\"answers question\"--\u003e how ::c\nsk --\"used for\"--\u003e cutting interdimensional rifts ::c\nsk --\"used for\"--\u003e cutting bread ::c\n\nmurder-e \u003c--::P involves-- library-ppms::a Prof Plum \u0026 Miss Scarlett in the library ::e\n  --\u003e In the library ::c\n  --\"answers question\"--\u003e where ::c\n\n# fix: library ::t -\u003e ::c\nIn the library --\"involves\"--\u003e library ::c\n\nmurder-e \u003c--::P contains-- refusal-mspp::a Miss Scarlet refuses to marry Professor Plum ::e\n  \u003c--::P-- refusal marriage ::e\n  --\u003e marriage ::c\nrefusal marriage --\u003e refusal ::c\n\n# fix: add leads-to\nlibrary-ppms --\u003e refusal-mspp\n\n# change: change involves/contains to part-of\n# change: hide explicit Professor Plum --\u003e skip murder-e\n# change: hide explicit Miss Scarlet --\u003e skip murder-e\nProfessor Plum --\u003e library-ppms\nProfessor Plum --\u003e refusal-mspp\nMiss Scarlet --\u003e library-ppms\nMiss Scarlet --\u003e refusal-mspp",
+    "ipmt": "get the party started ::e\n  --then--\u003e murder-e::a Professor Plum murders Miss Scarlet in the library with the bread knife because she refused to marry him ::e\n  --then--\u003e investigation begins ::e\n\n\n# fix: subtle knife ::t -\u003e ::c\nmurder-e --\"example of\"--\u003e murder-sk::a murder by subtle knife ::c\n  --\"example of\"--\u003e use-sk::a use of subtle knife ::c\n  --\"involves\"--\u003e sk::a subtle knife ::c\n  --\"kind of\"--\u003e knife ::c\n\nmurder-sk --\"answers question\"--\u003e what action ::c\nmurder-sk --\"involves\"--\u003e murder ::c\nuse-sk --\"answers question\"--\u003e how ::c\nsk --\"used for\"--\u003e cutting interdimensional rifts ::c\nsk --\"used for\"--\u003e cutting bread ::c\n\nmurder-e \u003c--::P involves-- library-ppms::a Prof Plum \u0026 Miss Scarlett in the library ::e\n  --\u003e In the library ::c\n  --\"answers question\"--\u003e where ::c\n\n# fix: library ::t -\u003e ::c\nIn the library --\"involves\"--\u003e library ::c\n\nmurder-e \u003c--::P contains-- refusal-mspp::a Miss Scarlet refuses to marry Professor Plum ::e\n  \u003c--::P-- refusal marriage ::e\n  --\u003e marriage ::c\nrefusal marriage --\u003e refusal ::c\n\n# fix: add leads-to\nlibrary-ppms --\u003e refusal-mspp\n\n# change: change involves/contains to part-of\n# change: hide explicit Professor Plum --\u003e skip murder-e\n# change: hide explicit Miss Scarlet --\u003e skip murder-e\nProfessor Plum ::t --\u003e library-ppms\nProfessor Plum ::t --\u003e refusal-mspp\nMiss Scarlet ::t --\u003e library-ppms\nMiss Scarlet ::t --\u003e refusal-mspp",
     "positions": {
       "nodes": {
         "1": [
@@ -62,8 +62,8 @@
           1257
         ],
         "22": [
-          1307,
-          1319
+          1315,
+          1327
         ],
         "3": [
           171,
@@ -377,58 +377,58 @@
         },
         "43": {
           "arrow": [
-            1257,
-            1262
+            1261,
+            1266
           ],
           "source": [
             1243,
             1257
           ],
           "target": [
-            1262,
-            1274
+            1266,
+            1278
           ]
         },
         "44": {
           "arrow": [
-            1289,
-            1294
+            1297,
+            1302
           ],
           "source": [
-            1275,
-            1289
+            1279,
+            1293
           ],
           "target": [
-            1294,
-            1306
+            1302,
+            1314
           ]
         },
         "45": {
           "arrow": [
-            1319,
-            1324
+            1331,
+            1336
           ],
           "source": [
-            1307,
-            1319
+            1315,
+            1327
           ],
           "target": [
-            1324,
-            1336
+            1336,
+            1348
           ]
         },
         "46": {
           "arrow": [
-            1349,
-            1354
+            1365,
+            1370
           ],
           "source": [
-            1337,
-            1349
+            1349,
+            1361
           ],
           "target": [
-            1354,
-            1366
+            1370,
+            1382
           ]
         }
       }

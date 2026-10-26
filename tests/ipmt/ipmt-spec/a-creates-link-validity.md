@@ -13,8 +13,8 @@
 ```ipmt
 # semantically invalid (not enforced)
 e1 ::e --> e2 ::e
-e1 <-- tA
-tA --> e2
+e1 <-- tA ::t
+tA ::t --> e2
 ```
 
 ## Generated Files

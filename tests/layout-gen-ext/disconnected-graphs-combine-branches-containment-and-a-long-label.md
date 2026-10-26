@@ -11,19 +11,19 @@
 ## ipmt Content
 
 ```ipmt
-e1-start ::e --> e2-leftA ::e
-e1-start --> e3-midB ::e
-e1-start --> e4-rightA ::e
-e2-leftA --> e5-leftB ::e --> e6-leftC ::e
-e4-rightA --> e7-rightB ::e
-e3-midB --> A deliberately very long event label that wraps onto many many lines so that the aspect ratio width rule grows this event to two hundred and forty pixels wide while every branch lane stays vertical and centered wide::a ::e
+e1-start --> e2-leftA
+e1-start --> e3-midB
+e1-start --> e4-rightA
+e2-leftA --> e5-leftB --> e6-leftC
+e4-rightA --> e7-rightB
+e3-midB --> A deliberately very long event label that wraps onto many many lines so that the aspect ratio width rule grows this event to two hundred and forty pixels wide while every branch lane stays vertical and centered wide::a
 
-y1 ::e --> y2 ::e
-y1 <--::P-- y1a ::e, y1b ::e
+y1 --> y2
+y1 <--::P-- y1a, y1b
 y1a --> y1b
-y1b <--::P-- y1b1 ::e
+y1b <--::P-- y1b1
 
-z1 ::e --> z2 ::e --> z3 ::e
+z1 --> z2 --> z3
 ```
 
 ## Generated Files

@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "prep ::e --\u003e chop ::e\nchop --::P--\u003e cook ::e\ncook --\u003e serve ::e",
+    "ipmt": "prep --\u003e chop\nchop --::P--\u003e cook\ncook --\u003e serve",
     "positions": {
       "nodes": {
         "1": [
@@ -10,59 +10,59 @@
           4
         ],
         "2": [
-          13,
-          17
+          9,
+          13
         ],
         "3": [
-          36,
-          40
+          28,
+          32
         ],
         "4": [
-          54,
-          59
+          42,
+          47
         ]
       },
       "edges": {
         "5": {
           "arrow": [
-            8,
-            13
+            4,
+            9
           ],
           "source": [
             0,
             4
           ],
           "target": [
-            13,
-            17
+            9,
+            13
           ]
         },
         "6": {
           "arrow": [
-            26,
-            36
+            18,
+            28
           ],
           "source": [
-            22,
-            26
+            14,
+            18
           ],
           "target": [
-            36,
-            40
+            28,
+            32
           ]
         },
         "7": {
           "arrow": [
-            49,
-            54
+            37,
+            42
           ],
           "source": [
-            45,
-            49
+            33,
+            37
           ],
           "target": [
-            54,
-            59
+            42,
+            47
           ]
         }
       }

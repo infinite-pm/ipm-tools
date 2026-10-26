@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "n1 --\"line with a \\\"quote\\\" and a \\\\ backslash\"--\u003e n2",
+    "ipmt": "n1 ::t --\"line with a \\\"quote\\\" and a \\\\ backslash\"--\u003e n2 ::t",
     "positions": {
       "nodes": {
         "1": [
@@ -10,23 +10,23 @@
           2
         ],
         "2": [
-          51,
-          53
+          55,
+          57
         ]
       },
       "edges": {
         "3": {
           "arrow": [
-            2,
-            51
+            6,
+            55
           ],
           "source": [
             0,
             2
           ],
           "target": [
-            51,
-            53
+            55,
+            57
           ]
         }
       }

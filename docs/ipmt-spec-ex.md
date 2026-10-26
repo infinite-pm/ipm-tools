@@ -4,57 +4,57 @@ To cover all ipmt syntax from [specification](ipmt-spec.md) as explicit code blo
 
 ## thing to thing
 ```ipmt
-tA --> tAp1
+tA ::t --> tAp1 ::t
 ```
 
 ```ipmt
-tAp1 --::P--> tA
+tAp1 ::t --::P--> tA ::t
 ```
 
 ## thing to event
 ```ipmt
-tAp1 --> e1 ::e
+tAp1 ::t --> e1
 ```
 
 ```ipmt
-tAp1 --::P--> e1 ::e
+tAp1 ::t --::P--> e1
 ```
 
 ## event to event (leads to)
 ```ipmt
-e1 ::e --> e2 ::e
+e1 --> e2
 ```
 
 ```ipmt
-e1 ::e --::L--> e2 ::e
+e1 --::L--> e2
 ```
 
 ## event to event (part-of)
 ```ipmt
-e5s1 ::e --::P--> e5 ::e
+e5s1 --::P--> e5
 ```
 
 ## event to event (expresses)
 ```ipmt
-e4 ::e --::X--> e5 ::e
+e4 --::X--> e5
 ```
 
 ## thing to concept
 ```ipmt
-tAp1 --> c-X ::c
+tAp1 ::t --> c-X ::c
 ```
 
 ```ipmt
-tAp1 --::X--> c-X ::c
+tAp1 ::t --::X--> c-X ::c
 ```
 
 ## event to concept
 ```ipmt
-e1 ::e --> c-X ::c
+e1 --> c-X ::c
 ```
 
 ```ipmt
-e1 ::e --::X--> c-X ::c
+e1 --::X--> c-X ::c
 ```
 
 ## concept to concept
@@ -68,20 +68,20 @@ c-X ::c --::X--> c-Y ::c
 
 ## event to event (near to)
 ```ipmt
-eG ::e --- eH ::e
+eG --- eH
 ```
 
 ```ipmt
-eG ::e --::N-- eH ::e
+eG --::N-- eH
 ```
 
 ## thing to thing (near to)
 ```ipmt
-tB --- tC
+tB ::t --- tC ::t
 ```
 
 ```ipmt
-tB --::N-- tC
+tB ::t --::N-- tC ::t
 ```
 
 ## concept to concept (near to)
@@ -95,33 +95,33 @@ c-Z ::c --::N-- c-X ::c
 
 ## thing to event (part of / hosts)
 ```ipmt
-tAp1 --> e1 ::e
+tAp1 ::t --> e1
 ```
 
 ```ipmt
-tAp1 --::P--> e1 ::e
+tAp1 ::t --::P--> e1
 ```
 
 # Reverse explicit arrows
 
 ## event contains event (reverse part-of)
 ```ipmt
-e1 ::e <--::P-- e1sub ::e
+e1 <--::P-- e1sub
 ```
 
 ## event contains thing (reverse part-of)
 ```ipmt
-e1 ::e <--::P-- tA
+e1 <--::P-- tA ::t
 ```
 
 ## concept expressed by event (reverse expresses)
 ```ipmt
-cJ ::c <--::X-- e1 ::e
+cJ ::c <--::X-- e1
 ```
 
 ## event follows event (reverse leads-to)
 ```ipmt
-e2 ::e <--::L-- e1 ::e
+e2 <--::L-- e1
 ```
 
 # Edge type examples
@@ -132,20 +132,20 @@ The 4 SST relations (LeadsTo, PartOf, Expresses, NearTo) are mutually exclusive 
 
 Event to event with LeadsTo:
 ```ipmt
-e1 ::e --> e2 ::e
+e1 --> e2
 ```
 
 Event to event with PartOf (containment):
 ```ipmt
-e1 ::e --::P--> e2 ::e
+e1 --::P--> e2
 ```
 
 Event to event with Expresses:
 ```ipmt
-e1 ::e --::X--> e2 ::e
+e1 --::X--> e2
 ```
 
 Event to event with NearTo:
 ```ipmt
-e1 ::e --::N-- e2 ::e
+e1 --::N-- e2
 ```

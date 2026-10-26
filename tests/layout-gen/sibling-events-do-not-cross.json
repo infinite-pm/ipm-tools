@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "e1-start ::e --\u003e e2-left ::e\ne1-start --\u003e e3-right ::e\ne3-right --\u003e e4-rightChild ::e\ne2-left --\u003e e5-leftChild ::e",
+    "ipmt": "e1-start --\u003e e2-left\ne1-start --\u003e e3-right\ne3-right --\u003e e4-rightChild\ne2-left --\u003e e5-leftChild",
     "positions": {
       "nodes": {
         "1": [
@@ -10,77 +10,77 @@
           8
         ],
         "2": [
-          17,
-          24
+          13,
+          20
         ],
         "3": [
-          42,
-          50
+          34,
+          42
         ],
         "4": [
-          68,
-          81
+          56,
+          69
         ],
         "5": [
-          98,
-          110
+          82,
+          94
         ]
       },
       "edges": {
         "6": {
           "arrow": [
-            12,
-            17
+            8,
+            13
           ],
           "source": [
             0,
             8
           ],
           "target": [
-            17,
-            24
+            13,
+            20
           ]
         },
         "7": {
           "arrow": [
-            37,
-            42
+            29,
+            34
           ],
           "source": [
-            29,
-            37
+            21,
+            29
           ],
           "target": [
-            42,
-            50
+            34,
+            42
           ]
         },
         "8": {
           "arrow": [
-            63,
-            68
+            51,
+            56
           ],
           "source": [
-            55,
-            63
+            43,
+            51
           ],
           "target": [
-            68,
-            81
+            56,
+            69
           ]
         },
         "9": {
           "arrow": [
-            93,
-            98
+            77,
+            82
           ],
           "source": [
-            86,
-            93
+            70,
+            77
           ],
           "target": [
-            98,
-            110
+            82,
+            94
           ]
         }
       }

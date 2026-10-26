@@ -1,11 +1,11 @@
 # ipmt-markers.manifest: places that deliberately show explicit ::e / ::t markers.
 # TAB-separated. Kinds: file (counts are minimums), fence (anchor = one exact line of the fence), line (exact text).
 # Checked by: go run ./cmd-dev/ipmt-migrate -check-manifest -root .   See docs/dev-tools/ipmt-migrate.md
-rule	thing
+rule	event
 line	docs/dev/parser.md	4. Type: `::e`, `::c`, `::t` (outside quotes; uppercase `::E`/`::C`/`::T` are rejected)	lists the type markers
-file	docs/how-to-model.md	e=30 t=1	notation doc that shows explicit markers
-line	docs/how-to-model.md	  - `thing` (**t**, `::t` or default): A persistent object or component, such as a service, container, file, repo, or engineer.	says ::t is optional
-line	docs/how-to-model.md	- Node type is inferred as `thing` by default — only mark events (`::e`) and concepts (`::c`).	says things are the default and only events and concepts are marked
+file	docs/how-to-model.md	e=29 t=1	notation doc that shows explicit markers
+line	docs/how-to-model.md	  - `thing` (**t**, `::t`): A persistent object or component, such as a service, container, file, repo, or engineer.	names the ::t marker of a thing, which is not the default
+line	docs/how-to-model.md	- An unmarked node is an event — mark things (`::t`) and concepts (`::c`).	says an unmarked node is an event and things and concepts are marked
 file	docs/inline-ipmt-colors.md	e=11 t=7	notation doc that shows explicit markers
 line	docs/inline-ipmt-colors.md	| `t-marker` | the `::t` symbol | `t1 ::t` | `::t` | `#4d8a3a` · **bold** |	names the ::t marker token
 line	docs/inline-ipmt-colors.md	- Legend line: the <!--ipmt:as-token:e-marker-->`::e` marker means an event (<!--ipmt:as-token:e-title-->`orange`), <!--ipmt:as-token:t-marker-->`::t` a thing (<!--ipmt:as-token:t-title-->`green`), <!--ipmt:as-token:c-marker-->`::c` a concept (<!--ipmt:as-token:c-title-->`blue`).	legend line that pairs each marker with its color
@@ -22,11 +22,11 @@ file	docs/ipmt-ex/ipmt-examples.md	e=33 t=9	notation example that shows explicit
 file	docs/ipmt-ex/ipmt-invalid.md	e=0 t=0	notation example that shows explicit markers
 file	docs/ipmt-ex/mark-ex/examples.md	e=13 t=2	notation example that shows explicit markers
 file	docs/ipmt-parser.md	e=4 t=1	notation doc that shows explicit markers
-line	docs/ipmt-parser.md	- Types: `::e` (Event), `::c` (Concept), `::t` (Thing, default), and the undecided	lists the types and the default
+line	docs/ipmt-parser.md	- Types: `::e` (Event, default), `::c` (Concept), `::t` (Thing), and the undecided	lists the types and the default (event)
 file	docs/ipmt-spec.md	e=76 t=32	notation doc that shows explicit markers
 line	docs/ipmt-spec.md	or with the explicit `::t` marker:	introduces the explicit ::t marker
-line	docs/ipmt-spec.md	To specify type, use `::e` for event, `::c` for concept, `::t` for thing (default):	states the default type and the markers
-line	docs/ipmt-spec.md	Note: `::t` is optional because thing is the default type. Uppercase markers	states that ::t is optional
+line	docs/ipmt-spec.md	The default node type is event. To specify type, use `::e` for event, `::c` for concept, `::t` for thing:	states the default type (event) and the markers
+line	docs/ipmt-spec.md	Note: `::e` is optional because event is the default type: an unmarked node is an	states that ::e is optional and a thing needs ::t
 line	docs/ipmt-spec.md	A node's identity is its canonical name alone, so `controller ::t` and `controller ::c`	shows identity is the name, not the marker
 line	docs/ipmt-spec.md	Tooltip text must be enclosed in double quotes `"`. A type marker (`::t`/`::e`/`::c`) may precede the tooltip but is not required — the tooltip is the quoted string immediately before `::tip`. If more than one `::tip` is written, only the first is used.	says a marker may precede the tooltip
 line	docs/ipmt-spec.md	Only one `::e`, `::c`, or `::t` type marker is allowed per node.	allows only one marker per node
@@ -40,14 +40,6 @@ file	docs/solver-examples/partof.md	e=14 t=3	notation example that shows explici
 file	docs/solver-examples/readme.md	e=4 t=0	notation example that shows explicit markers
 file	docs/solver-examples/undecided-and-split.md	e=14 t=2	notation example that shows explicit markers
 file	docs/sst-gamma34.md	e=18 t=0	notation doc that shows explicit markers
-file	tests/ipmt/files-ipmt/deploy-incident.ipmt	e=6 t=2	parser fixture with explicit markers
-file	tests/ipmt/files-ipmt/deploy-incident.md	e=6 t=2	parser fixture with explicit markers
-file	tests/ipmt/files-ipmt/murder-full.ipmt	e=7 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-ipmt/murder-full.md	e=7 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-ipmt/murder-simple.ipmt	e=7 t=2	parser fixture with explicit markers
-file	tests/ipmt/files-ipmt/murder-simple.md	e=7 t=2	parser fixture with explicit markers
-file	tests/ipmt/files-ipmt/two-containers.ipmt	e=10 t=5	parser fixture with explicit markers
-file	tests/ipmt/files-ipmt/two-containers.md	e=10 t=5	parser fixture with explicit markers
 file	tests/ipmt/files-md/code-people-interaction.ipmt	e=2 t=0	parser fixture with explicit markers
 file	tests/ipmt/files-md/code-people-interaction.md	e=2 t=0	parser fixture with explicit markers
 file	tests/ipmt/files-md/combined-example.ipmt	e=3 t=0	parser fixture with explicit markers
@@ -58,30 +50,8 @@ file	tests/ipmt/files-md/complex-2.ipmt	e=3 t=0	parser fixture with explicit mar
 file	tests/ipmt/files-md/complex-2.md	e=3 t=0	parser fixture with explicit markers
 file	tests/ipmt/files-md/complex-3.ipmt	e=10 t=0	parser fixture with explicit markers
 file	tests/ipmt/files-md/complex-3.md	e=10 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/event-contains-thing-reverse-part-of.ipmt	e=1 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/event-contains-thing-reverse-part-of.md	e=1 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/event-follows-event-reverse-leads-to.ipmt	e=2 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/event-follows-event-reverse-leads-to.md	e=2 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/event-to-concept-02.ipmt	e=1 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/event-to-concept-02.md	e=1 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/event-to-concept.ipmt	e=1 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/event-to-concept.md	e=1 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/event-to-event-expresses.ipmt	e=2 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/event-to-event-expresses.md	e=2 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/event-to-event-near-to-02.ipmt	e=2 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/event-to-event-near-to-02.md	e=2 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/event-to-event-near-to.ipmt	e=2 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/event-to-event-near-to.md	e=2 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/event-to-event-part-of.ipmt	e=2 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/event-to-event-part-of.md	e=2 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/events-02.ipmt	e=2 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/events-02.md	e=2 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/events-03.ipmt	e=2 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/events-03.md	e=2 t=0	parser fixture with explicit markers
 file	tests/ipmt/files-md/events-contain-participants-part-of.ipmt	e=2 t=0	parser fixture with explicit markers
 file	tests/ipmt/files-md/events-contain-participants-part-of.md	e=2 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/events.ipmt	e=2 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/events.md	e=2 t=0	parser fixture with explicit markers
 file	tests/ipmt/files-md/hello.ipmt	e=1 t=0	parser fixture with explicit markers
 file	tests/ipmt/files-md/hello.md	e=1 t=0	parser fixture with explicit markers
 file	tests/ipmt/files-md/links-explicit-e-comma.ipmt	e=0 t=1	parser fixture with explicit markers
@@ -122,38 +92,8 @@ file	tests/ipmt/files-md/process-flow-leadsto.ipmt	e=4 t=0	parser fixture with e
 file	tests/ipmt/files-md/process-flow-leadsto.md	e=4 t=0	parser fixture with explicit markers
 file	tests/ipmt/files-md/semantic-classification-expresses.ipmt	e=2 t=0	parser fixture with explicit markers
 file	tests/ipmt/files-md/semantic-classification-expresses.md	e=2 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/test-tags.ipmt	e=1 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/test-tags.md	e=1 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/thing-to-event-02.ipmt	e=1 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/thing-to-event-02.md	e=1 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/thing-to-event.ipmt	e=1 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/thing-to-event.md	e=1 t=0	parser fixture with explicit markers
 file	tests/ipmt/files-md/tooltip-with-newline.ipmt	e=2 t=0	parser fixture with explicit markers
 file	tests/ipmt/files-md/tooltip-with-newline.md	e=2 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/v7p1-components-separate-along-event-structure.ipmt	e=4 t=1	parser fixture with explicit markers
-file	tests/ipmt/files-md/v7p1-components-separate-along-event-structure.md	e=4 t=1	parser fixture with explicit markers
-file	tests/ipmt/files-md/v7p2-the-most-central-component-first-tied-components-around-it-02.ipmt	e=4 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/v7p2-the-most-central-component-first-tied-components-around-it-02.md	e=4 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/v7p2-the-most-central-component-first-tied-components-around-it.ipmt	e=5 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/v7p2-the-most-central-component-first-tied-components-around-it.md	e=5 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy-02.ipmt	e=7 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy-02.md	e=7 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy.ipmt	e=5 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/v7p3-the-event-skeleton-leads-to-runs-down-part-of-indents-right-forks-spread-sy.md	e=5 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept-02.ipmt	e=1 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept-02.md	e=1 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept.ipmt	e=2 t=3	parser fixture with explicit markers
-file	tests/ipmt/files-md/v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept.md	e=2 t=3	parser fixture with explicit markers
-file	tests/ipmt/files-md/v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer.ipmt	e=2 t=2	parser fixture with explicit markers
-file	tests/ipmt/files-md/v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer.md	e=2 t=2	parser fixture with explicit markers
-file	tests/ipmt/files-md/v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-02.ipmt	e=0 t=2	parser fixture with explicit markers
-file	tests/ipmt/files-md/v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-02.md	e=0 t=2	parser fixture with explicit markers
-file	tests/ipmt/files-md/v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-03.ipmt	e=4 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-03.md	e=4 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-04.ipmt	e=7 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-04.md	e=7 t=0	parser fixture with explicit markers
-file	tests/ipmt/files-md/v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact.ipmt	e=1 t=1	parser fixture with explicit markers
-file	tests/ipmt/files-md/v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact.md	e=1 t=1	parser fixture with explicit markers
 file	tests/ipmt/files-md/visible-ipmt-fence-in-the-md.ipmt	e=2 t=0	parser fixture with explicit markers
 file	tests/ipmt/files-md/visible-ipmt-fence-in-the-md.md	e=2 t=0	parser fixture with explicit markers
 file	tests/ipmt/invalid/ambiguous-separator-use.md	e=0 t=0	deliberate-error fixture
@@ -245,8 +185,6 @@ file	tests/ipmt/ipmt-spec/node-type-02.ipmt	e=1 t=0	parser fixture with explicit
 file	tests/ipmt/ipmt-spec/node-type-02.md	e=1 t=0	parser fixture with explicit markers
 file	tests/ipmt/ipmt-spec/node-type.ipmt	e=1 t=1	parser fixture with explicit markers
 file	tests/ipmt/ipmt-spec/node-type.md	e=1 t=1	parser fixture with explicit markers
-file	tests/ipmt/ipmt-spec/node-with-long-name-02.ipmt	e=0 t=1	parser fixture with explicit markers
-file	tests/ipmt/ipmt-spec/node-with-long-name-02.md	e=0 t=1	parser fixture with explicit markers
 file	tests/ipmt/ipmt-spec/one-word-two-kinds-the-kind-tag.ipmt	e=1 t=2	parser fixture with explicit markers
 file	tests/ipmt/ipmt-spec/one-word-two-kinds-the-kind-tag.md	e=1 t=2	parser fixture with explicit markers
 file	tests/ipmt/ipmt-spec/reverse-arrow-02.ipmt	e=2 t=0	parser fixture with explicit markers

@@ -11,11 +11,11 @@
 ## ipmt Content
 
 ```ipmt
-tRoot --> tB, tC, tD, tE
-tB --- tC
-tC --- tD
-tD --- tE
-tB --- tE
+tRoot ::t --> tB ::t, tC ::t, tD ::t, tE ::t
+tB ::t --- tC ::t
+tC ::t --- tD ::t
+tD ::t --- tE ::t
+tB ::t --- tE ::t
 ```
 
 ## Generated Files

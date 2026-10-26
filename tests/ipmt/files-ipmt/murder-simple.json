@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "# Simplified zoom example based on the murder scenario.\n#\n# Naming is intentionally abstract:\n# - main events: e1, e2, e3\n# - sub-events of e2: e2a1, e2a2, e2a3\n# - deeper sub-event example: e2a3b1\n# - things: t1, t2\n# - concepts: c1, c2, c3, c4\n\ne1 ::e\n  --then--\u003e e2 ::e\n  --then--\u003e e3 ::e\n\ne2 \u003c--::P contains-- e2a1 ::e\n  --\u003e c1 ::c\n\ne2 \u003c--::P contains-- e2a2 ::e\n  --\u003e c2 ::c\n\ne2 \u003c--::P contains-- e2a3 ::e\n  --\u003e c3 ::c\n\ne2a3 \u003c--::P contains-- e2a3b1 ::e\ne2a3b1 --\u003e c4 ::c\n\n# Visible inner event order inside e2.\ne2a1 --\u003e e2a2 --\u003e e2a3\n\nt1 ::t\nt2 ::t\n\nt1 --\u003e e2a1, e2a3\n# lifted equals `t2 --\u003e e2a1, e2a2, e2a3, e2a3b1` and `t2 --\u003e e2a1, e2a2, e2a3b1` \nt2 --\u003e e2\n",
+    "ipmt": "# Simplified zoom example based on the murder scenario.\n#\n# Naming is intentionally abstract:\n# - main events: e1, e2, e3\n# - sub-events of e2: e2a1, e2a2, e2a3\n# - deeper sub-event example: e2a3b1\n# - things: t1, t2\n# - concepts: c1, c2, c3, c4\n\ne1\n  --then--\u003e e2\n  --then--\u003e e3\n\ne2 \u003c--::P contains-- e2a1\n  --\u003e c1 ::c\n\ne2 \u003c--::P contains-- e2a2\n  --\u003e c2 ::c\n\ne2 \u003c--::P contains-- e2a3\n  --\u003e c3 ::c\n\ne2a3 \u003c--::P contains-- e2a3b1\ne2a3b1 --\u003e c4 ::c\n\n# Visible inner event order inside e2.\ne2a1 --\u003e e2a2 --\u003e e2a3\n\nt1 ::t\nt2 ::t\n\nt1 ::t --\u003e e2a1, e2a3\n# lifted equals `t2 --\u003e e2a1, e2a2, e2a3, e2a3b1` and `t2 --\u003e e2a1, e2a2, e2a3b1` \nt2 ::t --\u003e e2\n",
     "positions": {
       "nodes": {
         "1": [
@@ -10,263 +10,263 @@
           249
         ],
         "10": [
-          448,
-          454
+          424,
+          430
         ],
         "11": [
-          470,
-          472
+          442,
+          444
         ],
         "12": [
-          541,
-          543
+          513,
+          515
         ],
         "13": [
-          548,
-          550
+          520,
+          522
         ],
         "2": [
-          266,
-          268
+          262,
+          264
         ],
         "3": [
-          285,
-          287
+          277,
+          279
         ],
         "4": [
-          314,
-          318
+          302,
+          306
         ],
         "5": [
-          329,
-          331
+          313,
+          315
         ],
         "6": [
-          358,
-          362
+          342,
+          346
         ],
         "7": [
-          373,
-          375
+          353,
+          355
         ],
         "8": [
-          402,
-          406
+          382,
+          386
         ],
         "9": [
-          417,
-          419
+          393,
+          395
         ]
       },
       "edges": {
         "14": {
           "arrow": [
-            256,
-            266
+            252,
+            262
           ],
           "source": [
             247,
             249
           ],
           "target": [
-            266,
-            268
+            262,
+            264
           ]
         },
         "15": {
           "arrow": [
-            275,
-            285
+            267,
+            277
           ],
           "source": [
-            266,
-            268
+            262,
+            264
           ],
           "target": [
-            285,
-            287
+            277,
+            279
           ]
         },
         "16": {
           "arrow": [
-            296,
-            313
+            284,
+            301
           ],
           "source": [
-            314,
-            318
+            302,
+            306
           ],
           "target": [
-            293,
-            295
+            281,
+            283
           ]
         },
         "17": {
           "arrow": [
-            325,
-            329
+            309,
+            313
           ],
           "source": [
-            314,
-            318
+            302,
+            306
           ],
           "target": [
-            329,
-            331
+            313,
+            315
           ]
         },
         "18": {
           "arrow": [
-            340,
-            357
+            324,
+            341
           ],
           "source": [
-            358,
-            362
+            342,
+            346
           ],
           "target": [
-            337,
-            339
+            321,
+            323
           ]
         },
         "19": {
           "arrow": [
-            369,
-            373
+            349,
+            353
           ],
           "source": [
-            358,
-            362
+            342,
+            346
           ],
           "target": [
-            373,
-            375
+            353,
+            355
           ]
         },
         "20": {
           "arrow": [
-            384,
-            401
+            364,
+            381
           ],
           "source": [
-            402,
-            406
+            382,
+            386
           ],
           "target": [
-            381,
-            383
+            361,
+            363
           ]
         },
         "21": {
           "arrow": [
-            413,
-            417
+            389,
+            393
           ],
           "source": [
-            402,
-            406
+            382,
+            386
           ],
           "target": [
-            417,
-            419
+            393,
+            395
           ]
         },
         "22": {
           "arrow": [
-            430,
-            447
+            406,
+            423
           ],
           "source": [
-            448,
-            454
+            424,
+            430
           ],
           "target": [
-            425,
-            429
+            401,
+            405
           ]
         },
         "23": {
           "arrow": [
-            465,
-            470
+            437,
+            442
           ],
           "source": [
-            459,
-            465
+            431,
+            437
           ],
           "target": [
-            470,
-            472
+            442,
+            444
           ]
         },
         "24": {
           "arrow": [
-            521,
-            526
+            493,
+            498
           ],
           "source": [
-            517,
-            521
+            489,
+            493
           ],
           "target": [
-            526,
-            530
+            498,
+            502
           ]
         },
         "25": {
           "arrow": [
-            530,
-            535
+            502,
+            507
           ],
           "source": [
-            526,
-            530
+            498,
+            502
           ],
           "target": [
-            535,
-            539
+            507,
+            511
           ]
         },
         "26": {
           "arrow": [
-            558,
-            563
+            534,
+            539
           ],
           "source": [
-            556,
-            558
+            528,
+            530
           ],
           "target": [
-            563,
-            567
+            539,
+            543
           ]
         },
         "27": {
           "arrow": [
-            558,
-            563
+            534,
+            539
           ],
           "source": [
-            556,
-            558
+            528,
+            530
           ],
           "target": [
-            569,
-            573
+            545,
+            549
           ]
         },
         "28": {
           "arrow": [
-            659,
-            664
+            639,
+            644
           ],
           "source": [
-            657,
-            659
+            633,
+            635
           ],
           "target": [
-            664,
-            666
+            644,
+            646
           ]
         }
       }

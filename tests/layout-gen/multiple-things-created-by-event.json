@@ -2,7 +2,7 @@
   "version": "25.09",
   "src": {
     "type": "ipmt",
-    "ipmt": "tA --\"created-by\"--\u003e e1 ::e\ntB --\"created-by\"--\u003e e1",
+    "ipmt": "tA ::t --\"created-by\"--\u003e e1\ntB ::t --\"created-by\"--\u003e e1",
     "positions": {
       "nodes": {
         "1": [
@@ -10,8 +10,8 @@
           2
         ],
         "2": [
-          21,
-          23
+          25,
+          27
         ],
         "3": [
           28,
@@ -21,30 +21,30 @@
       "edges": {
         "4": {
           "arrow": [
-            2,
-            21
+            6,
+            25
           ],
           "source": [
             0,
             2
           ],
           "target": [
-            21,
-            23
+            25,
+            27
           ]
         },
         "5": {
           "arrow": [
-            30,
-            49
+            34,
+            53
           ],
           "source": [
             28,
             30
           ],
           "target": [
-            49,
-            51
+            53,
+            55
           ]
         }
       }

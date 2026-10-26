@@ -7,7 +7,7 @@ Some invalid cases.
 ### INVALID: Short syntax
 
 ```ipmt-invalid
-tB -> tC
+tB -> tC ::t
 tB -- t
 ```
 
@@ -15,47 +15,47 @@ tB -- t
 
 **Invalid** - PartOf and NearTo are different base types:
 ```ipmt-invalid
-tB --::P--> tC
-tB --- tC
+tB ::t --::P--> tC ::t
+tB ::t --- tC ::t
 ```
 ```ipmt-invalid
-tB --- tC
-tB --::P--> tC
+tB ::t --- tC ::t
+tB ::t --::P--> tC ::t
 ```
 
 **Invalid** - LeadsTo (default arrow) and NearTo are different base types:
 ```ipmt-invalid
-tB --> tC
-tB --::N-- tC
+tB ::t --> tC ::t
+tB ::t --::N-- tC ::t
 ```
 
 ```ipmt-invalid
-tB --::N-- tC
-tB --> tC
+tB ::t --::N-- tC ::t
+tB ::t --> tC ::t
 ```
 
 ### INVALID: Opposite part-of edge (violates mutual exclusivity)
 
 **Invalid** - PartOf and NearTo are different base types:
 ```ipmt-invalid
-tC <--::P-- tB
-tB --- tC
+tC ::t <--::P-- tB ::t
+tB ::t --- tC ::t
 ```
 
 ```ipmt-invalid
-tB --- tC
-tC <--::P-- tB
+tB ::t --- tC ::t
+tC ::t <--::P-- tB ::t
 ```
 
 **Invalid** - PartOf (default arrow) and NearTo are different base types:
 ```ipmt-invalid
-tC <-- tB
-tB --::N-- tC
+tC ::t <-- tB ::t
+tB ::t --::N-- tC ::t
 ```
 
 ```ipmt-invalid
-tB --::N-- tC
-tC <-- tB
+tB ::t --::N-- tC ::t
+tC ::t <-- tB ::t
 ```
 
 
@@ -63,23 +63,23 @@ tC <-- tB
 
 **Invalid** - PartOf and NearTo are different base types:
 ```ipmt-invalid
-tC --::P--> tD
-tD --- tC
+tC ::t --::P--> tD ::t
+tD ::t --- tC ::t
 ```
 ```ipmt-invalid
-tD --- tC
-tC --::P--> tD
+tD ::t --- tC ::t
+tC ::t --::P--> tD ::t
 ```
 
 **Invalid** - LeadsTo (default arrow) and NearTo are different base types:
 ```ipmt-invalid
-tC --> tD
-tD --::N-- tC
+tC ::t --> tD ::t
+tD ::t --::N-- tC ::t
 ```
 
 ```ipmt-invalid
-tD --::N-- tC
-tC --> tD
+tD ::t --::N-- tC ::t
+tC ::t --> tD ::t
 ```
 
 ## Concepts
@@ -123,7 +123,7 @@ c-X --- c-Y
 ```
 
 ```ipmt-invalid
-c-X --- c-Y ::c
+c-X ::t --- c-Y ::c
 c-Y ::c <--::X-- c-X
 ```
 
@@ -134,7 +134,7 @@ c-X --::N-- c-Y ::c
 ```
 
 ```ipmt-invalid
-c-X --::N-- c-Y ::c
+c-X ::t --::N-- c-Y ::c
 c-Y ::c <-- c-X ::c
 ```
 
@@ -173,6 +173,6 @@ c-X ::c --> c-Y ::c
 
  Invalid case of duplicate edge for (A,B) nodes pair in a chain:
 ```ipmt-invalid
-A-->B--"text"-->C
-A-->B
+A ::t -->B ::t --"text"-->C ::t
+A ::t -->B ::t
 ```

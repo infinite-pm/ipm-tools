@@ -204,6 +204,9 @@ make gen-test-md          # per-case .md
 make refs-rehash          # refresh the _refs.json output hashes
 go run ./cmd-dev/sync-test-cases --check   # must exit 0
 ```
+After a regeneration that must not change any graph, prove it with
+`go run ./cmd-dev/golden-identity -root . -base <sha>` (must print
+`golden-identity ok`; see `docs/dev-tools/golden-identity.md#golden-identity`).
 
 ## Verification
 

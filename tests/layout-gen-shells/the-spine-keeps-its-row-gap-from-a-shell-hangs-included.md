@@ -12,9 +12,9 @@
 
 ```ipmt
 # ipmt: embed=false
-e1 ::e --> eC ::e --> e2 ::e
+e1 --> eC --> e2
 e1 --> cA1 ::c, cA2 ::c, cA3 ::c
-m1 ::e --> m2 ::e
+m1 --> m2
 m1, m2 --::P--> eC
 ```
 

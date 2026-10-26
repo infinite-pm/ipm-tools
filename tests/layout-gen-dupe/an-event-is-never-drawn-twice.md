@@ -12,8 +12,8 @@
 
 ```ipmt
 # ipmt: embed=false
-e1 ::e --> e2 ::e --> e3 ::e --> e4 ::e --> e5 ::e --> e6 ::e
-e1, e2, e3, e4, e5, e6 --::X--> eH ::e
+e1 --> e2 --> e3 --> e4 --> e5 --> e6
+e1, e2, e3, e4, e5, e6 --::X--> eH
 ```
 
 ## Generated Files

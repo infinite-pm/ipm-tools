@@ -13,14 +13,14 @@
 ```ipmt
 tA ::t --> cX ::c
 tB ::t --> cX
-tB --> cY ::c
-e1 ::e --> e2 ::e
+tB ::t --> cY ::c
+e1 --> e2
 e2 --> cZ ::c
-tA --> e1
-tB --> e1
-tB --> e2
+tA ::t --> e1
+tB ::t --> e1
+tB ::t --> e2
 t1-shared ::t --> e1
-t1-shared --> e2
+t1-shared ::t --> e2
 ```
 
 ## Generated Files

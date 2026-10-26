@@ -11,9 +11,9 @@
 ## ipmt Content
 
 ```ipmt
-Agent 1 --> Event A ::e EA::a
-Agent 2 --> EA
-Artifact X --> EA
+Agent 1 ::t --> Event A ::e EA::a
+Agent 2 ::t --> EA
+Artifact X ::t --> EA
 ```
 
 ## Generated Files
