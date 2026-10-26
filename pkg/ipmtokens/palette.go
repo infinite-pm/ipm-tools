@@ -20,12 +20,14 @@ var paletteJSON []byte
 
 // PaletteRule is one (type, optional modifier) styling entry.
 type PaletteRule struct {
-	Type   string `json:"type"`
-	Mod    string `json:"mod,omitempty"`
-	Class  string `json:"class"`
-	FG     string `json:"fg"`
-	Bold   bool   `json:"bold,omitempty"`
-	Italic bool   `json:"italic,omitempty"`
+	Type  string `json:"type"`
+	Mod   string `json:"mod,omitempty"`
+	Class string `json:"class"`
+	FG    string `json:"fg"`
+	// FGLight is the color on light themes (FG is the dark-theme color).
+	FGLight string `json:"fgLight"`
+	Bold    bool   `json:"bold,omitempty"`
+	Italic  bool   `json:"italic,omitempty"`
 }
 
 // Palette is the ordered rule list parsed from palette.json.
@@ -129,6 +131,14 @@ func PaletteCSSRules() string {
 			decls = append(decls, "font-style: italic;")
 		}
 		fmt.Fprintf(&b, "%-*s { %s }\n", width, sel, strings.Join(decls, " "))
+	}
+	// Light themes get the accessible light colors (VS Code sets the
+	// vscode-light / vscode-high-contrast-light class on the preview body).
+	for _, r := range Palette {
+		if r.FGLight == "" {
+			continue
+		}
+		fmt.Fprintf(&b, ".vscode-light .ipm-%s, .vscode-high-contrast-light .ipm-%s { color: %s; }\n", r.Class, r.Class, r.FGLight)
 	}
 	return b.String()
 }

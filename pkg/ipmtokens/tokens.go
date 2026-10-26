@@ -305,11 +305,9 @@ func Collect(wholeText, blockText string, lineOffset uint32) []Token {
 		emitMatchRange(&out, []int{t[0], t[1]}, 0, mapper, lineOffset, TypTooltip, 0)
 	}
 
-	// Strings — quoted node titles (graph.Src.Lex.Strings). Emitted after
-	// the node-name pass so the string color wins on the title span.
-	for _, s := range graph.Src.Lex.Strings {
-		emitMatchRange(&out, []int{s[0], s[1]}, 0, mapper, lineOffset, TypString, 0)
-	}
+	// Quoted node titles (graph.Src.Lex.Strings) are NOT repainted as
+	// strings: the node-name and endpoint passes above already paint them in
+	// the node's kind, so the whole node reads in one kind color.
 
 	// Kind markers (`::e`/`::t`/`::c`) and type markers (`::a`/`::tip`) —
 	// from the parser, so a `::e` inside a comment or quoted string is never

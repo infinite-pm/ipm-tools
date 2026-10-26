@@ -80,8 +80,11 @@ func TestAsTokenDrift(t *testing.T) {
 		"t-title": false, "t-marker": false, "t-alias": false, "t-title-aliased": false,
 		"c-title": false, "c-marker": false, "c-alias": false, "c-title-aliased": false,
 		"L": false, "P": false, "X": false, "N": false,
-		"type-marker": false, "relation": false, "string": false, "comment": false, "tooltip": false,
+		"type-marker": false, "relation": false, "comment": false, "tooltip": false,
 		"unresolved": false,
+		// "string" is deliberately absent: quoted node titles carry their
+		// node kind, so the tokenizer never emits it (it stays a named
+		// as-token style, covered by the round-trip test above).
 	}
 	for _, tk := range Collect(fixtureBlock, fixtureBlock, 0) {
 		cls := ClassSuffix(TypeName(tk.Type), tk.Mods)

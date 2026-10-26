@@ -381,6 +381,38 @@ func TestCollect_markerInsideQuotedTitleIsNotAMarker(t *testing.T) {
 	}
 }
 
+// TestCollect_quotedTitleCarriesNodeKind: a quoted node title is painted by
+// its node kind (title, or aliased-title when the node has an alias), never
+// by the generic string color, so the whole node reads in one kind color.
+func TestCollect_quotedTitleCarriesNodeKind(t *testing.T) {
+	cases := []struct {
+		src  string
+		text string
+		want string
+	}{
+		{"\"the IO stream\" ::t --> \"my-hub\" ::t\n", "\"the IO stream\"", "t-title"},
+		{"\"the IO stream\" ::t --> \"my-hub\" ::t\n", "\"my-hub\"", "t-title"},
+		{"\"a\" ::e\n", "\"a\"", "e-title"},
+		{"\"b\" ::c\n", "\"b\"", "c-title"},
+		{"x::a \"long title\" ::t\n", "\"long title\"", "t-title-aliased"},
+		{"plain --> \"x\"\n", "\"x\"", "e-title"},
+		{"\"unmarked quoted\" --> other\n", "\"unmarked quoted\"", "e-title"},
+		{"\"unmarked quoted\"\n", "\"unmarked quoted\"", "e-title"},
+		{"bare node\n", "bare node", "e-title"},
+	}
+	for _, c := range cases {
+		var got []string
+		for _, tk := range Collect(c.src, c.src, 0) {
+			if tokenText(c.src, tk) == c.text {
+				got = append(got, ClassSuffix(TypeName(tk.Type), tk.Mods))
+			}
+		}
+		if len(got) != 1 || got[0] != c.want {
+			t.Errorf("%q: title %s want [%s]; got %v\nall: %v", c.src, c.text, c.want, got, dumpClasses(c.src, Collect(c.src, c.src, 0)))
+		}
+	}
+}
+
 // TestCollect_thingMarkerAfterQuotedTitleIsThingMarker: `"x" ::t --> "y" ::t`
 // must paint both `::t` as thing markers (the green t-marker class), not
 // as the string or event color of the quoted title before them.
