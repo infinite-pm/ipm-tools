@@ -24,8 +24,8 @@ change is a decision about the figures, made on purpose and looked at on this pa
 
 ## What the page shows
 
-- A sample of ipmt source, highlighted both ways, beside the diagram
-  the sample draws. This is the place to see whether an event in the source and an
+- A sample of ipmt source, beside the diagram the sample draws:
+  first on white, then in its own section as a dark editor shows it. This is the place to see whether an event in the source and an
   event in the picture still look like the same thing.
 - A table of every rule with its two values and the contrast of each. A red frame
   marks a value below 4.5:1.

@@ -4,9 +4,10 @@
 //
 // The page has three parts:
 //
-//   - a sample of ipmt source, highlighted twice: as a dark editor shows it
-//     (fg on #1f1f1f) and as everything white shows it (fgLight: a light
-//     editor, a page md-html wrote, a figure), beside the diagram it draws;
+//   - a sample of ipmt source beside the diagram it draws, first as
+//     everything white shows it (fgLight: a light editor, a page md-html
+//     wrote, a figure), then, further down, as a dark editor shows it (fg on
+//     #1f1f1f);
 //   - the table of every rule with its two values and their contrast against
 //     the background they are meant for;
 //   - the colours a diagram itself uses for the three node kinds.
@@ -68,9 +69,11 @@ type mode struct {
 	value              func(ipmtokens.PaletteRule) string
 }
 
+// modes are in the order the page shows them: white first, because that is
+// what the figures, the pages and a light editor share.
 var modes = []mode{
-	{"dark", "Dark editor (fg)", darkBG, "#cccccc", func(r ipmtokens.PaletteRule) string { return r.FG }},
 	{"light", "Light editor, pages and figures (fgLight)", lightBG, "#3b3b3b", func(r ipmtokens.PaletteRule) string { return r.FGLight }},
+	{"dark", "Dark editor (fg)", darkBG, "#cccccc", func(r ipmtokens.PaletteRule) string { return r.FG }},
 }
 
 func main() {
@@ -133,11 +136,14 @@ td.low { outline: 2px solid #d00000; outline-offset: -2px; }
 		`Each rule has two values: <b>fg</b> for dark editor themes, and <b>fgLight</b> for every white background: ` +
 		`a light editor theme, the pages md-html writes, and the figures drawn from the palette.</p>` + "\n")
 
-	b.WriteString("<h2>The same source, dark and light, beside its diagram</h2>\n<div class=\"row\">\n")
+	// One section per mode, each with the diagram beside it: the question is
+	// always whether the source reads like the picture.
+	diagram := stripXMLDecl(string(svg))
 	for _, m := range modes {
-		fmt.Fprintf(&b, "<div class=\"panel %s\"><h3>%s, on %s</h3><pre>%s</pre></div>\n", m.key, html.EscapeString(m.title), m.bg, code)
+		fmt.Fprintf(&b, "<h2>%s, beside its diagram</h2>\n<div class=\"row\">\n", html.EscapeString(m.title))
+		fmt.Fprintf(&b, "<div class=\"panel %s\"><h3>source, on %s</h3><pre>%s</pre></div>\n", m.key, m.bg, code)
+		fmt.Fprintf(&b, "<div class=\"panel\"><h3>The diagram</h3><div class=\"svg\">%s</div></div>\n</div>\n", diagram)
 	}
-	fmt.Fprintf(&b, "<div class=\"panel\"><h3>The diagram</h3><div class=\"svg\">%s</div></div>\n</div>\n", stripXMLDecl(string(svg)))
 
 	b.WriteString("<h2>Every rule</h2>\n<p class=\"note\">The number is the contrast of the text against its background. " +
 		"A red frame marks a value below 4.5:1 (WCAG AA for text).</p>\n<table>\n<tr><th>class</th><th>token</th>")
