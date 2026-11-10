@@ -175,7 +175,7 @@ td.low { outline: 2px solid #d00000; outline-offset: -2px; }
 		"Only an event is written bold.</p>\n<table>\n<tr><th>kind</th><th>stroke</th><th>fill</th><th>text</th><th>weight</th><th>as drawn</th></tr>\n")
 	for _, k := range []struct{ name, kind string }{
 		{"event", "event"}, {"thing", "thing"}, {"concept", "concept"},
-		{"undecided", "unresolved"}, {"start / end", "boundary"},
+		{"undecided", "unresolved"},
 	} {
 		fill, stroke, text, bold := ipmsvg.KindStyle(k.kind)
 		weight, css := "normal", ""
