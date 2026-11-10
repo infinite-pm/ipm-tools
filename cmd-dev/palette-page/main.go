@@ -38,20 +38,26 @@ const (
 	lightBG = "#ffffff"
 )
 
-// sample uses every token the palette colours: the three kinds marked and
-// unmarked, an alias with its softer long title, a quoted title, a tooltip,
-// the four relations, a comment and an undecided node.
-const sample = `# a comment
+// sample uses every token the palette colours. First an event, a thing and a
+// concept with no alias, then the same three kinds with one: an alias has its
+// own colour, and the long title beside it takes the softer one.
+const sample = `# no aliases
+wake up --> make coffee
+Alice ::t --> wake up
+Alice ::t --> person ::c
+
+# with aliases
 wearB::a Patrick wears black t-shirt
   --> swapT::a "Patrick swaps t-shirt" "in a blink" ::tip
-  --> wearW::a Patrick wears white t-shirt
-Patrick ::t --> wearB, swapT, wearW
-shirt::a black t-shirt ::t --::P--> wearB
-Patrick --> human ::c
-human ::c --::X--> mam::a warm-blooded mammal ::c
-mam --- animal ::c
+pat::a Patrick the magician ::t --> wearB, swapT
+hum::a human being ::c
+pat --> hum
+
+# relations spelled out, and an undecided node
+black t-shirt ::t --::P--> wearB
+hum --::X--> mammal ::c
 swapT --- magic trick
-white t-shirt ::t --::N-- black t-shirt
+black t-shirt --::N-- white t-shirt ::t
 something ::?et --> swapT
 `
 
