@@ -1,7 +1,7 @@
 [
     {
         "source": "../../../docs/dev-tools/ipmt-migrate.md",
-        "source_sha1": "dd1618963a9c50d9334b38cdc88dfcb245167c9d",
+        "source_sha1": "eafe67224320160aa38afb2390d603f1753c54c9",
         "name": "ipmt examples in Markdown files",
         "method": "parser",
         "parser_name": "ipmt-md",
@@ -12,7 +12,7 @@
         "items": [
             {
                 "destination": "flow",
-                "line": 164,
+                "line": 196,
                 "anchor": "#flow",
                 "content_sha1": "cbd12804f1a69aa689403cdec5bf27992cdf95c6",
                 "outputs": {
@@ -28,7 +28,7 @@
     },
     {
         "source": "../../../docs/dev/layout-gen/dsl-reference.md",
-        "source_sha1": "69e3b3489fd3299d4b2a98cc64bddb93e020476a",
+        "source_sha1": "ab7f31491a2dfea538b5fa857e3c4e34811debd2",
         "name": "ipmt examples in Markdown files",
         "method": "parser",
         "parser_name": "ipmt-md",
@@ -112,7 +112,7 @@
     },
     {
         "source": "../../../docs/dev/layout-gen/layout-principles.md",
-        "source_sha1": "b3f8cd8c954319bd4da7fd9fdaa82ce42e47df52",
+        "source_sha1": "305c373928adc3bc756e4fc77852bbb491e1df26",
         "name": "ipmt examples in Markdown files",
         "method": "parser",
         "parser_name": "ipmt-md",
@@ -193,7 +193,7 @@
             },
             {
                 "destination": "v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept",
-                "line": 524,
+                "line": 531,
                 "anchor": "#v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concepts-down",
                 "content_sha1": "3bd3d0faebab62fbd0ec043de9ef12e3f95eb9ce",
                 "outputs": {
@@ -201,13 +201,13 @@
                     "ipmt": "3bd3d0faebab62fbd0ec043de9ef12e3f95eb9ce",
                     "json": "622f0c925c006086aa0f0d8194b28a32a3e1dc15",
                     "layout.json": "679d8da08f12721e59543866946ff8d2cf4e9b70",
-                    "md": "7670f45b2e41f2202e46d29a482769922511d673"
+                    "md": "4c713ff625fb9f51ee4c871ac5bfa160b970e4a5"
                 },
                 "section": "v7P4 — aux attaches in groups: on the event's row, wholes outward, parts above, concepts down"
             },
             {
                 "destination": "v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concept-02",
-                "line": 563,
+                "line": 570,
                 "anchor": "#v7p4-aux-attaches-in-groups-on-the-events-row-wholes-outward-parts-above-concepts-down",
                 "content_sha1": "804c9fd0ebb728834b152e36859e23cc8de4453d",
                 "outputs": {
@@ -215,13 +215,13 @@
                     "ipmt": "804c9fd0ebb728834b152e36859e23cc8de4453d",
                     "json": "026425b04d00fad0c755792e10a9400e9309249f",
                     "layout.json": "6df5b94eeb167de17b493771ac9e01ff1f3138d4",
-                    "md": "099b3dea499a0a5773e31a7a2ef81572e810c334"
+                    "md": "b5a79dbeea43be4f80c62c197c32c5ac8ae2c69c"
                 },
                 "section": "v7P4 — aux attaches in groups: on the event's row, wholes outward, parts above, concepts down"
             },
             {
                 "destination": "v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer",
-                "line": 603,
+                "line": 610,
                 "anchor": "#v7p5-same-kind-ties-draw-order-or-wrap-as-the-outermost-layer",
                 "content_sha1": "2732ca132d1094f9a8b0d9d40c8492458ec11a4a",
                 "outputs": {
@@ -229,13 +229,13 @@
                     "ipmt": "2732ca132d1094f9a8b0d9d40c8492458ec11a4a",
                     "json": "57104f1efa0b0d8c67a140b75a6dd8c91bb87fb8",
                     "layout.json": "b27c0a4b779067e6acd17bc7b48efa5b2e51a07a",
-                    "md": "0a6b72d5edebcd8d5f157aba5213d38c09550186"
+                    "md": "317a510708e9e461c531ffa3ab909f835ea549f7"
                 },
                 "section": "v7P5 — same-kind ties: draw, order, or wrap as the outermost layer"
             },
             {
                 "destination": "v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact",
-                "line": 850,
+                "line": 857,
                 "anchor": "#v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact",
                 "content_sha1": "fab420cb3b1b0ec6ea8756837908f889d78c4efc",
                 "outputs": {
@@ -243,13 +243,13 @@
                     "ipmt": "fab420cb3b1b0ec6ea8756837908f889d78c4efc",
                     "json": "d9ae92c737aa8be1749a0d26ce997c21c0da602e",
                     "layout.json": "ab28892c363b112b6e4f47e8656e6025190e6402",
-                    "md": "aa836ce6039a38ad4c43a18b53ce20b810367d78"
+                    "md": "587fba6ac430106bd54d5f7220bcd9f46a3d3465"
                 },
                 "section": "v7P8 — spacing: gaps are minimums, growth is symmetric, the grid is exact"
             },
             {
                 "destination": "v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-02",
-                "line": 868,
+                "line": 875,
                 "anchor": "#v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact",
                 "content_sha1": "c4e03437be2f2d3bfa5ffd0797a78a3a78026868",
                 "outputs": {
@@ -263,7 +263,7 @@
             },
             {
                 "destination": "v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact-03",
-                "line": 879,
+                "line": 886,
                 "anchor": "#v7p8-spacing-gaps-are-minimums-growth-is-symmetric-the-grid-is-exact",
                 "content_sha1": "6854e43c2fc2d9d253f4b5f62197c2b64176950a",
                 "outputs": {
@@ -279,7 +279,7 @@
     },
     {
         "source": "../../../docs/how-to-model.md",
-        "source_sha1": "50d0482ac644d4d3a047f8f177b712ec01efa3f7",
+        "source_sha1": "3cfa8390c367c300f33bbf7f447f31aaf7e92ad3",
         "name": "ipmt examples in Markdown files",
         "method": "parser",
         "parser_name": "ipmt-md",
@@ -431,7 +431,7 @@
     },
     {
         "source": "../../../docs/ipmt-ex/ipmt-examples.md",
-        "source_sha1": "70093407d23d936e6e24e16534f0a4892e1683f6",
+        "source_sha1": "dcd17adb3f3f5c8654dae5aa35a18bd6a8bbefa6",
         "name": "ipmt examples in Markdown files",
         "method": "parser",
         "parser_name": "ipmt-md",
@@ -831,7 +831,7 @@
     },
     {
         "source": "../../../docs/ipmt-ex/mark-ex/examples.md",
-        "source_sha1": "b41d45de490b653f8934a6a2ae34f2f7de7e809d",
+        "source_sha1": "7799c4e7afe24ad7a423685006b51f66c85edf44",
         "name": "ipmt examples in Markdown files",
         "method": "parser",
         "parser_name": "ipmt-md",

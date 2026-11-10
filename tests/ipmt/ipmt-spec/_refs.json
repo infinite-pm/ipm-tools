@@ -234,7 +234,7 @@
                     "ipmt": "2ecfcc0b5514d3fd2d8c1746d8f9cbac04c2347c",
                     "json": "7e6267e1de559751cb4c585d962380b97d69939b",
                     "layout.json": "444530a5d486b3f6508e000767f0879e420f37c3",
-                    "md": "131f734fd6b273e360182acfc20827f888f43cbb"
+                    "md": "16a83504389668b6c38622b82bd9d2ea0b832276"
                 },
                 "heading": "Node type",
                 "section": "Nodes"
@@ -245,11 +245,9 @@
                 "anchor": "#one-word-two-kinds-the-kind-tag",
                 "content_sha1": "435ba44a7498e45023ea1dd0ef94943e33956a9a",
                 "outputs": {
-                    "ipm.svg": "e7c9977cd761d341b771b1a802d0ca3e87293b09",
                     "ipmt": "435ba44a7498e45023ea1dd0ef94943e33956a9a",
                     "json": "885b719879e7b2663754fc52983c96069c61f0e5",
-                    "layout.json": "d64df3c4e060d93db1d1e93087f76fdf65b40ed6",
-                    "md": "be4bbc2f767baa3a5d551a4758236e7ae1d720fe"
+                    "md": "6382a051d053e49f643c7d1d59d215debdee1cdf"
                 },
                 "heading": "One word, two kinds: the kind tag",
                 "section": "Nodes"
@@ -264,7 +262,7 @@
                     "ipmt": "10486e4314a58aaa7cdd98fbe7363202e125f85c",
                     "json": "5d436d1ed971b9328fef43916506dd1c6eb116e3",
                     "layout.json": "e704311976ed710fe35db7d8de33e80e61410ea4",
-                    "md": "3f6fbaf7e71ebd05967602907c36c54a075c34e6"
+                    "md": "ec3f086029f19deb1613b4cbf4068dd983bc77d6"
                 },
                 "heading": "Node tooltip",
                 "section": "Nodes"
@@ -279,7 +277,7 @@
                     "ipmt": "2dda6ffef9a4ffed92f561564d9031d7e46df3c0",
                     "json": "770f0925cb4bbe3b6aa2df96a43b01397d221985",
                     "layout.json": "7773629f4cd2d38b1bec5c5aed58cf292e898805",
-                    "md": "ca5c378db107f9d785f19ccbddb085a8c1032928"
+                    "md": "f3255e2ce3fc596d925fe2adedfe465f0511820c"
                 },
                 "heading": "Annotation order",
                 "section": "Nodes"
@@ -294,7 +292,7 @@
                     "ipmt": "4f9b1403f845eb7e6a8890ad5d902be8a8073a17",
                     "json": "0396036ca6d4756ab86273192d59fe74c9b1b18d",
                     "layout.json": "da34391728fd6e30211176e37367bf1c6973d103",
-                    "md": "0a56f52d6bd6fbd0d4c69511d6fef4de45a32f35"
+                    "md": "d31b04c3d4bd1dd3f2c631ebe9f9a4c1d9cdae60"
                 },
                 "heading": "Simple arrow",
                 "section": "Links"
@@ -309,7 +307,7 @@
                     "ipmt": "782c67cc7089999f31f46693b1089fb4db428c42",
                     "json": "670bde32209232f63f68eef7d747de07009cc762",
                     "layout.json": "f88bf3f4f169b2b7b077978f4385308154f8da4d",
-                    "md": "d21be164c07f26904cfb836af85441d107dc7949"
+                    "md": "4a2b63d5eebfe10820b4317c34b96af004ca3ac6"
                 },
                 "heading": "Reverse arrow",
                 "section": "Links"
@@ -324,7 +322,7 @@
                     "ipmt": "7042b400149931b59033f462d192d004a97a128e",
                     "json": "65c16671ce938acd612df8c93cfb991260cd4926",
                     "layout.json": "5367e184fa96279b4dcc0fa81985e24716e5cf51",
-                    "md": "1c9a04cca9bcd1208ec21b2914261a9cfba74176"
+                    "md": "42474e4c5af3969e7f3d667b6d7532908ea976d7"
                 },
                 "heading": "Reverse arrow",
                 "section": "Links"
@@ -339,7 +337,7 @@
                     "ipmt": "cbad58bc720ff77816c8c2d75ee31647bd03dfd9",
                     "json": "efe18b08842ed19df6ac63cbc5a492492bc2347b",
                     "layout.json": "10a78487e2e51b15b09cfac71f9f10b2eb81e14d",
-                    "md": "ffdb466cb355664e98ed813aeb8fe239a6056ced"
+                    "md": "14ee3c9d4d64375601414221ef89440099490bb4"
                 },
                 "heading": "Reverse arrow",
                 "section": "Links"
@@ -354,7 +352,7 @@
                     "ipmt": "616249ce9a21adda78d251431ea790ca078e4756",
                     "json": "351803a705b0b13a08600239c52617e9e0f91b46",
                     "layout.json": "9a12d7a6337a76c13522e46be32bb95b76402051",
-                    "md": "63bdc088ade94cce7de3cf35cb2025945bc9d1ba"
+                    "md": "6605fbc898f40946ffc979c937a8be294958f173"
                 },
                 "heading": "Reverse arrow",
                 "section": "Links"
@@ -369,7 +367,7 @@
                     "ipmt": "2f000b2c45bf3c93c4857372f3fc40309373b7d9",
                     "json": "fb01101bf834f9ec6b9b46d109b2bda523f48859",
                     "layout.json": "73ea2a6defb0ec78d3ec3cdd281e7f65136c0c75",
-                    "md": "0e47d9c26109f4f5e0d4acdae940ef5e485b896f"
+                    "md": "214763550ac9aa46c8bb648fc50a0e0655a7a336"
                 },
                 "heading": "Reverse arrow",
                 "section": "Links"
@@ -384,7 +382,7 @@
                     "ipmt": "e3ce184acd0b0785865fde66a1ce7cf2ea99b5fe",
                     "json": "38dadbadecc4f93b79f87bc9660a39092d0fda29",
                     "layout.json": "dfe34f61f431d19f4fd4186de7d8d1eb282d3dd1",
-                    "md": "0eff5f6cbee03a3267d54bebe1a431744966a245"
+                    "md": "621d340942d10542abd1cb1d5a4c578db5423eb4"
                 },
                 "heading": "Edge tooltip",
                 "section": "Links"
@@ -399,7 +397,7 @@
                     "ipmt": "ddae5fb2aca365f7a129f48424c0e8d758229ac9",
                     "json": "99ad89503ddfd33f565ea52ab6dc8d1c7539952d",
                     "layout.json": "61894a5ea659ec3c144c729acec3493cf2d83ff0",
-                    "md": "59de69f243ccdbb469721f9a76f0a519cb390c0e"
+                    "md": "92e15baa63d723c7b7074d1b62c0b42c0701918d"
                 },
                 "heading": "Edge tooltip",
                 "section": "Links"
@@ -414,7 +412,7 @@
                     "ipmt": "d21cc21067ac2004538e918e900f984d86646159",
                     "json": "56a88be5ef3c5fa7c0881a988117f2dd8fbd3f9d",
                     "layout.json": "0199686d97254f2f5becc78cf0977715ee342349",
-                    "md": "63efecd22097a4767935d10ce7b31c13427e9421"
+                    "md": "f163d9f19fbf1acfd15569035684434530d2cbc2"
                 },
                 "heading": "Edge tooltip",
                 "section": "Links"
@@ -429,7 +427,7 @@
                     "ipmt": "25ef54fc4bd431bcf0386fcaf264ff09e246b51f",
                     "json": "343dc900decc69a7879d8a9647745d0269b9627a",
                     "layout.json": "bcbb079615a5c9ea5b2e14a55b2f1bc59f901451",
-                    "md": "c72dee4da66fe59877005cf9f1ff50a58c9267b1"
+                    "md": "8120650b391fbcf56fb75f19b3dc83d808a91611"
                 },
                 "heading": "Edge tooltip",
                 "section": "Links"
@@ -444,7 +442,7 @@
                     "ipmt": "d691226bd27421e862e89d881e3e4bb8f489ef69",
                     "json": "92b2366f12fb8d7e6d1babda44bd6b6e20a1903a",
                     "layout.json": "1a5852450a1898f28fdbdc977680e448b41a319e",
-                    "md": "2383c1d61fe2cc72690734c6455301f367e37f6d"
+                    "md": "48604ad2295da73730eb2c3276d0ee58c7489a3d"
                 },
                 "heading": "Edge tooltip",
                 "section": "Links"
@@ -459,7 +457,7 @@
                     "ipmt": "19e062770343dacfa4ef73e745b6a00adb185a4a",
                     "json": "c25648543e5e2469d5e1f1ae64cc1bca8a97e823",
                     "layout.json": "2b7d82318a811744c2d2a2ab40146b6e27804f3f",
-                    "md": "7e0c33ccb70d85adb3367689932f987f22c85007"
+                    "md": "49dd676c8df164898d635318415ce457efbe9b70"
                 },
                 "heading": "Explicit arrow with tooltip",
                 "section": "Links"
@@ -474,7 +472,7 @@
                     "ipmt": "319bd5f5b90197c8f207182ae14748149bc18612",
                     "json": "54e7e020bba7fd7f2cb14ef237fa0ef0821cc8c9",
                     "layout.json": "187be601f9b92fbff28742115b8d601e1fa37411",
-                    "md": "731e8bc40daf1ef8fe7773fa8979039e96e96275"
+                    "md": "5cc621b2f695ea429b22a73a0951bf0bdae5a43d"
                 },
                 "heading": "Explicit arrow with tooltip",
                 "section": "Links"
@@ -489,7 +487,7 @@
                     "ipmt": "ea2f59878067db4010b8c8d60b9640394fd5f717",
                     "json": "9804038bac5ff5697367c89f77ea27998f802c0d",
                     "layout.json": "9208ae8653cd4a3fa573c461aeb567b27a303f45",
-                    "md": "408098b069bda6c1de240f50f793ff44beb2e960"
+                    "md": "8145940f00cbc12b5e1b21b54e699b35b5b54883"
                 },
                 "heading": "Explicit arrow with tooltip",
                 "section": "Links"
@@ -504,7 +502,7 @@
                     "ipmt": "2ab28a1b71b051b86cb6548b4a320420afacebc5",
                     "json": "71a340c55374fcbe0cccacf96b4550fd0cea90fb",
                     "layout.json": "88244c120076d64a441583242fdd9f46530789b6",
-                    "md": "b5a628a26ac939a10452e02cf0eeeda2e7428466"
+                    "md": "533ccb9724ad9df56abdc0cf69c45e8c8f9c9542"
                 },
                 "heading": "Explicit arrow with tooltip",
                 "section": "Links"
@@ -519,7 +517,7 @@
                     "ipmt": "2c71e4ca4221ef039b93938767c511d151aa711c",
                     "json": "c863d799410c60008d3c44c4e71a898ed1bc3b25",
                     "layout.json": "07277ddbbc3e532e63f159298b4d20ff1ab074e6",
-                    "md": "4901656d9e369ae70857edeb4b8c10c0b47721c9"
+                    "md": "efd299c5076fd4ab4675c6194222e7f59800b7b1"
                 },
                 "section": "Chaining arrows"
             },
@@ -533,7 +531,7 @@
                     "ipmt": "cb28ab1fe69aa794decf05109ad1c9c0baa36232",
                     "json": "387b6bb03202959a502ff4697e5a8d6fd95651e6",
                     "layout.json": "07277ddbbc3e532e63f159298b4d20ff1ab074e6",
-                    "md": "219120c65a0d4fba167f7640e6b1ff5f8a3702ee"
+                    "md": "8ab90158849f50127e94853f0ac3d1d37e89b37c"
                 },
                 "section": "Chaining arrows"
             },
@@ -547,7 +545,7 @@
                     "ipmt": "4a3e0726fb7c0e19c361d8283700b70d60b16b7e",
                     "json": "68759697e550b46ea895f6282002a784740ffaa2",
                     "layout.json": "d14f1b4c0dd903c53e8781dba42dc7d0ded981be",
-                    "md": "5e943f4124f08a09be55b8ca1bf1fb4550cd7145"
+                    "md": "eba8e1b5eb82b0004a3460c910cc7b274ecb1ce3"
                 },
                 "section": "Chaining arrows"
             },
@@ -561,7 +559,7 @@
                     "ipmt": "def54685bd9815d8cb5adae96907155436ab8530",
                     "json": "4ef9a87dd3725c564e729e2a59d9eba366ec9ff3",
                     "layout.json": "a3b04d6c4abae95888d3e183db4057e4568d3deb",
-                    "md": "c553fd45c6fd81c1ee3b0d4d163abb50c2b864f9"
+                    "md": "de533b7c8e6051be4b6551fd2287ddcae9f71d4d"
                 },
                 "section": "Chaining arrows"
             },
@@ -575,7 +573,7 @@
                     "ipmt": "538eccf60fb986e97fea125ea35b1bdb5a1446ac",
                     "json": "9e880e3382f979692be6108881582dfa4ea599e7",
                     "layout.json": "a7f1c31d79d2b8076bcea8cf66351972afc1539e",
-                    "md": "e6fbb7234c8702c1b9dd58382240919bd8f3bbbf"
+                    "md": "80010f96c2f1740cd017ce1656e39c9850e80d34"
                 },
                 "section": "Chaining arrows"
             },
@@ -589,7 +587,7 @@
                     "ipmt": "e982e7bd6ceecb5d2d43b4c26b80ed94b7b6a6c8",
                     "json": "77b7d7d6fd227a5a2aa2f2d426d4bda6a272cde2",
                     "layout.json": "06ecc1812f421c7c82dc08e6fc35723addcefa1d",
-                    "md": "b73f5e86fee4b5adbe2f0b5ba8ed7f763995806f"
+                    "md": "a2841e1feb97aa34e9f347e22fdc2e935fbf658b"
                 },
                 "heading": "Backslash escape sequences inside double quotes",
                 "section": "Double quotes and escapes"
@@ -604,7 +602,7 @@
                     "ipmt": "ec410417f6938ad8610ea6b8b661eea7dd05fa64",
                     "json": "5dd8b86f6382c4a501e2f1331638e92fbe713b17",
                     "layout.json": "10d6b6f7a4f4a75a74815e682199fba317d54039",
-                    "md": "28d9170377aa67f1f10c6a5bd5d3e8aae4324424"
+                    "md": "d6b737aa09ff04b11d84748ca63d3111dee2d5bb"
                 },
                 "heading": "Backslash escapes outside double quotes",
                 "section": "Double quotes and escapes"
@@ -619,7 +617,7 @@
                     "ipmt": "a1c015b4f20f66d3dad22aeeaba1e544d41bd982",
                     "json": "16bf032cf76912aefe3170b6fdafd31d20619e24",
                     "layout.json": "aa9a5daff97949d5496f17ce39638b0314834a92",
-                    "md": "b8a05ad445d6dd26323828b45661e73d4e69d1d0"
+                    "md": "466c4f25d1adffae999c1242cde341fef371958f"
                 },
                 "heading": "Newlines",
                 "section": "Whitespace"
@@ -634,7 +632,7 @@
                     "ipmt": "2fe032a4e3137a54ff2d836c9966e8c250c1dfda",
                     "json": "64268dd3d52c5d6acd5cc52373631489415e481f",
                     "layout.json": "aa9a5daff97949d5496f17ce39638b0314834a92",
-                    "md": "2fe9ce9b6d7ae70145be8b8aed13ab1c110c88c9"
+                    "md": "aa1bd8863cb276e04f25cc09f4ad15fbfb637e20"
                 },
                 "heading": "Newlines",
                 "section": "Whitespace"
@@ -649,7 +647,7 @@
                     "ipmt": "f17dcb9a6f27f25e5834fd0a18137dc7557f829a",
                     "json": "7d9c28d974e54d6881c13001741b7a34c0c3f9c0",
                     "layout.json": "4051be0b52bc82568781f0de18676df16bd0ce59",
-                    "md": "376c7509fdb6a56464d5313c5cf111c81e2badd9"
+                    "md": "a21ec35da0c471ac657f7ed3c14055413296173e"
                 },
                 "heading": "Newlines",
                 "section": "Whitespace"
@@ -664,7 +662,7 @@
                     "ipmt": "7bc401fb2a9fb328e69c6769b1d11405165632fb",
                     "json": "06a806428a2353625235a76892b92d3f986e24d6",
                     "layout.json": "f4e5694e3a7ae6f74c43d90c3abca49ef7d0e89f",
-                    "md": "9145cd3f34863193132778d93d4ab847ad1530f7"
+                    "md": "0734ea7023f547b5b565eb0f5fdf72170cc9f64a"
                 },
                 "heading": "Newlines outside double quotes",
                 "section": "Whitespace"
@@ -679,7 +677,7 @@
                     "ipmt": "da23f1b7e97d2c894261e163e477542e871ee08c",
                     "json": "70cdff60c35e9931b5264b45cb267b9a618c2de3",
                     "layout.json": "f4e5694e3a7ae6f74c43d90c3abca49ef7d0e89f",
-                    "md": "14d0b1069001d83799ef430fff788e0994d1342a"
+                    "md": "b0dda186abbe48bf7f5896e2bca8fa2eb3d50920"
                 },
                 "heading": "Newlines outside double quotes",
                 "section": "Whitespace"
@@ -694,7 +692,7 @@
                     "ipmt": "cb565a8e4be9b6e191ad4218b0fb984755e2419d",
                     "json": "54452ca84b298f8147641520ad9c661ea05e0220",
                     "layout.json": "19a508dc4eb31d811070032a0525ce4453824780",
-                    "md": "8d6bec89743da6c19c0c42b8f098b9a32e47eac9"
+                    "md": "5523a8e495cbb8b4d131c3b0900efa5375a86546"
                 },
                 "heading": "Newlines outside double quotes",
                 "section": "Whitespace"
@@ -709,7 +707,7 @@
                     "ipmt": "f62d6d80fe506320e1bf90b4fe64a1bc4b90f1fd",
                     "json": "ef3096db6ff361aaf1631e2c9ca97878cd138ef1",
                     "layout.json": "7e2147b67cb9da8896319a6bff7d614dc5f2be81",
-                    "md": "a02a3a5e12331592d51f79c4e20242512917b10c"
+                    "md": "4cb6c5b204ed48c83230dfb3ef1110030f80d945"
                 },
                 "section": "Comma separator"
             },
@@ -723,7 +721,7 @@
                     "ipmt": "71cebda9c59331d60d4197de61ce1d0467af9e4d",
                     "json": "0567b3c43cefd9d154ef11d2a21d3dbd9f9135a1",
                     "layout.json": "7e2147b67cb9da8896319a6bff7d614dc5f2be81",
-                    "md": "481b61cbc820c04faa017f087e8a61fbddfea4be"
+                    "md": "3b377a2f8214bd281498957da260f9054e8759a4"
                 },
                 "section": "Comma separator"
             },
@@ -737,7 +735,7 @@
                     "ipmt": "6c59f352824f1db489415d9d8d6815322edbc911",
                     "json": "4029cda5abd4a9f3b0d8aaf2a7d5be58c5d18511",
                     "layout.json": "3a79e8d061436472918ee4e8764f61da90d63a35",
-                    "md": "58b8b4f539d46d1cac087cb848de45d5d177381d"
+                    "md": "50e70f8df8b16c352a9bd7b2f76a63d5804cea50"
                 },
                 "section": "Comma separator"
             },
@@ -751,7 +749,7 @@
                     "ipmt": "180730c21edb1da3113b9235265cb87b46b50d33",
                     "json": "54ba5007e8e6e7e2a8a17b427458b771260415d7",
                     "layout.json": "0965f7e962096ae1ba14de12f1d00bb94982b5ba",
-                    "md": "411e219ffe69d324a5def3fc24aa4947bf9518da"
+                    "md": "bdc41c1b10590cfeebeb97c8c8a0de3d24c8bb26"
                 },
                 "section": "Comma separator"
             },
@@ -765,7 +763,7 @@
                     "ipmt": "7f9da77f92643388a5b73f44b11fa7614fd7d3c2",
                     "json": "1a3881f03340d7346ce3cda94974bbbc9872cd30",
                     "layout.json": "4aaf48c1002c43124bee559e18f055fecd26c13f",
-                    "md": "02e84690738bd073ec9cd77bef42ed5c16c7ae38"
+                    "md": "cc5acf7b8d6de942541c2dd406d2764c481030de"
                 },
                 "heading": "Comma separated with more arrows on one line",
                 "section": "Comma separator"
@@ -780,7 +778,7 @@
                     "ipmt": "2f2ea161fe37c3e5392b36d1d40849919546696b",
                     "json": "fd096cb164ae39f76ebeef2f76606877e9f40fc3",
                     "layout.json": "77d98793195402b050239fc08dd6a4161f6a8be9",
-                    "md": "63f18d3041864a292ee28c63267265c75cd6b1f2"
+                    "md": "d996fcfb3ee66d57bc7c1d11604b14081b3e2c15"
                 },
                 "heading": "Comma separated with more arrows on one line",
                 "section": "Comma separator"
@@ -795,7 +793,7 @@
                     "ipmt": "dff1a184904401c29e645c7881084437de6fbb82",
                     "json": "b38f4114e7d48930a1d7a4b07f46fd7edd3a5c55",
                     "layout.json": "2d46d126fe14dc0ee49d4770db8653de0862f61f",
-                    "md": "4003d072b850e4eff1df74b0d07d093e8c248218"
+                    "md": "df0977fc0c7461cb4cc9bb3e01edce37d5e5abd2"
                 },
                 "heading": "Comma separated with more arrows on one line",
                 "section": "Comma separator"
@@ -810,7 +808,7 @@
                     "ipmt": "279cb5c0369a8eb9f4a85f85a2884092f714ff98",
                     "json": "c9eb4409cd8f1214a8ad5cd8cf8b9259f4fb746e",
                     "layout.json": "2d46d126fe14dc0ee49d4770db8653de0862f61f",
-                    "md": "1b1cfbbd553af977cf00566fd42a4eae2855d4e9"
+                    "md": "ff97400e8373133cfb512ee7d2e7a649357b6915"
                 },
                 "heading": "Comma separated with more arrows on one line",
                 "section": "Comma separator"
@@ -825,7 +823,7 @@
                     "ipmt": "7ecc50f6de72eecc4d7f56acea5457162d413019",
                     "json": "baa418e269caafec4cc8cc998326443c8363774a",
                     "layout.json": "189c8171cf93f71925f4804bd7fbae9ef6a313cc",
-                    "md": "5a4d145ec3bb2786e06491ebd531f618bc5d783c"
+                    "md": "a1c998ebc070eb7e164a6aaf28c75544c4761195"
                 },
                 "heading": "Comma separated targets with edge tooltip",
                 "section": "Comma separator"
@@ -840,7 +838,7 @@
                     "ipmt": "ba63a3afd2e34901bc957f117130c7ab62ae99f5",
                     "json": "c22007554e303cfb1da4eacc0a7870f24f9b4f11",
                     "layout.json": "189c8171cf93f71925f4804bd7fbae9ef6a313cc",
-                    "md": "959923581aff7038aa9f991df528bb65ed5e0bd5"
+                    "md": "fa170bea3b8f57ed57f748214811d3fd406a5eae"
                 },
                 "heading": "Comma separated targets with edge tooltip",
                 "section": "Comma separator"
@@ -855,7 +853,7 @@
                     "ipmt": "4a491db12415b45b804199bfe4f10fffabf343a5",
                     "json": "03fe0c7319424c5759d50d50488fb9e3945a49c9",
                     "layout.json": "8ede844898175c605c8851b9046019353d1896d5",
-                    "md": "5a25c0102b33458b441a65e4d9214ae7d9e84479"
+                    "md": "b6e26b0290c79bebfc53dc8e0edef59c71fe70dc"
                 },
                 "heading": "Spaces not allowed in identifiers",
                 "section": "Invalid syntax"
@@ -870,7 +868,7 @@
                     "ipmt": "92c2323659bfa09489aa846780084ea4ad7a63db",
                     "json": "9c1cc1873e61e46a8104cc9c298344b19a04cc8e",
                     "layout.json": "93240caabde5e8ca4c3dc0dc627aad12f8e1b58b",
-                    "md": "f3c67af949cf66a08fc65df2e9179e3b1018ecfb"
+                    "md": "99ad7a643d9a3c2c09a361e6111dedc1c1a1a029"
                 },
                 "heading": "Spaces not allowed in identifiers",
                 "section": "Invalid syntax"
@@ -885,7 +883,7 @@
                     "ipmt": "0c27c40e844173de901d3cb697664a0d22268ea6",
                     "json": "7a823f611ca8e1ab5e08bababaf6ce43f1e13164",
                     "layout.json": "0496f30233a111787d947a6f6f5196b9be65e2db",
-                    "md": "20927c91607a459aacfd407c14ad0fa6cafe30c0"
+                    "md": "c8cecd6d421146525ca3b649047ba7b0fb56d394"
                 },
                 "heading": "Sequence of nodes without commas",
                 "section": "Invalid syntax"
@@ -900,7 +898,7 @@
                     "ipmt": "abc2e46f114693510d1bda1b5bfa0eaab50e2e60",
                     "json": "bf1692f86e0b35bcd48f3cd22c5262b363a00ab7",
                     "layout.json": "81829ae33d8d2016afe253083af31f8c83c5ba11",
-                    "md": "9f50817ac5dd4ba6514b028bc43ab8e064075b31"
+                    "md": "973808d890f5b725153617af585eff695d28a72a"
                 },
                 "heading": "Ambiguous separator use",
                 "section": "Invalid syntax"
@@ -915,7 +913,7 @@
                     "ipmt": "efc32f4eea697fce941302f76ded57801a5e26cb",
                     "json": "ad7dbc1278063d84f94ea6aa4458bf1314ca5a83",
                     "layout.json": "7367e4e5dffcfb2fbaca4a74361c437f5d3da427",
-                    "md": "cad2d75b31f472f1e79394f8c5efb76f446c2df0"
+                    "md": "26fc646aa9f199901ff7204f1782d931bfe4d1e4"
                 },
                 "heading": "Ambiguous separator use",
                 "section": "Invalid syntax"
@@ -930,7 +928,7 @@
                     "ipmt": "87dbb449c04f4a89b42ee62b4441433996de752b",
                     "json": "9dec441f21aae55d6147a4b1d2018fa02a2a45bd",
                     "layout.json": "0bbf9bc411579cf5734c6a4389f844b3f7a23c12",
-                    "md": "f44160bbb9fd30ed82b465059f8c2a65f1b3c0f2"
+                    "md": "e43ab06029750bdfd79bd4cbb303a4c25157f4e7"
                 },
                 "heading": "A creates link validity",
                 "section": "Invalid semantics"
@@ -945,7 +943,7 @@
                     "ipmt": "d6f245f3db1d9f5de07e07c339a183855fb2823d",
                     "json": "f79cf320b345e74576f9ed533eb9070f0611a64d",
                     "layout.json": "c8e094be58936651164637623857d18e67d4f2bd",
-                    "md": "257413e5d324883948aba4ba17f8fb39a8de33eb"
+                    "md": "b82dd593dcd9112af0a21cf488ae6d3219a079b7"
                 },
                 "heading": "Minimal example",
                 "section": "Examples"
@@ -960,7 +958,7 @@
                     "ipmt": "1472eff1df4d3b542a8d838101255d3ee753369e",
                     "json": "d126c76557233a669cfd565fa9d7a81a9122eb72",
                     "layout.json": "44f9f3d6f8f8e8e63a2d08e1164a679a358277e0",
-                    "md": "32ec0086e8c1e12e25060e65ba6fc28c9e40b9fc"
+                    "md": "61957c81527cb15711b38d5802247d7789911f28"
                 },
                 "heading": "Rich example",
                 "section": "Examples"

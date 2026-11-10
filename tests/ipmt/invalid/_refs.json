@@ -17,7 +17,7 @@
                 "content_sha1": "5fe936ef9ef8f3893bed8c19c4d82799e4ff020b",
                 "outputs": {
                     "ipmt-invalid": "5fe936ef9ef8f3893bed8c19c4d82799e4ff020b",
-                    "md": "14eeabc5b28ee1d860e114ac9c5eb508913d69bf"
+                    "md": "0925a948fe063bd0ab6e0744edb1037b46e0cdaf"
                 },
                 "heading": "Multiple types",
                 "section": "Invalid syntax"
@@ -29,7 +29,7 @@
                 "content_sha1": "199c50c1a0b57d46b853e16bab3659b276c86087",
                 "outputs": {
                     "ipmt-invalid": "199c50c1a0b57d46b853e16bab3659b276c86087",
-                    "md": "f4c5422fc3551a243ccea73139adce9ef8af188e"
+                    "md": "84b7986454a294ea5f06dea6d21e44cea96de0e9"
                 },
                 "heading": "Multiple types",
                 "section": "Invalid syntax"
@@ -41,7 +41,7 @@
                 "content_sha1": "74c42d11f87476e9b6d58b1cb8766458c410224c",
                 "outputs": {
                     "ipmt-invalid": "74c42d11f87476e9b6d58b1cb8766458c410224c",
-                    "md": "e840a96d9559c0c8a398b6217a4e760dff7d6f23"
+                    "md": "690115841f9785feb45de32d2c5ec3ac15f5a529"
                 },
                 "heading": "Sequence of nodes without commas",
                 "section": "Invalid syntax"
@@ -53,7 +53,7 @@
                 "content_sha1": "611ed1dbfe49c8187a51b3d8d852577fb3c856d0",
                 "outputs": {
                     "ipmt-invalid": "611ed1dbfe49c8187a51b3d8d852577fb3c856d0",
-                    "md": "9340edfee4b0c787c5cdd3a8a0b23fb3c793dcf3"
+                    "md": "17cd157506a04eecac992080ced11b690b65037d"
                 },
                 "heading": "Ambiguous separator use",
                 "section": "Invalid syntax"
@@ -65,7 +65,7 @@
                 "content_sha1": "5ca6fb87a9d7a9eb5675ee55aba18715282d2440",
                 "outputs": {
                     "ipmt-invalid": "5ca6fb87a9d7a9eb5675ee55aba18715282d2440",
-                    "md": "bf9f066a78091f33abcba910bbf4c909ff74338c"
+                    "md": "b7cbb35e50194e120b20089c650ebc53d0a64100"
                 },
                 "heading": "Unterminated tooltip",
                 "section": "Invalid syntax"
@@ -77,7 +77,7 @@
                 "content_sha1": "12c8a17283c9105d364337cbdcc26c311ebcde5a",
                 "outputs": {
                     "ipmt-invalid": "12c8a17283c9105d364337cbdcc26c311ebcde5a",
-                    "md": "80697560b4583b9c730a32b85cb850522531f14c"
+                    "md": "0b8fce2d3a444072c2ca916ce0f794656f074861"
                 },
                 "heading": "Unescaped quotes inside tooltip",
                 "section": "Invalid syntax"
@@ -89,7 +89,7 @@
                 "content_sha1": "bbf0c7e7c23b0833e3d08f7f206e03b222be9651",
                 "outputs": {
                     "ipmt-invalid": "bbf0c7e7c23b0833e3d08f7f206e03b222be9651",
-                    "md": "4c6ace8d872e42dd37f94921fcb3953b5bf70f51"
+                    "md": "12222261812bd606eaef0b8345a0c5354ed129db"
                 },
                 "heading": "Multiple sources and multiple targets combined",
                 "section": "Invalid syntax"
@@ -101,7 +101,7 @@
                 "content_sha1": "2d88ff41373b2884fee7c9e8c60d74d5b56c1852",
                 "outputs": {
                     "ipmt-invalid": "2d88ff41373b2884fee7c9e8c60d74d5b56c1852",
-                    "md": "d42198b8a22cd4360d84e198b00adc2e3f758fc8"
+                    "md": "bdc65ee15c08d99c44039e036b71361006177694"
                 },
                 "heading": "Self-loop",
                 "section": "Invalid semantics"
@@ -113,7 +113,7 @@
                 "content_sha1": "1b89b08cbff087bf5434df7d3ff0b5636e7780ea",
                 "outputs": {
                     "ipmt-invalid": "1b89b08cbff087bf5434df7d3ff0b5636e7780ea",
-                    "md": "68e66e7fdb780128cb8f428ff1cff6367277f5d4"
+                    "md": "4f634859592e4f29273dce0a5f0fab9b5e20d4b8"
                 },
                 "heading": "Duplicate arrows",
                 "section": "Invalid semantics"
@@ -125,7 +125,7 @@
                 "content_sha1": "bb09497dda474264cf917847ce7152fb35ba664c",
                 "outputs": {
                     "ipmt-invalid": "bb09497dda474264cf917847ce7152fb35ba664c",
-                    "md": "2d052edfa31536475d5bc2f988f42610fdd62179"
+                    "md": "a07a222deeba522606eb62323fb7f505c255e0e9"
                 },
                 "heading": "Duplicate pair relation",
                 "section": "Invalid semantics"
@@ -137,7 +137,7 @@
                 "content_sha1": "756c9243fed668e11025b9837497ce06a09a0bb4",
                 "outputs": {
                     "ipmt-invalid": "756c9243fed668e11025b9837497ce06a09a0bb4",
-                    "md": "25e378b81e3bed87da10e31e45c7669d9694f186"
+                    "md": "2fda2229c1705eafdb6fc99116bc83d2f413bb4e"
                 },
                 "heading": "Duplicate pair relation",
                 "section": "Invalid semantics"
