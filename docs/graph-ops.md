@@ -5,7 +5,7 @@ imports together. They are the Go base every application in the ecosystem
 shares: a producer (a miner, a code scanner, a converter) writes graph JSON with
 its refs beside it; a consumer (a server, a page generator) reads the graph,
 cuts what it needs and can say where every node came from. What *serves* a
-graph — the canvas, the board, a docs page — lives in ipm-server and reads
+graph — the canvas, the board, a docs page — lives in the canvas server and reads
 these; nothing here knows about HTTP or HTML.
 
 | package | what | for |
@@ -83,4 +83,4 @@ chain, and every file sits beside the graph it describes.
   side-car is a graph whose origin is unknown, and a consumer says so rather
   than guessing.
 - **Serving is not an op.** Anything that needs a port, a page or a picture is
-  ipm-server's; these packages stay importable by a command-line tool.
+  the canvas server's; these packages stay importable by a command-line tool.

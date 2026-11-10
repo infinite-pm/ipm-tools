@@ -4,7 +4,7 @@
 // original ids so a rendering of the piece can still point into the whole
 // (the zoom canvas addresses nodes by the original ids).
 //
-// It began in ipm-k8s-case as the filter its design said it would reuse and
+// It began in a consumer as the filter its design said it would reuse and
 // nothing offered; it settled, and it lives beside the model now, with the
 // older name-seeded Neighborhood beside it.
 package subgraph

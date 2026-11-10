@@ -5,8 +5,61 @@ they produce, and to the `ipm-rpc` server editors connect to. The VS Code
 extension keeps its own changelog in
 [`vscode-infinite-pm`](https://github.com/infinite-pm/vscode-infinite-pm/blob/main/CHANGELOG.md).
 
-## 0.4.3 — unreleased
+## 0.6.0 — 2026-11-10
 
+**Breaking: the default node type of `ipmt` is now event.** An unmarked node is an
+event; a thing needs `::t`, a concept `::c`; `::e` is optional. Text written for
+0.4.x still parses, with no warning, but each unmarked thing is now read as an
+event and its arrows change relation. Migrate once, before the first run of the
+new tools, in each git repository that holds ipmt text:
+
+```bash
+go run github.com/infinite-pm/ipm-tools/cmd-dev/ipmt-migrate@v0.6.0 -root . -write
+```
+
+It adds `::t` to every unmarked thing in the tracked `.ipmt` and `.md` files and
+changes nothing else; the result means the same under 0.4.x and 0.6.0. Run it
+only while the text is still written for the old default. It does not reach ipmt
+text inside program strings. See
+[`docs/dev-tools/ipmt-migrate.md`](docs/dev-tools/ipmt-migrate.md).
+
+- `ipm-validate` gets IPMV4.6 (warning): a comma inside an unquoted aliased label.
+  In an edge line a comma separates targets, so `x::a it creates, links and closes
+  items ::e` parsed as two nodes and left stranded ones behind with no hint. The
+  finding suggests the quoted form. Quoted labels and ordinary target lists are not
+  flagged. See [`docs/ipm-validator-rules.md`](docs/ipm-validator-rules.md).
+- `ipm-validate` IPMV2.8: when the container a leads-to edge enters is itself a
+  sub-stage, the suggestion now says to put the order on the sub-stages, not on the
+  leaf events inside them.
+- Layout: a participant is drawn where it is used. `layout-gen` and the flat
+  renderer (the path `md-embed` takes) place a copy of a shared participant beside
+  each event that uses it, where the alternative is an edge too long to read;
+  `--duplicate=false` turns it off. The graph does not change: the parser, the
+  validator and every `.ipm.json` still see one node. Each copy carries a place
+  badge (2/3) at its bottom right, and `layout.Node.CopyOf` names the node it is
+  another place of. Diagrams under 24 nodes are left alone.
+- Layout: an edge tooltip (`e1 --"why"--> e2`) reaches the SVG as the edge group's
+  `<title>`; it was dropped at the layout boundary before.
+- `layout-gen --shells` and `--containers` reach the engine; they were accepted and
+  silently ignored outside `--debug-json`.
+- `ipmsvg-gen --node-ids` wraps each node in `<g class="node-group"
+  data-node-id="…">`, so a host page can find a node by its id.
+- The kind tag: `controller (c)` beside `controller ::t` gives one word two kinds
+  without a language change. The tag is dropped from the drawn label. See "One
+  word, two kinds: the kind tag" in [`docs/ipmt-spec.md`](docs/ipmt-spec.md).
+- `ipmt` fence meta `union=false`: the block renders and validates, and tools that
+  build a union of all diagrams leave it out.
+- New packages for programs that build graphs: `pkg/ipm/graph` (the model under
+  one import, with a `Builder`), `pkg/ipm/subgraph` (the cut around a seed set) and
+  `pkg/ipm/refs` (a side-car that records what each node and edge was made from).
+  See [`docs/graph-ops.md`](docs/graph-ops.md).
+- `md-html`: a `head` config block (canonical URL, Open Graph, icons), a meta
+  description on every page, and the alt text of an embedded diagram as the
+  accessible name of the inlined `<svg>`.
+- Tokens: a quoted node title takes its node's kind colour, where it took the
+  generic string colour before. `palette.json` gains `fgLight` beside `fg`; every
+  value has at least 4.5:1 contrast on its editor background.
+- `ipm-rpc` hover text says that an unmarked node is an event and a thing needs `::t`.
 - `ipmt-migrate -root` skips tracked symlinks, so a link to a flipped file no longer gets `::t` added to its events on a second pass.
 - New dev command `regen-fixtures` (`make regen-fixtures`, `make regen-fixtures-run`):
   regenerates every test fixture in the right order after a grammar change and then
@@ -19,10 +72,10 @@ extension keeps its own changelog in
   and `-check-manifest`; the new `ipmt-markers.manifest` lists the docs and fixtures
   that keep explicit markers, and `TestRepoManifest` fails if one loses them.
 
-- The default node type of `ipmt` is now event. An unmarked node is an event; a thing
-  needs `::t`, a concept `::c`. The repo's fixtures and docs were migrated with
-  `ipmt-migrate -flip`, so no diagram changed meaning. `Options.DefaultNodeType`
-  (`model.Thing`) selects the old grammar during the transition.
+- This repo's own fixtures and docs were migrated to the event default with
+  `ipmt-migrate -flip`, so no diagram here changed meaning. For Go callers,
+  `parser.Options.DefaultNodeType` (`model.Thing`) still selects the old grammar; no
+  command has a flag for it.
 
 - `ipm-validate` IPMV2.7 reads a PARENT, not a pair of siblings. A parent
   event whose sub-events are all ordered by leads-to (a sequence) and one

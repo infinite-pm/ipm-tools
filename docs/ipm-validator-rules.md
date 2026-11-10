@@ -188,7 +188,7 @@ structure cannot carry; see
 The rule is **recursive** — it applies at every level of
 containment. Sub-sub-events are read the same way.
 
-**What changed in 0.4.3.** The code is published, so it keeps
+**What changed in 0.6.0.** The code is published, so it keeps
 its number; its reading changed. Before, the check ran per
 **pair**: every pair of siblings without a declared order
 warned, and a NearTo on that pair exempted it. A producer with

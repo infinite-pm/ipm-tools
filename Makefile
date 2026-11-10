@@ -149,7 +149,7 @@ CORPUS ?=
 # this change still mine to change, or has it shipped".
 #
 #   make layout-audit-published                 # origin/main (or the upstream) vs the working tree
-#   make layout-audit-published PUBLISHED=v0.4.3
+#   make layout-audit-published PUBLISHED=v0.6.0
 PUBLISHED ?= $(shell git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null || echo origin/main)
 layout-audit-published:
 	@git rev-parse "$(PUBLISHED)^{commit}" >/dev/null 2>&1 || { \

@@ -2,16 +2,32 @@
 
 `gl:cmd-dev/ipmt-migrate` adds an explicit `::t` to every unmarked thing in ipmt
 text and changes nothing else. It is step one of making event the default node kind
-(the parser default is now event on this branch): once every thing carries `::t`, the parser default can flip without any
+(the parser default is event since 0.6.0): once every thing carries `::t`, the parser default can flip without any
 diagram changing meaning.
+
+## Coming from 0.4.x
+
+Up to 0.4.x an unmarked node was a thing. From 0.6.0 it is an event, and the tools read
+old text without a warning: each unmarked thing becomes an event and its arrows change
+relation. Migrate once, before the first run of the new tools, in each git repository
+that holds ipmt text:
+
+```bash
+go run github.com/infinite-pm/ipm-tools/cmd-dev/ipmt-migrate@v0.6.0 -root . -write
+```
+
+The result means the same under 0.4.x and under 0.6.0. Run it only while the text is
+still written for the old default: on text that already leaves events unmarked it would
+mark those events as things. A second run on migrated text that still writes `::e` on
+its events changes nothing.
 
 ## Usage
 
 ```bash
-go run ./cmd-dev/ipmt-migrate -root ~/work-stai/some-repo            # dry run (the default)
-go run ./cmd-dev/ipmt-migrate -root ~/work-stai/some-repo -write     # write the files
-go run ./cmd-dev/ipmt-migrate -prose -root ~/work-stai/some-repo     # read-only prose report
-go run ./cmd-dev/ipmt-migrate -write a.md b.ipmt                     # explicit files
+go run ./cmd-dev/ipmt-migrate -root path/to/repo            # dry run (the default)
+go run ./cmd-dev/ipmt-migrate -root path/to/repo -write     # write the files
+go run ./cmd-dev/ipmt-migrate -prose -root path/to/repo     # read-only prose report
+go run ./cmd-dev/ipmt-migrate -write a.md b.ipmt             # explicit files
 ```
 
 - `-root DIR` takes the files from `git ls-files -z` of that repo: tracked files only,

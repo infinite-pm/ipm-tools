@@ -3,7 +3,7 @@
 Cases for `layout7.Options.Containers` (`layout7-engine.md`, Options) run
 WITHOUT `Shells`: the members of an open composite get rows of their own, and
 everything else in the spine keeps clear of the grid's whole span instead of
-tucking in beside it. It is the mode the zoom canvas runs in — ipm-drawio asks
+tucking in beside it. It is the mode the zoom canvas runs in — the zoom consumer asks
 for `Containers` on every state — and the shells lane always draws a shell box
 on top of it, so nothing there separates what Containers does from what the
 shell's padding does. Here it runs alone.

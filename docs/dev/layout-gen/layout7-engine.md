@@ -69,7 +69,7 @@ sub-grid's height — that room is what makes the shell exclusive.
 ## Pre-layout pass: duplication (`pkg/layoutdupe`)
 
 ON by default since 2026-08-23 — in `layout-gen`, in `canvas-server` (through
-ipm-drawio's `GenerateClickPathLayoutsDup`) and in the flat renderer
+the zoom consumer's click-path generator) and in the flat renderer
 (`ipmsvg.GenerateFromIPM`, so a picture embedded in a page duplicates like the
 canvas does); `--duplicate=false` is the opt-out. It answers a distance, not a
 route: when an edge is long enough that its far end cannot be read from here,
@@ -122,7 +122,7 @@ Distance alone was not enough, and the corpus said so: swept over the 37 zoom
 bundles, duplication cut crossings 16% and still put 28 routes through a box
 where there had been none. With damage in the guard: through 0, crossings
 −18%, grazes −10%, and a third fewer copies kept
-(ipm-drawio docs/dev-tools/framecheck.md).
+(measured with the zoom consumer's framecheck).
 
 Where the caller can place components itself (the zoom canvas anchors every
 component by node id), `GenerateWithHints` hands it each copy's intended place,

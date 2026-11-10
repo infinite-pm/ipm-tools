@@ -6,9 +6,9 @@
 // pair, so a second is dropped and the graph stays valid), and the JSON the
 // whole ecosystem reads.
 //
-// It came up from ipm-k8s-case's pkg/ipmgraph, which mirrored the model struct
+// It came up from a consumer's own package, which mirrored the model struct
 // for struct; the mirror is gone and this is what it imports. Graph ops live
-// here, beside the model; what serves them lives in ipm-server.
+// here, beside the model; what serves them lives in the canvas server.
 package graph
 
 import (

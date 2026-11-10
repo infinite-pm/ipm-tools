@@ -5,7 +5,7 @@
 // end cannot be read from here. The answer is not to route that edge better —
 // it is to draw the thing at the far end HERE, next to the event that uses it,
 // and let the reader walk the copies (the atlas's badge-and-walk, inside one
-// diagram; design: ipm-drawio wip/zoom-duplicates).
+// diagram).
 //
 // Two properties keep it cheap and safe:
 //
