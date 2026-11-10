@@ -242,6 +242,7 @@
       "dir": "fwd",
       "base": "leadsto",
       "style": "leadsto",
+      "tooltip": "then",
       "route": {
         "source": {
           "side": "bottom",
@@ -259,6 +260,7 @@
       "dir": "fwd",
       "base": "leadsto",
       "style": "leadsto",
+      "tooltip": "then",
       "route": {
         "source": {
           "side": "bottom",
@@ -276,6 +278,7 @@
       "dir": "fwd",
       "base": "partof",
       "style": "partof",
+      "tooltip": "involves",
       "route": {
         "source": {
           "side": "left",
@@ -310,6 +313,7 @@
       "dir": "fwd",
       "base": "expresses",
       "style": "expresses",
+      "tooltip": "answers question",
       "route": {
         "source": {
           "side": "bottom",
@@ -327,6 +331,7 @@
       "dir": "fwd",
       "base": "expresses",
       "style": "expresses",
+      "tooltip": "involves",
       "route": {
         "source": {
           "side": "bottom",
@@ -344,6 +349,7 @@
       "dir": "fwd",
       "base": "partof",
       "style": "partof",
+      "tooltip": "contains",
       "route": {
         "source": {
           "side": "left",
@@ -412,6 +418,7 @@
       "dir": "fwd",
       "base": "partof",
       "style": "partof",
+      "tooltip": "contains",
       "route": {
         "source": {
           "side": "left",
@@ -429,6 +436,7 @@
       "dir": "fwd",
       "base": "expresses",
       "style": "expresses",
+      "tooltip": "example of",
       "route": {
         "source": {
           "side": "right",
@@ -446,6 +454,7 @@
       "dir": "fwd",
       "base": "expresses",
       "style": "expresses",
+      "tooltip": "example of",
       "route": {
         "source": {
           "side": "bottom",
@@ -463,6 +472,7 @@
       "dir": "fwd",
       "base": "expresses",
       "style": "expresses",
+      "tooltip": "involves",
       "route": {
         "source": {
           "side": "bottom",
@@ -480,6 +490,7 @@
       "dir": "fwd",
       "base": "expresses",
       "style": "expresses",
+      "tooltip": "kind of",
       "route": {
         "source": {
           "side": "bottom",
@@ -497,6 +508,7 @@
       "dir": "fwd",
       "base": "expresses",
       "style": "expresses",
+      "tooltip": "answers question",
       "route": {
         "source": {
           "side": "bottom",
@@ -514,6 +526,7 @@
       "dir": "fwd",
       "base": "expresses",
       "style": "expresses",
+      "tooltip": "involves",
       "route": {
         "source": {
           "side": "bottom",
@@ -531,6 +544,7 @@
       "dir": "fwd",
       "base": "expresses",
       "style": "expresses",
+      "tooltip": "answers question",
       "route": {
         "source": {
           "side": "bottom",
@@ -548,6 +562,7 @@
       "dir": "fwd",
       "base": "expresses",
       "style": "expresses",
+      "tooltip": "used for",
       "route": {
         "source": {
           "side": "bottom",
@@ -565,6 +580,7 @@
       "dir": "fwd",
       "base": "expresses",
       "style": "expresses",
+      "tooltip": "used for",
       "route": {
         "source": {
           "side": "bottom",

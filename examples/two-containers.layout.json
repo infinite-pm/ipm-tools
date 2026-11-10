@@ -216,6 +216,7 @@
       "dir": "fwd",
       "base": "leadsto",
       "style": "leadsto",
+      "tooltip": "then",
       "route": {
         "source": {
           "side": "bottom",
@@ -233,6 +234,7 @@
       "dir": "fwd",
       "base": "leadsto",
       "style": "leadsto",
+      "tooltip": "then",
       "route": {
         "source": {
           "side": "bottom",
@@ -250,6 +252,7 @@
       "dir": "fwd",
       "base": "leadsto",
       "style": "leadsto",
+      "tooltip": "then",
       "route": {
         "source": {
           "side": "bottom",
@@ -267,6 +270,7 @@
       "dir": "fwd",
       "base": "leadsto",
       "style": "leadsto",
+      "tooltip": "then",
       "route": {
         "source": {
           "side": "bottom",
@@ -284,6 +288,7 @@
       "dir": "fwd",
       "base": "partof",
       "style": "partof",
+      "tooltip": "contains",
       "route": {
         "source": {
           "side": "left",
@@ -318,6 +323,7 @@
       "dir": "fwd",
       "base": "partof",
       "style": "partof",
+      "tooltip": "contains",
       "route": {
         "source": {
           "side": "left",
@@ -477,6 +483,7 @@
       "dir": "fwd",
       "base": "partof",
       "style": "partof",
+      "tooltip": "contains",
       "route": {
         "source": {
           "side": "left",
@@ -511,6 +518,7 @@
       "dir": "fwd",
       "base": "partof",
       "style": "partof",
+      "tooltip": "contains",
       "route": {
         "source": {
           "side": "left",
@@ -528,6 +536,7 @@
       "dir": "fwd",
       "base": "partof",
       "style": "partof",
+      "tooltip": "contains",
       "route": {
         "source": {
           "side": "left",
