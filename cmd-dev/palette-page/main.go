@@ -146,7 +146,8 @@ td.low { outline: 2px solid #d00000; outline-offset: -2px; }
 	}
 
 	b.WriteString("<h2>Every rule</h2>\n<p class=\"note\">The number is the contrast of the text against its background. " +
-		"A red frame marks a value below 4.5:1 (WCAG AA for text).</p>\n<table>\n<tr><th>class</th><th>token</th>")
+		"The dark set is held to 4.5:1 (WCAG AA for text), and a red frame marks a dark value below it. " +
+		"The white set is the look of the figures and the diagrams, not a contrast rule, so it has no frame.</p>\n<table>\n<tr><th>class</th><th>token</th>")
 	for _, m := range modes {
 		fmt.Fprintf(&b, "<th>%s</th>", html.EscapeString(m.title))
 	}
@@ -161,7 +162,8 @@ td.low { outline: 2px solid #d00000; outline-offset: -2px; }
 			v := m.value(r)
 			c := contrast(v, m.bg)
 			low := ""
-			if c < 4.5 {
+			// only the dark set is held to 4.5:1; the white set is a look
+			if m.key == "dark" && c < 4.5 {
 				low = " low"
 			}
 			fmt.Fprintf(&b, "<td class=\"sw%s\" style=\"background:%s;color:%s;%s\">%s Sample %.2f:1</td>", low, m.bg, v, style(r), v, c)
