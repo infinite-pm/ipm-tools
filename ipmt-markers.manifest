@@ -12,7 +12,7 @@ line	docs/inline-ipmt-colors.md	- Legend line: the <!--ipmt:as-token:e-marker-->
 file	docs/ipm-modeling-tips.md	e=1 t=1	notation doc that shows explicit markers
 line	docs/ipm-modeling-tips.md	Two or more `::t` nodes whose names differ only by a suffix	rule worded with the ::t marker
 file	docs/ipm-rpc.md	e=4 t=2	notation doc that shows explicit markers
-line	docs/ipm-rpc.md	| 0 | `ipmEvent` | Event node names and `::e` kind marker (default: orange; lighter `#ffaa55` with `hasAlias`; bold with `marker`) |	legend row for the ::e marker
+line	docs/ipm-rpc.md	| 0 | `ipmEvent` | Event node names and `::e` kind marker (default: orange; an alias is the lighter `#ffaa55`; bold with `marker`) |	legend row for the ::e marker
 line	docs/ipm-rpc.md	| 1 | `ipmThing` | Thing node names and `::t` kind marker (default: green) |	legend row for the ::t marker
 line	docs/ipm-rpc.md	| 2 | `ipmConcept` | Concept node names and `::c` kind marker (default: blue) |	legend row for the ::c marker
 line	docs/ipm-rpc.md	| 6 | `marker` | The `::e`/`::t`/`::c` syntactic marker (vs. the identifier of the same kind) |	names the marker token kind

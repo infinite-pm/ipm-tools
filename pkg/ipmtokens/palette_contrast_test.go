@@ -59,9 +59,9 @@ func TestPalette_DarkIsAccessible(t *testing.T) {
 // the figures, made on purpose, and looked at with cmd-dev/palette-page.
 func TestPalette_LightColoursDoNotMove(t *testing.T) {
 	want := map[string]string{
-		"e-title": "#ff8000", "e-alias": "#ff8000", "e-title-aliased": "#ffaa55", "e-marker": "#ff8000",
-		"t-title": "#4d8a3a", "t-alias": "#4d8a3a", "t-title-aliased": "#82b366", "t-marker": "#4d8a3a",
-		"c-title": "#6c8ebf", "c-alias": "#6c8ebf", "c-title-aliased": "#9bb4d6", "c-marker": "#6c8ebf",
+		"e-title": "#ff8000", "e-alias": "#ffaa55", "e-title-aliased": "#ff8000", "e-marker": "#ff8000",
+		"t-title": "#4d8a3a", "t-alias": "#82b366", "t-title-aliased": "#4d8a3a", "t-marker": "#4d8a3a",
+		"c-title": "#6c8ebf", "c-alias": "#9bb4d6", "c-title-aliased": "#6c8ebf", "c-marker": "#6c8ebf",
 		"arrow": "#404040", "L": "#ff8000", "P": "#4d8a3a", "X": "#6c8ebf", "N": "#aaaaaa",
 		"type-marker": "#b08fff", "relation": "#b08fff", "comment": "#808080",
 		"string": "#ce9178", "tooltip": "#b58900", "unresolved": "#8a8a8a",
@@ -72,6 +72,16 @@ func TestPalette_LightColoursDoNotMove(t *testing.T) {
 	for _, r := range Palette {
 		if r.FGLight != want[r.Class] {
 			t.Errorf("%s: light %q, want %q", r.Class, r.FGLight, want[r.Class])
+		}
+	}
+	// An alias is the softer step of its kind; the title beside it keeps the
+	// kind's own colour, with or without an alias.
+	for _, k := range []string{"e", "t", "c"} {
+		if want[k+"-title-aliased"] != want[k+"-title"] {
+			t.Errorf("%s: a title with an alias is %s, a plain title %s", k, want[k+"-title-aliased"], want[k+"-title"])
+		}
+		if want[k+"-alias"] == want[k+"-title"] {
+			t.Errorf("%s: the alias has the title's colour %s", k, want[k+"-alias"])
 		}
 	}
 	if e := want["e-title"]; e != diagramOrange {

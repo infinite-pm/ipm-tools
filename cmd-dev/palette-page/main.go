@@ -38,11 +38,12 @@ const (
 	lightBG = "#ffffff"
 )
 
-// sample uses every token the palette colours. First an event, a thing and a
-// concept with no alias, then the same three kinds with one: an alias has its
-// own colour, and the long title beside it takes the softer one.
+// sample uses every token the palette colours. First an event (unmarked, and
+// once with its optional ::e), a thing and a
+// concept with no alias, then the same three kinds with one: an alias is the
+// softer step of its kind, and the long title beside it keeps the kind colour.
 const sample = `# no aliases
-wake up --> make coffee
+wake up --> make coffee ::e
 Alice ::t --> wake up
 Alice ::t --> person ::c
 

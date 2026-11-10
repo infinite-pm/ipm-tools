@@ -130,7 +130,7 @@ Advertised in `initialize`'s `SemanticTokensProvider.legend.tokenTypes`. Order i
 
 | Index | Type | Applies to |
 | --- | --- | --- |
-| 0 | `ipmEvent` | Event node names and `::e` kind marker (default: orange; lighter `#ffaa55` with `hasAlias`; bold with `marker`) |
+| 0 | `ipmEvent` | Event node names and `::e` kind marker (default: orange; an alias is the lighter `#ffaa55`; bold with `marker`) |
 | 1 | `ipmThing` | Thing node names and `::t` kind marker (default: green) |
 | 2 | `ipmConcept` | Concept node names and `::c` kind marker (default: blue) |
 | 3 | `ipmRelation` | `::L` / `::P` / `::X` / `::N` inside an explicit arrow |
@@ -150,7 +150,7 @@ Modifier bits (stable bit positions; clients hold on to them once cached):
 | 2 | `partOf` | Arrow span with SST relation Part-of |
 | 3 | `expresses` | Arrow span with SST relation Expresses |
 | 4 | `nearTo` | Arrow span with SST relation Near-to |
-| 5 | `hasAlias` | The long-form label token of a node that also has an alias (themes typically lighten it) |
+| 5 | `hasAlias` | The long-form label token of a node that also has an alias (the palette gives it the colour of a plain title; the alias beside it is the lighter one) |
 | 6 | `marker` | The `::e`/`::t`/`::c` syntactic marker (vs. the identifier of the same kind) |
 
 The legend is the *index* mapping; the corresponding colors are theme-configurable. The VS Code extension ships default color customizations generated from `pkg/ipmtokens/palette.json` that bind events to orange, things to green, concepts to blue, arrows + kind markers bold.
