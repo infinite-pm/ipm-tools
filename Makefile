@@ -1,4 +1,4 @@
-.PHONY: help build test vet sync-test-cases gen-test-md gen-invalid-sidecars update-test-docs \
+.PHONY: help build test vet palette-page sync-test-cases gen-test-md gen-invalid-sidecars update-test-docs \
         refs-rehash layout-test layout-fitness layout-check layout-check-baseline \
         layout-audit layout-audit-ext layout-audit-published layout-timeline layout-timeline-build \
         build-rpc build-all build-dev build-notrace
@@ -220,3 +220,7 @@ refs-rehash:
 
 update-test-docs:
 	@go run ./cmd-dev/gen-test-doc -sources-config tests/sources.json -out-dir temp/test-docs
+
+palette-page:
+	@mkdir -p temp
+	@go run ./cmd-dev/palette-page --out temp/palette.html

@@ -57,8 +57,13 @@ text inside program strings. See
   description on every page, and the alt text of an embedded diagram as the
   accessible name of the inlined `<svg>`.
 - Tokens: a quoted node title takes its node's kind colour, where it took the
-  generic string colour before. `palette.json` gains `fgLight` beside `fg`; every
-  value has at least 4.5:1 contrast on its editor background.
+  generic string colour before. `palette.json` has two values per rule: `fg` for
+  dark editor themes, with at least 4.5:1 contrast there, and `fgLight` for every
+  white background: a light editor theme, the pages `md-html` writes, and the
+  figures drawn from the palette. `fgLight` holds the colours of the figures and
+  the diagrams, so an event in the source is the orange of the event in the
+  picture. The new dev command
+  `palette-page` (`make palette-page`) draws every value for review.
 - `ipm-rpc` hover text says that an unmarked node is an event and a thing needs `::t`.
 - `ipmt-migrate -root` skips tracked symlinks, so a link to a flipped file no longer gets `::t` added to its events on a second pass.
 - New dev command `regen-fixtures` (`make regen-fixtures`, `make regen-fixtures-run`):

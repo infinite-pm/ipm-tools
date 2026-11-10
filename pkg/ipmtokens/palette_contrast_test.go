@@ -35,20 +35,46 @@ func contrast(t *testing.T, a, b string) float64 {
 	return (x + 0.05) / (y + 0.05)
 }
 
-// TestPalette_AccessibleOnEditorBackgrounds: every palette color reads with
-// at least 4.5:1 (WCAG AA text) on its editor background: fg on the dark
-// background #1f1f1f, fgLight on white.
-func TestPalette_AccessibleOnEditorBackgrounds(t *testing.T) {
+// diagramOrange is the event colour of a rendered diagram: the stroke and the
+// text of an event node (pkg/ipmsvg).
+const diagramOrange = "#ff8000"
+
+// TestPalette_DarkIsAccessible: every dark value reads with at least 4.5:1
+// (WCAG AA text) on the dark editor background.
+func TestPalette_DarkIsAccessible(t *testing.T) {
 	for _, r := range Palette {
-		if r.FGLight == "" {
-			t.Errorf("%s: missing fgLight", r.Class)
-			continue
-		}
 		if c := contrast(t, r.FG, "#1f1f1f"); c < 4.5 {
 			t.Errorf("%s: dark %s on #1f1f1f is %.2f:1, want >= 4.5", r.Class, r.FG, c)
 		}
-		if c := contrast(t, r.FGLight, "#ffffff"); c < 4.5 {
-			t.Errorf("%s: light %s on #ffffff is %.2f:1, want >= 4.5", r.Class, r.FGLight, c)
+	}
+}
+
+// TestPalette_LightColoursDoNotMove: fgLight is the one value for every white
+// background: a light editor, the pages md-html writes, and the figures drawn
+// from the palette (the triangle, the slides, the logo). It holds the look of
+// the figures and of the diagrams, so the source beside a diagram reads as the
+// same thing. That look is not a contrast rule (an orange dark enough for
+// 4.5:1 on white is a brown), and it must not drift when someone tunes an
+// editor colour. So the values are pinned: changing one is a decision about
+// the figures, made on purpose, and looked at with cmd-dev/palette-page.
+func TestPalette_LightColoursDoNotMove(t *testing.T) {
+	want := map[string]string{
+		"e-title": "#ff8000", "e-alias": "#ff8000", "e-title-aliased": "#ffaa55", "e-marker": "#ff8000",
+		"t-title": "#4d8a3a", "t-alias": "#4d8a3a", "t-title-aliased": "#82b366", "t-marker": "#4d8a3a",
+		"c-title": "#6c8ebf", "c-alias": "#6c8ebf", "c-title-aliased": "#9bb4d6", "c-marker": "#6c8ebf",
+		"arrow": "#404040", "L": "#ff8000", "P": "#4d8a3a", "X": "#6c8ebf", "N": "#aaaaaa",
+		"type-marker": "#b08fff", "relation": "#b08fff", "comment": "#808080",
+		"string": "#ce9178", "tooltip": "#b58900", "unresolved": "#8a8a8a",
+	}
+	if len(Palette) != len(want) {
+		t.Errorf("palette has %d rules, the table %d", len(Palette), len(want))
+	}
+	for _, r := range Palette {
+		if r.FGLight != want[r.Class] {
+			t.Errorf("%s: light %q, want %q", r.Class, r.FGLight, want[r.Class])
 		}
+	}
+	if e := want["e-title"]; e != diagramOrange {
+		t.Errorf("the event colour on white %s is not the diagram's orange %s", e, diagramOrange)
 	}
 }

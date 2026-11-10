@@ -24,7 +24,9 @@ type PaletteRule struct {
 	Mod   string `json:"mod,omitempty"`
 	Class string `json:"class"`
 	FG    string `json:"fg"`
-	// FGLight is the color on light themes (FG is the dark-theme color).
+	// FGLight is the color on every white background: a light editor theme,
+	// the pages md-html writes, and the figures other tools draw from this
+	// palette. FG is the dark-theme color.
 	FGLight string `json:"fgLight"`
 	Bold    bool   `json:"bold,omitempty"`
 	Italic  bool   `json:"italic,omitempty"`
@@ -123,7 +125,7 @@ func PaletteCSSRules() string {
 	var b strings.Builder
 	for _, r := range Palette {
 		sel := ".ipm-" + r.Class
-		decls := []string{"color: " + r.FG + ";"}
+		decls := []string{"color: " + r.FGLight + ";"}
 		if r.Bold {
 			decls = append(decls, "font-weight: bold;")
 		}
@@ -132,13 +134,11 @@ func PaletteCSSRules() string {
 		}
 		fmt.Fprintf(&b, "%-*s { %s }\n", width, sel, strings.Join(decls, " "))
 	}
-	// Light themes get the accessible light colors (VS Code sets the
-	// vscode-light / vscode-high-contrast-light class on the preview body).
+	// The rules above are the colours on white: a page on its own is white
+	// and has no theme class, and a light editor shows the same. Inside a
+	// dark VS Code theme the preview body says so, and the dark values apply.
 	for _, r := range Palette {
-		if r.FGLight == "" {
-			continue
-		}
-		fmt.Fprintf(&b, ".vscode-light .ipm-%s, .vscode-high-contrast-light .ipm-%s { color: %s; }\n", r.Class, r.Class, r.FGLight)
+		fmt.Fprintf(&b, ".vscode-dark .ipm-%s, .vscode-high-contrast:not(.vscode-high-contrast-light) .ipm-%s { color: %s; }\n", r.Class, r.Class, r.FG)
 	}
 	return b.String()
 }
