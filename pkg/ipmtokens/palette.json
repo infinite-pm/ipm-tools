@@ -10,7 +10,7 @@
     { "type": "ipmThing",      "mod": "hasAlias", "class": "t-title-aliased",  "fg": "#6fc24f", "fgLight": "#4d8a3a" },
     { "type": "ipmThing",      "mod": "marker",   "class": "t-marker",         "fg": "#6fc24f", "fgLight": "#4d8a3a", "bold": true },
     { "type": "ipmConcept",    "class": "c-title",          "fg": "#6c8ebf", "fgLight": "#6c8ebf" },
-    { "type": "ipmConcept",    "mod": "alias",    "class": "c-alias",          "fg": "#9bb4d6", "fgLight": "#9bb4d6" },
+    { "type": "ipmConcept",    "mod": "alias",    "class": "c-alias",          "fg": "#9bb4d6", "fgLight": "#7f9dc9" },
     { "type": "ipmConcept",    "mod": "hasAlias", "class": "c-title-aliased",  "fg": "#6c8ebf", "fgLight": "#6c8ebf" },
     { "type": "ipmConcept",    "mod": "marker",   "class": "c-marker",         "fg": "#6c8ebf", "fgLight": "#6c8ebf", "bold": true },
     { "type": "ipmArrow",      "class": "arrow",            "fg": "#d4d4d4", "fgLight": "#404040", "bold": true },

@@ -61,7 +61,7 @@ func TestPalette_LightColoursDoNotMove(t *testing.T) {
 	want := map[string]string{
 		"e-title": "#ff8000", "e-alias": "#ffaa55", "e-title-aliased": "#ff8000", "e-marker": "#ff8000",
 		"t-title": "#4d8a3a", "t-alias": "#82b366", "t-title-aliased": "#4d8a3a", "t-marker": "#4d8a3a",
-		"c-title": "#6c8ebf", "c-alias": "#9bb4d6", "c-title-aliased": "#6c8ebf", "c-marker": "#6c8ebf",
+		"c-title": "#6c8ebf", "c-alias": "#7f9dc9", "c-title-aliased": "#6c8ebf", "c-marker": "#6c8ebf",
 		"arrow": "#404040", "L": "#ff8000", "P": "#4d8a3a", "X": "#6c8ebf", "N": "#aaaaaa",
 		"type-marker": "#b08fff", "relation": "#b08fff", "comment": "#808080",
 		"string": "#ce9178", "tooltip": "#b58900", "unresolved": "#8a8a8a",

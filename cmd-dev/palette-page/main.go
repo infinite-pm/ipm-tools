@@ -61,6 +61,8 @@ hum --::X--> mammal ::c
 swapT --- magic trick
 black t-shirt --::N-- white t-shirt ::t
 something ::?et --> swapT
+unk::a not decided yet ::?et --> swapT
+unk --- magic trick
 `
 
 // mode is one way the palette is shown.
