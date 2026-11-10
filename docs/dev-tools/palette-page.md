@@ -29,5 +29,5 @@ change is a decision about the figures, made on purpose and looked at on this pa
   event in the picture still look like the same thing.
 - A table of every rule with its two values and the contrast of each. A red frame
   marks a value below 4.5:1.
-- The diagram's own colours for the three node kinds. They are set in `gl:pkg/ipmsvg`,
-  not in the palette.
+- The diagram's own colours and text weight per node kind, read from `gl:pkg/ipmsvg`
+  (`KindStyle`), not from the palette. Only an event is written bold.

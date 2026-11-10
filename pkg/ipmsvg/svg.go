@@ -963,6 +963,15 @@ type edgeStyle struct {
 	ArrowEnd   bool
 }
 
+// KindStyle is how a node of the given layout type ("event", "thing",
+// "concept", "unresolved", a "boundary…" type) is drawn: its fill, its stroke,
+// the colour of its text and whether that text is bold. It is the renderer's
+// own answer, for tools that show or check the diagram colours.
+func KindStyle(kind string) (fill, stroke, text string, bold bool) {
+	st := nodeStyleFor(layout.Node{Type: kind})
+	return st.Fill, st.Stroke, st.Text, st.Bold
+}
+
 // containerStyleFor returns renderer styling for a container shell based on the node's type.
 func containerStyleFor(n layout.Node) nodeStyle {
 	switch n.Type {

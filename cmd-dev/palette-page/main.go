@@ -170,16 +170,21 @@ td.low { outline: 2px solid #d00000; outline-offset: -2px; }
 	}
 	b.WriteString("</table>\n")
 
-	b.WriteString("<h2>The diagram's own colours</h2>\n<p class=\"note\">Set in <code>pkg/ipmsvg</code>, not in the palette: " +
-		"the stroke, the fill and the text of a node of each kind.</p>\n<table>\n<tr><th>kind</th><th>stroke</th><th>fill</th><th>text</th><th>as drawn</th></tr>\n")
-	for _, k := range []struct{ name, stroke, fill, text string }{
-		{"event", "#ff8000", "#ffe6cc", "#ff8000"},
-		{"thing", "#82b366", "#d5e8d4", "#009900"},
-		{"concept", "#6c8ebf", "#dae8fc", "#3399ff"},
+	b.WriteString("<h2>The diagram's own colours</h2>\n<p class=\"note\">Set in <code>pkg/ipmsvg</code>, not in the palette, " +
+		"and read from it here: the stroke, the fill, the colour and the weight of the text of a node of each kind. " +
+		"Only an event is written bold.</p>\n<table>\n<tr><th>kind</th><th>stroke</th><th>fill</th><th>text</th><th>weight</th><th>as drawn</th></tr>\n")
+	for _, k := range []struct{ name, kind string }{
+		{"event", "event"}, {"thing", "thing"}, {"concept", "concept"},
+		{"undecided", "unresolved"}, {"start / end", "boundary"},
 	} {
-		fmt.Fprintf(&b, "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td>"+
-			"<td><span style=\"display:inline-block;padding:6px 16px;border:2px solid %s;border-radius:4px;background:%s;color:%s\">%s</span></td></tr>\n",
-			k.name, chip(k.stroke), chip(k.fill), chip(k.text), k.stroke, k.fill, k.text, k.name)
+		fill, stroke, text, bold := ipmsvg.KindStyle(k.kind)
+		weight, css := "normal", ""
+		if bold {
+			weight, css = "bold", "font-weight:bold;"
+		}
+		fmt.Fprintf(&b, "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td>"+
+			"<td><span style=\"display:inline-block;padding:6px 16px;border:2px solid %s;border-radius:4px;background:%s;color:%s;%sfont-family:Helvetica,Inter,Arial,sans-serif\">%s</span></td></tr>\n",
+			k.name, chip(stroke), chip(fill), chip(text), weight, stroke, fill, text, css, k.name)
 	}
 	b.WriteString("</table>\n</body></html>\n")
 	return b.String(), nil

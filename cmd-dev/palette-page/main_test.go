@@ -30,4 +30,12 @@ func TestPageShowsEveryRuleBothWays(t *testing.T) {
 	if !strings.Contains(page, "<svg") {
 		t.Error("the page has no diagram")
 	}
+	// the diagram table is read from the renderer: an event's text is bold
+	// there, a thing's is not
+	if !strings.Contains(page, "<td>bold</td>") || !strings.Contains(page, "<td>normal</td>") {
+		t.Error("the diagram table does not show the text weights")
+	}
+	if !strings.Contains(page, "color:#ff8000;font-weight:bold;") {
+		t.Error("the event sample is not drawn bold in the diagram's orange")
+	}
 }
