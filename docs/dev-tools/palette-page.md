@@ -29,5 +29,7 @@ change is a decision about the figures, made on purpose and looked at on this pa
   event in the picture still look like the same thing.
 - A table of every rule with its two values and the contrast of each. A red frame
   marks a dark value below 4.5:1; the white set is not held to that rule.
-- The diagram's own colours and text weight per node kind, read from `gl:pkg/ipmsvg`
-  (`KindStyle`), not from the palette. Only an event is written bold.
+- The diagram's own colours and text weight per node kind, as the renderer draws them
+  (`KindStyle` in `gl:pkg/ipmsvg`). The `diagram` section of `palette.json` lists the
+  same values; a test in `pkg/ipmsvg` fails when the two disagree. Only an event is
+  written bold.

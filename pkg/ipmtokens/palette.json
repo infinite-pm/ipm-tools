@@ -24,5 +24,12 @@
     { "type": "ipmString",     "class": "string",           "fg": "#ce9178", "fgLight": "#ce9178" },
     { "type": "ipmTooltip",    "class": "tooltip",          "fg": "#b58900", "fgLight": "#b58900", "italic": true },
     { "type": "ipmUnresolved", "class": "unresolved",       "fg": "#8a8a8a", "fgLight": "#8a8a8a" }
+  ],
+  "_diagram_comment": "How a rendered diagram draws a node of each kind. The renderer (pkg/ipmsvg) holds these values in its own code; they are written here so that every colour is in one file, and a test in pkg/ipmsvg fails when the two disagree.",
+  "diagram": [
+    { "kind": "event",      "fill": "#ffe6cc", "stroke": "#ff8000", "text": "#ff8000", "bold": true },
+    { "kind": "thing",      "fill": "#d5e8d4", "stroke": "#82b366", "text": "#009900" },
+    { "kind": "concept",    "fill": "#dae8fc", "stroke": "#6c8ebf", "text": "#3399ff" },
+    { "kind": "unresolved", "fill": "#ececec", "stroke": "#9e9e9e", "text": "#616161" }
   ]
 }

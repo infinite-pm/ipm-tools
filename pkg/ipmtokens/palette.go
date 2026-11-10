@@ -35,6 +35,21 @@ type PaletteRule struct {
 // Palette is the ordered rule list parsed from palette.json.
 var Palette []PaletteRule
 
+// DiagramStyle is how a rendered diagram draws a node of one kind: the fill
+// and the stroke of its box, and the colour and weight of its text.
+type DiagramStyle struct {
+	Kind   string `json:"kind"`
+	Fill   string `json:"fill"`
+	Stroke string `json:"stroke"`
+	Text   string `json:"text"`
+	Bold   bool   `json:"bold,omitempty"`
+}
+
+// PaletteDiagram is the diagram section of palette.json, in file order. The
+// renderer (pkg/ipmsvg) holds the same values in its own code; a test there
+// keeps the two equal, so this file is the one place to read every colour.
+var PaletteDiagram []DiagramStyle
+
 var modBitByName = map[string]uint32{
 	"alias":     ModAlias,
 	"leadsTo":   ModLeadsTo,
@@ -47,11 +62,13 @@ var modBitByName = map[string]uint32{
 
 func init() {
 	var doc struct {
-		Rules []PaletteRule `json:"rules"`
+		Rules   []PaletteRule  `json:"rules"`
+		Diagram []DiagramStyle `json:"diagram"`
 	}
 	if err := json.Unmarshal(paletteJSON, &doc); err != nil {
 		panic("ipmtokens: invalid palette.json: " + err.Error())
 	}
+	PaletteDiagram = doc.Diagram
 	for _, r := range doc.Rules {
 		if typeIndex(r.Type) < 0 {
 			panic(fmt.Sprintf("ipmtokens: palette.json unknown token type %q", r.Type))
